@@ -47,9 +47,7 @@ namespace OneBlink.SDK
                     queryString += "name=" + name;
                 }
                 string url = "https://auth-api-test.blinkm.io/forms?" + queryString; //TODO Get host from config
-                HttpResponseMessage response = await httpClient.GetAsync(url);
-                response.EnsureSuccessStatusCode();
-                string jsonResult = await response.Content.ReadAsStringAsync();
+                string jsonResult = await httpClient.GetStringAsync(url);
                 return jsonResult;
             }
         }
