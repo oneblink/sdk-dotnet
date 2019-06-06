@@ -1,8 +1,10 @@
 language: csharp
+solution: oneblink-sdk-dotnet.sln
 mono: none
-os: linux
-dist: trusty
-dotnet: 2.2.0
+dist: xenial
+dotnet: 2.2
+install:
+- dotnet restore
 script:
   - dotnet build -c Release
   - dotnet test
