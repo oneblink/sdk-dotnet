@@ -6,7 +6,7 @@ using System.Security.Claims;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
-namespace oneblink_sdk_dotnet
+namespace OneBlink.SDK
 {
     public class Forms
     {

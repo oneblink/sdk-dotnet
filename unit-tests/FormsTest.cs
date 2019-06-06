@@ -1,6 +1,6 @@
 using System;
 using Xunit;
-using oneblink_sdk_dotnet;
+using OneBlink.SDK;
 
 namespace unit_tests
 {
