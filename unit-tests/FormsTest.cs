@@ -19,7 +19,8 @@ namespace unit_tests
     public void can_search_forms()
     {
 
-    //   Console.WriteLine(str);
+      Console.WriteLine("ACCESS_KEY: " + ACCESS_KEY);
+      Console.WriteLine("SECRET_KEY: " + SECRET_KEY);
       Forms forms = new Forms(ACCESS_KEY, SECRET_KEY); // TODO Get creds from config
       string response = forms.search(null, null, string.Empty);
       Assert.True(response != null);
