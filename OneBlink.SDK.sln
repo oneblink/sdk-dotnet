@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26124.0
 MinimumVisualStudioVersion = 15.0.26124.0
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "oneblink-sdk-dotnet", "oneblink-sdk-dotnet\oneblink-sdk-dotnet.csproj", "{45D8B472-A942-4E3E-A15E-3FA7882CFF28}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OneBlink.SDK", "OneBlink.SDK\OneBlink.SDK.csproj", "{45D8B472-A942-4E3E-A15E-3FA7882CFF28}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "unit-tests", "unit-tests\unit-tests.csproj", "{A134E100-C826-49D5-BEE4-4D786D897A6E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OneBlink.SDK.Tests", "OneBlink.SDK.Tests\OneBlink.SDK.Tests.csproj", "{A134E100-C826-49D5-BEE4-4D786D897A6E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

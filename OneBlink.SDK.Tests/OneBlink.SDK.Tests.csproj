@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\oneblink-sdk-dotnet\oneblink-sdk-dotnet.csproj" />
+    <ProjectReference Include="..\OneBlink.SDK\OneBlink.SDK.csproj" />
   </ItemGroup>
 
 </Project>
