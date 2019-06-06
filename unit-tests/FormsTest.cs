@@ -6,8 +6,8 @@ namespace unit_tests
 {
   public class FormsTest
   {
-    public string ACCESS_KEY = Environment.GetEnvironmentVariable("ACCESS_KEY");
-    public string SECRET_KEY = Environment.GetEnvironmentVariable("SECRET_KEY");
+    private string ACCESS_KEY = Environment.GetEnvironmentVariable("ACCESS_KEY");
+    private string SECRET_KEY = Environment.GetEnvironmentVariable("SECRET_KEY");
 
     [Fact]
     public void can_be_constructed()
