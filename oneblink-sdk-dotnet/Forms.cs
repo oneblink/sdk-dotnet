@@ -5,6 +5,7 @@ using System.Net.Http.Headers;
 using System.Security.Claims;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace OneBlink.SDK
 {
@@ -13,16 +14,19 @@ namespace OneBlink.SDK
         private string accessKey;
         private string secretKey;
         public Forms(string accessKey, string secretKey) {
-            this.accessKey = accessKey; // TODO Add validation for empty keys
+            if (String.IsNullOrWhiteSpace(accessKey)) {
+                throw new ArgumentException("accessKey must be provided with a value");
+            }
+            if (String.IsNullOrWhiteSpace(secretKey)) {
+                throw new ArgumentException("secretKey must be provided with a value");
+            }
+            this.accessKey = accessKey;
             this.secretKey = secretKey;
         }
 
-        public string search(bool? isAuthenticated, bool? isPublished, string name) {
+        public async Task<string> search(bool? isAuthenticated, bool? isPublished, string name) {
             // generate token
             string token = GenerateJSONWebToken();
-            // construct request parameters
-
-            // call api
             using (var httpClient = new HttpClient())
             {
                 httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
@@ -36,10 +40,17 @@ namespace OneBlink.SDK
                     }
                     queryString += "isPublished=" + isPublished.Value.ToString();
                 }
-                string url = "https://auth-api-test.blinkm.io/forms" + queryString; //TODO Get host from config
-                var response = httpClient.GetAsync(url).Result;
-                string jsonResult = response.Content.ReadAsStringAsync().Result;
-                return jsonResult; // TODO return a poco
+                if (String.IsNullOrWhiteSpace(name)) {
+                    if (queryString != string.Empty) {
+                        queryString += "&";
+                    }
+                    queryString += "name=" + name;
+                }
+                string url = "https://auth-api-test.blinkm.io/forms?" + queryString; //TODO Get host from config
+                HttpResponseMessage response = await httpClient.GetAsync(url);
+                response.EnsureSuccessStatusCode();
+                string jsonResult = await response.Content.ReadAsStringAsync();
+                return jsonResult;
             }
         }
 
