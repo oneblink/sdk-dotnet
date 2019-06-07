@@ -1,4 +1,4 @@
-# .Net OneBlink SDK | Deployment
+# OneBlink .Net SDK | Deployment
 
 ## Release Process
 

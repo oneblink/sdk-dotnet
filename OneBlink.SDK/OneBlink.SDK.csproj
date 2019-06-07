@@ -22,6 +22,9 @@
   <ItemGroup>
     <PackageReference Include="dotenv.net" Version="1.0.4" />
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="5.4.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
+    <PackageReference Include="AWSSDK.Core" Version="3.3.102.2" />
+    <PackageReference Include="AWSSDK.S3" Version="3.3.102.11" />
   </ItemGroup>
 
 </Project>

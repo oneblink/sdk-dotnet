@@ -1,4 +1,4 @@
-# .Net OneBlink SDK | Development
+# OneBlink .Net SDK | Development
 
 ## Prerequisites
 
