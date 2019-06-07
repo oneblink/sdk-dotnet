@@ -39,6 +39,11 @@ Console.WriteLine("Submission as JSON string: " + formSubmission.submission);
 | `formId`       | Yes      | `int`    | The exact id of the form you wish to get submission data for                                                                                              |
 | `submissionId` | Yes      | `string` | The submission identifier generated after a successful form submission, this will be return to you after a successful forms submission via a callback URL |
 
+### Throws
+
+- `OneBlinkAPIException`
+- `Exception`
+
 ### Result
 
 A `FormSubmission<T>` class
@@ -61,6 +66,11 @@ OneBlink.SDK.Model.FormsSearchResult response = await formsClient.Search(isAuthe
 | `isAuthenticated` | Yes      | `bool?`  | Return authenticated forms or unauthenticated forms. If null provided, all forms will be returned.                                           |
 | `isPublished`     | Yes      | `bool?`  | Return published forms or unpublished forms. If null provided, all forms will be returned.                                                   |
 | `name`            | Yes      | `string` | Search on the name property of a form. Can be a prefix, suffix or partial match. If null or whitespace provided, all forms will be returned. |
+
+### Throws
+
+- `OneBlinkAPIException`
+- `Exception`
 
 ### Result
 
