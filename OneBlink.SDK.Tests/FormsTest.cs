@@ -8,6 +8,7 @@ namespace unit_tests
   {
     private string ACCESS_KEY = Environment.GetEnvironmentVariable("ACCESS_KEY");
     private string SECRET_KEY = Environment.GetEnvironmentVariable("SECRET_KEY");
+    
     [Fact]
     public void can_be_constructed()
     {
@@ -31,19 +32,17 @@ namespace unit_tests
     [Fact]
     public async void can_search_forms()
     {
-      Forms forms = new Forms(ACCESS_KEY, SECRET_KEY); // TODO Get creds from config
+      Forms forms = new Forms(ACCESS_KEY, SECRET_KEY);
       string response = await forms.search(null, null, null);
       Assert.NotNull(response);
-      // Console.WriteLine("Response: " + response);
     }
 
     [Fact]
     public async void can_search_forms_with_all_params()
     {
-      Forms forms = new Forms(ACCESS_KEY, SECRET_KEY); // TODO Get creds from config
+      Forms forms = new Forms(ACCESS_KEY, SECRET_KEY);
       string response = await forms.search(true, true, "Location test");
       Assert.NotNull(response);
-      // Console.WriteLine("Response: " + response);
     }
   }
 }
