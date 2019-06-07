@@ -6,6 +6,8 @@ using System.Security.Claims;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using System.Threading.Tasks;
+using dotenv.net;
+using System.IO;
 
 namespace OneBlink.SDK
 {
@@ -13,6 +15,7 @@ namespace OneBlink.SDK
     {
         private string accessKey;
         private string secretKey;
+        private string OneBlinkAPIOrigin = "https://auth-api.blinkm.io/"; //Default to production
         public Forms(string accessKey, string secretKey) {
             if (String.IsNullOrWhiteSpace(accessKey)) {
                 throw new ArgumentException("accessKey must be provided with a value");
@@ -22,6 +25,12 @@ namespace OneBlink.SDK
             }
             this.accessKey = accessKey;
             this.secretKey = secretKey;
+            bool raiseException = false;
+            DotEnv.Config(raiseException, Path.GetFullPath(Path.Combine(Directory.GetCurrentDirectory(), "..", "..", "..", "..")) + "/.env");
+            string configuredOrigin = Environment.GetEnvironmentVariable("ONEBLINK_API_ORIGIN");
+            if (!String.IsNullOrWhiteSpace(configuredOrigin)) {
+                OneBlinkAPIOrigin = configuredOrigin;
+            }
         }
 
         public async Task<string> search(bool? isAuthenticated, bool? isPublished, string name) {
@@ -46,7 +55,7 @@ namespace OneBlink.SDK
                     }
                     queryString += "name=" + name;
                 }
-                string url = "https://auth-api-test.blinkm.io/forms?" + queryString; //TODO Get host from config
+                string url = OneBlinkAPIOrigin + "forms?" + queryString;
                 string jsonResult = await httpClient.GetStringAsync(url);
                 return jsonResult;
             }

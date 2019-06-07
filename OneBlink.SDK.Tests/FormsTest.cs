@@ -1,13 +1,20 @@
 using System;
 using Xunit;
 using OneBlink.SDK;
-
+using dotenv.net;
+using System.IO;
 namespace unit_tests
 {
   public class FormsTest
   {
-    private string ACCESS_KEY = Environment.GetEnvironmentVariable("ACCESS_KEY");
-    private string SECRET_KEY = Environment.GetEnvironmentVariable("SECRET_KEY");
+    private string ACCESS_KEY;
+    private string SECRET_KEY;
+    public FormsTest() {
+      bool raiseException = false;
+      DotEnv.Config(raiseException, Path.GetFullPath(Path.Combine(Directory.GetCurrentDirectory(), "..", "..", "..", "..")) + "/.env");
+      ACCESS_KEY = Environment.GetEnvironmentVariable("ACCESS_KEY");
+      SECRET_KEY = Environment.GetEnvironmentVariable("SECRET_KEY");
+    }
     
     [Fact]
     public void can_be_constructed()
