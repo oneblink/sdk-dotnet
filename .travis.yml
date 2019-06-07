@@ -1,5 +1,5 @@
 language: csharp
-solution: oneblink-sdk-dotnet.sln
+solution: OneBlink.SDK.sln
 mono: none
 dist: xenial
 dotnet: 2.2
