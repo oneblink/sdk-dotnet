@@ -4,12 +4,12 @@
     <OutputType>Library</OutputType>
     <TargetFramework>netstandard2.0</TargetFramework>
     <PackageId>OneBlink.SDK</PackageId>
-    <PackageVersion>0.0.1-beta.1</PackageVersion>
+    <PackageVersion>0.0.1-beta.2</PackageVersion>
     <Authors>OneBlink</Authors>
     <Owners>OneBlink</Owners>
     <Title>OneBlink SDK</Title>
     <Description>.Net version of the OneBlink SDK</Description>
-    <PackageProjectUrl>https://github.com/blinkmobile/oneblink-sdk-dotnet</PackageProjectUrl>
+    <PackageProjectUrl>https://oneblink.io</PackageProjectUrl>
     <PackageLicenseUrl>https://github.com/blinkmobile/oneblink-sdk-dotnet/blob/master/LICENSE</PackageLicenseUrl>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageReleaseNotes>https://github.com/blinkmobile/oneblink-sdk-dotnet/blob/master/CHANGELOG.md</PackageReleaseNotes>
