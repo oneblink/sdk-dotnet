@@ -2,4 +2,4 @@
 
 ## Classes
 
--   [Forms](./forms.md)
+- [FormsClient](./forms-client.md)
