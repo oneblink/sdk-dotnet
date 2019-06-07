@@ -1,8 +1,9 @@
 language: csharp
 solution: OneBlink.SDK.sln
 mono: none
+os: linux
 dist: xenial
-dotnet: 2.2
+dotnet: 2.2.0
 install:
 - dotnet restore
 script:
