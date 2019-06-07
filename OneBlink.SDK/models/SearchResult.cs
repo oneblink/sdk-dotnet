@@ -15,7 +15,7 @@ using Newtonsoft.Json;
 
 namespace OneBlink.SDK.Model
 {
-  public class SearchResult<T>
+  public abstract class SearchResult
   {
     public SearchMeta meta { get; set; }
   }

@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using System.Net;
 using dotenv.net;
 using OneBlink.SDK;
 using OneBlink.SDK.Model;
@@ -74,6 +75,23 @@ namespace OneBlink.SDK.Tests
       FormsClient forms = new FormsClient(ACCESS_KEY, SECRET_KEY);
       FormSubmission<object> formSubmission = await forms.GetFormSubmission<object>(this.formId, this.submissionId);
       Assert.NotNull(formSubmission);
+    }
+
+    [Fact]
+    public async void get_submission_data_should_throw_oneblink_exception()
+    {
+      FormsClient forms = new FormsClient("123", "aaaaaaaaaaaaaaabbbbbbbbbbbbbbbcccccccccccccccc");
+      try
+      {
+        FormSubmission<object> formSubmission = await forms.GetFormSubmission<object>(this.formId, this.submissionId);
+        Assert.NotNull(null);
+      }
+      catch (OneBlinkAPIException oneBlinkAPIException)
+      {
+        Assert.NotNull(oneBlinkAPIException);
+        Assert.Equal(HttpStatusCode.Unauthorized, oneBlinkAPIException.StatusCode);
+        Console.WriteLine(oneBlinkAPIException);
+      }
     }
   }
 }
