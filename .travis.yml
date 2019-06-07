@@ -3,7 +3,7 @@ solution: OneBlink.SDK.sln
 mono: none
 os: linux
 dist: xenial
-dotnet: 2.2.0
+dotnet: 2.2
 install:
 - dotnet restore
 script:
