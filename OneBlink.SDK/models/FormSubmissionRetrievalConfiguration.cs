@@ -13,7 +13,7 @@ using dotenv.net;
 using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
 
-namespace OneBlink.SDK.Modal
+namespace OneBlink.SDK.Model
 {
   public class FormSubmissionRetrievalConfigurationCredentials
   {

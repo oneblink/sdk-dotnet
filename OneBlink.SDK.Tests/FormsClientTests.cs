@@ -2,7 +2,7 @@ using System;
 using System.IO;
 using dotenv.net;
 using OneBlink.SDK;
-using OneBlink.SDK.Modal;
+using OneBlink.SDK.Model;
 using Xunit;
 
 namespace OneBlink.SDK.Tests

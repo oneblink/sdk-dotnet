@@ -7,12 +7,13 @@ using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 using Amazon;
+using Amazon.Runtime;
 using Amazon.S3;
 using Amazon.S3.Model;
 using dotenv.net;
 using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
-using OneBlink.SDK.Modal;
+using OneBlink.SDK.Model;
 
 namespace OneBlink.SDK
 {
@@ -55,7 +56,7 @@ namespace OneBlink.SDK
       {
         httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
 
-        string url = "https://auth-api-test.blinkm.io/forms/" + formId + "/retrieval-credentials/" + submissionId;
+        string url = OneBlinkAPIOrigin + "forms/" + formId + "/retrieval-credentials/" + submissionId;
         string result = await httpClient.GetStringAsync(url);
 
         FormSubmissionRetrievalConfiguration formRetrievalData = JsonConvert.DeserializeObject<FormSubmissionRetrievalConfiguration>(result);
@@ -65,8 +66,12 @@ namespace OneBlink.SDK
         }
 
         RegionEndpoint regionEndpoint = RegionEndpoint.GetBySystemName(formRetrievalData.s3.region);
-
-        AmazonS3Client amazonS3Client = new AmazonS3Client(regionEndpoint);
+        SessionAWSCredentials sessionAWSCredentials = new SessionAWSCredentials(
+            formRetrievalData.credentials.AccessKeyId,
+            formRetrievalData.credentials.SecretAccessKey,
+            formRetrievalData.credentials.SessionToken
+        );
+        AmazonS3Client amazonS3Client = new AmazonS3Client(sessionAWSCredentials, regionEndpoint);
 
         string responseBody = "";
         using (GetObjectResponse response = await amazonS3Client.GetObjectAsync(formRetrievalData.s3.bucket, formRetrievalData.s3.key, null))
