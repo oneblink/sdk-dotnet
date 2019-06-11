@@ -7,10 +7,11 @@
 
 ## Constructor
 
-| Parameter   | Required | Type     | Description                      |
-| ----------- | -------- | -------- | -------------------------------- |
-| `accessKey` | Yes      | `string` | Access key provided by OneBlink. |
-| `secretKey` | Yes      | `string` | Secret key provided by OneBlink. |
+| Parameter         | Required | Type     | Description                      | Default Value |
+| ----------------- | -------- | -------- | -------------------------------- | ------------- |
+| `accessKey`       | Yes      | `string` | Access key provided by OneBlink. |               |
+| `secretKey`       | Yes      | `string` | Secret key provided by OneBlink. |               |
+| `expiryInSeconds` | No       | `int`    | Secret key provided by OneBlink. | 300           |
 
 ### Example
 

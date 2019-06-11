@@ -3,3 +3,4 @@
 ## Classes
 
 - [FormsClient](./forms-client.md)
+- [PDfClient](./pdf-client.md)

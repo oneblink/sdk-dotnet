@@ -10,7 +10,8 @@ Create a file called `.env` in the root directory with the following values conf
 
 ACCESS_KEY=YOUR_ACCESS_KEY
 SECRET_KEY=YOUR_SECRET_KEY
-ONEBLINK_API_ORIGIN=https://auth-api-test.blinkm.io/
+ONEBLINK_API_ORIGIN=https://auth-api-test.blinkm.io
+ONEBLINK_PDF_API_ORIGIN=https://pdf-test.blinkm.io
 
 ## Run Tests
 
