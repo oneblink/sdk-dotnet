@@ -28,8 +28,8 @@ PdfClient pdfClient = new PdfClient(accessKey, secretKey);
 ```c#
 int formId = 1;
 string submissionId = "f33055e4-f8c1-49a6-8605-27f0d11854f0";
-PdfClient pdf = new PdfClient(ACCESS_KEY, SECRET_KEY);
-Stream response = await pdf.GetSubmissionPdf(formId, submissionId);
+PdfClient pdfClient = new PdfClient(ACCESS_KEY, SECRET_KEY);
+Stream response = await pdfClient.GetSubmissionPdf(formId, submissionId);
 ```
 
 ### Parameters
