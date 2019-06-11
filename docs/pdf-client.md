@@ -2,7 +2,7 @@
 
 ## Instance Functions
 
-- [`GetSubmissionPdf()`](#search)
+- [`GetSubmissionPdf()`](#getSubmissionpdf)
 
 ## Constructor
 
