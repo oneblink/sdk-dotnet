@@ -18,7 +18,7 @@
 using OneBlink.SDK;
 string accessKey= "123455678901ABCDEFGHIJKL";
 string secretKey= "123455678901ABCDEFGHIJKL123455678901ABCDEFGHIJKL";
-PdfClient formsClient = new PdfClient(accessKey, secretKey);
+PdfClient pdfClient = new PdfClient(accessKey, secretKey);
 ```
 
 ## `GetSubmissionPdf()`
