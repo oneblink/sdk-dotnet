@@ -2,8 +2,9 @@
 
 ## Instance Functions
 
-- [`GetFormSubmission()`](#getformsubmission)
-- [`Search()`](#search)
+-   [`GetDraftSubmission()`](#getdraftsubmission)
+-   [`GetFormSubmission()`](#getformsubmission)
+-   [`Search()`](#search)
 
 ## Constructor
 
@@ -21,6 +22,33 @@ string accessKey= "123455678901ABCDEFGHIJKL";
 string secretKey= "123455678901ABCDEFGHIJKL123455678901ABCDEFGHIJKL";
 FormsClient formsClient = new FormsClient(accessKey, secretKey);
 ```
+
+## `GetDraftSubmission()`
+
+### Example
+
+```c#
+int formId = 1;
+string draftDataId = "f33055e4-f8c1-49a6-8605-27f0d11854f0";
+OneBlink.SDK.Model.FormSubmission<object> draftSubmission = await formsClient.GetDraftSubmission<object>(formId, draftDataId);
+Console.WriteLine("Submission as JSON string: " + draftSubmission.submission);
+```
+
+### Parameters
+
+| Parameter     | Required | Type     | Description                                                                                                                                             |
+| ------------- | -------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `formId`      | Yes      | `int`    | The exact id of the form you wish to get submission data for                                                                                            |
+| `draftDataId` | Yes      | `string` | The draft data identifier generated after the successful save of a draft, this will be returned to you after a successful draft save via a callback URL |
+
+### Throws
+
+-   `OneBlinkAPIException`
+-   `Exception`
+
+### Result
+
+A `FormSubmission<T>` class
 
 ## `GetFormSubmission()`
 
@@ -42,8 +70,8 @@ Console.WriteLine("Submission as JSON string: " + formSubmission.submission);
 
 ### Throws
 
-- `OneBlinkAPIException`
-- `Exception`
+-   `OneBlinkAPIException`
+-   `Exception`
 
 ### Result
 
@@ -70,8 +98,8 @@ OneBlink.SDK.Model.FormsSearchResult response = await formsClient.Search(isAuthe
 
 ### Throws
 
-- `OneBlinkAPIException`
-- `Exception`
+-   `OneBlinkAPIException`
+-   `Exception`
 
 ### Result
 
