@@ -1,19 +1,11 @@
 using System;
-using System.IdentityModel.Tokens.Jwt;
 using System.IO;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
-using Amazon;
-using Amazon.Runtime;
-using Amazon.S3;
-using Amazon.S3.Model;
 using dotenv.net;
-using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
-using OneBlink.SDK.Model;
 
 namespace OneBlink.SDK
 {
@@ -23,6 +15,7 @@ namespace OneBlink.SDK
     private string secretKey;
     private int expiryInSeconds;
     private string oneBlinkAPIOrigin = "https://auth-api.blinkm.io"; //Default to production
+    private string oneBlinkPdfOrigin = "https://pdf.blinkm.io"; //Default to production
 
     public OneBlinkHttpClient(string accessKey, string secretKey, int expiryInSeconds = 300)
     {
@@ -39,11 +32,23 @@ namespace OneBlink.SDK
       this.expiryInSeconds = expiryInSeconds;
       bool raiseException = false;
       DotEnv.Config(raiseException, Path.GetFullPath(Path.Combine(Directory.GetCurrentDirectory(), "..", "..", "..", "..")) + "/.env");
-      string configuredOrigin = Environment.GetEnvironmentVariable("ONEBLINK_API_ORIGIN");
-      if (!String.IsNullOrWhiteSpace(configuredOrigin))
+      string apiOrigin = Environment.GetEnvironmentVariable("ONEBLINK_API_ORIGIN");
+      if (!String.IsNullOrWhiteSpace(apiOrigin))
       {
-        oneBlinkAPIOrigin = configuredOrigin;
+        oneBlinkAPIOrigin = apiOrigin;
       }
+      string pdfOrigin = Environment.GetEnvironmentVariable("ONEBLINK_PDF_API_ORIGIN");
+      if (!String.IsNullOrWhiteSpace(pdfOrigin))
+      {
+        oneBlinkPdfOrigin = pdfOrigin;
+      }
+    }
+
+    public async Task<Stream> PostRequest(string path)
+    {
+      HttpRequestMessage httpRequestMessage = new HttpRequestMessage(HttpMethod.Post, oneBlinkPdfOrigin + path);
+      HttpContent httpContent = await SendRequest(httpRequestMessage);
+      return await httpContent.ReadAsStreamAsync();
     }
 
     public async Task<T> PostRequest<T>(string path)
@@ -68,23 +73,31 @@ namespace OneBlink.SDK
       return await SendRequest<T>(httpRequestMessage);
     }
 
-    public async Task<T> SendRequest<T>(HttpRequestMessage httpRequestMessage)
+    private async Task<T> SendRequest<T>(HttpRequestMessage httpRequestMessage)
+    {
+      HttpContent httpContent = await SendRequest(httpRequestMessage);
+      string result = await httpContent.ReadAsStringAsync();
+      return JsonConvert.DeserializeObject<T>(result);
+    }
+
+    public async Task<HttpContent> SendRequest(HttpRequestMessage httpRequestMessage)
     {
       // generate token
       string token = Token.GenerateJSONWebToken(accessKey, secretKey, expiryInSeconds);
       using (HttpClient httpClient = new HttpClient())
       {
         httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+        httpClient.DefaultRequestHeaders.Add("User-Agent", ".Net OneBlink.SDK / " + GetType().Assembly.GetName().Version.ToString());
 
         HttpResponseMessage httpResponseMessage = await httpClient.SendAsync(httpRequestMessage);
-        string result = await httpResponseMessage.Content.ReadAsStringAsync();
         if (!httpResponseMessage.IsSuccessStatusCode)
         {
+          string result = await httpResponseMessage.Content.ReadAsStringAsync();
           APIErrorResponse apiErrorResponse = JsonConvert.DeserializeObject<APIErrorResponse>(result);
           throw new OneBlinkAPIException(apiErrorResponse);
         }
 
-        return JsonConvert.DeserializeObject<T>(result);
+        return httpResponseMessage.Content;
       }
     }
   }
