@@ -26,19 +26,12 @@ namespace OneBlink.SDK
       this.oneBlinkHttpClient = new OneBlinkHttpClient(accessKey, secretKey);
     }
 
-    public async Task<FormSubmission<T>> GetDraftSubmission<T>(int formId, string draftDataId)
+    public async Task<FormSubmission<T>> GetFormSubmission<T>(int formId, string submissionId)
     {
-      if (String.IsNullOrWhiteSpace(draftDataId))
-      {
-        throw new ArgumentException("draftDataId must be provided with a value");
-      }
-
-      string url = "/forms/" + formId + "/download-draft-data-credentials/" + draftDataId;
-      FormSubmissionRetrievalConfiguration formRetrievalData = await this.oneBlinkHttpClient.PostRequest<FormSubmissionRetrievalConfiguration>(url);
-      return await GetFormSubmission<T>(formRetrievalData);
+      return await GetFormSubmission<T>(formId, submissionId, false);
     }
 
-    public async Task<FormSubmission<T>> GetFormSubmission<T>(int formId, string submissionId)
+    public async Task<FormSubmission<T>> GetFormSubmission<T>(int formId, string submissionId, bool isDraft)
     {
       if (String.IsNullOrWhiteSpace(submissionId))
       {
@@ -46,6 +39,11 @@ namespace OneBlink.SDK
       }
 
       string url = "/forms/" + formId + "/retrieval-credentials/" + submissionId;
+      if (isDraft)
+      {
+        url = "/forms/" + formId + "/download-draft-data-credentials/" + submissionId;
+
+      }
       FormSubmissionRetrievalConfiguration formRetrievalData = await this.oneBlinkHttpClient.PostRequest<FormSubmissionRetrievalConfiguration>(url);
       return await GetFormSubmission<T>(formRetrievalData);
     }

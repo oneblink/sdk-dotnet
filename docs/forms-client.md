@@ -2,7 +2,6 @@
 
 ## Instance Functions
 
--   [`GetDraftSubmission()`](#getdraftsubmission)
 -   [`GetFormSubmission()`](#getformsubmission)
 -   [`Search()`](#search)
 
@@ -23,33 +22,6 @@ string secretKey= "123455678901ABCDEFGHIJKL123455678901ABCDEFGHIJKL";
 FormsClient formsClient = new FormsClient(accessKey, secretKey);
 ```
 
-## `GetDraftSubmission()`
-
-### Example
-
-```c#
-int formId = 1;
-string draftDataId = "f33055e4-f8c1-49a6-8605-27f0d11854f0";
-OneBlink.SDK.Model.FormSubmission<object> draftSubmission = await formsClient.GetDraftSubmission<object>(formId, draftDataId);
-Console.WriteLine("Submission as JSON string: " + draftSubmission.submission);
-```
-
-### Parameters
-
-| Parameter     | Required | Type     | Description                                                                                                                                             |
-| ------------- | -------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `formId`      | Yes      | `int`    | The exact id of the form you wish to get submission data for                                                                                            |
-| `draftDataId` | Yes      | `string` | The draft data identifier generated after the successful save of a draft, this will be returned to you after a successful draft save via a callback URL |
-
-### Throws
-
--   `OneBlinkAPIException`
--   `Exception`
-
-### Result
-
-A `FormSubmission<T>` class
-
 ## `GetFormSubmission()`
 
 ### Example
@@ -57,7 +29,8 @@ A `FormSubmission<T>` class
 ```c#
 int formId = 1;
 string submissionId = "f33055e4-f8c1-49a6-8605-27f0d11854f0";
-OneBlink.SDK.Model.FormSubmission<object> formSubmission = await formsClient.GetFormSubmission<object>(formId, submissionId);
+bool isDraft = false
+OneBlink.SDK.Model.FormSubmission<object> formSubmission = await formsClient.GetFormSubmission<object>(formId, submissionId, isDraft);
 Console.WriteLine("Submission as JSON string: " + formSubmission.submission);
 ```
 
@@ -67,6 +40,7 @@ Console.WriteLine("Submission as JSON string: " + formSubmission.submission);
 | -------------- | -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `formId`       | Yes      | `int`    | The exact id of the form you wish to get submission data for                                                                                              |
 | `submissionId` | Yes      | `string` | The submission identifier generated after a successful form submission, this will be return to you after a successful forms submission via a callback URL |
+| `isDraft`      | Yes      | `bool`   | `true` if the submission is a draft submission, otherwise `false`                                                                                         |
 
 ### Throws
 
