@@ -14,8 +14,6 @@ namespace OneBlink.SDK.Tests
     private string SECRET_KEY;
     private int formId = 475;
     private string submissionId = "5ab3d950-253a-4d22-8ae6-c9eae82f58ba";
-    private int draftFormId = 475;
-    private string draftDataId = "b2925fbd-f490-49d9-ba07-1c57b97dd120";
     public FormsClientTests()
     {
       bool raiseException = false;
@@ -32,16 +30,6 @@ namespace OneBlink.SDK.Tests
       if (!String.IsNullOrWhiteSpace(submissionId))
       {
         this.submissionId = submissionId;
-      }
-      string draftFormId = Environment.GetEnvironmentVariable("GET_DRAFT_DATA_FORM_ID");
-      if (!String.IsNullOrWhiteSpace(draftFormId))
-      {
-        this.draftFormId = Int16.Parse(draftFormId);
-      }
-      string draftDataId = Environment.GetEnvironmentVariable("GET_DRAFT_DATA_DRAFT_DATA_ID");
-      if (!String.IsNullOrWhiteSpace(submissionId))
-      {
-        this.draftDataId = draftDataId;
       }
     }
 
@@ -79,34 +67,6 @@ namespace OneBlink.SDK.Tests
       FormsClient forms = new FormsClient(ACCESS_KEY, SECRET_KEY);
       FormsSearchResult response = await forms.Search(true, true, "Location test");
       Assert.NotNull(response);
-    }
-
-    [Fact]
-    public async void can_get_draft_data()
-    {
-      FormsClient forms = new FormsClient(ACCESS_KEY, SECRET_KEY);
-      FormSubmission<object> draftSubmission = await forms.GetDraftSubmission<object>(this.draftFormId, this.draftDataId);
-      Assert.NotNull(draftSubmission);
-      Assert.NotNull(draftSubmission.definition);
-      Assert.NotNull(draftSubmission.submission);
-    }
-
-    [Fact]
-    public async void get_draft_data_should_throw_oneblink_exception()
-    {
-      FormsClient forms = new FormsClient("123", "aaaaaaaaaaaaaaabbbbbbbbbbbbbbbcccccccccccccccc");
-      try
-      {
-        FormSubmission<object> draftSubmission = await forms.GetDraftSubmission<object>(this.draftFormId, this.draftDataId);
-        Console.WriteLine("Submission as JSON string: " + draftSubmission.submission);
-        Assert.NotNull(null);
-      }
-      catch (OneBlinkAPIException oneBlinkAPIException)
-      {
-        Assert.NotNull(oneBlinkAPIException);
-        Assert.Equal(HttpStatusCode.Unauthorized, oneBlinkAPIException.StatusCode);
-        Console.WriteLine(oneBlinkAPIException);
-      }
     }
 
     [Fact]
