@@ -4,7 +4,7 @@
 
 ### Added
 
--   [`FormsClient.GetDraftSubmission()`](./docs/forms-client.md#getdraftsubmission)
+-   `isDraft` parameter to [`FormsClient.GetFormSubmission()`](./docs/forms-client.md#getformsubmission)
 
 ## 1.0.0
 

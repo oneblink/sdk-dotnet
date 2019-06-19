@@ -85,7 +85,7 @@ namespace OneBlink.SDK.Tests
     public async void can_get_draft_data()
     {
       FormsClient forms = new FormsClient(ACCESS_KEY, SECRET_KEY);
-      FormSubmission<object> draftSubmission = await forms.GetDraftSubmission<object>(this.draftFormId, this.draftDataId);
+      FormSubmission<object> draftSubmission = await forms.GetFormSubmission<object>(this.draftFormId, this.draftDataId, true);
       Assert.NotNull(draftSubmission);
       Assert.NotNull(draftSubmission.definition);
       Assert.NotNull(draftSubmission.submission);
@@ -97,7 +97,7 @@ namespace OneBlink.SDK.Tests
       FormsClient forms = new FormsClient("123", "aaaaaaaaaaaaaaabbbbbbbbbbbbbbbcccccccccccccccc");
       try
       {
-        FormSubmission<object> draftSubmission = await forms.GetDraftSubmission<object>(this.draftFormId, this.draftDataId);
+        FormSubmission<object> draftSubmission = await forms.GetFormSubmission<object>(this.draftFormId, this.draftDataId, true);
         Console.WriteLine("Submission as JSON string: " + draftSubmission.submission);
         Assert.NotNull(null);
       }
