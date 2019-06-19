@@ -29,7 +29,7 @@ FormsClient formsClient = new FormsClient(accessKey, secretKey);
 ```c#
 int formId = 1;
 string submissionId = "f33055e4-f8c1-49a6-8605-27f0d11854f0";
-const isDraft = false
+bool isDraft = false
 OneBlink.SDK.Model.FormSubmission<object> formSubmission = await formsClient.GetFormSubmission<object>(formId, submissionId, isDraft);
 Console.WriteLine("Submission as JSON string: " + formSubmission.submission);
 ```
