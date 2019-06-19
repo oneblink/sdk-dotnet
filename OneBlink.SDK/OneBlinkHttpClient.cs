@@ -1,19 +1,11 @@
 using System;
-using System.IdentityModel.Tokens.Jwt;
 using System.IO;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
-using Amazon;
-using Amazon.Runtime;
-using Amazon.S3;
-using Amazon.S3.Model;
 using dotenv.net;
-using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
-using OneBlink.SDK.Model;
 
 namespace OneBlink.SDK
 {
@@ -75,6 +67,7 @@ namespace OneBlink.SDK
       using (HttpClient httpClient = new HttpClient())
       {
         httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+        httpClient.DefaultRequestHeaders.Add("User-Agent", ".Net OneBlink.SDK / " + GetType().Assembly.GetName().Version.ToString());
 
         HttpResponseMessage httpResponseMessage = await httpClient.SendAsync(httpRequestMessage);
         string result = await httpResponseMessage.Content.ReadAsStringAsync();
