@@ -26,18 +26,6 @@ namespace OneBlink.SDK
       this.oneBlinkHttpClient = new OneBlinkHttpClient(accessKey, secretKey);
     }
 
-    public async Task<FormSubmission<T>> GetDraftSubmission<T>(int formId, string draftDataId)
-    {
-      if (String.IsNullOrWhiteSpace(draftDataId))
-      {
-        throw new ArgumentException("draftDataId must be provided with a value");
-      }
-
-      string url = "/forms/" + formId + "/download-draft-data-credentials/" + draftDataId;
-      FormSubmissionRetrievalConfiguration formRetrievalData = await this.oneBlinkHttpClient.PostRequest<FormSubmissionRetrievalConfiguration>(url);
-      return await GetFormSubmission<T>(formRetrievalData);
-    }
-
     public async Task<FormSubmission<T>> GetFormSubmission<T>(int formId, string submissionId)
     {
       if (String.IsNullOrWhiteSpace(submissionId))
@@ -47,7 +35,28 @@ namespace OneBlink.SDK
 
       string url = "/forms/" + formId + "/retrieval-credentials/" + submissionId;
       FormSubmissionRetrievalConfiguration formRetrievalData = await this.oneBlinkHttpClient.PostRequest<FormSubmissionRetrievalConfiguration>(url);
-      return await GetFormSubmission<T>(formRetrievalData);
+      if (formRetrievalData == null || formRetrievalData.s3 == null || formRetrievalData.credentials == null)
+      {
+        throw new Exception("Could not create credentials to retrieve form submission data");
+      }
+
+      RegionEndpoint regionEndpoint = RegionEndpoint.GetBySystemName(formRetrievalData.s3.region);
+      SessionAWSCredentials sessionAWSCredentials = new SessionAWSCredentials(
+          formRetrievalData.credentials.AccessKeyId,
+          formRetrievalData.credentials.SecretAccessKey,
+          formRetrievalData.credentials.SessionToken
+      );
+      AmazonS3Client amazonS3Client = new AmazonS3Client(sessionAWSCredentials, regionEndpoint);
+
+      string responseBody = "";
+      using (GetObjectResponse response = await amazonS3Client.GetObjectAsync(formRetrievalData.s3.bucket, formRetrievalData.s3.key, null))
+      using (Stream responseStream = response.ResponseStream)
+      using (StreamReader reader = new StreamReader(responseStream))
+      {
+        responseBody = reader.ReadToEnd();
+      }
+
+      return JsonConvert.DeserializeObject<FormSubmission<T>>(responseBody);
     }
 
     public async Task<FormsSearchResult> Search(bool? isAuthenticated, bool? isPublished, string name)
@@ -75,32 +84,6 @@ namespace OneBlink.SDK
       }
       string url = "/forms?" + queryString;
       return await this.oneBlinkHttpClient.GetRequest<FormsSearchResult>(url);
-    }
-
-    private async Task<FormSubmission<T>> GetFormSubmission<T>(FormSubmissionRetrievalConfiguration formRetrievalData)
-    {
-      if (formRetrievalData == null || formRetrievalData.s3 == null || formRetrievalData.credentials == null)
-      {
-        throw new Exception("Could not create credentials to retrieve form submission data");
-      }
-
-      RegionEndpoint regionEndpoint = RegionEndpoint.GetBySystemName(formRetrievalData.s3.region);
-      SessionAWSCredentials sessionAWSCredentials = new SessionAWSCredentials(
-          formRetrievalData.credentials.AccessKeyId,
-          formRetrievalData.credentials.SecretAccessKey,
-          formRetrievalData.credentials.SessionToken
-      );
-      AmazonS3Client amazonS3Client = new AmazonS3Client(sessionAWSCredentials, regionEndpoint);
-
-      string responseBody = "";
-      using (GetObjectResponse response = await amazonS3Client.GetObjectAsync(formRetrievalData.s3.bucket, formRetrievalData.s3.key, null))
-      using (Stream responseStream = response.ResponseStream)
-      using (StreamReader reader = new StreamReader(responseStream))
-      {
-        responseBody = reader.ReadToEnd();
-      }
-
-      return JsonConvert.DeserializeObject<FormSubmission<T>>(responseBody);
     }
   }
 }

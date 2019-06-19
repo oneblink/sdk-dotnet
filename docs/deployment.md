@@ -16,21 +16,9 @@
     git pull
     ```
 
-1.  Update SDK Version
+1.  Update the [Changelog](../CHANGELOG.md) by replacing `Unreleased` with `1.0.1 (YYYY-MM-DD)`
 
-    #### Production Release
-
-    1.  Update the [Changelog](../CHANGELOG.md) by replacing `Unreleased` with `1.0.1 (YYYY-MM-DD)`
-
-    1.  Update the `<PackageVersion>` tag in `./OneBlink.SDK/OneBlink.SDK.csproj.csproj` with `1.0.1`
-
-    1.  Update the `<AssemblyVersion>` tag in `./OneBlink.SDK/OneBlink.SDK.csproj.csproj` with `1.0.1.0`
-
-    #### Beta Release
-
-    1.  Update the `<PackageVersion>` tag in `./OneBlink.SDK/OneBlink.SDK.csproj.csproj` with `1.0.2-beta.1`
-
-    1.  Update the `<AssemblyVersion>` tag in `./OneBlink.SDK/OneBlink.SDK.csproj.csproj` with `1.0.1.1`
+1.  Update the `<PackageVersion>` tag in `./OneBlink.SDK/OneBlink.SDK.csproj.csproj` with `1.0.1`
 
 1.  Push changes to the `master` branch
 
@@ -54,7 +42,7 @@
 
 ## Prerequisites
 
--   Docker for [Mac](https://docs.docker.com/docker-for-mac/) or [Windows](https://docs.docker.com/docker-for-windows/)
+- Docker for [Mac](https://docs.docker.com/docker-for-mac/) or [Windows](https://docs.docker.com/docker-for-windows/)
 
 #### Instructions
 
