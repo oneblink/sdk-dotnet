@@ -2,5 +2,6 @@
 
 ## Classes
 
-- [FormsClient](./forms-client.md)
-- [PdfClient](./pdf-client.md)
+-   [FormsClient](./forms-client.md)
+-   [PdfClient](./pdf-client.md)
+-   [TeamMembersClient](./team-members-client.md)
