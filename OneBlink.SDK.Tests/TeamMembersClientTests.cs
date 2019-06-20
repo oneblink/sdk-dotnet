@@ -60,17 +60,12 @@ namespace OneBlink.SDK.Tests
     [Fact]
     public async void get_team_member_role_should_throw_oneblink_exception()
     {
-      try
+      OneBlinkAPIException oneBlinkAPIException = await Assert.ThrowsAsync<OneBlinkAPIException>(() =>
       {
         TeamMembersClient teamMembersClient = new TeamMembersClient("123", "aaaaaaaaaaaaaaabbbbbbbbbbbbbbbcccccccccccccccc");
-        Role role = await teamMembersClient.GetTeamMemberRole(this.email);
-        Assert.NotNull(null);
-      }
-      catch (OneBlinkAPIException oneBlinkAPIException)
-      {
-        Assert.NotNull(oneBlinkAPIException);
-        Assert.Equal(HttpStatusCode.Unauthorized, oneBlinkAPIException.StatusCode);
-      }
+        return teamMembersClient.GetTeamMemberRole(this.email);
+      });
+      Assert.Equal(HttpStatusCode.Unauthorized, oneBlinkAPIException.StatusCode);
     }
 
     [Fact]
