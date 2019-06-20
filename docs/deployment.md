@@ -30,7 +30,7 @@
 
     1.  Update the `<PackageVersion>` tag in `./OneBlink.SDK/OneBlink.SDK.csproj` with `1.0.1-beta.1`
 
-    1.  Update the `<AssemblyVersion>` tag in `./OneBlink.SDK/OneBlink.SDK.csproj` with `1.0.1.1`
+    1.  Update the `<AssemblyVersion>` tag in `./OneBlink.SDK/OneBlink.SDK.csproj` with `1.0.0.2`
 
 1.  Push changes to the `master` branch
 

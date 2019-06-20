@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 1.0.1 (2019-06-20) The Killer Orangutan
+
 ### Added
 
 -   `isDraft` parameter to [`FormsClient.GetFormSubmission()`](./docs/forms-client.md#getformsubmission)
