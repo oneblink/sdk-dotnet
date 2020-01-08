@@ -33,7 +33,7 @@ namespace OneBlink.SDK
         public async Task<Job> CreateJob(JobDetail details, string externalId, int formId, string username)
         {
             NewJob newJob = _CreateJob(details, externalId, formId, username);
-            return await CreateJob<Object>(details, externalId, formId, username, null);
+            return await _CreateJob(newJob);
         }
 
         public async Task<Job> CreateJob<T>(JobDetail details, string externalId, int formId, string username, T preFillData)
