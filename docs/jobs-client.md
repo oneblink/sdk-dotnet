@@ -76,7 +76,7 @@ await jobsClient.DeleteJob(jobId);
 
 | Parameter | Required | Type     | Description                             |
 | --------- | -------- | -------- | --------------------------------------- |
-| `formId`  | Yes      | `number` | The identifier of the Job to be deleted |
+| `jobId`   | Yes      | `number` | The identifier of the Job to be deleted |
 |           |
 
 ### Throws
