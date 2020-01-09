@@ -30,42 +30,21 @@ namespace OneBlink.SDK
             await this.oneBlinkHttpClient.DeleteRequest(url);
         }
 
-        public async Task<Job> CreateJob(JobDetail details, string externalId, int formId, string username)
+        public async Task<Job> CreateJob(NewJob newJob)
         {
-            NewJob newJob = _CreateJob(details, externalId, formId, username);
+            _ValidateJob(newJob);
+
             return await _CreateJob(newJob);
         }
 
-        public async Task<Job> CreateJob<T>(JobDetail details, string externalId, int formId, string username, T preFillData)
+        public async Task<Job> CreateJob<T>(NewJob newJob, T preFillData)
         {
-            NewJob newJob = _CreateJob(details, externalId, formId, username);
+            _ValidateJob(newJob);
 
-            string preFillMetaId = await _SetPreFillData<T>(preFillData, formId);
+            string preFillMetaId = await _SetPreFillData<T>(preFillData, newJob.formId);
             newJob.preFillFormDataId = preFillMetaId;
 
             return await _CreateJob(newJob);
-        }
-
-        private NewJob _CreateJob(JobDetail details, string externalId, int formId, string username)
-        {
-            if (string.IsNullOrEmpty(details.title))
-            {
-                throw new ArgumentException("The 'Title' property of JobDetail must be provided with a value");
-            }
-
-            if (string.IsNullOrWhiteSpace(username))
-            {
-                throw new ArgumentException("'Username' must be provided with a valid value");
-            }
-
-            NewJob newJob = new NewJob();
-
-            newJob.username = username;
-            newJob.details = details;
-            newJob.externalId = externalId;
-            newJob.formId = formId;
-
-            return newJob;
         }
 
         private async Task<Job> _CreateJob(NewJob newJob)
@@ -73,6 +52,19 @@ namespace OneBlink.SDK
             string url = "/jobs";
 
             return await this.oneBlinkHttpClient.PostRequest<NewJob, Job>(url, newJob);
+        }
+
+        private void _ValidateJob(NewJob newJob)
+        {
+            if (string.IsNullOrWhiteSpace(newJob.username))
+            {
+                throw new ArgumentException("'username' must be provided with a valid email address");
+            }
+
+            if (string.IsNullOrEmpty(newJob.details.title))
+            {
+                throw new ArgumentException("The 'title' property of JobDetail must be provided with a value");
+            }
         }
 
         private async Task<string> _SetPreFillData<T>(T preFillData, int formId)

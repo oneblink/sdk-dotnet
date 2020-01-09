@@ -1,6 +1,6 @@
 namespace OneBlink.SDK.Model
 {
-    public class PreFillMetaCredentials
+    internal class PreFillMetaCredentials
     {
         public string AccessKeyId
         {
@@ -16,7 +16,7 @@ namespace OneBlink.SDK.Model
         }
     }
 
-    public class PreFillMetaS3
+    internal class PreFillMetaS3
     {
         public string bucket
         {
@@ -32,7 +32,7 @@ namespace OneBlink.SDK.Model
         }
     }
 
-    public class PreFillMeta
+    internal class PreFillMeta
     {
         public PreFillMetaCredentials credentials
         {

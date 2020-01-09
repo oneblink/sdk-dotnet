@@ -10,19 +10,27 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+
         public string title
         {
             get; set;
         }
+
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public string description
         {
             get; set;
         }
+
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public string type
         {
             get; set;
+        }
+
+        public JobDetail(string title)
+        {
+            this.title = title;
         }
     }
 
@@ -32,15 +40,18 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public string externalId
         {
             get; set;
         }
+
         public int formId
         {
             get; set;
         }
+
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public string preFillFormDataId
         {
@@ -50,6 +61,26 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+
+        public NewJob()
+        {
+
+        }
+
+        public NewJob(JobDetail details, int formId, string username)
+        {
+            this.details = details;
+            this.formId = formId;
+            this.username = username;
+        }
+
+        public NewJob(JobDetail details, int formId, string username, string externalId)
+        {
+            this.details = details;
+            this.formId = formId;
+            this.username = username;
+            this.externalId = externalId;
+        }
     }
 
     public class Job : NewJob
@@ -58,10 +89,12 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+
         public bool isSubmitted
         {
             get; set;
         }
+
         public DateTime createdAt
         {
             get; set;

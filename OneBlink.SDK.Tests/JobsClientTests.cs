@@ -6,7 +6,6 @@ using Xunit;
 
 namespace OneBlink.SDK.Tests
 {
-
     public class TestJobPrefillData
     {
         public string fieldA
@@ -67,10 +66,9 @@ namespace OneBlink.SDK.Tests
         {
             JobsClient jobs = new JobsClient(ACCESS_KEY, SECRET_KEY);
 
-            JobDetail jobDetail = new JobDetail();
+            JobDetail jobDetail = new JobDetail("TITLE-01");
 
             jobDetail.key = "KEY-01";
-            jobDetail.title = "TITLE-01";
             jobDetail.description = "DESCRIPTION-01";
             jobDetail.type = "TYPE-01";
 
@@ -80,7 +78,9 @@ namespace OneBlink.SDK.Tests
             preFill.fieldB = "def";
             preFill.fieldC = "ghi";
 
-            Job response = await jobs.CreateJob(jobDetail, "EXTERNAL_ID", formId, "developers@oneblink.io", preFill);
+            NewJob newJob = new NewJob(jobDetail, formId, "developers@oneblink.io");
+
+            Job response = await jobs.CreateJob<TestJobPrefillData>(newJob, preFill);
             Assert.NotNull(response);
             Assert.NotNull(response.id);
         }
@@ -90,14 +90,16 @@ namespace OneBlink.SDK.Tests
         {
             JobsClient jobs = new JobsClient(ACCESS_KEY, SECRET_KEY);
 
-            JobDetail jobDetail = new JobDetail();
+            JobDetail jobDetail = new JobDetail("TITLE-01");
 
             jobDetail.key = "KEY-01";
-            jobDetail.title = "TITLE-01";
             jobDetail.description = "DESCRIPTION-01";
             jobDetail.type = "TYPE-01";
 
-            Job response = await jobs.CreateJob(jobDetail, "EXTERNAL_ID", formId, "developers@oneblink.io");
+            NewJob newJob = new NewJob(jobDetail, formId, "developers@oneblink.io");
+
+            Job response = await jobs.CreateJob(newJob);
+
             Assert.NotNull(response);
             Assert.NotNull(response.id);
         }
@@ -107,13 +109,51 @@ namespace OneBlink.SDK.Tests
         {
             JobsClient jobs = new JobsClient(ACCESS_KEY, SECRET_KEY);
 
-            JobDetail jobDetail = new JobDetail();
+            JobDetail jobDetail = new JobDetail("TITLE-01");
 
-            jobDetail.title = "TITLE-01";
+            NewJob newJob = new NewJob(jobDetail, formId, "developers@oneblink.io");
 
-            Job job = await jobs.CreateJob(jobDetail, "EXTERNAL_ID", formId, "developers@oneblink.io");
+            Job job = await jobs.CreateJob(newJob);
 
             await jobs.DeleteJob(job.id);
+        }
+
+        [Fact]
+        public async void throws_error_if_username_empty()
+        {
+            try
+            {
+                JobsClient jobs = new JobsClient(ACCESS_KEY, SECRET_KEY);
+
+                JobDetail jobDetail = new JobDetail("TITLE-01");
+
+                NewJob newJob = new NewJob(jobDetail, formId, "");
+
+                Job job = await jobs.CreateJob(newJob);
+            }
+            catch (Exception ex)
+            {
+                Assert.NotNull(ex);
+            }
+        }
+
+        [Fact]
+        public async void throws_error_if_title_empty()
+        {
+            try
+            {
+                JobsClient jobs = new JobsClient(ACCESS_KEY, SECRET_KEY);
+
+                JobDetail jobDetail = new JobDetail("");
+
+                NewJob newJob = new NewJob(jobDetail, formId, "developers@oneblink.io");
+
+                Job job = await jobs.CreateJob(newJob);
+            }
+            catch (Exception ex)
+            {
+                Assert.NotNull(ex);
+            }
         }
     }
 }
