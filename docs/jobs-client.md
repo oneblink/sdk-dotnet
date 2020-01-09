@@ -8,11 +8,10 @@
 
 ## Constructor
 
-| Parameter         | Required | Type     | Description                         | Default Value |
-| ----------------- | -------- | -------- | ----------------------------------- | ------------- |
-| `accessKey`       | Yes      | `string` | Access key provided by OneBlink.    |               |
-| `secretKey`       | Yes      | `string` | Secret key provided by OneBlink.    |               |
-| `expiryInSeconds` | No       | `int`    | Time in seconds until token expiry. | 300           |
+| Parameter   | Required | Type     | Description                      | Default Value |
+| ----------- | -------- | -------- | -------------------------------- | ------------- |
+| `accessKey` | Yes      | `string` | Access key provided by OneBlink. |               |
+| `secretKey` | Yes      | `string` | Secret key provided by OneBlink. |               |
 
 ### Example
 
