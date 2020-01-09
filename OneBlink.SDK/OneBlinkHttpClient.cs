@@ -100,5 +100,11 @@ namespace OneBlink.SDK
         return httpResponseMessage.Content;
       }
     }
+
+    public async Task<HttpContent> DeleteRequest(string path)
+    {
+      HttpRequestMessage httpRequestMessage = new HttpRequestMessage(HttpMethod.Delete, oneBlinkAPIOrigin + path);
+      return await SendRequest(httpRequestMessage);
+    }
   }
 }
