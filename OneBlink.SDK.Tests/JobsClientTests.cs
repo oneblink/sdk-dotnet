@@ -81,8 +81,11 @@ namespace OneBlink.SDK.Tests
             NewJob newJob = new NewJob(jobDetail, formId, "developers@oneblink.io");
 
             Job response = await jobs.CreateJob<TestJobPrefillData>(newJob, preFill);
+
             Assert.NotNull(response);
             Assert.NotNull(response.id);
+
+            await jobs.DeleteJob(response.id);
         }
 
         [Fact]
@@ -102,6 +105,8 @@ namespace OneBlink.SDK.Tests
 
             Assert.NotNull(response);
             Assert.NotNull(response.id);
+
+            await jobs.DeleteJob(response.id);
         }
 
         [Fact]
@@ -154,6 +159,59 @@ namespace OneBlink.SDK.Tests
             {
                 Assert.NotNull(ex);
             }
+        }
+
+        [Fact]
+        public async void can_search_with_multiple_fields()
+        {
+            JobsClient jobs = new JobsClient(ACCESS_KEY, SECRET_KEY);
+
+            JobsSearchParameters searchParams = new JobsSearchParameters
+            {
+                externalId = "EXT-01",
+                username = "developers@oneblink.io",
+                formId = 476
+            };
+
+            JobsSearchResult response = await jobs.Search(searchParams);
+
+            Assert.NotNull(response);
+        }
+
+        [Fact]
+        public async void can_search_by_form_id()
+        {
+            JobsClient jobs = new JobsClient(ACCESS_KEY, SECRET_KEY);
+
+            int formId = 476;
+
+            JobsSearchResult response = await jobs.SearchByFormId(formId);
+
+            Assert.NotNull(response);
+        }
+
+        [Fact]
+        public async void can_search_by_username()
+        {
+            JobsClient jobs = new JobsClient(ACCESS_KEY, SECRET_KEY);
+
+            string username = "developers@oneblink.io";
+
+            JobsSearchResult response = await jobs.SearchByUsername(username);
+
+            Assert.NotNull(response);
+        }
+
+        [Fact]
+        public async void can_search_by_external_id()
+        {
+            JobsClient jobs = new JobsClient(ACCESS_KEY, SECRET_KEY);
+
+            string externalId = "EXT-01";
+
+            JobsSearchResult response = await jobs.SearchByExternalId(externalId);
+
+            Assert.NotNull(response);
         }
     }
 }

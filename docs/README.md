@@ -5,3 +5,4 @@
 -   [FormsClient](./forms-client.md)
 -   [PdfClient](./pdf-client.md)
 -   [TeamMembersClient](./team-members-client.md)
+-   [JobsClient](./jobs-client.md)
