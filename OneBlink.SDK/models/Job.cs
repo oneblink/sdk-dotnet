@@ -1,8 +1,64 @@
 using System;
+using System.Collections.Generic;
 using Newtonsoft.Json;
 
 namespace OneBlink.SDK.Model
 {
+    public class JobsSearchParameters
+    {
+        public int? formId
+        {
+            get; set;
+        }
+
+        public Boolean? isSubmitted
+        {
+            get; set;
+        }
+
+        public string externalId
+        {
+            get; set;
+        }
+
+        public string username
+        {
+            get; set;
+        }
+
+        public int? limit
+        {
+            get; set;
+        }
+
+        public int? offset
+        {
+            get; set;
+        }
+    }
+
+    public class JobsSearchResultMeta
+    {
+        public int offset
+        {
+            get; set;
+        }
+    }
+
+
+    public class JobsSearchResult
+    {
+        public JobsSearchResultMeta meta
+        {
+            get; set;
+        }
+
+        public List<Job> jobs
+        {
+            get; set;
+        }
+    }
+
     public class JobDetail
     {
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
