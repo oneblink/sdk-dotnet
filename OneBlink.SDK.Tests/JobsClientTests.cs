@@ -142,7 +142,6 @@ namespace OneBlink.SDK.Tests
 
                 JobDetail jobDetail = new JobDetail("TITLE-01");
 
-                //NewJob newJob = new NewJob(jobDetail, formId, "");
                 Job newJob = new Job(
                     details: jobDetail, 
                     formId: formId, 
@@ -166,7 +165,6 @@ namespace OneBlink.SDK.Tests
 
                 JobDetail jobDetail = new JobDetail("");
 
-                //NewJob newJob = new NewJob(jobDetail, formId, "developers@oneblink.io");
                 Job newJob = new Job(
                     details: jobDetail, 
                     formId: formId, 
