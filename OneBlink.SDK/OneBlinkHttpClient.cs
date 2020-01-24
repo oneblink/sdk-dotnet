@@ -96,7 +96,6 @@ namespace OneBlink.SDK
           APIErrorResponse apiErrorResponse = JsonConvert.DeserializeObject<APIErrorResponse>(result);
           throw new OneBlinkAPIException(apiErrorResponse);
         }
-
         return httpResponseMessage.Content;
       }
     }

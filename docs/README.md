@@ -6,3 +6,4 @@
 -   [PdfClient](./pdf-client.md)
 -   [TeamMembersClient](./team-members-client.md)
 -   [JobsClient](./jobs-client.md)
+-   [Models](./models.md)

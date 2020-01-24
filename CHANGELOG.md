@@ -2,6 +2,20 @@
 
 ## Unreleased
 
+### Removed 
+
+-   [`NewJob()`] class
+-   Use the [`Job()`] class instead
+### Changed 
+
+-   the properties and class structure of [`Job()`], [`JobDetail()`] and [`JobsSearchParameters()`]
+-   Constructors for each class can now used instantiate all relevant properties
+-   The [`Job()`] class is now passed to [`JobsClient.createJob()`] instead of [`NewJob()`]
+
+### Changed 
+
+-   The name of [`JobsClient.search()`] function to [`JobsClient.searchJobs()`]
+
 ### Added
 
 -   [`JobsClient`](./docs/jobs-client.md) class

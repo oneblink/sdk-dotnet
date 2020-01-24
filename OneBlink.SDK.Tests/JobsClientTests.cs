@@ -78,7 +78,11 @@ namespace OneBlink.SDK.Tests
             preFill.fieldB = "def";
             preFill.fieldC = "ghi";
 
-            NewJob newJob = new NewJob(jobDetail, formId, "developers@oneblink.io");
+            Job newJob = new Job(
+                details: jobDetail, 
+                formId: formId, 
+                username: "developers@oneblink.io"
+            );
 
             Job response = await jobs.CreateJob<TestJobPrefillData>(newJob, preFill);
 
@@ -99,8 +103,11 @@ namespace OneBlink.SDK.Tests
             jobDetail.description = "DESCRIPTION-01";
             jobDetail.type = "TYPE-01";
 
-            NewJob newJob = new NewJob(jobDetail, formId, "developers@oneblink.io");
-
+            Job newJob = new Job(
+                details: jobDetail, 
+                formId: formId, 
+                username: "developers@oneblink.io"
+            );
             Job response = await jobs.CreateJob(newJob);
 
             Assert.NotNull(response);
@@ -111,13 +118,16 @@ namespace OneBlink.SDK.Tests
 
         [Fact]
         public async void can_delete_job()
-        {
+        {   
             JobsClient jobs = new JobsClient(ACCESS_KEY, SECRET_KEY);
 
             JobDetail jobDetail = new JobDetail("TITLE-01");
 
-            NewJob newJob = new NewJob(jobDetail, formId, "developers@oneblink.io");
-
+            Job newJob = new Job(
+                details: jobDetail, 
+                formId: formId, 
+                username: "developers@oneblink.io"
+            );
             Job job = await jobs.CreateJob(newJob);
 
             await jobs.DeleteJob(job.id);
@@ -132,7 +142,12 @@ namespace OneBlink.SDK.Tests
 
                 JobDetail jobDetail = new JobDetail("TITLE-01");
 
-                NewJob newJob = new NewJob(jobDetail, formId, "");
+                //NewJob newJob = new NewJob(jobDetail, formId, "");
+                Job newJob = new Job(
+                    details: jobDetail, 
+                    formId: formId, 
+                    username: ""
+                );
 
                 Job job = await jobs.CreateJob(newJob);
             }
@@ -151,7 +166,12 @@ namespace OneBlink.SDK.Tests
 
                 JobDetail jobDetail = new JobDetail("");
 
-                NewJob newJob = new NewJob(jobDetail, formId, "developers@oneblink.io");
+                //NewJob newJob = new NewJob(jobDetail, formId, "developers@oneblink.io");
+                Job newJob = new Job(
+                    details: jobDetail, 
+                    formId: formId, 
+                    username: "developers@oneblink.io"
+                );
 
                 Job job = await jobs.CreateJob(newJob);
             }
@@ -166,14 +186,14 @@ namespace OneBlink.SDK.Tests
         {
             JobsClient jobs = new JobsClient(ACCESS_KEY, SECRET_KEY);
 
-            JobsSearchParameters searchParams = new JobsSearchParameters
+            JobsSearchParameters searchParams = new JobsSearchParameters()
             {
                 externalId = "EXT-01",
                 username = "developers@oneblink.io",
                 formId = 476
             };
 
-            JobsSearchResult response = await jobs.Search(searchParams);
+            JobsSearchResult response = await jobs.SearchJobs(searchParams);
 
             Assert.NotNull(response);
         }
