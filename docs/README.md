@@ -1,9 +1,14 @@
 # OneBlink .Net SDK | Usage
 
-## Classes
+## Clients
 
 -   [FormsClient](./forms-client.md)
 -   [PdfClient](./pdf-client.md)
 -   [TeamMembersClient](./team-members-client.md)
 -   [JobsClient](./jobs-client.md)
--   [Models](./models.md)
+
+## Models
+
+-   [Job](./models/job.md)
+-   [JobDetail](./models/jobDetail.md)
+-   [JobsSearchParameters](./models/jobsSearchParameters.md)
