@@ -30,22 +30,22 @@ namespace OneBlink.SDK
             await this.oneBlinkHttpClient.DeleteRequest(url);
         }
 
-        public async Task<Job> CreateJob(NewJob newJob)
+        public async Task<Job> CreateJob(Job job)
         {
-            _ValidateJob(newJob);
+            _ValidateJob(job);
 
-            return await _CreateJob(newJob);
+            return await _CreateJob(job);
         }
 
-        public async Task<Job> CreateJob<T>(NewJob newJob, T preFillData)
+        public async Task<Job> CreateJob<T>(Job job, T preFillData)
         {
-            _ValidateJob(newJob);
+            _ValidateJob(job);
+            
+            string preFillMetaId = await _SetPreFillData<T>(preFillData, job.formId);
 
-            string preFillMetaId = await _SetPreFillData<T>(preFillData, newJob.formId);
+            job.preFillFormDataId = preFillMetaId;
 
-            newJob.preFillFormDataId = preFillMetaId;
-
-            return await _CreateJob(newJob);
+            return await _CreateJob(job);
         }
 
         public async Task<JobsSearchResult> SearchByExternalId(string externalId)
@@ -55,7 +55,7 @@ namespace OneBlink.SDK
                 externalId = externalId
             };
 
-            return await Search(searchParams);
+            return await SearchJobs(searchParams);
         }
 
         public async Task<JobsSearchResult> SearchByFormId(int formId)
@@ -65,7 +65,7 @@ namespace OneBlink.SDK
                 formId = formId
             };
 
-            return await Search(searchParams);
+            return await SearchJobs(searchParams);
         }
 
         public async Task<JobsSearchResult> SearchByUsername(string username)
@@ -75,10 +75,10 @@ namespace OneBlink.SDK
                 username = username
             };
 
-            return await Search(searchParams);
+            return await SearchJobs(searchParams);
         }
 
-        public async Task<JobsSearchResult> Search(JobsSearchParameters searchParams)
+        public async Task<JobsSearchResult> SearchJobs(JobsSearchParameters searchParams)
         {
             string queryString = string.Empty;
 
@@ -139,21 +139,21 @@ namespace OneBlink.SDK
 
 
 
-        private async Task<Job> _CreateJob(NewJob newJob)
+        private async Task<Job> _CreateJob(Job job)
         {
             string url = "/jobs";
 
-            return await this.oneBlinkHttpClient.PostRequest<NewJob, Job>(url, newJob);
+            return await this.oneBlinkHttpClient.PostRequest<Job, Job>(url, job);
         }
 
-        private void _ValidateJob(NewJob newJob)
+        private void _ValidateJob(Job job)
         {
-            if (string.IsNullOrWhiteSpace(newJob.username))
+            if (string.IsNullOrWhiteSpace(job.username))
             {
                 throw new ArgumentException("'username' must be provided with a valid email address");
             }
 
-            if (string.IsNullOrEmpty(newJob.details.title))
+            if (string.IsNullOrEmpty(job.details.title))
             {
                 throw new ArgumentException("The 'title' property of JobDetail must be provided with a value");
             }
