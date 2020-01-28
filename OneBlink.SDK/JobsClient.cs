@@ -39,11 +39,9 @@ namespace OneBlink.SDK
 
         public async Task<Job> CreateJob<T>(Job job, T preFillData)
         {
-            //CHECK FORM ID IS NOT NULL. THIS IS SPECIFIC TO CREATEJOB WITH PREFILL DATA
-            if (job.formId == null) throw new ArgumentException("'formId' must be provided as a valid int");
             _ValidateJob(job);
             
-            string preFillMetaId = await _SetPreFillData<T>(preFillData, job.formId.Value);
+            string preFillMetaId = await _SetPreFillData<T>(preFillData, job.formId);
 
             job.preFillFormDataId = preFillMetaId;
 

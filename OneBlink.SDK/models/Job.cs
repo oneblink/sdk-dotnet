@@ -111,7 +111,7 @@ namespace OneBlink.SDK.Model
         public Job(
             string username,
             JobDetail details,
-            Nullable<int> formId = null, 
+            int formId, 
             string externalId = null
         )
         {
@@ -125,7 +125,7 @@ namespace OneBlink.SDK.Model
             get; set;
         }
 
-        public Nullable<int> formId
+        public int formId
         {
             get; set;
         }
@@ -140,11 +140,11 @@ namespace OneBlink.SDK.Model
             get; set;
         }
 
-        //INTERAL SET PROPERTIES, NO EXTERNAL SETTING FOR SETTING
+        //INTERAL SET PROPERTIES, NO EXTERNAL SETTING FOR USERS
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public string id
         {
-            get; set;
+            get; internal set;
         } = null;
 
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
