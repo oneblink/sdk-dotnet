@@ -2,11 +2,13 @@
 
 ## Unreleased
 
+## 1.1.0 (2020-01-30)
+
 ### Added
 
 -   [`JobsClient`](./docs/jobs-client.md) class
 
-## 1.0.1 (2019-06-20) The Killer Orangutan
+## 1.0.1 (2019-06-20)
 
 ### Added
 

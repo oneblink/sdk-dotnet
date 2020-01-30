@@ -4,16 +4,16 @@
 
 -   Docker for [Mac](https://docs.docker.com/docker-for-mac/) or [Windows](https://docs.docker.com/docker-for-windows/) can be used to run `dotnet` CLI commands:
 
-## Configuration for local development
-
-Run `dotnet restore` in the project directory
+## Configuring Local Scripts
 
 Create a file called `.env` in the root directory with the following values configured:
 
+```sh
 ACCESS_KEY=YOUR_ACCESS_KEY
 SECRET_KEY=YOUR_SECRET_KEY
 ONEBLINK_API_ORIGIN=https://auth-api-test.blinkm.io
 ONEBLINK_PDF_API_ORIGIN=https://pdf-test.blinkm.io
+```
 
 You will also need to include on your script
 
@@ -25,11 +25,12 @@ using dotenv.net;
 DotEnv.Config();
 ```
 
-and create an .env file with ACCESS_KEY and SECRET_KEY properties
-
 ## Run Tests
 
+Run in the project directory
+
 ```
+dotnet restore
 dotnet test
 ```
 
