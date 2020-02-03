@@ -4,12 +4,13 @@
 
 ### Constructor
 
-| Parameter    | Required | Type                          | Description                          | Default Value |
-| ------------ | -------- | ----------------------------- | ------------------------------------ | ------------- |
-| `username`   | No       | `string`                      | Username associated with the job.    | null          |
-| `formId`     | No       | `int`                         | formId associated with the job.      | null          |
-| `details`    | No       | [`JobDetail`](./jobDetail.md) | Instance of the job's details.       | null          |
-| `externalId` | No       | `string`                      | external Id associated with the job. | null          |
+| Parameter    | Required | Type                          | Description                                               | Default Value |
+| ------------ | -------- | ----------------------------- | --------------------------------------------------------- | ------------- |
+| `username`   | No       | `string`                      | Username associated with the job.                         | null          |
+| `formId`     | No       | `int`                         | formId associated with the job.                           | null          |
+| `details`    | No       | [`JobDetail`](./jobDetail.md) | Instance of the job's details.                            | null          |
+| `externalId` | No       | `string`                      | external Id associated with the job.                      | null          |
+| `priority`   | No       | `int`                         | Number used to prioritise the job in the OneBlink system. | null          |
 
 ### Example
 
@@ -18,7 +19,8 @@ OneBlink.SDK.Model.Job jobToCreate = new OneBlink.SDK.Model.Job(
   username: "developer@oneblink.io",
   formId: 4,
   details: jobToCreateDetails,
-  externalId: "MyExternalId"
+  externalId: "MyExternalId",
+  priority: 1
 );
 
 ```
