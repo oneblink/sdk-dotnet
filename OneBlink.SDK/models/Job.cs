@@ -5,15 +5,16 @@ using OneBlink.SDK.Model;
 namespace OneBlink.SDK.Model
 {
     public class JobsSearchParameters
-    {   
+    {
         public JobsSearchParameters(
-            string username = null, 
-            int? formId = null, 
-            Boolean? isSumbitted = null, 
-            string externalId = null, 
-            int? limit = null, 
+            string username = null,
+            int? formId = null,
+            Boolean? isSumbitted = null,
+            string externalId = null,
+            int? limit = null,
             int? offset = null
-        ) {
+        )
+        {
             this.username = username;
             this.formId = formId;
             this.isSubmitted = isSubmitted;
@@ -21,10 +22,12 @@ namespace OneBlink.SDK.Model
             this.limit = limit;
             this.offset = offset;
         }
+
         public string username
         {
             get; set;
         }
+
         public int? formId
         {
             get; set;
@@ -106,19 +109,22 @@ namespace OneBlink.SDK.Model
             this.type = type;
         }
     }
-    public class Job {
-        
+    public class Job
+    {
+
         public Job(
             string username,
             JobDetail details,
-            int formId, 
-            string externalId = null
+            int formId,
+            string externalId = null,
+            int? priority = null
         )
         {
             this.username = username;
             this.formId = formId;
             this.details = details;
             this.externalId = externalId;
+            this.priority = priority;
         }
         public string username
         {
@@ -130,6 +136,12 @@ namespace OneBlink.SDK.Model
             get; set;
         }
         public JobDetail details
+        {
+            get; set;
+        }
+
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public int? priority
         {
             get; set;
         }
