@@ -101,14 +101,22 @@ namespace OneBlink.SDK.Model
             get; set;
         }
 
-        public JobDetail(string title, string key = null, string description = null, string type = null)
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public int? priority
+        {
+            get; set;
+        }
+
+        public JobDetail(string title, string key = null, string description = null, string type = null, int? priority = null)
         {
             this.title = title;
             this.key = key;
             this.description = description;
             this.type = type;
+            this.priority = priority;
         }
     }
+
     public class Job
     {
 
@@ -116,16 +124,15 @@ namespace OneBlink.SDK.Model
             string username,
             JobDetail details,
             int formId,
-            string externalId = null,
-            int? priority = null
+            string externalId = null
         )
         {
             this.username = username;
             this.formId = formId;
             this.details = details;
             this.externalId = externalId;
-            this.priority = priority;
         }
+
         public string username
         {
             get; set;
@@ -136,12 +143,6 @@ namespace OneBlink.SDK.Model
             get; set;
         }
         public JobDetail details
-        {
-            get; set;
-        }
-
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public int? priority
         {
             get; set;
         }

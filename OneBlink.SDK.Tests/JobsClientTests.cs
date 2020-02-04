@@ -138,9 +138,9 @@ namespace OneBlink.SDK.Tests
         {
             JobsClient jobs = new JobsClient(ACCESS_KEY, SECRET_KEY);
 
-            JobDetail jobDetail = new JobDetail("TITLE-01");
+            JobDetail jobDetail = new JobDetail(title: "TITLE-01", priority: 1);
 
-            Job newJob = new Job(details: jobDetail, formId: formId, username: "developers@oneblink.io", priority: 1);
+            Job newJob = new Job(details: jobDetail, formId: formId, username: "developers@oneblink.io");
 
             Job response = await jobs.CreateJob(newJob);
 
@@ -162,6 +162,7 @@ namespace OneBlink.SDK.Tests
                 formId: formId,
                 username: "developers@oneblink.io"
             );
+
             Job job = await jobs.CreateJob(newJob);
 
             await jobs.DeleteJob(job.id);
