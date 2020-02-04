@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Added
+
+-   `priority` parameter to [`JobsClient.CreateJob()`](<./docs/jobs-client.md#createjob(job)>)
+
 ## 1.1.0 (2020-01-30)
 
 ### Added

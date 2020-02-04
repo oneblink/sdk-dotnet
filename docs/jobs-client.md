@@ -50,15 +50,16 @@ OneBlink.SDK.Model.Job job = await jobsClient.CreateJob(job);
 
 ### Parameters
 
-| Parameter                    | Required | Type                           | Description                                                                                                                                                                                           |
-| ---------------------------- | -------- | ------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `job`                     | Yes      | `OneBlink.SDK.Model.Job`    | An object containing the data to be used to create the new Job                                                                                                                                    |
-| `job.formId`              | Yes      | `number`                       | The identifier of the Form the User must complete                                                                                                                                                     |
+| Parameter                 | Required | Type                           | Description                                                                                                                                                                                           |
+| ------------------------- | -------- | ------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `job`                     | Yes      | `OneBlink.SDK.Model.Job`       | An object containing the data to be used to create the new Job                                                                                                                                        |
+| `job.formId`              | Yes      | `int`                          | The identifier of the Form the User must complete                                                                                                                                                     |
 | `job.externalId`          | No       | `string`                       | The external identifier of the form submission you wish to use, this identifier will be returned to you with the `submissionId` after a successful submission to allow you to retrieve the data later |
 | `job.username`            | Yes      | `string`                       | The identifier of the User to assign the Job to                                                                                                                                                       |
 | `job.details`             | Yes      | `OneBlink.SDK.Model.JobDetail` | Extra Job details that will be displayed to the User                                                                                                                                                  |
 | `job.details.key`         | No       | `string`                       | A key for the User to identify the Job                                                                                                                                                                |
 | `job.details.title`       | Yes      | `string`                       | A title for the User to identify the Job                                                                                                                                                              |
+| `job.details.priority`    | No       | `int`                          | The number used in the OneBlink system to order the job by priority in the forms app it's created in                                                                                                  |
 | `job.details.description` | No       | `string`                       | A short description of what the job may entail                                                                                                                                                        |
 | `job.details.type`        | No       | `string`                       | A type for the User to categorise the Job                                                                                                                                                             |
 
@@ -102,18 +103,19 @@ OneBlink.SDK.Model.Job job = await jobsClient.CreateJob<MyPreFillDataType>(job, 
 
 ### Parameters
 
-| Parameter                    | Required | Type                           | Description                                                                                                                                                                                           |
-| ---------------------------- | -------- | ------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `job`                     | Yes      | `OneBlink.SDK.Model.Job`    | An object containing the new job data to be used to create the Job                                                                                                                                    |
-| `job.formId`              | Yes      | `number`                       | The identifier of the Form the User must complete                                                                                                                                                     |
+| Parameter                 | Required | Type                           | Description                                                                                                                                                                                           |
+| ------------------------- | -------- | ------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `job`                     | Yes      | `OneBlink.SDK.Model.Job`       | An object containing the new job data to be used to create the Job                                                                                                                                    |
+| `job.formId`              | Yes      | `int`                          | The identifier of the Form the User must complete                                                                                                                                                     |
 | `job.externalId`          | No       | `string`                       | The external identifier of the form submission you wish to use, this identifier will be returned to you with the `submissionId` after a successful submission to allow you to retrieve the data later |
 | `job.username`            | Yes      | `string`                       | The identifier of the User to assign the Job to                                                                                                                                                       |
 | `job.details`             | Yes      | `OneBlink.SDK.Model.JobDetail` | Extra Job details that will be displayed to the User                                                                                                                                                  |
 | `job.details.key`         | No       | `string`                       | A key for the User to identify the Job                                                                                                                                                                |
 | `job.details.title`       | Yes      | `string`                       | A title for the User to identify the Job                                                                                                                                                              |
+| `job.details.priority`    | No       | `int`                          | The number used in the OneBlink system to order the job by priority in the forms app it's created in                                                                                                  |
 | `job.details.description` | No       | `string`                       | A short description of what the job may entail                                                                                                                                                        |
 | `job.details.type`        | No       | `string`                       | A type for the User to categorise the Job                                                                                                                                                             |
-| `preFillData`                | No       | `T (Generic)`                  | key/value pairs with the form field names as keys and the pre-fill data as the values                                                                                                                 |
+| `preFillData`             | No       | `T (Generic)`                  | key/value pairs with the form field names as keys and the pre-fill data as the values                                                                                                                 |
 
 ### Throws
 
@@ -136,9 +138,9 @@ await jobsClient.DeleteJob(jobId);
 
 ### Parameters
 
-| Parameter | Required | Type     | Description                             |
-| --------- | -------- | -------- | --------------------------------------- |
-| `jobId`   | Yes      | `number` | The identifier of the Job to be deleted |
+| Parameter | Required | Type  | Description                             |
+| --------- | -------- | ----- | --------------------------------------- |
+| `jobId`   | Yes      | `int` | The identifier of the Job to be deleted |
 |           |
 
 ### Throws
@@ -169,12 +171,12 @@ JobsSearchResult results = await jobsClient.Search(searchParams);
 | Parameter                          | Required | Type                                      | Description                                                                                       |
 | ---------------------------------- | -------- | ----------------------------------------- | ------------------------------------------------------------------------------------------------- |
 | `JobsSearchParameters`             | Yes      | `OneBlink.SDK.Model.JobsSearchParameters` | Object containing search parameters described below.                                              |
-| `JobsSearchParameters.formId`      | no       | `number`                                  | Search on the `formId` property of a Job.                                                         |
+| `JobsSearchParameters.formId`      | no       | `int`                                     | Search on the `formId` property of a Job.                                                         |
 | `JobsSearchParameters.isSubmitted` | no       | `boolean`                                 | Search on the `isSubmitted` property of a Job. Must be either `true` or `false` or not specified. |
 | `JobsSearchParameters.externalId`  | no       | `string`                                  | Search on the `externalId` property of a Job. Must be a string, or not specified                  |
 | `JobsSearchParameters.username`    | no       | `string`                                  | Search on the `username` property of a Job.                                                       |
-| `JobsSearchParameters.limit`       | no       | `number`                                  | Limit the number of results returned                                                              |
-| `JobsSearchParameters.offset`      | no       | `number`                                  | Skip a specific number of results, used in conjunction with `limit` to enforce paging             |
+| `JobsSearchParameters.limit`       | no       | `int`                                     | Limit the number of results returned                                                              |
+| `JobsSearchParameters.offset`      | no       | `int`                                     | Skip a specific number of results, used in conjunction with `limit` to enforce paging             |
 
 ### Throws
 
@@ -222,9 +224,9 @@ JobsSearchResult results = await jobsClient.SearchByFormId(formId);
 
 ### Parameters
 
-| Parameter | Required | Type     | Description                               |
-| --------- | -------- | -------- | ----------------------------------------- |
-| `formId`  | yes      | `number` | Search on the `formId` property of a Job. |
+| Parameter | Required | Type  | Description                               |
+| --------- | -------- | ----- | ----------------------------------------- |
+| `formId`  | yes      | `int` | Search on the `formId` property of a Job. |
 
 ### Throws
 

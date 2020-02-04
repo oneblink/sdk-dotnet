@@ -5,15 +5,16 @@ using OneBlink.SDK.Model;
 namespace OneBlink.SDK.Model
 {
     public class JobsSearchParameters
-    {   
+    {
         public JobsSearchParameters(
-            string username = null, 
-            int? formId = null, 
-            Boolean? isSumbitted = null, 
-            string externalId = null, 
-            int? limit = null, 
+            string username = null,
+            int? formId = null,
+            Boolean? isSumbitted = null,
+            string externalId = null,
+            int? limit = null,
             int? offset = null
-        ) {
+        )
+        {
             this.username = username;
             this.formId = formId;
             this.isSubmitted = isSubmitted;
@@ -21,10 +22,12 @@ namespace OneBlink.SDK.Model
             this.limit = limit;
             this.offset = offset;
         }
+
         public string username
         {
             get; set;
         }
+
         public int? formId
         {
             get; set;
@@ -98,20 +101,29 @@ namespace OneBlink.SDK.Model
             get; set;
         }
 
-        public JobDetail(string title, string key = null, string description = null, string type = null)
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public int? priority
+        {
+            get; set;
+        }
+
+        public JobDetail(string title, string key = null, string description = null, string type = null, int? priority = null)
         {
             this.title = title;
             this.key = key;
             this.description = description;
             this.type = type;
+            this.priority = priority;
         }
     }
-    public class Job {
-        
+
+    public class Job
+    {
+
         public Job(
             string username,
             JobDetail details,
-            int formId, 
+            int formId,
             string externalId = null
         )
         {
@@ -120,6 +132,7 @@ namespace OneBlink.SDK.Model
             this.details = details;
             this.externalId = externalId;
         }
+
         public string username
         {
             get; set;
