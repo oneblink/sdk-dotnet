@@ -5,6 +5,7 @@
 ### Added
 
 -   `priority` parameter to [`JobsClient.CreateJob()`](<./docs/jobs-client.md#createjob(job)>)
+-   `device` property to `FormSubmission` class
 
 ## 1.1.0 (2020-01-30)
 

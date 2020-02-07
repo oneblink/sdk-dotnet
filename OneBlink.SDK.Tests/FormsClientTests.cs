@@ -1,8 +1,8 @@
 using System;
 using System.IO;
 using System.Net;
+using System.Reflection;
 using dotenv.net;
-using OneBlink.SDK;
 using OneBlink.SDK.Model;
 using Xunit;
 
@@ -115,6 +115,20 @@ namespace OneBlink.SDK.Tests
       FormsClient forms = new FormsClient(ACCESS_KEY, SECRET_KEY);
       FormSubmission<object> formSubmission = await forms.GetFormSubmission<object>(this.formId, this.submissionId);
       Assert.NotNull(formSubmission);
+      if (formSubmission.device != null)
+      {
+        foreach (PropertyInfo propertyInfo in formSubmission.device.GetType().GetProperties())
+        {
+          Console.WriteLine("Device: {0}={1}", propertyInfo.Name, propertyInfo.GetValue(formSubmission.device, null));
+        }
+      }
+      if (formSubmission.user != null)
+      {
+        foreach (PropertyInfo propertyInfo in formSubmission.user.GetType().GetProperties())
+        {
+          Console.WriteLine("User: {0}={1}", propertyInfo.Name, propertyInfo.GetValue(formSubmission.user, null));
+        }
+      }
     }
 
     [Fact]
