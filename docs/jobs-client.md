@@ -43,7 +43,7 @@ int formId = 1;
 string username = "developers@oneblink.io";
 
 // Construct the Job object
-OneBlink.SDK.Model.Job job = new Job(jobDetail, formId, username);
+OneBlink.SDK.Model.Job job = new OneBlink.SDK.Model.Job(username, jobDetail, formId);
 
 OneBlink.SDK.Model.Job job = await jobsClient.CreateJob(job);
 ```
@@ -91,7 +91,7 @@ string username = "developers@oneblink.io";
 string externalId = "MY_EXTERNAL_ID";
 
 // Construct the Job object
-OneBlink.SDK.Model.Job job = new Job(jobDetail, formId, username, externalId);
+OneBlink.SDK.Model.Job job = new OneBlink.SDK.Model.Job(username, jobDetail, formId, externalId);
 
 // "Pre fill data" - key/value object matching the fields in the form that the job is being created for
 MyPreFillDataType preFillData = new MyPreFillDataType();
