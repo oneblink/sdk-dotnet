@@ -12,6 +12,7 @@ namespace OneBlink.SDK.Tests
   {
     private string ACCESS_KEY;
     private string SECRET_KEY;
+    private string apiOrigin;
     private int formId = 475;
     private string submissionId = "5ab3d950-253a-4d22-8ae6-c9eae82f58ba";
     private int draftFormId = 475;
@@ -22,6 +23,7 @@ namespace OneBlink.SDK.Tests
       DotEnv.Config(raiseException, Path.GetFullPath(Path.Combine(Directory.GetCurrentDirectory(), "..", "..", "..", "..")) + "/.env");
       ACCESS_KEY = Environment.GetEnvironmentVariable("ACCESS_KEY");
       SECRET_KEY = Environment.GetEnvironmentVariable("SECRET_KEY");
+      apiOrigin = Environment.GetEnvironmentVariable("ONEBLINK_API_ORIGIN");
 
       string formId = Environment.GetEnvironmentVariable("GET_SUBMISSION_DATA_FORM_ID");
       if (!String.IsNullOrWhiteSpace(formId))
@@ -57,7 +59,10 @@ namespace OneBlink.SDK.Tests
     {
       try
       {
-        FormsClient forms = new FormsClient(ACCESS_KEY, SECRET_KEY);
+        FormsClient forms = new FormsClient(
+          "",
+          ""
+        );
       }
       catch (Exception ex)
       {
@@ -68,7 +73,7 @@ namespace OneBlink.SDK.Tests
     [Fact]
     public async void can_search_forms()
     {
-      FormsClient forms = new FormsClient(ACCESS_KEY, SECRET_KEY);
+      FormsClient forms = new FormsClient(ACCESS_KEY, SECRET_KEY, apiOrigin);
       FormsSearchResult response = await forms.Search(null, null, null);
       Assert.NotNull(response);
     }
@@ -76,7 +81,7 @@ namespace OneBlink.SDK.Tests
     [Fact]
     public async void can_search_forms_with_all_params()
     {
-      FormsClient forms = new FormsClient(ACCESS_KEY, SECRET_KEY);
+      FormsClient forms = new FormsClient(ACCESS_KEY, SECRET_KEY, apiOrigin);
       FormsSearchResult response = await forms.Search(true, true, "Location test");
       Assert.NotNull(response);
     }
@@ -84,7 +89,7 @@ namespace OneBlink.SDK.Tests
     [Fact]
     public async void can_get_draft_data()
     {
-      FormsClient forms = new FormsClient(ACCESS_KEY, SECRET_KEY);
+      FormsClient forms = new FormsClient(ACCESS_KEY, SECRET_KEY, apiOrigin);
       FormSubmission<object> draftSubmission = await forms.GetFormSubmission<object>(this.draftFormId, this.draftDataId, true);
       Assert.NotNull(draftSubmission);
       Assert.NotNull(draftSubmission.definition);
@@ -94,7 +99,11 @@ namespace OneBlink.SDK.Tests
     [Fact]
     public async void get_draft_data_should_throw_oneblink_exception()
     {
-      FormsClient forms = new FormsClient("123", "aaaaaaaaaaaaaaabbbbbbbbbbbbbbbcccccccccccccccc");
+      FormsClient forms = new FormsClient(
+        "123",
+        "aaaaaaaaaaaaaaabbbbbbbbbbbbbbbcccccccccccccccc",
+        apiOrigin: apiOrigin
+      );
       try
       {
         FormSubmission<object> draftSubmission = await forms.GetFormSubmission<object>(this.draftFormId, this.draftDataId, true);
@@ -112,7 +121,7 @@ namespace OneBlink.SDK.Tests
     [Fact]
     public async void can_get_submission_data()
     {
-      FormsClient forms = new FormsClient(ACCESS_KEY, SECRET_KEY);
+      FormsClient forms = new FormsClient(ACCESS_KEY, SECRET_KEY, apiOrigin);
       FormSubmission<object> formSubmission = await forms.GetFormSubmission<object>(this.formId, this.submissionId);
       Assert.NotNull(formSubmission);
       if (formSubmission.device != null)

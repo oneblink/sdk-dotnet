@@ -2,6 +2,14 @@
 
 ## Unreleased
 
+### Removed
+
+-   Support for overriding api and pdf urls through .env variables
+
+### Added
+
+-   Support for region selection when instantiating a client
+
 ## 1.2.0 (2020-02-13)
 
 ### Added

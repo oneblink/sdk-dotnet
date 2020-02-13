@@ -21,10 +21,24 @@ namespace OneBlink.SDK
   {
     OneBlinkHttpClient oneBlinkHttpClient;
 
-    public FormsClient(string accessKey, string secretKey)
-    {
-      this.oneBlinkHttpClient = new OneBlinkHttpClient(accessKey, secretKey);
-    }
+    public FormsClient(string accessKey, string secretKey, RegionCode regionCode = RegionCode.AU)
+        {
+            this.oneBlinkHttpClient = new OneBlinkHttpClient(
+                accessKey,
+                secretKey,
+                region: new Region(regionCode)
+            );
+        }
+
+        public FormsClient(string accessKey, string secretKey, string apiOrigin)
+        {
+            this.oneBlinkHttpClient = new OneBlinkHttpClient(
+                accessKey,
+                secretKey,
+                region: new Region(apiOrigin: apiOrigin)
+            );
+        }
+
 
     public async Task<FormSubmission<T>> GetFormSubmission<T>(int formId, string submissionId)
     {

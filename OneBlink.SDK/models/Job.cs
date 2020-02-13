@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using Newtonsoft.Json;
-using OneBlink.SDK.Model;
 namespace OneBlink.SDK.Model
 {
     public class JobsSearchParameters

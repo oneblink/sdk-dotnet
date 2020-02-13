@@ -7,10 +7,24 @@ namespace OneBlink.SDK
   {
     private OneBlinkHttpClient oneBlinkHttpClient;
 
-    public PdfClient(string accessKey, string secretKey)
-    {
-      this.oneBlinkHttpClient = new OneBlinkHttpClient(accessKey, secretKey);
-    }
+    public PdfClient(string accessKey, string secretKey, RegionCode regionCode = RegionCode.AU)
+        {
+            this.oneBlinkHttpClient = new OneBlinkHttpClient(
+                accessKey,
+                secretKey,
+                region: new Region(regionCode)
+            );
+        }
+
+        public PdfClient(string accessKey, string secretKey, string apiOrigin)
+        {
+            this.oneBlinkHttpClient = new OneBlinkHttpClient(
+                accessKey,
+                secretKey,
+                region: new Region(pdfOrigin: apiOrigin)
+            );
+        }
+
 
     public async Task<Stream> GetSubmissionPdf(int formId, string submissionId)
     {

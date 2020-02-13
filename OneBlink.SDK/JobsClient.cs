@@ -13,10 +13,25 @@ namespace OneBlink.SDK
     {
         OneBlinkHttpClient oneBlinkHttpClient;
 
-        public JobsClient(string accessKey, string secretKey)
+        public JobsClient(string accessKey, string secretKey, RegionCode regionCode = RegionCode.AU)
         {
-            this.oneBlinkHttpClient = new OneBlinkHttpClient(accessKey, secretKey);
+            this.oneBlinkHttpClient = new OneBlinkHttpClient(
+                accessKey,
+                secretKey,
+                region: new Region(regionCode)
+            );
         }
+
+        public JobsClient(string accessKey, string secretKey, string apiOrigin)
+        {
+            this.oneBlinkHttpClient = new OneBlinkHttpClient(
+                accessKey,
+                secretKey,
+                region: new Region(apiOrigin: apiOrigin)
+            );
+        }
+
+
 
         public async Task DeleteJob(string jobId)
         {
@@ -40,7 +55,7 @@ namespace OneBlink.SDK
         public async Task<Job> CreateJob<T>(Job job, T preFillData)
         {
             _ValidateJob(job);
-            
+
             string preFillMetaId = await _SetPreFillData<T>(preFillData, job.formId);
 
             job.preFillFormDataId = preFillMetaId;

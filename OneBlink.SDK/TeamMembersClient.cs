@@ -9,10 +9,24 @@ namespace OneBlink.SDK
   {
     OneBlinkHttpClient oneBlinkHttpClient;
 
-    public TeamMembersClient(string accessKey, string secretKey)
-    {
-      this.oneBlinkHttpClient = new OneBlinkHttpClient(accessKey, secretKey);
-    }
+    public TeamMembersClient(string accessKey, string secretKey, RegionCode regionCode = RegionCode.AU)
+        {
+            this.oneBlinkHttpClient = new OneBlinkHttpClient(
+                accessKey,
+                secretKey,
+                region: new Region(regionCode)
+            );
+        }
+
+        public TeamMembersClient(string accessKey, string secretKey, string apiOrigin)
+        {
+            this.oneBlinkHttpClient = new OneBlinkHttpClient(
+                accessKey,
+                secretKey,
+                region: new Region(apiOrigin: apiOrigin)
+            );
+        }
+
 
     public async Task<Role> GetTeamMemberRole(string email)
     {
