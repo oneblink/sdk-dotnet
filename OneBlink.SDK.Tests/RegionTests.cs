@@ -1,7 +1,7 @@
 using System;
 using System.IO;
 using Xunit;
-
+using OneBlink.SDK.Model;
 namespace OneBlink.SDK.Tests
 {
     public class RegionTests {

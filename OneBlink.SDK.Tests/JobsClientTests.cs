@@ -175,11 +175,7 @@ namespace OneBlink.SDK.Tests
         {
             try
             {
-                JobsClient jobs = new JobsClient(
-                    ACCESS_KEY,
-                    SECRET_KEY,
-                    apiOrigin: apiOrigin
-                );
+                JobsClient jobs = new JobsClient(ACCESS_KEY, SECRET_KEY, apiOrigin);
 
                 JobDetail jobDetail = new JobDetail("TITLE-01");
 
@@ -202,11 +198,7 @@ namespace OneBlink.SDK.Tests
         {
             try
             {
-                JobsClient jobs = new JobsClient(
-                    ACCESS_KEY,
-                    SECRET_KEY,
-                    apiOrigin: apiOrigin
-                );
+                JobsClient jobs = new JobsClient(ACCESS_KEY, SECRET_KEY, apiOrigin);
 
                 JobDetail jobDetail = new JobDetail("");
 

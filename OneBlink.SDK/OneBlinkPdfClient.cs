@@ -1,13 +1,8 @@
 
-using System;
 using System.IO;
 using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Text;
 using System.Threading.Tasks;
-using dotenv.net;
-using Newtonsoft.Json;
-
+using OneBlink.SDK.Model;
 namespace OneBlink.SDK
 {
   internal class OneBlinkPdfClient : OneBlinkHttpClient

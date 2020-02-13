@@ -1,6 +1,6 @@
 using System.Threading.Tasks;
 using System.IO;
-
+using OneBlink.SDK.Model;
 namespace OneBlink.SDK
 {
   public class PdfClient
