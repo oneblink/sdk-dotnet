@@ -5,11 +5,11 @@ namespace OneBlink.SDK
 {
   public class PdfClient
   {
-    private OneBlinkHttpClient oneBlinkHttpClient;
+    private OneBlinkPdfClient oneBlinkPdfClient;
 
     public PdfClient(string accessKey, string secretKey, RegionCode regionCode = RegionCode.AU)
         {
-            this.oneBlinkHttpClient = new OneBlinkHttpClient(
+            this.oneBlinkPdfClient = new OneBlinkPdfClient(
                 accessKey,
                 secretKey,
                 region: new Region(regionCode)
@@ -18,7 +18,7 @@ namespace OneBlink.SDK
 
         public PdfClient(string accessKey, string secretKey, string apiOrigin)
         {
-            this.oneBlinkHttpClient = new OneBlinkHttpClient(
+            this.oneBlinkPdfClient = new OneBlinkPdfClient(
                 accessKey,
                 secretKey,
                 region: new Region(pdfOrigin: apiOrigin)
@@ -29,7 +29,7 @@ namespace OneBlink.SDK
     public async Task<Stream> GetSubmissionPdf(int formId, string submissionId)
     {
       string url = "/forms/" + formId.ToString() + "/submissions/" + submissionId + "/pdf-document";
-      return await this.oneBlinkHttpClient.PostRequest(url);
+      return await this.oneBlinkPdfClient.PostRequest(url);
     }
   }
 }

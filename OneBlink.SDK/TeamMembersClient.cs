@@ -7,11 +7,11 @@ namespace OneBlink.SDK
 {
   public class TeamMembersClient
   {
-    OneBlinkHttpClient oneBlinkHttpClient;
+    OneBlinkApiClient oneBlinkApiClient;
 
     public TeamMembersClient(string accessKey, string secretKey, RegionCode regionCode = RegionCode.AU)
         {
-            this.oneBlinkHttpClient = new OneBlinkHttpClient(
+            this.oneBlinkApiClient = new OneBlinkApiClient(
                 accessKey,
                 secretKey,
                 region: new Region(regionCode)
@@ -20,7 +20,7 @@ namespace OneBlink.SDK
 
         public TeamMembersClient(string accessKey, string secretKey, string apiOrigin)
         {
-            this.oneBlinkHttpClient = new OneBlinkHttpClient(
+            this.oneBlinkApiClient = new OneBlinkApiClient(
                 accessKey,
                 secretKey,
                 region: new Region(apiOrigin: apiOrigin)
@@ -36,7 +36,7 @@ namespace OneBlink.SDK
       }
 
       string url = "/permissions?email=" + email;
-      PermissionSearchResult permissionSearchResult = await this.oneBlinkHttpClient.GetRequest<PermissionSearchResult>(url);
+      PermissionSearchResult permissionSearchResult = await this.oneBlinkApiClient.GetRequest<PermissionSearchResult>(url);
       Permission permission = permissionSearchResult.permissions.FirstOrDefault();
       if (permission == null || permission.links == null || permission.links.role == null)
       {
