@@ -14,7 +14,6 @@
 
 ### Added
 
--   Support for region selection when instantiating a client
 -   `priority` parameter to [`JobsClient.CreateJob()`](<./docs/jobs-client.md#createjob(job)>)
 -   `device` property to `FormSubmission` class
 
