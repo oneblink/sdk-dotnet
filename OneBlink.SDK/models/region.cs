@@ -3,7 +3,7 @@ public enum RegionCode {
     AU,
     US
 };
-public class Region
+internal class Region
 {
     public Region(
         RegionCode code = RegionCode.AU,
