@@ -26,6 +26,7 @@ namespace OneBlink.SDK.Tests
     {
         private string ACCESS_KEY;
         private string SECRET_KEY;
+        private string apiOrigin;
         private int formId = 476;
         public JobsClientTests()
         {
@@ -33,6 +34,7 @@ namespace OneBlink.SDK.Tests
             DotEnv.Config(raiseException, Path.GetFullPath(Path.Combine(Directory.GetCurrentDirectory(), "..", "..", "..", "..")) + "/.env");
             ACCESS_KEY = Environment.GetEnvironmentVariable("ACCESS_KEY");
             SECRET_KEY = Environment.GetEnvironmentVariable("SECRET_KEY");
+            apiOrigin = Environment.GetEnvironmentVariable("ONEBLINK_API_ORIGIN");
 
             string formId = Environment.GetEnvironmentVariable("GET_SUBMISSION_DATA_FORM_ID");
             if (!String.IsNullOrWhiteSpace(formId))
@@ -64,7 +66,7 @@ namespace OneBlink.SDK.Tests
         [Fact]
         public async void can_create_job_with_prefill()
         {
-            JobsClient jobs = new JobsClient(ACCESS_KEY, SECRET_KEY);
+            JobsClient jobs = new JobsClient(ACCESS_KEY, SECRET_KEY, apiOrigin);
 
             JobDetail jobDetail = new JobDetail("TITLE-01");
 
@@ -95,7 +97,7 @@ namespace OneBlink.SDK.Tests
         [Fact]
         public async void can_create_job_without_prefill()
         {
-            JobsClient jobs = new JobsClient(ACCESS_KEY, SECRET_KEY);
+            JobsClient jobs = new JobsClient(ACCESS_KEY, SECRET_KEY, apiOrigin);
 
             JobDetail jobDetail = new JobDetail("TITLE-01");
 
@@ -119,7 +121,7 @@ namespace OneBlink.SDK.Tests
         [Fact]
         public async void can_create_job_with_externalId()
         {
-            JobsClient jobs = new JobsClient(ACCESS_KEY, SECRET_KEY);
+            JobsClient jobs = new JobsClient(ACCESS_KEY, SECRET_KEY, apiOrigin);
 
             JobDetail jobDetail = new JobDetail("TITLE-01");
 
@@ -136,7 +138,7 @@ namespace OneBlink.SDK.Tests
         [Fact]
         public async void can_create_job_with_priority()
         {
-            JobsClient jobs = new JobsClient(ACCESS_KEY, SECRET_KEY);
+            JobsClient jobs = new JobsClient(ACCESS_KEY, SECRET_KEY, apiOrigin);
 
             JobDetail jobDetail = new JobDetail(title: "TITLE-01", priority: 1);
 
@@ -153,7 +155,7 @@ namespace OneBlink.SDK.Tests
         [Fact]
         public async void can_delete_job()
         {
-            JobsClient jobs = new JobsClient(ACCESS_KEY, SECRET_KEY);
+            JobsClient jobs = new JobsClient(ACCESS_KEY, SECRET_KEY, apiOrigin);
 
             JobDetail jobDetail = new JobDetail("TITLE-01");
 
@@ -173,7 +175,11 @@ namespace OneBlink.SDK.Tests
         {
             try
             {
-                JobsClient jobs = new JobsClient(ACCESS_KEY, SECRET_KEY);
+                JobsClient jobs = new JobsClient(
+                    ACCESS_KEY,
+                    SECRET_KEY,
+                    apiOrigin: apiOrigin
+                );
 
                 JobDetail jobDetail = new JobDetail("TITLE-01");
 
@@ -196,7 +202,11 @@ namespace OneBlink.SDK.Tests
         {
             try
             {
-                JobsClient jobs = new JobsClient(ACCESS_KEY, SECRET_KEY);
+                JobsClient jobs = new JobsClient(
+                    ACCESS_KEY,
+                    SECRET_KEY,
+                    apiOrigin: apiOrigin
+                );
 
                 JobDetail jobDetail = new JobDetail("");
 
@@ -217,7 +227,7 @@ namespace OneBlink.SDK.Tests
         [Fact]
         public async void can_search_with_multiple_fields()
         {
-            JobsClient jobs = new JobsClient(ACCESS_KEY, SECRET_KEY);
+            JobsClient jobs = new JobsClient(ACCESS_KEY, SECRET_KEY, apiOrigin);
 
             JobsSearchParameters searchParams = new JobsSearchParameters()
             {
@@ -234,7 +244,7 @@ namespace OneBlink.SDK.Tests
         [Fact]
         public async void can_search_by_form_id()
         {
-            JobsClient jobs = new JobsClient(ACCESS_KEY, SECRET_KEY);
+            JobsClient jobs = new JobsClient(ACCESS_KEY, SECRET_KEY, apiOrigin);
 
             int formId = 476;
 
@@ -246,7 +256,7 @@ namespace OneBlink.SDK.Tests
         [Fact]
         public async void can_search_by_username()
         {
-            JobsClient jobs = new JobsClient(ACCESS_KEY, SECRET_KEY);
+            JobsClient jobs = new JobsClient(ACCESS_KEY, SECRET_KEY, apiOrigin);
 
             string username = "developers@oneblink.io";
 
@@ -258,7 +268,7 @@ namespace OneBlink.SDK.Tests
         [Fact]
         public async void can_search_by_external_id()
         {
-            JobsClient jobs = new JobsClient(ACCESS_KEY, SECRET_KEY);
+            JobsClient jobs = new JobsClient(ACCESS_KEY, SECRET_KEY, apiOrigin);
 
             string externalId = "EXT-01";
 
@@ -266,5 +276,6 @@ namespace OneBlink.SDK.Tests
 
             Assert.NotNull(response);
         }
+
     }
 }

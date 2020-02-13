@@ -14,11 +14,12 @@ namespace OneBlink.SDK
     private string accessKey;
     private string secretKey;
     private int expiryInSeconds;
-    private string oneBlinkAPIOrigin = "https://auth-api.blinkm.io"; //Default to production
-    private string oneBlinkPdfOrigin = "https://pdf.blinkm.io"; //Default to production
+    private Region region;
 
-    public OneBlinkHttpClient(string accessKey, string secretKey, int expiryInSeconds = 300)
+    public OneBlinkHttpClient(string accessKey, string secretKey, Region region, int expiryInSeconds = 300)
     {
+      this.region = region ?? new Region(RegionCode.AU);
+
       if (String.IsNullOrWhiteSpace(accessKey))
       {
         throw new ArgumentException("accessKey must be provided with a value");
@@ -30,23 +31,11 @@ namespace OneBlink.SDK
       this.accessKey = accessKey;
       this.secretKey = secretKey;
       this.expiryInSeconds = expiryInSeconds;
-      bool raiseException = false;
-      DotEnv.Config(raiseException, Path.GetFullPath(Path.Combine(Directory.GetCurrentDirectory(), "..", "..", "..", "..")) + "/.env");
-      string apiOrigin = Environment.GetEnvironmentVariable("ONEBLINK_API_ORIGIN");
-      if (!String.IsNullOrWhiteSpace(apiOrigin))
-      {
-        oneBlinkAPIOrigin = apiOrigin;
-      }
-      string pdfOrigin = Environment.GetEnvironmentVariable("ONEBLINK_PDF_API_ORIGIN");
-      if (!String.IsNullOrWhiteSpace(pdfOrigin))
-      {
-        oneBlinkPdfOrigin = pdfOrigin;
-      }
     }
 
     public async Task<Stream> PostRequest(string path)
     {
-      HttpRequestMessage httpRequestMessage = new HttpRequestMessage(HttpMethod.Post, oneBlinkPdfOrigin + path);
+      HttpRequestMessage httpRequestMessage = new HttpRequestMessage(HttpMethod.Post, region.oneBlinkPdfOrigin + path);
       HttpContent httpContent = await SendRequest(httpRequestMessage);
       return await httpContent.ReadAsStreamAsync();
     }
@@ -58,7 +47,7 @@ namespace OneBlink.SDK
 
     public async Task<Tout> PostRequest<T, Tout>(string path, T t)
     {
-      HttpRequestMessage httpRequestMessage = new HttpRequestMessage(HttpMethod.Post, oneBlinkAPIOrigin + path);
+      HttpRequestMessage httpRequestMessage = new HttpRequestMessage(HttpMethod.Post, region.oneBlinkAPIOrigin + path);
       if (t != null)
       {
         string jsonPayload = JsonConvert.SerializeObject(t);
@@ -69,7 +58,7 @@ namespace OneBlink.SDK
 
     public async Task<T> GetRequest<T>(string path)
     {
-      HttpRequestMessage httpRequestMessage = new HttpRequestMessage(HttpMethod.Get, oneBlinkAPIOrigin + path);
+      HttpRequestMessage httpRequestMessage = new HttpRequestMessage(HttpMethod.Get, region.oneBlinkAPIOrigin + path);
       return await SendRequest<T>(httpRequestMessage);
     }
 
@@ -102,7 +91,7 @@ namespace OneBlink.SDK
 
     public async Task<HttpContent> DeleteRequest(string path)
     {
-      HttpRequestMessage httpRequestMessage = new HttpRequestMessage(HttpMethod.Delete, oneBlinkAPIOrigin + path);
+      HttpRequestMessage httpRequestMessage = new HttpRequestMessage(HttpMethod.Delete, region.oneBlinkAPIOrigin + path);
       return await SendRequest(httpRequestMessage);
     }
   }
