@@ -11,14 +11,12 @@ namespace OneBlink.SDK
 {
   internal class OneBlinkHttpClient
   {
-    private string accessKey;
-    private string secretKey;
-    private int expiryInSeconds;
-    private Region region;
+    internal string accessKey;
+    internal string secretKey;
+    internal int expiryInSeconds;
 
-    public OneBlinkHttpClient(string accessKey, string secretKey, Region region, int expiryInSeconds = 300)
+    public OneBlinkHttpClient(string accessKey, string secretKey, int expiryInSeconds = 300)
     {
-      this.region = region ?? new Region(RegionCode.AU);
 
       if (String.IsNullOrWhiteSpace(accessKey))
       {
@@ -33,36 +31,7 @@ namespace OneBlink.SDK
       this.expiryInSeconds = expiryInSeconds;
     }
 
-    public async Task<Stream> PostRequest(string path)
-    {
-      HttpRequestMessage httpRequestMessage = new HttpRequestMessage(HttpMethod.Post, region.oneBlinkPdfOrigin + path);
-      HttpContent httpContent = await SendRequest(httpRequestMessage);
-      return await httpContent.ReadAsStreamAsync();
-    }
-
-    public async Task<T> PostRequest<T>(string path)
-    {
-      return await PostRequest<object, T>(path, null);
-    }
-
-    public async Task<Tout> PostRequest<T, Tout>(string path, T t)
-    {
-      HttpRequestMessage httpRequestMessage = new HttpRequestMessage(HttpMethod.Post, region.oneBlinkAPIOrigin + path);
-      if (t != null)
-      {
-        string jsonPayload = JsonConvert.SerializeObject(t);
-        httpRequestMessage.Content = new StringContent(jsonPayload, Encoding.UTF8, "application/json");
-      }
-      return await SendRequest<Tout>(httpRequestMessage);
-    }
-
-    public async Task<T> GetRequest<T>(string path)
-    {
-      HttpRequestMessage httpRequestMessage = new HttpRequestMessage(HttpMethod.Get, region.oneBlinkAPIOrigin + path);
-      return await SendRequest<T>(httpRequestMessage);
-    }
-
-    private async Task<T> SendRequest<T>(HttpRequestMessage httpRequestMessage)
+    internal async Task<T> SendRequest<T>(HttpRequestMessage httpRequestMessage)
     {
       HttpContent httpContent = await SendRequest(httpRequestMessage);
       string result = await httpContent.ReadAsStringAsync();
@@ -87,12 +56,6 @@ namespace OneBlink.SDK
         }
         return httpResponseMessage.Content;
       }
-    }
-
-    public async Task<HttpContent> DeleteRequest(string path)
-    {
-      HttpRequestMessage httpRequestMessage = new HttpRequestMessage(HttpMethod.Delete, region.oneBlinkAPIOrigin + path);
-      return await SendRequest(httpRequestMessage);
     }
   }
 }

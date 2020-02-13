@@ -19,11 +19,11 @@ namespace OneBlink.SDK
 {
   public class FormsClient
   {
-    OneBlinkHttpClient oneBlinkHttpClient;
+    OneBlinkApiClient oneBlinkApiClient;
 
     public FormsClient(string accessKey, string secretKey, RegionCode regionCode = RegionCode.AU)
         {
-            this.oneBlinkHttpClient = new OneBlinkHttpClient(
+            this.oneBlinkApiClient = new OneBlinkApiClient(
                 accessKey,
                 secretKey,
                 region: new Region(regionCode)
@@ -32,7 +32,7 @@ namespace OneBlink.SDK
 
         public FormsClient(string accessKey, string secretKey, string apiOrigin)
         {
-            this.oneBlinkHttpClient = new OneBlinkHttpClient(
+            this.oneBlinkApiClient = new OneBlinkApiClient(
                 accessKey,
                 secretKey,
                 region: new Region(apiOrigin: apiOrigin)
@@ -58,7 +58,7 @@ namespace OneBlink.SDK
         url = "/forms/" + formId + "/download-draft-data-credentials/" + submissionId;
 
       }
-      FormSubmissionRetrievalConfiguration formRetrievalData = await this.oneBlinkHttpClient.PostRequest<FormSubmissionRetrievalConfiguration>(url);
+      FormSubmissionRetrievalConfiguration formRetrievalData = await this.oneBlinkApiClient.PostRequest<FormSubmissionRetrievalConfiguration>(url);
       return await GetFormSubmission<T>(formRetrievalData);
     }
 
@@ -86,7 +86,7 @@ namespace OneBlink.SDK
         queryString += "name=" + name;
       }
       string url = "/forms?" + queryString;
-      return await this.oneBlinkHttpClient.GetRequest<FormsSearchResult>(url);
+      return await this.oneBlinkApiClient.GetRequest<FormsSearchResult>(url);
     }
 
     private async Task<FormSubmission<T>> GetFormSubmission<T>(FormSubmissionRetrievalConfiguration formRetrievalData)

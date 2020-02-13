@@ -11,11 +11,11 @@ namespace OneBlink.SDK
 {
     public class JobsClient
     {
-        OneBlinkHttpClient oneBlinkHttpClient;
+        OneBlinkApiClient oneBlinkApiClient;
 
         public JobsClient(string accessKey, string secretKey, RegionCode regionCode = RegionCode.AU)
         {
-            this.oneBlinkHttpClient = new OneBlinkHttpClient(
+            this.oneBlinkApiClient = new OneBlinkApiClient(
                 accessKey,
                 secretKey,
                 region: new Region(regionCode)
@@ -24,7 +24,7 @@ namespace OneBlink.SDK
 
         public JobsClient(string accessKey, string secretKey, string apiOrigin)
         {
-            this.oneBlinkHttpClient = new OneBlinkHttpClient(
+            this.oneBlinkApiClient = new OneBlinkApiClient(
                 accessKey,
                 secretKey,
                 region: new Region(apiOrigin: apiOrigin)
@@ -42,7 +42,7 @@ namespace OneBlink.SDK
 
             string url = $"/jobs/{jobId}";
 
-            await this.oneBlinkHttpClient.DeleteRequest(url);
+            await this.oneBlinkApiClient.DeleteRequest(url);
         }
 
         public async Task<Job> CreateJob(Job job)
@@ -149,7 +149,7 @@ namespace OneBlink.SDK
 
             string url = "/jobs?" + queryString;
 
-            return await this.oneBlinkHttpClient.GetRequest<JobsSearchResult>(url);
+            return await this.oneBlinkApiClient.GetRequest<JobsSearchResult>(url);
         }
 
 
@@ -158,7 +158,7 @@ namespace OneBlink.SDK
         {
             string url = "/jobs";
 
-            return await this.oneBlinkHttpClient.PostRequest<Job, Job>(url, job);
+            return await this.oneBlinkApiClient.PostRequest<Job, Job>(url, job);
         }
 
         private void _ValidateJob(Job job)
@@ -178,7 +178,7 @@ namespace OneBlink.SDK
         {
             string url = "/forms/" + formId.ToString() + "/pre-fill-credentials";
 
-            PreFillMeta preFillMeta = await this.oneBlinkHttpClient.PostRequest<PreFillMeta>(url);
+            PreFillMeta preFillMeta = await this.oneBlinkApiClient.PostRequest<PreFillMeta>(url);
 
             RegionEndpoint regionEndpoint = RegionEndpoint.GetBySystemName(preFillMeta.s3.region);
 
