@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+## Added
+
+-   [`searchSubmissions()`](./docs/forms-client.md) function
+
 ## 1.2.0 (2020-02-13)
 
 ### Added
