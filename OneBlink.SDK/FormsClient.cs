@@ -75,6 +75,32 @@ namespace OneBlink.SDK
       return await this.oneBlinkHttpClient.GetRequest<FormsSearchResult>(url);
     }
 
+    public async Task<FormSubmissionSearchResult> SearchSubmissions(int formId, DateTime? dateOfSubmissionStart, DateTime? dateOfSubmissionEnd)
+
+    {
+      string queryString = "formId=" + formId;
+
+      if (dateOfSubmissionStart.HasValue)
+      {
+        if (queryString != string.Empty)
+        {
+          queryString += "&";
+        }
+        queryString += "dateOfSubmissionStart=" + dateOfSubmissionStart.ToString();
+      }
+
+      if (dateOfSubmissionEnd.HasValue)
+      {
+        if (queryString != string.Empty)
+        {
+          queryString += "&";
+        }
+        queryString += "dateOfSubmissionEnd=" + dateOfSubmissionEnd.ToString();
+      }
+      string url = "/form-submission-meta?" + queryString;
+      return await this.oneBlinkHttpClient.GetRequest<FormSubmissionSearchResult>(url);
+    }
+
     private async Task<FormSubmission<T>> GetFormSubmission<T>(FormSubmissionRetrievalConfiguration formRetrievalData)
     {
       if (formRetrievalData == null || formRetrievalData.s3 == null || formRetrievalData.credentials == null)
