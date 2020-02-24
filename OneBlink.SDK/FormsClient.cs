@@ -75,7 +75,8 @@ namespace OneBlink.SDK
       return await this.oneBlinkHttpClient.GetRequest<FormsSearchResult>(url);
     }
 
-    public async Task<FormSubmissionSearchResult> SearchSubmisions(int formId, DateTime? dateOfSubmissionStart, DateTime? dateOfSubmissionEnd)
+    public async Task<FormSubmissionSearchResult> SearchSubmissions(int formId, DateTime? dateOfSubmissionStart, DateTime? dateOfSubmissionEnd)
+
     {
       string queryString = "formId=" + formId;
 
