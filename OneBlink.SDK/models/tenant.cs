@@ -3,24 +3,24 @@ using System;
 
 namespace OneBlink.SDK.Model
 {
-    public enum RegionCode {
-        AU,
-        US
+    public enum TenantName {
+        ONEBLINK,
+        CIVICPLUS
     };
-    internal class Region
+    internal class Tenant
     {
-        public Region(
-            RegionCode code = RegionCode.AU,
+        public Tenant(
+            TenantName name = TenantName.ONEBLINK,
             string apiOrigin = null,
             string pdfOrigin = null
         )
         {
-            this.code = code;
+            this.name = name;
             this.apiOrigin = apiOrigin;
             this.pdfOrigin = pdfOrigin;
         }
 
-        private RegionCode code;
+        private TenantName name;
         private string apiOrigin;
         private bool hasApiOrigin => !String.IsNullOrWhiteSpace(this.apiOrigin);
         private string pdfOrigin;
@@ -30,11 +30,11 @@ namespace OneBlink.SDK.Model
                 if (this.hasApiOrigin) {
                     return this.apiOrigin;
                 }
-                switch(this.code) {
-                    case RegionCode.AU:
+                switch(this.name) {
+                    case TenantName.ONEBLINK:
                         return "https://auth-api.blinkm.io";
-                    case RegionCode.US:
-                        return "https://us-auth-api.blinkm.io";
+                    case TenantName.CIVICPLUS:
+                        return "https://auth-api.transform.civicplus.com";
                     default:
                         return "https://auth-api.blinkm.io";
                 }
@@ -45,11 +45,11 @@ namespace OneBlink.SDK.Model
                 if (this.hasPdfOrigin) {
                     return this.pdfOrigin;
                 }
-                switch(this.code) {
-                    case RegionCode.AU:
+                switch(this.name) {
+                    case TenantName.ONEBLINK:
                         return "https://pdf.blinkm.io";
-                    case RegionCode.US:
-                        return "https://us-pdf.blinkm.io";
+                    case TenantName.CIVICPLUS:
+                        return "https://pdf.transform.civicplus.com";
                     default:
                         return "https://pdf.blinkm.io";
                 }

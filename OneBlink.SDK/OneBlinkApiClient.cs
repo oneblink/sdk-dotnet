@@ -8,12 +8,12 @@ namespace OneBlink.SDK
 {
   internal class OneBlinkApiClient : OneBlinkHttpClient
   {
-    private Region region;
+    private Tenant tenant;
 
-    public OneBlinkApiClient(string accessKey, string secretKey, Region region, int expiryInSeconds = 300)
+    public OneBlinkApiClient(string accessKey, string secretKey, Tenant tenant, int expiryInSeconds = 300)
       : base(accessKey, secretKey, expiryInSeconds)
     {
-      this.region = region ?? new Region(RegionCode.AU);
+      this.tenant = tenant ?? new Tenant(TenantName.ONEBLINK);
     }
 
     public async Task<T> PostRequest<T>(string path)
@@ -23,7 +23,7 @@ namespace OneBlink.SDK
 
     public async Task<Tout> PostRequest<T, Tout>(string path, T t)
     {
-      HttpRequestMessage httpRequestMessage = new HttpRequestMessage(HttpMethod.Post, region.oneBlinkAPIOrigin + path);
+      HttpRequestMessage httpRequestMessage = new HttpRequestMessage(HttpMethod.Post, tenant.oneBlinkAPIOrigin + path);
       if (t != null)
       {
         string jsonPayload = JsonConvert.SerializeObject(t);
@@ -34,13 +34,13 @@ namespace OneBlink.SDK
 
     public async Task<T> GetRequest<T>(string path)
     {
-      HttpRequestMessage httpRequestMessage = new HttpRequestMessage(HttpMethod.Get, region.oneBlinkAPIOrigin + path);
+      HttpRequestMessage httpRequestMessage = new HttpRequestMessage(HttpMethod.Get, tenant.oneBlinkAPIOrigin + path);
       return await SendRequest<T>(httpRequestMessage);
     }
 
     public async Task<HttpContent> DeleteRequest(string path)
     {
-      HttpRequestMessage httpRequestMessage = new HttpRequestMessage(HttpMethod.Delete, region.oneBlinkAPIOrigin + path);
+      HttpRequestMessage httpRequestMessage = new HttpRequestMessage(HttpMethod.Delete, tenant.oneBlinkAPIOrigin + path);
       return await SendRequest(httpRequestMessage);
     }
   }

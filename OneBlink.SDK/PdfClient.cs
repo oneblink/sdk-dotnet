@@ -7,12 +7,12 @@ namespace OneBlink.SDK
   {
     private OneBlinkPdfClient oneBlinkPdfClient;
 
-    public PdfClient(string accessKey, string secretKey, RegionCode regionCode = RegionCode.AU)
+    public PdfClient(string accessKey, string secretKey, TenantName tenantName = TenantName.ONEBLINK)
         {
             this.oneBlinkPdfClient = new OneBlinkPdfClient(
                 accessKey,
                 secretKey,
-                region: new Region(regionCode)
+                tenant: new Tenant(tenantName)
             );
         }
 
@@ -21,7 +21,7 @@ namespace OneBlink.SDK
             this.oneBlinkPdfClient = new OneBlinkPdfClient(
                 accessKey,
                 secretKey,
-                region: new Region(pdfOrigin: apiOrigin)
+                tenant: new Tenant(pdfOrigin: apiOrigin)
             );
         }
 

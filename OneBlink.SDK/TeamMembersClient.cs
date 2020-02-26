@@ -9,12 +9,12 @@ namespace OneBlink.SDK
   {
     OneBlinkApiClient oneBlinkApiClient;
 
-    public TeamMembersClient(string accessKey, string secretKey, RegionCode regionCode = RegionCode.AU)
+    public TeamMembersClient(string accessKey, string secretKey, TenantName tenantName = TenantName.ONEBLINK)
         {
             this.oneBlinkApiClient = new OneBlinkApiClient(
                 accessKey,
                 secretKey,
-                region: new Region(regionCode)
+                tenant: new Tenant(tenantName)
             );
         }
 
@@ -23,7 +23,7 @@ namespace OneBlink.SDK
             this.oneBlinkApiClient = new OneBlinkApiClient(
                 accessKey,
                 secretKey,
-                region: new Region(apiOrigin: apiOrigin)
+                tenant: new Tenant(apiOrigin: apiOrigin)
             );
         }
 
