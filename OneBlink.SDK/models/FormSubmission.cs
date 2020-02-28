@@ -1,5 +1,6 @@
 using System;
 using Newtonsoft.Json;
+using System.Collections.Generic;
 
 namespace OneBlink.SDK.Model
 {
@@ -178,5 +179,52 @@ namespace OneBlink.SDK.Model
     /// </summary>
     [JsonProperty]
     public FormSubmissionDevice device { get; internal set; }
+  }
+
+  public class FormSubmissionSupervisor
+  {
+    [JsonProperty]
+    public string email { get; internal set; }
+    [JsonProperty]
+    public string fullName { get; internal set; }
+    [JsonProperty]
+    public string providerUserId { get; internal set; }
+  }
+
+  public class FormSubmissionMetaUserDetails : FormSubmissionUser
+  {
+    [JsonProperty]
+    public FormSubmissionSupervisor supervisor { get; internal set; }
+
+  }
+
+  public class FormSubmissionMetaKey
+  {
+    [JsonProperty]
+    public string id { get; internal set; }
+    [JsonProperty]
+    public string name { get; internal set; }
+  }
+
+  public class FormSubmissionMetadata
+  {
+    [JsonProperty]
+    public string submissionId { get; internal set; }
+    [JsonProperty]
+    public int formId { get; internal set; }
+    [JsonProperty]
+    public string formName { get; internal set; }
+    [JsonProperty]
+    public string dateTimeSubmitted { get; internal set; }
+    [JsonProperty]
+    public FormSubmissionMetaUserDetails user { get; internal set; }
+    [JsonProperty]
+    public FormSubmissionMetaKey key { get; internal set; }
+  }
+
+  public class FormSubmissionSearchResult : SearchResult
+  {
+    [JsonProperty]
+    public List<FormSubmissionMetadata> formSubmissionMeta { get; internal set; }
   }
 }

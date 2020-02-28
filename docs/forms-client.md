@@ -79,3 +79,34 @@ OneBlink.SDK.Model.FormsSearchResult response = await formsClient.Search(isAuthe
 ### Result
 
 A `FormsSearchResult` class
+
+## `SearchSubmissions()`
+
+Search for details on submissions that match the search parameters.
+Then use the information to fetch the actual submission data, if it is still available
+
+### Example
+
+```c#
+
+int? formId = 123;
+DateTime submissionDateStart = DateTime.Now;
+OneBlink.SDK.Model.FormSubmissionSearchResult response = await formsClient.SearchSubmissions(formId, submissionDateStart);
+```
+
+### Parameters
+
+| Parameter            | Required | Type        | Description                                     |
+| -------------------- | -------- | ----------- | ----------------------------------------------- |
+| `formId`             | Yes      | `int`       | Search for Submissions for a particular form Id |
+| `submissionDateFrom` | No       | `DateTime?` | Search for Submissions starting at this date    |
+| `submissionDateTo`   | No       | `DateTime?` | Search for Submissions ending on this date      |
+
+### Throws
+
+-   `OneBlinkAPIException`
+-   `Exception`
+
+### Result
+
+A `FormSubmissionSearchResult` class

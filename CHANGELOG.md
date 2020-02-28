@@ -8,7 +8,8 @@
 
 ### Added
 
--   Support for region selection when instantiating a client
+-   Support for tenant selection when instantiating a client
+-   [`searchSubmissions()`](./docs/forms-client.md) function
 
 ## 1.2.0 (2020-02-13)
 
