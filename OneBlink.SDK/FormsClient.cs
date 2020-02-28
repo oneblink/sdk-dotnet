@@ -19,12 +19,26 @@ namespace OneBlink.SDK
 {
   public class FormsClient
   {
-    OneBlinkHttpClient oneBlinkHttpClient;
+    OneBlinkApiClient oneBlinkApiClient;
 
-    public FormsClient(string accessKey, string secretKey)
-    {
-      this.oneBlinkHttpClient = new OneBlinkHttpClient(accessKey, secretKey);
-    }
+    public FormsClient(string accessKey, string secretKey, TenantName tenantName = TenantName.ONEBLINK)
+        {
+            this.oneBlinkApiClient = new OneBlinkApiClient(
+                accessKey,
+                secretKey,
+                tenant: new Tenant(tenantName)
+            );
+        }
+
+        public FormsClient(string accessKey, string secretKey, string apiOrigin)
+        {
+            this.oneBlinkApiClient = new OneBlinkApiClient(
+                accessKey,
+                secretKey,
+                tenant: new Tenant(apiOrigin: apiOrigin)
+            );
+        }
+
 
     public async Task<FormSubmission<T>> GetFormSubmission<T>(int formId, string submissionId)
     {
@@ -44,7 +58,7 @@ namespace OneBlink.SDK
         url = "/forms/" + formId + "/download-draft-data-credentials/" + submissionId;
 
       }
-      FormSubmissionRetrievalConfiguration formRetrievalData = await this.oneBlinkHttpClient.PostRequest<FormSubmissionRetrievalConfiguration>(url);
+      FormSubmissionRetrievalConfiguration formRetrievalData = await this.oneBlinkApiClient.PostRequest<FormSubmissionRetrievalConfiguration>(url);
       return await GetFormSubmission<T>(formRetrievalData);
     }
 
@@ -72,7 +86,7 @@ namespace OneBlink.SDK
         queryString += "name=" + name;
       }
       string url = "/forms?" + queryString;
-      return await this.oneBlinkHttpClient.GetRequest<FormsSearchResult>(url);
+      return await this.oneBlinkApiClient.GetRequest<FormsSearchResult>(url);
     }
 
     public async Task<FormSubmissionSearchResult> SearchSubmissions(int formId, DateTime? dateOfSubmissionStart, DateTime? dateOfSubmissionEnd)
@@ -98,7 +112,7 @@ namespace OneBlink.SDK
         queryString += "dateOfSubmissionEnd=" + dateOfSubmissionEnd.ToString();
       }
       string url = "/form-submission-meta?" + queryString;
-      return await this.oneBlinkHttpClient.GetRequest<FormSubmissionSearchResult>(url);
+      return await this.oneBlinkApiClient.GetRequest<FormSubmissionSearchResult>(url);
     }
 
     private async Task<FormSubmission<T>> GetFormSubmission<T>(FormSubmissionRetrievalConfiguration formRetrievalData)

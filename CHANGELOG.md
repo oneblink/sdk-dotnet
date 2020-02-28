@@ -2,8 +2,13 @@
 
 ## Unreleased
 
-## Added
+### Removed
 
+-   Support for overriding api and pdf urls through .env variables
+
+### Added
+
+-   Support for tenant selection when instantiating a client
 -   [`searchSubmissions()`](./docs/forms-client.md) function
 
 ## 1.2.0 (2020-02-13)

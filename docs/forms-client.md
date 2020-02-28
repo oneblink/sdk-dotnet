@@ -7,11 +7,12 @@
 
 ## Constructor
 
-| Parameter         | Required | Type     | Description                      | Default Value |
-| ----------------- | -------- | -------- | -------------------------------- | ------------- |
-| `accessKey`       | Yes      | `string` | Access key provided by OneBlink. |               |
-| `secretKey`       | Yes      | `string` | Secret key provided by OneBlink. |               |
-| `expiryInSeconds` | No       | `int`    | Secret key provided by OneBlink. | 300           |
+| Parameter    | Required | Type         | Description                                                                    | Default Value       |
+| ------------ | -------- | ------------ | ------------------------------------------------------------------------------ | ------------------- |
+| `accessKey`  | Yes      | `string`     | Access key provided by OneBlink.                                               |                     |
+| `secretKey`  | Yes      | `string`     | Secret key provided by OneBlink.                                               |                     |
+| `tenantName` | No       | `TenantName` | Sets the url to be used. Options are `RegionCode.AU` and `RegionCode.US`.      | TenantName.ONEBLINK |
+| `originApi`  | No       | `string`     | Url to override the apiOrigin. Cannot be used in conjunction with `RegionCode` |                     |
 
 ### Example
 

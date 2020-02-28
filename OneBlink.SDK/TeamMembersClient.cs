@@ -7,12 +7,26 @@ namespace OneBlink.SDK
 {
   public class TeamMembersClient
   {
-    OneBlinkHttpClient oneBlinkHttpClient;
+    OneBlinkApiClient oneBlinkApiClient;
 
-    public TeamMembersClient(string accessKey, string secretKey)
-    {
-      this.oneBlinkHttpClient = new OneBlinkHttpClient(accessKey, secretKey);
-    }
+    public TeamMembersClient(string accessKey, string secretKey, TenantName tenantName = TenantName.ONEBLINK)
+        {
+            this.oneBlinkApiClient = new OneBlinkApiClient(
+                accessKey,
+                secretKey,
+                tenant: new Tenant(tenantName)
+            );
+        }
+
+        public TeamMembersClient(string accessKey, string secretKey, string apiOrigin)
+        {
+            this.oneBlinkApiClient = new OneBlinkApiClient(
+                accessKey,
+                secretKey,
+                tenant: new Tenant(apiOrigin: apiOrigin)
+            );
+        }
+
 
     public async Task<Role> GetTeamMemberRole(string email)
     {
@@ -22,7 +36,7 @@ namespace OneBlink.SDK
       }
 
       string url = "/permissions?email=" + email;
-      PermissionSearchResult permissionSearchResult = await this.oneBlinkHttpClient.GetRequest<PermissionSearchResult>(url);
+      PermissionSearchResult permissionSearchResult = await this.oneBlinkApiClient.GetRequest<PermissionSearchResult>(url);
       Permission permission = permissionSearchResult.permissions.FirstOrDefault();
       if (permission == null || permission.links == null || permission.links.role == null)
       {
