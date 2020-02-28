@@ -112,7 +112,7 @@ namespace OneBlink.SDK
         queryString += "dateOfSubmissionEnd=" + dateOfSubmissionEnd.ToString();
       }
       string url = "/form-submission-meta?" + queryString;
-      return await this.oneBlinkHttpClient.GetRequest<FormSubmissionSearchResult>(url);
+      return await this.oneBlinkApiClient.GetRequest<FormSubmissionSearchResult>(url);
     }
 
     private async Task<FormSubmission<T>> GetFormSubmission<T>(FormSubmissionRetrievalConfiguration formRetrievalData)
