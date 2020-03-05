@@ -80,9 +80,9 @@ OneBlink.SDK.Model.FormsSearchResult response = await formsClient.Search(isAuthe
 
 A `FormsSearchResult` class
 
-## `SearchSubmissions()`
+## `SearchSubmissions(int formId)`
 
-Search for details on submissions that match the search parameters.
+Search for details on submissions that match the formId provided.
 Then use the information to fetch the actual submission data, if it is still available
 
 ### Example
@@ -90,17 +90,118 @@ Then use the information to fetch the actual submission data, if it is still ava
 ```c#
 
 int? formId = 123;
-DateTime submissionDateStart = DateTime.Now;
-OneBlink.SDK.Model.FormSubmissionSearchResult response = await formsClient.SearchSubmissions(formId, submissionDateStart);
+
+OneBlink.SDK.Model.FormSubmissionSearchResult response = await formsClient.SearchSubmissions(formId);
 ```
 
 ### Parameters
 
-| Parameter            | Required | Type        | Description                                     |
-| -------------------- | -------- | ----------- | ----------------------------------------------- |
-| `formId`             | Yes      | `int`       | Search for Submissions for a particular form Id |
-| `submissionDateFrom` | No       | `DateTime?` | Search for Submissions starting at this date    |
-| `submissionDateTo`   | No       | `DateTime?` | Search for Submissions ending on this date      |
+| Parameter | Required | Type  | Description                                     |
+| --------- | -------- | ----- | ----------------------------------------------- |
+| `formId`  | Yes      | `int` | Search for Submissions for a particular form Id |
+
+### Throws
+
+-   `OneBlinkAPIException`
+-   `Exception`
+
+### Result
+
+A `FormSubmissionSearchResult` class
+
+## `SearchSubmissions(int formId, DateTime submissionDateFrom, DateTime submissionDateTo)`
+
+Search for details on submissions for a particular formId that occurred between the given dates.
+Then use the information to fetch the actual submission data, if it is still available.
+
+### Example
+
+```c#
+
+int? formId = 123;
+
+DateTime submissionDateTo = DateTime.Now;
+
+TimeSpan week = new TimeSpan(7, 0, 0, 0);
+
+DateTime submissionDateFrom = DateTime.Now.Subtract(week);
+
+OneBlink.SDK.Model.FormSubmissionSearchResult response = await formsClient.SearchSubmissions(formId, submissionDateFrom, submissionDateTo);
+```
+
+### Parameters
+
+| Parameter            | Required | Type        | Description                                                        |
+| -------------------- | -------- | ----------- | ------------------------------------------------------------------ |
+| `formId`             | Yes      | `int`       | Search for Submissions for a particular form Id                    |
+| `submissionDateFrom` | No       | `DateTime?` | Limit results to submissions submitted **after** a date and time.  |
+| `submissionDateTo`   | No       | `DateTime?` | Limit results to submissions submitted **before** a date and time. |
+
+### Throws
+
+-   `OneBlinkAPIException`
+-   `Exception`
+
+### Result
+
+A `FormSubmissionSearchResult` class
+
+## `SearchSubmissionsFromDate(int formId, DateTime submissionDateFrom)`
+
+Search for details on submissions for a particular formId that occurred **after** a given date.
+Then use the information to fetch the actual submission data, if it is still available.
+
+### Example
+
+```c#
+
+int? formId = 123;
+
+TimeSpan week = new TimeSpan(7, 0, 0, 0);
+
+DateTime submissionDateFrom = DateTime.Now.Subtract(week);
+
+OneBlink.SDK.Model.FormSubmissionSearchResult response = await formsClient.SearchSubmissions(formId, submissionDateFrom);
+```
+
+### Parameters
+
+| Parameter            | Required | Type        | Description                                                       |
+| -------------------- | -------- | ----------- | ----------------------------------------------------------------- |
+| `formId`             | Yes      | `int`       | Search for Submissions for a particular form Id                   |
+| `submissionDateFrom` | No       | `DateTime?` | Limit results to submissions submitted **after** a date and time. |
+
+### Throws
+
+-   `OneBlinkAPIException`
+-   `Exception`
+
+### Result
+
+A `FormSubmissionSearchResult` class
+
+## `SearchSubmissionsToDate(int formId, DateTime submissionDateTo)`
+
+Search for details on submissions for a particular formId that occurred **before** a given date.
+Then use the information to fetch the actual submission data, if it is still available.
+
+### Example
+
+```c#
+
+int? formId = 123;
+
+DateTime submissionDateTo = DateTime.Now;
+
+OneBlink.SDK.Model.FormSubmissionSearchResult response = await formsClient.SearchSubmissions(formId, submissionDateTo);
+```
+
+### Parameters
+
+| Parameter          | Required | Type        | Description                                                        |
+| ------------------ | -------- | ----------- | ------------------------------------------------------------------ |
+| `formId`           | Yes      | `int`       | Search for Submissions for a particular form Id                    |
+| `submissionDateTo` | No       | `DateTime?` | Limit results to submissions submitted **before** a date and time. |
 
 ### Throws
 
