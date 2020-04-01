@@ -96,9 +96,11 @@ OneBlink.SDK.Model.FormSubmissionSearchResult response = await formsClient.Searc
 
 ### Parameters
 
-| Parameter | Required | Type  | Description                                     |
-| --------- | -------- | ----- | ----------------------------------------------- |
-| `formId`  | Yes      | `int` | Search for Submissions for a particular form Id |
+| Parameter | Required | Type   | Description                                                                                         |
+| --------- | -------- | ------ | --------------------------------------------------------------------------------------------------- |
+| `formId`  | Yes      | `int`  | Search for Submissions for a particular form Id                                                     |
+| `limit`   | no       | `int` | Limit the number of results returned. Can be used with `offset` to enforce pagination.              |
+| `offset`  | no       | `int` | Offset the results returned by the value specified. Can be used with `limit` to enforce pagination. |
 
 ### Throws
 
@@ -131,11 +133,13 @@ OneBlink.SDK.Model.FormSubmissionSearchResult response = await formsClient.Searc
 
 ### Parameters
 
-| Parameter            | Required | Type        | Description                                                        |
-| -------------------- | -------- | ----------- | ------------------------------------------------------------------ |
-| `formId`             | Yes      | `int`       | Search for Submissions for a particular form Id                    |
-| `submissionDateFrom` | No       | `DateTime?` | Limit results to submissions submitted **after** a date and time.  |
-| `submissionDateTo`   | No       | `DateTime?` | Limit results to submissions submitted **before** a date and time. |
+| Parameter            | Required | Type        | Description                                                                                         |
+| -------------------- | -------- | ----------- | --------------------------------------------------------------------------------------------------- |
+| `formId`             | Yes      | `int`       | Search for Submissions for a particular form Id                                                     |
+| `submissionDateFrom` | No       | `DateTime?` | Limit results to submissions submitted **after** a date and time.                                   |
+| `submissionDateTo`   | No       | `DateTime?` | Limit results to submissions submitted **before** a date and time.                                  |
+| `limit`              | no       | `int`      | Limit the number of results returned. Can be used with `offset` to enforce pagination.              |
+| `offset`             | no       | `int`      | Offset the results returned by the value specified. Can be used with `limit` to enforce pagination. |
 
 ### Throws
 
@@ -166,10 +170,12 @@ OneBlink.SDK.Model.FormSubmissionSearchResult response = await formsClient.Searc
 
 ### Parameters
 
-| Parameter            | Required | Type        | Description                                                       |
-| -------------------- | -------- | ----------- | ----------------------------------------------------------------- |
-| `formId`             | Yes      | `int`       | Search for Submissions for a particular form Id                   |
-| `submissionDateFrom` | No       | `DateTime?` | Limit results to submissions submitted **after** a date and time. |
+| Parameter            | Required | Type        | Description                                                                                         |
+| -------------------- | -------- | ----------- | --------------------------------------------------------------------------------------------------- |
+| `formId`             | Yes      | `int`       | Search for Submissions for a particular form Id                                                     |
+| `submissionDateFrom` | No       | `DateTime?` | Limit results to submissions submitted **after** a date and time.                                   |
+| `limit`              | no       | `int`      | Limit the number of results returned. Can be used with `offset` to enforce pagination.              |
+| `offset`             | no       | `int`      | Offset the results returned by the value specified. Can be used with `limit` to enforce pagination. |
 
 ### Throws
 
@@ -198,10 +204,12 @@ OneBlink.SDK.Model.FormSubmissionSearchResult response = await formsClient.Searc
 
 ### Parameters
 
-| Parameter          | Required | Type        | Description                                                        |
-| ------------------ | -------- | ----------- | ------------------------------------------------------------------ |
-| `formId`           | Yes      | `int`       | Search for Submissions for a particular form Id                    |
-| `submissionDateTo` | No       | `DateTime?` | Limit results to submissions submitted **before** a date and time. |
+| Parameter          | Required | Type        | Description                                                                                         |
+| ------------------ | -------- | ----------- | --------------------------------------------------------------------------------------------------- |
+| `formId`           | Yes      | `int`       | Search for Submissions for a particular form Id                                                     |
+| `submissionDateTo` | No       | `DateTime?` | Limit results to submissions submitted **before** a date and time.                                  |
+| `limit`            | no       | `int`      | Limit the number of results returned. Can be used with `offset` to enforce pagination.              |
+| `offset`           | no       | `int`      | Offset the results returned by the value specified. Can be used with `limit` to enforce pagination. |
 
 ### Throws
 

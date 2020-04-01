@@ -89,23 +89,22 @@ namespace OneBlink.SDK
             return await this.oneBlinkApiClient.GetRequest<FormsSearchResult>(url);
         }
 
-        public async Task<FormSubmissionSearchResult> SearchSubmissions(int formId)
+        public async Task<FormSubmissionSearchResult> SearchSubmissions(int formId, int limit = 0, int offset = 0)
         {
-            return await SearchSubmissions(formId, null, null);
+            return await SearchSubmissions(formId, null, null, limit, offset);
         }
 
-        public async Task<FormSubmissionSearchResult> SearchSubmissionsFromDate(int formId, DateTime? submissionDateFrom)
+        public async Task<FormSubmissionSearchResult> SearchSubmissionsFromDate(int formId, DateTime? submissionDateFrom, int limit = 0, int offset = 0)
         {
-            return await SearchSubmissions(formId, submissionDateFrom, null);
+            return await SearchSubmissions(formId, submissionDateFrom, null, limit, offset);
         }
 
-        public async Task<FormSubmissionSearchResult> SearchSubmissionsToDate(int formId, DateTime? submissionDateTo)
+        public async Task<FormSubmissionSearchResult> SearchSubmissionsToDate(int formId, DateTime? submissionDateTo, int limit = 0, int offset = 0)
         {
-            return await SearchSubmissions(formId, null, submissionDateTo);
+            return await SearchSubmissions(formId, null, submissionDateTo, limit, offset);
         }
 
-        public async Task<FormSubmissionSearchResult> SearchSubmissions(int formId, DateTime? submissionDateFrom, DateTime? submissionDateTo)
-
+        public async Task<FormSubmissionSearchResult> SearchSubmissions(int formId, DateTime? submissionDateFrom, DateTime? submissionDateTo, int limit = 0, int offset = 0)
         {
             string queryString = "formId=" + formId;
 
@@ -126,6 +125,26 @@ namespace OneBlink.SDK
                 }
 
                 queryString += "submissionDateTo=" + ((DateTime) submissionDateTo).ToString("yyyy-MM-ddTHH:mm:ssZ");
+            }
+
+            if (limit != 0)
+            {
+                if (queryString != string.Empty)
+                {
+                    queryString += "&";
+                }
+
+                queryString += "limit=" + limit;
+            }
+
+            if (offset != 0)
+            {
+                if (queryString != string.Empty)
+                {
+                    queryString += "&";
+                }
+
+                queryString += "offset=" + offset;
             }
 
             string url = "/form-submission-meta?" + queryString;
