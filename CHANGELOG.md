@@ -10,6 +10,7 @@
 
 -   Support for tenant selection when instantiating a client
 -   [`searchSubmissions()`](./docs/forms-client.md) function
+-   `limit` and `offset` parameters to `searchSubmissions()`
 
 ## 1.2.0 (2020-02-13)
 
