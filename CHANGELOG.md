@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 1.3.0 (2020-04-06)
+
 ### Removed
 
 -   Support for overriding api and pdf urls through .env variables
