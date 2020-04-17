@@ -11,12 +11,12 @@
     <Title>OneBlink SDK</Title>
     <Description>.Net version of the OneBlink SDK</Description>
     <PackageProjectUrl>https://oneblink.io</PackageProjectUrl>
-    <PackageLicenseUrl>https://github.com/blinkmobile/oneblink-sdk-dotnet/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageLicenseUrl>https://github.com/oneblink/sdk-dotnet/blob/master/LICENSE</PackageLicenseUrl>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <PackageReleaseNotes>https://github.com/blinkmobile/oneblink-sdk-dotnet/blob/master/CHANGELOG.md</PackageReleaseNotes>
-    <Copyright>Copyright (c) 2019 OneBlink</Copyright>
+    <PackageReleaseNotes>https://github.com/oneblink/sdk-dotnet/blob/master/CHANGELOG.md</PackageReleaseNotes>
+    <Copyright>Copyright (c) 2020 OneBlink</Copyright>
     <PackageTags>OneBlink;Forms</PackageTags>
-    <RepositoryUrl>https://github.com/blinkmobile/oneblink-sdk-dotnet</RepositoryUrl>
+    <RepositoryUrl>https://github.com/oneblink/sdk-dotnet</RepositoryUrl>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>

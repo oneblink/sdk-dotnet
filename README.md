@@ -1,6 +1,4 @@
-# OneBlink .Net SDK
-
-[![NuGet Version](https://badge.fury.io/nu/OneBlink.SDK.svg)](https://badge.fury.io/nu/OneBlink.SDK) [![Build Status](https://travis-ci.org/blinkmobile/oneblink-sdk-dotnet.svg?branch=master)](https://travis-ci.org/blinkmobile/oneblink-sdk-dotnet)
+# OneBlink .Net SDK [![NuGet Version](https://badge.fury.io/nu/OneBlink.SDK.svg)](https://badge.fury.io/nu/OneBlink.SDK) [![Build Status](https://travis-ci.org/oneblink/sdk-dotnet.svg?branch=master)](https://travis-ci.org/oneblink/sdk-dotnet)
 
 .Net version of the OneBlink SDK
 
@@ -16,9 +14,9 @@ dotnet add package OneBlink.SDK
 
 ## Usage
 
-- [Usage Documentation](./docs/README.md)
+-   [Usage Documentation](./docs/README.md)
 
 ## Internal Documentation
 
-- [Development](./docs/development.md)
-- [Deployment](./docs/deployment.md)
+-   [Development](./docs/development.md)
+-   [Deployment](./docs/deployment.md)
