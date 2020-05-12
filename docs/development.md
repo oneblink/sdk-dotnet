@@ -6,7 +6,7 @@
 
 ## Configuring Local Scripts
 
-Create a file called `.env` in the root directory with the following values configured:
+Create a file called `.env` in the root directory with the following values configured (NOTE: Keys are available from 1Blink E2E Tests (DO NOT DELETE) organisation in https://console-test.oneblink.io/):
 
 ```sh
 ACCESS_KEY=YOUR_ACCESS_KEY
