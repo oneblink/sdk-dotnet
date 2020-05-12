@@ -96,9 +96,9 @@ OneBlink.SDK.Model.FormSubmissionSearchResult response = await formsClient.Searc
 
 ### Parameters
 
-| Parameter | Required | Type   | Description                                                                                         |
-| --------- | -------- | ------ | --------------------------------------------------------------------------------------------------- |
-| `formId`  | Yes      | `int`  | Search for Submissions for a particular form Id                                                     |
+| Parameter | Required | Type  | Description                                                                                         |
+| --------- | -------- | ----- | --------------------------------------------------------------------------------------------------- |
+| `formId`  | Yes      | `int` | Search for Submissions for a particular form Id                                                     |
 | `limit`   | no       | `int` | Limit the number of results returned. Can be used with `offset` to enforce pagination.              |
 | `offset`  | no       | `int` | Offset the results returned by the value specified. Can be used with `limit` to enforce pagination. |
 
@@ -138,8 +138,8 @@ OneBlink.SDK.Model.FormSubmissionSearchResult response = await formsClient.Searc
 | `formId`             | Yes      | `int`       | Search for Submissions for a particular form Id                                                     |
 | `submissionDateFrom` | No       | `DateTime?` | Limit results to submissions submitted **after** a date and time.                                   |
 | `submissionDateTo`   | No       | `DateTime?` | Limit results to submissions submitted **before** a date and time.                                  |
-| `limit`              | no       | `int`      | Limit the number of results returned. Can be used with `offset` to enforce pagination.              |
-| `offset`             | no       | `int`      | Offset the results returned by the value specified. Can be used with `limit` to enforce pagination. |
+| `limit`              | no       | `int`       | Limit the number of results returned. Can be used with `offset` to enforce pagination.              |
+| `offset`             | no       | `int`       | Offset the results returned by the value specified. Can be used with `limit` to enforce pagination. |
 
 ### Throws
 
@@ -174,8 +174,8 @@ OneBlink.SDK.Model.FormSubmissionSearchResult response = await formsClient.Searc
 | -------------------- | -------- | ----------- | --------------------------------------------------------------------------------------------------- |
 | `formId`             | Yes      | `int`       | Search for Submissions for a particular form Id                                                     |
 | `submissionDateFrom` | No       | `DateTime?` | Limit results to submissions submitted **after** a date and time.                                   |
-| `limit`              | no       | `int`      | Limit the number of results returned. Can be used with `offset` to enforce pagination.              |
-| `offset`             | no       | `int`      | Offset the results returned by the value specified. Can be used with `limit` to enforce pagination. |
+| `limit`              | no       | `int`       | Limit the number of results returned. Can be used with `offset` to enforce pagination.              |
+| `offset`             | no       | `int`       | Offset the results returned by the value specified. Can be used with `limit` to enforce pagination. |
 
 ### Throws
 
@@ -208,8 +208,8 @@ OneBlink.SDK.Model.FormSubmissionSearchResult response = await formsClient.Searc
 | ------------------ | -------- | ----------- | --------------------------------------------------------------------------------------------------- |
 | `formId`           | Yes      | `int`       | Search for Submissions for a particular form Id                                                     |
 | `submissionDateTo` | No       | `DateTime?` | Limit results to submissions submitted **before** a date and time.                                  |
-| `limit`            | no       | `int`      | Limit the number of results returned. Can be used with `offset` to enforce pagination.              |
-| `offset`           | no       | `int`      | Offset the results returned by the value specified. Can be used with `limit` to enforce pagination. |
+| `limit`            | no       | `int`       | Limit the number of results returned. Can be used with `offset` to enforce pagination.              |
+| `offset`           | no       | `int`       | Offset the results returned by the value specified. Can be used with `limit` to enforce pagination. |
 
 ### Throws
 
@@ -219,3 +219,111 @@ OneBlink.SDK.Model.FormSubmissionSearchResult response = await formsClient.Searc
 ### Result
 
 A `FormSubmissionSearchResult` class
+
+## `Get(int id, Boolean? injectForms)`
+
+Retrieve a form by id and optionally include the details of any child form elements
+
+### Example
+
+```c#
+int id = 123;
+
+OneBlink.SDK.Model.Form form = await formsClient.Get(id, false);
+```
+
+### Parameters
+
+| Parameter     | Required | Type       | Description                                               |
+| ------------- | -------- | ---------- | --------------------------------------------------------- |
+| `id`          | Yes      | `int`      | Id of form to be retrieved                                |
+| `injectForms` | No       | `Boolean?` | Optionally include the details of any child form elements |
+
+### Throws
+
+-   `OneBlinkAPIException`
+-   `Exception`
+
+### Result
+
+A `Form` class
+
+## `Create(Form newForm)`
+
+Create a new form
+
+### Example
+
+```c#
+Form newForm = {...};
+
+OneBlink.SDK.Model.Form savedForm = await formsClient.Create(newForm);
+```
+
+### Parameters
+
+| Parameter | Required | Type   | Description     |
+| --------- | -------- | ------ | --------------- |
+| `newForm` | Yes      | `Form` | New Form object |
+
+### Throws
+
+-   `OneBlinkAPIException`
+-   `Exception`
+
+### Result
+
+A `Form` class
+
+## `Update(Form newForm)`
+
+Update a new form
+
+### Example
+
+```c#
+Form formToUpdate = {...};
+
+OneBlink.SDK.Model.Form updatedForm = await formsClient.Update(formToUpdate);
+```
+
+### Parameters
+
+| Parameter      | Required | Type   | Description          |
+| -------------- | -------- | ------ | -------------------- |
+| `formToUpdate` | Yes      | `Form` | Existing Form object |
+
+### Throws
+
+-   `OneBlinkAPIException`
+-   `Exception`
+
+### Result
+
+A `Form` class
+
+## `Delete(int id)`
+
+### Example
+
+```c#
+string jobId = 1;
+
+await formsClient.Delete(int id);
+```
+
+### Parameters
+
+| Parameter | Required | Type  | Description                              |
+| --------- | -------- | ----- | ---------------------------------------- |
+| `id`      | Yes      | `int` | The identifier of the Form to be deleted |
+|           |
+
+### Throws
+
+-   `OneBlinkAPIException`
+-   `Exception`
+
+### Result
+
+No return value (`void`)

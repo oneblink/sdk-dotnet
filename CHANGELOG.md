@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Added
+
+-   CRUD methods to [`FormsClient`](./docs/forms-client.md)
+
 ## 1.3.0 (2020-04-06)
 
 ### Removed

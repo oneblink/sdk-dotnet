@@ -114,7 +114,7 @@ namespace OneBlink.SDK
                 {
                     queryString += "&";
                 }
-                queryString += "submissionDateFrom=" + ((DateTime) submissionDateFrom).ToString("yyyy-MM-ddTHH:mm:ssZ");
+                queryString += "submissionDateFrom=" + ((DateTime)submissionDateFrom).ToString("yyyy-MM-ddTHH:mm:ssZ");
             }
 
             if (submissionDateTo.HasValue)
@@ -124,7 +124,7 @@ namespace OneBlink.SDK
                     queryString += "&";
                 }
 
-                queryString += "submissionDateTo=" + ((DateTime) submissionDateTo).ToString("yyyy-MM-ddTHH:mm:ssZ");
+                queryString += "submissionDateTo=" + ((DateTime)submissionDateTo).ToString("yyyy-MM-ddTHH:mm:ssZ");
             }
 
             if (limit != 0)
@@ -151,6 +151,36 @@ namespace OneBlink.SDK
             return await this.oneBlinkApiClient.GetRequest<FormSubmissionSearchResult>(url);
         }
 
+        public async Task<Form> Get(int id, Boolean? injectForms)
+        {
+            string queryString = string.Empty;
+            if (injectForms.HasValue)
+            {
+                queryString += "injectForms" + injectForms.ToString();
+            }
+            string url = "/forms/" + id.ToString() + "?" + queryString;
+            return await this.oneBlinkApiClient.GetRequest<Form>(url);
+        }
+
+        public async Task<Form> Create(Form newForm)
+        {
+            string url = "/forms";
+            Form form = await this.oneBlinkApiClient.PostRequest<Form, Form>(url, newForm);
+            return form;
+        }
+
+        public async Task<Form> Update(Form formToUpdate)
+        {
+            string url = "/forms/" + formToUpdate.id.ToString();
+            Form form = await this.oneBlinkApiClient.PutRequest<Form, Form>(url, formToUpdate);
+            return form;
+        }
+
+        public async Task Delete(int id)
+        {
+            string url = "/forms/" + id.ToString();
+            await this.oneBlinkApiClient.DeleteRequest(url);
+        }
         private async Task<FormSubmission<T>> GetFormSubmission<T>(FormSubmissionRetrievalConfiguration formRetrievalData)
         {
             if (formRetrievalData == null || formRetrievalData.s3 == null || formRetrievalData.credentials == null)
