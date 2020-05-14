@@ -189,20 +189,23 @@ namespace OneBlink.SDK.Tests
             newForm.formsAppEnvironmentId = formsAppEnvironmentId;
             newForm.postSubmissionAction = "FORMS_LIBRARY";
 
-            List<int> formsAppIds = new List<int>();
+            List<long> formsAppIds = new List<long>();
             formsAppIds.Add(formsAppId);
             newForm.formsAppIds = formsAppIds;
 
-            FormElement newFormElement = new FormElement();
-            newFormElement.id = Guid.NewGuid();
-            newFormElement.name = "Unit_test_element";
-            newFormElement.label = "Unit test element";
-            newFormElement.conditionallyShow = false;
-            newFormElement.requiresAllConditionallyShowPredicates = false;
-            newFormElement.required = true;
-            newFormElement.type = "text";
+            FormElement textElement = TextElement.Create(Guid.NewGuid(),
+                false,
+                false,
+                null,
+                "Unit_test_element",
+                "Unit test element",
+                true,
+                false,
+                "default Value"
+            );
+
             List<FormElement> elements = new List<FormElement>();
-            elements.Add(newFormElement);
+            elements.Add(textElement);
             newForm.elements = elements;
 
             FormsClient formsClient = new FormsClient(ACCESS_KEY, SECRET_KEY, apiOrigin);
