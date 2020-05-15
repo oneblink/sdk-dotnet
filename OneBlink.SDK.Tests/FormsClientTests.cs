@@ -204,9 +204,15 @@ namespace OneBlink.SDK.Tests
                 "default Value"
             );
 
-            List<FormElement> elements = new List<FormElement>();
-            elements.Add(textElement);
-            newForm.elements = elements;
+            FormElement summaryElement = SummaryElement.Create(Guid.NewGuid(),
+                false,
+                false,
+                null,
+                "Summary_test_element",
+                "Summary test element",
+                new List<Guid>() { textElement.id }
+            );
+            newForm.elements = new List<FormElement>() { textElement, summaryElement };
 
             FormsClient formsClient = new FormsClient(ACCESS_KEY, SECRET_KEY, apiOrigin);
             Form savedForm = await formsClient.Create(newForm);

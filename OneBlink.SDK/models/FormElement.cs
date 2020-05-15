@@ -34,7 +34,8 @@ namespace OneBlink.SDK.Model
             "telephone",
             "autocomplete",
             "form",
-            "infoPage"
+            "infoPage",
+            "summary"
         };
         public Guid id { get; set; }
         public string name { get; set; }
@@ -98,5 +99,6 @@ namespace OneBlink.SDK.Model
         public List<string> restrictedFileTypes { get; set; }
         public int minEntries { get; set; }
         public int maxEntries { get; set; }
+        public List<Guid> elementIds { get; set; }
     }
 }
