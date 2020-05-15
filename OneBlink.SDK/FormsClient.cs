@@ -40,12 +40,12 @@ namespace OneBlink.SDK
         }
 
 
-        public async Task<FormSubmission<T>> GetFormSubmission<T>(int formId, string submissionId)
+        public async Task<FormSubmission<T>> GetFormSubmission<T>(long formId, string submissionId)
         {
             return await GetFormSubmission<T>(formId, submissionId, false);
         }
 
-        public async Task<FormSubmission<T>> GetFormSubmission<T>(int formId, string submissionId, bool isDraft)
+        public async Task<FormSubmission<T>> GetFormSubmission<T>(long formId, string submissionId, bool isDraft)
         {
             if (String.IsNullOrWhiteSpace(submissionId))
             {
@@ -89,22 +89,22 @@ namespace OneBlink.SDK
             return await this.oneBlinkApiClient.GetRequest<FormsSearchResult>(url);
         }
 
-        public async Task<FormSubmissionSearchResult> SearchSubmissions(int formId, int limit = 0, int offset = 0)
+        public async Task<FormSubmissionSearchResult> SearchSubmissions(long formId, int limit = 0, int offset = 0)
         {
             return await SearchSubmissions(formId, null, null, limit, offset);
         }
 
-        public async Task<FormSubmissionSearchResult> SearchSubmissionsFromDate(int formId, DateTime? submissionDateFrom, int limit = 0, int offset = 0)
+        public async Task<FormSubmissionSearchResult> SearchSubmissionsFromDate(long formId, DateTime? submissionDateFrom, int limit = 0, int offset = 0)
         {
             return await SearchSubmissions(formId, submissionDateFrom, null, limit, offset);
         }
 
-        public async Task<FormSubmissionSearchResult> SearchSubmissionsToDate(int formId, DateTime? submissionDateTo, int limit = 0, int offset = 0)
+        public async Task<FormSubmissionSearchResult> SearchSubmissionsToDate(long formId, DateTime? submissionDateTo, int limit = 0, int offset = 0)
         {
             return await SearchSubmissions(formId, null, submissionDateTo, limit, offset);
         }
 
-        public async Task<FormSubmissionSearchResult> SearchSubmissions(int formId, DateTime? submissionDateFrom, DateTime? submissionDateTo, int limit = 0, int offset = 0)
+        public async Task<FormSubmissionSearchResult> SearchSubmissions(long formId, DateTime? submissionDateFrom, DateTime? submissionDateTo, int limit = 0, int offset = 0)
         {
             string queryString = "formId=" + formId;
 
@@ -151,7 +151,7 @@ namespace OneBlink.SDK
             return await this.oneBlinkApiClient.GetRequest<FormSubmissionSearchResult>(url);
         }
 
-        public async Task<Form> Get(int id, Boolean? injectForms)
+        public async Task<Form> Get(long id, Boolean? injectForms)
         {
             string queryString = string.Empty;
             if (injectForms.HasValue)
@@ -176,7 +176,7 @@ namespace OneBlink.SDK
             return form;
         }
 
-        public async Task Delete(int id)
+        public async Task Delete(long id)
         {
             string url = "/forms/" + id.ToString();
             await this.oneBlinkApiClient.DeleteRequest(url);

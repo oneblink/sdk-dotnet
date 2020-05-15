@@ -5,6 +5,7 @@
 ### Added
 
 -   CRUD methods to [`FormsClient`](./docs/forms-client.md)
+-   `summary` `FormElement` type
 
 ## 1.3.0 (2020-04-06)
 

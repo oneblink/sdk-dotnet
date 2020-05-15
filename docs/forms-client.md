@@ -28,7 +28,7 @@ FormsClient formsClient = new FormsClient(accessKey, secretKey);
 ### Example
 
 ```c#
-int formId = 1;
+long formId = 1;
 string submissionId = "f33055e4-f8c1-49a6-8605-27f0d11854f0";
 bool isDraft = false
 OneBlink.SDK.Model.FormSubmission<object> formSubmission = await formsClient.GetFormSubmission<object>(formId, submissionId, isDraft);
@@ -39,7 +39,7 @@ Console.WriteLine("Submission as JSON string: " + formSubmission.submission);
 
 | Parameter      | Required | Type     | Description                                                                                                                                               |
 | -------------- | -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `formId`       | Yes      | `int`    | The exact id of the form you wish to get submission data for                                                                                              |
+| `formId`       | Yes      | `long`   | The exact id of the form you wish to get submission data for                                                                                              |
 | `submissionId` | Yes      | `string` | The submission identifier generated after a successful form submission, this will be return to you after a successful forms submission via a callback URL |
 | `isDraft`      | Yes      | `bool`   | `true` if the submission is a draft submission, otherwise `false`                                                                                         |
 
@@ -80,7 +80,7 @@ OneBlink.SDK.Model.FormsSearchResult response = await formsClient.Search(isAuthe
 
 A `FormsSearchResult` class
 
-## `SearchSubmissions(int formId)`
+## `SearchSubmissions(long formId)`
 
 Search for details on submissions that match the formId provided.
 Then use the information to fetch the actual submission data, if it is still available
@@ -89,18 +89,18 @@ Then use the information to fetch the actual submission data, if it is still ava
 
 ```c#
 
-int? formId = 123;
+long formId = 123;
 
 OneBlink.SDK.Model.FormSubmissionSearchResult response = await formsClient.SearchSubmissions(formId);
 ```
 
 ### Parameters
 
-| Parameter | Required | Type  | Description                                                                                         |
-| --------- | -------- | ----- | --------------------------------------------------------------------------------------------------- |
-| `formId`  | Yes      | `int` | Search for Submissions for a particular form Id                                                     |
-| `limit`   | no       | `int` | Limit the number of results returned. Can be used with `offset` to enforce pagination.              |
-| `offset`  | no       | `int` | Offset the results returned by the value specified. Can be used with `limit` to enforce pagination. |
+| Parameter | Required | Type   | Description                                                                                         |
+| --------- | -------- | ------ | --------------------------------------------------------------------------------------------------- |
+| `formId`  | Yes      | `long` | Search for Submissions for a particular form Id                                                     |
+| `limit`   | no       | `int`  | Limit the number of results returned. Can be used with `offset` to enforce pagination.              |
+| `offset`  | no       | `int`  | Offset the results returned by the value specified. Can be used with `limit` to enforce pagination. |
 
 ### Throws
 
@@ -111,7 +111,7 @@ OneBlink.SDK.Model.FormSubmissionSearchResult response = await formsClient.Searc
 
 A `FormSubmissionSearchResult` class
 
-## `SearchSubmissions(int formId, DateTime submissionDateFrom, DateTime submissionDateTo)`
+## `SearchSubmissions(long formId, DateTime submissionDateFrom, DateTime submissionDateTo)`
 
 Search for details on submissions for a particular formId that occurred between the given dates.
 Then use the information to fetch the actual submission data, if it is still available.
@@ -120,7 +120,7 @@ Then use the information to fetch the actual submission data, if it is still ava
 
 ```c#
 
-int? formId = 123;
+long formId = 123;
 
 DateTime submissionDateTo = DateTime.Now;
 
@@ -135,7 +135,7 @@ OneBlink.SDK.Model.FormSubmissionSearchResult response = await formsClient.Searc
 
 | Parameter            | Required | Type        | Description                                                                                         |
 | -------------------- | -------- | ----------- | --------------------------------------------------------------------------------------------------- |
-| `formId`             | Yes      | `int`       | Search for Submissions for a particular form Id                                                     |
+| `formId`             | Yes      | `long`      | Search for Submissions for a particular form Id                                                     |
 | `submissionDateFrom` | No       | `DateTime?` | Limit results to submissions submitted **after** a date and time.                                   |
 | `submissionDateTo`   | No       | `DateTime?` | Limit results to submissions submitted **before** a date and time.                                  |
 | `limit`              | no       | `int`       | Limit the number of results returned. Can be used with `offset` to enforce pagination.              |
@@ -150,7 +150,7 @@ OneBlink.SDK.Model.FormSubmissionSearchResult response = await formsClient.Searc
 
 A `FormSubmissionSearchResult` class
 
-## `SearchSubmissionsFromDate(int formId, DateTime submissionDateFrom)`
+## `SearchSubmissionsFromDate(long formId, DateTime submissionDateFrom)`
 
 Search for details on submissions for a particular formId that occurred **after** a given date.
 Then use the information to fetch the actual submission data, if it is still available.
@@ -159,7 +159,7 @@ Then use the information to fetch the actual submission data, if it is still ava
 
 ```c#
 
-int? formId = 123;
+long formId = 123;
 
 TimeSpan week = new TimeSpan(7, 0, 0, 0);
 
@@ -172,7 +172,7 @@ OneBlink.SDK.Model.FormSubmissionSearchResult response = await formsClient.Searc
 
 | Parameter            | Required | Type        | Description                                                                                         |
 | -------------------- | -------- | ----------- | --------------------------------------------------------------------------------------------------- |
-| `formId`             | Yes      | `int`       | Search for Submissions for a particular form Id                                                     |
+| `formId`             | Yes      | `long`      | Search for Submissions for a particular form Id                                                     |
 | `submissionDateFrom` | No       | `DateTime?` | Limit results to submissions submitted **after** a date and time.                                   |
 | `limit`              | no       | `int`       | Limit the number of results returned. Can be used with `offset` to enforce pagination.              |
 | `offset`             | no       | `int`       | Offset the results returned by the value specified. Can be used with `limit` to enforce pagination. |
@@ -186,7 +186,7 @@ OneBlink.SDK.Model.FormSubmissionSearchResult response = await formsClient.Searc
 
 A `FormSubmissionSearchResult` class
 
-## `SearchSubmissionsToDate(int formId, DateTime submissionDateTo)`
+## `SearchSubmissionsToDate(long formId, DateTime submissionDateTo)`
 
 Search for details on submissions for a particular formId that occurred **before** a given date.
 Then use the information to fetch the actual submission data, if it is still available.
@@ -195,7 +195,7 @@ Then use the information to fetch the actual submission data, if it is still ava
 
 ```c#
 
-int? formId = 123;
+long formId = 123;
 
 DateTime submissionDateTo = DateTime.Now;
 
@@ -206,7 +206,7 @@ OneBlink.SDK.Model.FormSubmissionSearchResult response = await formsClient.Searc
 
 | Parameter          | Required | Type        | Description                                                                                         |
 | ------------------ | -------- | ----------- | --------------------------------------------------------------------------------------------------- |
-| `formId`           | Yes      | `int`       | Search for Submissions for a particular form Id                                                     |
+| `formId`           | Yes      | `long`      | Search for Submissions for a particular form Id                                                     |
 | `submissionDateTo` | No       | `DateTime?` | Limit results to submissions submitted **before** a date and time.                                  |
 | `limit`            | no       | `int`       | Limit the number of results returned. Can be used with `offset` to enforce pagination.              |
 | `offset`           | no       | `int`       | Offset the results returned by the value specified. Can be used with `limit` to enforce pagination. |
@@ -220,14 +220,14 @@ OneBlink.SDK.Model.FormSubmissionSearchResult response = await formsClient.Searc
 
 A `FormSubmissionSearchResult` class
 
-## `Get(int id, Boolean? injectForms)`
+## `Get(long id, Boolean? injectForms)`
 
 Retrieve a form by id and optionally include the details of any child form elements
 
 ### Example
 
 ```c#
-int id = 123;
+long id = 123;
 
 OneBlink.SDK.Model.Form form = await formsClient.Get(id, false);
 ```
@@ -236,7 +236,7 @@ OneBlink.SDK.Model.Form form = await formsClient.Get(id, false);
 
 | Parameter     | Required | Type       | Description                                               |
 | ------------- | -------- | ---------- | --------------------------------------------------------- |
-| `id`          | Yes      | `int`      | Id of form to be retrieved                                |
+| `id`          | Yes      | `long`     | Id of form to be retrieved                                |
 | `injectForms` | No       | `Boolean?` | Optionally include the details of any child form elements |
 
 ### Throws
@@ -302,21 +302,21 @@ OneBlink.SDK.Model.Form updatedForm = await formsClient.Update(formToUpdate);
 
 A `Form` class
 
-## `Delete(int id)`
+## `Delete(long id)`
 
 ### Example
 
 ```c#
 string jobId = 1;
 
-await formsClient.Delete(int id);
+await formsClient.Delete(long id);
 ```
 
 ### Parameters
 
-| Parameter | Required | Type  | Description                              |
-| --------- | -------- | ----- | ---------------------------------------- |
-| `id`      | Yes      | `int` | The identifier of the Form to be deleted |
+| Parameter | Required | Type   | Description                              |
+| --------- | -------- | ------ | ---------------------------------------- |
+| `id`      | Yes      | `long` | The identifier of the Form to be deleted |
 |           |
 
 ### Throws

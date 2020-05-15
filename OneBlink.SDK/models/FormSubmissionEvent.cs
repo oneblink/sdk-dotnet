@@ -6,7 +6,7 @@ namespace OneBlink.SDK.Model
     public class FormSubmissionEvent
     {
         private string[] AllowedSubmissionEventTypes = new string[] { "PDF", "CALLBACK", "SPOTTO", "ONEBLINK_API", "TRIM", "CP_PAY" };
-        public int id { get; set; }
+        public long id { get; set; }
         private string _Type;
         public string type
         {

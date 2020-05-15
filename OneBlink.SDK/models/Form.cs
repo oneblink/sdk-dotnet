@@ -7,7 +7,7 @@ namespace OneBlink.SDK.Model
     public class Form
     {
         private string[] AllowedPostSubmissionActions = new string[] { "URL", "CLOSE", "FORMS_LIBRARY" };
-        public int id { get; set; }
+        public long id { get; set; }
         public string name { get; set; }
         public string description { get; set; }
         public string organisationId { get; set; }
@@ -36,7 +36,7 @@ namespace OneBlink.SDK.Model
         }
         public string redirectUrl { get; set; }
         public bool isInfoPage { get; set; }
-        public List<int> formsAppIds { get; set; }
-        public int formsAppEnvironmentId { get; set; }
+        public List<long> formsAppIds { get; set; }
+        public long formsAppEnvironmentId { get; set; }
     }
 }
