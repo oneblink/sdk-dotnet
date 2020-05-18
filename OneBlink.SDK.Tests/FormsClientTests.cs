@@ -193,24 +193,26 @@ namespace OneBlink.SDK.Tests
             formsAppIds.Add(formsAppId);
             newForm.formsAppIds = formsAppIds;
 
-            FormElement textElement = TextElement.Create(Guid.NewGuid(),
+            FormElement textElement = FormElement.CreateTextElement(
+                "Unit_test_element",
+                "Unit test element",
+                Guid.NewGuid(),
                 false,
                 false,
                 null,
-                "Unit_test_element",
-                "Unit test element",
                 true,
                 false,
                 "default Value"
             );
 
-            FormElement summaryElement = SummaryElement.Create(Guid.NewGuid(),
-                false,
-                false,
-                null,
+            FormElement summaryElement = FormElement.CreateSummaryElement(
                 "Summary_test_element",
                 "Summary test element",
-                new List<Guid>() { textElement.id }
+                new List<Guid>() { textElement.id },
+                Guid.NewGuid(),
+                false,
+                false,
+                null
             );
             newForm.elements = new List<FormElement>() { textElement, summaryElement };
 

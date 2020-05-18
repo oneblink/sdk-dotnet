@@ -6,6 +6,36 @@ namespace OneBlink.SDK.Model
 {
     public class Form
     {
+        public Form() { }
+
+        public Form(long id,
+            string name,
+            string description,
+            string organisationId,
+            string postSubmissionAction,
+            List<long> formsAppIds,
+            long formsAppEnvironmentId,
+            List<FormElement> elements = null,
+            bool isAuthenticated = true,
+            List<FormSubmissionEvent> submissionEvents = null,
+            bool isMultiPage = true,
+            string redirectUrl = null,
+            bool isInfoPage = false
+            )
+        {
+            this.id = id;
+            this.name = name;
+            this.organisationId = organisationId;
+            this.elements = elements;
+            this.postSubmissionAction = postSubmissionAction;
+            this.formsAppIds = formsAppIds;
+            this.formsAppEnvironmentId = formsAppEnvironmentId;
+            this.isAuthenticated = isAuthenticated;
+            this.submissionEvents = submissionEvents;
+            this.isMultiPage = isMultiPage;
+            this.redirectUrl = redirectUrl;
+            this.isInfoPage = isInfoPage;
+        }
         private string[] AllowedPostSubmissionActions = new string[] { "URL", "CLOSE", "FORMS_LIBRARY" };
         public long id { get; set; }
         public string name { get; set; }

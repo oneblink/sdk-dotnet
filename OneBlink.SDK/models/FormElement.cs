@@ -100,5 +100,54 @@ namespace OneBlink.SDK.Model
         public int minEntries { get; set; }
         public int maxEntries { get; set; }
         public List<Guid> elementIds { get; set; }
+
+        public static FormElement CreateTextElement(
+            string name,
+            string label,
+            Guid id = new Guid(),
+            bool conditionallyShow = false,
+            bool requiresAllConditonallyShowPredicate = false,
+            List<FormElementConditionallyShowPredicate> conditionallyShowPredicates = null,
+            bool required = false,
+            bool readOnly = false,
+            string defaultValue = null
+        )
+        {
+            FormElement textElement = new FormElement();
+            textElement.type = "text";
+            textElement.id = id;
+            textElement.conditionallyShow = conditionallyShow;
+            textElement.requiresAllConditionallyShowPredicates = requiresAllConditonallyShowPredicate;
+            textElement.conditionallyShowPredicates = conditionallyShowPredicates;
+            textElement.name = name;
+            textElement.label = label;
+            textElement.required = required;
+            textElement.readOnly = readOnly;
+            textElement.defaultValue = defaultValue;
+            return textElement;
+        }
+
+        public static FormElement CreateSummaryElement(
+            string name,
+            string label,
+            List<Guid> elementIds,
+            Guid id = new Guid(),
+            bool conditionallyShow = false,
+            bool requiresAllConditonallyShowPredicate = false,
+            List<FormElementConditionallyShowPredicate> conditionallyShowPredicates = null
+        )
+        {
+            FormElement summaryElement = new FormElement();
+            summaryElement.type = "summary";
+            summaryElement.id = id;
+            summaryElement.conditionallyShow = conditionallyShow;
+            summaryElement.requiresAllConditionallyShowPredicates = requiresAllConditonallyShowPredicate;
+            summaryElement.conditionallyShowPredicates = conditionallyShowPredicates;
+            summaryElement.name = name;
+            summaryElement.label = label;
+            summaryElement.elementIds = elementIds;
+
+            return summaryElement;
+        }
     }
 }
