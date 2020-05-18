@@ -25,6 +25,16 @@ using dotenv.net;
 DotEnv.Config();
 ```
 
+## Using test environnent
+
+To use the test environment, use the \*Client constructor that includes passing in the apiOrigin, e.g.
+
+```c#
+string apiOrigin = Environment.GetEnvironmentVariable("ONEBLINK_API_ORIGIN");
+FormsClient formsClient = new FormsClient(ACCESS_KEY, SECRET_KEY, apiOrigin);
+
+```
+
 ## Run Tests
 
 Run in the project directory
