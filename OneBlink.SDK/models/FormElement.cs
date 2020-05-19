@@ -106,7 +106,7 @@ namespace OneBlink.SDK.Model
             string label,
             Guid id = new Guid(),
             bool conditionallyShow = false,
-            bool requiresAllConditonallyShowPredicate = false,
+            bool requiresAllConditionallyShowPredicates = false,
             List<FormElementConditionallyShowPredicate> conditionallyShowPredicates = null,
             bool required = false,
             bool readOnly = false,
@@ -117,7 +117,7 @@ namespace OneBlink.SDK.Model
             textElement.type = "text";
             textElement.id = id;
             textElement.conditionallyShow = conditionallyShow;
-            textElement.requiresAllConditionallyShowPredicates = requiresAllConditonallyShowPredicate;
+            textElement.requiresAllConditionallyShowPredicates = requiresAllConditionallyShowPredicates;
             textElement.conditionallyShowPredicates = conditionallyShowPredicates;
             textElement.name = name;
             textElement.label = label;
@@ -133,7 +133,7 @@ namespace OneBlink.SDK.Model
             List<Guid> elementIds,
             Guid id = new Guid(),
             bool conditionallyShow = false,
-            bool requiresAllConditonallyShowPredicate = false,
+            bool requiresAllConditionallyShowPredicates = false,
             List<FormElementConditionallyShowPredicate> conditionallyShowPredicates = null
         )
         {
@@ -141,7 +141,7 @@ namespace OneBlink.SDK.Model
             summaryElement.type = "summary";
             summaryElement.id = id;
             summaryElement.conditionallyShow = conditionallyShow;
-            summaryElement.requiresAllConditionallyShowPredicates = requiresAllConditonallyShowPredicate;
+            summaryElement.requiresAllConditionallyShowPredicates = requiresAllConditionallyShowPredicates;
             summaryElement.conditionallyShowPredicates = conditionallyShowPredicates;
             summaryElement.name = name;
             summaryElement.label = label;
