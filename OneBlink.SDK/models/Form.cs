@@ -19,7 +19,7 @@ namespace OneBlink.SDK.Model
             string postSubmissionAction = "FORMS_LIBRARY",
             bool isAuthenticated = true,
             List<FormSubmissionEvent> submissionEvents = null,
-            bool isMultiPage = true,
+            bool isMultiPage = false,
             string redirectUrl = null,
             bool isInfoPage = false
             )
