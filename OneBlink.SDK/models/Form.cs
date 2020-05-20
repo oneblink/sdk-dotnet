@@ -12,9 +12,9 @@ namespace OneBlink.SDK.Model
             string name,
             string description,
             string organisationId,
-            List<long> formsAppIds,
             long formsAppEnvironmentId,
-            List<FormElement> elements,
+            List<long> formsAppIds = default(List<long>),
+            List<FormElement> elements = default(List<FormElement>),
             long? id = null,
             string postSubmissionAction = "FORMS_LIBRARY",
             bool isAuthenticated = true,
@@ -28,9 +28,24 @@ namespace OneBlink.SDK.Model
             {
                 this.id = id.Value;
             }
+            if (formsAppIds == default(List<long>))
+            {
+                this.formsAppIds = new List<long>();
+            }
+            else
+            {
+                this.formsAppIds = formsAppIds;
+            }
+            if (elements == default(List<FormElement>))
+            {
+                this.elements = new List<FormElement>();
+            }
+            else
+            {
+                this.elements = elements;
+            }
             this.name = name;
             this.organisationId = organisationId;
-            this.elements = elements;
             this.postSubmissionAction = postSubmissionAction;
             this.formsAppIds = formsAppIds;
             this.formsAppEnvironmentId = formsAppEnvironmentId;
