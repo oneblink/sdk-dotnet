@@ -237,5 +237,17 @@ namespace OneBlink.SDK.Tests
                 Assert.Equal("Form not found", ex.Message);
             }
         }
+        [Fact]
+        public async void can_create_with_constructor_defaults()
+        {
+            Form newForm = new Form(
+                "name",
+                "description",
+                organisationId,
+                formsAppEnvironmentId
+            );
+            FormsClient formsClient = new FormsClient(ACCESS_KEY, SECRET_KEY, apiOrigin);
+            Form savedForm = await formsClient.Create(newForm);
+        }
     }
 }

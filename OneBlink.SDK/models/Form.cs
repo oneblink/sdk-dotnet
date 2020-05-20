@@ -47,7 +47,6 @@ namespace OneBlink.SDK.Model
             this.name = name;
             this.organisationId = organisationId;
             this.postSubmissionAction = postSubmissionAction;
-            this.formsAppIds = formsAppIds;
             this.formsAppEnvironmentId = formsAppEnvironmentId;
             this.isAuthenticated = isAuthenticated;
             this.submissionEvents = submissionEvents;
