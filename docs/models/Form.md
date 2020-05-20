@@ -12,6 +12,7 @@
 | `formsAppIds`           | Yes      | `List<long>`                | List of Form Apps id's, at least one is required                          |                 |
 | `formsAppEnvironmentId` | Yes      | `long`                      | Id of the environment this form is part of                                |                 |
 | `elements`              | Yes      | `List<FormElement>`         |                                                                           |                 |
+| `id`                    | No       | `long?`                     | Will be assigned by OneBlink when form is creating                        | null            |
 | `postSubmissionAction`  | No       | `string`                    | Allowed values of "URL", "CLOSE", "FORMS_LIBRARY"                         | "FORMS_LIBRARY" |
 | `isAuthenticated`       | No       | `bool`                      | Determines if only authenticated users can access the form                | true            |
 | `submissionEvents`      | No       | `List<FormSubmissionEvent>` | List of Form submission events                                            | null            |
