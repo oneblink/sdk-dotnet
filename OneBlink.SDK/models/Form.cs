@@ -8,13 +8,14 @@ namespace OneBlink.SDK.Model
     {
         public Form() { }
 
-        public Form(long id,
+        public Form(
             string name,
             string description,
             string organisationId,
             List<long> formsAppIds,
             long formsAppEnvironmentId,
             List<FormElement> elements,
+            long? id = null,
             string postSubmissionAction = "FORMS_LIBRARY",
             bool isAuthenticated = true,
             List<FormSubmissionEvent> submissionEvents = null,
@@ -23,7 +24,10 @@ namespace OneBlink.SDK.Model
             bool isInfoPage = false
             )
         {
-            this.id = id;
+            if (id.HasValue)
+            {
+                this.id = id.Value;
+            }
             this.name = name;
             this.organisationId = organisationId;
             this.elements = elements;
