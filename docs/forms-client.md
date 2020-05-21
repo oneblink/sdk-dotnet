@@ -4,6 +4,10 @@
 
 -   [`GetFormSubmission()`](#getformsubmission)
 -   [`Search()`](#search)
+-   [`Get()`](#get)
+-   [`Create()`](#create)
+-   [`Update()`](#update)
+-   [`Delete()`](#delete)
 
 ## Constructor
 
@@ -220,7 +224,7 @@ OneBlink.SDK.Model.FormSubmissionSearchResult response = await formsClient.Searc
 
 A `FormSubmissionSearchResult` class
 
-## `Get(long id, Boolean? injectForms)`
+## `Get()`
 
 Retrieve a form by id and optionally include the details of any child form elements
 
@@ -248,7 +252,7 @@ OneBlink.SDK.Model.Form form = await formsClient.Get(id, false);
 
 A `Form` class
 
-## `Create(Form newForm)`
+## `Create()`
 
 Create a new form
 
@@ -275,7 +279,7 @@ OneBlink.SDK.Model.Form savedForm = await formsClient.Create(newForm);
 
 A `Form` class
 
-## `Update(Form newForm)`
+## `Update()`
 
 Update a new form
 
@@ -302,7 +306,7 @@ OneBlink.SDK.Model.Form updatedForm = await formsClient.Update(formToUpdate);
 
 A `Form` class
 
-## `Delete(long id)`
+## `Delete()`
 
 ### Example
 
