@@ -17,5 +17,6 @@ namespace OneBlink.SDK.Model
         public string apiId { get; set; }
         public string apiEnvironment { get; set; }
         public string apiEnvironmentRoute { get; set; }
+        public string contentTypeName { get; set; }
     }
 }
