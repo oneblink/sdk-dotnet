@@ -238,7 +238,7 @@ namespace OneBlink.SDK.Tests
             }
         }
         [Fact]
-        public async void can_create_with_constructor_defaults()
+        public async void can_create_with_defaults()
         {
             Form newForm = new Form(
                 "name",
@@ -248,6 +248,19 @@ namespace OneBlink.SDK.Tests
             );
             FormsClient formsClient = new FormsClient(ACCESS_KEY, SECRET_KEY, apiOrigin);
             Form savedForm = await formsClient.Create(newForm);
+            savedForm.elements = new List<FormElement>()
+            {
+                FormElement.CreateTextElement(
+                    label: "Text",
+                    name: "Text"
+                ),
+                FormElement.CreateTextElement(
+                    label: "Text2",
+                    name: "Text2"
+                )
+            };
+            Form updatedForm = await formsClient.Update(savedForm);
+
         }
     }
 }

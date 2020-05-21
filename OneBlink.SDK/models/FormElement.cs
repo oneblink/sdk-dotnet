@@ -101,10 +101,22 @@ namespace OneBlink.SDK.Model
         public int maxEntries { get; set; }
         public List<Guid> elementIds { get; set; }
 
+        private static Guid initialiseId(Guid? id)
+        {
+            if (!id.HasValue)
+            {
+                return Guid.NewGuid();
+            }
+            else
+            {
+                return id.Value;
+            }
+        }
+
         public static FormElement CreateTextElement(
             string name,
             string label,
-            Guid id = new Guid(),
+            Guid? id = null,
             bool conditionallyShow = false,
             bool requiresAllConditionallyShowPredicates = false,
             List<FormElementConditionallyShowPredicate> conditionallyShowPredicates = null,
@@ -115,7 +127,7 @@ namespace OneBlink.SDK.Model
         {
             FormElement textElement = new FormElement();
             textElement.type = "text";
-            textElement.id = id;
+            textElement.id = initialiseId(id);
             textElement.conditionallyShow = conditionallyShow;
             textElement.requiresAllConditionallyShowPredicates = requiresAllConditionallyShowPredicates;
             textElement.conditionallyShowPredicates = conditionallyShowPredicates;
@@ -131,7 +143,7 @@ namespace OneBlink.SDK.Model
             string name,
             string label,
             List<Guid> elementIds,
-            Guid id = new Guid(),
+            Guid? id = null,
             bool conditionallyShow = false,
             bool requiresAllConditionallyShowPredicates = false,
             List<FormElementConditionallyShowPredicate> conditionallyShowPredicates = null
@@ -139,7 +151,7 @@ namespace OneBlink.SDK.Model
         {
             FormElement summaryElement = new FormElement();
             summaryElement.type = "summary";
-            summaryElement.id = id;
+            summaryElement.id = initialiseId(id);
             summaryElement.conditionallyShow = conditionallyShow;
             summaryElement.requiresAllConditionallyShowPredicates = requiresAllConditionallyShowPredicates;
             summaryElement.conditionallyShowPredicates = conditionallyShowPredicates;
