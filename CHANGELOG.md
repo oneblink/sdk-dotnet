@@ -2,13 +2,16 @@
 
 ## Unreleased
 
+### Added
+
+-   `CP_HCSMS` `SubmissionEvent` type
+
 ## 1.4.0 (2020-05-25)
 
 ### Added
 
 -   CRUD methods to [`FormsClient`](./docs/forms-client.md)
 -   `summary` `FormElement` type
--   `CP_HCSMS` `SubmissionEvent` type
 
 ## 1.3.0 (2020-04-06)
 
