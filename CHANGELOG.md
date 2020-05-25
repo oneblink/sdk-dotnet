@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 1.4.0 (2020-05-25)
+
 ### Added
 
 -   CRUD methods to [`FormsClient`](./docs/forms-client.md)
