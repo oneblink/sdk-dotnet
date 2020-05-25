@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Added
+
+-   `CP_HCSMS` `SubmissionEvent` type
+
 ## 1.4.0 (2020-05-25)
 
 ### Added
