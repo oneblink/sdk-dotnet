@@ -4,7 +4,8 @@
 
 ### Added
 
--   `CP_HCSMS` `SubmissionEvent` type
+-   `BPOINT` submission event type
+-   `CP_HCMS` `SubmissionEvent` type
 
 ## 1.4.0 (2020-05-25)
 
