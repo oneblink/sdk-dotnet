@@ -1,3 +1,4 @@
+using System;
 namespace OneBlink.SDK.Model
 {
     public class FormSubmissionEventConfigration
@@ -17,7 +18,7 @@ namespace OneBlink.SDK.Model
         public string apiId { get; set; }
         public string apiEnvironment { get; set; }
         public string apiEnvironmentRoute { get; set; }
-        public string elementId { get; set; }
+        public Guid elementId { get; set; }
         public string contentTypeName { get; set; }
     }
 }

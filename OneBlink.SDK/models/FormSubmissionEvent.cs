@@ -33,7 +33,7 @@ namespace OneBlink.SDK.Model
                 _Type = value;
             }
         }
-        public FormSubmissionEventConfigration configration { get; set; }
+        public FormSubmissionEventConfigration configuration { get; set; }
         public bool isDraft { get; set; }
     }
 }
