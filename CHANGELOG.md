@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 1.5.1 (2020-06-03)
+
 ### Added
 
 -   `BPOINT` submission event type
