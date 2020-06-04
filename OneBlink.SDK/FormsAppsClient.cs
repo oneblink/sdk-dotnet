@@ -20,15 +20,6 @@ namespace OneBlink.SDK
             );
         }
 
-        public FormsAppsClient(string accessKey, string secretKey, string apiOrigin)
-        {
-            this.oneBlinkApiClient = new OneBlinkApiClient(
-                accessKey,
-                secretKey,
-                tenant: new Tenant(apiOrigin: apiOrigin)
-            );
-        }
-
         public async Task<JWTPayload> VerifyJWT(string token)
         {
             try {

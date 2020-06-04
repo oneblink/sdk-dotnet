@@ -17,17 +17,6 @@ namespace OneBlink.SDK
                 tenant: new Tenant(tenantName)
             );
         }
-
-        public TeamMembersClient(string accessKey, string secretKey, string apiOrigin)
-        {
-            this.oneBlinkApiClient = new OneBlinkApiClient(
-                accessKey,
-                secretKey,
-                tenant: new Tenant(apiOrigin: apiOrigin)
-            );
-        }
-
-
     public async Task<Role> GetTeamMemberRole(string email)
     {
       if (String.IsNullOrWhiteSpace(email))

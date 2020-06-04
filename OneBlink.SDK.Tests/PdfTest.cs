@@ -4,6 +4,7 @@ using OneBlink.SDK;
 using System.Net.Http;
 using dotenv.net;
 using System.IO;
+using OneBlink.SDK.Model;
 namespace unit_tests
 {
   public class PdfTests
@@ -43,7 +44,7 @@ namespace unit_tests
     [Fact]
     public async void can_generate_pdf()
     {
-      PdfClient pdf = new PdfClient(ACCESS_KEY, SECRET_KEY, pdfOrigin);
+      PdfClient pdf = new PdfClient(ACCESS_KEY, SECRET_KEY, TenantName.ONEBLINK_TEST);
 
       Stream response = await pdf.GetSubmissionPdf(formId, submissionId);
       Assert.NotNull(response);

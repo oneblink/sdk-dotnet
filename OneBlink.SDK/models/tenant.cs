@@ -12,26 +12,15 @@ namespace OneBlink.SDK.Model
     internal class Tenant
     {
         public Tenant(
-            TenantName name = TenantName.ONEBLINK,
-            string apiOrigin = null,
-            string pdfOrigin = null
+            TenantName name = TenantName.ONEBLINK
         )
         {
             this.name = name;
-            this.apiOrigin = apiOrigin;
-            this.pdfOrigin = pdfOrigin;
         }
 
         private TenantName name;
-        private string apiOrigin;
-        private bool hasApiOrigin => !String.IsNullOrWhiteSpace(this.apiOrigin);
-        private string pdfOrigin;
-        private bool hasPdfOrigin => !String.IsNullOrWhiteSpace(this.pdfOrigin);
         public string oneBlinkAPIOrigin {
             get {
-                if (this.hasApiOrigin) {
-                    return this.apiOrigin;
-                }
                 switch(this.name) {
                     case TenantName.CIVICPLUS:
                         return "https://auth-api.transform.civicplus.com";
@@ -46,9 +35,6 @@ namespace OneBlink.SDK.Model
         }
         public string oneBlinkPdfOrigin {
             get {
-                if (this.hasPdfOrigin) {
-                    return this.pdfOrigin;
-                }
                 switch(this.name) {
                     case TenantName.CIVICPLUS:
                         return "https://pdf.transform.civicplus.com";
