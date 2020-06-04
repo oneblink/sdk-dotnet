@@ -5,7 +5,9 @@ namespace OneBlink.SDK.Model
 {
     public enum TenantName {
         ONEBLINK,
-        CIVICPLUS
+        ONEBLINK_TEST,
+        CIVICPLUS,
+        CIVICPLUS_TEST
     };
     internal class Tenant
     {
@@ -31,10 +33,12 @@ namespace OneBlink.SDK.Model
                     return this.apiOrigin;
                 }
                 switch(this.name) {
-                    case TenantName.ONEBLINK:
-                        return "https://auth-api.blinkm.io";
                     case TenantName.CIVICPLUS:
                         return "https://auth-api.transform.civicplus.com";
+                    case TenantName.CIVICPLUS_TEST:
+                        return "https://auth-api-test.transform.civicplus.com";
+                    case TenantName.ONEBLINK_TEST:
+                        return "https://auth-api-test.blinkm.io";
                     default:
                         return "https://auth-api.blinkm.io";
                 }
@@ -46,12 +50,29 @@ namespace OneBlink.SDK.Model
                     return this.pdfOrigin;
                 }
                 switch(this.name) {
-                    case TenantName.ONEBLINK:
-                        return "https://pdf.blinkm.io";
                     case TenantName.CIVICPLUS:
                         return "https://pdf.transform.civicplus.com";
+                    case TenantName.CIVICPLUS_TEST:
+                        return "https://pdf-test.transform.civicplus.com";
+                    case TenantName.ONEBLINK_TEST:
+                        return "https://pdf-test.blinkm.io";
                     default:
                         return "https://pdf.blinkm.io";
+                }
+            }
+        }
+
+        public string jwtIssuer {
+            get {
+                switch(this.name) {
+                    case TenantName.CIVICPLUS:
+                        return "https://cognito-idp.us-east-2.amazonaws.com/us-east-2_A92OPccYd";
+                    case TenantName.CIVICPLUS_TEST:
+                        return "https://cognito-idp.us-east-2.amazonaws.com/us-east-2_e2gd0LSVp";
+                    case TenantName.ONEBLINK_TEST:
+                        return "https://cognito-idp.ap-southeast-2.amazonaws.com/ap-southeast-2_E03xBaafT";
+                    default:
+                        return "https://cognito-idp.ap-southeast-2.amazonaws.com/ap-southeast-2_o1t3ntGWx";
                 }
             }
         }
