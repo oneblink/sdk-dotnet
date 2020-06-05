@@ -23,6 +23,9 @@ namespace OneBlink.SDK
         public async Task<JWTPayload> VerifyJWT(string token)
         {
             try {
+                if (token.Contains("Bearer ")) {
+                    token = token.Split(' ')[1];
+                }
                 JwtSecurityToken jwt = new JwtSecurityToken(token);
                 JsonWebKey jwk = await Token.GetJsonWebKey(
                     iss: this.oneBlinkApiClient.tenant.jwtIssuer,
