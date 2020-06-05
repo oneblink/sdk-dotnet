@@ -6,12 +6,11 @@
 
 ## Constructor
 
-| Parameter    | Required | Type         | Description                                                                    | Default Value       |
-| ------------ | -------- | ------------ | ------------------------------------------------------------------------------ | ------------------- |
-| `accessKey`  | Yes      | `string`     | Access key provided by OneBlink.                                               |                     |
-| `secretKey`  | Yes      | `string`     | Secret key provided by OneBlink.                                               |                     |
-| `tenantName` | No       | `TenantName` | Sets the url to be used. Options are `RegionCode.AU` and `RegionCode.US`.      | TenantName.ONEBLINK |
-| `originApi`  | No       | `string`     | Url to override the apiOrigin. Cannot be used in conjunction with `RegionCode` |                     |
+| Parameter    | Required | Type         | Description                                                                                             | Default Value       |
+| ------------ | -------- | ------------ | ------------------------------------------------------------------------------------------------------- | ------------------- |
+| `accessKey`  | Yes      | `string`     | Access key provided by OneBlink.                                                                        |                     |
+| `secretKey`  | Yes      | `string`     | Secret key provided by OneBlink.                                                                        |                     |
+| `tenantName` | No       | `TenantName` | Sets the configuration values to be used. Options are `TenantName.ONEBLINK` and `TenantName.CIVICPLUS`. | TenantName.ONEBLINK |
 
 ### Example
 
