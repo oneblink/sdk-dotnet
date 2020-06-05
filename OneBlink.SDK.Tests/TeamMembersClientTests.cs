@@ -54,7 +54,7 @@ namespace OneBlink.SDK.Tests
     [Fact]
     public async void can_get_team_member_role()
     {
-      TeamMembersClient teamMembersClient = new TeamMembersClient(ACCESS_KEY, SECRET_KEY, apiOrigin);
+      TeamMembersClient teamMembersClient = new TeamMembersClient(ACCESS_KEY, SECRET_KEY, TenantName.ONEBLINK_TEST);
       Role role = await teamMembersClient.GetTeamMemberRole(this.email);
       Assert.NotNull(role);
     }
@@ -64,7 +64,7 @@ namespace OneBlink.SDK.Tests
     {
       OneBlinkAPIException oneBlinkAPIException = await Assert.ThrowsAsync<OneBlinkAPIException>(() =>
       {
-        TeamMembersClient teamMembersClient = new TeamMembersClient("123", "aaaaaaaaaaaaaaabbbbbbbbbbbbbbbcccccccccccccccc", apiOrigin);
+        TeamMembersClient teamMembersClient = new TeamMembersClient("123", "aaaaaaaaaaaaaaabbbbbbbbbbbbbbbcccccccccccccccc", TenantName.ONEBLINK_TEST);
         return teamMembersClient.GetTeamMemberRole(this.email);
       });
       Assert.Equal(HttpStatusCode.Unauthorized, oneBlinkAPIException.StatusCode);
@@ -73,7 +73,7 @@ namespace OneBlink.SDK.Tests
     [Fact]
     public async void get_team_member_role_return_null()
     {
-      TeamMembersClient teamMembersClient = new TeamMembersClient(ACCESS_KEY, SECRET_KEY, apiOrigin);
+      TeamMembersClient teamMembersClient = new TeamMembersClient(ACCESS_KEY, SECRET_KEY, TenantName.ONEBLINK_TEST);
       Role role = await teamMembersClient.GetTeamMemberRole("fake-user@faker.com.au");
       Assert.Null(role);
     }

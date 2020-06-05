@@ -30,16 +30,6 @@ namespace OneBlink.SDK
             );
         }
 
-        public FormsClient(string accessKey, string secretKey, string apiOrigin)
-        {
-            this.oneBlinkApiClient = new OneBlinkApiClient(
-                accessKey,
-                secretKey,
-                tenant: new Tenant(apiOrigin: apiOrigin)
-            );
-        }
-
-
         public async Task<FormSubmission<T>> GetFormSubmission<T>(long formId, string submissionId)
         {
             return await GetFormSubmission<T>(formId, submissionId, false);

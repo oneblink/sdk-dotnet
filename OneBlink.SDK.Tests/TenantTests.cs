@@ -27,19 +27,6 @@ namespace OneBlink.SDK.Tests
             Assert.Matches("https://pdf.blinkm.io", tenant.oneBlinkPdfOrigin);
         }
 
-        [Fact]
-        public void can_override_region_urls()
-        {
-            Tenant tenant = new Tenant(
-                TenantName.CIVICPLUS,
-                apiOrigin: "https://auth-api-test.blinkm.io",
-                pdfOrigin: "https://pdf-test.blinkm.io"
-            );
-            Console.WriteLine(tenant.oneBlinkAPIOrigin);
-            Assert.Matches("https://auth-api-test.blinkm.io", tenant.oneBlinkAPIOrigin);
-            Assert.Matches("https://pdf-test.blinkm.io", tenant.oneBlinkPdfOrigin);
-        }
-
     }
 
 }

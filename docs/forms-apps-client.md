@@ -1,8 +1,8 @@
-# OneBlink SDK | TeamMembersClient Class
+# OneBlink SDK | FormsApps Class
 
 ## Instance Functions
 
--   [`GetTeamMemberRole()`](#getteammemberrole)
+-   [`VerifyJWT()`](#veryjwt)
 
 ## Constructor
 
@@ -18,32 +18,31 @@
 using OneBlink.SDK;
 string accessKey= "123455678901ABCDEFGHIJKL";
 string secretKey= "123455678901ABCDEFGHIJKL123455678901ABCDEFGHIJKL";
-TeamMembersClient teamMembersClient = new TeamMembersClient(accessKey, secretKey);
+FormsAppsClient formsAppsClient = new FormsAppsClient(accessKey, secretKey);
 ```
 
-## `GetTeamMemberRole()`
+## `VerifyJWT()`
 
 ### Example
 
 ```c#
-string email = "email@domain.io";
-OneBlink.SDK.Model.Role role = await teamMembersClient.GetTeamMemberRole(email);
-if (role != null) {
-    // Use role here
-}
+using OneBlink.SDK.Models;
+string jwt = "csf3234dweer234fdft76yw43rfsfgsw33r.234eswefkds3ksefmo34m2wrf.asddesrtij4345fd456";
+JWTPayload result = await formsAppsClient.VerifyJWT(token);
+
+// Will throw an exception if JWT was invalid
 ```
 
 ### Parameters
 
-| Parameter | Required | Type     | Description                                     |
-| --------- | -------- | -------- | ----------------------------------------------- |
-| `email`   | Yes      | `string` | The email address the team member uses to login |
+| Parameter | Required | Type     | Description                |
+| --------- | -------- | -------- | -------------------------- |
+| `token`   | Yes      | `string` | The JWT you wish to verify |
 
 ### Throws
 
--   `OneBlinkAPIException`
 -   `Exception`
 
 ### Result
 
-A `OneBlink.SDK.Model.Role` class or `null`
+A `OneBlink.SDK.Model.JWTPayload` class

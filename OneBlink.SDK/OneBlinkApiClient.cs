@@ -8,7 +8,7 @@ namespace OneBlink.SDK
 {
     internal class OneBlinkApiClient : OneBlinkHttpClient
     {
-        private Tenant tenant;
+        internal Tenant tenant;
 
         public OneBlinkApiClient(string accessKey, string secretKey, Tenant tenant, int expiryInSeconds = 300)
           : base(accessKey, secretKey, expiryInSeconds)

@@ -15,17 +15,6 @@ namespace OneBlink.SDK
                 tenant: new Tenant(tenantName)
             );
         }
-
-        public PdfClient(string accessKey, string secretKey, string apiOrigin)
-        {
-            this.oneBlinkPdfClient = new OneBlinkPdfClient(
-                accessKey,
-                secretKey,
-                tenant: new Tenant(pdfOrigin: apiOrigin)
-            );
-        }
-
-
     public async Task<Stream> GetSubmissionPdf(int formId, string submissionId)
     {
       string url = "/forms/" + formId.ToString() + "/submissions/" + submissionId + "/pdf-document";
