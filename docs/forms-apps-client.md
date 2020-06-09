@@ -28,6 +28,8 @@ FormsAppsClient formsAppsClient = new FormsAppsClient(accessKey, secretKey);
 ```c#
 using OneBlink.SDK.Models;
 string jwt = "csf3234dweer234fdft76yw43rfsfgsw33r.234eswefkds3ksefmo34m2wrf.asddesrtij4345fd456";
+// or
+string jwt = "Bearer csf3234dweer234fdft76yw43rfsfgsw33r.234eswefkds3ksefmo34m2wrf.asddesrtij4345fd456";
 JWTPayload result = await formsAppsClient.VerifyJWT(token);
 
 // Will throw an exception if JWT was invalid

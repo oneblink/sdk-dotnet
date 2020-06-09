@@ -3,6 +3,7 @@
 ## Clients
 
 -   [FormsClient](./forms-client.md)
+-   [FormsAppsClient](./forms-apps-client.md)
 -   [PdfClient](./pdf-client.md)
 -   [TeamMembersClient](./team-members-client.md)
 -   [JobsClient](./jobs-client.md)
