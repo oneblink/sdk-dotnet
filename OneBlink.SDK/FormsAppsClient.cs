@@ -22,20 +22,17 @@ namespace OneBlink.SDK
 
         public async Task<JWTPayload> VerifyJWT(string token)
         {
-            try {
-                if (token.Contains("Bearer ")) {
-                    token = token.Split(' ')[1];
-                }
-                JwtSecurityToken jwt = new JwtSecurityToken(token);
-                JsonWebKey jwk = await Token.GetJsonWebKey(
-                    iss: this.oneBlinkApiClient.tenant.jwtIssuer,
-                    kid: jwt.Header.Kid
-                );
-                string verifiedToken = Token.VerifyJWT(token, jwk);
-                return JsonConvert.DeserializeObject<JWTPayload>(verifiedToken);
-            } catch(Exception err) {
-                throw new Exception("The supplied JWT was invalid.");
+            if (token.Contains("Bearer ")) {
+                token = token.Split(' ')[1];
             }
+            JwtSecurityToken jwt = new JwtSecurityToken(token);
+            string iss = this.oneBlinkApiClient.tenant.jwtIssuer;
+            JsonWebKey jwk = await Token.GetJsonWebKey(
+                iss: iss,
+                kid: jwt.Header.Kid
+            );
+            string verifiedToken = Token.VerifyJWT(token, jwk, iss);
+            return JsonConvert.DeserializeObject<JWTPayload>(verifiedToken);
         }
 
     }
