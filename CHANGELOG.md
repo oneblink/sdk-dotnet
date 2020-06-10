@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 1.6.0 (2020-06-10)
+
 ### Added
 
 -   FormsApps class and `VerifyJWT` method
