@@ -64,7 +64,7 @@ namespace OneBlink.SDK
             }
             return matchingKey;
         }
-        internal static string VerifyJWT(string token, JsonWebKey jwk) {
+        internal static string VerifyJWT(string token, JsonWebKey jwk, string iss) {
             RSACryptoServiceProvider rsa = new RSACryptoServiceProvider();
             rsa.ImportParameters(
                 new RSAParameters()
@@ -75,11 +75,12 @@ namespace OneBlink.SDK
             );
             TokenValidationParameters validationParameters = new TokenValidationParameters
                 {
+                    ValidIssuer = iss,
                     RequireExpirationTime = true,
                     RequireSignedTokens = true,
                     ValidateAudience = false,
-                    ValidateIssuer = false,
-                    ValidateLifetime = false,
+                    ValidateIssuer = true,
+                    ValidateLifetime = true,
                     IssuerSigningKey = new RsaSecurityKey(rsa)
                 };
 

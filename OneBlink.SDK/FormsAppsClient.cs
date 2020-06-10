@@ -26,11 +26,12 @@ namespace OneBlink.SDK
                 token = token.Split(' ')[1];
             }
             JwtSecurityToken jwt = new JwtSecurityToken(token);
+            string iss = this.oneBlinkApiClient.tenant.jwtIssuer;
             JsonWebKey jwk = await Token.GetJsonWebKey(
-                iss: this.oneBlinkApiClient.tenant.jwtIssuer,
+                iss: iss,
                 kid: jwt.Header.Kid
             );
-            string verifiedToken = Token.VerifyJWT(token, jwk);
+            string verifiedToken = Token.VerifyJWT(token, jwk, iss);
             return JsonConvert.DeserializeObject<JWTPayload>(verifiedToken);
         }
 
