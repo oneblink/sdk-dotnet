@@ -20,5 +20,6 @@ namespace OneBlink.SDK.Model
         public string apiEnvironmentRoute { get; set; }
         public Guid elementId { get; set; }
         public string contentTypeName { get; set; }
+        public Guid gatewayId { get; set; }
     }
 }
