@@ -35,5 +35,16 @@ namespace OneBlink.SDK.Model
         }
         public FormSubmissionEventConfigration configuration { get; set; }
         public bool isDraft { get; set; }
+
+        public static FormSubmissionEvent CreateCpPaySubmissionEvent(Guid elementId, Guid gatewayId)
+        {
+            FormSubmissionEventConfigration fseconfig = new FormSubmissionEventConfigration();
+            fseconfig.elementId = elementId;
+            fseconfig.gatewayId = gatewayId;
+            FormSubmissionEvent cpPay = new FormSubmissionEvent();
+            cpPay.type = "CP_PAY";
+            cpPay.configuration = fseconfig;
+            return cpPay;
+        }
     }
 }
