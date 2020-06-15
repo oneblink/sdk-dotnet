@@ -159,16 +159,23 @@ namespace OneBlink.SDK
             return form;
         }
 
-        public async Task<Form> Update(Form formToUpdate)
+        public async Task<Form> Update(Form formToUpdate, bool overrideLock = false)
         {
             string url = "/forms/" + formToUpdate.id.ToString();
+            if (overrideLock) {
+                url = url + "?overrideLock=true";
+            }
+
             Form form = await this.oneBlinkApiClient.PutRequest<Form, Form>(url, formToUpdate);
             return form;
         }
 
-        public async Task Delete(long id)
+        public async Task Delete(long id, bool overrideLock = false)
         {
             string url = "/forms/" + id.ToString();
+            if (overrideLock) {
+                url = url + "?overrideLock=true";
+            }
             await this.oneBlinkApiClient.DeleteRequest(url);
         }
         private async Task<FormSubmission<T>> GetFormSubmission<T>(FormSubmissionRetrievalConfiguration formRetrievalData)
