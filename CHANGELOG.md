@@ -4,6 +4,7 @@
 
 ### Added
 
+-   Added `overrideLock` parameter to update and delete form functions
 -   Added `gatewayId` to `FormSubmissionEventConfiguration`
 
 ## 1.6.0 (2020-06-10)

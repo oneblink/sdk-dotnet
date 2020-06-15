@@ -292,9 +292,10 @@ OneBlink.SDK.Model.Form updatedForm = await formsClient.Update(formToUpdate);
 
 ### Parameters
 
-| Parameter      | Required | Type   | Description          |
-| -------------- | -------- | ------ | -------------------- |
-| `formToUpdate` | Yes      | `Form` | Existing Form object |
+| Parameter      | Required | Type      | Description                                                                                             |
+| -------------- | -------- | --------- | ------------------------------------------------------------------------------------------------------- |
+| `formToUpdate` | Yes      | `Form`    | Existing Form object                                                                                    |
+| `overrideLock` | No       | `boolean` | Defaults to false. Set to true to force updating of the form if the form is locked via the form builder |
 
 ### Throws
 
@@ -320,7 +321,8 @@ await formsClient.Delete(long id);
 | Parameter | Required | Type   | Description                              |
 | --------- | -------- | ------ | ---------------------------------------- |
 | `id`      | Yes      | `long` | The identifier of the Form to be deleted |
-|           |
+| `overrideLock` | No       | `boolean` | Defaults to false. Set to true to force deleting of the form if the form is locked via the form builder |
+
 
 ### Throws
 
