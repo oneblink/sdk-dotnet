@@ -101,6 +101,8 @@ namespace OneBlink.SDK.Model
         public int maxEntries { get; set; }
         public List<Guid> elementIds { get; set; }
 
+        public string placeholderValue { get; set; }
+
         private static Guid initialiseId(Guid? id)
         {
             if (!id.HasValue)
@@ -122,7 +124,8 @@ namespace OneBlink.SDK.Model
             List<FormElementConditionallyShowPredicate> conditionallyShowPredicates = null,
             bool required = false,
             bool readOnly = false,
-            string defaultValue = null
+            string defaultValue = null,
+            string placeholderValue = null
         )
         {
             FormElement textElement = new FormElement();
@@ -136,6 +139,7 @@ namespace OneBlink.SDK.Model
             textElement.required = required;
             textElement.readOnly = readOnly;
             textElement.defaultValue = defaultValue;
+            textElement.placeholderValue = placeholderValue;
             return textElement;
         }
 

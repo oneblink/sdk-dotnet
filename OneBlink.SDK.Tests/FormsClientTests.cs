@@ -202,7 +202,8 @@ namespace OneBlink.SDK.Tests
                 null,
                 true,
                 false,
-                "default Value"
+                "default Value",
+                "placeholder value"
             );
 
             FormElement summaryElement = FormElement.CreateSummaryElement(
