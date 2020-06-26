@@ -58,6 +58,10 @@ namespace OneBlink.SDK.Model
             {
                 this.tags = new List<string>();
             }
+            else
+            {
+                this.tags = tags;
+            }
         }
         private string[] AllowedPostSubmissionActions = new string[] { "URL", "CLOSE", "FORMS_LIBRARY" };
         public long id { get; set; }
