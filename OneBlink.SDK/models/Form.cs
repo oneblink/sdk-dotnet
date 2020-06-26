@@ -21,7 +21,8 @@ namespace OneBlink.SDK.Model
             List<FormSubmissionEvent> submissionEvents = null,
             bool isMultiPage = false,
             string redirectUrl = null,
-            bool isInfoPage = false
+            bool isInfoPage = false,
+            List<string> tags = default(List<string>)
             )
         {
             if (id.HasValue)
@@ -53,6 +54,10 @@ namespace OneBlink.SDK.Model
             this.isMultiPage = isMultiPage;
             this.redirectUrl = redirectUrl;
             this.isInfoPage = isInfoPage;
+            if (tags == default(List<string>))
+            {
+                this.tags = new List<string>();
+            }
         }
         private string[] AllowedPostSubmissionActions = new string[] { "URL", "CLOSE", "FORMS_LIBRARY" };
         public long id { get; set; }
@@ -86,5 +91,6 @@ namespace OneBlink.SDK.Model
         public bool isInfoPage { get; set; }
         public List<long> formsAppIds { get; set; }
         public long formsAppEnvironmentId { get; set; }
+        public List<string> tags { get; set; }
     }
 }
