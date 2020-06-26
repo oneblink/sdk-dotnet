@@ -179,6 +179,7 @@ namespace OneBlink.SDK.Tests
         [Fact]
         public async void can_crud_form()
         {
+            List<string> tags = new List<string>() { "Unit", "Test" };
             Form newForm = new Form();
             newForm.name = "Unit test";
             newForm.description = "Created via unit test";
@@ -188,6 +189,7 @@ namespace OneBlink.SDK.Tests
             newForm.isMultiPage = false;
             newForm.formsAppEnvironmentId = formsAppEnvironmentId;
             newForm.postSubmissionAction = "FORMS_LIBRARY";
+            newForm.tags = tags;
 
             List<long> formsAppIds = new List<long>();
             formsAppIds.Add(formsAppId);
@@ -222,6 +224,7 @@ namespace OneBlink.SDK.Tests
             Assert.NotNull(savedForm);
             Form retrievedForm = await formsClient.Get(savedForm.id, true);
             Assert.NotNull(retrievedForm);
+            Assert.Equal(tags, retrievedForm.tags);
             String updatedDescription = "Updated via unit test";
             retrievedForm.description = updatedDescription;
             Form updatedForm = await formsClient.Update(retrievedForm);
