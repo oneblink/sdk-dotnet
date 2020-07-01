@@ -22,7 +22,9 @@ namespace OneBlink.SDK.Model
             bool isMultiPage = false,
             string redirectUrl = null,
             bool isInfoPage = false,
-            List<string> tags = default(List<string>)
+            List<string> tags = default(List<string>),
+            DateTime? publishStartDate = null,
+            DateTime? publishEndDate = null
             )
         {
             if (id.HasValue)
@@ -62,6 +64,14 @@ namespace OneBlink.SDK.Model
             {
                 this.tags = tags;
             }
+            if (publishStartDate.HasValue)
+            {
+                this.publishStartDate = publishStartDate.Value;
+            }
+            if (publishEndDate.HasValue)
+            {
+                this.publishEndDate = publishEndDate.Value;
+            }
         }
         private string[] AllowedPostSubmissionActions = new string[] { "URL", "CLOSE", "FORMS_LIBRARY" };
         public long id { get; set; }
@@ -71,7 +81,6 @@ namespace OneBlink.SDK.Model
         public List<FormElement> elements { get; set; }
         public bool isAuthenticated { get; set; }
         public List<FormSubmissionEvent> submissionEvents { get; set; }
-        public bool isPublished { get; set; }
         public DateTime createdAt { get; set; }
         public DateTime updatedAt { get; set; }
         public bool isMultiPage { get; set; }
@@ -96,5 +105,7 @@ namespace OneBlink.SDK.Model
         public List<long> formsAppIds { get; set; }
         public long formsAppEnvironmentId { get; set; }
         public List<string> tags { get; set; }
+        public DateTime publishStartDate { get; set; }
+        public DateTime publishEndDate { get; set; }
     }
 }

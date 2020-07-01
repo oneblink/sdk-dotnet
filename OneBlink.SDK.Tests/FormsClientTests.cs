@@ -180,16 +180,19 @@ namespace OneBlink.SDK.Tests
         public async void can_crud_form()
         {
             List<string> tags = new List<string>() { "Unit", "Test" };
+            DateTime startDate = DateTime.Now.AddDays(5);
+            DateTime endDate = DateTime.Now.AddDays(10);
             Form newForm = new Form();
             newForm.name = "Unit test";
             newForm.description = "Created via unit test";
             newForm.organisationId = organisationId;
             newForm.isAuthenticated = false;
-            newForm.isPublished = true;
             newForm.isMultiPage = false;
             newForm.formsAppEnvironmentId = formsAppEnvironmentId;
             newForm.postSubmissionAction = "FORMS_LIBRARY";
             newForm.tags = tags;
+            newForm.publishStartDate = startDate;
+            newForm.publishEndDate = endDate;
 
             List<long> formsAppIds = new List<long>();
             formsAppIds.Add(formsAppId);
@@ -225,6 +228,8 @@ namespace OneBlink.SDK.Tests
             Form retrievedForm = await formsClient.Get(savedForm.id, true);
             Assert.NotNull(retrievedForm);
             Assert.Equal(tags, retrievedForm.tags);
+            Assert.Equal(startDate, retrievedForm.publishStartDate);
+            Assert.Equal(endDate, retrievedForm.publishEndDate);
             String updatedDescription = "Updated via unit test";
             retrievedForm.description = updatedDescription;
             Form updatedForm = await formsClient.Update(retrievedForm);
