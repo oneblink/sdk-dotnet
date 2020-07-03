@@ -105,7 +105,7 @@ namespace OneBlink.SDK.Model
         public List<long> formsAppIds { get; set; }
         public long formsAppEnvironmentId { get; set; }
         public List<string> tags { get; set; }
-        public DateTime publishStartDate { get; set; }
-        public DateTime publishEndDate { get; set; }
+        public DateTime? publishStartDate { get; set; }
+        public DateTime? publishEndDate { get; set; }
     }
 }
