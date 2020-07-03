@@ -8,6 +8,7 @@
 -   Added `gatewayId` to `FormSubmissionEventConfiguration`
 -   Added `placeholderValue` to `FormElement`
 -   Added `tags` to `Form`
+-   Added `publishStartDate` and `publishEndDate` to `Form`
 
 ## 1.6.0 (2020-06-10)
 

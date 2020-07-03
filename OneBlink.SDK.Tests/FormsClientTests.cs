@@ -180,16 +180,21 @@ namespace OneBlink.SDK.Tests
         public async void can_crud_form()
         {
             List<string> tags = new List<string>() { "Unit", "Test" };
+            // Need to use Today instead of Now so the time is a whole number of seconds,
+            // otherwise js rounds seconds and C# does not, resulting in different times
+            DateTime startDate = DateTime.Today.AddDays(5);
+            DateTime endDate = DateTime.Today.AddDays(10);
             Form newForm = new Form();
             newForm.name = "Unit test";
             newForm.description = "Created via unit test";
             newForm.organisationId = organisationId;
             newForm.isAuthenticated = false;
-            newForm.isPublished = true;
             newForm.isMultiPage = false;
             newForm.formsAppEnvironmentId = formsAppEnvironmentId;
             newForm.postSubmissionAction = "FORMS_LIBRARY";
             newForm.tags = tags;
+            newForm.publishStartDate = startDate;
+            newForm.publishEndDate = endDate;
 
             List<long> formsAppIds = new List<long>();
             formsAppIds.Add(formsAppId);
@@ -225,6 +230,9 @@ namespace OneBlink.SDK.Tests
             Form retrievedForm = await formsClient.Get(savedForm.id, true);
             Assert.NotNull(retrievedForm);
             Assert.Equal(tags, retrievedForm.tags);
+            // Need to convert these to UTC time as that is what comes from api, and these dates are in local time
+            Assert.Equal(startDate.ToUniversalTime(), retrievedForm.publishStartDate);
+            Assert.Equal(endDate.ToUniversalTime(), retrievedForm.publishEndDate);
             String updatedDescription = "Updated via unit test";
             retrievedForm.description = updatedDescription;
             Form updatedForm = await formsClient.Update(retrievedForm);
