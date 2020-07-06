@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 1.7.0 (2020-07-06)
+
 ### Added
 
 -   Added `overrideLock` parameter to update and delete form functions
