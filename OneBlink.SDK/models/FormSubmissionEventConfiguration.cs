@@ -21,5 +21,6 @@ namespace OneBlink.SDK.Model
         public Guid elementId { get; set; }
         public string contentTypeName { get; set; }
         public Guid gatewayId { get; set; }
+        public Guid environmentId { get; set; }
     }
 }
