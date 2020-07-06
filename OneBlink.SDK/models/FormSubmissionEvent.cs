@@ -47,5 +47,17 @@ namespace OneBlink.SDK.Model
             cpPay.configuration = fseconfig;
             return cpPay;
         }
+
+        public static FormSubmissionEvent CreateBpointSubmissionEvent(Guid elementId, Guid environmentId, bool isDraft = false)
+        {
+            FormSubmissionEventConfigration fseconfig = new FormSubmissionEventConfigration();
+            fseconfig.elementId = elementId;
+            fseconfig.environmentId = environmentId;
+            FormSubmissionEvent bpoint = new FormSubmissionEvent();
+            bpoint.type = "BPOINT";
+            bpoint.isDraft = isDraft;
+            bpoint.configuration = fseconfig;
+            return bpoint;
+        }
     }
 }
