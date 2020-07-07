@@ -59,5 +59,27 @@ namespace OneBlink.SDK.Model
             bpoint.configuration = fseconfig;
             return bpoint;
         }
+
+        public static FormSubmissionEvent CreateTrimSubmissionEvent(Guid environmentId,
+            string recordTitle,
+            FormSubmissionEventTrimUriOption container,
+            FormSubmissionEventTrimUriOption recordType,
+            FormSubmissionEventTrimUriOption actionDefinition,
+            FormSubmissionEventTrimUriOption location,
+            bool isDraft = false)
+        {
+            FormSubmissionEventConfigration fseconfig = new FormSubmissionEventConfigration();
+            fseconfig.environmentId = environmentId;
+            fseconfig.recordTitle = recordTitle;
+            fseconfig.container = container;
+            fseconfig.recordType = recordType;
+            fseconfig.actionDefinition = actionDefinition;
+            fseconfig.location = location;
+            FormSubmissionEvent trim = new FormSubmissionEvent();
+            trim.type = "TRIM";
+            trim.isDraft = isDraft;
+            trim.configuration = fseconfig;
+            return trim;
+        }
     }
 }
