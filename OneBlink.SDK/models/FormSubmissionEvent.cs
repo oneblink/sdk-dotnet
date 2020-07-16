@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace OneBlink.SDK.Model
 {
@@ -35,6 +36,7 @@ namespace OneBlink.SDK.Model
         }
         public FormSubmissionEventConfigration configuration { get; set; }
         public bool isDraft { get; set; }
+        public List<ConditionallyShowPredicate> conditionallyExecutePredicates { get; set; }
 
         public static FormSubmissionEvent CreateCpPaySubmissionEvent(Guid elementId, Guid gatewayId, bool isDraft = false)
         {
@@ -66,7 +68,8 @@ namespace OneBlink.SDK.Model
             FormSubmissionEventTrimUriOption recordType,
             FormSubmissionEventTrimUriOption actionDefinition,
             FormSubmissionEventTrimUriOption location,
-            bool isDraft = false)
+            bool isDraft = false,
+            List<ConditionallyShowPredicate> conditionallyExecutePredicates = default(List<ConditionallyShowPredicate>))
         {
             FormSubmissionEventConfigration fseconfig = new FormSubmissionEventConfigration();
             fseconfig.environmentId = environmentId;
@@ -79,6 +82,10 @@ namespace OneBlink.SDK.Model
             trim.type = "TRIM";
             trim.isDraft = isDraft;
             trim.configuration = fseconfig;
+            if (conditionallyExecutePredicates != default(List<ConditionallyShowPredicate>))
+            {
+                trim.conditionallyExecutePredicates = conditionallyExecutePredicates;
+            }
             return trim;
         }
     }

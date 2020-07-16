@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace OneBlink.SDK.Model
 {
-    public class FormElementConditionallyShowPredicate
+    public class ConditionallyShowPredicate
     {
         public Guid elementId { get; set; }
         private string[] AllowedTypes = new string[] { "OPTIONS", "NUMERIC", "VALUE" };

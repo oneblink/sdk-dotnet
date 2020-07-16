@@ -63,7 +63,7 @@ namespace OneBlink.SDK.Model
 
         public Boolean required { get; set; }
         public Boolean readOnly { get; set; }
-        public List<FormElementConditionallyShowPredicate> conditionallyShowPredicates { get; set; }
+        public List<ConditionallyShowPredicate> conditionallyShowPredicates { get; set; }
         public dynamic defaultValue { get; set; }
         public Boolean buttons { get; set; }
         public Boolean multi { get; set; }
@@ -121,7 +121,7 @@ namespace OneBlink.SDK.Model
             Guid? id = null,
             bool conditionallyShow = false,
             bool requiresAllConditionallyShowPredicates = false,
-            List<FormElementConditionallyShowPredicate> conditionallyShowPredicates = null,
+            List<ConditionallyShowPredicate> conditionallyShowPredicates = null,
             bool required = false,
             bool readOnly = false,
             string defaultValue = null,
@@ -150,7 +150,7 @@ namespace OneBlink.SDK.Model
             Guid? id = null,
             bool conditionallyShow = false,
             bool requiresAllConditionallyShowPredicates = false,
-            List<FormElementConditionallyShowPredicate> conditionallyShowPredicates = null
+            List<ConditionallyShowPredicate> conditionallyShowPredicates = null
         )
         {
             FormElement summaryElement = new FormElement();
