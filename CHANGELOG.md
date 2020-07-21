@@ -5,6 +5,7 @@
 ### Added
 
 -   `conditionallyExecutePredicates` to `FormSubmissionEvent`
+-   CRUD methods to [`FormsAppsClient`](./docs/forms-apps-client.md)
 
 ## 1.8.0 (2020-07-09)
 

@@ -3,6 +3,10 @@
 ## Instance Functions
 
 -   [`VerifyJWT()`](#veryjwt)
+-   [`Get()`](#get)
+-   [`Create()`](#create)
+-   [`Update()`](#update)
+-   [`Delete()`](#delete)
 
 ## Constructor
 
@@ -48,3 +52,109 @@ JWTPayload result = await formsAppsClient.VerifyJWT(token);
 ### Result
 
 A `OneBlink.SDK.Model.JWTPayload` class
+
+## `Get()`
+
+Retrieve a forms app by id
+
+### Example
+
+```c#
+long id = 123;
+
+OneBlink.SDK.Model.FormsApp formsApp = await formsAppsClient.Get(id);
+```
+
+### Parameters
+
+| Parameter | Required | Type   | Description                     |
+| --------- | -------- | ------ | ------------------------------- |
+| `id`      | Yes      | `long` | Id of forms app to be retrieved |
+
+### Throws
+
+-   `OneBlinkAPIException`
+-   `Exception`
+
+### Result
+
+A `FormsApp` class
+
+## `Create()`
+
+Create a new forms app
+
+### Example
+
+```c#
+FormsApp newFormsApp = {...};
+
+OneBlink.SDK.Model.FormsApp savedFormsApps = await formsAppsClient.Create(newFormsApp);
+```
+
+### Parameters
+
+| Parameter     | Required | Type       | Description         |
+| ------------- | -------- | ---------- | ------------------- |
+| `newFormsApp` | Yes      | `FormsApp` | New FormsApp object |
+
+### Throws
+
+-   `OneBlinkAPIException`
+-   `Exception`
+
+### Result
+
+A `FormsApp` class
+
+## `Update()`
+
+Update a existing forms app
+
+### Example
+
+```c#
+FormsApp formsAppToUpdate = {...};
+
+OneBlink.SDK.Model.FormsApp updatedFormsApp = await formsAppsClient.Update(formsAppToUpdate);
+```
+
+### Parameters
+
+| Parameter          | Required | Type       | Description              |
+| ------------------ | -------- | ---------- | ------------------------ |
+| `formsAppToUpdate` | Yes      | `FormsApp` | Existing FormsApp object |
+
+### Throws
+
+-   `OneBlinkAPIException`
+-   `Exception`
+
+### Result
+
+A `FormsApp` class
+
+## `Delete()`
+
+### Example
+
+```c#
+long formsAppId = 1;
+
+await formsAppsClient.Delete(formsAppId);
+```
+
+### Parameters
+
+| Parameter | Required | Type   | Description                                  |
+| --------- | -------- | ------ | -------------------------------------------- |
+| `id`      | Yes      | `long` | The identifier of the FormsApp to be deleted |
+
+### Throws
+
+-   `OneBlinkAPIException`
+-   `Exception`
+
+### Result
+
+No return value (`void`)

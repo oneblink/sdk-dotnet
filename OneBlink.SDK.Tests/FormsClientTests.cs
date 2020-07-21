@@ -13,7 +13,6 @@ namespace OneBlink.SDK.Tests
     {
         private string ACCESS_KEY;
         private string SECRET_KEY;
-        private string apiOrigin;
         private int formId = 475;
         private string submissionId = "5ab3d950-253a-4d22-8ae6-c9eae82f58ba";
         private int draftFormId = 475;
@@ -27,7 +26,6 @@ namespace OneBlink.SDK.Tests
             DotEnv.Config(raiseException, Path.GetFullPath(Path.Combine(Directory.GetCurrentDirectory(), "..", "..", "..", "..")) + "/.env");
             ACCESS_KEY = Environment.GetEnvironmentVariable("ACCESS_KEY");
             SECRET_KEY = Environment.GetEnvironmentVariable("SECRET_KEY");
-            apiOrigin = Environment.GetEnvironmentVariable("ONEBLINK_API_ORIGIN");
 
             string formId = Environment.GetEnvironmentVariable("GET_SUBMISSION_DATA_FORM_ID");
             if (!String.IsNullOrWhiteSpace(formId))
