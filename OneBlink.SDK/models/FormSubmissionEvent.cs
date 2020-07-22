@@ -37,6 +37,8 @@ namespace OneBlink.SDK.Model
         public FormSubmissionEventConfigration configuration { get; set; }
         public bool isDraft { get; set; }
         public List<ConditionallyShowPredicate> conditionallyExecutePredicates { get; set; }
+        public bool conditionallyExecute { get; set; }
+        public bool requiresAllConditionallyExecutePredicates { get; set; }
 
         public static FormSubmissionEvent CreateCpPaySubmissionEvent(Guid elementId, Guid gatewayId, bool isDraft = false)
         {
@@ -69,7 +71,9 @@ namespace OneBlink.SDK.Model
             FormSubmissionEventTrimUriOption actionDefinition,
             FormSubmissionEventTrimUriOption location,
             bool isDraft = false,
-            List<ConditionallyShowPredicate> conditionallyExecutePredicates = default(List<ConditionallyShowPredicate>))
+            List<ConditionallyShowPredicate> conditionallyExecutePredicates = default(List<ConditionallyShowPredicate>),
+            bool conditionallyExecute = false,
+            bool requiresAllConditionallyExecutePredicates = false)
         {
             FormSubmissionEventConfigration fseconfig = new FormSubmissionEventConfigration();
             fseconfig.environmentId = environmentId;
@@ -81,6 +85,8 @@ namespace OneBlink.SDK.Model
             FormSubmissionEvent trim = new FormSubmissionEvent();
             trim.type = "TRIM";
             trim.isDraft = isDraft;
+            trim.conditionallyExecute = conditionallyExecute;
+            trim.requiresAllConditionallyExecutePredicates = requiresAllConditionallyExecutePredicates;
             trim.configuration = fseconfig;
             if (conditionallyExecutePredicates != default(List<ConditionallyShowPredicate>))
             {
