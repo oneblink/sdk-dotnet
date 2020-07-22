@@ -18,7 +18,8 @@ namespace OneBlink.SDK.Model
         public FormsAppStyles styles { get; }
         public FormsAppPWASettings pwaSettings { get; set; }
         public FormsAppWelcomeEmail welcomeEmail { get; set; }
-        public bool hasSamlIdentityProvider { get; set; }
+        public bool hasSamlIdentityProvider { get; }
+        public List<string> notificationEmailAddresses { get; set; }
 
     }
 }

@@ -99,6 +99,7 @@ namespace OneBlink.SDK.Tests
             newFormsApp.formsAppEnvironmentId = formsAppEnvironmentId;
             newFormsApp.formIds = new List<long>();
             newFormsApp.pwaSettings = pWASettings;
+            newFormsApp.notificationEmailAddresses = new List<string>() { "developers@oneblink.io" };
 
             FormsApp savedFormsApp = await formsAppsClient.Create(newFormsApp);
             Assert.NotNull(savedFormsApp);
