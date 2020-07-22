@@ -9,11 +9,11 @@ namespace OneBlink.SDK.Model
         public string name { get; set; }
         public string slug { get; set; }
         public string hostname { get; }
-        public DateTime createdAt { get; set; }
-        public DateTime updatedAt { get; set; }
+        public DateTime createdAt { get; }
+        public DateTime updatedAt { get; }
         public string organisationId { get; set; }
         public long formsAppEnvironmentId { get; set; }
-        public string oAuthClientId { get; set; }
+        public string oAuthClientId { get; }
         public List<long> formIds { get; set; }
         public FormsAppStyles styles { get; }
         public FormsAppPWASettings pwaSettings { get; set; }
