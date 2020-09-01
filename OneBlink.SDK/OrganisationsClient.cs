@@ -1,0 +1,60 @@
+using System;
+using OneBlink.SDK.Model;
+using System.Threading.Tasks;
+using Amazon;
+using Amazon.Runtime;
+using Amazon.S3;
+using Amazon.S3.Model;
+using Amazon.S3.Transfer;
+
+
+namespace OneBlink.SDK
+{
+    public class OrganisationsClient
+    {
+        OneBlinkApiClient oneBlinkApiClient;
+
+        public OrganisationsClient(string accessKey, string secretKey, TenantName tenantName = TenantName.ONEBLINK)
+        {
+            this.oneBlinkApiClient = new OneBlinkApiClient(
+                accessKey,
+                secretKey,
+                tenant: new Tenant(tenantName)
+            );
+        }
+
+        public async Task<string> UploadAsset(string assetData, string contentType, string assetFileName)
+        {
+            string getUrl = "/organisations";
+            OrganiationsSearchResult searchResult = await this.oneBlinkApiClient.GetRequest<OrganiationsSearchResult>(getUrl);
+            if (searchResult.organisations.Count != 1)
+            {
+                throw new ArgumentException("You do not have access to any organisations");
+            }
+            string postUrl = "/asset-upload-credentials";
+            AssetUploadCredentialsRequest assetUploadCredentialsRequest = new AssetUploadCredentialsRequest();
+            assetUploadCredentialsRequest.assetPath = "assets/" + assetFileName;
+            assetUploadCredentialsRequest.organisationId = searchResult.organisations[0].id;
+            AssetUploadCredentialsResponse assetUploadCredentialsResponse = await this.oneBlinkApiClient.PostRequest<AssetUploadCredentialsRequest, AssetUploadCredentialsResponse>(postUrl, assetUploadCredentialsRequest);
+            RegionEndpoint regionEndpoint = RegionEndpoint.GetBySystemName(assetUploadCredentialsResponse.s3.region);
+
+            SessionAWSCredentials sessionAWSCredentials = new SessionAWSCredentials(
+                assetUploadCredentialsResponse.credentials.AccessKeyId,
+                assetUploadCredentialsResponse.credentials.SecretAccessKey,
+                assetUploadCredentialsResponse.credentials.SessionToken
+            );
+            AmazonS3Client amazonS3Client = new AmazonS3Client(sessionAWSCredentials, regionEndpoint);
+            PutObjectRequest request = new PutObjectRequest
+            {
+                BucketName = assetUploadCredentialsResponse.s3.bucket,
+                Key = assetUploadCredentialsResponse.s3.key,
+                ContentBody = assetData,
+                ContentType = contentType,
+                CannedACL = S3CannedACL.PublicRead
+            };
+
+            await amazonS3Client.PutObjectAsync(request);
+            return string.Format("https://{0}.s3.amazonaws.com/{1}", assetUploadCredentialsResponse.s3.bucket, assetUploadCredentialsResponse.s3.key);
+        }
+    }
+}
