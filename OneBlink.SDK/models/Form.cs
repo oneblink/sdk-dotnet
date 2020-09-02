@@ -18,7 +18,7 @@ namespace OneBlink.SDK.Model
             long? id = null,
             string postSubmissionAction = "FORMS_LIBRARY",
             bool isAuthenticated = true,
-            List<FormSubmissionEvent> submissionEvents = null,
+            List<FormSubmissionEvent> submissionEvents = default(List<FormSubmissionEvent>),
             bool isMultiPage = false,
             string redirectUrl = null,
             bool isInfoPage = false,
@@ -52,6 +52,14 @@ namespace OneBlink.SDK.Model
             this.postSubmissionAction = postSubmissionAction;
             this.formsAppEnvironmentId = formsAppEnvironmentId;
             this.isAuthenticated = isAuthenticated;
+            if (submissionEvents == default(List<FormSubmissionEvent>))
+            {
+                this.submissionEvents = new List<FormSubmissionEvent>();
+            }
+            else
+            {
+                this.submissionEvents = submissionEvents;
+            }
             this.submissionEvents = submissionEvents;
             this.isMultiPage = isMultiPage;
             this.redirectUrl = redirectUrl;

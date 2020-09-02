@@ -7,6 +7,7 @@
 -   [PdfClient](./pdf-client.md)
 -   [TeamMembersClient](./team-members-client.md)
 -   [JobsClient](./jobs-client.md)
+-   [OrganisationsClient](./organisations-client.md)
 
 ## Models
 

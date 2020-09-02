@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Added
+
+-   `OrganisationsClient`
+
 ## 1.9.0 (2020-07-23)
 
 ### Added
