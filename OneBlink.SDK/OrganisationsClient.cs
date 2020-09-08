@@ -5,8 +5,7 @@ using Amazon;
 using Amazon.Runtime;
 using Amazon.S3;
 using Amazon.S3.Model;
-using Amazon.S3.Transfer;
-
+using System.IO;
 
 namespace OneBlink.SDK
 {
@@ -23,7 +22,7 @@ namespace OneBlink.SDK
             );
         }
 
-        public async Task<string> UploadAsset(string assetData, string contentType, string assetFileName)
+        public async Task<string> UploadAsset(Stream assetDataStream, string contentType, string assetFileName)
         {
             string getUrl = "/organisations";
             OrganiationsSearchResult searchResult = await this.oneBlinkApiClient.GetRequest<OrganiationsSearchResult>(getUrl);
@@ -48,7 +47,7 @@ namespace OneBlink.SDK
             {
                 BucketName = assetUploadCredentialsResponse.s3.bucket,
                 Key = assetUploadCredentialsResponse.s3.key,
-                ContentBody = assetData,
+                InputStream = assetDataStream,
                 ContentType = contentType,
                 CannedACL = S3CannedACL.PublicRead
             };
