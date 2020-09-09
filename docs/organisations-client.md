@@ -26,19 +26,21 @@ OrganisationsClient organisationsClient = new OrganisationsClient(accessKey, sec
 ### Example
 
 ```c#
-string assetData = "data";
-string contentType = "text/plain";
-string assetFileName = "file.text";
-string publicUrl = await organisationsClient.UploadAsset(assetData, contentType, assetFileName);
+using (FileStream stream = new FileStream("contents.txt", FileMode.Open))
+{
+    string contentType = "text/plain";
+    string assetFileName = "file.text";
+    string publicUrl = await organisationsClient.UploadAsset(stream, contentType, assetFileName);
+}
 ```
 
 ### Parameters
 
-| Parameter       | Required | Type     | Description                         |
-| --------------- | -------- | -------- | ----------------------------------- |
-| `assetData`     | Yes      | `string` | The file data                       |
-| `contentType`   | Yes      | `string` | The content type for the asset data |
-| `assetFileName` | Yes      | `string` | The name to use for the asset file  |
+| Parameter         | Required | Type               | Description                         |
+| ----------------- | -------- | ------------------ | ----------------------------------- |
+| `assetDataStream` | Yes      | `System.IO.Stream` | The file data as a input stream     |
+| `contentType`     | Yes      | `string`           | The content type for the asset data |
+| `assetFileName`   | Yes      | `string`           | The name to use for the asset file  |
 
 ### Throws
 

@@ -46,8 +46,22 @@ namespace OneBlink.SDK.Tests
         public async void can_upload_asset()
         {
             OrganisationsClient organisationsClient = new OrganisationsClient(ACCESS_KEY, SECRET_KEY, TenantName.ONEBLINK_TEST);
-            var response = await organisationsClient.UploadAsset("data", "text/plain", "test.txt");
-            Assert.NotNull(response);
+
+            using (var stream = GenerateStreamFromString("data"))
+            {
+                var response = await organisationsClient.UploadAsset(stream, "text/plain", "test.txt");
+                Assert.NotNull(response);
+            }
+        }
+
+        public static Stream GenerateStreamFromString(string s)
+        {
+            var stream = new MemoryStream();
+            var writer = new StreamWriter(stream);
+            writer.Write(s);
+            writer.Flush();
+            stream.Position = 0;
+            return stream;
         }
     }
 }
