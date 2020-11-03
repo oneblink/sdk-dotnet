@@ -102,6 +102,8 @@ namespace OneBlink.SDK.Model
         public List<Guid> elementIds { get; set; }
 
         public string placeholderValue { get; set; }
+        public int? minLength {get; set; }
+        public int? maxLength {get; set; }
 
         private static Guid initialiseId(Guid? id)
         {
@@ -125,7 +127,9 @@ namespace OneBlink.SDK.Model
             bool required = false,
             bool readOnly = false,
             string defaultValue = null,
-            string placeholderValue = null
+            string placeholderValue = null,
+            int? minLength = null,
+            int? maxLength = null
         )
         {
             FormElement textElement = new FormElement();
@@ -140,6 +144,8 @@ namespace OneBlink.SDK.Model
             textElement.readOnly = readOnly;
             textElement.defaultValue = defaultValue;
             textElement.placeholderValue = placeholderValue;
+            textElement.minLength = minLength;
+            textElement.maxLength = maxLength;
             return textElement;
         }
 
