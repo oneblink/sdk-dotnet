@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+### Added
+
+-   isInteger prop to `FormElement`
+-   minLength and maxLength props to `FormElement` and `createTextElement` constructor
+
 ## 1.10.0 (2020-10-15)
 
 ### Added
