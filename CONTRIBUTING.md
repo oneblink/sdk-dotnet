@@ -61,7 +61,7 @@ docker run -it --rm -v "$PWD":/usr/src/oneblink-sdk-dotnet -w  /usr/src/oneblink
 
     #### Production Release
 
-    1.  Update the [Changelog](../CHANGELOG.md) by replacing `Unreleased` with `1.0.1 (YYYY-MM-DD)`
+    1.  Update the [Changelog](./CHANGELOG.md) by replacing `Unreleased` with `1.0.1 (YYYY-MM-DD)`
 
     1.  Update the `<PackageVersion>` tag in `./OneBlink.SDK/OneBlink.SDK.csproj` with `1.0.1`
 
