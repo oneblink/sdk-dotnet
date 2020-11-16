@@ -93,6 +93,8 @@ docker run -it --rm -v "$PWD":/usr/src/oneblink-sdk-dotnet -w  /usr/src/oneblink
 
 1.  Clone this repository
 
+1.  Remove any existing builds locally by deleting the `./OneBlink.SDK/bin` directory
+
 1.  Build source
 
     ```sh
