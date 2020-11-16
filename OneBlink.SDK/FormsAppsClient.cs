@@ -76,5 +76,11 @@ namespace OneBlink.SDK
             FormsAppSendingAddress sendingAddress = await this.oneBlinkApiClient.PostRequest<NewFormsAppSendingAddress, FormsAppSendingAddress>(url, newFormsAppSendingAddress);
             return sendingAddress;
         }
+
+        public async Task DeleteSendingAddress(long id)
+        {
+            string url = "/forms-apps/" + id.ToString() + "/sending-address";
+            await this.oneBlinkApiClient.DeleteRequest(url);
+        }
     }
 }
