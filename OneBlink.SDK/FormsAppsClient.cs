@@ -65,5 +65,16 @@ namespace OneBlink.SDK
             FormsAppStyles formsAppStyles = await this.oneBlinkApiClient.PutRequest<FormsAppStyles, FormsAppStyles>(url, styles);
             return formsAppStyles;
         }
+
+        public async Task<FormsAppSendingAddress> SetSendingAddress(long id, NewFormsAppSendingAddress newFormsAppSendingAddress)
+        {
+            if (String.IsNullOrEmpty(newFormsAppSendingAddress.emailAddress)) {
+                throw new Exception("Email Address must not be empty");
+            }
+            string url = "/forms-apps/" + id.ToString() + "/sending-address";
+
+            FormsAppSendingAddress sendingAddress = await this.oneBlinkApiClient.PostRequest<NewFormsAppSendingAddress, FormsAppSendingAddress>(url, newFormsAppSendingAddress);
+            return sendingAddress;
+        }
     }
 }
