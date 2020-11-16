@@ -188,3 +188,28 @@ OneBlink.SDK.Model.FormsAppSendingAddress sendingAddress = await formsAppsClient
 ### Result
 
 A `OneBlink.SDK.Model.FormsAppSendingAddress` class
+
+## `DeleteSendingAddress()`
+
+### Example
+
+```c#
+long formsAppId = 1;
+
+await formsAppsClient.DeleteSendingAddress(formsAppId);
+```
+
+### Parameters
+
+| Parameter | Required | Type   | Description                    |
+| --------- | -------- | ------ | ------------------------------ |
+| `id`      | Yes      | `long` | The identifier of the FormsApp |
+
+### Throws
+
+-   `OneBlinkAPIException`
+-   `Exception`
+
+### Result
+
+No return value (`void`)
