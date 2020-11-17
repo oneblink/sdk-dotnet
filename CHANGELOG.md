@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 1.12.0 (2020-11-12)
+
 ### Added
 
 -   [`SetSendingAddress()`](./docs/forms-apps-client.md#SetSendingAddress) method
