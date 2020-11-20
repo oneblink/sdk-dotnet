@@ -124,5 +124,26 @@ namespace OneBlink.SDK.Tests
                 Assert.Equal("App not found", ex.Message);
             }
         }
+
+        [Fact]
+        public void can_encrypt_and_decrypt_user_token() {
+            AesUserToken aesUserToken = new AesUserToken("secret");
+            string username = "zac@oneblink.io";
+            string userToken = aesUserToken.encrypt(username);
+            Assert.NotNull(userToken);
+
+            string decryptedUsername = aesUserToken.decrypt(userToken);
+
+            Assert.Equal(username, decryptedUsername);
+        }
+
+        [Fact]
+        public void can_decrypt_user_token_from_js_sdk() {
+            AesUserToken aesUserToken = new AesUserToken("secret");
+            string userToken = "ZGyRaKLZY5w96FLTGHZEO0eKZQD0XGg1FwHrSrchUgI=";
+            string decryptedUsername = aesUserToken.decrypt(userToken);
+
+            Assert.Equal(decryptedUsername, "zac@oneblink.io");
+        }
     }
 }

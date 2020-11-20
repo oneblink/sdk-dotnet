@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using System.IdentityModel.Tokens.Jwt;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
@@ -91,6 +92,66 @@ namespace OneBlink.SDK
             JwtSecurityToken validatedJwt = validatedSecurityToken as JwtSecurityToken;
             return validatedJwt.Payload.SerializeToJson();
 
+        }
+    }
+
+    public class AesUserToken {
+        AesCryptoServiceProvider aes = new AesCryptoServiceProvider();
+        internal AesUserToken(string key) {
+
+            byte[] keyBytes = Encoding.ASCII.GetBytes(key);
+            // 256 bits (32 characters) hash
+            MD5CryptoServiceProvider md5Provider = new MD5CryptoServiceProvider();
+            byte[] keyHash = md5Provider.ComputeHash(keyBytes);
+            // NEED TO CONVERT TO STRING AND BACK TO BYTES ARRAY TO MATCH JS
+            string keyHashString = BitConverter.ToString(keyHash).Replace("-", String.Empty).ToLower();
+            byte[] keyHashBytes = Encoding.ASCII.GetBytes(keyHashString);
+            aes.Key = keyHashBytes;
+            aes.Mode = CipherMode.CBC;
+            aes.Padding = PaddingMode.PKCS7;
+        }
+
+        internal string encrypt(string value)
+        {
+            byte[] cipherData;
+            using (MemoryStream memoryStream = new MemoryStream())
+            {
+                aes.GenerateIV();
+                ICryptoTransform cipher = aes.CreateEncryptor(aes.Key, aes.IV);
+                using (CryptoStream cryptoStream = new CryptoStream(memoryStream, cipher, CryptoStreamMode.Write))
+                {
+                    using (StreamWriter streamWriter = new StreamWriter(cryptoStream))
+                    {
+                        streamWriter.Write(value);
+                    }
+                }
+                cipherData = memoryStream.ToArray();
+            }
+
+            byte[] combinedData = new byte[aes.IV.Length + cipherData.Length];
+            Array.Copy(aes.IV, 0, combinedData, 0, aes.IV.Length);
+            Array.Copy(cipherData, 0, combinedData, aes.IV.Length, cipherData.Length);
+            return Convert.ToBase64String(combinedData);
+        }
+        internal string decrypt(string value)
+        {
+            byte[] combinedData = Convert.FromBase64String(value);
+            byte[] iv = new byte[aes.BlockSize / 8];
+            byte[] cipherText = new byte[combinedData.Length - iv.Length];
+            Array.Copy(combinedData, iv, iv.Length);
+            Array.Copy(combinedData, iv.Length, cipherText, 0, cipherText.Length);
+            aes.IV = iv;
+            using (MemoryStream ms = new MemoryStream(cipherText))
+            {
+                ICryptoTransform decipher = aes.CreateDecryptor(aes.Key, aes.IV);
+                using (CryptoStream cryptoStream = new CryptoStream(ms, decipher, CryptoStreamMode.Read))
+                {
+                    using (StreamReader streamReader = new StreamReader(cryptoStream))
+                    {
+                        return streamReader.ReadToEnd();
+                    }
+                }
+            }
         }
     }
 }
