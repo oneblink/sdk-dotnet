@@ -95,7 +95,7 @@ namespace OneBlink.SDK
         }
     }
 
-    public class AesUserToken {
+    internal class AesUserToken {
         AesCryptoServiceProvider aes = new AesCryptoServiceProvider();
         internal AesUserToken(string key) {
 
