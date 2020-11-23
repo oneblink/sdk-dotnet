@@ -1,10 +1,5 @@
 using System.Threading.Tasks;
 using OneBlink.SDK.Model;
-using Amazon;
-using Amazon.Runtime;
-using Amazon.S3;
-using Amazon.S3.Model;
-using Newtonsoft.Json;
 using System;
 
 namespace OneBlink.SDK
@@ -43,8 +38,8 @@ namespace OneBlink.SDK
         public async Task<Job> CreateJob<T>(Job job, T preFillData)
         {
             _ValidateJob(job);
-
-            string preFillMetaId = await _SetPreFillData<T>(preFillData, job.formId);
+            PrefillClient prefillClient = new PrefillClient(oneBlinkApiClient);
+            string preFillMetaId = await prefillClient.SetPreFillData<T>(preFillData, job.formId);
 
             job.preFillFormDataId = preFillMetaId;
 
@@ -160,35 +155,6 @@ namespace OneBlink.SDK
             {
                 throw new ArgumentException("The 'title' property of JobDetail must be provided with a value");
             }
-        }
-
-        private async Task<string> _SetPreFillData<T>(T preFillData, int formId)
-        {
-            string url = "/forms/" + formId.ToString() + "/pre-fill-credentials";
-
-            PreFillMeta preFillMeta = await this.oneBlinkApiClient.PostRequest<PreFillMeta>(url);
-
-            RegionEndpoint regionEndpoint = RegionEndpoint.GetBySystemName(preFillMeta.s3.region);
-
-            SessionAWSCredentials sessionAWSCredentials = new SessionAWSCredentials(
-                preFillMeta.credentials.AccessKeyId,
-                preFillMeta.credentials.SecretAccessKey,
-                preFillMeta.credentials.SessionToken
-            );
-
-            AmazonS3Client amazonS3Client = new AmazonS3Client(sessionAWSCredentials, regionEndpoint);
-
-            PutObjectRequest request = new PutObjectRequest
-            {
-                BucketName = preFillMeta.s3.bucket,
-                Key = preFillMeta.s3.key,
-                ContentBody = JsonConvert.SerializeObject(preFillData),
-                ContentType = "application/json"
-            };
-
-            await amazonS3Client.PutObjectAsync(request);
-
-            return preFillMeta.preFillFormDataId;
         }
     }
 }

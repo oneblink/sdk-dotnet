@@ -1,17 +1,12 @@
 ﻿using System;
-using System.IdentityModel.Tokens.Jwt;
+using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Security.Claims;
-using System.Text;
 using System.Threading.Tasks;
 using Amazon;
 using Amazon.Runtime;
 using Amazon.S3;
 using Amazon.S3.Model;
-using dotenv.net;
-using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
 using OneBlink.SDK.Model;
 
@@ -202,6 +197,98 @@ namespace OneBlink.SDK
             }
 
             return JsonConvert.DeserializeObject<FormSubmission<T>>(responseBody);
+        }
+        public static string EncryptUserToken(string username, string secret) {
+            if (String.IsNullOrEmpty(username) || String.IsNullOrEmpty(secret)) {
+                throw new Exception("Must pass a valid username and secret");
+            }
+            AesUserToken aesUserToken = new AesUserToken(secret);
+            return aesUserToken.encrypt(username);
+        }
+        public static string DecryptUserToken(string userToken, string secret) {
+            if (String.IsNullOrEmpty(userToken) || String.IsNullOrEmpty(secret)) {
+                throw new Exception("Must pass a valid userToken and secret");
+            }
+            AesUserToken aesUserToken = new AesUserToken(secret);
+            return aesUserToken.decrypt(userToken);
+        }
+
+        public async Task<FormUrlResult> GenerateFormUrl(FormUrlOptions parameters) {
+            if (parameters == null) {
+                throw new Exception("parameters not provided");
+            }
+            if (parameters.formsAppId == null) {
+                Form form = await oneBlinkApiClient.GetRequest<Form>($"/forms/{parameters.formId}");
+
+                parameters.formsAppId = form.formsAppIds[0];
+            }
+
+            if (parameters.formsAppId == null) {
+                throw new Exception("This form has not been added to a forms app yet.");
+            }
+            FormsApp formsApp = await oneBlinkApiClient.GetRequest<FormsApp>($"/forms-apps/{parameters.formsAppId}");
+
+            string preFillFormDataId = null;
+            if (parameters.preFillData != null) {
+                PrefillClient prefillClient = new PrefillClient(oneBlinkApiClient);
+                PreFillMeta preFillMeta = await prefillClient.GetPreFillMeta((int) parameters.formId);
+                string preFillMetaId = await prefillClient.PutPreFillData<dynamic>(parameters.preFillData, preFillMeta);
+                preFillFormDataId = preFillMeta.preFillFormDataId;
+            }
+
+            string userToken = null;
+            if (parameters.username != null) {
+                AesUserToken aesUserToken = new AesUserToken(parameters.secret);
+                userToken = aesUserToken.encrypt(parameters.username);
+            }
+
+            // Default expiry for token is 8 hours
+            int jwtExpiry = parameters.expiryInSeconds ?? 28800;
+            string token = Token.GenerateJSONWebToken(accessKey: oneBlinkApiClient.accessKey, oneBlinkApiClient.secretKey, jwtExpiry);
+
+            string formUrl = _generateFormUrl(
+                formId: parameters.formId,
+                formsApp: formsApp,
+                token: token,
+                externalId: parameters.externalId,
+                preFillFormDataId: preFillFormDataId,
+                userToken: userToken
+            );
+            string expiry = DateTime.UtcNow.AddSeconds(jwtExpiry).ToString("o");
+            return new FormUrlResult() {
+                formUrl = formUrl,
+                expiry = expiry
+            };
+        }
+
+        private string _generateFormUrl(
+        long formId,
+        FormsApp formsApp,
+        string token,
+        string externalId,
+        string preFillFormDataId,
+        string userToken)
+        {
+            // SEARCH PARAMS
+            List<string> searchParams = new List<string>();
+            searchParams.Add($"access_key={token}");
+            if (externalId != null) {
+                searchParams.Add($"externalId={externalId}");
+            }
+            if (preFillFormDataId != null) {
+                searchParams.Add($"preFillFormDataId={preFillFormDataId}");
+            }
+            if (userToken != null) {
+                searchParams.Add($"userToken={userToken}");
+            }
+            string url = $"https://{formsApp.hostname}/forms/{formId}";
+            for (int i = 0; i < searchParams.Count; i++)
+            {
+                if (i == 0) url += "?";
+                url += searchParams[i];
+                if (i != searchParams.Count - 1) url += "&";
+            }
+            return url;
         }
     }
 }
