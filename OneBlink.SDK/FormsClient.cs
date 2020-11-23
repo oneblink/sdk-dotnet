@@ -198,7 +198,14 @@ namespace OneBlink.SDK
 
             return JsonConvert.DeserializeObject<FormSubmission<T>>(responseBody);
         }
-        public string DecryptUserToken(string userToken, string secret) {
+        public static string EncryptUserToken(string username, string secret) {
+            if (String.IsNullOrEmpty(username) || String.IsNullOrEmpty(secret)) {
+                throw new Exception("Must pass a valid username and secret");
+            }
+            AesUserToken aesUserToken = new AesUserToken(secret);
+            return aesUserToken.encrypt(username);
+        }
+        public static string DecryptUserToken(string userToken, string secret) {
             if (String.IsNullOrEmpty(userToken) || String.IsNullOrEmpty(secret)) {
                 throw new Exception("Must pass a valid userToken and secret");
             }

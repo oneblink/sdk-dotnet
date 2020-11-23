@@ -386,3 +386,29 @@ string username = await formsClient.DecryptUserToken(
 ### Result
 
 A `string`
+
+## `EncryptUserToken()`
+
+### Example
+
+```c#
+string userToken = await formsClient.EncryptUserToken(
+    username: userToken,
+    secret: secret
+);
+```
+
+### Parameters
+
+| Parameter  | Required | Type   | Description                               |
+| ---------- | -------- | ------ | ----------------------------------------- |
+| `username` | Yes      | string | The `username` to encrypt                 |
+| `secret`   | Yes      | string | The secret to encrypt the `username` with |
+
+### Throws
+
+-   `Exception`
+
+### Result
+
+A `string`
