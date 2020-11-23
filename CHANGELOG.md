@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Added
+
+-   [`DecryptUserToken()`](./docs/forms-client.md#DecryptUserToken) method
+
 ## 1.12.0 (2020-11-12)
 
 ### Added

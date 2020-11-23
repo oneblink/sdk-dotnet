@@ -274,5 +274,30 @@ namespace OneBlink.SDK.Tests
             Form updatedForm = await formsClient.Update(savedForm);
 
         }
+
+        [Fact]
+        public async void can_generate_form_url()
+        {
+            FormUrlOptions preFill = new FormUrlOptions(
+                formId: 475
+            );
+            FormsClient formsClient = new FormsClient(ACCESS_KEY, SECRET_KEY, TenantName.ONEBLINK_TEST);
+            FormUrlResult result = await formsClient.GenerateFormUrl(
+                new FormUrlOptions(
+                    formId: 475,
+                    username: "zac@oneblink.io",
+                    secret: "secret",
+                    preFillData: preFill,
+                    externalId: "myExternalId"
+
+                )
+            );
+            Assert.Contains("?access_key=", result.formUrl);
+            Assert.Contains("&externalId=myExternalId", result.formUrl);
+            Assert.Contains("&userToken=", result.formUrl);
+            Assert.Contains("&preFillFormDataId=", result.formUrl);
+            Assert.NotNull(result.expiry);
+
+        }
     }
 }

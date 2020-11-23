@@ -318,11 +318,10 @@ await formsClient.Delete(long id);
 
 ### Parameters
 
-| Parameter | Required | Type   | Description                              |
-| --------- | -------- | ------ | ---------------------------------------- |
-| `id`      | Yes      | `long` | The identifier of the Form to be deleted |
+| Parameter      | Required | Type      | Description                                                                                             |
+| -------------- | -------- | --------- | ------------------------------------------------------------------------------------------------------- |
+| `id`           | Yes      | `long`    | The identifier of the Form to be deleted                                                                |
 | `overrideLock` | No       | `boolean` | Defaults to false. Set to true to force deleting of the form if the form is locked via the form builder |
-
 
 ### Throws
 
@@ -332,3 +331,32 @@ await formsClient.Delete(long id);
 ### Result
 
 No return value (`void`)
+
+## `GenerateFormUrl()`
+
+### Example
+
+```c#
+FormUrlResult result = await formsClient.GenerateFormUrl(
+    new FormUrlOptions(
+        formId: 5,
+        username: "user@oneblink.io",
+        secret: "secret"
+    )
+);
+```
+
+### Parameters
+
+| Parameter    | Required | Type                                         | Description                             |
+| ------------ | -------- | -------------------------------------------- | --------------------------------------- |
+| `parameters` | Yes      | [FormUrlOptions](./models/FormUrlOptions.md) | The parameters used to generate the url |
+
+### Throws
+
+-   `OneBlinkAPIException`
+-   `Exception`
+
+### Result
+
+A `OneBlink.SDK.Model.FormUrlResult` class
