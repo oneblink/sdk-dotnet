@@ -360,3 +360,29 @@ FormUrlResult result = await formsClient.GenerateFormUrl(
 ### Result
 
 A `OneBlink.SDK.Model.FormUrlResult` class
+
+## `DecryptUserToken()`
+
+### Example
+
+```c#
+string username = await formsClient.DecryptUserToken(
+    userToken: userToken,
+    secret: secret
+);
+```
+
+### Parameters
+
+| Parameter   | Required | Type   | Description                                        |
+| ----------- | -------- | ------ | -------------------------------------------------- |
+| `userToken` | Yes      | string | The `userToken` to decrypt                         |
+| `secret`    | Yes      | string | The secret that the `userToken` was encrypted with |
+
+### Throws
+
+-   `Exception`
+
+### Result
+
+A `string`
