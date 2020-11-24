@@ -10,7 +10,7 @@
 ### Example
 
 ```c#
-string username = await FormsClient.DecryptUserToken(
+string username = FormsClient.DecryptUserToken(
     userToken: userToken,
     secret: secret
 );
@@ -36,7 +36,7 @@ A `string`
 ### Example
 
 ```c#
-string userToken = await FormsClient.EncryptUserToken(
+string userToken = FormsClient.EncryptUserToken(
     username: userToken,
     secret: secret
 );
