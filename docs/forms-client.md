@@ -1,5 +1,62 @@
 # OneBlink .Net SDK | FormsClient Class
 
+## Static Functions
+
+-   [`DecryptUserToken()`](#DecryptUserToken)
+-   [`EncryptUserToken()`](#EncryptUserToken)
+
+## `DecryptUserToken()`
+
+### Example
+
+```c#
+string username = await FormsClient.DecryptUserToken(
+    userToken: userToken,
+    secret: secret
+);
+```
+
+### Parameters
+
+| Parameter   | Required | Type   | Description                                        |
+| ----------- | -------- | ------ | -------------------------------------------------- |
+| `userToken` | Yes      | string | The `userToken` to decrypt                         |
+| `secret`    | Yes      | string | The secret that the `userToken` was encrypted with |
+
+### Throws
+
+-   `Exception`
+
+### Result
+
+A `string`
+
+## `EncryptUserToken()`
+
+### Example
+
+```c#
+string userToken = await FormsClient.EncryptUserToken(
+    username: userToken,
+    secret: secret
+);
+```
+
+### Parameters
+
+| Parameter  | Required | Type   | Description                               |
+| ---------- | -------- | ------ | ----------------------------------------- |
+| `username` | Yes      | string | The `username` to encrypt                 |
+| `secret`   | Yes      | string | The secret to encrypt the `username` with |
+
+### Throws
+
+-   `Exception`
+
+### Result
+
+A `string`
+
 ## Instance Functions
 
 -   [`GetFormSubmission()`](#getformsubmission)
@@ -360,55 +417,3 @@ FormUrlResult result = await formsClient.GenerateFormUrl(
 ### Result
 
 A `OneBlink.SDK.Model.FormUrlResult` class
-
-## `DecryptUserToken()`
-
-### Example
-
-```c#
-string username = await formsClient.DecryptUserToken(
-    userToken: userToken,
-    secret: secret
-);
-```
-
-### Parameters
-
-| Parameter   | Required | Type   | Description                                        |
-| ----------- | -------- | ------ | -------------------------------------------------- |
-| `userToken` | Yes      | string | The `userToken` to decrypt                         |
-| `secret`    | Yes      | string | The secret that the `userToken` was encrypted with |
-
-### Throws
-
--   `Exception`
-
-### Result
-
-A `string`
-
-## `EncryptUserToken()`
-
-### Example
-
-```c#
-string userToken = await formsClient.EncryptUserToken(
-    username: userToken,
-    secret: secret
-);
-```
-
-### Parameters
-
-| Parameter  | Required | Type   | Description                               |
-| ---------- | -------- | ------ | ----------------------------------------- |
-| `username` | Yes      | string | The `username` to encrypt                 |
-| `secret`   | Yes      | string | The secret to encrypt the `username` with |
-
-### Throws
-
--   `Exception`
-
-### Result
-
-A `string`
