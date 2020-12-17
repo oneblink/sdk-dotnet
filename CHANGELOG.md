@@ -7,6 +7,7 @@
 -   [`GenerateFormUrl()`](./docs/forms-client.md#GenerateFormUrl) method
 -   [`EncryptUserToken()`](./docs/forms-client.md#EncryptUserToken) method
 -   [`DecryptUserToken()`](./docs/forms-client.md#DecryptUserToken) method
+-   `crn2` and `crn3` to `FormSubmissionEventConfigration`
 
 ## 1.12.0 (2020-11-12)
 
