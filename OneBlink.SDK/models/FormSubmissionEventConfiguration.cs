@@ -87,5 +87,9 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public bool includeSubmissionIdInPdf
+        {
+            get; set;
+        }
     }
 }
