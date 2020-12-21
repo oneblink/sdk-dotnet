@@ -9,6 +9,7 @@
 -   [`DecryptUserToken()`](./docs/forms-client.md#DecryptUserToken) method
 -   `crn2` and `crn3` to `FormSubmissionEventConfigration`
 -   `includeSubmissionIdInPdf` to `FormSubmissionEventConfigration`
+-   `encryptedElementIds` and `excludedElementIds` to `FormSubmissionEventConfigration`
 
 ## 1.12.0 (2020-11-12)
 
