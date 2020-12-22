@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 namespace OneBlink.SDK.Model
 {
     public class FormSubmissionEventConfigration
@@ -88,6 +89,15 @@ namespace OneBlink.SDK.Model
             get; set;
         }
         public bool includeSubmissionIdInPdf
+        {
+            get; set;
+        }
+
+        public List<string> encryptedElementIds
+        {
+            get; set;
+        }
+        public List<string> excludedElementIds
         {
             get; set;
         }
