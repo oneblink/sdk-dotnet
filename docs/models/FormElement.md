@@ -9,15 +9,15 @@ Only a default constructor is provided, instead it is recommended to create a Fo
 ### Properties
 
 | Property                                 | Required | Type                                | Description                                                                                                                                                                                                                                                                                                  | Default Value |
-| ---------------------------------------- | -------- | ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------- |
+| ---------------------------------------- | -------- | ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------- | --- | ---- |
 | `id`                                     | Yes      | `Guid`                              |                                                                                                                                                                                                                                                                                                              |               |
 | `name`                                   | Yes      | `string`                            |                                                                                                                                                                                                                                                                                                              |               |
 | `label`                                  | Yes      | `string`                            |                                                                                                                                                                                                                                                                                                              |               |
 | `conditionallyShow`                      | No       | `Boolean`                           | Whether the form is always of conditionally shown                                                                                                                                                                                                                                                            | false         |
 | `requiresAllConditionallyShowPredicates` | No       | `Boolean`                           | Whether all predicates must be true to show element                                                                                                                                                                                                                                                          | false         |
 | `type`                                   | Yes      | `string`                            | "text", "email", "textarea", "number", "select","checkboxes", "radio", "draw", "camera", "date", "time", "datetime", "heading", "location", "repeatableSet", "page", "html", "barcodeScanner", "captcha", "image", "file", "files", "calculation", "telephone", "autocomplete", "form", "infoPage","summary" |               |
-| `required`                               | Yes      | `Boolean`                           | Whether the user us required to provided a value for this element                                                                                                                                                                                                                                            | false         |  |
-| `readOnly`                               | No       | `Boolean`                           | Whether the user can modify the elements value                                                                                                                                                                                                                                                               | false         |  | null |
+| `required`                               | Yes      | `Boolean`                           | Whether the user us required to provided a value for this element                                                                                                                                                                                                                                            | false         |     |
+| `readOnly`                               | No       | `Boolean`                           | Whether the user can modify the elements value                                                                                                                                                                                                                                                               | false         |     | null |
 | `conditionallyShowPredicates`            | No       | `List<ConditionallyShowPredicate>`  | List of elements to be used as conditions                                                                                                                                                                                                                                                                    | null          |
 | `defaultValue`                           | No       | `dynamic`                           | The default value for this element                                                                                                                                                                                                                                                                           | null          |
 | `buttons`                                | No       | `Boolean`                           | Determines if this element is shown as buttons (applies to Radio buttons and checkboxes)                                                                                                                                                                                                                     | false         |
@@ -94,11 +94,36 @@ FormElement textElement = FormElement.CreateTextElement(
 );
 ```
 
+#### Geoscape Address Element
+
+##### `FormElement.CreateGeoscapeAddressElement()`
+
+Creates a new FormElement defined as a `geoscapeAddress` element, including all parameters that are relevant to Geoscape Address elements only
+
+| Parameter                              | Required | Type                               | Default Value |
+| -------------------------------------- | -------- | ---------------------------------- | ------------- |
+| `name`                                 | Yes      | `string`                           |               |
+| `label`                                | Yes      | `string`                           |               |
+| `id`                                   | No       | `Guid`                             | `new Guid()`  |
+| `conditionallyShow`                    | No       | `bool`                             | `false`       |
+| `requiresAllConditonallyShowPredicate` | No       | `bool`                             | `false`       |
+| `conditionallyShowPredicates`          | No       | `List<ConditionallyShowPredicate>` | `null`        |
+| `stateTerritoryFilter`                 | No       | `List<string>`                     | `null`        |
+
+##### Example
+
+```c#
+FormElement geoscapeAddressElement = FormElement.CreateGeoscapeAddressElement(
+    "Geoscape_test_element",
+    "Geoscape test element"
+);
+```
+
 #### Summary Element
 
 ##### `FormElement.CreateSummaryElement()`
 
-Creates a new FormElement defined as a summary element, including all parameters that are relvant to text elements only
+Creates a new FormElement defined as a summary element, including all parameters that are relevant to summary elements only
 
 | Parameter                              | Required | Type                               | Default Value |
 | -------------------------------------- | -------- | ---------------------------------- | ------------- |

@@ -35,6 +35,7 @@ namespace OneBlink.SDK.Model
             "autocomplete",
             "form",
             "infoPage",
+            "geoscapeAddress",
             "summary"
         };
         public Guid id { get; set; }
@@ -100,7 +101,7 @@ namespace OneBlink.SDK.Model
         public int minEntries { get; set; }
         public int maxEntries { get; set; }
         public List<Guid> elementIds { get; set; }
-
+        public List<string> stateTerritoryFilter { get; set; }
         public string placeholderValue { get; set; }
         public int? minLength {get; set; }
         public int? maxLength {get; set; }
@@ -148,6 +149,36 @@ namespace OneBlink.SDK.Model
             textElement.minLength = minLength;
             textElement.maxLength = maxLength;
             return textElement;
+        }
+
+        public static FormElement CreateGeoscapeAddressElement(
+            string name,
+            string label,
+            Guid? id = null,
+            bool conditionallyShow = false,
+            bool requiresAllConditionallyShowPredicates = false,
+            List<ConditionallyShowPredicate> conditionallyShowPredicates = null,
+            bool required = false,
+            bool readOnly = false,
+            string defaultValue = null,
+            string placeholderValue = null,
+            List<string> stateTerritoryFilter = null
+        )
+        {
+            FormElement geoscapeAddressElement = new FormElement();
+            geoscapeAddressElement.type = "geoscapeAddress";
+            geoscapeAddressElement.id = initialiseId(id);
+            geoscapeAddressElement.conditionallyShow = conditionallyShow;
+            geoscapeAddressElement.requiresAllConditionallyShowPredicates = requiresAllConditionallyShowPredicates;
+            geoscapeAddressElement.conditionallyShowPredicates = conditionallyShowPredicates;
+            geoscapeAddressElement.name = name;
+            geoscapeAddressElement.label = label;
+            geoscapeAddressElement.required = required;
+            geoscapeAddressElement.readOnly = readOnly;
+            geoscapeAddressElement.defaultValue = defaultValue;
+            geoscapeAddressElement.placeholderValue = placeholderValue;
+            geoscapeAddressElement.stateTerritoryFilter = stateTerritoryFilter;
+            return geoscapeAddressElement;
         }
 
         public static FormElement CreateSummaryElement(

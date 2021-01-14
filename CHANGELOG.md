@@ -10,6 +10,7 @@
 -   `crn2` and `crn3` to `FormSubmissionEventConfigration`
 -   `includeSubmissionIdInPdf` to `FormSubmissionEventConfigration`
 -   `encryptedElementIds` and `excludedElementIds` to `FormSubmissionEventConfigration`
+-   [`CreateGeoscapeAddressElement()`](./docs/models/FormElement.md#geoscape-address-element) method
 
 ## 1.12.0 (2020-11-12)
 
