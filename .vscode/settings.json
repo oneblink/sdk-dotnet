@@ -1,7 +1,4 @@
 {
-    "cSpell.words": [
-        "BPOINT",
-        "HCMS",
-        "organisation"
-    ]
+    "cSpell.words": ["BPOINT", "HCMS", "organisation"],
+    "editor.formatOnSave": false
 }

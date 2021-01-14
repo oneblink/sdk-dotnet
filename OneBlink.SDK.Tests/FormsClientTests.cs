@@ -222,7 +222,23 @@ namespace OneBlink.SDK.Tests
                 false,
                 null
             );
-            newForm.elements = new List<FormElement>() { textElement, summaryElement };
+
+            FormElement geoscapeElement = FormElement.CreateTextElement(
+                "Unit_test_element",
+                "Unit test element",
+                Guid.NewGuid(),
+                false,
+                false,
+                null,
+                true,
+                false,
+                "default Value",
+                "placeholder value",
+                minLength: 2,
+                maxLength: 10
+            );
+
+            newForm.elements = new List<FormElement>() { textElement, summaryElement, geoscapeElement };
 
             FormsClient formsClient = new FormsClient(ACCESS_KEY, SECRET_KEY, TenantName.ONEBLINK_TEST);
             Form savedForm = await formsClient.Create(newForm);
