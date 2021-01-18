@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+## 1.13.0 (2021-01-18)
 ### Added
 
 -   [`GenerateFormUrl()`](./docs/forms-client.md#GenerateFormUrl) method
