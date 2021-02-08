@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace OneBlink.SDK.Model
 {
@@ -38,5 +39,7 @@ namespace OneBlink.SDK.Model
         public bool isHidden { get; set; }
         public bool isDefault { get; set; }
         public string href { get; set; }
+        public List<long> formIds { get; set; }
+        public long formId { get; set; }
     }
 }
