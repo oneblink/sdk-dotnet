@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Added
+
+ - Added `type`, `categories` and `waiverUrl` to `FormsApp`, `CONTAINER` and `FORM` to `AllowedMenuItemTypes`
+
 ## 1.13.0 (2021-01-18)
 ### Added
 

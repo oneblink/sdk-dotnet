@@ -12,7 +12,9 @@ namespace OneBlink.SDK.Model
             "DRAFTS",
             "PENDING_SUBMISSIONS",
             "PROFILE",
-            "HREF"
+            "HREF",
+            "CONTAINER",
+            "FORM"
         };
         public string label { get; set; }
         public string icon { get; set; }
