@@ -2,11 +2,14 @@
 
 ## Unreleased
 
+## 1.14.0 (2021-02-09)
+
 ### Added
 
  - Added `type`, `categories` and `waiverUrl` to `FormsApp`, `CONTAINER` and `FORM` to `AllowedMenuItemTypes`, `formIds` and `formId` to `FormsAppMenuItems`
 
 ## 1.13.0 (2021-01-18)
+
 ### Added
 
 -   [`GenerateFormUrl()`](./docs/forms-client.md#GenerateFormUrl) method
