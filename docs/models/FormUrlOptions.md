@@ -13,6 +13,7 @@
 | `preFillData`     | No                                | `dynamic` | The data to prefill the form with                                                                          |
 | `username`        | No                                | `string`  | The username to encrypt in the `userToken`, for submission authentication                                  |
 | `secret`          | No (Yes, if username is provided) | `string`  | The secret string to encrypt the userToken with. This will also be required for decrypting the `userToken` |
+| `previousFormSubmissionApprovalId`          | No | `long?`  | The exact id of the previous form submission approval this submission will be associated to |
 
 ### Example
 
@@ -22,7 +23,8 @@ OneBlink.SDK.Model.FormUrlOptions formUrlOptions = new OneBlink.SDK.Model.FormUr
     expiryInSeconds: 120,
     externalId: "externalId",
     username: "user@oneblink.io",
-    secret: "secret"
+    secret: "secret",
+    previousFormSubmissionApprovalId: 1
 );
 
 ```

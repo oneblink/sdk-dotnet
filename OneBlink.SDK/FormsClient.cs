@@ -252,7 +252,8 @@ namespace OneBlink.SDK
                 token: token,
                 externalId: parameters.externalId,
                 preFillFormDataId: preFillFormDataId,
-                userToken: userToken
+                userToken: userToken,
+                previousFormSubmissionApprovalId: parameters.previousFormSubmissionApprovalId
             );
             string expiry = DateTime.UtcNow.AddSeconds(jwtExpiry).ToString("o");
             return new FormUrlResult() {
@@ -267,7 +268,8 @@ namespace OneBlink.SDK
         string token,
         string externalId,
         string preFillFormDataId,
-        string userToken)
+        string userToken,
+        long? previousFormSubmissionApprovalId )
         {
             // SEARCH PARAMS
             List<string> searchParams = new List<string>();
@@ -280,6 +282,9 @@ namespace OneBlink.SDK
             }
             if (userToken != null) {
                 searchParams.Add($"userToken={userToken}");
+            }
+            if (previousFormSubmissionApprovalId != null) {
+                searchParams.Add($"previousFormSubmissionApprovalId={previousFormSubmissionApprovalId.ToString()}");
             }
             string url = $"https://{formsApp.hostname}/forms/{formId}";
             for (int i = 0; i < searchParams.Count; i++)

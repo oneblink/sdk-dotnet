@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Added
+
+ - `previousFormSubmissionApprovalId` to `FormUrlOptions`
+
 ## 1.14.0 (2021-02-09)
 
 ### Added
