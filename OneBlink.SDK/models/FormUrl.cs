@@ -11,6 +11,7 @@ namespace OneBlink.SDK.Model
         public dynamic preFillData { get; }
         public string username { get; }
         public string secret { get; }
+        public long? previousFormSubmissionApprovalId {get;}
 
         public FormUrlOptions(
             long formId,
@@ -19,7 +20,8 @@ namespace OneBlink.SDK.Model
             string externalId = null,
             dynamic preFillData = null,
             string username = null,
-            string secret = null
+            string secret = null,
+            long? previousFormSubmissionApprovalId = null
         )
         {
             if (!string.IsNullOrEmpty(username) && string.IsNullOrEmpty(secret)) {
@@ -32,6 +34,7 @@ namespace OneBlink.SDK.Model
             this.preFillData = preFillData;
             this.username = username;
             this.secret = secret;
+            this.previousFormSubmissionApprovalId = previousFormSubmissionApprovalId;
         }
 
     }

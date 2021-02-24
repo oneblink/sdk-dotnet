@@ -398,7 +398,8 @@ FormUrlResult result = await formsClient.GenerateFormUrl(
     new FormUrlOptions(
         formId: 5,
         username: "user@oneblink.io",
-        secret: "secret"
+        secret: "secret",
+        previousFormSubmissionApprovalId: 1
     )
 );
 ```
