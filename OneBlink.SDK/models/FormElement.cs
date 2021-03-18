@@ -36,7 +36,8 @@ namespace OneBlink.SDK.Model
             "form",
             "infoPage",
             "geoscapeAddress",
-            "summary"
+            "summary",
+            "compliance"
         };
         public Guid id { get; set; }
         public string name { get; set; }
