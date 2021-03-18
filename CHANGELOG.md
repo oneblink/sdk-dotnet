@@ -5,6 +5,7 @@
 ### Added
 
 - `compliance` form element
+- `hint` property to form elements with labels
 
 ## 1.15.0 (2021-03-03)
 

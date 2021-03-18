@@ -103,6 +103,7 @@ namespace OneBlink.SDK.Model
         public int maxEntries { get; set; }
         public List<Guid> elementIds { get; set; }
         public List<string> stateTerritoryFilter { get; set; }
+        public string hint { get; set; }
         public string placeholderValue { get; set; }
         public int? minLength {get; set; }
         public int? maxLength {get; set; }
@@ -131,6 +132,7 @@ namespace OneBlink.SDK.Model
             bool readOnly = false,
             string defaultValue = null,
             string placeholderValue = null,
+            string hint = null,
             int? minLength = null,
             int? maxLength = null
         )
@@ -149,6 +151,7 @@ namespace OneBlink.SDK.Model
             textElement.placeholderValue = placeholderValue;
             textElement.minLength = minLength;
             textElement.maxLength = maxLength;
+            textElement.hint = hint;
             return textElement;
         }
 
@@ -163,6 +166,7 @@ namespace OneBlink.SDK.Model
             bool readOnly = false,
             string defaultValue = null,
             string placeholderValue = null,
+            string hint = null,
             List<string> stateTerritoryFilter = null
         )
         {
@@ -178,6 +182,7 @@ namespace OneBlink.SDK.Model
             geoscapeAddressElement.readOnly = readOnly;
             geoscapeAddressElement.defaultValue = defaultValue;
             geoscapeAddressElement.placeholderValue = placeholderValue;
+            geoscapeAddressElement.hint = hint;
             geoscapeAddressElement.stateTerritoryFilter = stateTerritoryFilter;
             return geoscapeAddressElement;
         }
