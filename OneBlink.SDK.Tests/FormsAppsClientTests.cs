@@ -143,7 +143,7 @@ namespace OneBlink.SDK.Tests
             string userToken = "ZGyRaKLZY5w96FLTGHZEO0eKZQD0XGg1FwHrSrchUgI=";
             string decryptedUsername = aesUserToken.decrypt(userToken);
 
-            Assert.Equal(decryptedUsername, "zac@oneblink.io");
+            Assert.Equal("zac@oneblink.io", decryptedUsername);
         }
     }
 }
