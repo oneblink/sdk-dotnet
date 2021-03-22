@@ -236,6 +236,7 @@ namespace OneBlink.SDK.Model
             complianceElement.conditionallyShowPredicates = conditionallyShowPredicates;
             complianceElement.name = name;
             complianceElement.label = label;
+            complianceElement.options = options;
             complianceElement.required = required;
             complianceElement.readOnly = readOnly;
             complianceElement.defaultValue = defaultValue;
