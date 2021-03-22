@@ -150,3 +150,41 @@ FormElement summaryElement = FormElement.CreateSummaryElement(
     null
 );
 ```
+
+#### Compliance Element
+
+##### `FormElement.CreateComplianceElement()`
+
+Creates a new FormElement defined as a compliance element, including all parameters that are relevant to compliance elements only
+
+| Parameter                              | Required | Type                               | Default Value |
+| -------------------------------------- | -------- | ---------------------------------- | ------------- |
+| `name`                                 | Yes      | `string`                           |               |
+| `label`                                | Yes      | `string`                           |               |
+| `options`                              | Yes      | `List<FormElementOption>`          |               |
+| `id`                                   | No       | `Guid?`                            | `new Guid()`  |
+| `conditionallyShow`                    | No       | `bool`                             | `false`       |
+| `requiresAllConditonallyShowPredicate` | No       | `bool`                             | `false`       |
+| `conditionallyShowPredicates`          | No       | `List<ConditionallyShowPredicate>` | `null`        |
+| `required`                             | No       | `bool`                             | `false`       |
+| `readOnly`                             | No       | `bool`                             | `false`       |
+| `defaultValue`                         | No       | `string`                           | `null`        |
+| `hint`                                 | No       | `string`                           | `null`        |
+| `isDataLookup`                         | No       | `bool`                             | `false`       |
+| `dataLookupId`                         | No       | `long?`                            | `null`        |
+| `isElementLookup`                      | No       | `bool`                             | `false`       |
+| `elementLookupId`                      | No       | `long?`                            | `null`        |
+
+##### Example
+
+```c#
+FormElementOption option = new FormElementOption();
+option.id = Guid.NewGuid();
+option.value = "A";
+option.label = "A";
+FormElement complianceElement = FormElement.CreateComplianceElement(
+    "Compliance_test_element",
+    "Compliance_test_element",
+    new List<FormElementOption>(){option}
+);
+```

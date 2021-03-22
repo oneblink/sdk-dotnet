@@ -209,5 +209,46 @@ namespace OneBlink.SDK.Model
 
             return summaryElement;
         }
+
+        public static FormElement CreateComplianceElement(
+            string name,
+            string label,
+            List<FormElementOption> options,
+            Guid? id = null,
+            bool conditionallyShow = false,
+            bool requiresAllConditionallyShowPredicates = false,
+            List<ConditionallyShowPredicate> conditionallyShowPredicates = null,
+            bool required = false,
+            bool readOnly = false,
+            string defaultValue = null,
+            string hint = null,
+            bool isDataLookup = false,
+            long? dataLookupId =null,
+            bool isElementLookup = false,
+            long? elementLookupId = null
+        )
+        {
+            FormElement complianceElement = new FormElement();
+            complianceElement.type = "compliance";
+            complianceElement.id = initialiseId(id);
+            complianceElement.conditionallyShow = conditionallyShow;
+            complianceElement.requiresAllConditionallyShowPredicates = requiresAllConditionallyShowPredicates;
+            complianceElement.conditionallyShowPredicates = conditionallyShowPredicates;
+            complianceElement.name = name;
+            complianceElement.label = label;
+            complianceElement.required = required;
+            complianceElement.readOnly = readOnly;
+            complianceElement.defaultValue = defaultValue;
+            complianceElement.hint = hint;
+            complianceElement.isDataLookup = isDataLookup;
+            if (dataLookupId.HasValue) {
+                complianceElement.dataLookupId = dataLookupId.Value;
+            }
+            complianceElement.isElementLookup = isElementLookup;
+            if (elementLookupId.HasValue) {
+                complianceElement.elementLookupId = elementLookupId.Value;
+            }
+            return complianceElement;
+        }
     }
 }
