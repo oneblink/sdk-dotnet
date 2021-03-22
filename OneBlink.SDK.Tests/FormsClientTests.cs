@@ -237,8 +237,17 @@ namespace OneBlink.SDK.Tests
                 minLength: 2,
                 maxLength: 10
             );
+            FormElementOption option = new FormElementOption();
+            option.id = Guid.NewGuid();
+            option.value = "A";
+            option.label = "A";
+            FormElement complianceElement = FormElement.CreateComplianceElement(
+                "Compliance_test_element",
+                "Compliance_test_element",
+                new List<FormElementOption>(){option}
+            );
 
-            newForm.elements = new List<FormElement>() { textElement, summaryElement, geoscapeElement };
+            newForm.elements = new List<FormElement>() { textElement, summaryElement, geoscapeElement, complianceElement };
 
             FormsClient formsClient = new FormsClient(ACCESS_KEY, SECRET_KEY, TenantName.ONEBLINK_TEST);
             Form savedForm = await formsClient.Create(newForm);
