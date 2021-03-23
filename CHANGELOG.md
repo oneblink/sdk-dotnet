@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 1.16.0 (2021-03-23)
+
 ### Added
 
 - `compliance` form element
