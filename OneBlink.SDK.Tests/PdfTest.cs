@@ -42,7 +42,7 @@ namespace unit_tests
     }
 
     [Fact]
-    public async void can_generate_pdf()
+    public async void can_get_submission_pdf()
     {
       PdfClient pdf = new PdfClient(ACCESS_KEY, SECRET_KEY, TenantName.ONEBLINK_TEST);
 
@@ -50,5 +50,17 @@ namespace unit_tests
       Assert.NotNull(response);
     }
 
+    [Fact]
+    public async void can_generate_pdf()
+    {
+        PdfClient pdf = new PdfClient(ACCESS_KEY, SECRET_KEY, TenantName.ONEBLINK_TEST);
+        GeneratePdfOptionsRequest pdfOptionsRequest = new GeneratePdfOptionsRequest();
+        Html body = new Html();
+        body.html = "<body>PDF Test</body>";
+        pdfOptionsRequest.body = body;
+
+        Stream response = await pdf.GeneratePdf(pdfOptionsRequest);
+        Assert.NotNull(response);
+    }
   }
 }

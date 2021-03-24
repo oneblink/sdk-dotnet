@@ -20,5 +20,11 @@ namespace OneBlink.SDK
       string url = "/forms/" + formId.ToString() + "/submissions/" + submissionId + "/pdf-document";
       return await this.oneBlinkPdfClient.PostRequest(url);
     }
+
+    public async Task<Stream> GeneratePdf(GeneratePdfOptionsRequest options)
+    {
+        string url = "/pdf-document";
+        return await this.oneBlinkPdfClient.PostRequest(url, options);
+    }
   }
 }

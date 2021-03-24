@@ -47,3 +47,31 @@ Stream response = await pdfClient.GetSubmissionPdf(formId, submissionId);
 ### Result
 
 A `Stream` object
+
+## `GeneratePdf()`
+
+### Example
+
+```c#
+GeneratePdfOptionsRequest pdfOptionsRequest = new GeneratePdfOptionsRequest();
+Html body = new Html();
+body.html = "<body>PDF Test</body>";
+pdfOptionsRequest.body = body;
+PdfClient pdfClient = new PdfClient(ACCESS_KEY, SECRET_KEY);
+Stream response = await pdfClient.GeneratePdf(pdfOptionsRequest);
+```
+
+### Parameters
+
+| Parameter      | Required | Type     | Description                                                                                                                                               |
+| -------------- | -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `pdfOptionsRequest`       | Yes      | `GeneratePdfOptionsRequest`    | Options include page and html to be rendered in the PDF document                                                                                               |
+
+### Throws
+
+-   `OneBlinkAPIException`
+-   `Exception`
+
+### Result
+
+A `Stream` object
