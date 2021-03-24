@@ -23,12 +23,14 @@
         <EmbedUntrackedSources>true</EmbedUntrackedSources>
     </PropertyGroup>
     <ItemGroup>
+        <PackageReference Include="AWSSDK.SimpleEmail" Version="3.5.0.78" />
+        <PackageReference Include="MailKit" Version="2.11.1" />
         <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
         <PackageReference Include="dotenv.net" Version="1.0.4" />
         <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="5.4.0" />
         <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
-        <PackageReference Include="AWSSDK.Core" Version="3.3.102.2" />
-        <PackageReference Include="AWSSDK.S3" Version="3.3.102.11" />
+        <PackageReference Include="AWSSDK.Core" Version="3.5.3.8" />
+        <PackageReference Include="AWSSDK.S3" Version="3.5.10" />
         <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
             <_Parameter1>OneBlink.SDK.Tests</_Parameter1>
         </AssemblyAttribute>
