@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Added
+
+- `GeneratePdf` function to `PdfClient`
+
 ## 1.16.0 (2021-03-23)
 
 ### Added
