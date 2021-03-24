@@ -5,6 +5,7 @@
 ### Added
 
 - `GeneratePdf` function to `PdfClient`
+- `SendEmail` function to `EmailClient`
 
 ## 1.16.0 (2021-03-23)
 

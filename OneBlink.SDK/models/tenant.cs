@@ -1,5 +1,5 @@
 using System;
-
+using Amazon;
 
 namespace OneBlink.SDK.Model
 {
@@ -59,6 +59,24 @@ namespace OneBlink.SDK.Model
                         return "https://cognito-idp.ap-southeast-2.amazonaws.com/ap-southeast-2_E03xBaafT";
                     default:
                         return "https://cognito-idp.ap-southeast-2.amazonaws.com/ap-southeast-2_o1t3ntGWx";
+                }
+            }
+        }
+
+        public RegionEndpoint AwsRegion
+        {
+            get
+            {
+                switch(this.name)
+                {
+                    case TenantName.CIVICPLUS:
+                    case TenantName.CIVICPLUS_TEST:
+                        return RegionEndpoint.USEast2;
+                    case TenantName.ONEBLINK:
+                    case TenantName.ONEBLINK_TEST:
+                        return RegionEndpoint.APSoutheast2;
+                    default:
+                     return RegionEndpoint.APSoutheast2;
                 }
             }
         }
