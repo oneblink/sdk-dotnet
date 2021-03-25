@@ -1,7 +1,6 @@
 using Amazon.SimpleEmail;
 using Amazon.SimpleEmail.Model;
 using MimeKit;
-using System;
 using System.IO;
 using System.Threading.Tasks;
 using OneBlink.SDK.Model;
@@ -10,26 +9,12 @@ namespace OneBlink.SDK
 {
     public static class EmailClient
     {
-        public async static Task<string> SendEmail(string HtmlBody, Attachment[] attachments, EmailAddress from, EmailAddress[] to, EmailAddress[] cc, EmailAddress[] bcc, string subject, TenantName tenantName = TenantName.ONEBLINK)
+        private async static Task<string> SendEmail(BodyBuilder bodyBuilder, string htmlBody, EmailAddress from, EmailAddress[] to, EmailAddress[] cc, EmailAddress[] bcc, string subject, TenantName tenantName)
         {
             var tenant = new Tenant(tenantName);
             using (var client = new AmazonSimpleEmailServiceClient(tenant.AwsRegion))
             {
-
-                var bodyBuilder = new BodyBuilder();
-
-                bodyBuilder.HtmlBody = HtmlBody;
-
-                if (attachments != null)
-                {
-                    foreach (Attachment attachment in attachments)
-                    {
-                        using (FileStream fileStream = new FileStream(attachment.filePath, FileMode.Open, FileAccess.Read))
-                        {
-                            bodyBuilder.Attachments.Add(attachment.fileName, fileStream);
-                        }
-                    }
-                }
+                bodyBuilder.HtmlBody = htmlBody;
 
                 var mimeMessage = new MimeMessage();
                 mimeMessage.From.Add(new MailboxAddress(from.name, from.address));
@@ -65,27 +50,42 @@ namespace OneBlink.SDK
                 }
             }
         }
-
-    }
-
-    public class Attachment
-    {
-        public Attachment(string fileName, string filePath)
+        private static void AddFileAttachments(FileAttachment[] attachments, BodyBuilder bodyBuilder)
         {
-            this.fileName = fileName;
-            this.filePath = filePath;
+            if (attachments != null)
+            {
+                foreach (FileAttachment attachment in attachments)
+                {
+                    using (FileStream fileStream = new FileStream(attachment.filePath, FileMode.Open, FileAccess.Read))
+                    {
+                        bodyBuilder.Attachments.Add(attachment.fileName, fileStream);
+                    }
+                }
+            }
         }
-        public string fileName {get;set;}
-        public string filePath {get;set;}
-    }
-    public class EmailAddress
-    {
-        public EmailAddress(string name, string address)
+
+        private static void AddStreamAttachments(StreamAttachment[] attachments, BodyBuilder bodyBuilder)
         {
-            this.name = name;
-            this.address = address;
+            if (attachments != null)
+            {
+                foreach (StreamAttachment attachment in attachments)
+                {
+                    bodyBuilder.Attachments.Add(attachment.fileName, attachment.stream);
+                }
+            }
         }
-        public string name {get;set;}
-        public string address {get;set;}
+        public async static Task<string> SendEmail(string htmlBody, FileAttachment[] attachments, EmailAddress from, EmailAddress[] to, EmailAddress[] cc, EmailAddress[] bcc, string subject, TenantName tenantName = TenantName.ONEBLINK)
+        {
+            var bodyBuilder = new BodyBuilder();
+            AddFileAttachments(attachments, bodyBuilder);
+            return await SendEmail(bodyBuilder, htmlBody, from, to, cc, bcc, subject, tenantName);
+        }
+
+        public async static Task<string> SendEmail(string htmlBody, StreamAttachment[] attachments, EmailAddress from, EmailAddress[] to, EmailAddress[] cc, EmailAddress[] bcc, string subject, TenantName tenantName = TenantName.ONEBLINK)
+        {
+            var bodyBuilder = new BodyBuilder();
+            AddStreamAttachments(attachments, bodyBuilder);
+            return await SendEmail(bodyBuilder, htmlBody, from, to, cc, bcc, subject, tenantName);
+        }
     }
 }
