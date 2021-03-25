@@ -15,7 +15,7 @@ namespace OneBlink.SDK
                 tenant: new Tenant(tenantName)
             );
         }
-    public async Task<Stream> GetSubmissionPdf(int formId, string submissionId, bool? isDraft, bool? includeSubmissionIdInPdf)
+    public async Task<Stream> GetSubmissionPdf(int formId, string submissionId, bool? isDraft = null, bool? includeSubmissionIdInPdf = null)
     {
         string queryString = string.Empty;
         if (isDraft.HasValue) {
