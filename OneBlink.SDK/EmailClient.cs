@@ -61,7 +61,6 @@ namespace OneBlink.SDK
                     await mimeMessage.WriteToAsync(messageStream);
                     var sendRequest = new SendRawEmailRequest { RawMessage = new RawMessage(messageStream) };
                     var response = await client.SendRawEmailAsync(sendRequest);
-                    Console.WriteLine("Email Successfully Sent");
                     return response.MessageId;
                 }
             }
