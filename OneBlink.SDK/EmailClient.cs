@@ -21,14 +21,14 @@ namespace OneBlink.SDK
                 {
                     foreach (EmailAttachment attachment in attachments)
                     {
-                        if (!String.IsNullOrEmpty(attachment.fileName))
+                        if (!String.IsNullOrEmpty(attachment.filePath))
                         {
                             using (FileStream fileStream = new FileStream(attachment.filePath, FileMode.Open, FileAccess.Read))
                             {
                                 bodyBuilder.Attachments.Add(attachment.fileName, fileStream);
                             }
                         }
-                        else
+                        else if (attachment.stream != null)
                         {
                             bodyBuilder.Attachments.Add(attachment.fileName, attachment.stream);
                         }
