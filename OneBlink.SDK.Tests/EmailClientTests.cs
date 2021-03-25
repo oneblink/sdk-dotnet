@@ -1,3 +1,4 @@
+using OneBlink.SDK.Model;
 using Xunit;
 namespace OneBlink.SDK.Tests
 {
@@ -11,7 +12,8 @@ namespace OneBlink.SDK.Tests
             EmailAddress from = new EmailAddress("Developers", "developers@oneblink.io");
             EmailAddress to = new EmailAddress("Test", "test@oneblink.io");
             EmailAddress[] toAddresses = new EmailAddress[]{to};
-            string messageId = await EmailClient.SendEmail(body, null, from, toAddresses, null, null, subject, Model.TenantName.ONEBLINK_TEST);
+            EmailAttachment[] attachments = null;
+            string messageId = await EmailClient.SendEmail(body, attachments, from, toAddresses, null, null, subject, Model.TenantName.ONEBLINK_TEST);
             Assert.NotNull(messageId);
         }
     }

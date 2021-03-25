@@ -1,36 +1,39 @@
 using Amazon.SimpleEmail;
 using Amazon.SimpleEmail.Model;
 using MimeKit;
-using System;
 using System.IO;
 using System.Threading.Tasks;
 using OneBlink.SDK.Model;
+using System;
 
 namespace OneBlink.SDK
 {
     public static class EmailClient
     {
-        public async static Task<string> SendEmail(string HtmlBody, Attachment[] attachments, EmailAddress from, EmailAddress[] to, EmailAddress[] cc, EmailAddress[] bcc, string subject, TenantName tenantName = TenantName.ONEBLINK)
+        public async static Task<string> SendEmail(string htmlBody,EmailAttachment[] attachments, EmailAddress from, EmailAddress[] to, EmailAddress[] cc, EmailAddress[] bcc, string subject, TenantName tenantName)
         {
             var tenant = new Tenant(tenantName);
             using (var client = new AmazonSimpleEmailServiceClient(tenant.AwsRegion))
             {
-
                 var bodyBuilder = new BodyBuilder();
-
-                bodyBuilder.HtmlBody = HtmlBody;
-
+                bodyBuilder.HtmlBody = htmlBody;
                 if (attachments != null)
                 {
-                    foreach (Attachment attachment in attachments)
+                    foreach (EmailAttachment attachment in attachments)
                     {
-                        using (FileStream fileStream = new FileStream(attachment.filePath, FileMode.Open, FileAccess.Read))
+                        if (!String.IsNullOrEmpty(attachment.filePath))
                         {
-                            bodyBuilder.Attachments.Add(attachment.fileName, fileStream);
+                            using (FileStream fileStream = new FileStream(attachment.filePath, FileMode.Open, FileAccess.Read))
+                            {
+                                bodyBuilder.Attachments.Add(attachment.fileName, fileStream);
+                            }
+                        }
+                        else if (attachment.stream != null)
+                        {
+                            bodyBuilder.Attachments.Add(attachment.fileName, attachment.stream);
                         }
                     }
                 }
-
                 var mimeMessage = new MimeMessage();
                 mimeMessage.From.Add(new MailboxAddress(from.name, from.address));
                 if (to != null)
@@ -65,27 +68,5 @@ namespace OneBlink.SDK
                 }
             }
         }
-
-    }
-
-    public class Attachment
-    {
-        public Attachment(string fileName, string filePath)
-        {
-            this.fileName = fileName;
-            this.filePath = filePath;
-        }
-        public string fileName {get;set;}
-        public string filePath {get;set;}
-    }
-    public class EmailAddress
-    {
-        public EmailAddress(string name, string address)
-        {
-            this.name = name;
-            this.address = address;
-        }
-        public string name {get;set;}
-        public string address {get;set;}
     }
 }
