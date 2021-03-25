@@ -38,6 +38,8 @@ Stream response = await pdfClient.GetSubmissionPdf(formId, submissionId);
 | -------------- | -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `formId`       | Yes      | `int`    | The exact id of the form you wish to get submission PDF for                                                                                               |
 | `submissionId` | Yes      | `string` | The submission identifier generated after a successful form submission, this will be return to you after a successful forms submission via a callback URL |
+| `isDraft`                  | No       | `bool?`   | `true` if the submission is a draft submission, otherwise `false`         |
+| `includeSubmissionIdInPdf` | No       | `bool?`   | `true` to include the submission identifier in the PDF, otherwise `false` |
 
 ### Throws
 

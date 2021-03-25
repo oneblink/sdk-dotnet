@@ -15,10 +15,22 @@ namespace OneBlink.SDK
                 tenant: new Tenant(tenantName)
             );
         }
-    public async Task<Stream> GetSubmissionPdf(int formId, string submissionId)
+    public async Task<Stream> GetSubmissionPdf(int formId, string submissionId, bool? isDraft, bool? includeSubmissionIdInPdf)
     {
-      string url = "/forms/" + formId.ToString() + "/submissions/" + submissionId + "/pdf-document";
-      return await this.oneBlinkPdfClient.PostRequest(url);
+        string queryString = string.Empty;
+        if (isDraft.HasValue) {
+            queryString += "isDraft=" + isDraft.Value.ToString();
+        }
+         if (includeSubmissionIdInPdf.HasValue)
+        {
+            if (queryString != string.Empty)
+            {
+                queryString += "&";
+            }
+            queryString += "includeSubmissionIdInPdf=" + includeSubmissionIdInPdf.Value.ToString();
+        }
+        string url = "/forms/" + formId.ToString() + "/submissions/" + submissionId + "/pdf-document?"+ queryString;
+        return await this.oneBlinkPdfClient.PostRequest(url);
     }
 
     public async Task<Stream> GeneratePdf(GeneratePdfOptionsRequest options)
