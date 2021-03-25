@@ -12,7 +12,7 @@ namespace OneBlink.SDK.Tests
             EmailAddress from = new EmailAddress("Developers", "developers@oneblink.io");
             EmailAddress to = new EmailAddress("Test", "test@oneblink.io");
             EmailAddress[] toAddresses = new EmailAddress[]{to};
-            FileAttachment[] attachments = null;
+            EmailAttachment[] attachments = null;
             string messageId = await EmailClient.SendEmail(body, attachments, from, toAddresses, null, null, subject, Model.TenantName.ONEBLINK_TEST);
             Assert.NotNull(messageId);
         }
