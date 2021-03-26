@@ -12,7 +12,6 @@ namespace OneBlink.SDK.Tests
   {
     private string ACCESS_KEY;
     private string SECRET_KEY;
-    private string apiOrigin;
     private string email = "developers@oneblink.io";
 
     public TeamMembersClientTests()
@@ -21,7 +20,6 @@ namespace OneBlink.SDK.Tests
       DotEnv.Config(raiseException, Path.GetFullPath(Path.Combine(Directory.GetCurrentDirectory(), "..", "..", "..", "..")) + "/.env");
       ACCESS_KEY = Environment.GetEnvironmentVariable("ACCESS_KEY");
       SECRET_KEY = Environment.GetEnvironmentVariable("SECRET_KEY");
-      apiOrigin = Environment.GetEnvironmentVariable("ONEBLINK_API_ORIGIN");
 
       string email = Environment.GetEnvironmentVariable("GET_TEAM_MEMBER_ROLE_EMAIL");
       if (!String.IsNullOrWhiteSpace(email))

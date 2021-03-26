@@ -207,7 +207,7 @@ namespace OneBlink.SDK.Tests
                 null,
                 true,
                 false,
-                "default Value",
+                "default",
                 "placeholder value",
                 minLength: 2,
                 maxLength: 10
@@ -224,15 +224,15 @@ namespace OneBlink.SDK.Tests
             );
 
             FormElement geoscapeElement = FormElement.CreateTextElement(
-                "Unit_test_element",
-                "Unit test element",
+                "geoscapeElement",
+                "Geoscape Element",
                 Guid.NewGuid(),
                 false,
                 false,
                 null,
                 true,
                 false,
-                "default Value",
+                "default",
                 "placeholder value",
                 minLength: 2,
                 maxLength: 10
