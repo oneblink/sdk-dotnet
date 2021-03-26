@@ -16,15 +16,15 @@ jobs:
     - name: Setup .NET Core SDK 3.0
       uses: actions/setup-dotnet@v1.7.2
       with:
-        dotnet-version: 3.0
+        dotnet-version: '3.0'
     - name: Setup .NET Core SDK 3.1.x
       uses: actions/setup-dotnet@v1.7.2
       with:
-        dotnet-version: 3.1.x
+        dotnet-version: '3.1.x'
     - name: Setup .NET Core SDK 5.0.x
       uses: actions/setup-dotnet@v1.7.2
       with:
-        dotnet-version: 5.0.x
+        dotnet-version: '5.0.x'
     - name: Install dependencies
       run: dotnet restore
     - name: Build
