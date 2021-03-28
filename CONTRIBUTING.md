@@ -95,8 +95,8 @@ docker run -it --rm -v "$PWD":/usr/src/oneblink-sdk-dotnet -w  /usr/src/oneblink
 
 1.  Remove any existing builds locally by deleting the `./OneBlink.SDK/bin` directory
 
-Note Regarding Docker commands:
-If using powershell on windows use `${pwd}` instead of `"$PWD"`
+    Note Regarding Docker commands:
+    If using powershell on windows use `${pwd}` instead of `"$PWD"`
 
 1.  Build source
 
