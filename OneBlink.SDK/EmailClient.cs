@@ -5,12 +5,13 @@ using System.IO;
 using System.Threading.Tasks;
 using OneBlink.SDK.Model;
 using System;
+using System.Collections.Generic;
 
 namespace OneBlink.SDK
 {
     public static class EmailClient
     {
-        public async static Task<string> SendEmail(string htmlBody,EmailAttachment[] attachments, EmailAddress from, EmailAddress[] to, EmailAddress[] cc, EmailAddress[] bcc, string subject, TenantName tenantName)
+        public async static Task<string> SendEmail(string htmlBody, IEnumerable<EmailAttachment> attachments, EmailAddress from, IEnumerable<EmailAddress> to, IEnumerable<EmailAddress> cc, IEnumerable<EmailAddress> bcc, string subject, TenantName tenantName)
         {
             var tenant = new Tenant(tenantName);
             using (var client = new AmazonSimpleEmailServiceClient(tenant.AwsRegion))
