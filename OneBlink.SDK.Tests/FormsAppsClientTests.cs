@@ -112,6 +112,15 @@ namespace OneBlink.SDK.Tests
             FormsApp updatedFormsApp = await formsAppsClient.Update(retrievedFormsApp);
             Assert.Equal(updatedName, updatedFormsApp.name);
 
+            // create and delete user
+            FormsAppUser newUser = new FormsAppUser();
+            newUser.formsAppId = updatedFormsApp.id;
+            newUser.email = "test@oneblink.io";
+
+            FormsAppUser savedUser = await formsAppsClient.CreateUser(newUser);
+            Assert.NotNull(savedUser);
+            await formsAppsClient.DeleteUser(savedUser.id);
+
             await formsAppsClient.Delete(updatedFormsApp.id);
 
             try

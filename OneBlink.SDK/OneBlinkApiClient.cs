@@ -41,6 +41,12 @@ namespace OneBlink.SDK
             return await SendRequest<T>(httpRequestMessage);
         }
 
+        public async Task<T> GetRequest<T>(string path, string userToken)
+        {
+            HttpRequestMessage httpRequestMessage = new HttpRequestMessage(HttpMethod.Get, tenant.oneBlinkAPIOrigin + path);
+            return await SendRequest<T>(httpRequestMessage, userToken);
+        }
+
         public async Task<HttpContent> DeleteRequest(string path)
         {
             HttpRequestMessage httpRequestMessage = new HttpRequestMessage(HttpMethod.Delete, tenant.oneBlinkAPIOrigin + path);
