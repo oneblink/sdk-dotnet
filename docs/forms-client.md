@@ -65,6 +65,8 @@ A `string`
 -   [`Create()`](#create)
 -   [`Update()`](#update)
 -   [`Delete()`](#delete)
+-   [`GenerateFormUrl()`](#generateformurl)
+-   [`GenerateSubmissionDataUrl()`](#generatesubmissiondataurl)
 
 ## Constructor
 
@@ -418,3 +420,29 @@ FormUrlResult result = await formsClient.GenerateFormUrl(
 ### Result
 
 A `OneBlink.SDK.Model.FormUrlResult` class
+
+## `GenerateSubmissionDataUrl()`
+
+### Example
+
+```c#
+SubmissionDataUrl submissionDataUrl = await formsClient.GenerateSubmissionDataUrl(formId,submissionId, 1000);
+```
+
+### Parameters
+
+| Parameter    | Required | Type                                         | Description                             |
+| ------------ | -------- | -------------------------------------------- | --------------------------------------- |
+| `formId` | Yes      | long | |
+| `submissionId` | Yes      | string | |
+| `expiryInSeconds` | Yes      | long | Must be greater than 900 |
+
+### Throws
+
+-   `OneBlinkAPIException`
+-   `Exception`
+-   `ArgumentOutOfRangeException`
+
+### Result
+
+A `OneBlink.SDK.Model.SubmissionDataUrl` class

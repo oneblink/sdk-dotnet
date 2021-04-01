@@ -262,6 +262,17 @@ namespace OneBlink.SDK
             };
         }
 
+        public async Task<SubmissionDataUrl> GenerateSubmissionDataUrl(long formId, string submissionId, long expiryInSeconds)
+        {
+            if (expiryInSeconds < 900)
+            {
+                throw new ArgumentOutOfRangeException("expiryInSeconds must be greater than or equal to 900");
+            }
+            string url = "/forms/" + formId.ToString() +"/retrieval-url/" + submissionId + "?expirySeconds=" + expiryInSeconds.ToString();
+            SubmissionDataUrl submissionDataUrl = await this.oneBlinkApiClient.PostRequest<SubmissionDataUrl>(url);
+            return submissionDataUrl;
+        }
+
         private string _generateFormUrl(
         long formId,
         FormsApp formsApp,
