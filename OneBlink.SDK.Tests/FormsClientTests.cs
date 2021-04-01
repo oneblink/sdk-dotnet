@@ -324,5 +324,14 @@ namespace OneBlink.SDK.Tests
             Assert.NotNull(result.expiry);
 
         }
+
+        [Fact]
+        public async void can_generate_submission_url()
+        {
+            FormsClient formsClient = new FormsClient(ACCESS_KEY, SECRET_KEY, TenantName.ONEBLINK_TEST);
+            SubmissionDataUrl submissionDataUrl = await formsClient.GenerateSubmissionDataUrl(formId,submissionId, 1000);
+            Assert.NotNull(submissionDataUrl);
+            Assert.NotNull(submissionDataUrl.url);
+        }
     }
 }
