@@ -62,13 +62,5 @@ namespace OneBlink.SDK.Tests
       Assert.Equal(HttpStatusCode.Unauthorized, oneBlinkAPIException.StatusCode);
     }
 
-    [Fact]
-    public async void get_developer_key_return_null()
-    {
-      KeysClient keysClient = new KeysClient(ACCESS_KEY, SECRET_KEY, TenantName.ONEBLINK_TEST);
-      DeveloperKey developerKey = await keysClient.GetDeveloperKey("fake-key-id");
-      Assert.Null(developerKey);
-    }
-
   }
 }
