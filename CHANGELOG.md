@@ -8,6 +8,7 @@
 - `KeysClient` class
 - `GetMyFormsApp`, `CreateUser` and `DeleteUser` to `FormsAppClient`
 - `Get` to `OrganisationsClient`
+- `pointAddress` element type to `FormElement`
 
 ### Changed
 

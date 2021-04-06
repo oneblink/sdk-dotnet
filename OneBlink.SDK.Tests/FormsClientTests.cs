@@ -223,7 +223,7 @@ namespace OneBlink.SDK.Tests
                 null
             );
 
-            FormElement geoscapeElement = FormElement.CreateTextElement(
+            FormElement geoscapeElement = FormElement.CreateGeoscapeAddressElement(
                 "geoscapeElement",
                 "Geoscape Element",
                 Guid.NewGuid(),
@@ -234,8 +234,7 @@ namespace OneBlink.SDK.Tests
                 false,
                 "default",
                 "placeholder value",
-                minLength: 2,
-                maxLength: 10
+                "hint value"
             );
             FormElementOption option = new FormElementOption();
             option.id = Guid.NewGuid();

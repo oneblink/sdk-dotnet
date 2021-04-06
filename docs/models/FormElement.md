@@ -15,7 +15,7 @@ Only a default constructor is provided, instead it is recommended to create a Fo
 | `label`                                  | Yes      | `string`                            |                                                                                                                                                                                                                                                                                                                           |               |
 | `conditionallyShow`                      | No       | `Boolean`                           | Whether the form is always of conditionally shown                                                                                                                                                                                                                                                                         | false         |
 | `requiresAllConditionallyShowPredicates` | No       | `Boolean`                           | Whether all predicates must be true to show element                                                                                                                                                                                                                                                                       | false         |
-| `type`                                   | Yes      | `string`                            | "text", "email", "textarea", "number", "select","checkboxes", "radio", "draw", "camera", "date", "time", "datetime", "heading", "location", "repeatableSet", "page", "html", "barcodeScanner", "captcha", "image", "file", "files", "calculation", "telephone", "autocomplete", "form", "infoPage","summary","compliance" |               |
+| `type`                                   | Yes      | `string`                            | "text", "email", "textarea", "number", "select","checkboxes", "radio", "draw", "camera", "date", "time", "datetime", "heading", "location", "repeatableSet", "page", "html", "barcodeScanner", "captcha", "image", "file", "files", "calculation", "telephone", "autocomplete", "form", "infoPage", "geoscapeAddress", "summary","compliance", "pointAddress" |               |
 | `required`                               | Yes      | `Boolean`                           | Whether the user us required to provided a value for this element                                                                                                                                                                                                                                                         | false         |
 | `readOnly`                               | No       | `Boolean`                           | Whether the user can modify the elements value                                                                                                                                                                                                                                                                            | false         |
 | `conditionallyShowPredicates`            | No       | `List<ConditionallyShowPredicate>`  | List of elements to be used as conditions                                                                                                                                                                                                                                                                                 | null          |
@@ -59,6 +59,8 @@ Only a default constructor is provided, instead it is recommended to create a Fo
 | `isInteger`                              | No       | `Boolean`                           | Whether the number is required to be an integer only (no decimals) (applies to number elements)                                                                                                                                                                                                                           |               |
 | `stateTerritoryFilter`                   | No       | `List<string>`                      | An array of Australian State and/or Territory abbreviations that the search should be limited to.                                                                                                                                                                                                                         |               |
 | `hint`                                   | No       | `string`                            | Text to display along with the label of the element with more instructions.                                                                                                                                                                                                                                               |               |
+| `addressTypeFilter`                   | No       | `List<string>`                      | An array of address types that the search should be limited to.                                                                                                                                                                                                                         |               |
+
 
 ### Static Functions
 
@@ -188,3 +190,28 @@ FormElement complianceElement = FormElement.CreateComplianceElement(
     new List<FormElementOption>(){option}
 );
 ```
+
+#### Point Address Element
+
+##### `FormElement.CreatePointAddressElement()`
+
+Creates a new FormElement defined as a `pointAddress` element, including all parameters that are relevant to Point Address elements only
+
+| Parameter                              | Required | Type                               | Default Value |
+| -------------------------------------- | -------- | ---------------------------------- | ------------- |
+| `name`                                 | Yes      | `string`                           |               |
+| `label`                                | Yes      | `string`                           |               |
+| `id`                                   | No       | `Guid`                             | `new Guid()`  |
+| `conditionallyShow`                    | No       | `bool`                             | `false`       |
+| `requiresAllConditonallyShowPredicate` | No       | `bool`                             | `false`       |
+| `conditionallyShowPredicates`          | No       | `List<ConditionallyShowPredicate>` | `null`        |
+| `stateTerritoryFilter`                 | No       | `List<string>`                     | `null`        |
+| `addressTypeFilter`                    | No       | `List<string>`                     | `null`        |
+
+##### Example
+
+```c#
+FormElement geoscapeAddressElement = FormElement.CreateGeoscapeAddressElement(
+    "Point_test_element",
+    "Point test element"
+);

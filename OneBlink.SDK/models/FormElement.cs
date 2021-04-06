@@ -37,7 +37,8 @@ namespace OneBlink.SDK.Model
             "infoPage",
             "geoscapeAddress",
             "summary",
-            "compliance"
+            "compliance",
+            "pointAddress"
         };
         public Guid id { get; set; }
         public string name { get; set; }
@@ -107,6 +108,7 @@ namespace OneBlink.SDK.Model
         public string placeholderValue { get; set; }
         public int? minLength {get; set; }
         public int? maxLength {get; set; }
+        public List<string> addressTypeFilter {get;set;}
 
         public Boolean? isInteger {get; set; }
         private static Guid initialiseId(Guid? id)
@@ -250,6 +252,40 @@ namespace OneBlink.SDK.Model
                 complianceElement.elementLookupId = elementLookupId.Value;
             }
             return complianceElement;
+        }
+
+        public static FormElement CreatePointAddressElement(
+            string name,
+            string label,
+            Guid? id = null,
+            bool conditionallyShow = false,
+            bool requiresAllConditionallyShowPredicates = false,
+            List<ConditionallyShowPredicate> conditionallyShowPredicates = null,
+            bool required = false,
+            bool readOnly = false,
+            string defaultValue = null,
+            string placeholderValue = null,
+            string hint = null,
+            List<string> stateTerritoryFilter = null,
+            List<string> addressTypeFilter = null
+        )
+        {
+            FormElement pointAddressElement = new FormElement();
+            pointAddressElement.type = "pointAddress";
+            pointAddressElement.id = initialiseId(id);
+            pointAddressElement.conditionallyShow = conditionallyShow;
+            pointAddressElement.requiresAllConditionallyShowPredicates = requiresAllConditionallyShowPredicates;
+            pointAddressElement.conditionallyShowPredicates = conditionallyShowPredicates;
+            pointAddressElement.name = name;
+            pointAddressElement.label = label;
+            pointAddressElement.required = required;
+            pointAddressElement.readOnly = readOnly;
+            pointAddressElement.defaultValue = defaultValue;
+            pointAddressElement.placeholderValue = placeholderValue;
+            pointAddressElement.hint = hint;
+            pointAddressElement.stateTerritoryFilter = stateTerritoryFilter;
+            pointAddressElement.addressTypeFilter = addressTypeFilter;
+            return pointAddressElement;
         }
     }
 }
