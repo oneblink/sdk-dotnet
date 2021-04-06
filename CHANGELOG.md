@@ -5,6 +5,7 @@
 ### Added
 
 - `GenerateSubmissionDataUrl` to `FormsClient`
+- `KeysClient` class
 
 ## 1.17.0 (2021-03-23)
 
