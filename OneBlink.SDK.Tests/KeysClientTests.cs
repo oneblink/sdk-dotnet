@@ -12,7 +12,6 @@ namespace OneBlink.SDK.Tests
   {
     private string ACCESS_KEY;
     private string SECRET_KEY;
-    private string apiOrigin;
 
     public KeysClientTests()
     {
