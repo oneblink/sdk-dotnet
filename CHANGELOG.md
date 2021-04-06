@@ -6,6 +6,7 @@
 
 - `GenerateSubmissionDataUrl` to `FormsClient`
 - `KeysClient` class
+- `GetMyFormsApp`, `CreateUser` and `DeleteUser` to `FormsAppClient`
 
 ## 1.17.0 (2021-03-23)
 

@@ -7,6 +7,9 @@
 -   [`Create()`](#create)
 -   [`Update()`](#update)
 -   [`Delete()`](#delete)
+-   [`GetMyFormsApp()`](#getmyformsapp)
+-   [`CreateUser()`](#createuser)
+-   [`DeleteUser()`](#deleteuser)
 
 ## Constructor
 
@@ -204,6 +207,85 @@ await formsAppsClient.DeleteSendingAddress(formsAppId);
 | Parameter | Required | Type   | Description                    |
 | --------- | -------- | ------ | ------------------------------ |
 | `id`      | Yes      | `long` | The identifier of the FormsApp |
+
+### Throws
+
+-   `OneBlinkAPIException`
+-   `Exception`
+
+### Result
+
+No return value (`void`)
+
+## `GetMyFormsApp()`
+
+Retrieve a forms app associated to a user token
+
+### Example
+
+```c#
+string userToken = "bearerToken value";
+
+OneBlink.SDK.Model.FormsApp formsApp = await formsAppsClient.GetMyFormsApp(userToken);
+```
+
+### Parameters
+
+| Parameter | Required | Type   | Description                     |
+| --------- | -------- | ------ | ------------------------------- |
+| `token`      | Yes      | `string` | A forms app user token |
+
+### Throws
+
+-   `OneBlinkAPIException`
+-   `Exception`
+
+### Result
+
+A `FormsApp` class
+
+## `CreateUser()`
+
+Create a new forms app user
+
+### Example
+
+```c#
+FormsAppUser newFormsAppUser = {...};
+
+OneBlink.SDK.Model.FormsAppUser savedUser = await formsAppsClient.CreateUser(newFormsAppUser);
+```
+
+### Parameters
+
+| Parameter     | Required | Type       | Description         |
+| ------------- | -------- | ---------- | ------------------- |
+| `newFormsAppUser` | Yes      | `FormsAppUser` | New FormsAppUser object |
+
+### Throws
+
+-   `OneBlinkAPIException`
+-   `Exception`
+
+### Result
+
+A `FormsAppUser` class
+
+## `DeleteUser()`
+
+### Example
+
+```c#
+long formsAppUserId = 1;
+
+await formsAppsClient.DeleteUser(formsAppUserId);
+```
+
+### Parameters
+
+| Parameter | Required | Type   | Description                                  |
+| --------- | -------- | ------ | -------------------------------------------- |
+| `id`      | Yes      | `long` | The identifier of the FormsAppUser to be deleted |
 
 ### Throws
 

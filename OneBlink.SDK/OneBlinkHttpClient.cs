@@ -30,15 +30,25 @@ namespace OneBlink.SDK
 
     internal async Task<T> SendRequest<T>(HttpRequestMessage httpRequestMessage)
     {
-      HttpContent httpContent = await SendRequest(httpRequestMessage);
+      return await SendRequest<T>(httpRequestMessage, null);
+    }
+
+    internal async Task<T> SendRequest<T>(HttpRequestMessage httpRequestMessage, string userToken)
+    {
+      HttpContent httpContent = await SendRequest(httpRequestMessage, userToken);
       string result = await httpContent.ReadAsStringAsync();
       return JsonConvert.DeserializeObject<T>(result);
     }
 
     public async Task<HttpContent> SendRequest(HttpRequestMessage httpRequestMessage)
     {
+      return await SendRequest(httpRequestMessage, null);
+    }
+
+    public async Task<HttpContent> SendRequest(HttpRequestMessage httpRequestMessage, string userToken)
+    {
       // generate token
-      string token = Token.GenerateJSONWebToken(accessKey, secretKey, expiryInSeconds);
+      string token = !String.IsNullOrEmpty(userToken) ? userToken : Token.GenerateJSONWebToken(accessKey, secretKey, expiryInSeconds);
       using (HttpClient httpClient = new HttpClient())
       {
         httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
