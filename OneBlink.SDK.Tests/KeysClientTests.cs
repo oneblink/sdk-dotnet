@@ -27,7 +27,7 @@ namespace OneBlink.SDK.Tests
     {
       try
       {
-        KeysClient teamMembersClient = new KeysClient("", "");
+        KeysClient keysClient = new KeysClient("", "");
         Assert.NotNull(null);
       }
       catch (Exception ex)
