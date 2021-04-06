@@ -35,28 +35,28 @@ namespace OneBlink.SDK
             string verifiedToken = Token.VerifyJWT(token, jwk, iss);
             return JsonConvert.DeserializeObject<JWTPayload>(verifiedToken);
         }
-        public async Task<FormsApp> Get(long id)
+        public async Task<T> Get<T>(long id)
         {
             string url = "/forms-apps/" + id.ToString();
-            return await this.oneBlinkApiClient.GetRequest<FormsApp>(url);
+            return await this.oneBlinkApiClient.GetRequest<T>(url);
         }
 
-        public async Task<FormsApp> GetMyFormsApp(string token)
+        public async Task<T> GetMyFormsApp<T>(string token)
         {
             string url = "/my-forms-app";
-            return await this.oneBlinkApiClient.GetRequest<FormsApp>(url, token);
+            return await this.oneBlinkApiClient.GetRequest<T>(url, token);
         }
-        public async Task<FormsApp> Create(FormsApp newFormsApp)
+        public async Task<T> Create<T>(T newFormsApp)
         {
             string url = "/forms-apps";
-            FormsApp formsApp = await this.oneBlinkApiClient.PostRequest<FormsApp, FormsApp>(url, newFormsApp);
+            var formsApp = await this.oneBlinkApiClient.PostRequest<T, T>(url, newFormsApp);
             return formsApp;
         }
-        public async Task<FormsApp> Update(FormsApp formsAppToUpdate)
+        public async Task<T> Update<T>(FormsAppBase formsAppToUpdate)
         {
             string url = "/forms-apps/" + formsAppToUpdate.id.ToString();
 
-            FormsApp formsApp = await this.oneBlinkApiClient.PutRequest<FormsApp, FormsApp>(url, formsAppToUpdate);
+            var formsApp = await this.oneBlinkApiClient.PutRequest<FormsAppBase, T>(url, formsAppToUpdate);
             return formsApp;
         }
         public async Task Delete(long id, bool overrideLock = false)
@@ -64,11 +64,11 @@ namespace OneBlink.SDK
             string url = "/forms-apps/" + id.ToString();
             await this.oneBlinkApiClient.DeleteRequest(url);
         }
-        public async Task<FormsAppStyles> UpdateStyles(long id, FormsAppStyles styles)
+        public async Task<T> UpdateStyles<T>(long id, T styles)
         {
             string url = "/forms-apps/" + id.ToString() + "/styles";
 
-            FormsAppStyles formsAppStyles = await this.oneBlinkApiClient.PutRequest<FormsAppStyles, FormsAppStyles>(url, styles);
+            var formsAppStyles = await this.oneBlinkApiClient.PutRequest<T, T>(url, styles);
             return formsAppStyles;
         }
 

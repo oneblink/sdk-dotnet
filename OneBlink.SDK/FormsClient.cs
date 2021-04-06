@@ -226,7 +226,7 @@ namespace OneBlink.SDK
             if (parameters.formsAppId == null) {
                 throw new Exception("This form has not been added to a forms app yet.");
             }
-            FormsApp formsApp = await oneBlinkApiClient.GetRequest<FormsApp>($"/forms-apps/{parameters.formsAppId}");
+            FormsAppBase formsApp = await oneBlinkApiClient.GetRequest<FormsAppBase>($"/forms-apps/{parameters.formsAppId}");
 
             string preFillFormDataId = null;
             if (parameters.preFillData != null) {
@@ -275,7 +275,7 @@ namespace OneBlink.SDK
 
         private string _generateFormUrl(
         long formId,
-        FormsApp formsApp,
+        FormsAppBase formsApp,
         string token,
         string externalId,
         string preFillFormDataId,
