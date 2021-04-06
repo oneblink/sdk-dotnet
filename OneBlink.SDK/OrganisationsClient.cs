@@ -55,5 +55,11 @@ namespace OneBlink.SDK
             await amazonS3Client.PutObjectAsync(request);
             return string.Format("https://s3.{0}.amazonaws.com/{1}/{2}", assetUploadCredentialsResponse.s3.region, assetUploadCredentialsResponse.s3.bucket, assetUploadCredentialsResponse.s3.key);
         }
+
+        public async Task<Organisation> GetOrganisation(string id)
+        {
+            string url = "/organisations/" + id;
+            return await this.oneBlinkApiClient.GetRequest<Organisation>(url);
+        }
     }
 }

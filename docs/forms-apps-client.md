@@ -65,7 +65,7 @@ Retrieve a forms app by id
 ```c#
 long id = 123;
 
-OneBlink.SDK.Model.FormsApp formsApp = await formsAppsClient.Get(id);
+var formsApp = await formsAppsClient.Get<FormsListFormApp>(id);
 ```
 
 ### Parameters
@@ -73,6 +73,7 @@ OneBlink.SDK.Model.FormsApp formsApp = await formsAppsClient.Get(id);
 | Parameter | Required | Type   | Description                     |
 | --------- | -------- | ------ | ------------------------------- |
 | `id`      | Yes      | `long` | Id of forms app to be retrieved |
+| `<T>`     | Yes      | `ApprovalsFormsApp`, `FormsListFormApp` or `VolunteersFormsApp` | The type of Forms App |
 
 ### Throws
 
@@ -81,7 +82,7 @@ OneBlink.SDK.Model.FormsApp formsApp = await formsAppsClient.Get(id);
 
 ### Result
 
-A `FormsApp` class
+A `T` class
 
 ## `Create()`
 
@@ -90,9 +91,9 @@ Create a new forms app
 ### Example
 
 ```c#
-FormsApp newFormsApp = {...};
+FormsListFormApp newFormsApp = {...};
 
-OneBlink.SDK.Model.FormsApp savedFormsApps = await formsAppsClient.Create(newFormsApp);
+var savedFormsApps = await formsAppsClient.Create<FormsListFormApp>(newFormsApp);
 ```
 
 ### Parameters
@@ -100,6 +101,7 @@ OneBlink.SDK.Model.FormsApp savedFormsApps = await formsAppsClient.Create(newFor
 | Parameter     | Required | Type       | Description         |
 | ------------- | -------- | ---------- | ------------------- |
 | `newFormsApp` | Yes      | `FormsApp` | New FormsApp object |
+| `<T>`     | Yes      | `ApprovalsFormsApp`, `FormsListFormApp` or `VolunteersFormsApp` | The type of Forms App |
 
 ### Throws
 
@@ -108,7 +110,7 @@ OneBlink.SDK.Model.FormsApp savedFormsApps = await formsAppsClient.Create(newFor
 
 ### Result
 
-A `FormsApp` class
+A `T` class
 
 ## `Update()`
 
@@ -117,9 +119,9 @@ Update a existing forms app
 ### Example
 
 ```c#
-FormsApp formsAppToUpdate = {...};
+FormsListFormApp formsAppToUpdate = {...};
 
-OneBlink.SDK.Model.FormsApp updatedFormsApp = await formsAppsClient.Update(formsAppToUpdate);
+FormsListFormApp updatedFormsApp = await formsAppsClient.Update<FormsListFormApp>(formsAppToUpdate);
 ```
 
 ### Parameters
@@ -127,6 +129,7 @@ OneBlink.SDK.Model.FormsApp updatedFormsApp = await formsAppsClient.Update(forms
 | Parameter          | Required | Type       | Description              |
 | ------------------ | -------- | ---------- | ------------------------ |
 | `formsAppToUpdate` | Yes      | `FormsApp` | Existing FormsApp object |
+| `<T>`     | Yes      | `ApprovalsFormsApp`, `FormsListFormApp` or `VolunteersFormsApp` | The type of Forms App |
 
 ### Throws
 

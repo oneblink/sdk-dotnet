@@ -92,7 +92,7 @@ namespace OneBlink.SDK.Tests
             FormsAppsClient formsAppsClient = new FormsAppsClient(ACCESS_KEY, SECRET_KEY, TenantName.ONEBLINK_TEST);
 
             FormsAppPWASettings pWASettings = new FormsAppPWASettings();
-            FormsApp newFormsApp = new FormsApp();
+            var newFormsApp = new FormsListFormsApp();
             newFormsApp.name = "Unit test app";
             newFormsApp.slug = DateTime.Now.ToFileTimeUtc().ToString();
             newFormsApp.organisationId = organisationId;
@@ -101,15 +101,15 @@ namespace OneBlink.SDK.Tests
             newFormsApp.pwaSettings = pWASettings;
             newFormsApp.notificationEmailAddresses = new List<string>() { "developers@oneblink.io" };
 
-            FormsApp savedFormsApp = await formsAppsClient.Create(newFormsApp);
+            var savedFormsApp = await formsAppsClient.Create<FormsListFormsApp>(newFormsApp);
             Assert.NotNull(savedFormsApp);
 
-            FormsApp retrievedFormsApp = await formsAppsClient.Get(savedFormsApp.id);
+            var retrievedFormsApp = await formsAppsClient.Get<FormsListFormsApp>(savedFormsApp.id);
             Assert.NotNull(retrievedFormsApp);
 
             String updatedName = "Unit test app updated";
             retrievedFormsApp.name = updatedName;
-            FormsApp updatedFormsApp = await formsAppsClient.Update(retrievedFormsApp);
+            var updatedFormsApp = await formsAppsClient.Update<FormsListFormsApp>(retrievedFormsApp);
             Assert.Equal(updatedName, updatedFormsApp.name);
 
             // create and delete user
@@ -125,7 +125,7 @@ namespace OneBlink.SDK.Tests
 
             try
             {
-                FormsApp deletedFormsApp = await formsAppsClient.Get(updatedFormsApp.id);
+                var deletedFormsApp = await formsAppsClient.Get<FormsListFormsApp>(updatedFormsApp.id);
                 throw new Exception("FormsApp was able to be retrieved after being deleted!");
             }
             catch (OneBlink.SDK.OneBlinkAPIException ex)

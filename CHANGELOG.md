@@ -7,6 +7,11 @@
 - `GenerateSubmissionDataUrl` to `FormsClient`
 - `KeysClient` class
 - `GetMyFormsApp`, `CreateUser` and `DeleteUser` to `FormsAppClient`
+- `Get` to `OrganisationsClient`
+
+### Changed
+
+- Updated `FormsApp` to `ApprovalsFormsApp`, `FormsListFormsApp` and `VolunteersFormsApp`
 
 ## 1.17.0 (2021-03-23)
 
