@@ -19,7 +19,7 @@ namespace OneBlink.SDK.Model
         public bool retainPrefillData {get;set;}
         public long? prefillDataRetentionDays {get;set;}
         public bool retainDraftData {get;set;}
-        public List<FormsAppBase> solutions {get;set;}
+        public List<string> solutions {get;set;}
         public string awsCustomerId {get;set;}
 
     }
