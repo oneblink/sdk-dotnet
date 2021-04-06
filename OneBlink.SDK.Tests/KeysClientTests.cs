@@ -14,7 +14,7 @@ namespace OneBlink.SDK.Tests
     private string SECRET_KEY;
     private string apiOrigin;
 
-    public TeamMembersClientTests()
+    public KeysClientTests()
     {
         bool raiseException = false;
         DotEnv.Config(raiseException, Path.GetFullPath(Path.Combine(Directory.GetCurrentDirectory(), "..", "..", "..", "..")) + "/.env");
