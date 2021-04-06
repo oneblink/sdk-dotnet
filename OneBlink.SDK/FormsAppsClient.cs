@@ -40,6 +40,12 @@ namespace OneBlink.SDK
             string url = "/forms-apps/" + id.ToString();
             return await this.oneBlinkApiClient.GetRequest<FormsApp>(url);
         }
+
+        public async Task<FormsApp> GetMyFormsApp(string token)
+        {
+            string url = "/my-forms-app";
+            return await this.oneBlinkApiClient.GetRequest<FormsApp>(url, token);
+        }
         public async Task<FormsApp> Create(FormsApp newFormsApp)
         {
             string url = "/forms-apps";
@@ -80,6 +86,18 @@ namespace OneBlink.SDK
         public async Task DeleteSendingAddress(long id)
         {
             string url = "/forms-apps/" + id.ToString() + "/sending-address";
+            await this.oneBlinkApiClient.DeleteRequest(url);
+        }
+
+        public async Task<FormsAppUser> CreateUser(FormsAppUser newUser)
+        {
+            string url = "/appUsers";
+            FormsAppUser formsAppUser = await this.oneBlinkApiClient.PostRequest<FormsAppUser, FormsAppUser>(url, newUser);
+            return formsAppUser;
+        }
+        public async Task DeleteUser(long id)
+        {
+            string url = "/appUsers/" + id.ToString();
             await this.oneBlinkApiClient.DeleteRequest(url);
         }
     }
