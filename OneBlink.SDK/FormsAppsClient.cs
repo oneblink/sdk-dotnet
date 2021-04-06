@@ -35,24 +35,24 @@ namespace OneBlink.SDK
             string verifiedToken = Token.VerifyJWT(token, jwk, iss);
             return JsonConvert.DeserializeObject<JWTPayload>(verifiedToken);
         }
-        public async Task<T> Get<T>(long id)
+        public async Task<T> Get<T>(long id) where T : FormsAppBase
         {
             string url = "/forms-apps/" + id.ToString();
             return await this.oneBlinkApiClient.GetRequest<T>(url);
         }
 
-        public async Task<T> GetMyFormsApp<T>(string token)
+        public async Task<T> GetMyFormsApp<T>(string token) where T : FormsAppBase
         {
             string url = "/my-forms-app";
             return await this.oneBlinkApiClient.GetRequest<T>(url, token);
         }
-        public async Task<T> Create<T>(T newFormsApp)
+        public async Task<T> Create<T>(T newFormsApp) where T : FormsAppBase
         {
             string url = "/forms-apps";
             var formsApp = await this.oneBlinkApiClient.PostRequest<T, T>(url, newFormsApp);
             return formsApp;
         }
-        public async Task<T> Update<T>(FormsAppBase formsAppToUpdate)
+        public async Task<T> Update<T>(FormsAppBase formsAppToUpdate) where T : FormsAppBase
         {
             string url = "/forms-apps/" + formsAppToUpdate.id.ToString();
 
@@ -64,7 +64,7 @@ namespace OneBlink.SDK
             string url = "/forms-apps/" + id.ToString();
             await this.oneBlinkApiClient.DeleteRequest(url);
         }
-        public async Task<T> UpdateStyles<T>(long id, T styles)
+        public async Task<T> UpdateStyles<T>(long id, T styles) where T : FormsAppStylesBase
         {
             string url = "/forms-apps/" + id.ToString() + "/styles";
 
