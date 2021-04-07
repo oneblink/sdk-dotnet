@@ -12,7 +12,7 @@
 
 ### Changed
 
-- Updated `FormsApp` to `ApprovalsFormsApp`, `FormsListFormsApp` and `VolunteersFormsApp`
+- **[BREAKING]** replaced `FormsApp` class with `FormsListFormsApp`, `TilesFormsApp`, `ApprovalsFormsApp`,  and `VolunteersFormsApp`
 
 ## 1.17.0 (2021-03-23)
 
