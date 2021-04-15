@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 2.0.0 (2021-04-15)
+
 ### Added
 
 - `GenerateSubmissionDataUrl` to `FormsClient`
