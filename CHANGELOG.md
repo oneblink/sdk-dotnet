@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Updated
+
+- Forms App base with `isClientLoggingEnabled` prop
+
 ## 2.0.0 (2021-04-15)
 
 ### Added

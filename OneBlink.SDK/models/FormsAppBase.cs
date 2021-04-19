@@ -1,7 +1,6 @@
 using System;
 using Newtonsoft.Json;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace OneBlink.SDK.Model
 {
@@ -21,7 +20,9 @@ namespace OneBlink.SDK.Model
         public bool hasSamlIdentityProvider {get;set;}
         public long formsAppEnvironmentId {get;set;}
         public List<string> notificationEmailAddresses {get;set;}
+        public bool isClientLoggingEnabled {get; set;}
         private string _Type;
         public abstract string type { get; }
+
     }
 }
