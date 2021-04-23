@@ -5,6 +5,7 @@
 ### Added
 
 - `displayAsCurrency` to `FormElement`
+- `storageType` to `FormElement`
 
 ### Updated
 
