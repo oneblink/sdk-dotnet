@@ -109,8 +109,9 @@ namespace OneBlink.SDK.Model
         public int? minLength {get; set; }
         public int? maxLength {get; set; }
         public List<string> addressTypeFilter {get;set;}
-
         public Boolean? isInteger {get; set; }
+        public Boolean? displayAsCurrency {get;set;}
+
         private static Guid initialiseId(Guid? id)
         {
             if (!id.HasValue)
