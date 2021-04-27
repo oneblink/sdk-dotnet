@@ -6,6 +6,8 @@
 
 - `displayAsCurrency` to `FormElement`
 
+## 2.1.0 (2021-04-27)
+
 ### Updated
 
 - Forms App base with `isClientLoggingEnabled` prop
