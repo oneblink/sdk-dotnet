@@ -40,6 +40,7 @@ namespace OneBlink.SDK.Model
             "compliance",
             "pointAddress"
         };
+        private string[] AllowedStorageTypes = new string[]{"legacy","public", "private"};
         public Guid id { get; set; }
         public string name { get; set; }
         public string label { get; set; }
@@ -111,6 +112,22 @@ namespace OneBlink.SDK.Model
         public List<string> addressTypeFilter {get;set;}
         public Boolean? isInteger {get; set; }
         public Boolean? displayAsCurrency {get;set;}
+        private string _StorageType;
+        public string storageType
+        {
+            get
+            {
+                return _StorageType;
+            }
+            set
+            {
+                if (!AllowedStorageTypes.Any(x => x == value))
+                {
+                    throw new ArgumentException(value = " not a valid Form Element storage type");
+                }
+                _StorageType = value;
+            }
+        }
 
         private static Guid initialiseId(Guid? id)
         {
