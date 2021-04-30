@@ -124,7 +124,7 @@ bool? isPublished = null;
 string name = null;
 long? formsAppEnvironmentId  = null;
 
-OneBlink.SDK.Model.FormsSearchResult response = await formsClient.Search(isAuthenticated, isPublished, name, formsAppEnvironment);
+OneBlink.SDK.Model.FormsSearchResult response = await formsClient.Search(isAuthenticated, isPublished, name, formsAppEnvironmentId);
 ```
 
 ### Parameters
