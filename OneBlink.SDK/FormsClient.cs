@@ -47,7 +47,7 @@ namespace OneBlink.SDK
             return await GetFormSubmission<T>(formRetrievalData);
         }
 
-        public async Task<FormsSearchResult> Search(bool? isAuthenticated, bool? isPublished, string name, int? formsAppEnvironment = null)
+        public async Task<FormsSearchResult> Search(bool? isAuthenticated, bool? isPublished, string name, long? formsAppEnvironmentId = null)
         {
             string queryString = string.Empty;
             if (isAuthenticated.HasValue)
@@ -70,13 +70,13 @@ namespace OneBlink.SDK
                 }
                 queryString += "name=" + name;
             }
-            if (formsAppEnvironment.HasValue)
+            if (formsAppEnvironmentId.HasValue)
             {
                 if (queryString != string.Empty)
                 {
                     queryString += "&";
                 }
-                queryString += "formsAppEnvironmentId=" + formsAppEnvironment.Value;
+                queryString += "formsAppEnvironmentId=" + formsAppEnvironmentId.Value;
             }
 
             string url = "/forms?" + queryString;
@@ -316,10 +316,5 @@ namespace OneBlink.SDK
             }
             return url;
         }
-    }
-
-    public class WebhookRequest
-    {
-        public string callbackUrl { get; set; }
     }
 }
