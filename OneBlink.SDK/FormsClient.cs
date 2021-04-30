@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
@@ -47,7 +47,7 @@ namespace OneBlink.SDK
             return await GetFormSubmission<T>(formRetrievalData);
         }
 
-        public async Task<FormsSearchResult> Search(bool? isAuthenticated, bool? isPublished, string name)
+        public async Task<FormsSearchResult> Search(bool? isAuthenticated, bool? isPublished, string name, long? formsAppEnvironmentId = null)
         {
             string queryString = string.Empty;
             if (isAuthenticated.HasValue)
@@ -70,6 +70,15 @@ namespace OneBlink.SDK
                 }
                 queryString += "name=" + name;
             }
+            if (formsAppEnvironmentId.HasValue)
+            {
+                if (queryString != string.Empty)
+                {
+                    queryString += "&";
+                }
+                queryString += "formsAppEnvironmentId=" + formsAppEnvironmentId.Value;
+            }
+
             string url = "/forms?" + queryString;
             return await this.oneBlinkApiClient.GetRequest<FormsSearchResult>(url);
         }
@@ -173,6 +182,7 @@ namespace OneBlink.SDK
             }
             await this.oneBlinkApiClient.DeleteRequest(url);
         }
+
         private async Task<FormSubmission<T>> GetFormSubmission<T>(FormSubmissionRetrievalConfiguration formRetrievalData)
         {
             if (formRetrievalData == null || formRetrievalData.s3 == null || formRetrievalData.credentials == null)

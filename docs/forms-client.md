@@ -122,7 +122,9 @@ A `FormSubmission<T>` class
 bool? isAuthenticated = null;
 bool? isPublished = null;
 string name = null;
-OneBlink.SDK.Model.FormsSearchResult response = await formsClient.Search(isAuthenticated, isPublished, name);
+long? formsAppEnvironmentId  = null;
+
+OneBlink.SDK.Model.FormsSearchResult response = await formsClient.Search(isAuthenticated, isPublished, name, formsAppEnvironmentId);
 ```
 
 ### Parameters
@@ -132,6 +134,7 @@ OneBlink.SDK.Model.FormsSearchResult response = await formsClient.Search(isAuthe
 | `isAuthenticated` | Yes      | `bool?`  | Return authenticated forms or unauthenticated forms. If null provided, all forms will be returned.                                           |
 | `isPublished`     | Yes      | `bool?`  | Return published forms or unpublished forms. If null provided, all forms will be returned.                                                   |
 | `name`            | Yes      | `string` | Search on the name property of a form. Can be a prefix, suffix or partial match. If null or whitespace provided, all forms will be returned. |
+| `formsAppEnvironmentId `            | No      | `long?` | Return only forms for a specific app environment. |
 
 ### Throws
 
