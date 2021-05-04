@@ -67,6 +67,7 @@ A `string`
 -   [`Delete()`](#delete)
 -   [`GenerateFormUrl()`](#generateformurl)
 -   [`GenerateSubmissionDataUrl()`](#generatesubmissiondataurl)
+-   [`GetFormSubmissionAttachment()`](#getgormsubmissionattachment)
 
 ## Constructor
 
@@ -449,3 +450,27 @@ SubmissionDataUrl submissionDataUrl = await formsClient.GenerateSubmissionDataUr
 ### Result
 
 A `OneBlink.SDK.Model.SubmissionDataUrl` class
+
+## `GetFormSubmissionAttachment()`
+
+### Example
+
+```c#
+Stream attachmentStream = await formsClient.GetFormSubmissionAttachment(formId, attachmentId);
+```
+
+### Parameters
+
+| Parameter    | Required | Type                                         | Description                             |
+| ------------ | -------- | -------------------------------------------- | --------------------------------------- |
+| `formId` | Yes      | long | |
+| `attachmentId` | Yes      | string | |
+
+### Throws
+
+-   `OneBlinkAPIException`
+-   `Exception`
+
+### Result
+
+A `System.IO.Stream` class

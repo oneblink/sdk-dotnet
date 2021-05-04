@@ -3,6 +3,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using OneBlink.SDK.Model;
+using System.IO;
 
 namespace OneBlink.SDK
 {
@@ -39,6 +40,12 @@ namespace OneBlink.SDK
         {
             HttpRequestMessage httpRequestMessage = new HttpRequestMessage(HttpMethod.Get, tenant.oneBlinkAPIOrigin + path);
             return await SendRequest<T>(httpRequestMessage);
+        }
+
+        public async Task<Stream> GetStreamRequest(string path)
+        {
+            HttpRequestMessage httpRequestMessage = new HttpRequestMessage(HttpMethod.Get, tenant.oneBlinkAPIOrigin + path);
+            return await StreamRequest(httpRequestMessage);
         }
 
         public async Task<T> GetRequest<T>(string path, string userToken)
