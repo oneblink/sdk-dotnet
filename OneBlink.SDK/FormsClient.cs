@@ -285,7 +285,7 @@ namespace OneBlink.SDK
 
         public async Task<Stream> GetFormSubmissionAttachment(long formId, string attachmentId)
         {
-            string url = "/forms/"+ formId.ToString() + "/attachments/" + attachmentId;
+            string url = "/submissions/"+ formId.ToString() + "/attachments/" + attachmentId;
             return await this.oneBlinkApiClient.GetStreamRequest(url);
         }
 
