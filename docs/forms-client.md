@@ -67,7 +67,8 @@ A `string`
 -   [`Delete()`](#delete)
 -   [`GenerateFormUrl()`](#generateformurl)
 -   [`GenerateSubmissionDataUrl()`](#generatesubmissiondataurl)
--   [`GetFormSubmissionAttachment()`](#getgormsubmissionattachment)
+-   [`GetFormSubmissionAttachment()`](#getformsubmissionattachment)
+-   [`CreateSubmissionAttachment()`](#createsubmissionattachment)
 
 ## Constructor
 
@@ -474,3 +475,31 @@ Stream attachmentStream = await formsClient.GetFormSubmissionAttachment(formId, 
 ### Result
 
 A `System.IO.Stream` class
+
+## `CreateSubmissionAttachment()`
+
+### Example
+
+```c#
+AttachmentUploadCredentialsResponse response = await formsClient.CreateSubmissionAttachment(formId, fileStream,"file.txt", "plain/text", true, "username);
+```
+
+### Parameters
+
+| Parameter    | Required | Type                                         | Description                             |
+| ------------ | -------- | -------------------------------------------- | --------------------------------------- |
+| `formId` | Yes      | long | |
+| `fileStream` | Yes      | Stream | |
+| `fileName` | Yes      | string | |
+| `contentType` | Yes      | string | |
+| `isPrivate` | Yes      | string | Sets if the file will be private (accessible with credentials) or public |
+| `username` | Yes      | string | An optional username to allow a single user to download the attachment file |
+
+### Throws
+
+-   `OneBlinkAPIException`
+-   `Exception`
+
+### Result
+
+A `OneBlink.SDK.Model.AttachmentUploadCredentialsResponse` class

@@ -289,6 +289,35 @@ namespace OneBlink.SDK
             return await this.oneBlinkApiClient.GetStreamRequest(url);
         }
 
+        public async Task<AttachmentUploadCredentialsResponse> CreateSubmissionAttachment(long formId, Stream body, string fileName, string contentType, bool isPrivate, string username)
+        {
+            string url = "/forms/" + formId.ToString() + "/upload-attachment-credentials";
+            AttachmentUploadCredentialsRequest requestBody = new AttachmentUploadCredentialsRequest();
+            requestBody.username = username;
+            AttachmentUploadCredentialsResponse response = await this.oneBlinkApiClient.PostRequest<AttachmentUploadCredentialsRequest, AttachmentUploadCredentialsResponse>(url, requestBody);
+
+            RegionEndpoint regionEndpoint = RegionEndpoint.GetBySystemName(response.s3.region);
+
+            SessionAWSCredentials sessionAWSCredentials = new SessionAWSCredentials(
+                response.credentials.AccessKeyId,
+                response.credentials.SecretAccessKey,
+                response.credentials.SessionToken
+            );
+            AmazonS3Client amazonS3Client = new AmazonS3Client(sessionAWSCredentials, regionEndpoint);
+            PutObjectRequest request = new PutObjectRequest
+            {
+                BucketName = response.s3.bucket,
+                Key = response.s3.key,
+                InputStream = body,
+                ContentType = contentType,
+                CannedACL = isPrivate ? S3CannedACL.Private : S3CannedACL.PublicRead
+            };
+
+            await amazonS3Client.PutObjectAsync(request);
+
+            return response;
+        }
+
         private string _generateFormUrl(
         long formId,
         FormsAppBase formsApp,
