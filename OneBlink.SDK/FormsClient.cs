@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
@@ -281,6 +281,12 @@ namespace OneBlink.SDK
             string url = "/forms/" + formId.ToString() +"/retrieval-url/" + submissionId + "?expirySeconds=" + expiryInSeconds.ToString();
             SubmissionDataUrl submissionDataUrl = await this.oneBlinkApiClient.PostRequest<SubmissionDataUrl>(url);
             return submissionDataUrl;
+        }
+
+        public async Task<Stream> GetFormSubmissionAttachment(long formId, string attachmentId)
+        {
+            string url = "/submissions/"+ formId.ToString() + "/attachments/" + attachmentId;
+            return await this.oneBlinkApiClient.GetStreamRequest(url);
         }
 
         private string _generateFormUrl(

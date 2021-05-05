@@ -7,7 +7,9 @@
 - `displayAsCurrency` to `FormElement`
 - `storageType` to `FormElement`
 - `formsAppEnvironment` to `FormsClient Search`
+- `GetFormSubmissionAttachment` to `FormsClient`
 - `author` to `FormSubmissionEventConfiguration`
+
 ## 2.1.0 (2021-04-27)
 
 ### Updated

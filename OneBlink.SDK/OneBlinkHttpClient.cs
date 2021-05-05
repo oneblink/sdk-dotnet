@@ -3,6 +3,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using System.IO;
 
 namespace OneBlink.SDK
 {
@@ -63,6 +64,12 @@ namespace OneBlink.SDK
         }
         return httpResponseMessage.Content;
       }
+    }
+
+    public async Task<Stream> StreamRequest(HttpRequestMessage httpRequestMessage, string userToken = null)
+    {
+        HttpContent content = await SendRequest(httpRequestMessage, userToken);
+        return await content.ReadAsStreamAsync();
     }
   }
 }
