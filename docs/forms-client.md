@@ -502,4 +502,4 @@ AttachmentUploadCredentialsResponse response = await formsClient.CreateSubmissio
 
 ### Result
 
-A `OneBlink.SDK.Model.AttachmentUploadCredentialsResponse` class
+A `OneBlink.SDK.Model.AttachmentData` class
