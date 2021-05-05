@@ -68,22 +68,8 @@ namespace OneBlink.SDK
 
     public async Task<Stream> StreamRequest(HttpRequestMessage httpRequestMessage, string userToken = null)
     {
-      // generate token
-      string token = !String.IsNullOrEmpty(userToken) ? userToken : Token.GenerateJSONWebToken(accessKey, secretKey, expiryInSeconds);
-      using (HttpClient httpClient = new HttpClient())
-      {
-        httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-        httpClient.DefaultRequestHeaders.Add("User-Agent", ".Net OneBlink.SDK / " + GetType().Assembly.GetName().Version.ToString());
-
-        HttpResponseMessage httpResponseMessage = await httpClient.SendAsync(httpRequestMessage);
-        if (!httpResponseMessage.IsSuccessStatusCode)
-        {
-          string result = await httpResponseMessage.Content.ReadAsStringAsync();
-          APIErrorResponse apiErrorResponse = JsonConvert.DeserializeObject<APIErrorResponse>(result);
-          throw new OneBlinkAPIException(apiErrorResponse);
-        }
-        return await httpResponseMessage.Content.ReadAsStreamAsync();
-      }
+        HttpContent content = await SendRequest(httpRequestMessage, userToken);
+        return await content.ReadAsStreamAsync();
     }
   }
 }
