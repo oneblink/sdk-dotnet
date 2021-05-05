@@ -18,8 +18,7 @@ namespace OneBlink.SDK
     public async Task<Stream> PostRequest(string path)
     {
       HttpRequestMessage httpRequestMessage = new HttpRequestMessage(HttpMethod.Post, tenant.oneBlinkPdfOrigin + path);
-      HttpContent httpContent = await SendRequest(httpRequestMessage);
-      return await httpContent.ReadAsStreamAsync();
+      return await StreamRequest(httpRequestMessage);
     }
 
     public async Task<Stream> PostRequest<T>(string path, T t)
@@ -33,8 +32,7 @@ namespace OneBlink.SDK
                 });
                 httpRequestMessage.Content = new StringContent(jsonPayload, Encoding.UTF8, "application/json");
             }
-      HttpContent httpContent = await SendRequest(httpRequestMessage);
-      return await httpContent.ReadAsStreamAsync();
+      return await StreamRequest(httpRequestMessage);
     }
   }
 }
