@@ -289,6 +289,45 @@ namespace OneBlink.SDK
             return await this.oneBlinkApiClient.GetStreamRequest(url);
         }
 
+        public async Task<AttachmentData> CreateSubmissionAttachment(long formId, Stream body, string fileName, string contentType, bool isPrivate, string username)
+        {
+            string url = "/forms/" + formId.ToString() + "/upload-attachment-credentials";
+            AttachmentUploadCredentialsRequest requestBody = new AttachmentUploadCredentialsRequest();
+            requestBody.username = username;
+            AttachmentUploadCredentialsResponse response = await this.oneBlinkApiClient.PostRequest<AttachmentUploadCredentialsRequest, AttachmentUploadCredentialsResponse>(url, requestBody);
+
+            RegionEndpoint regionEndpoint = RegionEndpoint.GetBySystemName(response.s3.region);
+
+            SessionAWSCredentials sessionAWSCredentials = new SessionAWSCredentials(
+                response.credentials.AccessKeyId,
+                response.credentials.SecretAccessKey,
+                response.credentials.SessionToken
+            );
+            AmazonS3Client amazonS3Client = new AmazonS3Client(sessionAWSCredentials, regionEndpoint);
+            PutObjectRequest request = new PutObjectRequest
+            {
+                BucketName = response.s3.bucket,
+                Key = response.s3.key,
+                InputStream = body,
+                ContentType = contentType,
+                CannedACL = isPrivate ? S3CannedACL.Private : S3CannedACL.PublicRead,
+                ServerSideEncryptionMethod = ServerSideEncryptionMethod.AES256,
+            };
+            request.Headers.ContentDisposition = "attachment; filename=" + fileName;
+            request.Headers.ExpiresUtc = new DateTime().AddYears(1).ToUniversalTime(); // Max 1 year
+            request.Headers.CacheControl = "max-age=31536000"; // Max 1 year(365 days)
+
+            await amazonS3Client.PutObjectAsync(request);
+            AttachmentData attachmentData = new AttachmentData();
+            attachmentData.id = response.attachmentDataId;
+            attachmentData.contentType = contentType;
+            attachmentData.fileName = fileName;
+            attachmentData.isPrivate = isPrivate;
+            attachmentData.url = oneBlinkApiClient.tenant.oneBlinkAPIOrigin + "/"+ response.s3.key;
+            attachmentData.s3 = response.s3;
+            return attachmentData;
+        }
+
         private string _generateFormUrl(
         long formId,
         FormsAppBase formsApp,
