@@ -481,7 +481,7 @@ A `System.IO.Stream` class
 ### Example
 
 ```c#
-AttachmentUploadCredentialsResponse response = await formsClient.CreateSubmissionAttachment(formId, fileStream,"file.txt", "plain/text", true, "username);
+AttachmentData attachmentData = await formsClient.CreateSubmissionAttachment(formId, fileStream,"file.txt", "plain/text", true, "username");
 ```
 
 ### Parameters
