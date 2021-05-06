@@ -49,8 +49,11 @@ namespace OneBlink.SDK
                 Key = assetUploadCredentialsResponse.s3.key,
                 InputStream = assetDataStream,
                 ContentType = contentType,
-                CannedACL = S3CannedACL.PublicRead
+                CannedACL = S3CannedACL.PublicRead,
+                ServerSideEncryptionMethod = ServerSideEncryptionMethod.AES256,
             };
+            request.Headers.ExpiresUtc = new DateTime().AddYears(1).ToUniversalTime(); // Max 1 year
+            request.Headers.CacheControl = "max-age=31536000"; // Max 1 year(365 days)
 
             await amazonS3Client.PutObjectAsync(request);
             return string.Format("https://s3.{0}.amazonaws.com/{1}/{2}", assetUploadCredentialsResponse.s3.region, assetUploadCredentialsResponse.s3.bucket, assetUploadCredentialsResponse.s3.key);

@@ -310,8 +310,12 @@ namespace OneBlink.SDK
                 Key = response.s3.key,
                 InputStream = body,
                 ContentType = contentType,
-                CannedACL = isPrivate ? S3CannedACL.Private : S3CannedACL.PublicRead
+                CannedACL = isPrivate ? S3CannedACL.Private : S3CannedACL.PublicRead,
+                ServerSideEncryptionMethod = ServerSideEncryptionMethod.AES256,
             };
+            request.Headers.ContentDisposition = "attachment; filename=" + fileName;
+            request.Headers.ExpiresUtc = new DateTime().AddYears(1).ToUniversalTime(); // Max 1 year
+            request.Headers.CacheControl = "max-age=31536000"; // Max 1 year(365 days)
 
             await amazonS3Client.PutObjectAsync(request);
             AttachmentData attachmentData = new AttachmentData();

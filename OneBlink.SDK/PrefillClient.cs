@@ -35,7 +35,9 @@ namespace OneBlink.SDK
             BucketName = preFillMeta.s3.bucket,
             Key = preFillMeta.s3.key,
             ContentBody = JsonConvert.SerializeObject(preFillData),
-            ContentType = "application/json"
+            ContentType = "application/json",
+            CannedACL = S3CannedACL.Private,
+            ServerSideEncryptionMethod = ServerSideEncryptionMethod.AES256,
         };
 
         await amazonS3Client.PutObjectAsync(request);
