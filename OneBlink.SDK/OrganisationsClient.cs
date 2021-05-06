@@ -32,7 +32,7 @@ namespace OneBlink.SDK
             }
             string postUrl = "/asset-upload-credentials";
             AssetUploadCredentialsRequest assetUploadCredentialsRequest = new AssetUploadCredentialsRequest();
-            assetUploadCredentialsRequest.assetPath = "assets/" + assetFileName;
+            assetUploadCredentialsRequest.assetPath = "assets/" + Guid.NewGuid().ToString() + "_" + assetFileName;
             assetUploadCredentialsRequest.organisationId = searchResult.organisations[0].id;
             AssetUploadCredentialsResponse assetUploadCredentialsResponse = await this.oneBlinkApiClient.PostRequest<AssetUploadCredentialsRequest, AssetUploadCredentialsResponse>(postUrl, assetUploadCredentialsRequest);
             RegionEndpoint regionEndpoint = RegionEndpoint.GetBySystemName(assetUploadCredentialsResponse.s3.region);
