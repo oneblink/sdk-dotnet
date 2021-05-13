@@ -23,6 +23,6 @@ namespace OneBlink.SDK.Model
         public bool isClientLoggingEnabled {get; set;}
         private string _Type;
         public abstract string type { get; }
-
+        public string recaptchaIntegrationDomainId {get;set;}
     }
 }

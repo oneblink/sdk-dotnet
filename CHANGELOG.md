@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+# Added
+
+- `recaptchaIntegrationDomainId` to `FormsAppBase`
+
 ## 2.2.0 (2021-05-13)
 
 ### Fixed
