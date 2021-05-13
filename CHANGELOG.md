@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Fixed
+
+- `ConditionallyShowPredicate` class missing BETWEEN `type`
+
 ### Added
 
 - `displayAsCurrency` to `FormElement`

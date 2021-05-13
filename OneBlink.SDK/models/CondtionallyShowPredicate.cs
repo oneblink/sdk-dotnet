@@ -7,7 +7,7 @@ namespace OneBlink.SDK.Model
     public class ConditionallyShowPredicate
     {
         public Guid elementId { get; set; }
-        private string[] AllowedTypes = new string[] { "OPTIONS", "NUMERIC", "VALUE" };
+        private string[] AllowedTypes = new string[] { "OPTIONS", "NUMERIC", "VALUE", "BETWEEN" };
         private string _Type;
         public string type
         {
