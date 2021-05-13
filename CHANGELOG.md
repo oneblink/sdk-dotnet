@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+# Added
+
+- `recaptchaIntegrationDomainId` to `FormsAppBase`
+
 ## 2.2.0 (2021-05-13)
 
 ### Fixed
@@ -16,7 +20,6 @@
 - `GetFormSubmissionAttachment` to `FormsClient`
 - `CreateSubmissionAttachment` to `FormsClient`
 - `author` to `FormSubmissionEventConfiguration`
-- `recaptchaIntegrationDomainId` to `FormsAppBase`
 
 ## 2.1.0 (2021-04-27)
 
