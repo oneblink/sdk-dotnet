@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+## 2.2.0 (2021-05-13)
+
+### Fixed
+
+- `ConditionallyShowPredicate` class missing BETWEEN `type`
+
 ### Added
 
 - `displayAsCurrency` to `FormElement`
