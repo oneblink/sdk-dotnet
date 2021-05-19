@@ -26,7 +26,7 @@ namespace OneBlink.SDK.Model
         }
         public List<string> optionIds { get; set; }
         public string @operator { get; set; }
-        public int value { get; set; }
+        public double value { get; set; }
         public Boolean hasValue { get; set; }
     }
 }
