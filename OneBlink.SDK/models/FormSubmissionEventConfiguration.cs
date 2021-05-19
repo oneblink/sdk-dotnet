@@ -105,5 +105,9 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public bool? encryptPdf
+        {
+            get; set;
+        }
     }
 }
