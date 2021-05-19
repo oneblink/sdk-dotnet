@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Added
+
+`encryptPdf` prop to `FormSubmissionEventConfiguration` class
+
 ## 2.2.1 (2021-05-19)
 
 ### Changed
