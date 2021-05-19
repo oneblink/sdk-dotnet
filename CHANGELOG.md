@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 2.2.1 (2021-05-19)
+
 ### Changed
 
 - Type of `value` from `int` to `double` in `ConditionallyShowPredicate` Model
