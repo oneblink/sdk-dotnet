@@ -2,7 +2,11 @@
 
 ## Unreleased
 
-# Added
+### Changed
+
+- Type of `value` from `int` to `double` in `ConditionallyShowPredicate` Model
+
+### Added
 
 - `recaptchaIntegrationDomainId` to `FormsAppBase`
 
