@@ -4,7 +4,12 @@
 
 ### Added
 
-`encryptPdf` prop to `FormSubmissionEventConfiguration` class
+- `encryptPdf` prop to `FormSubmissionEventConfiguration` class
+- `defaultValueDaysOffset`, `fromDateDaysOffset`, `toDateDaysOffset` to `FormElement`
+
+### Changed
+
+- Type of `FormElement.fromDate` and `FormElement.toDate` from `DateTime` to `string`
 
 ## 2.2.1 (2021-05-19)
 

@@ -69,6 +69,7 @@ namespace OneBlink.SDK.Model
         public Boolean readOnly { get; set; }
         public List<ConditionallyShowPredicate> conditionallyShowPredicates { get; set; }
         public dynamic defaultValue { get; set; }
+        public long defaultValueDaysOffset {get;set;}
         public Boolean buttons { get; set; }
         public Boolean multi { get; set; }
         public Boolean isSlider { get; set; }
@@ -76,8 +77,10 @@ namespace OneBlink.SDK.Model
         public long minNumber { get; set; }
         public long maxNumber { get; set; }
         public long headingType { get; set; }
-        public DateTime fromDate { get; set; }
-        public DateTime toDate { get; set; }
+        public string fromDate { get; set; }
+        public long fromDateDaysOffset {get;set;}
+        public string toDate { get; set; }
+        public long toDateDaysOffset {get;set;}
         public string optionsType { get; set; }
         public long dynamicOptionSetId { get; set; }
         public List<FormElementOption> options { get; set; }
