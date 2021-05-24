@@ -59,8 +59,12 @@ namespace OneBlink.SDK
         if (!httpResponseMessage.IsSuccessStatusCode)
         {
           string result = await httpResponseMessage.Content.ReadAsStringAsync();
-          APIErrorResponse apiErrorResponse = JsonConvert.DeserializeObject<APIErrorResponse>(result);
-          throw new OneBlinkAPIException(apiErrorResponse);
+          if (httpResponseMessage.Content.Headers.ContentType.MediaType == "application/json")
+          {
+            APIErrorResponse apiErrorResponse = JsonConvert.DeserializeObject<APIErrorResponse>(result);
+            throw new OneBlinkAPIException(apiErrorResponse);
+          }
+          throw new OneBlinkAPIException(httpResponseMessage.StatusCode, result);
         }
         return httpResponseMessage.Content;
       }
