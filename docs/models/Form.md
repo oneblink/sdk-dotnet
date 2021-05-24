@@ -13,7 +13,7 @@
 | `formsAppIds`           | No       | `List<long>`                | List of Form Apps id's                                                    | `new List<long>()`                |
 | `elements`              | No       | `List<FormElement>`         | List of FormElement's                                                     | `new List<FormElement>()`         |
 | `id`                    | No       | `long?`                     | Will be assigned by OneBlink when form is creating                        | `null`                            |
-| `postSubmissionAction`  | No       | `string`                    | Allowed values of "URL", "CLOSE", "FORMS_LIBRARY"                         | `"FORMS_LIBRARY"`                 |
+| `postSubmissionAction`  | No       | `string`                    | Allowed values of "BACK", "URL", "CLOSE", "FORMS_LIBRARY"                 | `"FORMS_LIBRARY"`                 |
 | `isAuthenticated`       | No       | `bool`                      | Determines if only authenticated users can access the form                | `true`                            |
 | `submissionEvents`      | No       | `List<FormSubmissionEvent>` | List of Form submission events                                            | `new List<FormSubmissionEvent>()` |
 | `isMultiPage`           | No       | `bool`                      | Determines if this form a single page form or mutli page form             | `false`                           |
@@ -22,6 +22,8 @@
 | `tags`                  | No       | `List<string>`              | List of tags to be associated with the form                               | `new List<string>()`              |
 | `publishStartDate`      | No       | `DateTime?`                 | DateTime the form should become available                                 | `null`                            |
 | `publishEndDate`        | No       | `DateTime?`                 | DateTime the form should become unavailable                               | `null`                            |
+| `cancelAction`          | No       | `string`                    | Allowed values of "BACK", "URL", "CLOSE", "FORMS_LIBRARY"                 | `"BACK"`                          |
+| `cancelRedirectUrl`     | No       | `string`                    | URL to be redirected too, only applies if `cancelAction` is "URL"         | `null`                            |
 
 ### Other properties
 

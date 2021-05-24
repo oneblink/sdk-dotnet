@@ -6,6 +6,8 @@
 
 - `encryptPdf` prop to `FormSubmissionEventConfiguration` class
 - `defaultValueDaysOffset`, `fromDateDaysOffset`, `toDateDaysOffset` to `FormElement`
+- `cancelAction` and `cancelRedirectUrl` to `Form`
+- Allowed value of `BACK` for `postSubmissionAction`
 
 ### Fixed
 
