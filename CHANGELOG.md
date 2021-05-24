@@ -7,6 +7,10 @@
 - `encryptPdf` prop to `FormSubmissionEventConfiguration` class
 - `defaultValueDaysOffset`, `fromDateDaysOffset`, `toDateDaysOffset` to `FormElement`
 
+### Fixed
+
+- `OneBlinkHttpClient.SendRequest()` to check content type before converting to json
+
 ### Changed
 
 - Type of `FormElement.fromDate` and `FormElement.toDate` from `DateTime` to `string`
