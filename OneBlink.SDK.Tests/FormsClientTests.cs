@@ -193,6 +193,8 @@ namespace OneBlink.SDK.Tests
             newForm.tags = tags;
             newForm.publishStartDate = startDate;
             newForm.publishEndDate = endDate;
+            newForm.cancelAction = "URL";
+            newForm.cancelRedirectUrl = "https://google.com";
 
             List<long> formsAppIds = new List<long>();
             formsAppIds.Add(formsAppId);
