@@ -69,26 +69,26 @@ namespace OneBlink.SDK.Model
         public Boolean readOnly { get; set; }
         public List<ConditionallyShowPredicate> conditionallyShowPredicates { get; set; }
         public dynamic defaultValue { get; set; }
-        public long defaultValueDaysOffset {get;set;}
+        public long? defaultValueDaysOffset {get;set;}
         public Boolean buttons { get; set; }
         public Boolean multi { get; set; }
         public Boolean isSlider { get; set; }
-        public long sliderIncrement { get; set; }
-        public long minNumber { get; set; }
-        public long maxNumber { get; set; }
-        public long headingType { get; set; }
+        public long? sliderIncrement { get; set; }
+        public long? minNumber { get; set; }
+        public long? maxNumber { get; set; }
+        public long? headingType { get; set; }
         public string fromDate { get; set; }
-        public long fromDateDaysOffset {get;set;}
+        public long? fromDateDaysOffset {get;set;}
         public string toDate { get; set; }
-        public long toDateDaysOffset {get;set;}
+        public long? toDateDaysOffset {get;set;}
         public string optionsType { get; set; }
-        public long dynamicOptionSetId { get; set; }
+        public long? dynamicOptionSetId { get; set; }
         public List<FormElementOption> options { get; set; }
         public List<FormElementAttributeMapping> attributesMapping { get; set; }
         public Boolean conditionallyShowOptions { get; set; }
         public List<Guid> conditionallyShowOptionsElementIds { get; set; }
-        public long minSetEntries { get; set; }
-        public long maxSetEntries { get; set; }
+        public long? minSetEntries { get; set; }
+        public long? maxSetEntries { get; set; }
         public string addSetEntryLabel { get; set; }
         public string removeSetEntryLabel { get; set; }
         public List<FormElement> elements { get; set; }
@@ -97,15 +97,15 @@ namespace OneBlink.SDK.Model
         public string calculation { get; set; }
         public string preCalculationDisplay { get; set; }
         public Boolean isDataLookup { get; set; }
-        public long dataLookupId { get; set; }
+        public long? dataLookupId { get; set; }
         public Boolean isElementLookup { get; set; }
-        public long elementLookupId { get; set; }
-        public long formId { get; set; }
+        public long? elementLookupId { get; set; }
+        public long? formId { get; set; }
         public string searchUrl { get; set; }
         public Boolean restrictFileTypes { get; set; }
         public List<string> restrictedFileTypes { get; set; }
-        public int minEntries { get; set; }
-        public int maxEntries { get; set; }
+        public int? minEntries { get; set; }
+        public int? maxEntries { get; set; }
         public List<Guid> elementIds { get; set; }
         public List<string> stateTerritoryFilter { get; set; }
         public string hint { get; set; }
