@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Added
+
+-   `regexValidation` to `FormElement`
+
 ## 2.2.2 (2021-05-26)
 
 ### Added
