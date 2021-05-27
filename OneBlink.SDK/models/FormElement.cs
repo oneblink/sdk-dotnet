@@ -131,7 +131,9 @@ namespace OneBlink.SDK.Model
                 _StorageType = value;
             }
         }
-        public FormElementRegexValidation regexValidation {get;set;}
+        public string regexPattern {get;set;}
+        public string regexFlags {get;set;}
+        public string regexMessage {get;set;}
 
         private static Guid initialiseId(Guid? id)
         {
