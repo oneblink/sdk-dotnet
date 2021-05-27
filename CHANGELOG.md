@@ -4,7 +4,7 @@
 
 ### Added
 
--   `regexValidation` to `FormElement`
+-   `regexPattern`, `regexFlags` and `regexMessage` to `FormElement`
 
 ## 2.2.2 (2021-05-26)
 
