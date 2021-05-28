@@ -6,5 +6,6 @@ namespace OneBlink.SDK.Model
     {
         public string logoUrl {get;set;}
         public List<FormsAppMenuItems> menuItems {get;set;}
+        public FormsListStylesButtons buttons {get;set;}
     }
 }
