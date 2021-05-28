@@ -5,6 +5,7 @@
 ### Added
 
 -   `regexPattern`, `regexFlags` and `regexMessage` to `FormElement`
+-   `buttons` to `FormListStyles`
 
 ## 2.2.2 (2021-05-26)
 
