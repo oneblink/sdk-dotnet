@@ -8,7 +8,6 @@ namespace OneBlink.SDK.Model
     {
         public string label { get; set; }
         public string icon { get; set; }
-        private string _Type;
         public string type {get;set;}
         public bool isHidden { get; set; }
         public bool isDefault { get; set; }

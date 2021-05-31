@@ -63,7 +63,6 @@ namespace OneBlink.SDK.Model
         public List<string> addressTypeFilter {get;set;}
         public Boolean? isInteger {get; set; }
         public Boolean? displayAsCurrency {get;set;}
-        private string _StorageType;
         public string storageType {get;set;}
         public string regexPattern {get;set;}
         public string regexFlags {get;set;}
