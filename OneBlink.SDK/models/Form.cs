@@ -85,7 +85,6 @@ namespace OneBlink.SDK.Model
             this.cancelAction = cancelAction;
             this.cancelRedirectUrl = cancelRedirectUrl;
         }
-        private string[] AllowedPostSubmissionActions = new string[] { "BACK", "URL", "CLOSE", "FORMS_LIBRARY" };
         public long id { get; set; }
         public string name { get; set; }
         public string description { get; set; }
@@ -96,22 +95,7 @@ namespace OneBlink.SDK.Model
         public DateTime createdAt { get; set; }
         public DateTime updatedAt { get; set; }
         public bool isMultiPage { get; set; }
-        private string _PostSubmissionAction;
-        public string postSubmissionAction
-        {
-            get
-            {
-                return _PostSubmissionAction;
-            }
-            set
-            {
-                if (!AllowedPostSubmissionActions.Any(x => x == value))
-                {
-                    throw new ArgumentException(value + " not a valid post submission action");
-                }
-                _PostSubmissionAction = value;
-            }
-        }
+        public string postSubmissionAction {get;set;}
         public string redirectUrl { get; set; }
         public bool isInfoPage { get; set; }
         public List<long> formsAppIds { get; set; }
@@ -119,22 +103,7 @@ namespace OneBlink.SDK.Model
         public List<string> tags { get; set; }
         public DateTime? publishStartDate { get; set; }
         public DateTime? publishEndDate { get; set; }
-        private string _CancelAction;
-        public string cancelAction
-        {
-            get
-            {
-                return _CancelAction;
-            }
-            set
-            {
-                if (!AllowedPostSubmissionActions.Any(x => x == value))
-                {
-                    throw new ArgumentException(value + " not a valid cancel action");
-                }
-                _CancelAction = value;
-            }
-        }
+        public string cancelAction {get;set;}
         public string cancelRedirectUrl { get; set; }
     }
 }

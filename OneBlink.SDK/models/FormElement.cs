@@ -6,65 +6,13 @@ namespace OneBlink.SDK.Model
 {
     public class FormElement
     {
-        private string[] AllowedTypes = new string[]
-        {
-            "text",
-            "email",
-            "textarea",
-            "number",
-            "select",
-            "checkboxes",
-            "radio",
-            "draw",
-            "camera",
-            "date",
-            "time",
-            "datetime",
-            "heading",
-            "location",
-            "repeatableSet",
-            "page",
-            "html",
-            "barcodeScanner",
-            "captcha",
-            "image",
-            "file",
-            "files",
-            "calculation",
-            "telephone",
-            "autocomplete",
-            "form",
-            "infoPage",
-            "geoscapeAddress",
-            "summary",
-            "compliance",
-            "pointAddress"
-        };
-        private string[] AllowedStorageTypes = new string[]{"legacy","public", "private"};
         public Guid id { get; set; }
         public string name { get; set; }
         public string label { get; set; }
 
         public Boolean conditionallyShow { get; set; }
         public Boolean requiresAllConditionallyShowPredicates { get; set; }
-
-        private string _Type;
-        public string type
-        {
-            get
-            {
-                return _Type;
-            }
-            set
-            {
-                if (!AllowedTypes.Any(x => x == value))
-                {
-                    throw new ArgumentException(value = " not a valid Form Element Type");
-                }
-                _Type = value;
-            }
-        }
-
+        public string type {get; set;}
         public Boolean required { get; set; }
         public Boolean readOnly { get; set; }
         public List<ConditionallyShowPredicate> conditionallyShowPredicates { get; set; }
@@ -115,22 +63,7 @@ namespace OneBlink.SDK.Model
         public List<string> addressTypeFilter {get;set;}
         public Boolean? isInteger {get; set; }
         public Boolean? displayAsCurrency {get;set;}
-        private string _StorageType;
-        public string storageType
-        {
-            get
-            {
-                return _StorageType;
-            }
-            set
-            {
-                if (!AllowedStorageTypes.Any(x => x == value))
-                {
-                    throw new ArgumentException(value = " not a valid Form Element storage type");
-                }
-                _StorageType = value;
-            }
-        }
+        public string storageType {get;set;}
         public string regexPattern {get;set;}
         public string regexFlags {get;set;}
         public string regexMessage {get;set;}
