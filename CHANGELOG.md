@@ -7,6 +7,10 @@
 -   `regexPattern`, `regexFlags` and `regexMessage` to `FormElement`
 -   `buttons` to `FormListStyles`
 
+### Changed
+
+- Remove string value type validation from properties
+
 ## 2.2.2 (2021-05-26)
 
 ### Added
