@@ -9,6 +9,7 @@ using Amazon.S3;
 using Amazon.S3.Model;
 using Newtonsoft.Json;
 using OneBlink.SDK.Model;
+using System.Net.Mime;
 
 namespace OneBlink.SDK
 {
@@ -313,7 +314,10 @@ namespace OneBlink.SDK
                 CannedACL = isPrivate ? S3CannedACL.Private : S3CannedACL.PublicRead,
                 ServerSideEncryptionMethod = ServerSideEncryptionMethod.AES256,
             };
-            request.Headers.ContentDisposition = "attachment; filename=" + fileName;
+            ContentDisposition disposition = new ContentDisposition();
+            disposition.DispositionType = DispositionTypeNames.Attachment;
+            disposition.FileName = fileName;
+            request.Headers.ContentDisposition = disposition.ToString();
             request.Headers.ExpiresUtc = new DateTime().AddYears(1).ToUniversalTime(); // Max 1 year
             request.Headers.CacheControl = "max-age=31536000"; // Max 1 year(365 days)
 

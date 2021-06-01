@@ -7,6 +7,10 @@
 -   `regexPattern`, `regexFlags` and `regexMessage` to `FormElement`
 -   `buttons` to `FormListStyles`
 
+### Fixed
+
+-   Setting of `ContentDisposition` in `CreateSubmissionAttachment()`
+
 ### Changed
 
 - Remove string value type validation from properties
