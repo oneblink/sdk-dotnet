@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 2.2.3 (2021-06-02)
+
 ### Added
 
 -   `regexPattern`, `regexFlags` and `regexMessage` to `FormElement`
