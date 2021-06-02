@@ -67,6 +67,7 @@ namespace OneBlink.SDK.Model
         public string regexPattern {get;set;}
         public string regexFlags {get;set;}
         public string regexMessage {get;set;}
+        public Boolean? canToggleAll {get;set;}
 
         private static Guid initialiseId(Guid? id)
         {
