@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Added
+
+-   `canToggleAll` to `FormElement`
+
 ## 2.2.3 (2021-06-02)
 
 ### Added
