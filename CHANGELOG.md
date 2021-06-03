@@ -5,6 +5,8 @@
 ### Added
 
 -   `canToggleAll` to `FormElement`
+-   `customerReferenceNumber` to `FormSubmissionEventConfiguration`
+-   `CreateWestpacQuickWebSubmissionEvent()` to `FormSubmissionEvent`
 
 ## 2.2.3 (2021-06-02)
 

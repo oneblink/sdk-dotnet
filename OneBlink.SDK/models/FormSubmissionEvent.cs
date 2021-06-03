@@ -68,5 +68,18 @@ namespace OneBlink.SDK.Model
             }
             return trim;
         }
+
+        public static FormSubmissionEvent CreateWestpacQuickWebSubmissionEvent(Guid elementId, Guid environmentId,string customerReferenceNumber, bool isDraft = false)
+        {
+            FormSubmissionEventConfigration fseconfig = new FormSubmissionEventConfigration();
+            fseconfig.elementId = elementId;
+            fseconfig.environmentId = environmentId;
+            fseconfig.customerReferenceNumber = customerReferenceNumber;
+            FormSubmissionEvent westpacQuickWeb = new FormSubmissionEvent();
+            westpacQuickWeb.type = "WESTPAC_QUICK_WEB";
+            westpacQuickWeb.isDraft = isDraft;
+            westpacQuickWeb.configuration = fseconfig;
+            return westpacQuickWeb;
+        }
     }
 }
