@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Fixed
+
+- `description` not being set on form when passed to constructor
+
 ### Added
 
 -   `canToggleAll` to `FormElement`

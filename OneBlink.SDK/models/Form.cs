@@ -50,6 +50,7 @@ namespace OneBlink.SDK.Model
                 this.elements = elements;
             }
             this.name = name;
+            this.description = description;
             this.organisationId = organisationId;
             this.postSubmissionAction = postSubmissionAction;
             this.formsAppEnvironmentId = formsAppEnvironmentId;
