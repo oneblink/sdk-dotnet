@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 2.2.4 (2021-06-02)
+
 ### Fixed
 
 - `description` not being set on form when passed to constructor

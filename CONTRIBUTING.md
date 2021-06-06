@@ -71,7 +71,7 @@ docker run -it --rm -v "$PWD":/usr/src/oneblink-sdk-dotnet -w  /usr/src/oneblink
 
     1.  Update the `<PackageVersion>` tag in [`OneBlink.SDK.csproj`](./OneBlink.SDK/OneBlink.SDK.csproj) with `1.0.1-beta.1`
 
-    1.  Update the `<AssemblyVersion>` tag in [`OneBlink.SDK.csproj`](./OneBlink.SDK/OneBlink.SDK.csproj) with `1.0.0.2`
+    1.  Update the `<AssemblyVersion>` tag in [`OneBlink.SDK.csproj`](./OneBlink.SDK/OneBlink.SDK.csproj) with `1.0.1.1`
 
 1.  Push changes to the `master` branch
 
