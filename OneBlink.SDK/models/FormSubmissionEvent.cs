@@ -81,5 +81,22 @@ namespace OneBlink.SDK.Model
             westpacQuickWeb.configuration = fseconfig;
             return westpacQuickWeb;
         }
+
+        public static FormSubmissionEvent CreateCivicaCrmSubmissionEvent(Guid environmentId, long civicaCategoryId, List<FormSubmissionEventCivicaElementMapping> mapping, string pdfFileName, Boolean? includeSubmissionIdInPdf = null,
+            List<string> excludedElementIds  = default(List<string>), bool isDraft = false)
+        {
+            FormSubmissionEventConfigration fseconfig = new FormSubmissionEventConfigration();
+            fseconfig.environmentId = environmentId;
+            fseconfig.civicaCategoryId = civicaCategoryId;
+            fseconfig.mapping = mapping;
+            fseconfig.pdfFileName = pdfFileName;
+            fseconfig.includeSubmissionIdInPdf = includeSubmissionIdInPdf;
+            fseconfig.excludedElementIds = excludedElementIds;
+            FormSubmissionEvent civicaCrm = new FormSubmissionEvent();
+            civicaCrm.type = "CIVICA_CRM";
+            civicaCrm.configuration = fseconfig;
+            civicaCrm.isDraft = isDraft;
+            return civicaCrm;
+        }
     }
 }

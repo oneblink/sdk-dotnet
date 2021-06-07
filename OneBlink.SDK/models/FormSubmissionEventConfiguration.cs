@@ -88,7 +88,7 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
-        public bool includeSubmissionIdInPdf
+        public Boolean? includeSubmissionIdInPdf
         {
             get; set;
         }
@@ -110,5 +110,7 @@ namespace OneBlink.SDK.Model
             get; set;
         }
         public string customerReferenceNumber {get;set;}
+        public long? civicaCategoryId {get;set;}
+        public List<FormSubmissionEventCivicaElementMapping> mapping {get;set;}
     }
 }
