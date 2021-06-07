@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+### Added
+
+-   `civicaCategoryId` and `mapping` to `FormSubmissionEventConfiguration`
+-   `CreateCivicaCrmSubmissionEvent()` to `FormSubmissionEvent`
+
 ## 2.2.4 (2021-06-02)
 
 ### Fixed
