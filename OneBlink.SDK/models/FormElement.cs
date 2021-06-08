@@ -245,5 +245,45 @@ namespace OneBlink.SDK.Model
             pointAddressElement.addressTypeFilter = addressTypeFilter;
             return pointAddressElement;
         }
+
+        public static FormElement CreateBooleanElement(
+            string name,
+            string label,
+            Guid? id = null,
+            bool conditionallyShow = false,
+            bool requiresAllConditionallyShowPredicates = false,
+            List<ConditionallyShowPredicate> conditionallyShowPredicates = null,
+            bool required = false,
+            bool readOnly = false,
+            bool defaultValue = false,
+            string hint = null,
+            bool isDataLookup = false,
+            long? dataLookupId = null,
+            bool isElementLookup = false,
+            long? elementLookupId = null
+        )
+        {
+            FormElement booleanElement = new FormElement();
+            booleanElement.type = "boolean";
+            booleanElement.id = initialiseId(id);
+            booleanElement.conditionallyShow = conditionallyShow;
+            booleanElement.requiresAllConditionallyShowPredicates = requiresAllConditionallyShowPredicates;
+            booleanElement.conditionallyShowPredicates = conditionallyShowPredicates;
+            booleanElement.name = name;
+            booleanElement.label = label;
+            booleanElement.required = required;
+            booleanElement.readOnly = readOnly;
+            booleanElement.defaultValue = defaultValue;
+            booleanElement.hint = hint;
+            booleanElement.isDataLookup = isDataLookup;
+            if (dataLookupId.HasValue) {
+                booleanElement.dataLookupId = dataLookupId.Value;
+            }
+            booleanElement.isElementLookup = isElementLookup;
+            if (elementLookupId.HasValue) {
+                booleanElement.elementLookupId = elementLookupId.Value;
+            }
+            return booleanElement;
+        }
     }
 }

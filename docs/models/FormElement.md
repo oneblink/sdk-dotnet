@@ -15,7 +15,7 @@ Only a default constructor is provided, instead it is recommended to create a Fo
 | `label`                                  | Yes                               | `string`                            |                                                                                                                                                                                                                                                                                                                                                               |               |
 | `conditionallyShow`                      | No                                | `Boolean`                           | Whether the form is always of conditionally shown                                                                                                                                                                                                                                                                                                             | false         |
 | `requiresAllConditionallyShowPredicates` | No                                | `Boolean`                           | Whether all predicates must be true to show element                                                                                                                                                                                                                                                                                                           | false         |
-| `type`                                   | Yes                               | `string`                            | "text", "email", "textarea", "number", "select","checkboxes", "radio", "draw", "camera", "date", "time", "datetime", "heading", "location", "repeatableSet", "page", "html", "barcodeScanner", "captcha", "image", "file", "files", "calculation", "telephone", "autocomplete", "form", "infoPage", "geoscapeAddress", "summary","compliance", "pointAddress" |               |
+| `type`                                   | Yes                               | `string`                            | "text", "email", "textarea", "number", "select","checkboxes", "radio", "draw", "camera", "date", "time", "datetime", "heading", "location", "repeatableSet", "page", "html", "barcodeScanner", "captcha", "image", "file", "files", "calculation", "telephone", "autocomplete", "form", "infoPage", "geoscapeAddress", "summary","compliance", "pointAddress", "boolean" |               |
 | `required`                               | Yes                               | `Boolean`                           | Whether the user us required to provided a value for this element                                                                                                                                                                                                                                                                                             | false         |
 | `readOnly`                               | No                                | `Boolean`                           | Whether the user can modify the elements value                                                                                                                                                                                                                                                                                                                | false         |
 | `conditionallyShowPredicates`            | No                                | `List<ConditionallyShowPredicate>`  | List of elements to be used as conditions                                                                                                                                                                                                                                                                                                                     | null          |
@@ -222,5 +222,41 @@ Creates a new FormElement defined as a `pointAddress` element, including all par
 FormElement geoscapeAddressElement = FormElement.CreateGeoscapeAddressElement(
     "Point_test_element",
     "Point test element"
+);
+```
+
+#### Boolean Element
+
+##### `FormElement.CreateBooleanElement()`
+
+Creates a new FormElement defined as a compliance element, including all parameters that are relevant to compliance elements only
+
+| Parameter                              | Required | Type                               | Default Value |
+| -------------------------------------- | -------- | ---------------------------------- | ------------- |
+| `name`                                 | Yes      | `string`                           |               |
+| `label`                                | Yes      | `string`                           |               |
+| `id`                                   | No       | `Guid?`                            | `new Guid()`  |
+| `conditionallyShow`                    | No       | `bool`                             | `false`       |
+| `requiresAllConditonallyShowPredicate` | No       | `bool`                             | `false`       |
+| `conditionallyShowPredicates`          | No       | `List<ConditionallyShowPredicate>` | `null`        |
+| `required`                             | No       | `bool`                             | `false`       |
+| `readOnly`                             | No       | `bool`                             | `false`       |
+| `defaultValue`                         | No       | `bool`                             | `false`        |
+| `hint`                                 | No       | `string`                           | `null`        |
+| `isDataLookup`                         | No       | `bool`                             | `false`       |
+| `dataLookupId`                         | No       | `long?`                            | `null`        |
+| `isElementLookup`                      | No       | `bool`                             | `false`       |
+| `elementLookupId`                      | No       | `long?`                            | `null`        |
+
+##### Example
+
+```c#
+FormElement booleanElement = FormElement.CreateBooleanElement(
+    name: "Boolean_test_element",
+    label: "Boolean_test_element",
+    defaultValue: true,
+    required: true,
+    hint: "This is a hint."
+
 );
 ```
