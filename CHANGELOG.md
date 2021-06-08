@@ -7,6 +7,7 @@
 -   `civicaCategoryId` and `mapping` to `FormSubmissionEventConfiguration`
 -   `CreateCivicaCrmSubmissionEvent()` to `FormSubmissionEvent`
 -   `Boolean` form element
+
 ## 2.2.4 (2021-06-02)
 
 ### Fixed
