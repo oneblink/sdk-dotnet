@@ -110,7 +110,9 @@ namespace OneBlink.SDK.Model
             get; set;
         }
         public string customerReferenceNumber {get;set;}
-        public long? civicaCategoryId {get;set;}
+        public string civicaDescription {get;set;}
+        public FormSubmissionEventCivicaCustomerContactMethod civicaCustomerContactMethod {get;set;}
+        public FormSubmissionEventCivicaRecord civicaCategory {get;set;}
         public List<FormSubmissionEventCivicaElementMapping> mapping {get;set;}
     }
 }

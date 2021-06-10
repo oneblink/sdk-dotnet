@@ -4,7 +4,7 @@
 
 ### Added
 
--   `civicaCategoryId` and `mapping` to `FormSubmissionEventConfiguration`
+-   `civicaDescription`, `civicaCustomerContactMethod`, `civicaCategory` and `mapping` to `FormSubmissionEventConfiguration`
 -   `CreateCivicaCrmSubmissionEvent()` to `FormSubmissionEvent`
 -   `Boolean` form element
 
