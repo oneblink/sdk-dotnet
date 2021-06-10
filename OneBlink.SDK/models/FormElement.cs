@@ -68,6 +68,7 @@ namespace OneBlink.SDK.Model
         public string regexFlags {get;set;}
         public string regexMessage {get;set;}
         public Boolean? canToggleAll {get;set;}
+        public Boolean? useGeoscapeAddressing {get;set;}
 
         private static Guid initialiseId(Guid? id)
         {
@@ -284,6 +285,35 @@ namespace OneBlink.SDK.Model
                 booleanElement.elementLookupId = elementLookupId.Value;
             }
             return booleanElement;
+        }
+
+        public static FormElement CreateCivicaNameRecordElement(
+            string name,
+            string label,
+            Guid? id = null,
+            bool conditionallyShow = false,
+            bool requiresAllConditionallyShowPredicates = false,
+            List<ConditionallyShowPredicate> conditionallyShowPredicates = null,
+            bool required = false,
+            bool readOnly = false,
+            dynamic defaultValue = null,
+            string hint = null,
+            Boolean useGeoscapeAddressing = false
+        ) {
+            FormElement civicaNameRecordElement = new FormElement();
+            civicaNameRecordElement.type = "civicaNameRecord";
+            civicaNameRecordElement.id = initialiseId(id);
+            civicaNameRecordElement.conditionallyShow = conditionallyShow;
+            civicaNameRecordElement.requiresAllConditionallyShowPredicates = requiresAllConditionallyShowPredicates;
+            civicaNameRecordElement.conditionallyShowPredicates = conditionallyShowPredicates;
+            civicaNameRecordElement.name = name;
+            civicaNameRecordElement.label = label;
+            civicaNameRecordElement.required = required;
+            civicaNameRecordElement.readOnly = readOnly;
+            civicaNameRecordElement.defaultValue = defaultValue;
+            civicaNameRecordElement.hint = hint;
+            civicaNameRecordElement.useGeoscapeAddressing = useGeoscapeAddressing;
+            return civicaNameRecordElement;
         }
     }
 }

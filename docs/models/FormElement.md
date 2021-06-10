@@ -69,6 +69,7 @@ Only a default constructor is provided, instead it is recommended to create a Fo
 | `regexFlags`                             | No                                | `string`                            | Regular expression validation flags                                                                                                                                                                                                                                                                                                                           |               |
 | `regexMessage`                           | Yes if `regexPattern` has a value | `string`                            | The error message if input does not match regex pattern                                                                                                                                                                                                                                                                                                       |               |
 | `canToggleAll`                           | No                                | `Boolean?`                          | Allows toggling of all options (applies to checkbox and select(with multi set as true) elements)                                                                                                                                                                                                                                                              |               |
+| `useGeoscapeAddressing`                  | No                                | `Boolean?`                          | Allows using geoscape Addressing service with the Civica Name Record element                                                                                                                                                                                                                                                              |               |
 
 ### Static Functions
 
@@ -258,5 +259,38 @@ FormElement booleanElement = FormElement.CreateBooleanElement(
     required: true,
     hint: "This is a hint."
 
+);
+```
+
+#### Civica Name Record Element
+
+##### `FormElement.CreateCivicaNameRecordElement()`
+
+Creates a new FormElement defined as a compliance element, including all parameters that are relevant to compliance elements only
+
+| Parameter                              | Required | Type                               | Default Value |
+| -------------------------------------- | -------- | ---------------------------------- | ------------- |
+| `name`                                 | Yes      | `string`                           |               |
+| `label`                                | Yes      | `string`                           |               |
+| `id`                                   | No       | `Guid?`                            | `new Guid()`  |
+| `conditionallyShow`                    | No       | `bool`                             | `false`       |
+| `requiresAllConditonallyShowPredicate` | No       | `bool`                             | `false`       |
+| `conditionallyShowPredicates`          | No       | `List<ConditionallyShowPredicate>` | `null`        |
+| `required`                             | No       | `bool`                             | `false`       |
+| `readOnly`                             | No       | `bool`                             | `false`       |
+| `defaultValue`                         | No       | `bool`                             | `false`        |
+| `hint`                                 | No       | `string`                           | `null`        |
+| `useGeoscapeAddressing`                | No       | `bool`                             | `false`       |
+
+##### Example
+
+```c#
+FormElement civicaNameRecordElement = FormElement.CreateCivicaNameRecordElement(
+    name: "CivicaNameRecord_test_element",
+    label: "CivicaNameRecord_test_element",
+    defaultValue: true,
+    required: true,
+    hint: "This is a hint.",
+    useGeoscapeAddressing: true
 );
 ```
