@@ -6,7 +6,8 @@
 
 -   `civicaDescription`, `civicaCustomerContactMethod`, `civicaCategory` and `mapping` to `FormSubmissionEventConfiguration`
 -   `CreateCivicaCrmSubmissionEvent()` to `FormSubmissionEvent`
--   `Boolean` form element
+-   `Boolean` element type to `FormElement`
+-   `useGeoscapeAddressing` and `CreateCivicaNameRecordElement` to `FormElement`
 
 ## 2.2.4 (2021-06-02)
 
