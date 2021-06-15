@@ -70,6 +70,7 @@ Only a default constructor is provided, instead it is recommended to create a Fo
 | `regexMessage`                           | Yes if `regexPattern` has a value | `string`                            | The error message if input does not match regex pattern                                                                                                                                                                                                                                                                                                       |               |
 | `canToggleAll`                           | No                                | `Boolean?`                          | Allows toggling of all options (applies to checkbox and select(with multi set as true) elements)                                                                                                                                                                                                                                                              |               |
 | `useGeoscapeAddressing`                  | No                                | `Boolean?`                          | Allows using geoscape Addressing service with the Civica Name Record element                                                                                                                                                                                                                                                              |               |
+| `isCollapsed`                            | No                                | `Boolean?`                          | Default to collapsed (applies to section element)                                                                                                                                                                                                                                                              |               |
 
 ### Static Functions
 
@@ -220,7 +221,7 @@ Creates a new FormElement defined as a `pointAddress` element, including all par
 ##### Example
 
 ```c#
-FormElement geoscapeAddressElement = FormElement.CreateGeoscapeAddressElement(
+FormElement pointAddressElement = FormElement.CreatePointAddressElement(
     "Point_test_element",
     "Point test element"
 );
@@ -230,7 +231,7 @@ FormElement geoscapeAddressElement = FormElement.CreateGeoscapeAddressElement(
 
 ##### `FormElement.CreateBooleanElement()`
 
-Creates a new FormElement defined as a compliance element, including all parameters that are relevant to compliance elements only
+Creates a new FormElement defined as a Boolean element, including all parameters that are relevant to boolean elements only
 
 | Parameter                              | Required | Type                               | Default Value |
 | -------------------------------------- | -------- | ---------------------------------- | ------------- |
@@ -266,7 +267,7 @@ FormElement booleanElement = FormElement.CreateBooleanElement(
 
 ##### `FormElement.CreateCivicaNameRecordElement()`
 
-Creates a new FormElement defined as a compliance element, including all parameters that are relevant to compliance elements only
+Creates a new FormElement defined as a Civica Name record element, including all parameters that are relevant to Civica name record elements only
 
 | Parameter                              | Required | Type                               | Default Value |
 | -------------------------------------- | -------- | ---------------------------------- | ------------- |
@@ -278,7 +279,7 @@ Creates a new FormElement defined as a compliance element, including all paramet
 | `conditionallyShowPredicates`          | No       | `List<ConditionallyShowPredicate>` | `null`        |
 | `required`                             | No       | `bool`                             | `false`       |
 | `readOnly`                             | No       | `bool`                             | `false`       |
-| `defaultValue`                         | No       | `bool`                             | `false`        |
+| `defaultValue`                         | No       | `dynamic`                          | `null`        |
 | `hint`                                 | No       | `string`                           | `null`        |
 | `useGeoscapeAddressing`                | No       | `bool`                             | `false`       |
 
@@ -288,9 +289,39 @@ Creates a new FormElement defined as a compliance element, including all paramet
 FormElement civicaNameRecordElement = FormElement.CreateCivicaNameRecordElement(
     name: "CivicaNameRecord_test_element",
     label: "CivicaNameRecord_test_element",
-    defaultValue: true,
     required: true,
     hint: "This is a hint.",
     useGeoscapeAddressing: true
+);
+```
+
+#### Section Element
+
+##### `FormElement.CreateSectionElement()`
+
+Creates a new FormElement defined as a Section element, including all parameters that are relevant to section elements only
+
+| Parameter                              | Required | Type                               | Default Value |
+| -------------------------------------- | -------- | ---------------------------------- | ------------- |
+| `name`                                 | Yes      | `string`                           |               |
+| `label`                                | Yes      | `string`                           |               |
+| `id`                                   | No       | `Guid?`                            | `new Guid()`  |
+| `conditionallyShow`                    | No       | `bool`                             | `false`       |
+| `requiresAllConditonallyShowPredicate` | No       | `bool`                             | `false`       |
+| `conditionallyShowPredicates`          | No       | `List<ConditionallyShowPredicate>` | `null`        |
+| `hint`                                 | No       | `string`                           | `null`        |
+| `isCollapsed`                          | No       | `bool`                             | `false`       |
+| `elements`                             | No       | `List<FormElement>`                | `null`        |
+
+##### Example
+
+```c#
+List<FormElement> sectionElements = new List<FormElement>();
+FormElement civicaNameRecordElement = FormElement.CreateSectionElement(
+    name: "Section_test_element",
+    label: "Section_test_element",
+    hint: "This is a hint.",
+    isCollapsed: true,
+    elements: sectionElements
 );
 ```

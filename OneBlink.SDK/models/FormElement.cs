@@ -69,6 +69,7 @@ namespace OneBlink.SDK.Model
         public string regexMessage {get;set;}
         public Boolean? canToggleAll {get;set;}
         public Boolean? useGeoscapeAddressing {get;set;}
+        public Boolean? isCollapsed {get;set;}
 
         private static Guid initialiseId(Guid? id)
         {
@@ -314,6 +315,30 @@ namespace OneBlink.SDK.Model
             civicaNameRecordElement.hint = hint;
             civicaNameRecordElement.useGeoscapeAddressing = useGeoscapeAddressing;
             return civicaNameRecordElement;
+        }
+
+        public static FormElement CreateSectionElement(
+            string name,
+            string label,
+            Guid? id = null,
+            bool conditionallyShow = false,
+            bool requiresAllConditionallyShowPredicates = false,
+            List<ConditionallyShowPredicate> conditionallyShowPredicates = null,
+            string hint = null,
+            Boolean isCollapsed = false,
+            List<FormElement> elements = null
+        ) {
+            FormElement sectionElement = new FormElement();
+            sectionElement.type = "section";
+            sectionElement.id = initialiseId(id);
+            sectionElement.conditionallyShow = conditionallyShow;
+            sectionElement.requiresAllConditionallyShowPredicates = requiresAllConditionallyShowPredicates;
+            sectionElement.conditionallyShowPredicates = conditionallyShowPredicates;
+            sectionElement.name = name;
+            sectionElement.label = label;
+            sectionElement.hint = hint;
+            sectionElement.isCollapsed = isCollapsed;
+            return sectionElement;
         }
     }
 }
