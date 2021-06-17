@@ -303,7 +303,6 @@ Creates a new FormElement defined as a Section element, including all parameters
 
 | Parameter                              | Required | Type                               | Default Value |
 | -------------------------------------- | -------- | ---------------------------------- | ------------- |
-| `name`                                 | Yes      | `string`                           |               |
 | `label`                                | Yes      | `string`                           |               |
 | `id`                                   | No       | `Guid?`                            | `new Guid()`  |
 | `conditionallyShow`                    | No       | `bool`                             | `false`       |
@@ -318,7 +317,6 @@ Creates a new FormElement defined as a Section element, including all parameters
 ```c#
 List<FormElement> sectionElements = new List<FormElement>();
 FormElement civicaNameRecordElement = FormElement.CreateSectionElement(
-    name: "Section_test_element",
     label: "Section_test_element",
     hint: "This is a hint.",
     isCollapsed: true,
