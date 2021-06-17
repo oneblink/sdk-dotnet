@@ -318,7 +318,6 @@ namespace OneBlink.SDK.Model
         }
 
         public static FormElement CreateSectionElement(
-            string name,
             string label,
             Guid? id = null,
             bool conditionallyShow = false,
@@ -334,7 +333,6 @@ namespace OneBlink.SDK.Model
             sectionElement.conditionallyShow = conditionallyShow;
             sectionElement.requiresAllConditionallyShowPredicates = requiresAllConditionallyShowPredicates;
             sectionElement.conditionallyShowPredicates = conditionallyShowPredicates;
-            sectionElement.name = name;
             sectionElement.label = label;
             sectionElement.hint = hint;
             sectionElement.isCollapsed = isCollapsed;
