@@ -6,71 +6,343 @@ namespace OneBlink.SDK.Model
 {
     public class FormElement
     {
-        public Guid id { get; set; }
-        public string name { get; set; }
-        public string label { get; set; }
+        public Guid id
+        {
+            get; set;
+        }
+        public string name
+        {
+            get; set;
+        }
+        public string label
+        {
+            get; set;
+        }
 
-        public Boolean conditionallyShow { get; set; }
-        public Boolean requiresAllConditionallyShowPredicates { get; set; }
-        public string type {get; set;}
-        public Boolean required { get; set; }
-        public Boolean readOnly { get; set; }
-        public List<ConditionallyShowPredicate> conditionallyShowPredicates { get; set; }
-        public dynamic defaultValue { get; set; }
-        public long? defaultValueDaysOffset {get;set;}
-        public Boolean buttons { get; set; }
-        public Boolean multi { get; set; }
-        public Boolean isSlider { get; set; }
-        public long? sliderIncrement { get; set; }
-        public long? minNumber { get; set; }
-        public long? maxNumber { get; set; }
-        public long? headingType { get; set; }
-        public string fromDate { get; set; }
-        public long? fromDateDaysOffset {get;set;}
-        public string toDate { get; set; }
-        public long? toDateDaysOffset {get;set;}
-        public string optionsType { get; set; }
-        public long? dynamicOptionSetId { get; set; }
-        public List<FormElementOption> options { get; set; }
-        public List<FormElementAttributeMapping> attributesMapping { get; set; }
-        public Boolean conditionallyShowOptions { get; set; }
-        public List<Guid> conditionallyShowOptionsElementIds { get; set; }
-        public long? minSetEntries { get; set; }
-        public long? maxSetEntries { get; set; }
-        public string addSetEntryLabel { get; set; }
-        public string removeSetEntryLabel { get; set; }
-        public List<FormElement> elements { get; set; }
-        public Boolean restrictBarcodeTypes { get; set; }
-        public List<string> restrictedBarcodeTypes { get; set; }
-        public string calculation { get; set; }
-        public string preCalculationDisplay { get; set; }
-        public Boolean isDataLookup { get; set; }
-        public long? dataLookupId { get; set; }
-        public Boolean isElementLookup { get; set; }
-        public long? elementLookupId { get; set; }
-        public long? formId { get; set; }
-        public string searchUrl { get; set; }
-        public Boolean restrictFileTypes { get; set; }
-        public List<string> restrictedFileTypes { get; set; }
-        public int? minEntries { get; set; }
-        public int? maxEntries { get; set; }
-        public List<Guid> elementIds { get; set; }
-        public List<string> stateTerritoryFilter { get; set; }
-        public string hint { get; set; }
-        public string placeholderValue { get; set; }
-        public int? minLength {get; set; }
-        public int? maxLength {get; set; }
-        public List<string> addressTypeFilter {get;set;}
-        public Boolean? isInteger {get; set; }
-        public Boolean? displayAsCurrency {get;set;}
-        public string storageType {get;set;}
-        public string regexPattern {get;set;}
-        public string regexFlags {get;set;}
-        public string regexMessage {get;set;}
-        public Boolean? canToggleAll {get;set;}
-        public Boolean? useGeoscapeAddressing {get;set;}
-        public Boolean? isCollapsed {get;set;}
-
+        public Boolean conditionallyShow
+        {
+            get; set;
+        }
+        public Boolean requiresAllConditionallyShowPredicates
+        {
+            get; set;
+        }
+        public string type
+        {
+            get; set;
+        }
+        public Boolean required
+        {
+            get; set;
+        }
+        public Boolean readOnly
+        {
+            get; set;
+        }
+        public List<ConditionallyShowPredicate> conditionallyShowPredicates
+        {
+            get; set;
+        }
+        public dynamic defaultValue
+        {
+            get; set;
+        }
+        public long? defaultValueDaysOffset
+        {
+            get; set;
+        }
+        public Boolean buttons
+        {
+            get; set;
+        }
+        public Boolean multi
+        {
+            get; set;
+        }
+        public Boolean isSlider
+        {
+            get; set;
+        }
+        public long? sliderIncrement
+        {
+            get; set;
+        }
+        public long? minNumber
+        {
+            get; set;
+        }
+        public long? maxNumber
+        {
+            get; set;
+        }
+        public long? headingType
+        {
+            get; set;
+        }
+        public string fromDate
+        {
+            get; set;
+        }
+        public long? fromDateDaysOffset
+        {
+            get; set;
+        }
+        public string toDate
+        {
+            get; set;
+        }
+        public long? toDateDaysOffset
+        {
+            get; set;
+        }
+        public string optionsType
+        {
+            get; set;
+        }
+        public long? dynamicOptionSetId
+        {
+            get; set;
+        }
+        public List<FormElementOption> options
+        {
+            get; set;
+        }
+        public List<FormElementAttributeMapping> attributesMapping
+        {
+            get; set;
+        }
+        public Boolean conditionallyShowOptions
+        {
+            get; set;
+        }
+        public List<Guid> conditionallyShowOptionsElementIds
+        {
+            get; set;
+        }
+        public long? minSetEntries
+        {
+            get; set;
+        }
+        public long? maxSetEntries
+        {
+            get; set;
+        }
+        public string addSetEntryLabel
+        {
+            get; set;
+        }
+        public string removeSetEntryLabel
+        {
+            get; set;
+        }
+        public List<FormElement> elements
+        {
+            get; set;
+        }
+        public Boolean restrictBarcodeTypes
+        {
+            get; set;
+        }
+        public List<string> restrictedBarcodeTypes
+        {
+            get; set;
+        }
+        public string calculation
+        {
+            get; set;
+        }
+        public string preCalculationDisplay
+        {
+            get; set;
+        }
+        public Boolean isDataLookup
+        {
+            get; set;
+        }
+        public long? dataLookupId
+        {
+            get; set;
+        }
+        public Boolean isElementLookup
+        {
+            get; set;
+        }
+        public long? elementLookupId
+        {
+            get; set;
+        }
+        public long? formId
+        {
+            get; set;
+        }
+        public string searchUrl
+        {
+            get; set;
+        }
+        public Boolean restrictFileTypes
+        {
+            get; set;
+        }
+        public List<string> restrictedFileTypes
+        {
+            get; set;
+        }
+        public int? minEntries
+        {
+            get; set;
+        }
+        public int? maxEntries
+        {
+            get; set;
+        }
+        public List<Guid> elementIds
+        {
+            get; set;
+        }
+        public List<string> stateTerritoryFilter
+        {
+            get; set;
+        }
+        public string hint
+        {
+            get; set;
+        }
+        public string placeholderValue
+        {
+            get; set;
+        }
+        public int? minLength
+        {
+            get; set;
+        }
+        public int? maxLength
+        {
+            get; set;
+        }
+        public List<string> addressTypeFilter
+        {
+            get; set;
+        }
+        public Boolean? isInteger
+        {
+            get; set;
+        }
+        public Boolean? displayAsCurrency
+        {
+            get; set;
+        }
+        public string storageType
+        {
+            get; set;
+        }
+        public string regexPattern
+        {
+            get; set;
+        }
+        public string regexFlags
+        {
+            get; set;
+        }
+        public string regexMessage
+        {
+            get; set;
+        }
+        public Boolean? canToggleAll
+        {
+            get; set;
+        }
+        public Boolean? useGeoscapeAddressing
+        {
+            get; set;
+        }
+        public Boolean? isCollapsed
+        {
+            get; set;
+        }
+        public string givenName1Label
+        {
+            get; set;
+        }
+        public Boolean? givenName1IsRequired
+        {
+            get; set;
+        }
+        public Boolean? givenName1IsHidden
+        {
+            get; set;
+        }
+        public string emailAddressLabel
+        {
+            get; set;
+        }
+        public Boolean? emailAddressIsRequired
+        {
+            get; set;
+        }
+        public Boolean? emailAddressIsHidden
+        {
+            get; set;
+        }
+        public string homePhoneLabel
+        {
+            get; set;
+        }
+        public Boolean? homePhoneIsRequired
+        {
+            get; set;
+        }
+        public Boolean? homePhoneIsHidden
+        {
+            get; set;
+        }
+        public string businessPhoneLabel
+        {
+            get; set;
+        }
+        public Boolean? businessPhoneIsRequired
+        {
+            get; set;
+        }
+        public Boolean? businessPhoneIsHidden
+        {
+            get; set;
+        }
+        public string mobilePhoneLabel
+        {
+            get; set;
+        }
+        public Boolean? mobilePhoneIsRequired
+        {
+            get; set;
+        }
+        public Boolean? mobilePhoneIsHidden
+        {
+            get; set;
+        }
+        public string faxPhoneLabel
+        {
+            get; set;
+        }
+        public Boolean? faxPhoneIsRequired
+        {
+            get; set;
+        }
+        public Boolean? faxPhoneIsHidden
+        {
+            get; set;
+        }
+        public string address1Label
+        {
+            get; set;
+        }
+        public string address2Label
+        {
+            get; set;
+        }
+        public string postcodeLabel
+        {
+            get; set;
+        }
         private static Guid initialiseId(Guid? id)
         {
             if (!id.HasValue)
@@ -185,7 +457,7 @@ namespace OneBlink.SDK.Model
             string defaultValue = null,
             string hint = null,
             bool isDataLookup = false,
-            long? dataLookupId =null,
+            long? dataLookupId = null,
             bool isElementLookup = false,
             long? elementLookupId = null
         )
@@ -204,11 +476,13 @@ namespace OneBlink.SDK.Model
             complianceElement.defaultValue = defaultValue;
             complianceElement.hint = hint;
             complianceElement.isDataLookup = isDataLookup;
-            if (dataLookupId.HasValue) {
+            if (dataLookupId.HasValue)
+            {
                 complianceElement.dataLookupId = dataLookupId.Value;
             }
             complianceElement.isElementLookup = isElementLookup;
-            if (elementLookupId.HasValue) {
+            if (elementLookupId.HasValue)
+            {
                 complianceElement.elementLookupId = elementLookupId.Value;
             }
             return complianceElement;
@@ -278,11 +552,13 @@ namespace OneBlink.SDK.Model
             booleanElement.defaultValue = defaultValue;
             booleanElement.hint = hint;
             booleanElement.isDataLookup = isDataLookup;
-            if (dataLookupId.HasValue) {
+            if (dataLookupId.HasValue)
+            {
                 booleanElement.dataLookupId = dataLookupId.Value;
             }
             booleanElement.isElementLookup = isElementLookup;
-            if (elementLookupId.HasValue) {
+            if (elementLookupId.HasValue)
+            {
                 booleanElement.elementLookupId = elementLookupId.Value;
             }
             return booleanElement;
@@ -299,8 +575,30 @@ namespace OneBlink.SDK.Model
             bool readOnly = false,
             dynamic defaultValue = null,
             string hint = null,
-            Boolean useGeoscapeAddressing = false
-        ) {
+            Boolean useGeoscapeAddressing = false,
+            string givenName1Label = null,
+            Boolean givenName1IsRequired = false,
+            Boolean givenName1IsHidden = false,
+            string emailAddressLabel = null,
+            Boolean emailAddressIsRequired = false,
+            Boolean emailAddressIsHidden = false,
+            string homePhoneLabel = null,
+            Boolean homePhoneIsRequired = false,
+            Boolean homePhoneIsHidden = false,
+            string businessPhoneLabel = null,
+            Boolean businessPhoneIsRequired = false,
+            Boolean businessPhoneIsHidden = false,
+            string mobilePhoneLabel = null,
+            Boolean mobilePhoneIsRequired = false,
+            Boolean mobilePhoneIsHidden = false,
+            string faxPhoneLabel = null,
+            Boolean faxPhoneIsRequired = false,
+            Boolean faxPhoneIsHidden = false,
+            string address1Label = null,
+            string address2Label = null,
+            string postcodeLabel = null
+        )
+        {
             FormElement civicaNameRecordElement = new FormElement();
             civicaNameRecordElement.type = "civicaNameRecord";
             civicaNameRecordElement.id = initialiseId(id);
@@ -314,6 +612,27 @@ namespace OneBlink.SDK.Model
             civicaNameRecordElement.defaultValue = defaultValue;
             civicaNameRecordElement.hint = hint;
             civicaNameRecordElement.useGeoscapeAddressing = useGeoscapeAddressing;
+            civicaNameRecordElement.givenName1Label = givenName1Label;
+            civicaNameRecordElement.givenName1IsRequired = givenName1IsRequired;
+            civicaNameRecordElement.givenName1IsHidden = givenName1IsHidden;
+            civicaNameRecordElement.emailAddressLabel = emailAddressLabel;
+            civicaNameRecordElement.emailAddressIsRequired = emailAddressIsRequired;
+            civicaNameRecordElement.emailAddressIsHidden = emailAddressIsHidden;
+            civicaNameRecordElement.homePhoneLabel = homePhoneLabel;
+            civicaNameRecordElement.homePhoneIsRequired = homePhoneIsRequired;
+            civicaNameRecordElement.homePhoneIsHidden = homePhoneIsHidden;
+            civicaNameRecordElement.businessPhoneLabel = businessPhoneLabel;
+            civicaNameRecordElement.businessPhoneIsRequired = businessPhoneIsRequired;
+            civicaNameRecordElement.businessPhoneIsHidden = businessPhoneIsHidden;
+            civicaNameRecordElement.mobilePhoneLabel = mobilePhoneLabel;
+            civicaNameRecordElement.mobilePhoneIsRequired = mobilePhoneIsRequired;
+            civicaNameRecordElement.mobilePhoneIsHidden = mobilePhoneIsHidden;
+            civicaNameRecordElement.faxPhoneLabel = faxPhoneLabel;
+            civicaNameRecordElement.faxPhoneIsRequired = faxPhoneIsRequired;
+            civicaNameRecordElement.faxPhoneIsHidden = faxPhoneIsHidden;
+            civicaNameRecordElement.address1Label = address1Label;
+            civicaNameRecordElement.address2Label = address2Label;
+            civicaNameRecordElement.postcodeLabel = postcodeLabel;
             return civicaNameRecordElement;
         }
 
@@ -326,7 +645,8 @@ namespace OneBlink.SDK.Model
             string hint = null,
             Boolean isCollapsed = false,
             List<FormElement> elements = null
-        ) {
+        )
+        {
             FormElement sectionElement = new FormElement();
             sectionElement.type = "section";
             sectionElement.id = initialiseId(id);
