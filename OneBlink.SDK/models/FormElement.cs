@@ -336,6 +336,7 @@ namespace OneBlink.SDK.Model
             sectionElement.label = label;
             sectionElement.hint = hint;
             sectionElement.isCollapsed = isCollapsed;
+            sectionElement.elements = elements;
             return sectionElement;
         }
     }
