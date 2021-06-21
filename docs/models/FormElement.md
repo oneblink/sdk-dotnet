@@ -321,6 +321,7 @@ Creates a new FormElement defined as a Civica Name record element, including all
 | `faxPhoneLabel`                        | No       | `string`                           |               |
 | `faxPhoneIsRequired`                   | No       | `Boolean?`                         | `false`       |
 | `faxPhoneIsHidden`                     | No       | `Boolean?`                         | `false`       |
+| `streetAddressesLabel`                 | No       | `string`                           |               |
 | `address1Label`                        | No       | `string`                           |               |
 | `address2Label`                        | No       | `string`                           |               |
 | `postcodeLabel`                        | No       | `string`                           |               |

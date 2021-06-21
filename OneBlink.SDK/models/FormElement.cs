@@ -331,6 +331,10 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public string streetAddressesLabel
+        {
+            get; set;
+        }
         public string address1Label
         {
             get; set;
@@ -594,6 +598,7 @@ namespace OneBlink.SDK.Model
             string faxPhoneLabel = null,
             Boolean faxPhoneIsRequired = false,
             Boolean faxPhoneIsHidden = false,
+            string streetAddressesLabel = null,
             string address1Label = null,
             string address2Label = null,
             string postcodeLabel = null
@@ -630,6 +635,7 @@ namespace OneBlink.SDK.Model
             civicaNameRecordElement.faxPhoneLabel = faxPhoneLabel;
             civicaNameRecordElement.faxPhoneIsRequired = faxPhoneIsRequired;
             civicaNameRecordElement.faxPhoneIsHidden = faxPhoneIsHidden;
+            civicaNameRecordElement.streetAddressesLabel = streetAddressesLabel;
             civicaNameRecordElement.address1Label = address1Label;
             civicaNameRecordElement.address2Label = address2Label;
             civicaNameRecordElement.postcodeLabel = postcodeLabel;
