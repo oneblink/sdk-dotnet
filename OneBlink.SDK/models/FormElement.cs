@@ -687,6 +687,7 @@ namespace OneBlink.SDK.Model
             List<ConditionallyShowPredicate> conditionallyShowPredicates = null,
             bool required = false,
             bool readOnly = false,
+            string placeholderValue = null,
             string hint = null,
             bool isDataLookup = false,
             long? dataLookupId = null,
@@ -704,6 +705,7 @@ namespace OneBlink.SDK.Model
             civicaStreetNameElement.label = label;
             civicaStreetNameElement.required = required;
             civicaStreetNameElement.readOnly = readOnly;
+            civicaStreetNameElement.placeholderValue = placeholderValue;
             civicaStreetNameElement.hint = hint;
             if (dataLookupId.HasValue)
             {
