@@ -303,6 +303,8 @@ Creates a new FormElement defined as a Civica Name record element, including all
 | `defaultValue`                         | No       | `dynamic`                          | `null`        |
 | `hint`                                 | No       | `string`                           | `null`        |
 | `useGeoscapeAddressing`                | No       | `bool`                             | `false`       |
+| `titleLabel`                           | No       | `string`                           |               |
+| `familyNameLabel`                      | No       | `string`                           |               |
 | `giveName1Label`                       | No       | `string`                           |               |
 | `giveName1IsRequired`                  | No       | `Boolean?`                         | `false`       |
 | `giveName1IsHidden`                    | No       | `Boolean?`                         | `false`       |

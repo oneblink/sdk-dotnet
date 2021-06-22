@@ -259,6 +259,14 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public string titleLabel
+        {
+            get; set;
+        }
+        public string familyNameLabel
+        {
+            get; set;
+        }
         public string givenName1Label
         {
             get; set;
@@ -580,6 +588,8 @@ namespace OneBlink.SDK.Model
             dynamic defaultValue = null,
             string hint = null,
             Boolean useGeoscapeAddressing = false,
+            string titleLabel = null,
+            string familyNameLabel = null,
             string givenName1Label = null,
             Boolean givenName1IsRequired = false,
             Boolean givenName1IsHidden = false,
@@ -617,6 +627,8 @@ namespace OneBlink.SDK.Model
             civicaNameRecordElement.defaultValue = defaultValue;
             civicaNameRecordElement.hint = hint;
             civicaNameRecordElement.useGeoscapeAddressing = useGeoscapeAddressing;
+            civicaNameRecordElement.titleLabel = titleLabel;
+            civicaNameRecordElement.familyNameLabel = familyNameLabel;
             civicaNameRecordElement.givenName1Label = givenName1Label;
             civicaNameRecordElement.givenName1IsRequired = givenName1IsRequired;
             civicaNameRecordElement.givenName1IsHidden = givenName1IsHidden;
