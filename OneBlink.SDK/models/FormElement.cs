@@ -677,5 +677,44 @@ namespace OneBlink.SDK.Model
             sectionElement.elements = elements;
             return sectionElement;
         }
+
+        public static FormElement CreateCivicaStreetNameElement(
+            string name,
+            string label,
+            Guid? id = null,
+            bool conditionallyShow = false,
+            bool requiresAllConditionallyShowPredicates = false,
+            List<ConditionallyShowPredicate> conditionallyShowPredicates = null,
+            bool required = false,
+            bool readOnly = false,
+            string hint = null,
+            bool isDataLookup = false,
+            long? dataLookupId = null,
+            bool isElementLookup = false,
+            long? elementLookupId = null
+        )
+        {
+            FormElement civicaStreetNameElement = new FormElement();
+            civicaStreetNameElement.type = "civicaStreetName";
+            civicaStreetNameElement.id = initialiseId(id);
+            civicaStreetNameElement.conditionallyShow = conditionallyShow;
+            civicaStreetNameElement.requiresAllConditionallyShowPredicates = requiresAllConditionallyShowPredicates;
+            civicaStreetNameElement.conditionallyShowPredicates = conditionallyShowPredicates;
+            civicaStreetNameElement.name = name;
+            civicaStreetNameElement.label = label;
+            civicaStreetNameElement.required = required;
+            civicaStreetNameElement.readOnly = readOnly;
+            civicaStreetNameElement.hint = hint;
+            if (dataLookupId.HasValue)
+            {
+                civicaStreetNameElement.dataLookupId = dataLookupId.Value;
+            }
+            civicaStreetNameElement.isElementLookup = isElementLookup;
+            if (elementLookupId.HasValue)
+            {
+                civicaStreetNameElement.elementLookupId = elementLookupId.Value;
+            }
+            return civicaStreetNameElement;
+        }
     }
 }
