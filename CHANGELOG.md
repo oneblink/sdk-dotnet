@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 2.2.5 (2021-06-23)
+
 ### Added
 
 -   `civicaDescription`, `civicaCustomerContactMethod`, `civicaCategory` and `mapping` to `FormSubmissionEventConfiguration`
