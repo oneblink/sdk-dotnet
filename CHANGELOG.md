@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Added
+
+-   `excludedElementIds` to `PdfClient.GetSubmissionPdf()`
+
 ## 2.2.5 (2021-06-23)
 
 ### Added
