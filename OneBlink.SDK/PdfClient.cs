@@ -1,6 +1,8 @@
 using System.Threading.Tasks;
 using System.IO;
 using OneBlink.SDK.Model;
+using System;
+using System.Collections.Generic;
 namespace OneBlink.SDK
 {
   public class PdfClient
@@ -15,7 +17,7 @@ namespace OneBlink.SDK
                 tenant: new Tenant(tenantName)
             );
         }
-    public async Task<Stream> GetSubmissionPdf(int formId, string submissionId, bool? isDraft = null, bool? includeSubmissionIdInPdf = null)
+    public async Task<Stream> GetSubmissionPdf(int formId, string submissionId, bool? isDraft = null, bool? includeSubmissionIdInPdf = null, List<Guid> excludedElementIds = null)
     {
         string queryString = string.Empty;
         if (isDraft.HasValue) {
@@ -29,8 +31,11 @@ namespace OneBlink.SDK
             }
             queryString += "includeSubmissionIdInPdf=" + includeSubmissionIdInPdf.Value.ToString();
         }
+        GetSubmissionPdfRequest body = new GetSubmissionPdfRequest(){excludedElementIds = excludedElementIds};
+
+
         string url = "/forms/" + formId.ToString() + "/submissions/" + submissionId + "/pdf-document?"+ queryString;
-        return await this.oneBlinkPdfClient.PostRequest(url);
+        return await this.oneBlinkPdfClient.PostRequest(url, body);
     }
 
     public async Task<Stream> GeneratePdf(GeneratePdfOptionsRequest options)

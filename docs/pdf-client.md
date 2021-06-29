@@ -40,6 +40,7 @@ Stream response = await pdfClient.GetSubmissionPdf(formId, submissionId);
 | `submissionId` | Yes      | `string` | The submission identifier generated after a successful form submission, this will be return to you after a successful forms submission via a callback URL |
 | `isDraft`                  | No       | `bool?`   | `true` if the submission is a draft submission, otherwise `false`         |
 | `includeSubmissionIdInPdf` | No       | `bool?`   | `true` to include the submission identifier in the PDF, otherwise `false` |
+| `excludedElementIds` | No       | `List<Guid>`   | Optional list of element id's to be excluded from the pdf document |
 
 ### Throws
 
