@@ -114,5 +114,7 @@ namespace OneBlink.SDK.Model
         public FormSubmissionEventCivicaCustomerContactMethod civicaCustomerContactMethod {get;set;}
         public FormSubmissionEventCivicaRecord civicaCategory {get;set;}
         public List<FormSubmissionEventCivicaElementMapping> mapping {get;set;}
+        public string nylasAccountId {get;set;}
+        public long nylasSchedulingPageId {get;set;}
     }
 }
