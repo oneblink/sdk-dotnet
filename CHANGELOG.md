@@ -4,7 +4,7 @@
 
 ### Added
 
--   `nylasAccountId` and `nylasSchedulingPageId` to `FormSubmissionEventConfigration`
+-   `nylasAccountId`, `nylasSchedulingPageId`, `nameElementId` and `emailElementId` to `FormSubmissionEventConfigration`
 -   `CreateSchedulingSubmissionEvent()` to `FormSubmissionEvent`
 
 ## 2.2.6 (2021-06-30)
