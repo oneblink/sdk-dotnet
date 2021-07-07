@@ -116,5 +116,7 @@ namespace OneBlink.SDK.Model
         public List<FormSubmissionEventCivicaElementMapping> mapping {get;set;}
         public string nylasAccountId {get;set;}
         public long nylasSchedulingPageId {get;set;}
+        public string nameElementId {get;set;}
+        public string emailElementId {get;set;}
     }
 }
