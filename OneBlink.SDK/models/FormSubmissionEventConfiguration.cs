@@ -118,5 +118,6 @@ namespace OneBlink.SDK.Model
         public long nylasSchedulingPageId {get;set;}
         public Guid nameElementId {get;set;}
         public Guid emailElementId {get;set;}
+        public string emailDescription {get;set;}
     }
 }
