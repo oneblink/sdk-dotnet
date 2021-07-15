@@ -6,13 +6,34 @@ namespace OneBlink.SDK.Model
 {
     public class FormSubmissionEvent
     {
-        public long id { get; set; }
-        public string type {get;set;}
-        public FormSubmissionEventConfigration configuration { get; set; }
-        public bool isDraft { get; set; }
-        public List<ConditionallyShowPredicate> conditionallyExecutePredicates { get; set; }
-        public bool conditionallyExecute { get; set; }
-        public bool requiresAllConditionallyExecutePredicates { get; set; }
+        public long id
+        {
+            get; set;
+        }
+        public string type
+        {
+            get; set;
+        }
+        public FormSubmissionEventConfigration configuration
+        {
+            get; set;
+        }
+        public bool isDraft
+        {
+            get; set;
+        }
+        public List<ConditionallyShowPredicate> conditionallyExecutePredicates
+        {
+            get; set;
+        }
+        public bool conditionallyExecute
+        {
+            get; set;
+        }
+        public bool requiresAllConditionallyExecutePredicates
+        {
+            get; set;
+        }
 
         public static FormSubmissionEvent CreateCpPaySubmissionEvent(Guid elementId, Guid gatewayId, bool isDraft = false)
         {
@@ -69,7 +90,7 @@ namespace OneBlink.SDK.Model
             return trim;
         }
 
-        public static FormSubmissionEvent CreateWestpacQuickWebSubmissionEvent(Guid elementId, Guid environmentId,string customerReferenceNumber, bool isDraft = false)
+        public static FormSubmissionEvent CreateWestpacQuickWebSubmissionEvent(Guid elementId, Guid environmentId, string customerReferenceNumber, bool isDraft = false)
         {
             FormSubmissionEventConfigration fseconfig = new FormSubmissionEventConfigration();
             fseconfig.elementId = elementId;
@@ -86,7 +107,7 @@ namespace OneBlink.SDK.Model
             FormSubmissionEventCivicaCustomerContactMethod civicaCustomerContactMethod, FormSubmissionEventCivicaRecord civicaCategory,
             List<FormSubmissionEventCivicaElementMapping> mapping,
             string pdfFileName, Boolean? includeSubmissionIdInPdf = null,
-            List<string> excludedElementIds  = default(List<string>), bool isDraft = false)
+            List<string> excludedElementIds = default(List<string>), bool isDraft = false)
         {
             FormSubmissionEventConfigration fseconfig = new FormSubmissionEventConfigration();
             fseconfig.environmentId = environmentId;
@@ -107,8 +128,8 @@ namespace OneBlink.SDK.Model
         public static FormSubmissionEvent CreateSchedulingSubmissionEvent(
             string nylasAccountId,
             long nylasSchedulingPageId,
-            Guid nameElementId = default(Guid),
-            Guid emailElementId = default(Guid),
+            Guid? nameElementId = null,
+            Guid? emailElementId = null,
             bool isDraft = false,
             string emailDescription = null
         )
@@ -116,8 +137,14 @@ namespace OneBlink.SDK.Model
             FormSubmissionEventConfigration fseconfig = new FormSubmissionEventConfigration();
             fseconfig.nylasAccountId = nylasAccountId;
             fseconfig.nylasSchedulingPageId = nylasSchedulingPageId;
-            fseconfig.nameElementId = nameElementId;
-            fseconfig.emailElementId = emailElementId;
+            if (nameElementId.HasValue)
+            {
+                fseconfig.nameElementId = nameElementId.Value;
+            }
+            if (emailElementId.HasValue)
+            {
+                fseconfig.emailElementId = emailElementId.Value;
+            }
             fseconfig.emailDescription = emailDescription;
             FormSubmissionEvent schedulingEvent = new FormSubmissionEvent();
             schedulingEvent.type = "SCHEDULING";
