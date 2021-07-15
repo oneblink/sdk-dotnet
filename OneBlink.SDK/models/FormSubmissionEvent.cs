@@ -137,14 +137,8 @@ namespace OneBlink.SDK.Model
             FormSubmissionEventConfigration fseconfig = new FormSubmissionEventConfigration();
             fseconfig.nylasAccountId = nylasAccountId;
             fseconfig.nylasSchedulingPageId = nylasSchedulingPageId;
-            if (nameElementId.HasValue)
-            {
-                fseconfig.nameElementId = nameElementId.Value;
-            }
-            if (emailElementId.HasValue)
-            {
-                fseconfig.emailElementId = emailElementId.Value;
-            }
+            fseconfig.nameElementId = nameElementId;
+            fseconfig.emailElementId = emailElementId;
             fseconfig.emailDescription = emailDescription;
             FormSubmissionEvent schedulingEvent = new FormSubmissionEvent();
             schedulingEvent.type = "SCHEDULING";
