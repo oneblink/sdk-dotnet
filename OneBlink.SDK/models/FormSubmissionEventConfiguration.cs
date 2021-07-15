@@ -64,7 +64,7 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
-        public Guid elementId
+        public Guid? elementId
         {
             get; set;
         }
@@ -72,11 +72,11 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
-        public Guid gatewayId
+        public Guid? gatewayId
         {
             get; set;
         }
-        public Guid environmentId
+        public Guid? environmentId
         {
             get; set;
         }
@@ -109,15 +109,45 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
-        public string customerReferenceNumber {get;set;}
-        public string civicaDescription {get;set;}
-        public FormSubmissionEventCivicaCustomerContactMethod civicaCustomerContactMethod {get;set;}
-        public FormSubmissionEventCivicaRecord civicaCategory {get;set;}
-        public List<FormSubmissionEventCivicaElementMapping> mapping {get;set;}
-        public string nylasAccountId {get;set;}
-        public long nylasSchedulingPageId {get;set;}
-        public Guid nameElementId {get;set;}
-        public Guid emailElementId {get;set;}
-        public string emailDescription {get;set;}
+        public string customerReferenceNumber
+        {
+            get; set;
+        }
+        public string civicaDescription
+        {
+            get; set;
+        }
+        public FormSubmissionEventCivicaCustomerContactMethod civicaCustomerContactMethod
+        {
+            get; set;
+        }
+        public FormSubmissionEventCivicaRecord civicaCategory
+        {
+            get; set;
+        }
+        public List<FormSubmissionEventCivicaElementMapping> mapping
+        {
+            get; set;
+        }
+        public string nylasAccountId
+        {
+            get; set;
+        }
+        public long? nylasSchedulingPageId
+        {
+            get; set;
+        }
+        public Guid? nameElementId
+        {
+            get; set;
+        }
+        public Guid? emailElementId
+        {
+            get; set;
+        }
+        public string emailDescription
+        {
+            get; set;
+        }
     }
 }
