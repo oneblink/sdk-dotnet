@@ -69,6 +69,7 @@ A `string`
 -   [`GenerateSubmissionDataUrl()`](#generatesubmissiondataurl)
 -   [`GetFormSubmissionAttachment()`](#getformsubmissionattachment)
 -   [`CreateSubmissionAttachment()`](#createsubmissionattachment)
+-   [`GenerateSubmissionAttachmentUrl()`](#generatesubmissionattachmenturl)
 
 ## Constructor
 
@@ -131,12 +132,12 @@ OneBlink.SDK.Model.FormsSearchResult response = await formsClient.Search(isAuthe
 
 ### Parameters
 
-| Parameter         | Required | Type     | Description                                                                                                                                  |
-| ----------------- | -------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| `isAuthenticated` | Yes      | `bool?`  | Return authenticated forms or unauthenticated forms. If null provided, all forms will be returned.                                           |
-| `isPublished`     | Yes      | `bool?`  | Return published forms or unpublished forms. If null provided, all forms will be returned.                                                   |
-| `name`            | Yes      | `string` | Search on the name property of a form. Can be a prefix, suffix or partial match. If null or whitespace provided, all forms will be returned. |
-| `formsAppEnvironmentId `            | No      | `long?` | Return only forms for a specific app environment. |
+| Parameter                | Required | Type     | Description                                                                                                                                  |
+| ------------------------ | -------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| `isAuthenticated`        | Yes      | `bool?`  | Return authenticated forms or unauthenticated forms. If null provided, all forms will be returned.                                           |
+| `isPublished`            | Yes      | `bool?`  | Return published forms or unpublished forms. If null provided, all forms will be returned.                                                   |
+| `name`                   | Yes      | `string` | Search on the name property of a form. Can be a prefix, suffix or partial match. If null or whitespace provided, all forms will be returned. |
+| `formsAppEnvironmentId ` | No       | `long?`  | Return only forms for a specific app environment.                                                                                            |
 
 ### Throws
 
@@ -436,11 +437,11 @@ SubmissionDataUrl submissionDataUrl = await formsClient.GenerateSubmissionDataUr
 
 ### Parameters
 
-| Parameter    | Required | Type                                         | Description                             |
-| ------------ | -------- | -------------------------------------------- | --------------------------------------- |
-| `formId` | Yes      | long | |
-| `submissionId` | Yes      | string | |
-| `expiryInSeconds` | Yes      | long | Must be greater than 900 |
+| Parameter         | Required | Type   | Description              |
+| ----------------- | -------- | ------ | ------------------------ |
+| `formId`          | Yes      | long   |                          |
+| `submissionId`    | Yes      | string |                          |
+| `expiryInSeconds` | Yes      | long   | Must be greater than 900 |
 
 ### Throws
 
@@ -462,10 +463,10 @@ Stream attachmentStream = await formsClient.GetFormSubmissionAttachment(formId, 
 
 ### Parameters
 
-| Parameter    | Required | Type                                         | Description                             |
-| ------------ | -------- | -------------------------------------------- | --------------------------------------- |
-| `formId` | Yes      | long | |
-| `attachmentId` | Yes      | string | |
+| Parameter      | Required | Type   | Description |
+| -------------- | -------- | ------ | ----------- |
+| `formId`       | Yes      | long   |             |
+| `attachmentId` | Yes      | string |             |
 
 ### Throws
 
@@ -486,14 +487,14 @@ AttachmentData attachmentData = await formsClient.CreateSubmissionAttachment(for
 
 ### Parameters
 
-| Parameter    | Required | Type                                         | Description                             |
-| ------------ | -------- | -------------------------------------------- | --------------------------------------- |
-| `formId` | Yes      | long | |
-| `fileStream` | Yes      | Stream | |
-| `fileName` | Yes      | string | |
-| `contentType` | Yes      | string | |
-| `isPrivate` | Yes      | string | Sets if the file will be private (accessible with credentials) or public |
-| `username` | Yes      | string | An optional username to allow a single user to download the attachment file |
+| Parameter     | Required | Type   | Description                                                                 |
+| ------------- | -------- | ------ | --------------------------------------------------------------------------- |
+| `formId`      | Yes      | long   |                                                                             |
+| `fileStream`  | Yes      | Stream |                                                                             |
+| `fileName`    | Yes      | string |                                                                             |
+| `contentType` | Yes      | string |                                                                             |
+| `isPrivate`   | Yes      | string | Sets if the file will be private (accessible with credentials) or public    |
+| `username`    | Yes      | string | An optional username to allow a single user to download the attachment file |
 
 ### Throws
 
@@ -503,3 +504,29 @@ AttachmentData attachmentData = await formsClient.CreateSubmissionAttachment(for
 ### Result
 
 A `OneBlink.SDK.Model.AttachmentData` class
+
+## `GenerateSubmissionAttachmentUrl()`
+
+### Example
+
+```c#
+SubmissionDataUrl submissionDataUrl = await formsClient.GenerateSubmissionDataUrl(formId, attachmentId, 1000);
+```
+
+### Parameters
+
+| Parameter         | Required | Type   | Description                          |
+| ----------------- | -------- | ------ | ------------------------------------ |
+| `formId`          | Yes      | long   |                                      |
+| `submissionId`    | Yes      | string |                                      |
+| `expiryInSeconds` | Yes      | long   | Must be greater than or equal to 900 |
+
+### Throws
+
+-   `OneBlinkAPIException`
+-   `Exception`
+-   `ArgumentOutOfRangeException`
+
+### Result
+
+A `OneBlink.SDK.Model.SubmissionDataUrl` class
