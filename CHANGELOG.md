@@ -6,6 +6,7 @@
 
 -   `nylasAccountId`, `nylasSchedulingPageId`, `nameElementId` and `emailElementId` to `FormSubmissionEventConfigration`
 -   `CreateSchedulingSubmissionEvent()` to `FormSubmissionEvent`
+-   [`GenerateSubmissionAttachmentUrl()`](./docs/forms-client#generatesubmissionattachmenturl)
 
 ## 2.2.6 (2021-06-30)
 
@@ -27,7 +28,7 @@
 
 ### Fixed
 
-- `description` not being set on form when passed to constructor
+-   `description` not being set on form when passed to constructor
 
 ### Added
 
@@ -48,99 +49,99 @@
 
 ### Changed
 
-- Remove string value type validation from properties
+-   Remove string value type validation from properties
 
 ## 2.2.2 (2021-05-26)
 
 ### Added
 
-- `encryptPdf` prop to `FormSubmissionEventConfiguration` class
-- `defaultValueDaysOffset`, `fromDateDaysOffset`, `toDateDaysOffset` to `FormElement`
-- `cancelAction` and `cancelRedirectUrl` to `Form`
-- Allowed value of `BACK` for `postSubmissionAction`
+-   `encryptPdf` prop to `FormSubmissionEventConfiguration` class
+-   `defaultValueDaysOffset`, `fromDateDaysOffset`, `toDateDaysOffset` to `FormElement`
+-   `cancelAction` and `cancelRedirectUrl` to `Form`
+-   Allowed value of `BACK` for `postSubmissionAction`
 
 ### Fixed
 
-- `OneBlinkHttpClient.SendRequest()` to check content type before converting to json
+-   `OneBlinkHttpClient.SendRequest()` to check content type before converting to json
 
 ### Changed
 
-- Type of `FormElement.fromDate` and `FormElement.toDate` from `DateTime` to `string`
+-   Type of `FormElement.fromDate` and `FormElement.toDate` from `DateTime` to `string`
 
 ## 2.2.1 (2021-05-19)
 
 ### Changed
 
-- Type of `value` from `int` to `double` in `ConditionallyShowPredicate` Model
+-   Type of `value` from `int` to `double` in `ConditionallyShowPredicate` Model
 
 ### Added
 
-- `recaptchaIntegrationDomainId` to `FormsAppBase`
+-   `recaptchaIntegrationDomainId` to `FormsAppBase`
 
 ## 2.2.0 (2021-05-13)
 
 ### Fixed
 
-- `ConditionallyShowPredicate` class missing BETWEEN `type`
+-   `ConditionallyShowPredicate` class missing BETWEEN `type`
 
 ### Added
 
-- `displayAsCurrency` to `FormElement`
-- `storageType` to `FormElement`
-- `formsAppEnvironment` to `FormsClient Search`
-- `GetFormSubmissionAttachment` to `FormsClient`
-- `CreateSubmissionAttachment` to `FormsClient`
-- `author` to `FormSubmissionEventConfiguration`
+-   `displayAsCurrency` to `FormElement`
+-   `storageType` to `FormElement`
+-   `formsAppEnvironment` to `FormsClient Search`
+-   `GetFormSubmissionAttachment` to `FormsClient`
+-   `CreateSubmissionAttachment` to `FormsClient`
+-   `author` to `FormSubmissionEventConfiguration`
 
 ## 2.1.0 (2021-04-27)
 
 ### Updated
 
-- Forms App base with `isClientLoggingEnabled` prop
+-   Forms App base with `isClientLoggingEnabled` prop
 
 ## 2.0.0 (2021-04-15)
 
 ### Added
 
-- `GenerateSubmissionDataUrl` to `FormsClient`
-- `KeysClient` class
-- `GetMyFormsApp`, `CreateUser` and `DeleteUser` to `FormsAppClient`
-- `Get` to `OrganisationsClient`
-- `pointAddress` element type to `FormElement`
+-   `GenerateSubmissionDataUrl` to `FormsClient`
+-   `KeysClient` class
+-   `GetMyFormsApp`, `CreateUser` and `DeleteUser` to `FormsAppClient`
+-   `Get` to `OrganisationsClient`
+-   `pointAddress` element type to `FormElement`
 
 ### Changed
 
-- **[BREAKING]** replaced `FormsApp` class with `FormsListFormsApp`, `TilesFormsApp`, `ApprovalsFormsApp`,  and `VolunteersFormsApp`
+-   **[BREAKING]** replaced `FormsApp` class with `FormsListFormsApp`, `TilesFormsApp`, `ApprovalsFormsApp`, and `VolunteersFormsApp`
 
 ## 1.17.0 (2021-03-23)
 
 ### Added
 
-- `GeneratePdf` function to `PdfClient`
-- `SendEmail` function to `EmailClient`
+-   `GeneratePdf` function to `PdfClient`
+-   `SendEmail` function to `EmailClient`
 
 ### Changed
 
-- Added `isDraft` and `includeSubmissionIdInPdf` parameters to `PdfClient.GetSubmissionPdf()`
+-   Added `isDraft` and `includeSubmissionIdInPdf` parameters to `PdfClient.GetSubmissionPdf()`
 
 ## 1.16.0 (2021-03-23)
 
 ### Added
 
-- `compliance` form element
-- `hint` property to form elements with labels
+-   `compliance` form element
+-   `hint` property to form elements with labels
 
 ## 1.15.0 (2021-03-03)
 
 ### Added
 
- - `previousFormSubmissionApprovalId` to `FormUrlOptions`
+-   `previousFormSubmissionApprovalId` to `FormUrlOptions`
 
 ## 1.14.0 (2021-02-09)
 
 ### Added
 
- - Added `type`, `categories` and `waiverUrl` to `FormsApp`, `CONTAINER` and `FORM` to `AllowedMenuItemTypes`, `formIds` and `formId` to `FormsAppMenuItems`
+-   Added `type`, `categories` and `waiverUrl` to `FormsApp`, `CONTAINER` and `FORM` to `AllowedMenuItemTypes`, `formIds` and `formId` to `FormsAppMenuItems`
 
 ## 1.13.0 (2021-01-18)
 

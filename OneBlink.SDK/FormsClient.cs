@@ -109,7 +109,7 @@ namespace OneBlink.SDK
                 {
                     queryString += "&";
                 }
-                queryString += "submissionDateFrom=" + ((DateTime)submissionDateFrom).ToString("yyyy-MM-ddTHH:mm:ssZ");
+                queryString += "submissionDateFrom=" + ((DateTime) submissionDateFrom).ToString("yyyy-MM-ddTHH:mm:ssZ");
             }
 
             if (submissionDateTo.HasValue)
@@ -119,7 +119,7 @@ namespace OneBlink.SDK
                     queryString += "&";
                 }
 
-                queryString += "submissionDateTo=" + ((DateTime)submissionDateTo).ToString("yyyy-MM-ddTHH:mm:ssZ");
+                queryString += "submissionDateTo=" + ((DateTime) submissionDateTo).ToString("yyyy-MM-ddTHH:mm:ssZ");
             }
 
             if (limit != 0)
@@ -167,7 +167,8 @@ namespace OneBlink.SDK
         public async Task<Form> Update(Form formToUpdate, bool overrideLock = false)
         {
             string url = "/forms/" + formToUpdate.id.ToString();
-            if (overrideLock) {
+            if (overrideLock)
+            {
                 url = url + "?overrideLock=true";
             }
 
@@ -178,7 +179,8 @@ namespace OneBlink.SDK
         public async Task Delete(long id, bool overrideLock = false)
         {
             string url = "/forms/" + id.ToString();
-            if (overrideLock) {
+            if (overrideLock)
+            {
                 url = url + "?overrideLock=true";
             }
             await this.oneBlinkApiClient.DeleteRequest(url);
@@ -209,38 +211,47 @@ namespace OneBlink.SDK
 
             return JsonConvert.DeserializeObject<FormSubmission<T>>(responseBody);
         }
-        public static string EncryptUserToken(string username, string secret) {
-            if (String.IsNullOrEmpty(username) || String.IsNullOrEmpty(secret)) {
+        public static string EncryptUserToken(string username, string secret)
+        {
+            if (String.IsNullOrEmpty(username) || String.IsNullOrEmpty(secret))
+            {
                 throw new Exception("Must pass a valid username and secret");
             }
             AesUserToken aesUserToken = new AesUserToken(secret);
             return aesUserToken.encrypt(username);
         }
-        public static string DecryptUserToken(string userToken, string secret) {
-            if (String.IsNullOrEmpty(userToken) || String.IsNullOrEmpty(secret)) {
+        public static string DecryptUserToken(string userToken, string secret)
+        {
+            if (String.IsNullOrEmpty(userToken) || String.IsNullOrEmpty(secret))
+            {
                 throw new Exception("Must pass a valid userToken and secret");
             }
             AesUserToken aesUserToken = new AesUserToken(secret);
             return aesUserToken.decrypt(userToken);
         }
 
-        public async Task<FormUrlResult> GenerateFormUrl(FormUrlOptions parameters) {
-            if (parameters == null) {
+        public async Task<FormUrlResult> GenerateFormUrl(FormUrlOptions parameters)
+        {
+            if (parameters == null)
+            {
                 throw new Exception("parameters not provided");
             }
-            if (parameters.formsAppId == null) {
+            if (parameters.formsAppId == null)
+            {
                 Form form = await oneBlinkApiClient.GetRequest<Form>($"/forms/{parameters.formId}");
 
                 parameters.formsAppId = form.formsAppIds[0];
             }
 
-            if (parameters.formsAppId == null) {
+            if (parameters.formsAppId == null)
+            {
                 throw new Exception("This form has not been added to a forms app yet.");
             }
             FormsListFormsApp formsApp = await oneBlinkApiClient.GetRequest<FormsListFormsApp>($"/forms-apps/{parameters.formsAppId}");
 
             string preFillFormDataId = null;
-            if (parameters.preFillData != null) {
+            if (parameters.preFillData != null)
+            {
                 PrefillClient prefillClient = new PrefillClient(oneBlinkApiClient);
                 PreFillMeta preFillMeta = await prefillClient.GetPreFillMeta((int) parameters.formId);
                 string preFillMetaId = await prefillClient.PutPreFillData<dynamic>(parameters.preFillData, preFillMeta);
@@ -248,7 +259,8 @@ namespace OneBlink.SDK
             }
 
             string userToken = null;
-            if (parameters.username != null) {
+            if (parameters.username != null)
+            {
                 AesUserToken aesUserToken = new AesUserToken(parameters.secret);
                 userToken = aesUserToken.encrypt(parameters.username);
             }
@@ -267,7 +279,8 @@ namespace OneBlink.SDK
                 previousFormSubmissionApprovalId: parameters.previousFormSubmissionApprovalId
             );
             string expiry = DateTime.UtcNow.AddSeconds(jwtExpiry).ToString("o");
-            return new FormUrlResult() {
+            return new FormUrlResult()
+            {
                 formUrl = formUrl,
                 expiry = expiry
             };
@@ -279,14 +292,14 @@ namespace OneBlink.SDK
             {
                 throw new ArgumentOutOfRangeException("expiryInSeconds must be greater than or equal to 900");
             }
-            string url = "/forms/" + formId.ToString() +"/retrieval-url/" + submissionId + "?expirySeconds=" + expiryInSeconds.ToString();
+            string url = "/forms/" + formId.ToString() + "/retrieval-url/" + submissionId + "?expirySeconds=" + expiryInSeconds.ToString();
             SubmissionDataUrl submissionDataUrl = await this.oneBlinkApiClient.PostRequest<SubmissionDataUrl>(url);
             return submissionDataUrl;
         }
 
         public async Task<Stream> GetFormSubmissionAttachment(long formId, string attachmentId)
         {
-            string url = "/submissions/"+ formId.ToString() + "/attachments/" + attachmentId;
+            string url = "/submissions/" + formId.ToString() + "/attachments/" + attachmentId;
             return await this.oneBlinkApiClient.GetStreamRequest(url);
         }
 
@@ -327,9 +340,32 @@ namespace OneBlink.SDK
             attachmentData.contentType = contentType;
             attachmentData.fileName = fileName;
             attachmentData.isPrivate = isPrivate;
-            attachmentData.url = oneBlinkApiClient.tenant.oneBlinkAPIOrigin + "/"+ response.s3.key;
+            attachmentData.url = oneBlinkApiClient.tenant.oneBlinkAPIOrigin + "/" + response.s3.key;
             attachmentData.s3 = response.s3;
             return attachmentData;
+        }
+
+        internal class ExpiryInSeconds
+        {
+            internal ExpiryInSeconds(long expiryInSeconds)
+            {
+                this.expiryInSeconds = expiryInSeconds;
+            }
+
+            internal long expiryInSeconds
+            {
+                get; set;
+            }
+        }
+
+        public async Task<SubmissionDataUrl> GenerateSubmissionAttachmentUrl(long formId, string attachmentId, long expiryInSeconds)
+        {
+            if (expiryInSeconds < 900)
+            {
+                throw new ArgumentOutOfRangeException("expiryInSeconds must be greater than or equal to 900");
+            }
+            string url = "/forms/" + formId.ToString() + "/attachments/" + attachmentId + "/download-url";
+            return await this.oneBlinkApiClient.PostRequest<ExpiryInSeconds, SubmissionDataUrl>(url, new ExpiryInSeconds(expiryInSeconds));
         }
 
         private string _generateFormUrl(
@@ -339,29 +375,35 @@ namespace OneBlink.SDK
         string externalId,
         string preFillFormDataId,
         string userToken,
-        long? previousFormSubmissionApprovalId )
+        long? previousFormSubmissionApprovalId)
         {
             // SEARCH PARAMS
             List<string> searchParams = new List<string>();
             searchParams.Add($"access_key={token}");
-            if (externalId != null) {
+            if (externalId != null)
+            {
                 searchParams.Add($"externalId={externalId}");
             }
-            if (preFillFormDataId != null) {
+            if (preFillFormDataId != null)
+            {
                 searchParams.Add($"preFillFormDataId={preFillFormDataId}");
             }
-            if (userToken != null) {
+            if (userToken != null)
+            {
                 searchParams.Add($"userToken={userToken}");
             }
-            if (previousFormSubmissionApprovalId != null) {
+            if (previousFormSubmissionApprovalId != null)
+            {
                 searchParams.Add($"previousFormSubmissionApprovalId={previousFormSubmissionApprovalId.ToString()}");
             }
             string url = $"https://{formsApp.hostname}/forms/{formId}";
             for (int i = 0; i < searchParams.Count; i++)
             {
-                if (i == 0) url += "?";
+                if (i == 0)
+                    url += "?";
                 url += searchParams[i];
-                if (i != searchParams.Count - 1) url += "&";
+                if (i != searchParams.Count - 1)
+                    url += "&";
             }
             return url;
         }
