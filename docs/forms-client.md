@@ -510,7 +510,7 @@ A `OneBlink.SDK.Model.AttachmentData` class
 ### Example
 
 ```c#
-SubmissionDataUrl submissionDataUrl = await formsClient.GenerateSubmissionDataUrl(formId, attachmentId, 1000);
+SubmissionDataUrl submissionDataUrl = await formsClient.GenerateSubmissionAttachmentUrl(formId, attachmentId, 1000);
 ```
 
 ### Parameters

@@ -351,7 +351,7 @@ namespace OneBlink.SDK
             {
                 this.expiryInSeconds = expiryInSeconds;
             }
-
+            [JsonProperty]
             internal long expiryInSeconds
             {
                 get; set;
