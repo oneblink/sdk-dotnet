@@ -518,7 +518,7 @@ SubmissionDataUrl submissionDataUrl = await formsClient.GenerateSubmissionAttach
 | Parameter         | Required | Type   | Description                          |
 | ----------------- | -------- | ------ | ------------------------------------ |
 | `formId`          | Yes      | long   |                                      |
-| `submissionId`    | Yes      | string |                                      |
+| `attachmentId`    | Yes      | string |                                      |
 | `expiryInSeconds` | Yes      | long   | Must be greater than or equal to 900 |
 
 ### Throws
