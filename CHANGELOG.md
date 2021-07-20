@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 2.2.7 (2021-07-20)
+
 ### Added
 
 -   `nylasAccountId`, `nylasSchedulingPageId`, `nameElementId` and `emailElementId` to `FormSubmissionEventConfigration`
