@@ -24,6 +24,7 @@
 | `publishEndDate`        | No       | `DateTime?`                 | DateTime the form should become unavailable                               | `null`                            |
 | `cancelAction`          | No       | `string`                    | Allowed values of "BACK", "URL", "CLOSE", "FORMS_LIBRARY"                 | `"BACK"`                          |
 | `cancelRedirectUrl`     | No       | `string`                    | URL to be redirected too, only applies if `cancelAction` is "URL"         | `null`                            |
+| `serverValidation`      | No       | `FormServerValidation`      | Optional configuration for form submission validation                     | `null`                            |
 
 ### Other properties
 

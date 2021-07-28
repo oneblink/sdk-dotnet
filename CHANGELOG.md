@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Added
+
+-   `serverValidation` to `Form`
+
 ## 2.2.7 (2021-07-20)
 
 ### Added
