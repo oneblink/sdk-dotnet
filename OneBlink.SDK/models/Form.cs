@@ -6,7 +6,9 @@ namespace OneBlink.SDK.Model
 {
     public class Form
     {
-        public Form() { }
+        public Form()
+        {
+        }
 
         public Form(
             string name,
@@ -26,7 +28,8 @@ namespace OneBlink.SDK.Model
             DateTime? publishStartDate = null,
             DateTime? publishEndDate = null,
             string cancelAction = "BACK",
-            string cancelRedirectUrl = null
+            string cancelRedirectUrl = null,
+            FormServerValidation serverValidation = null
             )
         {
             if (id.HasValue)
@@ -85,26 +88,91 @@ namespace OneBlink.SDK.Model
             }
             this.cancelAction = cancelAction;
             this.cancelRedirectUrl = cancelRedirectUrl;
+            this.serverValidation = serverValidation;
         }
-        public long id { get; set; }
-        public string name { get; set; }
-        public string description { get; set; }
-        public string organisationId { get; set; }
-        public List<FormElement> elements { get; set; }
-        public bool isAuthenticated { get; set; }
-        public List<FormSubmissionEvent> submissionEvents { get; set; }
-        public DateTime createdAt { get; set; }
-        public DateTime updatedAt { get; set; }
-        public bool isMultiPage { get; set; }
-        public string postSubmissionAction {get;set;}
-        public string redirectUrl { get; set; }
-        public bool isInfoPage { get; set; }
-        public List<long> formsAppIds { get; set; }
-        public long formsAppEnvironmentId { get; set; }
-        public List<string> tags { get; set; }
-        public DateTime? publishStartDate { get; set; }
-        public DateTime? publishEndDate { get; set; }
-        public string cancelAction {get;set;}
-        public string cancelRedirectUrl { get; set; }
+        public long id
+        {
+            get; set;
+        }
+        public string name
+        {
+            get; set;
+        }
+        public string description
+        {
+            get; set;
+        }
+        public string organisationId
+        {
+            get; set;
+        }
+        public List<FormElement> elements
+        {
+            get; set;
+        }
+        public bool isAuthenticated
+        {
+            get; set;
+        }
+        public List<FormSubmissionEvent> submissionEvents
+        {
+            get; set;
+        }
+        public DateTime createdAt
+        {
+            get; set;
+        }
+        public DateTime updatedAt
+        {
+            get; set;
+        }
+        public bool isMultiPage
+        {
+            get; set;
+        }
+        public string postSubmissionAction
+        {
+            get; set;
+        }
+        public string redirectUrl
+        {
+            get; set;
+        }
+        public bool isInfoPage
+        {
+            get; set;
+        }
+        public List<long> formsAppIds
+        {
+            get; set;
+        }
+        public long formsAppEnvironmentId
+        {
+            get; set;
+        }
+        public List<string> tags
+        {
+            get; set;
+        }
+        public DateTime? publishStartDate
+        {
+            get; set;
+        }
+        public DateTime? publishEndDate
+        {
+            get; set;
+        }
+        public string cancelAction
+        {
+            get; set;
+        }
+        public string cancelRedirectUrl
+        {
+            get; set;
+        }
+        public FormServerValidation serverValidation
+        {
+            get; set;
+        }
     }
 }
