@@ -2,7 +2,7 @@ namespace OneBlink.SDK.Model
 {
     public abstract class RequiredSearchResult
     {
-        public SearchMeta meta
+        public RequiredSearchMeta meta
         {
             get; set;
         }
