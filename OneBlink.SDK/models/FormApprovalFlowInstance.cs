@@ -23,11 +23,19 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public string status
+        {
+            get; set;
+        }
         public long? id
         {
             get; set;
         }
         public string createdAt
+        {
+            get; set;
+        }
+        public string updatedAt
         {
             get; set;
         }
