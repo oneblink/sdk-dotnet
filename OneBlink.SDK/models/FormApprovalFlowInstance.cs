@@ -23,6 +23,10 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public bool isLatest
+        {
+            get; set;
+        }
         public string status
         {
             get; set;
