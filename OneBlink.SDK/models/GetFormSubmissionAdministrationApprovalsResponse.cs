@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace OneBlink.SDK.Model
 {
-    public class GetFormSubmissionAdministrationApprovalsResponse : SearchResult
+    public class GetFormSubmissionAdministrationApprovalsResponse : RequiredSearchResult
     {
         public List<GetFormSubmissionAdministrationApproval> approvals
         {
