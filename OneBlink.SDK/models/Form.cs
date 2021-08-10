@@ -29,7 +29,8 @@ namespace OneBlink.SDK.Model
             DateTime? publishEndDate = null,
             string cancelAction = "BACK",
             string cancelRedirectUrl = null,
-            FormServerValidation serverValidation = null
+            FormServerValidation serverValidation = null,
+            FormServerValidation externalIdGeneration = null
             )
         {
             if (id.HasValue)
@@ -89,6 +90,7 @@ namespace OneBlink.SDK.Model
             this.cancelAction = cancelAction;
             this.cancelRedirectUrl = cancelRedirectUrl;
             this.serverValidation = serverValidation;
+            this.externalIdGeneration = externalIdGeneration;
         }
         public long id
         {
@@ -171,6 +173,10 @@ namespace OneBlink.SDK.Model
             get; set;
         }
         public FormServerValidation serverValidation
+        {
+            get; set;
+        }
+        public FormServerValidation externalIdGeneration
         {
             get; set;
         }

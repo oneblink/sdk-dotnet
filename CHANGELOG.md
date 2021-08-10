@@ -5,6 +5,7 @@
 ### Added
 
 -   `ApprovalsClient`
+-   `externalIdGeneration` to `Form`
 
 ## 2.2.8 (2021-08-02)
 
