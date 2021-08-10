@@ -2,12 +2,15 @@
 
 ## Unreleased
 
+### Added
+
+-   `ApprovalsClient`
+
 ## 2.2.8 (2021-08-02)
 
 ### Added
 
 -   `serverValidation` to `Form`
--   `ApprovalsClient`
 
 ## 2.2.7 (2021-07-20)
 
