@@ -6,11 +6,11 @@
 
 ## Constructor
 
-| Parameter    | Required | Type         | Description                                                                                             | Default Value       |
-| ------------ | -------- | ------------ | ------------------------------------------------------------------------------------------------------- | ------------------- |
-| `accessKey`  | Yes      | `string`     | Access key provided by OneBlink.                                                                        |                     |
-| `secretKey`  | Yes      | `string`     | Secret key provided by OneBlink.                                                                        |                     |
-| `tenantName` | No       | `TenantName` | Sets the configuration values to be used. Options are `TenantName.ONEBLINK` and `TenantName.CIVICPLUS`. | TenantName.ONEBLINK |
+| Parameter           | Required | Type         | Description                                                                                             | Default Value         |
+| ------------------- | -------- | ------------ | ------------------------------------------------------------------------------------------------------- | --------------------- |
+| `options.accessKey` | Yes      | `string`     | Access key provided by OneBlink, requires the `PDF` and `FORMS` permission.                             |                       |
+| `options.secretKey` | Yes      | `string`     | Secret key provided by OneBlink, requires the `PDF` and `FORMS` permission.                             |                       |
+| `tenantName`        | No       | `TenantName` | Sets the configuration values to be used. Options are `TenantName.ONEBLINK` and `TenantName.CIVICPLUS`. | `TenantName.ONEBLINK` |
 
 ### Example
 
@@ -34,13 +34,13 @@ Stream response = await pdfClient.GetSubmissionPdf(formId, submissionId);
 
 ### Parameters
 
-| Parameter      | Required | Type     | Description                                                                                                                                               |
-| -------------- | -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `formId`       | Yes      | `int`    | The exact id of the form you wish to get submission PDF for                                                                                               |
-| `submissionId` | Yes      | `string` | The submission identifier generated after a successful form submission, this will be return to you after a successful forms submission via a callback URL |
-| `isDraft`                  | No       | `bool?`   | `true` if the submission is a draft submission, otherwise `false`         |
-| `includeSubmissionIdInPdf` | No       | `bool?`   | `true` to include the submission identifier in the PDF, otherwise `false` |
-| `excludedElementIds` | No       | `List<Guid>`   | Optional list of element id's to be excluded from the pdf document |
+| Parameter                  | Required | Type         | Description                                                                                                                                               |
+| -------------------------- | -------- | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `formId`                   | Yes      | `int`        | The exact id of the form you wish to get submission PDF for                                                                                               |
+| `submissionId`             | Yes      | `string`     | The submission identifier generated after a successful form submission, this will be return to you after a successful forms submission via a callback URL |
+| `isDraft`                  | No       | `bool?`      | `true` if the submission is a draft submission, otherwise `false`                                                                                         |
+| `includeSubmissionIdInPdf` | No       | `bool?`      | `true` to include the submission identifier in the PDF, otherwise `false`                                                                                 |
+| `excludedElementIds`       | No       | `List<Guid>` | Optional list of element id's to be excluded from the pdf document                                                                                        |
 
 ### Throws
 
@@ -66,9 +66,9 @@ Stream response = await pdfClient.GeneratePdf(pdfOptionsRequest);
 
 ### Parameters
 
-| Parameter      | Required | Type     | Description                                                                                                                                               |
-| -------------- | -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `pdfOptionsRequest`       | Yes      | `GeneratePdfOptionsRequest`    | Options include page and html to be rendered in the PDF document                                                                                               |
+| Parameter           | Required | Type                        | Description                                                      |
+| ------------------- | -------- | --------------------------- | ---------------------------------------------------------------- |
+| `pdfOptionsRequest` | Yes      | `GeneratePdfOptionsRequest` | Options include page and html to be rendered in the PDF document |
 
 ### Throws
 

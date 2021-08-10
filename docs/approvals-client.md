@@ -6,11 +6,11 @@
 
 ## Constructor
 
-| Parameter    | Required | Type         | Description                                                                                             | Default Value       |
-| ------------ | -------- | ------------ | ------------------------------------------------------------------------------------------------------- | ------------------- | --- |
-| `accessKey`  | Yes      | `string`     | Access key provided by OneBlink.                                                                        |                     |
-| `secretKey`  | Yes      | `string`     | Secret key provided by OneBlink.                                                                        |                     |
-| `tenantName` | No       | `TenantName` | Sets the configuration values to be used. Options are `TenantName.ONEBLINK` and `TenantName.CIVICPLUS`. | TenantName.ONEBLINK |     |
+| Parameter           | Required | Type         | Description                                                                                             | Default Value         |
+| ------------------- | -------- | ------------ | ------------------------------------------------------------------------------------------------------- | --------------------- |
+| `options.accessKey` | Yes      | `string`     | Access key provided by OneBlink, requires the `FORMS` permission.                                       |                       |
+| `options.secretKey` | Yes      | `string`     | Secret key provided by OneBlink, requires the `FORMS` permission.                                       |                       |
+| `tenantName`        | No       | `TenantName` | Sets the configuration values to be used. Options are `TenantName.ONEBLINK` and `TenantName.CIVICPLUS`. | `TenantName.ONEBLINK` |
 
 ### Example
 

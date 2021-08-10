@@ -13,11 +13,11 @@
 
 ## Constructor
 
-| Parameter    | Required | Type         | Description                                                                                             | Default Value       |
-| ------------ | -------- | ------------ | ------------------------------------------------------------------------------------------------------- | ------------------- |
-| `accessKey`  | Yes      | `string`     | Access key provided by OneBlink.                                                                        |                     |
-| `secretKey`  | Yes      | `string`     | Secret key provided by OneBlink.                                                                        |                     |
-| `tenantName` | No       | `TenantName` | Sets the configuration values to be used. Options are `TenantName.ONEBLINK` and `TenantName.CIVICPLUS`. | TenantName.ONEBLINK |  |
+| Parameter           | Required | Type         | Description                                                                                             | Default Value         |
+| ------------------- | -------- | ------------ | ------------------------------------------------------------------------------------------------------- | --------------------- |
+| `options.accessKey` | Yes      | `string`     | Access key provided by OneBlink, requires the `FORMS` permission.                                       |                       |
+| `options.secretKey` | Yes      | `string`     | Secret key provided by OneBlink, requires the `FORMS` permission.                                       |                       |
+| `tenantName`        | No       | `TenantName` | Sets the configuration values to be used. Options are `TenantName.ONEBLINK` and `TenantName.CIVICPLUS`. | `TenantName.ONEBLINK` |
 
 ### Example
 
@@ -70,10 +70,10 @@ var formsApp = await formsAppsClient.Get<FormsListFormApp>(id);
 
 ### Parameters
 
-| Parameter | Required | Type   | Description                     |
-| --------- | -------- | ------ | ------------------------------- |
-| `id`      | Yes      | `long` | Id of forms app to be retrieved |
-| `<T>`     | Yes      | `ApprovalsFormsApp`, `FormsListFormApp` or `VolunteersFormsApp` | The type of Forms App |
+| Parameter | Required | Type                                                            | Description                     |
+| --------- | -------- | --------------------------------------------------------------- | ------------------------------- |
+| `id`      | Yes      | `long`                                                          | Id of forms app to be retrieved |
+| `<T>`     | Yes      | `ApprovalsFormsApp`, `FormsListFormApp` or `VolunteersFormsApp` | The type of Forms App           |
 
 ### Throws
 
@@ -98,10 +98,10 @@ var savedFormsApps = await formsAppsClient.Create<FormsListFormApp>(newFormsApp)
 
 ### Parameters
 
-| Parameter     | Required | Type       | Description         |
-| ------------- | -------- | ---------- | ------------------- |
-| `newFormsApp` | Yes      | `FormsApp` | New FormsApp object |
-| `<T>`     | Yes      | `ApprovalsFormsApp`, `FormsListFormApp` or `VolunteersFormsApp` | The type of Forms App |
+| Parameter     | Required | Type                                                            | Description           |
+| ------------- | -------- | --------------------------------------------------------------- | --------------------- |
+| `newFormsApp` | Yes      | `FormsApp`                                                      | New FormsApp object   |
+| `<T>`         | Yes      | `ApprovalsFormsApp`, `FormsListFormApp` or `VolunteersFormsApp` | The type of Forms App |
 
 ### Throws
 
@@ -126,10 +126,10 @@ FormsListFormApp updatedFormsApp = await formsAppsClient.Update<FormsListFormApp
 
 ### Parameters
 
-| Parameter          | Required | Type       | Description              |
-| ------------------ | -------- | ---------- | ------------------------ |
-| `formsAppToUpdate` | Yes      | `FormsApp` | Existing FormsApp object |
-| `<T>`     | Yes      | `ApprovalsFormsApp`, `FormsListFormApp` or `VolunteersFormsApp` | The type of Forms App |
+| Parameter          | Required | Type                                                            | Description              |
+| ------------------ | -------- | --------------------------------------------------------------- | ------------------------ |
+| `formsAppToUpdate` | Yes      | `FormsApp`                                                      | Existing FormsApp object |
+| `<T>`              | Yes      | `ApprovalsFormsApp`, `FormsListFormApp` or `VolunteersFormsApp` | The type of Forms App    |
 
 ### Throws
 
@@ -234,9 +234,9 @@ OneBlink.SDK.Model.FormsApp formsApp = await formsAppsClient.GetMyFormsApp(userT
 
 ### Parameters
 
-| Parameter | Required | Type   | Description                     |
-| --------- | -------- | ------ | ------------------------------- |
-| `token`      | Yes      | `string` | A forms app user token |
+| Parameter | Required | Type     | Description            |
+| --------- | -------- | -------- | ---------------------- |
+| `token`   | Yes      | `string` | A forms app user token |
 
 ### Throws
 
@@ -261,8 +261,8 @@ OneBlink.SDK.Model.FormsAppUser savedUser = await formsAppsClient.CreateUser(new
 
 ### Parameters
 
-| Parameter     | Required | Type       | Description         |
-| ------------- | -------- | ---------- | ------------------- |
+| Parameter         | Required | Type           | Description             |
+| ----------------- | -------- | -------------- | ----------------------- |
 | `newFormsAppUser` | Yes      | `FormsAppUser` | New FormsAppUser object |
 
 ### Throws
@@ -286,8 +286,8 @@ await formsAppsClient.DeleteUser(formsAppUserId);
 
 ### Parameters
 
-| Parameter | Required | Type   | Description                                  |
-| --------- | -------- | ------ | -------------------------------------------- |
+| Parameter | Required | Type   | Description                                      |
+| --------- | -------- | ------ | ------------------------------------------------ |
 | `id`      | Yes      | `long` | The identifier of the FormsAppUser to be deleted |
 
 ### Throws

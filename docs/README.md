@@ -8,7 +8,9 @@
 -   [TeamMembersClient](./team-members-client.md)
 -   [JobsClient](./jobs-client.md)
 -   [OrganisationsClient](./organisations-client.md)
+-   [KeysClient](./keys-client.md)
 -   [EmailClient](./email-client.md)
+-   [ApprovalsClient](./approvals-client.md)
 
 ## Models
 
