@@ -73,11 +73,11 @@ A `string`
 
 ## Constructor
 
-| Parameter    | Required | Type         | Description                                                                                             | Default Value       |
-| ------------ | -------- | ------------ | ------------------------------------------------------------------------------------------------------- | ------------------- |
-| `accessKey`  | Yes      | `string`     | Access key provided by OneBlink.                                                                        |                     |
-| `secretKey`  | Yes      | `string`     | Secret key provided by OneBlink.                                                                        |                     |
-| `tenantName` | No       | `TenantName` | Sets the configuration values to be used. Options are `TenantName.ONEBLINK` and `TenantName.CIVICPLUS`. | TenantName.ONEBLINK |
+| Parameter    | Required | Type         | Description                                                                                             | Default Value         |
+| ------------ | -------- | ------------ | ------------------------------------------------------------------------------------------------------- | --------------------- |
+| `accessKey`  | Yes      | `string`     | Access key provided by OneBlink, requires the `FORMS` permission.                                       |                       |
+| `secretKey`  | Yes      | `string`     | Secret key provided by OneBlink, requires the `FORMS` permission.                                       |                       |
+| `tenantName` | No       | `TenantName` | Sets the configuration values to be used. Options are `TenantName.ONEBLINK` and `TenantName.CIVICPLUS`. | `TenantName.ONEBLINK` |
 
 ### Example
 
@@ -414,9 +414,9 @@ FormUrlResult result = await formsClient.GenerateFormUrl(
 
 ### Parameters
 
-| Parameter    | Required | Type                                         | Description                             |
-| ------------ | -------- | -------------------------------------------- | --------------------------------------- |
-| `parameters` | Yes      | [FormUrlOptions](./models/FormUrlOptions.md) | The parameters used to generate the url |
+| Parameter    | Required | Type                                 | Description                             |
+| ------------ | -------- | ------------------------------------ | --------------------------------------- |
+| `parameters` | Yes      | [FormUrlOptions](./models/FormUrlmd) | The parameters used to generate the url |
 
 ### Throws
 
