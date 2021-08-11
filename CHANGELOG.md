@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 2.3.0 (2021-08-11)
+
 ### Added
 
 -   `ApprovalsClient`
