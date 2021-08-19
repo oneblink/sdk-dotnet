@@ -106,7 +106,7 @@ namespace OneBlink.SDK.Model
         public static FormSubmissionEvent CreateCivicaCrmSubmissionEvent(Guid environmentId,
             FormSubmissionEventCivicaCustomerContactMethod civicaCustomerContactMethod, FormSubmissionEventCivicaRecord civicaCategory,
             List<FormSubmissionEventCivicaElementMapping> mapping,
-            string pdfFileName, Boolean? includeSubmissionIdInPdf = null,
+            string pdfFileName = null, Boolean? includeSubmissionIdInPdf = null,
             List<string> excludedElementIds = default(List<string>), bool isDraft = false)
         {
             FormSubmissionEventConfigration fseconfig = new FormSubmissionEventConfigration();

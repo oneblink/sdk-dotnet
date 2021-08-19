@@ -1,3 +1,4 @@
+using System;
 namespace OneBlink.SDK.Model
 {
     public class FormSubmissionEventCivicaElementMapping
@@ -6,7 +7,7 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
-        public string formElementId
+        public Guid formElementId
         {
             get; set;
         }
