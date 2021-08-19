@@ -113,10 +113,6 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
-        public string civicaDescription
-        {
-            get; set;
-        }
         public FormSubmissionEventCivicaCustomerContactMethod civicaCustomerContactMethod
         {
             get; set;
