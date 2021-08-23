@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 2.4.0 (2021-08-24)
+
 ### Added
 
 -   `isDescription` to `FormSubmissionEventCivicaElementMapping`
