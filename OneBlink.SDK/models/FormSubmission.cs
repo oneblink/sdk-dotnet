@@ -259,6 +259,12 @@ namespace OneBlink.SDK.Model
         }
 
         [JsonProperty]
+        public string ipAddress
+        {
+            get; internal set;
+        }
+
+        [JsonProperty]
         public string keyId
         {
             get; internal set;
