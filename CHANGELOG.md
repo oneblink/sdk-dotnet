@@ -4,6 +4,7 @@
 
 ### Added
 
+-   `updatedAfterDateTime` and `updatedBeforeDateTime` parameters to `ApprovalsClient.GetFormSubmissionAdministrationApprovals()`
 -   `ipAddress` to `FormSubmission`
 
 ## 2.4.0 (2021-08-24)
