@@ -26,7 +26,9 @@ namespace OneBlink.SDK
         string submissionId = null,
         string submittedAfterDateTime = null,
         string submittedBeforeDateTime = null,
-        List<string> statuses = default(List<string>))
+        List<string> statuses = default(List<string>),
+        string updatedAfterDateTime = null,
+        string updatedBeforeDateTime = null)
         {
             string queryString = nameof(limit) + "=" + limit.ToString() + "&" + nameof(offset) + "=" + offset.ToString();
             if (formId.HasValue)
@@ -68,6 +70,22 @@ namespace OneBlink.SDK
                     queryString += "&";
                 }
                 queryString += nameof(submittedBeforeDateTime) + "=" + submittedBeforeDateTime;
+            }
+            if (!String.IsNullOrEmpty(updatedAfterDateTime))
+            {
+                if (queryString != string.Empty)
+                {
+                    queryString += "&";
+                }
+                queryString += nameof(updatedAfterDateTime) + "=" + updatedAfterDateTime;
+            }
+            if (!String.IsNullOrEmpty(updatedBeforeDateTime))
+            {
+                if (queryString != string.Empty)
+                {
+                    queryString += "&";
+                }
+                queryString += nameof(updatedBeforeDateTime) + "=" + updatedBeforeDateTime;
             }
             if (statuses != default(List<string>))
             {
