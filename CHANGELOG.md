@@ -6,6 +6,7 @@
 
 -   `lastUpdatedBy`, `updatedAfterDateTime` and `updatedBeforeDateTime` parameters to `ApprovalsClient.GetFormSubmissionAdministrationApprovals()`
 -   `ipAddress` to `FormSubmission`
+-   `lastUpdatedBy` to `FormApprovalFlowInstance`
 
 ## 2.4.0 (2021-08-24)
 
