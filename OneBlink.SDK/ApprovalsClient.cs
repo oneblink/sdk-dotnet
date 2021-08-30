@@ -18,17 +18,20 @@ namespace OneBlink.SDK
             );
         }
 
-        public async Task<GetFormSubmissionAdministrationApprovalsResponse> GetFormSubmissionAdministrationApprovals(long formsAppId,
-        long limit,
-        long offset,
-        long? formId = null,
-        string externalId = null,
-        string submissionId = null,
-        string submittedAfterDateTime = null,
-        string submittedBeforeDateTime = null,
-        List<string> statuses = default(List<string>),
-        string updatedAfterDateTime = null,
-        string updatedBeforeDateTime = null)
+        public async Task<GetFormSubmissionAdministrationApprovalsResponse> GetFormSubmissionAdministrationApprovals(
+            long formsAppId,
+            long limit,
+            long offset,
+            long? formId = null,
+            string externalId = null,
+            string submissionId = null,
+            string submittedAfterDateTime = null,
+            string submittedBeforeDateTime = null,
+            List<string> statuses = default(List<string>),
+            string updatedAfterDateTime = null,
+            string updatedBeforeDateTime = null,
+            List<string> lastUpdatedBy = null
+        )
         {
             string queryString = nameof(limit) + "=" + limit.ToString() + "&" + nameof(offset) + "=" + offset.ToString();
             if (formId.HasValue)
@@ -97,6 +100,18 @@ namespace OneBlink.SDK
                     }
 
                     queryString += nameof(statuses) + "=" + status;
+                }
+            }
+            if (lastUpdatedBy != default(List<string>))
+            {
+                foreach (var lastUpdated in lastUpdatedBy)
+                {
+                    if (queryString != string.Empty)
+                    {
+                        queryString += "&";
+                    }
+
+                    queryString += nameof(lastUpdatedBy) + "=" + lastUpdated;
                 }
             }
             string url = "/forms-apps/" + formsAppId + "/approvals?" + queryString;
