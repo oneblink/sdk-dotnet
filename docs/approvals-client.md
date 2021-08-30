@@ -47,6 +47,7 @@ GetFormSubmissionAdministrationApprovalsResponse response = await approvalsClien
 | `statuses`                | No       | `List<string>` | List of approval status's to be filtered by         |
 | `updatedAfterDateTime`    | No       | `string`       | Approval updated timestamp after to be filtered by  |
 | `updatedBeforeDateTime`   | No       | `string`       | Approval updated timestamp before to be filtered by |
+| `lastUpdatedBy`           | No       | `List<string>` | Last updated by user to be filtered by              |
 
 ### Throws
 
