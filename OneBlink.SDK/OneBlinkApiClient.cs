@@ -1,9 +1,11 @@
+using System;
+using System.Collections.Specialized;
+using System.IO;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using OneBlink.SDK.Model;
-using System.IO;
 
 namespace OneBlink.SDK
 {
@@ -34,6 +36,12 @@ namespace OneBlink.SDK
                 httpRequestMessage.Content = new StringContent(jsonPayload, Encoding.UTF8, "application/json");
             }
             return await SendRequest<Tout>(httpRequestMessage);
+        }
+
+        public async Task<T> SearchRequest<T>(string path, NameValueCollection searchParams)
+        {
+            string url = path + "?" + searchParams.ToString();
+            return await GetRequest<T>(url);
         }
 
         public async Task<T> GetRequest<T>(string path)
