@@ -43,5 +43,9 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public string lastUpdatedBy
+        {
+            get; set;
+        }
     }
 }
