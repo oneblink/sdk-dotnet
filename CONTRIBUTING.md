@@ -9,21 +9,18 @@
 To use the test environment, use the \*Client constructor that includes passing in the apiOrigin, e.g.
 
 ```c#
-string apiOrigin = "https://auth-api-test.blinkm.io"
-FormsClient formsClient = new FormsClient(ACCESS_KEY, SECRET_KEY, apiOrigin);
+FormsClient formsClient = new FormsClient(ACCESS_KEY, SECRET_KEY, TenantName.ONEBLINK_TEST);
 ```
 
 ## Running Tests
 
 Create a file called `.env` in the root directory with the following values configured
 
-**NOTE**: Keys are available in the [1Blink E2E Tests (DO NOT DELETE)](https://console-test.oneblink.io/organisations/5c58beb2ff59481100000002/keys) account.
+**NOTE**: Key secret is available in the [1Blink E2E Tests (DO NOT DELETE)](https://console-test.oneblink.io/organisations/5c58beb2ff59481100000002/keys) account. Find the matching key based on the id below:
 
 ```sh
-ACCESS_KEY=YOUR_ACCESS_KEY
+ACCESS_KEY=5cf9d5e60bf82f1100000001
 SECRET_KEY=YOUR_SECRET_KEY
-ONEBLINK_API_ORIGIN=https://auth-api-test.blinkm.io
-ONEBLINK_PDF_API_ORIGIN=https://pdf-test.blinkm.io
 ```
 
 Run in the project directory
