@@ -50,38 +50,26 @@ namespace OneBlink.SDK
 
         public async Task<FormsSearchResult> Search(bool? isAuthenticated, bool? isPublished, string name, long? formsAppEnvironmentId = null)
         {
-            string queryString = string.Empty;
+            IDictionary<string, string> queryString = new Dictionary<string, string>();
             if (isAuthenticated.HasValue)
             {
-                queryString += "isAuthenticated=" + isAuthenticated.Value.ToString();
+                queryString.Add("isAuthenticated", isAuthenticated.Value.ToString());
             }
             if (isPublished.HasValue)
             {
-                if (queryString != string.Empty)
-                {
-                    queryString += "&";
-                }
-                queryString += "isPublished=" + isPublished.Value.ToString();
+                queryString.Add("isPublished", isPublished.Value.ToString());
             }
             if (String.IsNullOrWhiteSpace(name))
             {
-                if (queryString != string.Empty)
-                {
-                    queryString += "&";
-                }
-                queryString += "name=" + name;
+                queryString.Add("name", name);
             }
             if (formsAppEnvironmentId.HasValue)
             {
-                if (queryString != string.Empty)
-                {
-                    queryString += "&";
-                }
-                queryString += "formsAppEnvironmentId=" + formsAppEnvironmentId.Value;
+                queryString.Add("formsAppEnvironmentId", formsAppEnvironmentId.Value.ToString());
             }
 
-            string url = "/forms?" + queryString;
-            return await this.oneBlinkApiClient.GetRequest<FormsSearchResult>(url);
+            string url = "/forms";
+            return await this.oneBlinkApiClient.GetRequest<FormsSearchResult>(url, queryString);
         }
 
         public async Task<FormSubmissionSearchResult> SearchSubmissions(long formId, int limit = 0, int offset = 0)
@@ -101,60 +89,41 @@ namespace OneBlink.SDK
 
         public async Task<FormSubmissionSearchResult> SearchSubmissions(long formId, DateTime? submissionDateFrom, DateTime? submissionDateTo, int limit = 0, int offset = 0)
         {
-            string queryString = "formId=" + formId;
+            IDictionary<string, string> queryString = new Dictionary<string, string>();
 
             if (submissionDateFrom.HasValue)
             {
-                if (queryString != string.Empty)
-                {
-                    queryString += "&";
-                }
-                queryString += "submissionDateFrom=" + ((DateTime) submissionDateFrom).ToString("yyyy-MM-ddTHH:mm:ssZ");
+                queryString.Add("submissionDateFrom", ((DateTime) submissionDateFrom).ToString("yyyy-MM-ddTHH:mm:ssZ"));
             }
 
             if (submissionDateTo.HasValue)
             {
-                if (queryString != string.Empty)
-                {
-                    queryString += "&";
-                }
-
-                queryString += "submissionDateTo=" + ((DateTime) submissionDateTo).ToString("yyyy-MM-ddTHH:mm:ssZ");
+                queryString.Add("submissionDateTo", ((DateTime) submissionDateTo).ToString("yyyy-MM-ddTHH:mm:ssZ"));
             }
 
             if (limit != 0)
             {
-                if (queryString != string.Empty)
-                {
-                    queryString += "&";
-                }
-
-                queryString += "limit=" + limit;
+                queryString.Add("limit", limit.ToString());
             }
 
             if (offset != 0)
             {
-                if (queryString != string.Empty)
-                {
-                    queryString += "&";
-                }
-
-                queryString += "offset=" + offset;
+                queryString.Add("offset", offset.ToString());
             }
 
-            string url = "/form-submission-meta?" + queryString;
-            return await this.oneBlinkApiClient.GetRequest<FormSubmissionSearchResult>(url);
+            string url = "/form-submission-meta";
+            return await this.oneBlinkApiClient.GetRequest<FormSubmissionSearchResult>(url, queryString);
         }
 
         public async Task<Form> Get(long id, Boolean? injectForms)
         {
-            string queryString = string.Empty;
+            IDictionary<string, string> queryString = new Dictionary<string, string>();
             if (injectForms.HasValue)
             {
-                queryString += "injectForms" + injectForms.ToString();
+                queryString.Add("injectForms", injectForms.ToString());
             }
-            string url = "/forms/" + id.ToString() + "?" + queryString;
-            return await this.oneBlinkApiClient.GetRequest<Form>(url);
+            string url = "/forms/" + id.ToString();
+            return await this.oneBlinkApiClient.GetRequest<Form>(url, queryString);
         }
 
         public async Task<Form> Create(Form newForm)
@@ -167,23 +136,24 @@ namespace OneBlink.SDK
         public async Task<Form> Update(Form formToUpdate, bool overrideLock = false)
         {
             string url = "/forms/" + formToUpdate.id.ToString();
+            IDictionary<string, string> queryString = new Dictionary<string, string>();
             if (overrideLock)
             {
-                url = url + "?overrideLock=true";
+                queryString.Add("overrideLock", "true");
             }
-
-            Form form = await this.oneBlinkApiClient.PutRequest<Form, Form>(url, formToUpdate);
+            Form form = await this.oneBlinkApiClient.PutRequest<Form, Form>(url, queryString, formToUpdate);
             return form;
         }
 
         public async Task Delete(long id, bool overrideLock = false)
         {
             string url = "/forms/" + id.ToString();
+            IDictionary<string, string> queryString = new Dictionary<string, string>();
             if (overrideLock)
             {
-                url = url + "?overrideLock=true";
+                queryString.Add("overrideLock", "true");
             }
-            await this.oneBlinkApiClient.DeleteRequest(url);
+            await this.oneBlinkApiClient.DeleteRequest(url, queryString);
         }
 
         private async Task<FormSubmission<T>> GetFormSubmission<T>(FormSubmissionRetrievalConfiguration formRetrievalData)

@@ -1,6 +1,7 @@
 using System;
-using System.Collections.Specialized;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -38,16 +39,16 @@ namespace OneBlink.SDK
             return await SendRequest<Tout>(httpRequestMessage);
         }
 
-        public async Task<T> SearchRequest<T>(string path, NameValueCollection searchParams)
-        {
-            string url = path + "?" + searchParams.ToString();
-            return await GetRequest<T>(url);
-        }
-
         public async Task<T> GetRequest<T>(string path)
         {
             HttpRequestMessage httpRequestMessage = new HttpRequestMessage(HttpMethod.Get, tenant.oneBlinkAPIOrigin + path);
             return await SendRequest<T>(httpRequestMessage);
+        }
+
+        public async Task<T> GetRequest<T>(string path, IDictionary<string, string> searchParams)
+        {
+            string url = path + CreateQueryString(searchParams);
+            return await GetRequest<T>(url);
         }
 
         public async Task<Stream> GetStreamRequest(string path)
@@ -68,6 +69,12 @@ namespace OneBlink.SDK
             return await SendRequest(httpRequestMessage);
         }
 
+        public async Task<HttpContent> DeleteRequest(string path, IDictionary<string, string> searchParams)
+        {
+            string url = path + CreateQueryString(searchParams);
+            return await DeleteRequest(url);
+        }
+
         public async Task<Tout> PutRequest<T, Tout>(string path, T t)
         {
             HttpRequestMessage httpRequestMessage = new HttpRequestMessage(HttpMethod.Put, tenant.oneBlinkAPIOrigin + path);
@@ -80,6 +87,12 @@ namespace OneBlink.SDK
                 httpRequestMessage.Content = new StringContent(jsonPayload, Encoding.UTF8, "application/json");
             }
             return await SendRequest<Tout>(httpRequestMessage);
+        }
+
+        public async Task<Tout> PutRequest<T, Tout>(string path, IDictionary<string, string> searchParams, T t)
+        {
+            string url = path + CreateQueryString(searchParams);
+            return await PutRequest<T, Tout>(url, t);
         }
     }
 }

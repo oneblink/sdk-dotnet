@@ -2,7 +2,6 @@ using System;
 using OneBlink.SDK.Model;
 using System.Threading.Tasks;
 using System.Collections.Generic;
-using System.Collections.Specialized;
 
 namespace OneBlink.SDK
 {
@@ -34,7 +33,7 @@ namespace OneBlink.SDK
             List<string> lastUpdatedBy = null
         )
         {
-            NameValueCollection searchParams = System.Web.HttpUtility.ParseQueryString(string.Empty);
+            IDictionary<string, string> searchParams = new Dictionary<string, string>();
 
             searchParams.Add(nameof(limit), limit.ToString());
             searchParams.Add(nameof(offset), offset.ToString());
@@ -82,7 +81,7 @@ namespace OneBlink.SDK
                 }
             }
             string url = "/forms-apps/" + formsAppId + "/approvals";
-            return await this.oneBlinkApiClient.SearchRequest<GetFormSubmissionAdministrationApprovalsResponse>(url, searchParams);
+            return await this.oneBlinkApiClient.GetRequest<GetFormSubmissionAdministrationApprovalsResponse>(url, searchParams);
         }
     }
 }

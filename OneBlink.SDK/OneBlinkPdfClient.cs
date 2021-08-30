@@ -5,26 +5,28 @@ using System.Threading.Tasks;
 using OneBlink.SDK.Model;
 using Newtonsoft.Json;
 using System.Text;
+using System.Collections.Generic;
+
 namespace OneBlink.SDK
 {
-  internal class OneBlinkPdfClient : OneBlinkHttpClient
-  {
-    private Tenant tenant;
-    public OneBlinkPdfClient(string accessKey, string secretKey, Tenant tenant, int expiryInSeconds = 300)
-      : base(accessKey, secretKey, expiryInSeconds)
+    internal class OneBlinkPdfClient : OneBlinkHttpClient
     {
-      this.tenant = tenant ?? new Tenant(TenantName.ONEBLINK);
-    }
-    public async Task<Stream> PostRequest(string path)
-    {
-      HttpRequestMessage httpRequestMessage = new HttpRequestMessage(HttpMethod.Post, tenant.oneBlinkPdfOrigin + path);
-      return await StreamRequest(httpRequestMessage);
-    }
+        private Tenant tenant;
+        public OneBlinkPdfClient(string accessKey, string secretKey, Tenant tenant, int expiryInSeconds = 300)
+          : base(accessKey, secretKey, expiryInSeconds)
+        {
+            this.tenant = tenant ?? new Tenant(TenantName.ONEBLINK);
+        }
+        public async Task<Stream> PostRequest(string path)
+        {
+            HttpRequestMessage httpRequestMessage = new HttpRequestMessage(HttpMethod.Post, tenant.oneBlinkPdfOrigin + path);
+            return await StreamRequest(httpRequestMessage);
+        }
 
-    public async Task<Stream> PostRequest<T>(string path, T t)
-    {
-      HttpRequestMessage httpRequestMessage = new HttpRequestMessage(HttpMethod.Post, tenant.oneBlinkPdfOrigin + path);
-      if (t != null)
+        public async Task<Stream> PostRequest<T>(string path, T t)
+        {
+            HttpRequestMessage httpRequestMessage = new HttpRequestMessage(HttpMethod.Post, tenant.oneBlinkPdfOrigin + path);
+            if (t != null)
             {
                 string jsonPayload = JsonConvert.SerializeObject(t, new JsonSerializerSettings
                 {
@@ -32,7 +34,13 @@ namespace OneBlink.SDK
                 });
                 httpRequestMessage.Content = new StringContent(jsonPayload, Encoding.UTF8, "application/json");
             }
-      return await StreamRequest(httpRequestMessage);
+            return await StreamRequest(httpRequestMessage);
+        }
+
+        public async Task<Stream> PostRequest<T>(string path, IDictionary<string, string> searchParams, T t)
+        {
+            string url = path + CreateQueryString(searchParams);
+            return await PostRequest(url, t);
+        }
     }
-  }
 }
