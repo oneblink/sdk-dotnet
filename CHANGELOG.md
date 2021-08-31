@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 2.5.0 (2021-08-31)
+
 ### Added
 
 -   `lastUpdatedBy`, `updatedAfterDateTime` and `updatedBeforeDateTime` parameters to `ApprovalsClient.GetFormSubmissionAdministrationApprovals()`
