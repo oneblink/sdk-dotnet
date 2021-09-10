@@ -126,5 +126,11 @@ namespace OneBlink.SDK
             string url = "/form-submission-approvals/" + formSubmissionApprovalId.ToString();
             return await this.oneBlinkApiClient.GetRequest<GetFormSubmissionApprovalResponse>(url);
         }
+
+        public async Task<GetFormApprovalFlowInstanceResponse> GetFormApprovalFlowInstance(long formApprovalFlowInstanceId)
+        {
+            string url = "/form-approvals-flow-instances/" + formApprovalFlowInstanceId.ToString();
+            return await this.oneBlinkApiClient.GetRequest<GetFormApprovalFlowInstanceResponse>(url);
+        }
     }
 }
