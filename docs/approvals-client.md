@@ -3,6 +3,7 @@
 ## Instance Functions
 
 -   [`GetFormSubmissionAdministrationApprovals()`](#getformsubmissionadministrationapprovals)
+-   [`GetFormSubmissionApproval()`](#getformsubmissionapproval)
 
 ## Constructor
 
@@ -57,3 +58,27 @@ GetFormSubmissionAdministrationApprovalsResponse response = await approvalsClien
 ### Result
 
 A `GetFormSubmissionAdministrationApprovalsResponse` Object
+
+## `GetFormSubmissionApproval()`
+
+### Example
+
+```c#
+long formSubmissionApprovalId = 1;
+GetFormSubmissionApprovalResponse response = await approvalsClient.GetFormSubmissionApproval(formSubmissionApprovalId);
+```
+
+### Parameters
+
+| Parameter                  | Required | Type   | Description          |
+| -------------------------- | -------- | ------ | -------------------- |
+| `formSubmissionApprovalId` | Yes      | `long` | The form approval id |
+
+### Throws
+
+-   `OneBlinkAPIException`
+-   `Exception`
+
+### Result
+
+A `GetFormSubmissionApprovalResponse` Object
