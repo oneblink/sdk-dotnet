@@ -120,7 +120,7 @@ namespace OneBlink.SDK
         }
 
         public async Task<GetFormSubmissionApprovalResponse> GetFormSubmissionApproval(
-            long formSubmissionApprovalId
+            Guid formSubmissionApprovalId
         )
         {
             string url = "/form-submission-approvals/" + formSubmissionApprovalId.ToString();

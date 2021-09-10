@@ -73,7 +73,7 @@ GetFormSubmissionApprovalResponse response = await approvalsClient.GetFormSubmis
 
 | Parameter                  | Required | Type   | Description                     |
 | -------------------------- | -------- | ------ | ------------------------------- |
-| `formSubmissionApprovalId` | Yes      | `long` | The form submission approval id |
+| `formSubmissionApprovalId` | Yes      | `Guid` | The form submission approval id |
 
 ### Throws
 
