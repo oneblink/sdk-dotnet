@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Added
+
+-   `GetFormSubmissionApproval` to `ApprovalsClient`
+
 ## 2.5.0 (2021-08-31)
 
 ### Added
