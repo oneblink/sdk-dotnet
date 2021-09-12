@@ -129,7 +129,8 @@ namespace OneBlink.SDK
 
         public async Task<GetFormApprovalFlowInstanceResponse> GetFormApprovalFlowInstance(long formApprovalFlowInstanceId)
         {
-            string url = "/form-approvals-flow-instances/" + formApprovalFlowInstanceId.ToString();
+            string url = "/form-approval-flow-instances/" + formApprovalFlowInstanceId.ToString();
+
             return await this.oneBlinkApiClient.GetRequest<GetFormApprovalFlowInstanceResponse>(url);
         }
     }
