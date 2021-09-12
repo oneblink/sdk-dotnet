@@ -4,6 +4,7 @@
 
 -   [`GetFormSubmissionAdministrationApprovals()`](#getformsubmissionadministrationapprovals)
 -   [`GetFormSubmissionApproval()`](#getformsubmissionapproval)
+-   [`GetFormApprovalFlowInstance()`](#getformapprovalflowinstance)
 
 ## Constructor
 
@@ -70,9 +71,9 @@ GetFormSubmissionApprovalResponse response = await approvalsClient.GetFormSubmis
 
 ### Parameters
 
-| Parameter                  | Required | Type   | Description          |
-| -------------------------- | -------- | ------ | -------------------- |
-| `formSubmissionApprovalId` | Yes      | `long` | The form approval id |
+| Parameter                  | Required | Type   | Description                     |
+| -------------------------- | -------- | ------ | ------------------------------- |
+| `formSubmissionApprovalId` | Yes      | `Guid` | The form submission approval id |
 
 ### Throws
 
@@ -82,3 +83,27 @@ GetFormSubmissionApprovalResponse response = await approvalsClient.GetFormSubmis
 ### Result
 
 A `GetFormSubmissionApprovalResponse` Object
+
+## `GetFormApprovalFlowInstance()`
+
+### Example
+
+```c#
+long formApprovalFlowInstanceId = 1;
+GetFormApprovalFlowInstanceResponse response = await approvalsClient.GetFormApprovalFlowInstance(formApprovalFlowInstanceId);
+```
+
+### Parameters
+
+| Parameter                    | Required | Type   | Description                        |
+| ---------------------------- | -------- | ------ | ---------------------------------- |
+| `formApprovalFlowInstanceId` | Yes      | `long` | The form approval flow instance id |
+
+### Throws
+
+-   `OneBlinkAPIException`
+-   `Exception`
+
+### Result
+
+A `GetFormApprovalFlowInstanceResponse` Object

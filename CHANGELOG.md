@@ -5,6 +5,7 @@
 ### Added
 
 -   `GetFormSubmissionApproval` to `ApprovalsClient`
+-   `GetFormApprovalFlowInstance` to `ApprovalsClient`
 
 ## 2.5.0 (2021-08-31)
 
