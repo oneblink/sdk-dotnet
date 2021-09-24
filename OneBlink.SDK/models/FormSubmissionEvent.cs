@@ -68,7 +68,8 @@ namespace OneBlink.SDK.Model
             bool isDraft = false,
             List<ConditionallyShowPredicate> conditionallyExecutePredicates = default(List<ConditionallyShowPredicate>),
             bool conditionallyExecute = false,
-            bool requiresAllConditionallyExecutePredicates = false)
+            bool requiresAllConditionallyExecutePredicates = false,
+            bool groupFiles = false)
         {
             FormSubmissionEventConfigration fseconfig = new FormSubmissionEventConfigration();
             fseconfig.environmentId = environmentId;
@@ -77,6 +78,7 @@ namespace OneBlink.SDK.Model
             fseconfig.recordType = recordType;
             fseconfig.actionDefinition = actionDefinition;
             fseconfig.location = location;
+            fseconfig.groupFiles = groupFiles;
             FormSubmissionEvent trim = new FormSubmissionEvent();
             trim.type = "TRIM";
             trim.isDraft = isDraft;
