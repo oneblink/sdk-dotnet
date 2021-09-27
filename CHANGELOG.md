@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 2.5.2 (2021-09-27)
+
 ### Added
 
 -   `groupFiles` to `FormSubmissionEventConfigration`
