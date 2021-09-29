@@ -32,15 +32,7 @@ namespace OneBlink.SDK
                 }
                 queryString += "includeSubmissionIdInPdf=" + includeSubmissionIdInPdf.Value.ToString();
             }
-            if (usePagesAsBreaks.HasValue)
-            {
-                if (queryString != string.Empty)
-                {
-                    queryString += "&";
-                }
-                queryString += "usePagesAsBreaks=" + usePagesAsBreaks.Value.ToString();
-            }
-            GetSubmissionPdfRequest body = new GetSubmissionPdfRequest() { excludedElementIds = excludedElementIds };
+            GetSubmissionPdfRequest body = new GetSubmissionPdfRequest() { excludedElementIds = excludedElementIds, usePagesAsBreaks = usePagesAsBreaks };
 
 
             string url = "/forms/" + formId.ToString() + "/submissions/" + submissionId + "/pdf-document?" + queryString;
