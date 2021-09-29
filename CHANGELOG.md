@@ -5,6 +5,7 @@
 ### Added
 
 -   `usePagesAsBreaks` to `FormSubmissionEventConfigration`
+-   `usePagesAsBreaks` to `PdfClient.GetSubmissionPdf()`
 
 ## 2.5.2 (2021-09-27)
 
