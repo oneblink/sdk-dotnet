@@ -145,8 +145,11 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
-
         public bool? groupFiles
+        {
+            get; set;
+        }
+        public bool? usePagesAsBreaks
         {
             get; set;
         }
