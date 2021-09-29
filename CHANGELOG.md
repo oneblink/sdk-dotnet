@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Added
+
+-   `usePagesAsBreaks` to `FormSubmissionEventConfigration`
+
 ## 2.5.2 (2021-09-27)
 
 ### Added

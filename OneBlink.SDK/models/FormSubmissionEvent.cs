@@ -69,7 +69,9 @@ namespace OneBlink.SDK.Model
             List<ConditionallyShowPredicate> conditionallyExecutePredicates = default(List<ConditionallyShowPredicate>),
             bool conditionallyExecute = false,
             bool requiresAllConditionallyExecutePredicates = false,
-            bool groupFiles = false)
+            bool groupFiles = false,
+            List<string> excludedElementIds = default(List<string>),
+            bool? usePagesAsBreaks = null)
         {
             FormSubmissionEventConfigration fseconfig = new FormSubmissionEventConfigration();
             fseconfig.environmentId = environmentId;
@@ -79,6 +81,8 @@ namespace OneBlink.SDK.Model
             fseconfig.actionDefinition = actionDefinition;
             fseconfig.location = location;
             fseconfig.groupFiles = groupFiles;
+            fseconfig.excludedElementIds = excludedElementIds;
+            fseconfig.usePagesAsBreaks = true;
             FormSubmissionEvent trim = new FormSubmissionEvent();
             trim.type = "TRIM";
             trim.isDraft = isDraft;
@@ -109,7 +113,9 @@ namespace OneBlink.SDK.Model
             FormSubmissionEventCivicaCustomerContactMethod civicaCustomerContactMethod, FormSubmissionEventCivicaRecord civicaCategory,
             List<FormSubmissionEventCivicaElementMapping> mapping,
             string pdfFileName = null, Boolean? includeSubmissionIdInPdf = null,
-            List<string> excludedElementIds = default(List<string>), bool isDraft = false)
+            List<string> excludedElementIds = default(List<string>),
+            bool isDraft = false,
+            bool? usePagesAsBreaks = null)
         {
             FormSubmissionEventConfigration fseconfig = new FormSubmissionEventConfigration();
             fseconfig.environmentId = environmentId;
@@ -119,6 +125,7 @@ namespace OneBlink.SDK.Model
             fseconfig.pdfFileName = pdfFileName;
             fseconfig.includeSubmissionIdInPdf = includeSubmissionIdInPdf;
             fseconfig.excludedElementIds = excludedElementIds;
+            fseconfig.usePagesAsBreaks = usePagesAsBreaks;
             FormSubmissionEvent civicaCrm = new FormSubmissionEvent();
             civicaCrm.type = "CIVICA_CRM";
             civicaCrm.configuration = fseconfig;
@@ -146,6 +153,28 @@ namespace OneBlink.SDK.Model
             schedulingEvent.configuration = fseconfig;
             schedulingEvent.isDraft = isDraft;
             return schedulingEvent;
+        }
+
+        public static FormSubmissionEvent CreatePDFSubmissionEvent(
+            string email,
+            string emailSubjectLine = null,
+            string pdfFileName = null,
+            bool? includeSubmissionIdInPdf = null,
+            List<string> excludedElementIds = default(List<string>),
+            bool? usePagesAsBreaks = null
+        )
+        {
+            FormSubmissionEventConfigration fseconfig = new FormSubmissionEventConfigration();
+            fseconfig.email = email;
+            fseconfig.emailSubjectLine = emailSubjectLine;
+            fseconfig.pdfFileName = pdfFileName;
+            fseconfig.includeSubmissionIdInPdf = includeSubmissionIdInPdf;
+            fseconfig.excludedElementIds = excludedElementIds;
+            fseconfig.usePagesAsBreaks = usePagesAsBreaks;
+            FormSubmissionEvent pdfEvent = new FormSubmissionEvent();
+            pdfEvent.type = "PDF";
+
+            return pdfEvent;
         }
     }
 }
