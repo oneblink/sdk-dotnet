@@ -41,6 +41,7 @@ Stream response = await pdfClient.GetSubmissionPdf(formId, submissionId);
 | `isDraft`                  | No       | `bool?`      | `true` if the submission is a draft submission, otherwise `false`                                                                                         |
 | `includeSubmissionIdInPdf` | No       | `bool?`      | `true` to include the submission identifier in the PDF, otherwise `false`                                                                                 |
 | `excludedElementIds`       | No       | `List<Guid>` | Optional list of element id's to be excluded from the pdf document                                                                                        |
+| `usePagesAsBreaks`         | No       | `bool?`      | `true` to use Pages as page breaks in the PDF, otherwise `false`                                                                                          |
 
 ### Throws
 
