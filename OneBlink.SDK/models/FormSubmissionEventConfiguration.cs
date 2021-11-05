@@ -153,7 +153,7 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
-        public FormSubmissionEventPdfEmailTemplate emailTemplate
+        public FormSubmissionEventEmailTemplate emailTemplate
         {
             get; set;
         }
