@@ -120,7 +120,7 @@ namespace OneBlink.SDK.Model
             bool? usePagesAsBreaks = null,
             List<ConditionallyShowPredicate> conditionallyExecutePredicates = default(List<ConditionallyShowPredicate>),
             bool conditionallyExecute = false,
-            bool requiresAllConditionallyExecutePredicates = false,)
+            bool requiresAllConditionallyExecutePredicates = false)
         {
             FormSubmissionEventConfigration fseconfig = new FormSubmissionEventConfigration();
             fseconfig.environmentId = environmentId;
