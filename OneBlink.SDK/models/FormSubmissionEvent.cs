@@ -161,7 +161,8 @@ namespace OneBlink.SDK.Model
             string pdfFileName = null,
             bool? includeSubmissionIdInPdf = null,
             List<string> excludedElementIds = default(List<string>),
-            bool? usePagesAsBreaks = null
+            bool? usePagesAsBreaks = null,
+            FormSubmissionEventEmailTemplate emailTemplate = null
         )
         {
             FormSubmissionEventConfigration fseconfig = new FormSubmissionEventConfigration();
@@ -171,6 +172,7 @@ namespace OneBlink.SDK.Model
             fseconfig.includeSubmissionIdInPdf = includeSubmissionIdInPdf;
             fseconfig.excludedElementIds = excludedElementIds;
             fseconfig.usePagesAsBreaks = usePagesAsBreaks;
+            fseconfig.emailTemplate = emailTemplate;
             FormSubmissionEvent pdfEvent = new FormSubmissionEvent();
             pdfEvent.type = "PDF";
 

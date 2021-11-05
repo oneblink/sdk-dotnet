@@ -1,7 +1,7 @@
 using System;
 namespace OneBlink.SDK.Model
 {
-    public class FormSubmissionEventPdfEmailTemplateMapping
+    public class FormSubmissionEventEmailTemplateMapping
     {
         public string mustacheTag
         {

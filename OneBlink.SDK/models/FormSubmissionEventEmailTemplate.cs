@@ -1,13 +1,13 @@
 using System.Collections.Generic;
 namespace OneBlink.SDK.Model
 {
-    public class FormSubmissionEventPdfEmailTemplate
+    public class FormSubmissionEventEmailTemplate
     {
         public long id
         {
             get; set;
         }
-        public List<FormSubmissionEventPdfEmailTemplateMapping> mapping
+        public List<FormSubmissionEventEmailTemplateMapping> mapping
         {
             get; set;
         }
