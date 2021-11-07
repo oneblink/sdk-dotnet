@@ -109,13 +109,18 @@ namespace OneBlink.SDK.Model
             return westpacQuickWeb;
         }
 
-        public static FormSubmissionEvent CreateCivicaCrmSubmissionEvent(Guid environmentId,
-            FormSubmissionEventCivicaCustomerContactMethod civicaCustomerContactMethod, FormSubmissionEventCivicaRecord civicaCategory,
+        public static FormSubmissionEvent CreateCivicaCrmSubmissionEvent(
+            Guid environmentId,
+            FormSubmissionEventCivicaCustomerContactMethod civicaCustomerContactMethod,
+            FormSubmissionEventCivicaRecord civicaCategory,
             List<FormSubmissionEventCivicaElementMapping> mapping,
             string pdfFileName = null, Boolean? includeSubmissionIdInPdf = null,
             List<string> excludedElementIds = default(List<string>),
             bool isDraft = false,
-            bool? usePagesAsBreaks = null)
+            bool? usePagesAsBreaks = null,
+            List<ConditionallyShowPredicate> conditionallyExecutePredicates = default(List<ConditionallyShowPredicate>),
+            bool conditionallyExecute = false,
+            bool requiresAllConditionallyExecutePredicates = false)
         {
             FormSubmissionEventConfigration fseconfig = new FormSubmissionEventConfigration();
             fseconfig.environmentId = environmentId;
@@ -130,6 +135,12 @@ namespace OneBlink.SDK.Model
             civicaCrm.type = "CIVICA_CRM";
             civicaCrm.configuration = fseconfig;
             civicaCrm.isDraft = isDraft;
+            civicaCrm.conditionallyExecute = conditionallyExecute;
+            civicaCrm.requiresAllConditionallyExecutePredicates = requiresAllConditionallyExecutePredicates;
+            if (conditionallyExecutePredicates != default(List<ConditionallyShowPredicate>))
+            {
+                civicaCrm.conditionallyExecutePredicates = conditionallyExecutePredicates;
+            }
             return civicaCrm;
         }
 
@@ -162,7 +173,11 @@ namespace OneBlink.SDK.Model
             bool? includeSubmissionIdInPdf = null,
             List<string> excludedElementIds = default(List<string>),
             bool? usePagesAsBreaks = null,
-            FormSubmissionEventEmailTemplate emailTemplate = null
+            FormSubmissionEventEmailTemplate emailTemplate = null,
+            bool isDraft = false,
+            List<ConditionallyShowPredicate> conditionallyExecutePredicates = default(List<ConditionallyShowPredicate>),
+            bool conditionallyExecute = false,
+            bool requiresAllConditionallyExecutePredicates = false
         )
         {
             FormSubmissionEventConfigration fseconfig = new FormSubmissionEventConfigration();
@@ -175,6 +190,14 @@ namespace OneBlink.SDK.Model
             fseconfig.emailTemplate = emailTemplate;
             FormSubmissionEvent pdfEvent = new FormSubmissionEvent();
             pdfEvent.type = "PDF";
+            pdfEvent.configuration = fseconfig;
+            pdfEvent.isDraft = isDraft;
+            pdfEvent.conditionallyExecute = conditionallyExecute;
+            pdfEvent.requiresAllConditionallyExecutePredicates = requiresAllConditionallyExecutePredicates;
+            if (conditionallyExecutePredicates != default(List<ConditionallyShowPredicate>))
+            {
+                pdfEvent.conditionallyExecutePredicates = conditionallyExecutePredicates;
+            }
 
             return pdfEvent;
         }
