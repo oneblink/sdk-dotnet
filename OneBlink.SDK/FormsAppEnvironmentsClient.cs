@@ -18,7 +18,7 @@ namespace OneBlink.SDK
 
         public async Task<FormsAppEnvironmentsSearchResult> Search(string organisationId, int? limit = null, int? offset = null)
         {
-            string queryString = "organisationId" + organisationId;
+            string queryString = "organisationId=" + organisationId;
 
             if (limit.HasValue)
             {
