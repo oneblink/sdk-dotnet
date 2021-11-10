@@ -55,9 +55,9 @@ namespace OneBlink.SDK.Tests
         public async void can_search_forms_app_environments()
         {
             FormsAppEnvironmentsClient formsAppEnvironmentsClient = new FormsAppEnvironmentsClient(ACCESS_KEY, SECRET_KEY, TenantName.ONEBLINK_TEST);
-            FormsAppEnvironmentsSearchResult results = await formsAppEnvironmentsClient.Search(organisationId, null, null);
+            FormsAppEnvironmentsSearchResult results = await formsAppEnvironmentsClient.Search(null, null);
             Assert.NotNull(results);
-            Assert.True(results.formsAppEnvironments.Count > 0, "Expected at least 1 environment ");
+            Assert.True(results.formsAppEnvironments.Count > 0, "Expected at least 1 environment");
         }
 
         [Fact]
