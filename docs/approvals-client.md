@@ -41,7 +41,7 @@ GetFormSubmissionAdministrationApprovalsResponse response = await approvalsClien
 | `formsAppId`              | Yes      | `long`         | The approvals app id                                |
 | `limit`                   | Yes      | `long`         | The number of records to be fetch                   |
 | `offset`                  | Yes      | `long`         | The number of records to be skipped                 |
-| `fomrId`                  | No       | `long?`        | The id of the form to be filtered by                |
+| `formId`                  | No       | `long?`        | The id of the form to be filtered by                |
 | `externalId`              | No       | `string`       | A submission externalId to be filtered by           |
 | `submissionId`            | No       | `string`       | A submission submissionId to be filtered by         |
 | `submittedAfterDateTime`  | No       | `string`       | Submission timestamp after to be filtered by        |
