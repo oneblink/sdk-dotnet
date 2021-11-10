@@ -31,20 +31,18 @@ FormsAppEnvironmentsClient formsAppEnvironmentsClient = new FormsAppEnvironments
 
 ```c#
 
-string organisationId = "abc123";
 int? limit = null;
 int? offset = null;
 
-OneBlink.SDK.Model.FormsAppEnvironmentsSearchResult response = await formsAppEnvironmentsClient.Search(organisationId, limit, offset);
+OneBlink.SDK.Model.FormsAppEnvironmentsSearchResult response = await formsAppEnvironmentsClient.Search(limit, offset);
 ```
 
 ### Parameters
 
-| Parameter        | Required | Type     | Description                                                          |
-| ---------------- | -------- | -------- | -------------------------------------------------------------------- |
-| `organisationId` | Yes      | `string` | Id of the organisation this forms app environment is associated too. |
-| `limit`          | No       | `int?`   | The number of records to be fetch                                    |
-| `offset`         | No       | `int?`   | The number of records to be skipped                                  |
+| Parameter | Required | Type   | Description                         |
+| --------- | -------- | ------ | ----------------------------------- |
+| `limit`   | No       | `int?` | The number of records to be fetch   |
+| `offset`  | No       | `int?` | The number of records to be skipped |
 
 ### Throws
 

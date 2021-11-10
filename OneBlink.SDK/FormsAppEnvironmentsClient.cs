@@ -16,20 +16,20 @@ namespace OneBlink.SDK
             );
         }
 
-        public async Task<FormsAppEnvironmentsSearchResult> Search(string organisationId, int? limit = null, int? offset = null)
+        public async Task<FormsAppEnvironmentsSearchResult> Search(int? limit = null, int? offset = null)
         {
-            string queryString = "organisationId=" + organisationId;
+            string queryString = string.Empty;
 
             if (limit.HasValue)
             {
-                queryString += "&";
-
                 queryString += "limit=" + limit.Value;
             }
             if (offset.HasValue)
             {
-                queryString += "&";
-
+                if (queryString != string.Empty)
+                {
+                    queryString += "&";
+                }
                 queryString += "offset=" + offset.Value;
             }
             string url = "/forms-app-environments?" + queryString;
