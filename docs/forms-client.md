@@ -345,7 +345,7 @@ A `Form` class
 
 ## `Update()`
 
-Update a new form
+Update a form
 
 ### Example
 
@@ -376,9 +376,9 @@ A `Form` class
 ### Example
 
 ```c#
-string jobId = 1;
+long formId = 1;
 
-await formsClient.Delete(long id);
+await formsClient.Delete(formId);
 ```
 
 ### Parameters
