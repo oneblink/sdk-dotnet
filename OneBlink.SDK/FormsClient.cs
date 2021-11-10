@@ -48,7 +48,14 @@ namespace OneBlink.SDK
             return await GetFormSubmission<T>(formRetrievalData);
         }
 
-        public async Task<FormsSearchResult> Search(bool? isAuthenticated, bool? isPublished, string name, long? formsAppEnvironmentId = null)
+        public async Task<FormsSearchResult> Search(bool? isAuthenticated,
+            bool? isPublished,
+            string name,
+            long? formsAppEnvironmentId = null,
+            bool? isInfoPage = null,
+            long? formsAppId = null,
+            int? limit = null,
+            int? offset = null)
         {
             string queryString = string.Empty;
             if (isAuthenticated.HasValue)
@@ -78,6 +85,42 @@ namespace OneBlink.SDK
                     queryString += "&";
                 }
                 queryString += "formsAppEnvironmentId=" + formsAppEnvironmentId.Value;
+            }
+
+            if (isInfoPage.HasValue)
+            {
+                if (queryString != string.Empty)
+                {
+                    queryString += "&";
+                }
+                queryString += "isInfoPage=" + isInfoPage.Value;
+            }
+
+            if (formsAppId.HasValue)
+            {
+                if (queryString != string.Empty)
+                {
+                    queryString += "&";
+                }
+                queryString += "formsAppId=" + formsAppId.Value;
+            }
+
+            if (limit.HasValue)
+            {
+                if (queryString != string.Empty)
+                {
+                    queryString += "&";
+                }
+                queryString += "limit=" + limit.Value;
+            }
+
+            if (offset.HasValue)
+            {
+                if (queryString != string.Empty)
+                {
+                    queryString += "&";
+                }
+                queryString += "offset=" + offset.Value;
             }
 
             string url = "/forms?" + queryString;

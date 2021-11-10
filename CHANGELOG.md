@@ -7,6 +7,10 @@
 -   `emailTemplate` to `FormSubmissionEventConfiguration`
 -   Added `FormsAppEnvironmentsClient`
 
+### Changed
+
+-   Updated `FormsClient.Search()` parameters.
+
 ## 2.5.3 (2021-10-05)
 
 ### Added
