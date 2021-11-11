@@ -9,6 +9,8 @@ namespace OneBlink.SDK.Tests
 {
     public class EmailTemplatesClientTests
     {
+        private string ACCESS_KEY;
+        private string SECRET_KEY;
         private int formsAppEnvironmentId = 22;
         public EmailTemplatesClientTests()
         {
@@ -17,10 +19,6 @@ namespace OneBlink.SDK.Tests
             ACCESS_KEY = Environment.GetEnvironmentVariable("ACCESS_KEY");
             SECRET_KEY = Environment.GetEnvironmentVariable("SECRET_KEY");
             string organisationId = Environment.GetEnvironmentVariable("ORGANISATION_ID");
-            if (!String.IsNullOrWhiteSpace(organisationId))
-            {
-                this.organisationId = organisationId;
-            }
             string formsAppEnvironmentId = Environment.GetEnvironmentVariable("FORMS_APP_ENVIRONMENT_ID");
             if (!String.IsNullOrWhiteSpace(formsAppEnvironmentId))
             {
