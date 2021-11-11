@@ -4,6 +4,7 @@
 
 -   [FormsClient](./forms-client.md)
 -   [FormsAppsClient](./forms-apps-client.md)
+-   [FormsAppEnvironmentClient](./forms-app-environments.md)
 -   [PdfClient](./pdf-client.md)
 -   [TeamMembersClient](./team-members-client.md)
 -   [JobsClient](./jobs-client.md)
