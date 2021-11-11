@@ -4,7 +4,7 @@
 
 ### Added
 
--   Added `EmailTemplate` and related classes.
+-   Added `EmailTemplatesClient`
 
 ## 2.5.4 (2021-11-11)
 
