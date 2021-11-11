@@ -9,9 +9,6 @@ namespace OneBlink.SDK.Tests
 {
     public class EmailTemplatesClientTests
     {
-        private string ACCESS_KEY;
-        private string SECRET_KEY;
-        private string organisationId = "5c58beb2ff59481100000002";
         private int formsAppEnvironmentId = 22;
         public EmailTemplatesClientTests()
         {

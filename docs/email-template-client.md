@@ -22,7 +22,7 @@
 using OneBlink.SDK;
 string accessKey= "123455678901ABCDEFGHIJKL";
 string secretKey= "123455678901ABCDEFGHIJKL123455678901ABCDEFGHIJKL";
-EmailTemplateClient emailTemplateClient = new emailTemplateClient(accessKey, secretKey);
+EmailTemplatesClient emailTemplatesClient = new emailTemplatesClient(accessKey, secretKey);
 ```
 
 ## `Search()`
@@ -34,7 +34,7 @@ long emailTemplateId = 42;
 int? limit = null;
 int? offset = null;
 
-OneBlink.SDK.Model.EmailTemplateSearchResult response = await EmailTemplateClient.Search(emailTemplateId, limit, offset);
+OneBlink.SDK.Model.EmailTemplatesSearchResult response = await EmailTemplatesClient.Search(emailTemplateId, limit, offset);
 ```
 
 ### Parameters
@@ -52,7 +52,7 @@ OneBlink.SDK.Model.EmailTemplateSearchResult response = await EmailTemplateClien
 
 ### Result
 
-A `EmailTemplateSearchResult` class
+A `EmailTemplatesSearchResult` class
 
 ## `Get()`
 
@@ -63,7 +63,7 @@ Retrieve an email template by id
 ```c#
 long id = 123;
 
-OneBlink.SDK.Model.EmailTemplate emailTemplate = await emailTemplateClient.Get(id);
+OneBlink.SDK.Model.EmailTemplate emailTemplate = await emailTemplatesClient.Get(id);
 ```
 
 ### Parameters
@@ -90,7 +90,7 @@ Create a new email template
 ```c#
 EmailTemplate newEmailTemplate = {...};
 
-OneBlink.SDK.Model.EmailTemplate savedEmailTemplate = await EmailTemplateClient.Create(newEmailTemplate);
+OneBlink.SDK.Model.EmailTemplate savedEmailTemplate = await EmailTemplatesClient.Create(newEmailTemplate);
 ```
 
 ### Parameters
@@ -117,7 +117,7 @@ Update a email template
 ```c#
 EmailTemplate emailTemplateToUpdate = {...};
 
-OneBlink.SDK.Model.EmailTemplate updatedEmailTemplate = await emailTemplateClient.Update(emailTemplateToUpdate);
+OneBlink.SDK.Model.EmailTemplate updatedEmailTemplate = await emailTemplatesClient.Update(emailTemplateToUpdate);
 ```
 
 ### Parameters
@@ -142,7 +142,7 @@ A `EmailTemplate` class
 ```c#
 long emailTemplateId = 1;
 
-await emailTemplate.Delete(emailTemplateId);
+await emailTemplatesClient.Delete(emailTemplateId);
 ```
 
 ### Parameters
