@@ -1,4 +1,4 @@
-# OneBlink .Net SDK | EmailTemplate Class
+# OneBlink .Net SDK | EmailTemplatesClient Class
 
 ## Instance Functions
 
@@ -22,7 +22,7 @@
 using OneBlink.SDK;
 string accessKey= "123455678901ABCDEFGHIJKL";
 string secretKey= "123455678901ABCDEFGHIJKL123455678901ABCDEFGHIJKL";
-EmailTemplatesClient emailTemplatesClient = new emailTemplatesClient(accessKey, secretKey);
+EmailTemplatesClient emailTemplatesClient = new EmailTemplatesClient(accessKey, secretKey);
 ```
 
 ## `Search()`
@@ -34,7 +34,7 @@ long emailTemplateId = 42;
 int? limit = null;
 int? offset = null;
 
-OneBlink.SDK.Model.EmailTemplatesSearchResult response = await EmailTemplatesClient.Search(emailTemplateId, limit, offset);
+OneBlink.SDK.Model.EmailTemplatesSearchResult response = await emailTemplatesClient.Search(emailTemplateId, limit, offset);
 ```
 
 ### Parameters
@@ -90,7 +90,7 @@ Create a new email template
 ```c#
 EmailTemplate newEmailTemplate = {...};
 
-OneBlink.SDK.Model.EmailTemplate savedEmailTemplate = await EmailTemplatesClient.Create(newEmailTemplate);
+OneBlink.SDK.Model.EmailTemplate savedEmailTemplate = await emailTemplatesClient.Create(newEmailTemplate);
 ```
 
 ### Parameters

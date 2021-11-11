@@ -18,7 +18,6 @@ namespace OneBlink.SDK.Tests
             DotEnv.Config(raiseException, Path.GetFullPath(Path.Combine(Directory.GetCurrentDirectory(), "..", "..", "..", "..")) + "/.env");
             ACCESS_KEY = Environment.GetEnvironmentVariable("ACCESS_KEY");
             SECRET_KEY = Environment.GetEnvironmentVariable("SECRET_KEY");
-            string organisationId = Environment.GetEnvironmentVariable("ORGANISATION_ID");
             string formsAppEnvironmentId = Environment.GetEnvironmentVariable("FORMS_APP_ENVIRONMENT_ID");
             if (!String.IsNullOrWhiteSpace(formsAppEnvironmentId))
             {
@@ -28,8 +27,8 @@ namespace OneBlink.SDK.Tests
         [Fact]
         public void can_be_constructed()
         {
-            EmailTemplatesClient EmailTemplatesClient = new EmailTemplatesClient(ACCESS_KEY, SECRET_KEY, TenantName.ONEBLINK_TEST);
-            Assert.NotNull(EmailTemplatesClient);
+            EmailTemplatesClient emailTemplatesClient = new EmailTemplatesClient(ACCESS_KEY, SECRET_KEY, TenantName.ONEBLINK_TEST);
+            Assert.NotNull(emailTemplatesClient);
         }
 
         [Fact]
@@ -37,7 +36,7 @@ namespace OneBlink.SDK.Tests
         {
             try
             {
-                EmailTemplatesClient emailTemplateClient = new EmailTemplatesClient("", "");
+                EmailTemplatesClient emailTemplatesClient = new EmailTemplatesClient("", "");
             }
             catch (Exception ex)
             {
@@ -48,8 +47,8 @@ namespace OneBlink.SDK.Tests
         [Fact]
         public async void can_search_email_templates()
         {
-            EmailTemplatesClient emailTemplateClient = new EmailTemplatesClient(ACCESS_KEY, SECRET_KEY, TenantName.ONEBLINK_TEST);
-            EmailTemplatesSearchResult results = await emailTemplateClient.Search(formsAppEnvironmentId, null, null);
+            EmailTemplatesClient emailTemplatesClient = new EmailTemplatesClient(ACCESS_KEY, SECRET_KEY, TenantName.ONEBLINK_TEST);
+            EmailTemplatesSearchResult results = await emailTemplatesClient.Search(formsAppEnvironmentId, null, null);
             Assert.NotNull(results);
             Assert.True(results.emailTemplates.Count > 0, "Expected at least 1 email template");
         }
@@ -63,23 +62,23 @@ namespace OneBlink.SDK.Tests
             newEmailTemplate.formsAppEnvironmentId = formsAppEnvironmentId;
             newEmailTemplate.type = "FORM_SUBMISSION_EVENT_PDF";
 
-            EmailTemplatesClient emailTemplateClient = new EmailTemplatesClient(ACCESS_KEY, SECRET_KEY, TenantName.ONEBLINK_TEST);
-            EmailTemplate savedEmailClient = await emailTemplateClient.Create(newEmailTemplate);
+            EmailTemplatesClient emailTemplatesClient = new EmailTemplatesClient(ACCESS_KEY, SECRET_KEY, TenantName.ONEBLINK_TEST);
+            EmailTemplate savedEmailClient = await emailTemplatesClient.Create(newEmailTemplate);
             Assert.NotNull(savedEmailClient);
 
-            EmailTemplate receivedEmailTemplate = await emailTemplateClient.Get(savedEmailClient.id);
+            EmailTemplate receivedEmailTemplate = await emailTemplatesClient.Get(savedEmailClient.id);
             Assert.NotNull(receivedEmailTemplate);
 
             String updatedDescription = "Updated via unit test";
             receivedEmailTemplate.template = updatedDescription;
-            EmailTemplate updatedEmailTemplate = await emailTemplateClient.Update(receivedEmailTemplate);
+            EmailTemplate updatedEmailTemplate = await emailTemplatesClient.Update(receivedEmailTemplate);
             Assert.Equal(updatedDescription, updatedEmailTemplate.template);
 
-            await emailTemplateClient.Delete(updatedEmailTemplate.id);
+            await emailTemplatesClient.Delete(updatedEmailTemplate.id);
 
             try
             {
-                EmailTemplate deletedEmailTemplate = await emailTemplateClient.Get(updatedEmailTemplate.id);
+                EmailTemplate deletedEmailTemplate = await emailTemplatesClient.Get(updatedEmailTemplate.id);
                 throw new Exception("Email Template was able to be retrieved after being deleted!");
             }
             catch (OneBlink.SDK.OneBlinkAPIException ex)
