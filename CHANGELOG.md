@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 2.5.4 (2021-11-11)
+
 ### Added
 
 -   `emailTemplate` to `FormSubmissionEventConfiguration`
