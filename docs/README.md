@@ -11,6 +11,7 @@
 -   [OrganisationsClient](./organisations-client.md)
 -   [KeysClient](./keys-client.md)
 -   [EmailClient](./email-client.md)
+-   [EmailTemplateClient](./email-template-client.md)
 -   [ApprovalsClient](./approvals-client.md)
 
 ## Models
