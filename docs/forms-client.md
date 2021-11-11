@@ -138,6 +138,10 @@ OneBlink.SDK.Model.FormsSearchResult response = await formsClient.Search(isAuthe
 | `isPublished`            | Yes      | `bool?`  | Return published forms or unpublished forms. If null provided, all forms will be returned.                                                   |
 | `name`                   | Yes      | `string` | Search on the name property of a form. Can be a prefix, suffix or partial match. If null or whitespace provided, all forms will be returned. |
 | `formsAppEnvironmentId ` | No       | `long?`  | Return only forms for a specific app environment.                                                                                            |
+| `isInfoPage`             | No       | `bool?`  | Search for only info pages or forms.                                                                                                         |
+| `formsAppId`             | No       | `long?`  | Return only forms for a specific app.                                                                                                        |
+| `limit`                  | no       | `int?`   | Limit the number of results returned. Can be used with `offset` to enforce pagination.                                                       |
+| `offset`                 | no       | `int?`   | Offset the results returned by the value specified. Can be used with `limit` to enforce pagination.                                          |
 
 ### Throws
 
