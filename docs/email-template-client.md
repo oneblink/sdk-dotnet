@@ -30,20 +30,20 @@ EmailTemplatesClient emailTemplatesClient = new EmailTemplatesClient(accessKey, 
 ### Example
 
 ```c#
-long emailTemplateId = 42;
+long formsAppEnvironmentId = 42;
 int? limit = null;
 int? offset = null;
 
-OneBlink.SDK.Model.EmailTemplatesSearchResult response = await emailTemplatesClient.Search(emailTemplateId, limit, offset);
+OneBlink.SDK.Model.EmailTemplatesSearchResult response = await emailTemplatesClient.Search(formsAppEnvironmentId, limit, offset);
 ```
 
 ### Parameters
 
-| Parameter         | Required | Type   | Description                                                                 |
-| ----------------- | -------- | ------ | --------------------------------------------------------------------------- |
-| `emailTemplateId` | yes      | `long` | The identifier of the email template that the email template is included in |
-| `limit`           | No       | `int?` | The number of records to be fetch                                           |
-| `offset`          | No       | `int?` | The number of records to be skipped                                         |
+| Parameter               | Required | Type   | Description                                                                        |
+| ----------------------- | -------- | ------ | ---------------------------------------------------------------------------------- |
+| `formsAppEnvironmentId` | yes      | `long` | The identifier of the forms app environment that the email template is included in |
+| `limit`                 | No       | `int?` | The number of records to be fetch                                                  |
+| `offset`                | No       | `int?` | The number of records to be skipped                                                |
 
 ### Throws
 
