@@ -74,17 +74,7 @@ namespace OneBlink.SDK.Tests
         [Fact]
         public void throws_error_if_keys_empty()
         {
-            try
-            {
-                FormsClient forms = new FormsClient(
-                  "",
-                  ""
-                );
-            }
-            catch (Exception ex)
-            {
-                Assert.NotNull(ex);
-            }
+            Assert.Throws<ArgumentException>(() => new FormsClient("", ""));
         }
 
         [Fact]
@@ -121,18 +111,8 @@ namespace OneBlink.SDK.Tests
               "aaaaaaaaaaaaaaabbbbbbbbbbbbbbbcccccccccccccccc",
               tenantName: TenantName.ONEBLINK_TEST
             );
-            try
-            {
-                FormSubmission<object> draftSubmission = await forms.GetFormSubmission<object>(this.draftFormId, this.draftDataId, true);
-                Console.WriteLine("Submission as JSON string: " + draftSubmission.submission);
-                Assert.NotNull(null);
-            }
-            catch (OneBlinkAPIException oneBlinkAPIException)
-            {
-                Assert.NotNull(oneBlinkAPIException);
-                Assert.Equal(HttpStatusCode.Unauthorized, oneBlinkAPIException.StatusCode);
-                Console.WriteLine(oneBlinkAPIException);
-            }
+            var oneBlinkAPIException = await Assert.ThrowsAsync<OneBlink.SDK.OneBlinkAPIException>(() => forms.GetFormSubmission<object>(this.draftFormId, this.draftDataId, true));
+            Assert.Equal(HttpStatusCode.Unauthorized, oneBlinkAPIException.StatusCode);
         }
 
         [Fact]
@@ -161,17 +141,8 @@ namespace OneBlink.SDK.Tests
         public async void get_submission_data_should_throw_oneblink_exception()
         {
             FormsClient forms = new FormsClient("123", "aaaaaaaaaaaaaaabbbbbbbbbbbbbbbcccccccccccccccc");
-            try
-            {
-                FormSubmission<object> formSubmission = await forms.GetFormSubmission<object>(this.formId, this.submissionId);
-                Assert.NotNull(null);
-            }
-            catch (OneBlinkAPIException oneBlinkAPIException)
-            {
-                Assert.NotNull(oneBlinkAPIException);
-                Assert.Equal(HttpStatusCode.Unauthorized, oneBlinkAPIException.StatusCode);
-                Console.WriteLine(oneBlinkAPIException);
-            }
+            var oneBlinkAPIException = await Assert.ThrowsAsync<OneBlink.SDK.OneBlinkAPIException>(() => forms.GetFormSubmission<object>(this.formId, this.submissionId));
+            Assert.Equal(HttpStatusCode.Unauthorized, oneBlinkAPIException.StatusCode);
         }
 
         [Fact]
@@ -245,7 +216,7 @@ namespace OneBlink.SDK.Tests
             FormElement complianceElement = FormElement.CreateComplianceElement(
                 "Compliance_test_element",
                 "Compliance_test_element",
-                new List<FormElementOption>(){option}
+                new List<FormElementOption>() { option }
             );
 
             newForm.elements = new List<FormElement>() { textElement, summaryElement, geoscapeElement, complianceElement };
@@ -265,15 +236,8 @@ namespace OneBlink.SDK.Tests
             Assert.Equal(updatedDescription, updatedForm.description);
             await formsClient.Delete(updatedForm.id);
 
-            try
-            {
-                Form deletedForm = await formsClient.Get(updatedForm.id, true);
-                throw new Exception("Form was able to be retrieved after being deleted!");
-            }
-            catch (OneBlink.SDK.OneBlinkAPIException ex)
-            {
-                Assert.Equal("Form not found", ex.Message);
-            }
+            var oneBlinkAPIException = await Assert.ThrowsAsync<OneBlink.SDK.OneBlinkAPIException>(() => formsClient.Get(updatedForm.id, true));
+            Assert.Equal(HttpStatusCode.NotFound, oneBlinkAPIException.StatusCode);
         }
         [Fact]
         public async void can_create_with_defaults()
@@ -330,7 +294,7 @@ namespace OneBlink.SDK.Tests
         public async void can_generate_submission_url()
         {
             FormsClient formsClient = new FormsClient(ACCESS_KEY, SECRET_KEY, TenantName.ONEBLINK_TEST);
-            SubmissionDataUrl submissionDataUrl = await formsClient.GenerateSubmissionDataUrl(formId,submissionId, 1000);
+            SubmissionDataUrl submissionDataUrl = await formsClient.GenerateSubmissionDataUrl(formId, submissionId, 1000);
             Assert.NotNull(submissionDataUrl);
             Assert.NotNull(submissionDataUrl.url);
         }

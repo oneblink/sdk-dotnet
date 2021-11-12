@@ -3,7 +3,7 @@ using System.IO;
 using System;
 using Xunit;
 using OneBlink.SDK.Model;
-using Newtonsoft.Json;
+using System.Net;
 
 namespace OneBlink.SDK.Tests
 {
@@ -41,14 +41,7 @@ namespace OneBlink.SDK.Tests
         [Fact]
         public void throws_error_if_keys_empty()
         {
-            try
-            {
-                FormsAppEnvironmentsClient formsAppEnvironmentsClient = new FormsAppEnvironmentsClient("", "");
-            }
-            catch (Exception ex)
-            {
-                Assert.NotNull(ex);
-            }
+            Assert.Throws<ArgumentException>(() => new FormsAppEnvironmentsClient("", ""));
         }
 
         [Fact]
@@ -82,16 +75,8 @@ namespace OneBlink.SDK.Tests
             Assert.Equal(updatedDescription, updatedFormsAppEnvironment.description);
 
             await formsAppEnvironmentsClient.Delete(updatedFormsAppEnvironment.id);
-
-            try
-            {
-                FormsAppEnvironment deletedForm = await formsAppEnvironmentsClient.Get(updatedFormsAppEnvironment.id);
-                throw new Exception("Form was able to be retrieved after being deleted!");
-            }
-            catch (OneBlink.SDK.OneBlinkAPIException ex)
-            {
-                Assert.Equal("Could not find environment", ex.Message);
-            }
+            var oneBlinkAPIException = await Assert.ThrowsAsync<OneBlink.SDK.OneBlinkAPIException>(() => formsAppEnvironmentsClient.Get(updatedFormsAppEnvironment.id));
+            Assert.Equal(HttpStatusCode.NotFound, oneBlinkAPIException.StatusCode);
         }
     }
 }

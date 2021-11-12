@@ -51,14 +51,7 @@ namespace OneBlink.SDK.Tests
         [Fact]
         public void throws_error_if_keys_empty()
         {
-            try
-            {
-                JobsClient jobs = new JobsClient("", "");
-            }
-            catch (Exception ex)
-            {
-                Assert.NotNull(ex);
-            }
+            Assert.Throws<ArgumentException>(() => new JobsClient("", ""));
         }
 
         [Fact]
@@ -171,47 +164,33 @@ namespace OneBlink.SDK.Tests
         [Fact]
         public async void throws_error_if_username_empty()
         {
-            try
-            {
-                JobsClient jobs = new JobsClient(ACCESS_KEY, SECRET_KEY, TenantName.ONEBLINK_TEST);
+            JobsClient jobs = new JobsClient(ACCESS_KEY, SECRET_KEY, TenantName.ONEBLINK_TEST);
 
-                JobDetail jobDetail = new JobDetail("TITLE-01");
+            JobDetail jobDetail = new JobDetail("TITLE-01");
 
-                Job newJob = new Job(
-                    details: jobDetail,
-                    formId: formId,
-                    username: ""
-                );
+            Job newJob = new Job(
+                details: jobDetail,
+                formId: formId,
+                username: ""
+            );
 
-                Job job = await jobs.CreateJob(newJob);
-            }
-            catch (Exception ex)
-            {
-                Assert.NotNull(ex);
-            }
+            await Assert.ThrowsAsync<ArgumentException>(() => jobs.CreateJob(newJob));
         }
 
         [Fact]
         public async void throws_error_if_title_empty()
         {
-            try
-            {
-                JobsClient jobs = new JobsClient(ACCESS_KEY, SECRET_KEY, TenantName.ONEBLINK_TEST);
+            JobsClient jobs = new JobsClient(ACCESS_KEY, SECRET_KEY, TenantName.ONEBLINK_TEST);
 
-                JobDetail jobDetail = new JobDetail("");
+            JobDetail jobDetail = new JobDetail("");
 
-                Job newJob = new Job(
-                    details: jobDetail,
-                    formId: formId,
-                    username: "developers@oneblink.io"
-                );
+            Job newJob = new Job(
+                details: jobDetail,
+                formId: formId,
+                username: "developers@oneblink.io"
+            );
 
-                Job job = await jobs.CreateJob(newJob);
-            }
-            catch (Exception ex)
-            {
-                Assert.NotNull(ex);
-            }
+            await Assert.ThrowsAsync<ArgumentException>(() => jobs.CreateJob(newJob));
         }
 
         [Fact]
