@@ -29,17 +29,7 @@ namespace OneBlink.SDK.Tests
         [Fact]
         public void throws_error_if_keys_empty()
         {
-            try
-            {
-                OrganisationsClient organisations = new OrganisationsClient(
-                  "",
-                  ""
-                );
-            }
-            catch (Exception ex)
-            {
-                Assert.NotNull(ex);
-            }
+            Assert.Throws<ArgumentException>(() => new OrganisationsClient("", ""));
         }
 
         [Fact]

@@ -3,7 +3,7 @@ using System.IO;
 using System;
 using Xunit;
 using OneBlink.SDK.Model;
-using Newtonsoft.Json;
+using System.Net;
 
 namespace OneBlink.SDK.Tests
 {
@@ -34,14 +34,7 @@ namespace OneBlink.SDK.Tests
         [Fact]
         public void throws_error_if_keys_empty()
         {
-            try
-            {
-                EmailTemplatesClient emailTemplatesClient = new EmailTemplatesClient("", "");
-            }
-            catch (Exception ex)
-            {
-                Assert.NotNull(ex);
-            }
+            Assert.Throws<ArgumentException>(() => new EmailTemplatesClient("", ""));
         }
 
         [Fact]
@@ -76,15 +69,8 @@ namespace OneBlink.SDK.Tests
 
             await emailTemplatesClient.Delete(updatedEmailTemplate.id);
 
-            try
-            {
-                EmailTemplate deletedEmailTemplate = await emailTemplatesClient.Get(updatedEmailTemplate.id);
-                throw new Exception("Email Template was able to be retrieved after being deleted!");
-            }
-            catch (OneBlink.SDK.OneBlinkAPIException ex)
-            {
-                Assert.Equal("Email Template not found", ex.Message);
-            }
+            var oneBlinkAPIException = await Assert.ThrowsAsync<OneBlink.SDK.OneBlinkAPIException>(() => emailTemplatesClient.Get(updatedEmailTemplate.id));
+            Assert.Equal(HttpStatusCode.NotFound, oneBlinkAPIException.StatusCode);
         }
     }
 }

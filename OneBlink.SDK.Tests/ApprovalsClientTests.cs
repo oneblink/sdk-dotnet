@@ -24,15 +24,7 @@ namespace OneBlink.SDK.Tests
         [Fact]
         public void throws_error_if_keys_empty()
         {
-            try
-            {
-                ApprovalsClient ApprovalsClient = new ApprovalsClient("", "");
-                Assert.NotNull(null);
-            }
-            catch (Exception ex)
-            {
-                Assert.NotNull(ex);
-            }
+            Assert.Throws<ArgumentException>(() => new ApprovalsClient("", ""));
         }
 
         [Fact]
