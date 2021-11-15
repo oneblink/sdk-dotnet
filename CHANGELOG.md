@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 2.5.5 (2021-11-16)
+
 ### Added
 
 -   Added `EmailTemplatesClient`
