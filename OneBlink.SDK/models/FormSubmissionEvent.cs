@@ -188,18 +188,46 @@ namespace OneBlink.SDK.Model
             fseconfig.excludedElementIds = excludedElementIds;
             fseconfig.usePagesAsBreaks = usePagesAsBreaks;
             fseconfig.emailTemplate = emailTemplate;
-            FormSubmissionEvent pdfEvent = new FormSubmissionEvent();
-            pdfEvent.type = "PDF";
-            pdfEvent.configuration = fseconfig;
-            pdfEvent.isDraft = isDraft;
-            pdfEvent.conditionallyExecute = conditionallyExecute;
-            pdfEvent.requiresAllConditionallyExecutePredicates = requiresAllConditionallyExecutePredicates;
+            FormSubmissionEvent emailEvent = new FormSubmissionEvent();
+            emailEvent.type = "PDF";
+            emailEvent.configuration = fseconfig;
+            emailEvent.isDraft = isDraft;
+            emailEvent.conditionallyExecute = conditionallyExecute;
+            emailEvent.requiresAllConditionallyExecutePredicates = requiresAllConditionallyExecutePredicates;
             if (conditionallyExecutePredicates != default(List<ConditionallyShowPredicate>))
             {
-                pdfEvent.conditionallyExecutePredicates = conditionallyExecutePredicates;
+                emailEvent.conditionallyExecutePredicates = conditionallyExecutePredicates;
             }
 
-            return pdfEvent;
+            return emailEvent;
+        }
+
+        public static FormSubmissionEvent CreateEmailSubmissionEvent(
+            string email,
+            string emailSubjectLine = null,
+            FormSubmissionEventEmailTemplate emailTemplate = null,
+            bool isDraft = false,
+            List<ConditionallyShowPredicate> conditionallyExecutePredicates = default(List<ConditionallyShowPredicate>),
+            bool conditionallyExecute = false,
+            bool requiresAllConditionallyExecutePredicates = false
+        )
+        {
+            FormSubmissionEventConfigration fseconfig = new FormSubmissionEventConfigration();
+            fseconfig.email = email;
+            fseconfig.emailSubjectLine = emailSubjectLine;
+            fseconfig.emailTemplate = emailTemplate;
+            FormSubmissionEvent emailEvent = new FormSubmissionEvent();
+            emailEvent.type = "EMAIL";
+            emailEvent.configuration = fseconfig;
+            emailEvent.isDraft = isDraft;
+            emailEvent.conditionallyExecute = conditionallyExecute;
+            emailEvent.requiresAllConditionallyExecutePredicates = requiresAllConditionallyExecutePredicates;
+            if (conditionallyExecutePredicates != default(List<ConditionallyShowPredicate>))
+            {
+                emailEvent.conditionallyExecutePredicates = conditionallyExecutePredicates;
+            }
+
+            return emailEvent;
         }
     }
 }

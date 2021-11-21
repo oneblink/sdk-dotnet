@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Added
+
+-   Added `Email` to the submission events
+
 ## 2.5.5 (2021-11-16)
 
 ### Added
