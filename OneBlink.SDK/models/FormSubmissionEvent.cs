@@ -188,18 +188,18 @@ namespace OneBlink.SDK.Model
             fseconfig.excludedElementIds = excludedElementIds;
             fseconfig.usePagesAsBreaks = usePagesAsBreaks;
             fseconfig.emailTemplate = emailTemplate;
-            FormSubmissionEvent emailEvent = new FormSubmissionEvent();
-            emailEvent.type = "PDF";
-            emailEvent.configuration = fseconfig;
-            emailEvent.isDraft = isDraft;
-            emailEvent.conditionallyExecute = conditionallyExecute;
-            emailEvent.requiresAllConditionallyExecutePredicates = requiresAllConditionallyExecutePredicates;
+            FormSubmissionEvent pdfEvent = new FormSubmissionEvent();
+            pdfEvent.type = "PDF";
+            pdfEvent.configuration = fseconfig;
+            pdfEvent.isDraft = isDraft;
+            pdfEvent.conditionallyExecute = conditionallyExecute;
+            pdfEvent.requiresAllConditionallyExecutePredicates = requiresAllConditionallyExecutePredicates;
             if (conditionallyExecutePredicates != default(List<ConditionallyShowPredicate>))
             {
-                emailEvent.conditionallyExecutePredicates = conditionallyExecutePredicates;
+                pdfEvent.conditionallyExecutePredicates = conditionallyExecutePredicates;
             }
 
-            return emailEvent;
+            return pdfEvent;
         }
 
         public static FormSubmissionEvent CreateEmailSubmissionEvent(
