@@ -157,5 +157,10 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+
+        public bool preventExtensionlessAttachments
+        {
+            get; set;
+        }
     }
 }

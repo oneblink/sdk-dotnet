@@ -6,6 +6,10 @@
 
 -   Added `Email` to the submission events
 
+### Updated
+
+-   Trim submission event to prevent extensionless attachments
+
 ## 2.5.5 (2021-11-16)
 
 ### Added
