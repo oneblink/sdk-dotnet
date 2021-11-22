@@ -5,6 +5,7 @@
 ### Added
 
 -   Added `Email` to the submission events
+-   Added `createFilesElement()` as well as preventing extensionless attachments
 
 ## 2.5.5 (2021-11-16)
 
