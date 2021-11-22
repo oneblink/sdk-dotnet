@@ -732,7 +732,6 @@ namespace OneBlink.SDK.Model
         string storageType = null,
         bool restrictFileTypes = false,
         List<string> restrictedFileTypes = null,
-        dynamic defaultValue = null,
         int? maxEntries = null,
         int? minEntries = null,
         bool conditionallyShow = false,
@@ -755,7 +754,6 @@ namespace OneBlink.SDK.Model
             filesElement.storageType = storageType;
             filesElement.restrictFileTypes = restrictFileTypes;
             filesElement.restrictedFileTypes = restrictedFileTypes;
-            filesElement.defaultValue = defaultValue;
             filesElement.minEntries = minEntries;
             filesElement.maxEntries = maxEntries;
             filesElement.conditionallyShow = conditionallyShow;
