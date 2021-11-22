@@ -71,8 +71,7 @@ namespace OneBlink.SDK.Model
             bool requiresAllConditionallyExecutePredicates = false,
             bool groupFiles = false,
             List<string> excludedElementIds = default(List<string>),
-            bool? usePagesAsBreaks = null,
-            bool preventExtensionlessAttachments = false)
+            bool? usePagesAsBreaks = null)
         {
             FormSubmissionEventConfigration fseconfig = new FormSubmissionEventConfigration();
             fseconfig.environmentId = environmentId;
@@ -84,7 +83,6 @@ namespace OneBlink.SDK.Model
             fseconfig.groupFiles = groupFiles;
             fseconfig.excludedElementIds = excludedElementIds;
             fseconfig.usePagesAsBreaks = true;
-            fseconfig.preventExtensionlessAttachments = preventExtensionlessAttachments;
             FormSubmissionEvent trim = new FormSubmissionEvent();
             trim.type = "TRIM";
             trim.isDraft = isDraft;

@@ -187,6 +187,11 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+
+        public bool allowExtensionlessAttachments
+        {
+            get; set;
+        }
         public int? minEntries
         {
             get; set;
@@ -717,6 +722,51 @@ namespace OneBlink.SDK.Model
                 civicaStreetNameElement.elementLookupId = elementLookupId.Value;
             }
             return civicaStreetNameElement;
+        }
+        public static FormElement CreateFilesElementEvent(
+        string name,
+        string label,
+        Guid? id = null,
+        bool readOnly = false,
+        string hint = null,
+        string storageType = null,
+        bool restrictFileTypes = false,
+        List<string> restrictedFileTypes = null,
+        dynamic defaultValue = null,
+        int? maxEntries = null,
+        int? minEntries = null,
+        bool conditionallyShow = false,
+        bool requiresAllConditionallyShowPredicates = false,
+        List<ConditionallyShowPredicate> conditionallyShowPredicates = null,
+        bool isDataLookup = false,
+        long? dataLookupId = null,
+        bool isElementLookup = false,
+        long? elementLookupId = null,
+        bool allowExtensionlessAttachments = false
+        )
+        {
+            FormElement filesElement = new FormElement();
+            filesElement.type = "files";
+            filesElement.name = name;
+            filesElement.label = label;
+            filesElement.id = initialiseId(id);
+            filesElement.readOnly = readOnly;
+            filesElement.hint = hint;
+            filesElement.storageType = storageType;
+            filesElement.restrictFileTypes = restrictFileTypes;
+            filesElement.restrictedFileTypes = restrictedFileTypes;
+            filesElement.defaultValue = defaultValue;
+            filesElement.minEntries = minEntries;
+            filesElement.maxEntries = maxEntries;
+            filesElement.conditionallyShow = conditionallyShow;
+            filesElement.requiresAllConditionallyShowPredicates = requiresAllConditionallyShowPredicates;
+            filesElement.conditionallyShowPredicates = conditionallyShowPredicates;
+            filesElement.isDataLookup = isDataLookup;
+            filesElement.dataLookupId = dataLookupId;
+            filesElement.isElementLookup = isElementLookup;
+            filesElement.elementLookupId = elementLookupId;
+            filesElement.allowExtensionlessAttachments = allowExtensionlessAttachments;
+            return filesElement;
         }
     }
 }
