@@ -14,7 +14,7 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
-        public FormSubmissionEventConfigration configuration
+        public FormSubmissionEventConfiguration configuration
         {
             get; set;
         }
@@ -37,7 +37,7 @@ namespace OneBlink.SDK.Model
 
         public static FormSubmissionEvent CreateCpPaySubmissionEvent(Guid elementId, Guid gatewayId, bool isDraft = false)
         {
-            FormSubmissionEventConfigration fseconfig = new FormSubmissionEventConfigration();
+            FormSubmissionEventConfiguration fseconfig = new FormSubmissionEventConfiguration();
             fseconfig.elementId = elementId;
             fseconfig.gatewayId = gatewayId;
             FormSubmissionEvent cpPay = new FormSubmissionEvent();
@@ -49,7 +49,7 @@ namespace OneBlink.SDK.Model
 
         public static FormSubmissionEvent CreateBpointSubmissionEvent(Guid elementId, Guid environmentId, bool isDraft = false)
         {
-            FormSubmissionEventConfigration fseconfig = new FormSubmissionEventConfigration();
+            FormSubmissionEventConfiguration fseconfig = new FormSubmissionEventConfiguration();
             fseconfig.elementId = elementId;
             fseconfig.environmentId = environmentId;
             FormSubmissionEvent bpoint = new FormSubmissionEvent();
@@ -73,7 +73,7 @@ namespace OneBlink.SDK.Model
             List<string> excludedElementIds = default(List<string>),
             bool? usePagesAsBreaks = null)
         {
-            FormSubmissionEventConfigration fseconfig = new FormSubmissionEventConfigration();
+            FormSubmissionEventConfiguration fseconfig = new FormSubmissionEventConfiguration();
             fseconfig.environmentId = environmentId;
             fseconfig.recordTitle = recordTitle;
             fseconfig.container = container;
@@ -98,7 +98,7 @@ namespace OneBlink.SDK.Model
 
         public static FormSubmissionEvent CreateWestpacQuickWebSubmissionEvent(Guid elementId, Guid environmentId, string customerReferenceNumber, bool isDraft = false)
         {
-            FormSubmissionEventConfigration fseconfig = new FormSubmissionEventConfigration();
+            FormSubmissionEventConfiguration fseconfig = new FormSubmissionEventConfiguration();
             fseconfig.elementId = elementId;
             fseconfig.environmentId = environmentId;
             fseconfig.customerReferenceNumber = customerReferenceNumber;
@@ -113,7 +113,7 @@ namespace OneBlink.SDK.Model
             Guid environmentId,
             FormSubmissionEventCivicaCustomerContactMethod civicaCustomerContactMethod,
             FormSubmissionEventCivicaRecord civicaCategory,
-            List<FormSubmissionEventCivicaElementMapping> mapping,
+            List<FormSubmissionEventConfigurationMapping> mapping,
             string pdfFileName = null, Boolean? includeSubmissionIdInPdf = null,
             List<string> excludedElementIds = default(List<string>),
             bool isDraft = false,
@@ -122,7 +122,7 @@ namespace OneBlink.SDK.Model
             bool conditionallyExecute = false,
             bool requiresAllConditionallyExecutePredicates = false)
         {
-            FormSubmissionEventConfigration fseconfig = new FormSubmissionEventConfigration();
+            FormSubmissionEventConfiguration fseconfig = new FormSubmissionEventConfiguration();
             fseconfig.environmentId = environmentId;
             fseconfig.civicaCustomerContactMethod = civicaCustomerContactMethod;
             fseconfig.civicaCategory = civicaCategory;
@@ -153,7 +153,7 @@ namespace OneBlink.SDK.Model
             string emailDescription = null
         )
         {
-            FormSubmissionEventConfigration fseconfig = new FormSubmissionEventConfigration();
+            FormSubmissionEventConfiguration fseconfig = new FormSubmissionEventConfiguration();
             fseconfig.nylasAccountId = nylasAccountId;
             fseconfig.nylasSchedulingPageId = nylasSchedulingPageId;
             fseconfig.nameElementId = nameElementId;
@@ -180,7 +180,7 @@ namespace OneBlink.SDK.Model
             bool requiresAllConditionallyExecutePredicates = false
         )
         {
-            FormSubmissionEventConfigration fseconfig = new FormSubmissionEventConfigration();
+            FormSubmissionEventConfiguration fseconfig = new FormSubmissionEventConfiguration();
             fseconfig.email = email;
             fseconfig.emailSubjectLine = emailSubjectLine;
             fseconfig.pdfFileName = pdfFileName;
@@ -212,7 +212,7 @@ namespace OneBlink.SDK.Model
             bool requiresAllConditionallyExecutePredicates = false
         )
         {
-            FormSubmissionEventConfigration fseconfig = new FormSubmissionEventConfigration();
+            FormSubmissionEventConfiguration fseconfig = new FormSubmissionEventConfiguration();
             fseconfig.email = email;
             fseconfig.emailSubjectLine = emailSubjectLine;
             fseconfig.emailTemplate = emailTemplate;
@@ -228,6 +228,30 @@ namespace OneBlink.SDK.Model
             }
 
             return emailEvent;
+        }
+
+        public static FormSubmissionEvent CreateFreshdeskTicketSubmissionEvent(
+            string type,
+            bool isDraft,
+            List<FormSubmissionEventConfigurationMapping> mapping,
+            bool conditionallyExecute,
+            bool requiresAllConditionallyExecutePredicates,
+            List<ConditionallyShowPredicate> conditionallyExecutePredicates = default(List<ConditionallyShowPredicate>)
+        )
+        {
+            FormSubmissionEventConfiguration fseconfig = new FormSubmissionEventConfiguration();
+            fseconfig.mapping = mapping;
+            FormSubmissionEvent freshdeskCreateTicketEvent = new FormSubmissionEvent();
+            freshdeskCreateTicketEvent.isDraft = isDraft;
+            freshdeskCreateTicketEvent.configuration = fseconfig;
+            freshdeskCreateTicketEvent.conditionallyExecute = conditionallyExecute;
+            freshdeskCreateTicketEvent.requiresAllConditionallyExecutePredicates = requiresAllConditionallyExecutePredicates;
+            if (conditionallyExecutePredicates != default(List<ConditionallyShowPredicate>))
+            {
+                freshdeskCreateTicketEvent.conditionallyExecutePredicates = conditionallyExecutePredicates;
+            }
+
+            return freshdeskCreateTicketEvent;
         }
     }
 }
