@@ -2,6 +2,11 @@ using System;
 using System.Collections.Generic;
 namespace OneBlink.SDK.Model
 {
+
+    //Being kept right now due to backwards compatability, will be deleted upon next breaking change. 
+    public class FormSubmissionEventConfigration : FormSubmissionEventConfiguration
+    {
+    }
     public class FormSubmissionEventConfiguration
     {
         public string url
@@ -121,7 +126,7 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
-        public List<FormSubmissionEventCivicaElementMapping> mapping
+        public List<FormSubmissionEventConfigurationMapping> mapping
         {
             get; set;
         }
@@ -158,9 +163,5 @@ namespace OneBlink.SDK.Model
             get; set;
         }
 
-        public FormSubmissionEventFreshdeskFieldMapping[] freshdeskMapping
-        {
-            get; set;
-        }
     }
 }

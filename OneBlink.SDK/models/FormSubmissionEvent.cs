@@ -113,7 +113,7 @@ namespace OneBlink.SDK.Model
             Guid environmentId,
             FormSubmissionEventCivicaCustomerContactMethod civicaCustomerContactMethod,
             FormSubmissionEventCivicaRecord civicaCategory,
-            List<FormSubmissionEventCivicaElementMapping> mapping,
+            List<FormSubmissionEventConfigurationMapping> mapping,
             string pdfFileName = null, Boolean? includeSubmissionIdInPdf = null,
             List<string> excludedElementIds = default(List<string>),
             bool isDraft = false,
@@ -233,14 +233,14 @@ namespace OneBlink.SDK.Model
         public static FormSubmissionEvent CreateFreshdeskTicketSubmissionEvent(
             string type,
             bool isDraft,
-            FormSubmissionEventFreshdeskFieldMapping[] freshDeskMapping,
+            List<FormSubmissionEventConfigurationMapping> mapping,
             bool conditionallyExecute,
             bool requiresAllConditionallyExecutePredicates,
             List<ConditionallyShowPredicate> conditionallyExecutePredicates = default(List<ConditionallyShowPredicate>)
         )
         {
             FormSubmissionEventConfiguration fseconfig = new FormSubmissionEventConfiguration();
-            fseconfig.freshdeskMapping = freshDeskMapping;
+            fseconfig.mapping = mapping;
             FormSubmissionEvent freshdeskCreateTicketEvent = new FormSubmissionEvent();
             freshdeskCreateTicketEvent.isDraft = isDraft;
             freshdeskCreateTicketEvent.configuration = fseconfig;
