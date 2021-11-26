@@ -99,6 +99,10 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public string freshdeskFieldName
+        {
+            get; set;
+        }
         public long? dynamicOptionSetId
         {
             get; set;

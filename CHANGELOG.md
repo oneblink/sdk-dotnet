@@ -6,9 +6,10 @@
 
 ### Added
 
--   Added `Email` to the submission events
--   Added `createFilesElement()` as well as preventing extensionless attachments
--   Added `FreshdeskCreateTicket` to the submission events
+-   `Email` to the submission events
+-   `createFilesElement()` as well as preventing extensionless attachments
+-   `FreshdeskCreateTicket` to the submission events
+-   `freshdeskFieldName` to the FormElement class
 
 ## 2.5.5 (2021-11-16)
 
