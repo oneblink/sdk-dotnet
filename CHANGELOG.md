@@ -2,14 +2,19 @@
 
 ## Unreleased
 
+## 2.6.1 (2021-12-02)
+
+### Added
+
+-   `FreshdeskCreateTicket` to the submission events
+-   `freshdeskFieldName` to the FormElement class
+
 ## 2.6.0 (2021-11-25)
 
 ### Added
 
 -   `Email` to the submission events
 -   `createFilesElement()` as well as preventing extensionless attachments
--   `FreshdeskCreateTicket` to the submission events
--   `freshdeskFieldName` to the FormElement class
 
 ## 2.5.5 (2021-11-16)
 
