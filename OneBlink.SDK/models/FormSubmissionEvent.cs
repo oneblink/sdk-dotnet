@@ -18,10 +18,7 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
-        public bool isDraft
-        {
-            get; set;
-        }
+
         public List<ConditionallyShowPredicate> conditionallyExecutePredicates
         {
             get; set;
@@ -35,26 +32,24 @@ namespace OneBlink.SDK.Model
             get; set;
         }
 
-        public static FormSubmissionEvent CreateCpPaySubmissionEvent(Guid elementId, Guid gatewayId, bool isDraft = false)
+        public static FormSubmissionEvent CreateCpPaySubmissionEvent(Guid elementId, Guid gatewayId)
         {
             FormSubmissionEventConfiguration fseconfig = new FormSubmissionEventConfiguration();
             fseconfig.elementId = elementId;
             fseconfig.gatewayId = gatewayId;
             FormSubmissionEvent cpPay = new FormSubmissionEvent();
             cpPay.type = "CP_PAY";
-            cpPay.isDraft = isDraft;
             cpPay.configuration = fseconfig;
             return cpPay;
         }
 
-        public static FormSubmissionEvent CreateBpointSubmissionEvent(Guid elementId, Guid environmentId, bool isDraft = false)
+        public static FormSubmissionEvent CreateBpointSubmissionEvent(Guid elementId, Guid environmentId)
         {
             FormSubmissionEventConfiguration fseconfig = new FormSubmissionEventConfiguration();
             fseconfig.elementId = elementId;
             fseconfig.environmentId = environmentId;
             FormSubmissionEvent bpoint = new FormSubmissionEvent();
             bpoint.type = "BPOINT";
-            bpoint.isDraft = isDraft;
             bpoint.configuration = fseconfig;
             return bpoint;
         }
@@ -65,7 +60,6 @@ namespace OneBlink.SDK.Model
             FormSubmissionEventTrimUriOption recordType,
             FormSubmissionEventTrimUriOption actionDefinition,
             FormSubmissionEventTrimUriOption location,
-            bool isDraft = false,
             List<ConditionallyShowPredicate> conditionallyExecutePredicates = default(List<ConditionallyShowPredicate>),
             bool conditionallyExecute = false,
             bool requiresAllConditionallyExecutePredicates = false,
@@ -85,7 +79,6 @@ namespace OneBlink.SDK.Model
             fseconfig.usePagesAsBreaks = true;
             FormSubmissionEvent trim = new FormSubmissionEvent();
             trim.type = "TRIM";
-            trim.isDraft = isDraft;
             trim.conditionallyExecute = conditionallyExecute;
             trim.requiresAllConditionallyExecutePredicates = requiresAllConditionallyExecutePredicates;
             trim.configuration = fseconfig;
@@ -96,7 +89,7 @@ namespace OneBlink.SDK.Model
             return trim;
         }
 
-        public static FormSubmissionEvent CreateWestpacQuickWebSubmissionEvent(Guid elementId, Guid environmentId, string customerReferenceNumber, bool isDraft = false)
+        public static FormSubmissionEvent CreateWestpacQuickWebSubmissionEvent(Guid elementId, Guid environmentId, string customerReferenceNumber)
         {
             FormSubmissionEventConfiguration fseconfig = new FormSubmissionEventConfiguration();
             fseconfig.elementId = elementId;
@@ -104,7 +97,6 @@ namespace OneBlink.SDK.Model
             fseconfig.customerReferenceNumber = customerReferenceNumber;
             FormSubmissionEvent westpacQuickWeb = new FormSubmissionEvent();
             westpacQuickWeb.type = "WESTPAC_QUICK_WEB";
-            westpacQuickWeb.isDraft = isDraft;
             westpacQuickWeb.configuration = fseconfig;
             return westpacQuickWeb;
         }
@@ -116,7 +108,6 @@ namespace OneBlink.SDK.Model
             List<FormSubmissionEventConfigurationMapping> mapping,
             string pdfFileName = null, Boolean? includeSubmissionIdInPdf = null,
             List<string> excludedElementIds = default(List<string>),
-            bool isDraft = false,
             bool? usePagesAsBreaks = null,
             List<ConditionallyShowPredicate> conditionallyExecutePredicates = default(List<ConditionallyShowPredicate>),
             bool conditionallyExecute = false,
@@ -134,7 +125,6 @@ namespace OneBlink.SDK.Model
             FormSubmissionEvent civicaCrm = new FormSubmissionEvent();
             civicaCrm.type = "CIVICA_CRM";
             civicaCrm.configuration = fseconfig;
-            civicaCrm.isDraft = isDraft;
             civicaCrm.conditionallyExecute = conditionallyExecute;
             civicaCrm.requiresAllConditionallyExecutePredicates = requiresAllConditionallyExecutePredicates;
             if (conditionallyExecutePredicates != default(List<ConditionallyShowPredicate>))
@@ -149,7 +139,6 @@ namespace OneBlink.SDK.Model
             long nylasSchedulingPageId,
             Guid? nameElementId = null,
             Guid? emailElementId = null,
-            bool isDraft = false,
             string emailDescription = null
         )
         {
@@ -162,7 +151,6 @@ namespace OneBlink.SDK.Model
             FormSubmissionEvent schedulingEvent = new FormSubmissionEvent();
             schedulingEvent.type = "SCHEDULING";
             schedulingEvent.configuration = fseconfig;
-            schedulingEvent.isDraft = isDraft;
             return schedulingEvent;
         }
 
@@ -174,7 +162,6 @@ namespace OneBlink.SDK.Model
             List<string> excludedElementIds = default(List<string>),
             bool? usePagesAsBreaks = null,
             FormSubmissionEventEmailTemplate emailTemplate = null,
-            bool isDraft = false,
             List<ConditionallyShowPredicate> conditionallyExecutePredicates = default(List<ConditionallyShowPredicate>),
             bool conditionallyExecute = false,
             bool requiresAllConditionallyExecutePredicates = false
@@ -191,7 +178,6 @@ namespace OneBlink.SDK.Model
             FormSubmissionEvent pdfEvent = new FormSubmissionEvent();
             pdfEvent.type = "PDF";
             pdfEvent.configuration = fseconfig;
-            pdfEvent.isDraft = isDraft;
             pdfEvent.conditionallyExecute = conditionallyExecute;
             pdfEvent.requiresAllConditionallyExecutePredicates = requiresAllConditionallyExecutePredicates;
             if (conditionallyExecutePredicates != default(List<ConditionallyShowPredicate>))
@@ -206,7 +192,6 @@ namespace OneBlink.SDK.Model
             string email,
             string emailSubjectLine = null,
             FormSubmissionEventEmailTemplate emailTemplate = null,
-            bool isDraft = false,
             List<ConditionallyShowPredicate> conditionallyExecutePredicates = default(List<ConditionallyShowPredicate>),
             bool conditionallyExecute = false,
             bool requiresAllConditionallyExecutePredicates = false
@@ -219,7 +204,6 @@ namespace OneBlink.SDK.Model
             FormSubmissionEvent emailEvent = new FormSubmissionEvent();
             emailEvent.type = "EMAIL";
             emailEvent.configuration = fseconfig;
-            emailEvent.isDraft = isDraft;
             emailEvent.conditionallyExecute = conditionallyExecute;
             emailEvent.requiresAllConditionallyExecutePredicates = requiresAllConditionallyExecutePredicates;
             if (conditionallyExecutePredicates != default(List<ConditionallyShowPredicate>))
@@ -232,7 +216,6 @@ namespace OneBlink.SDK.Model
 
         public static FormSubmissionEvent CreateFreshdeskTicketSubmissionEvent(
             string type,
-            bool isDraft,
             List<FormSubmissionEventConfigurationMapping> mapping,
             bool conditionallyExecute,
             bool requiresAllConditionallyExecutePredicates,
@@ -242,7 +225,6 @@ namespace OneBlink.SDK.Model
             FormSubmissionEventConfiguration fseconfig = new FormSubmissionEventConfiguration();
             fseconfig.mapping = mapping;
             FormSubmissionEvent freshdeskCreateTicketEvent = new FormSubmissionEvent();
-            freshdeskCreateTicketEvent.isDraft = isDraft;
             freshdeskCreateTicketEvent.configuration = fseconfig;
             freshdeskCreateTicketEvent.conditionallyExecute = conditionallyExecute;
             freshdeskCreateTicketEvent.requiresAllConditionallyExecutePredicates = requiresAllConditionallyExecutePredicates;
