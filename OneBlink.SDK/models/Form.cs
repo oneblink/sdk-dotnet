@@ -24,7 +24,7 @@ namespace OneBlink.SDK.Model
             List<FormSubmissionEvent> submissionEvents = default(List<FormSubmissionEvent>),
             List<FormSubmissionEvent> paymentEvents = default(List<FormSubmissionEvent>),
             List<FormSubmissionEvent> schedulingEvents = default(List<FormSubmissionEvent>),
-            List<FormApprovalStep> approvalSteps = default(List<FormApprovalStep>),
+            List<FormApprovalStep> approvalSteps = null,
             List<FormSubmissionEvent> approvalEvents = default(List<FormSubmissionEvent>),
             bool isMultiPage = false,
             string redirectUrl = null,
@@ -104,11 +104,7 @@ namespace OneBlink.SDK.Model
             {
                 this.approvalEvents = approvalEvents;
             }
-            if (approvalSteps == default(List<FormApprovalStep>))
-            {
-                this.approvalSteps = new List<FormApprovalStep>();
-            }
-            else
+            if (approvalSteps != null)
             {
                 this.approvalSteps = approvalSteps;
             }
