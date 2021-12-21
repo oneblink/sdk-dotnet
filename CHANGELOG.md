@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 2.7.0 (2021-12-21)
+
 ### Added
 
 -   More events to forms
