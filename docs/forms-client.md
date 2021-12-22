@@ -534,3 +534,30 @@ SubmissionDataUrl submissionDataUrl = await formsClient.GenerateSubmissionAttach
 ### Result
 
 A `OneBlink.SDK.Model.SubmissionDataUrl` class
+
+## `Migrate()`
+
+### Example
+
+```c#
+FormMigrationOptions formMigrationOptions = new FormMigrationOptions();
+// assign formMigrationOptions properties
+// ...
+// ...
+await formsClient.Migrate(formMigrationOptions);
+```
+
+### Parameters
+
+| Parameter              | Required | Type                 | Description                 |
+| ---------------------- | -------- | -------------------- | --------------------------- |
+| `formMigrationOptions` | yes      | FormMigrationOptions | The form moigration options |
+
+### Throws
+
+-   `OneBlinkAPIException`
+-   `Exception`
+
+### Result
+
+No return value (`void`)
