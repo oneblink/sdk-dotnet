@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.IO;
 using System.Threading.Tasks;
 using Amazon;
@@ -450,5 +449,14 @@ namespace OneBlink.SDK
             }
             return url;
         }
+
+        public async Task Migrate(FormMigrationOptions migrationOptions)
+        {
+            string url = $"/forms/{migrationOptions.sourceFormId.ToString()}/migrate";
+            // C# does not support `void` as a generic type argument -_-
+            await this.oneBlinkApiClient.PostRequest<object>(url);
+            return;
+        }
+
     }
 }
