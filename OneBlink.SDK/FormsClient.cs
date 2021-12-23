@@ -454,7 +454,7 @@ namespace OneBlink.SDK
         {
             string url = $"/forms/{migrationOptions.sourceFormId.ToString()}/migrate";
             // C# does not support `void` as a generic type argument -_-
-            await this.oneBlinkApiClient.PostRequest<object, FormMigrationOptions>(url, migrationOptions);
+            await this.oneBlinkApiClient.PostRequest<FormMigrationOptions, object>(url, migrationOptions);
             return;
         }
 
