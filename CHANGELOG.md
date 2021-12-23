@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 2.7.1 (2021-12-23)
+
 ### Added
 
 -   `Migrate` to the `FormsClient` class
