@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Added
+
+-   Approval Form information to approvalStep related classes.
+
 ## 2.7.1 (2021-12-23)
 
 ### Added

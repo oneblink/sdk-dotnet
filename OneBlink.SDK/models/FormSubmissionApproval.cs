@@ -48,5 +48,13 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public string approvalFormSubmissionId
+        {
+            get; set;
+        }
+        public int? approvalFormId
+        {
+            get; set;
+        }
     }
 }
