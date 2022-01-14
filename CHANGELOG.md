@@ -5,6 +5,7 @@
 ### Added
 
 -   Approval Form information to approvalStep related classes.
+-   [`FormsClient.GetFormSubmissionMeta()`](./docs/forms-client#getformsubmissionmeta)
 
 ## 2.7.1 (2021-12-23)
 
