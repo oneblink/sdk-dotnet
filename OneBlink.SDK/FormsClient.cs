@@ -30,6 +30,12 @@ namespace OneBlink.SDK
             return await GetFormSubmission<T>(formId, submissionId, false);
         }
 
+        public async Task<FormSubmissionMetadataResponse> GetSubmissionMeta(string submissionId)
+        {
+            string url = "/form-submission-meta/" + submissionId;
+            return await this.oneBlinkApiClient.GetRequest<FormSubmissionMetadataResponse>(url);
+        }
+
         public async Task<FormSubmission<T>> GetFormSubmission<T>(long formId, string submissionId, bool isDraft)
         {
             if (String.IsNullOrWhiteSpace(submissionId))

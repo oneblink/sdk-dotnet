@@ -70,6 +70,7 @@ A `string`
 -   [`GetFormSubmissionAttachment()`](#getformsubmissionattachment)
 -   [`CreateSubmissionAttachment()`](#createsubmissionattachment)
 -   [`GenerateSubmissionAttachmentUrl()`](#generatesubmissionattachmenturl)
+-   [`GetFormSubmissionMeta()`](#getformsubmissionmeta)
 
 ## Constructor
 
@@ -561,3 +562,29 @@ await formsClient.Migrate(formMigrationOptions);
 ### Result
 
 No return value (`void`)
+
+## `GetFormSubmissionMeta()`
+
+Retrieve the Form Submission metadata for by submission id. This will include the approval associated with the submission if the form had an approval flow setup.
+
+### Example
+
+```c#
+string submissionId = "7145544d-853a-47e8-873c-1e849698e414";
+OneBlink.SDK.Model.FormSubmissionMetadataResponse formSubmissionMetadataResponse = await formsClient.GetFormSubmissionMeta(id);
+```
+
+### Parameters
+
+| Parameter      | Required | Type     | Description                      |
+| -------------- | -------- | -------- | -------------------------------- |
+| `submissionId` | Yes      | `string` | Id of submission to be retrieved |
+
+### Throws
+
+-   `OneBlinkAPIException`
+-   `Exception`
+
+### Result
+
+A `FormSubmissionMetadataResponse` class
