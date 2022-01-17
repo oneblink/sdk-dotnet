@@ -6,7 +6,7 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
-        public string[] approvalFormLabels
+        public List<string> approvalStepLabels
         {
             get; set;
         }
