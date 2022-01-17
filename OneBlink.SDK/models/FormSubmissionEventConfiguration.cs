@@ -162,6 +162,13 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
-
+        public string approvalFormInclusion
+        {
+            get; set;
+        }
+        public string[] approvalFormLabels
+        {
+            get; set;
+        }
     }
 }

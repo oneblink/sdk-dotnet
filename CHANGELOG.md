@@ -4,6 +4,7 @@
 
 ### Added
 
+-   Approval form inclusion on approval events
 -   Approval Form information to approvalStep related classes.
 -   [`FormsClient.GetFormSubmissionMeta()`](./docs/forms-client#getformsubmissionmeta)
 
