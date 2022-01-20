@@ -12,6 +12,7 @@ namespace OneBlink.SDK.Model
         [JsonProperty]
         public DateTime updatedAt { get; internal set; }
         public string name {get;set;}
+        public string description {get;set;}
         public string hostname {get;set;}
         public string oAuthClientId {get;set;}
         public string organisationId {get;set;}
