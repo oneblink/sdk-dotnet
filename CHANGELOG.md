@@ -4,6 +4,12 @@
 
 ### Added
 
+-   `description` to `FormsAppBase` class
+
+## 2.7.2 (2022-01-19)
+
+### Added
+
 -   Approval form inclusion on approval events
 -   Approval Form information to approvalStep related classes.
 -   [`FormsClient.GetFormSubmissionMeta()`](./docs/forms-client#getformsubmissionmeta)
