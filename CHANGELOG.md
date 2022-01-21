@@ -4,6 +4,7 @@
 
 ### Added
 
+-   `uploadedTo` to `AttachmentData` class
 -   `description` to `FormsAppBase` class
 
 ## 2.7.2 (2022-01-19)
