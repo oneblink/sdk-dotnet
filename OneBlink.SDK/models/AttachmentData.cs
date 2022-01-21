@@ -8,5 +8,6 @@ namespace OneBlink.SDK.Model
         public bool isPrivate {get;set;}
         public string url {get;set;}
         public S3Details s3 { get; set; }
+        public string uploadedAt {get; set;}
     }
 }

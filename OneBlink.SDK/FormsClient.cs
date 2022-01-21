@@ -390,6 +390,7 @@ namespace OneBlink.SDK
             attachmentData.isPrivate = isPrivate;
             attachmentData.url = oneBlinkApiClient.tenant.oneBlinkAPIOrigin + "/" + response.s3.key;
             attachmentData.s3 = response.s3;
+            attachmentData.uploadedAt = response.uploadedAt;
             return attachmentData;
         }
 
