@@ -7,48 +7,50 @@ using Amazon.S3.Model;
 using Newtonsoft.Json;
 namespace OneBlink.SDK
 {
-  internal class PrefillClient
-  {
-    OneBlinkApiClient oneBlinkApiClient;
-    internal PrefillClient(OneBlinkApiClient oneBlinkApiClient)
+    internal class PrefillClient
     {
-        this.oneBlinkApiClient = oneBlinkApiClient;
-    }
-
-    internal async Task<PreFillMeta> GetPreFillMeta(int formId) {
-        string url = "/forms/" + formId.ToString() + "/pre-fill-credentials";
-        return await this.oneBlinkApiClient.PostRequest<PreFillMeta>(url);
-    }
-    internal async Task<string> PutPreFillData<T>(T preFillData, PreFillMeta preFillMeta) {
-        RegionEndpoint regionEndpoint = RegionEndpoint.GetBySystemName(preFillMeta.s3.region);
-
-        SessionAWSCredentials sessionAWSCredentials = new SessionAWSCredentials(
-            preFillMeta.credentials.AccessKeyId,
-            preFillMeta.credentials.SecretAccessKey,
-            preFillMeta.credentials.SessionToken
-        );
-
-        AmazonS3Client amazonS3Client = new AmazonS3Client(sessionAWSCredentials, regionEndpoint);
-
-        PutObjectRequest request = new PutObjectRequest
+        OneBlinkApiClient oneBlinkApiClient;
+        internal PrefillClient(OneBlinkApiClient oneBlinkApiClient)
         {
-            BucketName = preFillMeta.s3.bucket,
-            Key = preFillMeta.s3.key,
-            ContentBody = JsonConvert.SerializeObject(preFillData),
-            ContentType = "application/json",
-            CannedACL = S3CannedACL.Private,
-            ServerSideEncryptionMethod = ServerSideEncryptionMethod.AES256,
-        };
+            this.oneBlinkApiClient = oneBlinkApiClient;
+        }
 
-        await amazonS3Client.PutObjectAsync(request);
+        internal async Task<PreFillMeta> GetPreFillMeta(long formId)
+        {
+            string url = "/forms/" + formId.ToString() + "/pre-fill-credentials";
+            return await this.oneBlinkApiClient.PostRequest<PreFillMeta>(url);
+        }
+        internal async Task<string> PutPreFillData<T>(T preFillData, PreFillMeta preFillMeta)
+        {
+            RegionEndpoint regionEndpoint = RegionEndpoint.GetBySystemName(preFillMeta.s3.region);
 
-        return preFillMeta.preFillFormDataId;
+            SessionAWSCredentials sessionAWSCredentials = new SessionAWSCredentials(
+                preFillMeta.credentials.AccessKeyId,
+                preFillMeta.credentials.SecretAccessKey,
+                preFillMeta.credentials.SessionToken
+            );
+
+            AmazonS3Client amazonS3Client = new AmazonS3Client(sessionAWSCredentials, regionEndpoint);
+
+            PutObjectRequest request = new PutObjectRequest
+            {
+                BucketName = preFillMeta.s3.bucket,
+                Key = preFillMeta.s3.key,
+                ContentBody = JsonConvert.SerializeObject(preFillData),
+                ContentType = "application/json",
+                CannedACL = S3CannedACL.Private,
+                ServerSideEncryptionMethod = ServerSideEncryptionMethod.AES256,
+            };
+
+            await amazonS3Client.PutObjectAsync(request);
+
+            return preFillMeta.preFillFormDataId;
+        }
+
+        internal async Task<string> SetPreFillData<T>(T preFillData, long formId)
+        {
+            PreFillMeta preFillMeta = await GetPreFillMeta(formId);
+            return await PutPreFillData<T>(preFillData, preFillMeta);
+        }
     }
-
-    internal async Task<string> SetPreFillData<T>(T preFillData, int formId)
-    {
-        PreFillMeta preFillMeta = await GetPreFillMeta(formId);
-        return await PutPreFillData<T>(preFillData, preFillMeta);
-    }
-  }
 }

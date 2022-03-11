@@ -7,7 +7,7 @@ namespace OneBlink.SDK.Model
     {
         public JobsSearchParameters(
             string username = null,
-            int? formId = null,
+            long? formId = null,
             Boolean? isSumbitted = null,
             string externalId = null,
             int? limit = null,
@@ -27,7 +27,7 @@ namespace OneBlink.SDK.Model
             get; set;
         }
 
-        public int? formId
+        public long? formId
         {
             get; set;
         }
@@ -122,7 +122,7 @@ namespace OneBlink.SDK.Model
         public Job(
             string username,
             JobDetail details,
-            int formId,
+            long formId,
             string externalId = null
         )
         {
@@ -137,7 +137,7 @@ namespace OneBlink.SDK.Model
             get; set;
         }
 
-        public int formId
+        public long formId
         {
             get; set;
         }

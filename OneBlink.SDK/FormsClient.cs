@@ -301,7 +301,7 @@ namespace OneBlink.SDK
             if (parameters.preFillData != null)
             {
                 PrefillClient prefillClient = new PrefillClient(oneBlinkApiClient);
-                PreFillMeta preFillMeta = await prefillClient.GetPreFillMeta((int) parameters.formId);
+                PreFillMeta preFillMeta = await prefillClient.GetPreFillMeta(parameters.formId);
                 string preFillMetaId = await prefillClient.PutPreFillData<dynamic>(parameters.preFillData, preFillMeta);
                 preFillFormDataId = preFillMeta.preFillFormDataId;
             }

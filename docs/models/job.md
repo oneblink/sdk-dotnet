@@ -7,7 +7,7 @@
 | Parameter    | Required | Type                          | Description                          | Default Value |
 | ------------ | -------- | ----------------------------- | ------------------------------------ | ------------- |
 | `username`   | No       | `string`                      | Username associated with the job.    | null          |
-| `formId`     | No       | `int`                         | formId associated with the job.      | null          |
+| `formId`     | No       | `long`                        | formId associated with the job.      | null          |
 | `details`    | No       | [`JobDetail`](./jobDetail.md) | Instance of the job's details.       | null          |
 | `externalId` | No       | `string`                      | external Id associated with the job. | null          |
 

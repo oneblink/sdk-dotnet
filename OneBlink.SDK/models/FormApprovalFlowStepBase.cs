@@ -11,7 +11,11 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
-        public int? approvalFormId
+        public long? approvalFormId
+        {
+            get; set;
+        }
+        public long? clarificationRequestEmailTemplateId
         {
             get; set;
         }
