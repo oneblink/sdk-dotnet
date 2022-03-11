@@ -39,7 +39,7 @@ jobDetail.key = "KEY-01";
 jobDetail.description = "DESCRIPTION-01";
 jobDetail.type = "TYPE-01";
 
-int formId = 1;
+long formId = 1;
 
 string username = "developers@oneblink.io";
 
@@ -54,7 +54,7 @@ OneBlink.SDK.Model.Job job = await jobsClient.CreateJob(job);
 | Parameter                 | Required | Type                           | Description                                                                                                                                                                                           |
 | ------------------------- | -------- | ------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `job`                     | Yes      | `OneBlink.SDK.Model.Job`       | An object containing the data to be used to create the new Job                                                                                                                                        |
-| `job.formId`              | Yes      | `int`                          | The identifier of the Form the User must complete                                                                                                                                                     |
+| `job.formId`              | Yes      | `long`                         | The identifier of the Form the User must complete                                                                                                                                                     |
 | `job.externalId`          | No       | `string`                       | The external identifier of the form submission you wish to use, this identifier will be returned to you with the `submissionId` after a successful submission to allow you to retrieve the data later |
 | `job.username`            | Yes      | `string`                       | The identifier of the User to assign the Job to                                                                                                                                                       |
 | `job.details`             | Yes      | `OneBlink.SDK.Model.JobDetail` | Extra Job details that will be displayed to the User                                                                                                                                                  |
@@ -85,7 +85,7 @@ jobDetail.key = "KEY-01";
 jobDetail.description = "DESCRIPTION-01";
 jobDetail.type = "TYPE-01";
 
-int formId = 1;
+long formId = 1;
 
 string username = "developers@oneblink.io";
 
@@ -107,7 +107,7 @@ OneBlink.SDK.Model.Job job = await jobsClient.CreateJob<MyPreFillDataType>(job, 
 | Parameter                 | Required | Type                           | Description                                                                                                                                                                                           |
 | ------------------------- | -------- | ------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `job`                     | Yes      | `OneBlink.SDK.Model.Job`       | An object containing the new job data to be used to create the Job                                                                                                                                    |
-| `job.formId`              | Yes      | `int`                          | The identifier of the Form the User must complete                                                                                                                                                     |
+| `job.formId`              | Yes      | `long`                         | The identifier of the Form the User must complete                                                                                                                                                     |
 | `job.externalId`          | No       | `string`                       | The external identifier of the form submission you wish to use, this identifier will be returned to you with the `submissionId` after a successful submission to allow you to retrieve the data later |
 | `job.username`            | Yes      | `string`                       | The identifier of the User to assign the Job to                                                                                                                                                       |
 | `job.details`             | Yes      | `OneBlink.SDK.Model.JobDetail` | Extra Job details that will be displayed to the User                                                                                                                                                  |
@@ -218,16 +218,16 @@ Returns a `OneBlink.SDK.Model.JobsSearchResult` object.
 ### Example
 
 ```c#
-int formId = 10;
+long formId = 10;
 
 JobsSearchResult results = await jobsClient.SearchByFormId(formId);
 ```
 
 ### Parameters
 
-| Parameter | Required | Type  | Description                               |
-| --------- | -------- | ----- | ----------------------------------------- |
-| `formId`  | yes      | `int` | Search on the `formId` property of a Job. |
+| Parameter | Required | Type   | Description                               |
+| --------- | -------- | ------ | ----------------------------------------- |
+| `formId`  | yes      | `long` | Search on the `formId` property of a Job. |
 
 ### Throws
 

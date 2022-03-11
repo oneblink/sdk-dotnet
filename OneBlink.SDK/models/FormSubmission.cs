@@ -271,7 +271,7 @@ namespace OneBlink.SDK.Model
         }
 
         [JsonProperty]
-        public int formsAppId
+        public long formsAppId
         {
             get; internal set;
         }
@@ -343,7 +343,7 @@ namespace OneBlink.SDK.Model
             get; internal set;
         }
         [JsonProperty]
-        public int formId
+        public long formId
         {
             get; internal set;
         }

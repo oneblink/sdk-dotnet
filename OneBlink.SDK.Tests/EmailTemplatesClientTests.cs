@@ -11,7 +11,7 @@ namespace OneBlink.SDK.Tests
     {
         private string ACCESS_KEY;
         private string SECRET_KEY;
-        private int formsAppEnvironmentId = 22;
+        private long formsAppEnvironmentId = 22;
         public EmailTemplatesClientTests()
         {
             bool raiseException = false;
@@ -21,7 +21,7 @@ namespace OneBlink.SDK.Tests
             string formsAppEnvironmentId = Environment.GetEnvironmentVariable("FORMS_APP_ENVIRONMENT_ID");
             if (!String.IsNullOrWhiteSpace(formsAppEnvironmentId))
             {
-                this.formsAppEnvironmentId = Int32.Parse(formsAppEnvironmentId);
+                this.formsAppEnvironmentId = long.Parse(formsAppEnvironmentId);
             }
         }
         [Fact]

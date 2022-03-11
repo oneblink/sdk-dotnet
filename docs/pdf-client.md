@@ -26,7 +26,7 @@ PdfClient pdfClient = new PdfClient(accessKey, secretKey);
 ### Example
 
 ```c#
-int formId = 1;
+long formId = 1;
 string submissionId = "f33055e4-f8c1-49a6-8605-27f0d11854f0";
 PdfClient pdfClient = new PdfClient(ACCESS_KEY, SECRET_KEY);
 Stream response = await pdfClient.GetSubmissionPdf(formId, submissionId);
@@ -36,7 +36,7 @@ Stream response = await pdfClient.GetSubmissionPdf(formId, submissionId);
 
 | Parameter                  | Required | Type         | Description                                                                                                                                               |
 | -------------------------- | -------- | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `formId`                   | Yes      | `int`        | The exact id of the form you wish to get submission PDF for                                                                                               |
+| `formId`                   | Yes      | `long`       | The exact id of the form you wish to get submission PDF for                                                                                               |
 | `submissionId`             | Yes      | `string`     | The submission identifier generated after a successful form submission, this will be return to you after a successful forms submission via a callback URL |
 | `isDraft`                  | No       | `bool?`      | `true` if the submission is a draft submission, otherwise `false`                                                                                         |
 | `includeSubmissionIdInPdf` | No       | `bool?`      | `true` to include the submission identifier in the PDF, otherwise `false`                                                                                 |

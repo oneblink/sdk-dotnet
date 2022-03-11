@@ -26,7 +26,7 @@ namespace OneBlink.SDK.Tests
     {
         private string ACCESS_KEY;
         private string SECRET_KEY;
-        private int formId = 476;
+        private long formId = 476;
         public JobsClientTests()
         {
             bool raiseException = false;
@@ -37,7 +37,7 @@ namespace OneBlink.SDK.Tests
             string formId = Environment.GetEnvironmentVariable("GET_SUBMISSION_DATA_FORM_ID");
             if (!String.IsNullOrWhiteSpace(formId))
             {
-                this.formId = Int16.Parse(formId);
+                this.formId = long.Parse(formId);
             }
         }
 
@@ -215,7 +215,7 @@ namespace OneBlink.SDK.Tests
         {
             JobsClient jobs = new JobsClient(ACCESS_KEY, SECRET_KEY, TenantName.ONEBLINK_TEST);
 
-            int formId = 476;
+            long formId = 476;
 
             JobsSearchResult response = await jobs.SearchByFormId(formId);
 

@@ -1,6 +1,5 @@
 # OneBlink .Net SDK | JobsSearchParameters Model
 
-
 ## `JobsSearchParameters()`
 
 ### Constructor
@@ -8,7 +7,7 @@
 | Parameter     | Required | Type      | Description                           | Default Value |
 | ------------- | -------- | --------- | ------------------------------------- | ------------- |
 | `username`    | No       | `string`  | The username to filter by.            | null          |
-| `formId`      | No       | `int`     | The formId to filter by.              | null          |
+| `formId`      | No       | `long`    | The formId to filter by.              | null          |
 | `isSubmitted` | No       | `Boolean` | Whether to search for submitted jobs. | null          |
 | `externalId`  | No       | `string`  | The externalId to filter by.          | null          |
 | `limit`       | No       | `int`     | limit to apply to results.            | null          |

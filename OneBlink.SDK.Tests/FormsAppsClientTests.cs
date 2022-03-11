@@ -14,7 +14,7 @@ namespace OneBlink.SDK.Tests
         private string ACCESS_KEY;
         private string SECRET_KEY;
         private string organisationId = "5c58beb2ff59481100000002";
-        private int formsAppEnvironmentId = 22;
+        private long formsAppEnvironmentId = 22;
         public FormsAppsClientTests()
         {
             bool raiseException = false;
@@ -29,7 +29,7 @@ namespace OneBlink.SDK.Tests
             string formsAppEnvironmentId = Environment.GetEnvironmentVariable("FORMS_APP_ENVIRONMENT_ID");
             if (!String.IsNullOrWhiteSpace(formsAppEnvironmentId))
             {
-                this.formsAppEnvironmentId = Int32.Parse(formsAppEnvironmentId);
+                this.formsAppEnvironmentId = long.Parse(formsAppEnvironmentId);
             }
         }
 

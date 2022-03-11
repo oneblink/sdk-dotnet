@@ -56,7 +56,7 @@ namespace OneBlink.SDK
             return await SearchJobs(searchParams);
         }
 
-        public async Task<JobsSearchResult> SearchByFormId(int formId)
+        public async Task<JobsSearchResult> SearchByFormId(long formId)
         {
             JobsSearchParameters searchParams = new JobsSearchParameters
             {

@@ -13,13 +13,13 @@ namespace OneBlink.SDK.Tests
     {
         private string ACCESS_KEY;
         private string SECRET_KEY;
-        private int formId = 475;
+        private long formId = 475;
         private string submissionId = "5ab3d950-253a-4d22-8ae6-c9eae82f58ba";
-        private int draftFormId = 475;
+        private long draftFormId = 475;
         private string draftDataId = "b2925fbd-f490-49d9-ba07-1c57b97dd120";
         private string organisationId = "5c58beb2ff59481100000002";
-        private int formsAppEnvironmentId = 22;
-        private int formsAppId = 79;
+        private long formsAppEnvironmentId = 22;
+        private long formsAppId = 79;
         public FormsClientTests()
         {
             bool raiseException = false;
@@ -30,7 +30,7 @@ namespace OneBlink.SDK.Tests
             string formId = Environment.GetEnvironmentVariable("GET_SUBMISSION_DATA_FORM_ID");
             if (!String.IsNullOrWhiteSpace(formId))
             {
-                this.formId = Int16.Parse(formId);
+                this.formId = long.Parse(formId);
             }
             string submissionId = Environment.GetEnvironmentVariable("GET_SUBMISSION_DATA_SUBMISSION_ID");
             if (!String.IsNullOrWhiteSpace(submissionId))
@@ -40,7 +40,7 @@ namespace OneBlink.SDK.Tests
             string draftFormId = Environment.GetEnvironmentVariable("GET_DRAFT_DATA_FORM_ID");
             if (!String.IsNullOrWhiteSpace(draftFormId))
             {
-                this.draftFormId = Int16.Parse(draftFormId);
+                this.draftFormId = long.Parse(draftFormId);
             }
             string draftDataId = Environment.GetEnvironmentVariable("GET_DRAFT_DATA_DRAFT_DATA_ID");
             if (!String.IsNullOrWhiteSpace(submissionId))
@@ -55,12 +55,12 @@ namespace OneBlink.SDK.Tests
             string formsAppEnvironmentId = Environment.GetEnvironmentVariable("FORMS_APP_ENVIRONMENT_ID");
             if (!String.IsNullOrWhiteSpace(formsAppEnvironmentId))
             {
-                this.formsAppEnvironmentId = Int32.Parse(formsAppEnvironmentId);
+                this.formsAppEnvironmentId = long.Parse(formsAppEnvironmentId);
             }
             string formsAppId = Environment.GetEnvironmentVariable("FORMS_APP_ID");
             if (!String.IsNullOrWhiteSpace(formsAppId))
             {
-                this.formsAppId = Int32.Parse(formsAppId);
+                this.formsAppId = long.Parse(formsAppId);
             }
         }
 
