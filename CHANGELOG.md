@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 2.7.4 (2022-03-16)
+
 ### Added
 
 -   `clarificationRequestEmailTemplateId` to `FormApprovalFlowStepBase`
