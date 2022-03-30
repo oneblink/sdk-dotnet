@@ -2,6 +2,14 @@
 
 ## Unreleased
 
+### Added
+
+-   [`FormsAppClient.GetSendingAddress()`](./docs/forms-apps-client#getsendingaddress)
+
+### Changed
+
+-   **[BREAKING]** Changed `FormsAppClient.SetSendingAddress()` response type from `FormsAppSendingAddress` to `FormsAppSendingAddressResponse`
+
 ## 2.7.4 (2022-03-16)
 
 ### Added
