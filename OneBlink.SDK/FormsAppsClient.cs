@@ -72,14 +72,15 @@ namespace OneBlink.SDK
             return formsAppStyles;
         }
 
-        public async Task<FormsAppSendingAddress> SetSendingAddress(long id, NewFormsAppSendingAddress newFormsAppSendingAddress)
+        public async Task<FormsAppSendingAddressResponse> SetSendingAddress(long id, NewFormsAppSendingAddress newFormsAppSendingAddress)
         {
-            if (String.IsNullOrEmpty(newFormsAppSendingAddress.emailAddress)) {
+            if (String.IsNullOrEmpty(newFormsAppSendingAddress.emailAddress))
+            {
                 throw new Exception("Email Address must not be empty");
             }
-            string url = "/forms-apps/" + id.ToString() + "/sending-address";
+            string url = "/v2/forms-apps/" + id.ToString() + "/sending-address";
 
-            FormsAppSendingAddress sendingAddress = await this.oneBlinkApiClient.PostRequest<NewFormsAppSendingAddress, FormsAppSendingAddress>(url, newFormsAppSendingAddress);
+            FormsAppSendingAddressResponse sendingAddress = await this.oneBlinkApiClient.PostRequest<NewFormsAppSendingAddress, FormsAppSendingAddressResponse>(url, newFormsAppSendingAddress);
             return sendingAddress;
         }
 
@@ -87,6 +88,12 @@ namespace OneBlink.SDK
         {
             string url = "/forms-apps/" + id.ToString() + "/sending-address";
             await this.oneBlinkApiClient.DeleteRequest(url);
+        }
+        public async Task<FormsAppSendingAddressResponse> GetSendingAddress(long formsAppId)
+        {
+            string url = "/v2/forms-apps/" + formsAppId.ToString() + "/sending-address";
+            FormsAppSendingAddressResponse sendingAddress = await this.oneBlinkApiClient.GetRequest<FormsAppSendingAddressResponse>(url);
+            return sendingAddress;
         }
 
         public async Task<FormsAppUser> CreateUser(FormsAppUser newUser)

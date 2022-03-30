@@ -8,6 +8,9 @@
 -   [`Update()`](#update)
 -   [`Delete()`](#delete)
 -   [`GetMyFormsApp()`](#getmyformsapp)
+-   [`SetSendingAddress()`](#setsendingaddress)
+-   [`DeleteSendingAddress()`](#deletesendingaddress)
+-   [`GetSendingAddress()`](#getsendingaddress)
 -   [`CreateUser()`](#createuser)
 -   [`DeleteUser()`](#deleteuser)
 
@@ -176,7 +179,7 @@ OneBlink.SDK.Model.NewFormsAppSendingAddress newFormsAppSendingAddress = new One
     emailName: "User Name"
 );
 
-OneBlink.SDK.Model.FormsAppSendingAddress sendingAddress = await formsAppsClient.SetSendingAddress(formsAppId, newFormsAppSendingAddress);
+OneBlink.SDK.Model.FormsAppSendingAddressResponse sendingAddress = await formsAppsClient.SetSendingAddress(formsAppId, newFormsAppSendingAddress);
 ```
 
 ### Parameters
@@ -193,7 +196,7 @@ OneBlink.SDK.Model.FormsAppSendingAddress sendingAddress = await formsAppsClient
 
 ### Result
 
-A `OneBlink.SDK.Model.FormsAppSendingAddress` class
+A `OneBlink.SDK.Model.FormsAppSendingAddressResponse` class
 
 ## `DeleteSendingAddress()`
 
@@ -219,6 +222,31 @@ await formsAppsClient.DeleteSendingAddress(formsAppId);
 ### Result
 
 No return value (`void`)
+
+## `GetSendingAddress()`
+
+### Example
+
+```c#
+long formsAppId = 1;
+
+OneBlink.SDK.Model.FormsAppSendingAddressResponse sendingAddress = await formsAppsClient.GetSendingAddress(formsAppId);
+```
+
+### Parameters
+
+| Parameter | Required | Type   | Description                    |
+| --------- | -------- | ------ | ------------------------------ |
+| `id`      | Yes      | `long` | The identifier of the FormsApp |
+
+### Throws
+
+-   `OneBlinkAPIException`
+-   `Exception`
+
+### Result
+
+A `OneBlink.SDK.Model.FormsAppSendingAddressResponse` class
 
 ## `GetMyFormsApp()`
 
