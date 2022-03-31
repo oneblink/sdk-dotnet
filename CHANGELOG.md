@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 3.0.0 (2022-03-31)
+
 ### Added
 
 -   [`FormsAppClient.GetSendingAddress()`](./docs/forms-apps-client#getsendingaddress)
