@@ -22,7 +22,10 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
-        public double? value
+        /// <summary>
+        /// If `compareWith` is "ELEMENT" this is an elementId (string), otherwise a number (double)
+        /// </summary>
+        public object value
         {
             get; set;
         }
@@ -35,6 +38,13 @@ namespace OneBlink.SDK.Model
             get; set;
         }
         public long? max
+        {
+            get; set;
+        }
+        /// <summary>
+        /// This property can be either "VALUE" or "ELEMENT". if left NULL acts as "VALUE".
+        /// </summary>
+        public string compareWith
         {
             get; set;
         }
