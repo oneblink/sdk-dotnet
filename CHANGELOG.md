@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 3.0.1 (2022-04-19)
+
 ### Added
 
 -   `compareWith` property to `ConditionallyShowPredicate`
