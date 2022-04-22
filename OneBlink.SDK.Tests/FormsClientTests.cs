@@ -22,7 +22,7 @@ namespace OneBlink.SDK.Tests
         private long formsAppId = 79;
         public FormsClientTests()
         {
-            bool raiseException = false;
+            bool raiseException = true;
             DotEnv.Load(new DotEnvOptions(ignoreExceptions: raiseException, probeForEnv: true, probeLevelsToSearch: 5));
             ACCESS_KEY = Environment.GetEnvironmentVariable("ACCESS_KEY");
             SECRET_KEY = Environment.GetEnvironmentVariable("SECRET_KEY");

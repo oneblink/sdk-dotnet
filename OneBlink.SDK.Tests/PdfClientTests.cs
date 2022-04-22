@@ -16,7 +16,7 @@ namespace unit_tests
         private string submissionId = "5ab3d950-253a-4d22-8ae6-c9eae82f58ba";
         public PdfClientTests()
         {
-            bool raiseException = false;
+            bool raiseException = true;
             DotEnv.Load(new DotEnvOptions(ignoreExceptions: raiseException, probeForEnv: true, probeLevelsToSearch: 5));
             ACCESS_KEY = Environment.GetEnvironmentVariable("ACCESS_KEY");
             SECRET_KEY = Environment.GetEnvironmentVariable("SECRET_KEY");
