@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Added
+
+-   `FormStoreFormsApp` class
+
 ## 3.0.1 (2022-04-19)
 
 ### Added

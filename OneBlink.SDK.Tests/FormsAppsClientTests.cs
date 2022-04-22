@@ -18,7 +18,7 @@ namespace OneBlink.SDK.Tests
         public FormsAppsClientTests()
         {
             bool raiseException = false;
-            DotEnv.Config(raiseException, Path.GetFullPath(Path.Combine(Directory.GetCurrentDirectory(), "..", "..", "..", "..")) + "/.env");
+            DotEnv.Load(new DotEnvOptions(ignoreExceptions: raiseException, probeForEnv: true, probeLevelsToSearch: 5));
             ACCESS_KEY = Environment.GetEnvironmentVariable("ACCESS_KEY");
             SECRET_KEY = Environment.GetEnvironmentVariable("SECRET_KEY");
             string organisationId = Environment.GetEnvironmentVariable("ORGANISATION_ID");
@@ -61,7 +61,7 @@ namespace OneBlink.SDK.Tests
             FormsAppsClient formsApps = new FormsAppsClient(ACCESS_KEY, SECRET_KEY, TenantName.ONEBLINK);
             string token = "eyJraWQiOiJSaTZ1VzQzQ1ZlNmhtQ1NcL291Rms1TnlaUkI4aytaUmZGc3RPYUliNHdNaz0iLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiI4ODcyNGRlMy1kNzI4LTQ0OGEtYjBhOS03YzFiNTg1ZjFmMGYiLCJjb2duaXRvOmdyb3VwcyI6WyJhcC1zb3V0aGVhc3QtMl9vMXQzbnRHV3hfR29vZ2xlIl0sInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXdzLmNvZ25pdG8uc2lnbmluLnVzZXIuYWRtaW4gb3BlbmlkIHByb2ZpbGUgZW1haWwiLCJhdXRoX3RpbWUiOjE1OTEwNzgyNTEsImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC5hcC1zb3V0aGVhc3QtMi5hbWF6b25hd3MuY29tXC9hcC1zb3V0aGVhc3QtMl9vMXQzbnRHV3giLCJleHAiOjE1OTE3NDg4ODMsImlhdCI6MTU5MTc0NTI4MywidmVyc2lvbiI6MiwianRpIjoiOTVlNjI0ODEtMWVlNC00NGE4LWE0ZWMtMGVjNDMxOTJhYTIyIiwiY2xpZW50X2lkIjoiNzBtbmp2MjFkbXBkMWtjOWZlZmx0OWRoZGkiLCJ1c2VybmFtZSI6Ikdvb2dsZV8xMTU1MzExMjk5MzE2MTk0Nzk4NTUifQ.hm8Xn1ya0R-Zouuo0OkWiguThso8AkYYcQR4K8m3wxxtCBtUuEo046ZOFbRMOTb977bkr2AZY8PKlr4BuO35yDYD6ieKdMte3L8KvXw25F4u1Z33TJsFwGZpWUfmF41rfsTNbOx8vG6LVbMxEF1omBlYd0MPe3o8nCBICHJWYykGmGYjiTO4T2HRtbf9BJlAOEOUOcTKyKLqSQp7RUubsdfG-l05zWpuZLFVIaOwbs8EFPrMeDr6e0VPNjBTTKX-jaEojD5cI9AoEpyc4OY3N1lNXYCPCWu-ahXlUkSeUg919FsQ3J_L2qxOfBi-_EOuKanM6e343NXuxNn7_h9tMw";
             var ex = await Assert.ThrowsAsync<Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException>(() => formsApps.VerifyJWT(token));
-            Assert.Equal("IDX10223: Lifetime validation failed. The token is expired. ValidTo: '[PII is hidden]', Current time: '[PII is hidden]'.", ex.Message);
+            Assert.StartsWith("IDX10223: Lifetime validation failed. The token is expired. ValidTo: ", ex.Message);
         }
 
         [Fact]

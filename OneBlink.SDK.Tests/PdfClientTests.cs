@@ -17,7 +17,7 @@ namespace unit_tests
         public PdfClientTests()
         {
             bool raiseException = false;
-            DotEnv.Config(raiseException, Path.GetFullPath(Path.Combine(Directory.GetCurrentDirectory(), "..", "..", "..", "..")) + "/.env");
+            DotEnv.Load(new DotEnvOptions(ignoreExceptions: raiseException, probeForEnv: true, probeLevelsToSearch: 5));
             ACCESS_KEY = Environment.GetEnvironmentVariable("ACCESS_KEY");
             SECRET_KEY = Environment.GetEnvironmentVariable("SECRET_KEY");
             pdfOrigin = Environment.GetEnvironmentVariable("ONEBLINK_PDF_API_ORIGIN");

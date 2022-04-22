@@ -73,10 +73,10 @@ var formsApp = await formsAppsClient.Get<FormsListFormApp>(id);
 
 ### Parameters
 
-| Parameter | Required | Type                                                            | Description                     |
-| --------- | -------- | --------------------------------------------------------------- | ------------------------------- |
-| `id`      | Yes      | `long`                                                          | Id of forms app to be retrieved |
-| `<T>`     | Yes      | `ApprovalsFormsApp`, `FormsListFormApp` or `VolunteersFormsApp` | The type of Forms App           |
+| Parameter | Required | Type                                                                                 | Description                     |
+| --------- | -------- | ------------------------------------------------------------------------------------ | ------------------------------- |
+| `id`      | Yes      | `long`                                                                               | Id of forms app to be retrieved |
+| `<T>`     | Yes      | `ApprovalsFormsApp`, `FormsListFormApp`, `FormStoreFormsApp` or `VolunteersFormsApp` | The type of Forms App           |
 
 ### Throws
 
@@ -101,10 +101,10 @@ var savedFormsApps = await formsAppsClient.Create<FormsListFormApp>(newFormsApp)
 
 ### Parameters
 
-| Parameter     | Required | Type                                                            | Description           |
-| ------------- | -------- | --------------------------------------------------------------- | --------------------- |
-| `newFormsApp` | Yes      | `FormsApp`                                                      | New FormsApp object   |
-| `<T>`         | Yes      | `ApprovalsFormsApp`, `FormsListFormApp` or `VolunteersFormsApp` | The type of Forms App |
+| Parameter     | Required | Type                                                                                 | Description           |
+| ------------- | -------- | ------------------------------------------------------------------------------------ | --------------------- |
+| `newFormsApp` | Yes      | `FormsApp`                                                                           | New FormsApp object   |
+| `<T>`         | Yes      | `ApprovalsFormsApp`, `FormsListFormApp`, `FormStoreFormsApp` or `VolunteersFormsApp` | The type of Forms App |
 
 ### Throws
 
@@ -129,10 +129,10 @@ FormsListFormApp updatedFormsApp = await formsAppsClient.Update<FormsListFormApp
 
 ### Parameters
 
-| Parameter          | Required | Type                                                            | Description              |
-| ------------------ | -------- | --------------------------------------------------------------- | ------------------------ |
-| `formsAppToUpdate` | Yes      | `FormsApp`                                                      | Existing FormsApp object |
-| `<T>`              | Yes      | `ApprovalsFormsApp`, `FormsListFormApp` or `VolunteersFormsApp` | The type of Forms App    |
+| Parameter          | Required | Type                                                                                 | Description              |
+| ------------------ | -------- | ------------------------------------------------------------------------------------ | ------------------------ |
+| `formsAppToUpdate` | Yes      | `FormsApp`                                                                           | Existing FormsApp object |
+| `<T>`              | Yes      | `ApprovalsFormsApp`, `FormsListFormApp`, `FormStoreFormsApp` or `VolunteersFormsApp` | The type of Forms App    |
 
 ### Throws
 
