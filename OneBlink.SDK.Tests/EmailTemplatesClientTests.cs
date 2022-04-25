@@ -14,8 +14,8 @@ namespace OneBlink.SDK.Tests
         private long formsAppEnvironmentId = 22;
         public EmailTemplatesClientTests()
         {
-            bool raiseException = false;
-            DotEnv.Config(raiseException, Path.GetFullPath(Path.Combine(Directory.GetCurrentDirectory(), "..", "..", "..", "..")) + "/.env");
+            bool ignoreExceptions = true;
+            DotEnv.Load(new DotEnvOptions(ignoreExceptions: ignoreExceptions, probeForEnv: true, probeLevelsToSearch: 5));
             ACCESS_KEY = Environment.GetEnvironmentVariable("ACCESS_KEY");
             SECRET_KEY = Environment.GetEnvironmentVariable("SECRET_KEY");
             string formsAppEnvironmentId = Environment.GetEnvironmentVariable("FORMS_APP_ENVIRONMENT_ID");
