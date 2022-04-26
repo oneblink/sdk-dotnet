@@ -1,9 +1,5 @@
 # Contributing
 
-## Prerequisites
-
--   Docker for [Mac](https://docs.docker.com/docker-for-mac/) or [Windows](https://docs.docker.com/docker-for-windows/) can be used to run `dotnet` CLI commands:
-
 ## Using Test Environment
 
 To use the test environment, use the \*Client constructor that includes passing in the apiOrigin, e.g.
@@ -14,7 +10,13 @@ FormsClient formsClient = new FormsClient(ACCESS_KEY, SECRET_KEY, TenantName.ONE
 
 ## Running Tests
 
-Create a file called `.env` in the root directory with the following values configured
+### Prerequisites
+
+-   .Net runtime installed (at least one of .Net Core 3.1, .Net 5.0, .Net 6.0)
+
+### Environment variables
+
+Create a file called `.env` in the root directory with the following values configured:
 
 **NOTE**: Key secret is available in the [1Blink E2E Tests (DO NOT DELETE)](https://console-test.oneblink.io/organisations/5c58beb2ff59481100000002/keys) account. Find the matching key based on the id below:
 
@@ -23,21 +25,15 @@ ACCESS_KEY=5cf9d5e60bf82f1100000001
 SECRET_KEY=YOUR_SECRET_KEY
 ```
 
-Run in the project directory
+### Target frameworks
+
+By default the tests will run agaisnt runtimes .Net Core 3.1, .Net 5.0, and .Net 6.0
+You can modify the `<TargetFramework>` value in ./OneBlink.SDK.Tests/OneBlink.SDK.Tests.csProj to the runtime/s you have available eg. `net6.0`
+
+### Running tests
 
 ```
-dotnet restore
 dotnet test
-```
-
-can be run if you have .Net Core Runtime 2.2.0 installed.
-You can also switch the `<TargetFramework>` value in ./OneBlink.SDK.Tests/OneBlink.SDK.Tests.csProj to the version you have installed eg. `netcoreapp3.1` to get testing working
-
-Otherwise
-
-```
-docker run -it --rm -v "$PWD":/usr/src/oneblink-sdk-dotnet -w  /usr/src/oneblink-sdk-dotnet mcr.microsoft.com/dotnet/core/sdk:2.2 dotnet build -c Release
-docker run -it --rm -v "$PWD":/usr/src/oneblink-sdk-dotnet -w  /usr/src/oneblink-sdk-dotnet mcr.microsoft.com/dotnet/core/sdk:2.2 dotnet test
 ```
 
 ## Release Process
@@ -88,27 +84,28 @@ docker run -it --rm -v "$PWD":/usr/src/oneblink-sdk-dotnet -w  /usr/src/oneblink
 
 ### Manual
 
+#### Prerequisites
+
+-   .Net SDK installed (at least one of .Net Core 3.1, .Net 5.0, .Net 6.0)
+
 1.  Clone this repository
 
 1.  Remove any existing builds locally by deleting the `./OneBlink.SDK/bin` directory
 
-    Note Regarding Docker commands:
-    If using powershell on windows use `${pwd}` instead of `"$PWD"`
-
 1.  Build source
 
-    ```sh
-    docker run -it --rm -v "$PWD":/usr/src/oneblink-sdk-dotnet -w  /usr/src/oneblink-sdk-dotnet mcr.microsoft.com/dotnet/core/sdk:2.2 dotnet build -c Release
+    ```
+    dotnet build -c Release
     ```
 
 1.  Build NuGet package:
 
-    ```sh
-    docker run -it --rm -v "$PWD":/usr/src/oneblink-sdk-dotnet -w  /usr/src/oneblink-sdk-dotnet mcr.microsoft.com/dotnet/core/sdk:2.2 dotnet pack -c Release
+    ```
+    dotnet pack -c Release
     ```
 
 1.  Publish NuGet package, replacing `[NUGET_API_KEY]` with an authorised API key:
 
     ```sh
-    docker run -it --rm -v "$PWD":/usr/src/oneblink-sdk-dotnet -w  /usr/src/oneblink-sdk-dotnet mcr.microsoft.com/dotnet/core/sdk:2.2 dotnet nuget push ./OneBlink.SDK/bin/Release/OneBlink.SDK.*.nupkg --api-key [NUGET_API_KEY]
+    dotnet nuget push ./OneBlink.SDK/bin/Release/OneBlink.SDK.*.nupkg --api-key [NUGET_API_KEY]
     ```
