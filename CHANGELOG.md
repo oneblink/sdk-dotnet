@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Changed
+
+-   `id` in `FormElementOption` model to be a string
+
 ### Added
 
 -   `FormStoreFormsApp` class

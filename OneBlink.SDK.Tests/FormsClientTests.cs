@@ -210,7 +210,7 @@ namespace OneBlink.SDK.Tests
                 "hint value"
             );
             FormElementOption option = new FormElementOption();
-            option.id = Guid.NewGuid();
+            option.id = Guid.NewGuid().ToString();
             option.value = "A";
             option.label = "A";
             FormElement complianceElement = FormElement.CreateComplianceElement(
