@@ -92,12 +92,6 @@ dotnet test
 
 1.  Remove any existing builds locally by deleting the `./OneBlink.SDK/bin` directory
 
-1.  Build source
-
-    ```
-    dotnet build -c Release
-    ```
-
 1.  Build NuGet package:
 
     ```
