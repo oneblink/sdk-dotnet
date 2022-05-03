@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 3.0.2 (2022-05-03)
+
 ### Changed
 
 -   `id` in `FormElementOption` model to be a string
