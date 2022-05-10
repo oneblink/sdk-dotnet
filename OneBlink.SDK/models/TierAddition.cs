@@ -2,11 +2,11 @@ namespace OneBlink.SDK.Model
 {
     public class TierAddition
     {
-        public long formStoreForms
+        public long? formStoreForms
         {
             get; set;
         }
-        public long formStoreAppUsers
+        public long? formStoreAppUsers
         {
             get; set;
         }

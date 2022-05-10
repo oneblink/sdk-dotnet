@@ -68,6 +68,7 @@ namespace OneBlink.SDK.Model
         }
         public TierAddition tierAdditions
         {
-            get; set}
+            get; set;
+        }
     }
 }
