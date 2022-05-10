@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Added
+
+-   `tierAdditions` to `Organisation` class
+
 ## 3.0.2 (2022-05-03)
 
 ### Changed
