@@ -311,7 +311,7 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
-        public bool successFlag
+        public string successFlag
         {
             get; set;
         }
