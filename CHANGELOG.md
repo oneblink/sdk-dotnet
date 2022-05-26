@@ -7,6 +7,7 @@
 ### Added
 
 -   `tierAdditions` to `Organisation` class
+-   `formSubmissionPayment` to `FormSubmissionMetaResponse` class
 
 ## 3.0.2 (2022-05-03)
 
