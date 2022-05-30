@@ -1,5 +1,3 @@
-using System;
-using Newtonsoft.Json;
 using System.Collections.Generic;
 
 namespace OneBlink.SDK.Model
@@ -16,11 +14,11 @@ namespace OneBlink.SDK.Model
             get; set;
         }
 
-        public IEnumerable<FormSubmissionApproval> formSubmissionApprovals
+        public List<FormSubmissionApproval> formSubmissionApprovals
         {
             get; set;
         }
-        public IEnumerable<FormSubmissionPayment> formSubmissionPayments
+        public List<FormSubmissionPayment> formSubmissionPayments
         {
             get; set;
         }
