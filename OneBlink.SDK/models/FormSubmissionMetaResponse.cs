@@ -20,7 +20,7 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
-        public FormSubmissionPayment formSubmissionPayment
+        public IEnumerable<FormSubmissionPayment> formSubmissionPayments
         {
             get; set;
         }
