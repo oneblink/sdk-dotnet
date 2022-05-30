@@ -81,19 +81,19 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
-        public DateTime currentChargeStatusDtm
+        public DateTime? currentChargeStatusDtm
         {
             get; set;
         }
-        public DateTime createdAt
+        public DateTime? createdAt
         {
             get; set;
         }
-        public DateTime updatedAt
+        public DateTime? updatedAt
         {
             get; set;
         }
-        public DateTime deletedAt
+        public DateTime? deletedAt
         {
             get; set;
         }
@@ -124,7 +124,7 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
-        public double AmountSurchage
+        public double AmountSurcharge
         {
             get; set;
         }
