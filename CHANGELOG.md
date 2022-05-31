@@ -2,12 +2,17 @@
 
 ## Unreleased
 
+## 3.0.4 (2022-05-31)
+
+### Added
+
+-   `formSubmissionPayments` to `FormSubmissionMetaResponse` class
+
 ## 3.0.3 (2022-05-20)
 
 ### Added
 
 -   `tierAdditions` to `Organisation` class
--   `formSubmissionPayments` to `FormSubmissionMetaResponse` class
 
 ## 3.0.2 (2022-05-03)
 
