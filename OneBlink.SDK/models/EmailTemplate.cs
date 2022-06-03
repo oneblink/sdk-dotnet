@@ -1,13 +1,10 @@
 using System;
+using System.Collections.Generic;
 
 namespace OneBlink.SDK.Model
 {
-    public class EmailTemplate
+    public class EmailTemplateEnvironment
     {
-        public string name
-        {
-            get; set;
-        }
 
         public string template
         {
@@ -15,6 +12,25 @@ namespace OneBlink.SDK.Model
         }
 
         public long formsAppEnvironmentId
+        {
+            get; set;
+        }
+
+    }
+
+    public class EmailTemplate
+    {
+        public string name
+        {
+            get; set;
+        }
+
+        public List<EmailTemplateEnvironment> environments
+        {
+            get; set;
+        }
+
+        public string organisationId
         {
             get; set;
         }

@@ -15,11 +15,10 @@ namespace OneBlink.SDK
             );
         }
 
-        public async Task<EmailTemplatesSearchResult> Search(long formsAppEnvironmentId, int? limit = null, int? offset = null)
+        public async Task<EmailTemplatesSearchResult> Search(int? limit = null, int? offset = null)
         {
             string queryString = string.Empty;
 
-            queryString += "formsAppEnvironmentId=" + formsAppEnvironmentId;
             if (limit.HasValue)
             {
                 if (queryString != string.Empty)

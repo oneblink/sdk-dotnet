@@ -2,6 +2,19 @@
 
 ## Unreleased
 
+### Added
+
+-   `EmailTemplate` properties
+    -   `environments`
+    -   `organisationId`
+
+### Removed
+
+-   `EmailTemplate` properties
+    -   `template`
+    -   `formsAppEnvironmentId`
+-   `EmailTemplatesClient.Search()` `formsAppEnvironmentId` parameter
+
 ## 3.0.4 (2022-05-31)
 
 ### Added
