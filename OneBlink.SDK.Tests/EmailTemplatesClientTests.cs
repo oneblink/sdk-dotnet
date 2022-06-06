@@ -12,6 +12,7 @@ namespace OneBlink.SDK.Tests
         private string ACCESS_KEY;
         private string SECRET_KEY;
         private long formsAppEnvironmentId = 22;
+        private string organisationId = "5c58beb2ff59481100000002";
         public EmailTemplatesClientTests()
         {
             bool ignoreExceptions = true;
@@ -22,6 +23,11 @@ namespace OneBlink.SDK.Tests
             if (!String.IsNullOrWhiteSpace(formsAppEnvironmentId))
             {
                 this.formsAppEnvironmentId = long.Parse(formsAppEnvironmentId);
+            }
+            string organisationId = Environment.GetEnvironmentVariable("ORGANISATION_ID");
+            if (!String.IsNullOrWhiteSpace(organisationId))
+            {
+                this.organisationId = organisationId;
             }
         }
         [Fact]
@@ -41,7 +47,7 @@ namespace OneBlink.SDK.Tests
         public async void can_search_email_templates()
         {
             EmailTemplatesClient emailTemplatesClient = new EmailTemplatesClient(ACCESS_KEY, SECRET_KEY, TenantName.ONEBLINK_TEST);
-            EmailTemplatesSearchResult results = await emailTemplatesClient.Search(formsAppEnvironmentId, null, null);
+            EmailTemplatesSearchResult results = await emailTemplatesClient.Search(null, null);
             Assert.NotNull(results);
             Assert.True(results.emailTemplates.Count > 0, "Expected at least 1 email template");
         }
@@ -51,9 +57,16 @@ namespace OneBlink.SDK.Tests
         {
             EmailTemplate newEmailTemplate = new EmailTemplate();
             newEmailTemplate.name = "Unit test environment";
-            newEmailTemplate.template = "Created via unit test";
-            newEmailTemplate.formsAppEnvironmentId = formsAppEnvironmentId;
             newEmailTemplate.type = "FORM_SUBMISSION_EVENT_PDF";
+            newEmailTemplate.organisationId = organisationId;
+            newEmailTemplate.environments = new System.Collections.Generic.List<EmailTemplateEnvironment>()
+            {
+                new EmailTemplateEnvironment()
+                {
+                    formsAppEnvironmentId = formsAppEnvironmentId,
+                    template = "Created via unit test"
+                }
+            };
 
             EmailTemplatesClient emailTemplatesClient = new EmailTemplatesClient(ACCESS_KEY, SECRET_KEY, TenantName.ONEBLINK_TEST);
             EmailTemplate savedEmailClient = await emailTemplatesClient.Create(newEmailTemplate);
@@ -63,9 +76,20 @@ namespace OneBlink.SDK.Tests
             Assert.NotNull(receivedEmailTemplate);
 
             String updatedDescription = "Updated via unit test";
-            receivedEmailTemplate.template = updatedDescription;
+            receivedEmailTemplate.environments =
+            new System.Collections.Generic.List<EmailTemplateEnvironment>()
+            {
+                new EmailTemplateEnvironment()
+                {
+                    formsAppEnvironmentId = formsAppEnvironmentId,
+                    template = updatedDescription
+                }
+            };
             EmailTemplate updatedEmailTemplate = await emailTemplatesClient.Update(receivedEmailTemplate);
-            Assert.Equal(updatedDescription, updatedEmailTemplate.template);
+            foreach (EmailTemplateEnvironment emailTemplateEnvironment in updatedEmailTemplate.environments)
+            {
+                Assert.Equal(updatedDescription, emailTemplateEnvironment.template);
+            }
 
             await emailTemplatesClient.Delete(updatedEmailTemplate.id);
 
