@@ -3,7 +3,8 @@ using Amazon;
 
 namespace OneBlink.SDK.Model
 {
-    public enum TenantName {
+    public enum TenantName
+    {
         ONEBLINK,
         ONEBLINK_TEST,
         CIVICPLUS,
@@ -19,9 +20,12 @@ namespace OneBlink.SDK.Model
         }
 
         private TenantName name;
-        public string oneBlinkAPIOrigin {
-            get {
-                switch(this.name) {
+        public string oneBlinkAPIOrigin
+        {
+            get
+            {
+                switch (this.name)
+                {
                     case TenantName.CIVICPLUS:
                         return "https://auth-api.transform.civicplus.com";
                     case TenantName.CIVICPLUS_TEST:
@@ -33,24 +37,30 @@ namespace OneBlink.SDK.Model
                 }
             }
         }
-        public string oneBlinkPdfOrigin {
-            get {
-                switch(this.name) {
+        public string oneBlinkPdfOrigin
+        {
+            get
+            {
+                switch (this.name)
+                {
                     case TenantName.CIVICPLUS:
-                        return "https://pdf.transform.civicplus.com";
+                        return "https://auth-api.transform.civicplus.com";
                     case TenantName.CIVICPLUS_TEST:
-                        return "https://pdf-test.transform.civicplus.com";
+                        return "https://auth-api-test.transform.civicplus.com";
                     case TenantName.ONEBLINK_TEST:
-                        return "https://pdf-test.blinkm.io";
+                        return "https://auth-api-test.blinkm.io";
                     default:
-                        return "https://pdf.blinkm.io";
+                        return "https://auth-api.blinkm.io";
                 }
             }
         }
 
-        public string jwtIssuer {
-            get {
-                switch(this.name) {
+        public string jwtIssuer
+        {
+            get
+            {
+                switch (this.name)
+                {
                     case TenantName.CIVICPLUS:
                         return "https://cognito-idp.us-east-2.amazonaws.com/us-east-2_A92OPccYd";
                     case TenantName.CIVICPLUS_TEST:
@@ -67,7 +77,7 @@ namespace OneBlink.SDK.Model
         {
             get
             {
-                switch(this.name)
+                switch (this.name)
                 {
                     case TenantName.CIVICPLUS:
                     case TenantName.CIVICPLUS_TEST:
@@ -76,7 +86,7 @@ namespace OneBlink.SDK.Model
                     case TenantName.ONEBLINK_TEST:
                         return RegionEndpoint.APSoutheast2;
                     default:
-                     return RegionEndpoint.APSoutheast2;
+                        return RegionEndpoint.APSoutheast2;
                 }
             }
         }
