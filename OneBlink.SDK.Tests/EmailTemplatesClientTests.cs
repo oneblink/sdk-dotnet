@@ -47,7 +47,7 @@ namespace OneBlink.SDK.Tests
         public async void can_search_email_templates()
         {
             EmailTemplatesClient emailTemplatesClient = new EmailTemplatesClient(ACCESS_KEY, SECRET_KEY, TenantName.ONEBLINK_TEST);
-            EmailTemplatesSearchResult results = await emailTemplatesClient.Search(null, null);
+            EmailTemplatesSearchResult results = await emailTemplatesClient.Search(null, null, formsAppEnvironmentId);
             Assert.NotNull(results);
             Assert.True(results.emailTemplates.Count > 0, "Expected at least 1 email template");
         }

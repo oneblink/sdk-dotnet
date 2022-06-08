@@ -15,16 +15,12 @@ namespace OneBlink.SDK
             );
         }
 
-        public async Task<EmailTemplatesSearchResult> Search(int? limit = null, int? offset = null)
+        public async Task<EmailTemplatesSearchResult> Search(int? limit = null, int? offset = null, long? formsAppEnvironmentId = null)
         {
             string queryString = string.Empty;
 
             if (limit.HasValue)
             {
-                if (queryString != string.Empty)
-                {
-                    queryString += "&";
-                }
                 queryString += "limit=" + limit.Value;
             }
 
@@ -35,6 +31,14 @@ namespace OneBlink.SDK
                     queryString += "&";
                 }
                 queryString += "offset=" + offset.Value;
+            }
+            if (formsAppEnvironmentId.HasValue)
+            {
+                if (queryString != string.Empty)
+                {
+                    queryString += "&";
+                }
+                queryString += "formsAppEnvironmentId=" + formsAppEnvironmentId.Value;
             }
             string url = "/email-templates?" + queryString;
             return await this.oneBlinkApiClient.GetRequest<EmailTemplatesSearchResult>(url);
