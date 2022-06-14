@@ -21,8 +21,12 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public FormSubmissionEventConfigurationMappingDependentFieldValue dependentFieldValue
+        {
+            get; set;
+        }
     }
-    //Kept here for backwards compatability, remove with next breaking change. 
+    //Kept here for backwards compatability, remove with next breaking change.
     public class FormSubmissionEventCivicaElementMapping : FormSubmissionEventConfigurationMapping
     {
     }

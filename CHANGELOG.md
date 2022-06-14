@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+### Added
+
+-   `subCategoryLabel`, `subCategoryHint`, `itemLabel` and `itemHint` to `FormElement`
+-   `dependentFieldValue` to `FormSubmissionEventConfigurationMappping`
+
 ## 3.0.5 (2022-06-09)
 
 ### Added

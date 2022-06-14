@@ -364,6 +364,22 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public string subCategoryLabel
+        {
+            get; set;
+        }
+        public string subCategoryHint
+        {
+            get; set;
+        }
+        public string itemLabel
+        {
+            get; set;
+        }
+        public string itemHint
+        {
+            get; set;
+        }
         private static Guid initialiseId(Guid? id)
         {
             if (!id.HasValue)
