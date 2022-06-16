@@ -4,11 +4,18 @@ namespace OneBlink.SDK.Model
 
     public class FormSubmissionEventConfigurationMapping
     {
+        public string type
+        {
+            get; set;
+        }
         public dynamic value
         {
             get; set;
         }
-
+        public string freshdeskFieldName
+        {
+            get; set;
+        }
         public long civicaCategoryItemNumber
         {
             get; set;
