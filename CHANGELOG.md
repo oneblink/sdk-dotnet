@@ -5,7 +5,7 @@
 ### Added
 
 -   `subCategoryLabel`, `subCategoryHint`, `itemLabel` and `itemHint` to `FormElement`
--   `dependentFieldValue` to `FormSubmissionEventConfigurationMapping`
+-   `dependentFieldValue`, `type`, `freshdeskFieldName` to `FormSubmissionEventConfigurationMapping`
 
 ## 3.0.5 (2022-06-09)
 
