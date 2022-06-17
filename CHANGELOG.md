@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 3.0.6 (2022-06-17)
+
 ### Added
 
 -   `subCategoryLabel`, `subCategoryHint`, `itemLabel` and `itemHint` to `FormElement`
