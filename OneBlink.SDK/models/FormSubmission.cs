@@ -12,6 +12,11 @@ namespace OneBlink.SDK.Model
             get; internal set;
         }
         [JsonProperty]
+        public string username
+        {
+            get; internal set;
+        }
+        [JsonProperty]
         public string email
         {
             get; internal set;
@@ -43,6 +48,16 @@ namespace OneBlink.SDK.Model
         }
         [JsonProperty]
         public string providerUserId
+        {
+            get; internal set;
+        }
+        [JsonProperty]
+        public string role
+        {
+            get; internal set;
+        }
+        [JsonProperty]
+        public bool? isSAMLUser
         {
             get; internal set;
         }
