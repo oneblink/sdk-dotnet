@@ -1,3 +1,4 @@
+using System;
 namespace OneBlink.SDK.Model
 {
     public class FormSubmissionApprovalNote
@@ -6,7 +7,7 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
-        public string createdAt
+        public DateTime? createdAt
         {
             get; set;
         }
@@ -14,7 +15,7 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
-        public string updatedAt
+        public DateTime? updatedAt
         {
             get; set;
         }

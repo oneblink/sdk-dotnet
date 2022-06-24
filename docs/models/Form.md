@@ -32,4 +32,4 @@
 | Property    | Type       | Description                        |
 | ----------- | ---------- | ---------------------------------- |
 | `createdAt` | `DateTime` | DateTime the form was created      |
-| `updatedAt` | `Dateime`  | DateTime the form was last updated |
+| `updatedAt` | `DateTime` | DateTime the form was last updated |

@@ -45,12 +45,12 @@ namespace OneBlink.SDK.Model
             get; set;
         }
 
-        public string createdAt
+        public DateTime? createdAt
         {
             get; set;
         }
 
-        public string updatedAt
+        public DateTime? updatedAt
         {
             get; set;
         }
