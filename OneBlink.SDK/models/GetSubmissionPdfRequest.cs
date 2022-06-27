@@ -13,5 +13,18 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public bool? isDraft
+        {
+            get; set;
+        }
+        public bool? includeSubmissionIdInPdf
+        {
+            get; set;
+        }
+        public bool? includePaymentInPdf
+        {
+            get; set;
+        }
+
     }
 }
