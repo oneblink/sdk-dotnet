@@ -19,7 +19,7 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
-        public FormSubmissionMetaUserDetails updatedBy
+        public FormSubmissionMetaUserDetails lastUpdatedBy
         {
             get; set;
         }
