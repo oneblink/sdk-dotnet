@@ -3,6 +3,7 @@ using System.IO;
 using OneBlink.SDK.Model;
 using System;
 using System.Collections.Generic;
+using System.Web;
 namespace OneBlink.SDK
 {
     public class PdfClient
@@ -17,25 +18,16 @@ namespace OneBlink.SDK
                 tenant: new Tenant(tenantName)
             );
         }
-        public async Task<Stream> GetSubmissionPdf(long formId, string submissionId, bool? isDraft = null, bool? includeSubmissionIdInPdf = null, List<Guid> excludedElementIds = null, bool? usePagesAsBreaks = null)
+        public async Task<Stream> GetSubmissionPdf(long formId, string submissionId, bool? isDraft = null, bool? includeSubmissionIdInPdf = null, List<Guid> excludedElementIds = null, bool? usePagesAsBreaks = null, bool? includePaymentInPdf = null)
         {
-            string queryString = string.Empty;
-            if (isDraft.HasValue)
-            {
-                queryString += "isDraft=" + isDraft.Value.ToString();
-            }
-            if (includeSubmissionIdInPdf.HasValue)
-            {
-                if (queryString != string.Empty)
-                {
-                    queryString += "&";
-                }
-                queryString += "includeSubmissionIdInPdf=" + includeSubmissionIdInPdf.Value.ToString();
-            }
+            var query = HttpUtility.ParseQueryString(string.Empty);
+            OneBlinkHttpClient.AddItemToQuery(query, nameof(isDraft), isDraft);
+            OneBlinkHttpClient.AddItemToQuery(query, nameof(includeSubmissionIdInPdf), includeSubmissionIdInPdf);
+            OneBlinkHttpClient.AddItemToQuery(query, nameof(includePaymentInPdf), includePaymentInPdf);
+
             GetSubmissionPdfRequest body = new GetSubmissionPdfRequest() { excludedElementIds = excludedElementIds, usePagesAsBreaks = usePagesAsBreaks };
 
-
-            string url = "/forms/" + formId.ToString() + "/submissions/" + submissionId + "/pdf-document?" + queryString;
+            string url = "/forms/" + formId.ToString() + "/submissions/" + submissionId + "/pdf-document?" + query.ToString();
             return await this.oneBlinkPdfClient.PostRequest(url, body);
         }
 

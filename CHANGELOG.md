@@ -2,7 +2,10 @@
 
 ## Unreleased
 
+### Added
+
 -   `additionalNotes` to `FormSubmissionApproval`
+-   `includePaymentInPdf` to `FormSubmissionEventConfiguration`
 
 ## 3.0.6 (2022-06-17)
 

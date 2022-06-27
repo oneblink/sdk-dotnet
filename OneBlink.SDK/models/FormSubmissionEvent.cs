@@ -65,7 +65,11 @@ namespace OneBlink.SDK.Model
             bool requiresAllConditionallyExecutePredicates = false,
             bool groupFiles = false,
             List<string> excludedElementIds = default(List<string>),
-            bool? usePagesAsBreaks = null)
+            bool? usePagesAsBreaks = null,
+            string pdfFileName = null,
+            bool? includeSubmissionIdInPdf = null,
+            bool? includePaymentInPdf = null
+            )
         {
             FormSubmissionEventConfiguration fseconfig = new FormSubmissionEventConfiguration();
             fseconfig.environmentId = environmentId;
@@ -77,6 +81,9 @@ namespace OneBlink.SDK.Model
             fseconfig.groupFiles = groupFiles;
             fseconfig.excludedElementIds = excludedElementIds;
             fseconfig.usePagesAsBreaks = true;
+            fseconfig.pdfFileName = pdfFileName;
+            fseconfig.includeSubmissionIdInPdf = includeSubmissionIdInPdf;
+            fseconfig.includePaymentInPdf = includePaymentInPdf;
             FormSubmissionEvent trim = new FormSubmissionEvent();
             trim.type = "TRIM";
             trim.conditionallyExecute = conditionallyExecute;
@@ -111,7 +118,7 @@ namespace OneBlink.SDK.Model
             bool? usePagesAsBreaks = null,
             List<ConditionallyShowPredicate> conditionallyExecutePredicates = default(List<ConditionallyShowPredicate>),
             bool conditionallyExecute = false,
-            bool requiresAllConditionallyExecutePredicates = false)
+            bool requiresAllConditionallyExecutePredicates = false, Boolean? includePaymentInPdf = null)
         {
             FormSubmissionEventConfiguration fseconfig = new FormSubmissionEventConfiguration();
             fseconfig.environmentId = environmentId;
@@ -120,6 +127,7 @@ namespace OneBlink.SDK.Model
             fseconfig.mapping = mapping;
             fseconfig.pdfFileName = pdfFileName;
             fseconfig.includeSubmissionIdInPdf = includeSubmissionIdInPdf;
+            fseconfig.includePaymentInPdf = includePaymentInPdf;
             fseconfig.excludedElementIds = excludedElementIds;
             fseconfig.usePagesAsBreaks = usePagesAsBreaks;
             FormSubmissionEvent civicaCrm = new FormSubmissionEvent();
@@ -164,7 +172,8 @@ namespace OneBlink.SDK.Model
             FormSubmissionEventEmailTemplate emailTemplate = null,
             List<ConditionallyShowPredicate> conditionallyExecutePredicates = default(List<ConditionallyShowPredicate>),
             bool conditionallyExecute = false,
-            bool requiresAllConditionallyExecutePredicates = false
+            bool requiresAllConditionallyExecutePredicates = false,
+            bool? includePaymentInPdf = null
         )
         {
             FormSubmissionEventConfiguration fseconfig = new FormSubmissionEventConfiguration();
@@ -172,6 +181,7 @@ namespace OneBlink.SDK.Model
             fseconfig.emailSubjectLine = emailSubjectLine;
             fseconfig.pdfFileName = pdfFileName;
             fseconfig.includeSubmissionIdInPdf = includeSubmissionIdInPdf;
+            fseconfig.includePaymentInPdf = includePaymentInPdf;
             fseconfig.excludedElementIds = excludedElementIds;
             fseconfig.usePagesAsBreaks = usePagesAsBreaks;
             fseconfig.emailTemplate = emailTemplate;

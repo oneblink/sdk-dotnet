@@ -1,5 +1,6 @@
 using OneBlink.SDK.Model;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace OneBlink.SDK
 {
@@ -18,21 +19,11 @@ namespace OneBlink.SDK
 
         public async Task<FormsAppEnvironmentsSearchResult> Search(int? limit = null, int? offset = null)
         {
-            string queryString = string.Empty;
+            var query = HttpUtility.ParseQueryString(string.Empty);
+            OneBlinkHttpClient.AddItemToQuery(query, nameof(limit), limit);
+            OneBlinkHttpClient.AddItemToQuery(query, nameof(offset), offset);
 
-            if (limit.HasValue)
-            {
-                queryString += "limit=" + limit.Value;
-            }
-            if (offset.HasValue)
-            {
-                if (queryString != string.Empty)
-                {
-                    queryString += "&";
-                }
-                queryString += "offset=" + offset.Value;
-            }
-            string url = "/forms-app-environments?" + queryString;
+            string url = "/forms-app-environments?" + query.ToString();
             return await this.oneBlinkApiClient.GetRequest<FormsAppEnvironmentsSearchResult>(url);
         }
         public async Task<FormsAppEnvironment> Create(FormsAppEnvironment newFormsAppEnvironment)

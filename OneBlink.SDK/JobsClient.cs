@@ -1,6 +1,7 @@
 using System.Threading.Tasks;
 using OneBlink.SDK.Model;
 using System;
+using System.Web;
 
 namespace OneBlink.SDK
 {
@@ -78,59 +79,15 @@ namespace OneBlink.SDK
 
         public async Task<JobsSearchResult> SearchJobs(JobsSearchParameters searchParams)
         {
-            string queryString = string.Empty;
+            var query = HttpUtility.ParseQueryString(string.Empty);
+            OneBlinkHttpClient.AddItemToQuery(query, nameof(searchParams.formId), searchParams.formId);
+            OneBlinkHttpClient.AddItemToQuery(query, nameof(searchParams.isSubmitted), searchParams.isSubmitted);
+            OneBlinkHttpClient.AddItemToQuery(query, nameof(searchParams.limit), searchParams.limit);
+            OneBlinkHttpClient.AddItemToQuery(query, nameof(searchParams.offset), searchParams.offset);
+            OneBlinkHttpClient.AddItemToQuery(query, nameof(searchParams.username), searchParams.username);
+            OneBlinkHttpClient.AddItemToQuery(query, nameof(searchParams.externalId), searchParams.externalId);
 
-            if (searchParams.formId.HasValue)
-            {
-                queryString += "formId=" + searchParams.formId.Value.ToString();
-            }
-
-            if (searchParams.isSubmitted.HasValue)
-            {
-                if (queryString != string.Empty)
-                {
-                    queryString += "&";
-                }
-                queryString += "isSubmitted=" + searchParams.isSubmitted.Value.ToString();
-            }
-
-            if (searchParams.limit.HasValue)
-            {
-                if (queryString != string.Empty)
-                {
-                    queryString += "&";
-                }
-                queryString += "limit=" + searchParams.limit.Value.ToString();
-            }
-
-            if (searchParams.offset.HasValue)
-            {
-                if (queryString != string.Empty)
-                {
-                    queryString += "&";
-                }
-                queryString += "offset=" + searchParams.offset.Value.ToString();
-            }
-
-            if (!String.IsNullOrWhiteSpace(searchParams.username))
-            {
-                if (queryString != string.Empty)
-                {
-                    queryString += "&";
-                }
-                queryString += "username=" + searchParams.username.ToString();
-            }
-
-            if (!String.IsNullOrWhiteSpace(searchParams.externalId))
-            {
-                if (queryString != string.Empty)
-                {
-                    queryString += "&";
-                }
-                queryString += "externalId=" + searchParams.externalId.ToString();
-            }
-
-            string url = "/jobs?" + queryString;
+            string url = "/jobs?" + query.ToString();
 
             return await this.oneBlinkApiClient.GetRequest<JobsSearchResult>(url);
         }
