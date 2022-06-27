@@ -9,6 +9,7 @@ using Amazon.S3.Model;
 using Newtonsoft.Json;
 using OneBlink.SDK.Model;
 using System.Net.Mime;
+using System.Web;
 
 namespace OneBlink.SDK
 {
@@ -62,73 +63,17 @@ namespace OneBlink.SDK
             int? limit = null,
             int? offset = null)
         {
-            string queryString = string.Empty;
-            if (isAuthenticated.HasValue)
-            {
-                queryString += "isAuthenticated=" + isAuthenticated.Value.ToString();
-            }
-            if (isPublished.HasValue)
-            {
-                if (queryString != string.Empty)
-                {
-                    queryString += "&";
-                }
-                queryString += "isPublished=" + isPublished.Value.ToString();
-            }
-            if (String.IsNullOrWhiteSpace(name))
-            {
-                if (queryString != string.Empty)
-                {
-                    queryString += "&";
-                }
-                queryString += "name=" + name;
-            }
-            if (formsAppEnvironmentId.HasValue)
-            {
-                if (queryString != string.Empty)
-                {
-                    queryString += "&";
-                }
-                queryString += "formsAppEnvironmentId=" + formsAppEnvironmentId.Value;
-            }
+            var query = HttpUtility.ParseQueryString(string.Empty);
+            OneBlinkHttpClient.AddItemToQuery(query, nameof(isAuthenticated), isAuthenticated);
+            OneBlinkHttpClient.AddItemToQuery(query, nameof(isPublished), isPublished);
+            OneBlinkHttpClient.AddItemToQuery(query, nameof(name), name);
+            OneBlinkHttpClient.AddItemToQuery(query, nameof(formsAppEnvironmentId), formsAppEnvironmentId);
+            OneBlinkHttpClient.AddItemToQuery(query, nameof(isInfoPage), isInfoPage);
+            OneBlinkHttpClient.AddItemToQuery(query, nameof(formsAppId), formsAppId);
+            OneBlinkHttpClient.AddItemToQuery(query, nameof(limit), limit);
+            OneBlinkHttpClient.AddItemToQuery(query, nameof(offset), offset);
 
-            if (isInfoPage.HasValue)
-            {
-                if (queryString != string.Empty)
-                {
-                    queryString += "&";
-                }
-                queryString += "isInfoPage=" + isInfoPage.Value;
-            }
-
-            if (formsAppId.HasValue)
-            {
-                if (queryString != string.Empty)
-                {
-                    queryString += "&";
-                }
-                queryString += "formsAppId=" + formsAppId.Value;
-            }
-
-            if (limit.HasValue)
-            {
-                if (queryString != string.Empty)
-                {
-                    queryString += "&";
-                }
-                queryString += "limit=" + limit.Value;
-            }
-
-            if (offset.HasValue)
-            {
-                if (queryString != string.Empty)
-                {
-                    queryString += "&";
-                }
-                queryString += "offset=" + offset.Value;
-            }
-
-            string url = "/forms?" + queryString;
+            string url = "/forms?" + query.ToString();
             return await this.oneBlinkApiClient.GetRequest<FormsSearchResult>(url);
         }
 
@@ -149,59 +94,22 @@ namespace OneBlink.SDK
 
         public async Task<FormSubmissionSearchResult> SearchSubmissions(long formId, DateTime? submissionDateFrom, DateTime? submissionDateTo, int limit = 0, int offset = 0)
         {
-            string queryString = "formId=" + formId;
+            var query = HttpUtility.ParseQueryString(string.Empty);
+            OneBlinkHttpClient.AddItemToQuery(query, nameof(formId), formId);
+            OneBlinkHttpClient.AddItemToQuery(query, nameof(submissionDateFrom), submissionDateFrom);
+            OneBlinkHttpClient.AddItemToQuery(query, nameof(submissionDateTo), submissionDateTo);
+            OneBlinkHttpClient.AddItemToQuery(query, nameof(limit), limit);
+            OneBlinkHttpClient.AddItemToQuery(query, nameof(offset), offset);
 
-            if (submissionDateFrom.HasValue)
-            {
-                if (queryString != string.Empty)
-                {
-                    queryString += "&";
-                }
-                queryString += "submissionDateFrom=" + ((DateTime) submissionDateFrom).ToString("yyyy-MM-ddTHH:mm:ssZ");
-            }
-
-            if (submissionDateTo.HasValue)
-            {
-                if (queryString != string.Empty)
-                {
-                    queryString += "&";
-                }
-
-                queryString += "submissionDateTo=" + ((DateTime) submissionDateTo).ToString("yyyy-MM-ddTHH:mm:ssZ");
-            }
-
-            if (limit != 0)
-            {
-                if (queryString != string.Empty)
-                {
-                    queryString += "&";
-                }
-
-                queryString += "limit=" + limit;
-            }
-
-            if (offset != 0)
-            {
-                if (queryString != string.Empty)
-                {
-                    queryString += "&";
-                }
-
-                queryString += "offset=" + offset;
-            }
-
-            string url = "/form-submission-meta?" + queryString;
+            string url = "/form-submission-meta?" + query.ToString();
             return await this.oneBlinkApiClient.GetRequest<FormSubmissionSearchResult>(url);
         }
 
         public async Task<Form> Get(long id, Boolean? injectForms)
         {
-            string queryString = string.Empty;
-            if (injectForms.HasValue)
-            {
-                queryString += "injectForms" + injectForms.ToString();
-            }
-            string url = "/forms/" + id.ToString() + "?" + queryString;
+            var query = HttpUtility.ParseQueryString(string.Empty);
+            OneBlinkHttpClient.AddItemToQuery(query, nameof(injectForms), injectForms);
+            string url = "/forms/" + id.ToString() + "?" + query.ToString();
             return await this.oneBlinkApiClient.GetRequest<Form>(url);
         }
 
@@ -214,23 +122,20 @@ namespace OneBlink.SDK
 
         public async Task<Form> Update(Form formToUpdate, bool overrideLock = false)
         {
-            string url = "/forms/" + formToUpdate.id.ToString();
-            if (overrideLock)
-            {
-                url = url + "?overrideLock=true";
-            }
+            var query = HttpUtility.ParseQueryString(string.Empty);
+            OneBlinkHttpClient.AddItemToQuery(query, nameof(overrideLock), overrideLock);
 
+            string url = "/forms/" + formToUpdate.id.ToString() + "?" + query.ToString();
             Form form = await this.oneBlinkApiClient.PutRequest<Form, Form>(url, formToUpdate);
             return form;
         }
 
         public async Task Delete(long id, bool overrideLock = false)
         {
-            string url = "/forms/" + id.ToString();
-            if (overrideLock)
-            {
-                url = url + "?overrideLock=true";
-            }
+            var query = HttpUtility.ParseQueryString(string.Empty);
+            OneBlinkHttpClient.AddItemToQuery(query, nameof(overrideLock), overrideLock);
+
+            string url = "/forms/" + id.ToString() + "?" + query.ToString();
             await this.oneBlinkApiClient.DeleteRequest(url);
         }
 
@@ -340,7 +245,10 @@ namespace OneBlink.SDK
             {
                 throw new ArgumentOutOfRangeException("expiryInSeconds must be greater than or equal to 900");
             }
-            string url = "/forms/" + formId.ToString() + "/retrieval-url/" + submissionId + "?expirySeconds=" + expiryInSeconds.ToString();
+            var query = HttpUtility.ParseQueryString(string.Empty);
+            OneBlinkHttpClient.AddItemToQuery(query, "expirySeconds", expiryInSeconds);
+
+            string url = "/forms/" + formId.ToString() + "/retrieval-url/" + submissionId + "?" + query.ToString();
             SubmissionDataUrl submissionDataUrl = await this.oneBlinkApiClient.PostRequest<SubmissionDataUrl>(url);
             return submissionDataUrl;
         }
@@ -426,34 +334,14 @@ namespace OneBlink.SDK
         string userToken,
         long? previousFormSubmissionApprovalId)
         {
-            // SEARCH PARAMS
-            List<string> searchParams = new List<string>();
-            searchParams.Add($"access_key={token}");
-            if (externalId != null)
-            {
-                searchParams.Add($"externalId={externalId}");
-            }
-            if (preFillFormDataId != null)
-            {
-                searchParams.Add($"preFillFormDataId={preFillFormDataId}");
-            }
-            if (userToken != null)
-            {
-                searchParams.Add($"userToken={userToken}");
-            }
-            if (previousFormSubmissionApprovalId != null)
-            {
-                searchParams.Add($"previousFormSubmissionApprovalId={previousFormSubmissionApprovalId.ToString()}");
-            }
-            string url = $"https://{formsApp.hostname}/forms/{formId}";
-            for (int i = 0; i < searchParams.Count; i++)
-            {
-                if (i == 0)
-                    url += "?";
-                url += searchParams[i];
-                if (i != searchParams.Count - 1)
-                    url += "&";
-            }
+            var query = HttpUtility.ParseQueryString(string.Empty);
+            OneBlinkHttpClient.AddItemToQuery(query, "access_key", token);
+            OneBlinkHttpClient.AddItemToQuery(query, nameof(externalId), externalId);
+            OneBlinkHttpClient.AddItemToQuery(query, nameof(preFillFormDataId), preFillFormDataId);
+            OneBlinkHttpClient.AddItemToQuery(query, nameof(userToken), userToken);
+            OneBlinkHttpClient.AddItemToQuery(query, nameof(previousFormSubmissionApprovalId), previousFormSubmissionApprovalId);
+
+            string url = $"https://{formsApp.hostname}/forms/{formId}?{query.ToString()}";
             return url;
         }
 

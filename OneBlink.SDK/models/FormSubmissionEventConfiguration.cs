@@ -3,7 +3,7 @@ using System.Collections.Generic;
 namespace OneBlink.SDK.Model
 {
 
-    //Being kept right now due to backwards compatability, will be deleted upon next breaking change. 
+    //Being kept right now due to backwards compatability, will be deleted upon next breaking change.
     public class FormSubmissionEventConfigration : FormSubmissionEventConfiguration
     {
     }
@@ -94,6 +94,10 @@ namespace OneBlink.SDK.Model
             get; set;
         }
         public Boolean? includeSubmissionIdInPdf
+        {
+            get; set;
+        }
+        public Boolean? includePaymentInPdf
         {
             get; set;
         }

@@ -2,6 +2,7 @@ using System;
 using OneBlink.SDK.Model;
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using System.Web;
 
 namespace OneBlink.SDK
 {
@@ -33,88 +34,31 @@ namespace OneBlink.SDK
             List<string> lastUpdatedBy = null
         )
         {
-            string queryString = nameof(limit) + "=" + limit.ToString() + "&" + nameof(offset) + "=" + offset.ToString();
-            if (formId.HasValue)
-            {
-                if (queryString != string.Empty)
-                {
-                    queryString += "&";
-                }
-                queryString += "formId=" + formId.Value.ToString();
-            }
-            if (!String.IsNullOrEmpty(externalId))
-            {
-                if (queryString != string.Empty)
-                {
-                    queryString += "&";
-                }
-                queryString += nameof(externalId) + "=" + externalId;
-            }
-            if (!String.IsNullOrEmpty(submissionId))
-            {
-                if (queryString != string.Empty)
-                {
-                    queryString += "&";
-                }
-                queryString += nameof(submissionId) + "=" + submissionId;
-            }
-            if (!String.IsNullOrEmpty(submittedAfterDateTime))
-            {
-                if (queryString != string.Empty)
-                {
-                    queryString += "&";
-                }
-                queryString += nameof(submittedAfterDateTime) + "=" + submittedAfterDateTime;
-            }
-            if (!String.IsNullOrEmpty(submittedBeforeDateTime))
-            {
-                if (queryString != string.Empty)
-                {
-                    queryString += "&";
-                }
-                queryString += nameof(submittedBeforeDateTime) + "=" + submittedBeforeDateTime;
-            }
-            if (!String.IsNullOrEmpty(updatedAfterDateTime))
-            {
-                if (queryString != string.Empty)
-                {
-                    queryString += "&";
-                }
-                queryString += nameof(updatedAfterDateTime) + "=" + updatedAfterDateTime;
-            }
-            if (!String.IsNullOrEmpty(updatedBeforeDateTime))
-            {
-                if (queryString != string.Empty)
-                {
-                    queryString += "&";
-                }
-                queryString += nameof(updatedBeforeDateTime) + "=" + updatedBeforeDateTime;
-            }
+            var query = HttpUtility.ParseQueryString(string.Empty);
+            query[nameof(limit)] = limit.ToString();
+            query[nameof(offset)] = offset.ToString();
+            OneBlinkHttpClient.AddItemToQuery(query, nameof(formId), formId);
+            OneBlinkHttpClient.AddItemToQuery(query, nameof(externalId), externalId);
+            OneBlinkHttpClient.AddItemToQuery(query, nameof(submissionId), submissionId);
+            OneBlinkHttpClient.AddItemToQuery(query, nameof(submittedAfterDateTime), submittedAfterDateTime);
+            OneBlinkHttpClient.AddItemToQuery(query, nameof(submittedBeforeDateTime), submittedBeforeDateTime);
+            OneBlinkHttpClient.AddItemToQuery(query, nameof(updatedAfterDateTime), updatedAfterDateTime);
+            OneBlinkHttpClient.AddItemToQuery(query, nameof(updatedBeforeDateTime), updatedBeforeDateTime);
             if (statuses != default(List<string>))
             {
                 foreach (var status in statuses)
                 {
-                    if (queryString != string.Empty)
-                    {
-                        queryString += "&";
-                    }
-
-                    queryString += nameof(statuses) + "=" + status;
+                    query[nameof(statuses)] = status;
                 }
             }
             if (lastUpdatedBy != default(List<string>))
             {
                 foreach (var lastUpdated in lastUpdatedBy)
                 {
-                    if (queryString != string.Empty)
-                    {
-                        queryString += "&";
-                    }
-
-                    queryString += nameof(lastUpdatedBy) + "=" + lastUpdated;
+                    query[nameof(lastUpdatedBy)] = lastUpdated;
                 }
             }
-            string url = "/forms-apps/" + formsAppId + "/approvals?" + queryString;
+            string url = "/forms-apps/" + formsAppId + "/approvals?" + query.ToString();
             var response = await this.oneBlinkApiClient.GetRequest<GetFormSubmissionAdministrationApprovalsResponse>(url);
             return response;
         }
