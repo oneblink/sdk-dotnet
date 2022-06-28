@@ -4,7 +4,7 @@ namespace OneBlink.SDK.Model
 {
     public class ApprovalFormsInclusionConfiguration
     {
-        public string approvalFormInclusion
+        public string value
         {
             get; set;
         }
