@@ -167,7 +167,7 @@ namespace OneBlink.SDK.Model
             get; set;
         }
 
-        public ApprovalFormsInclusionConfiguration approvalFormsInclusionConfig
+        public ApprovalFormsInclusionConfiguration approvalFormsInclusion
         {
             get; set;
         }

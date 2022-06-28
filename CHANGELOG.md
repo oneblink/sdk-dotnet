@@ -7,6 +7,11 @@
 -   `additionalNotes` to `FormSubmissionApproval`
 -   `includePaymentInPdf` to `FormSubmissionEventConfiguration`
 
+### Fixed
+
+-   `approvalFormsInclusionConfig` to `approvalFormsInclusion` in `FormSubmissionEventConfiguration`
+-   `approvalFormInclusion` to `value` in `ApprovalFormsInclusionConfiguration`
+
 ## 3.0.6 (2022-06-17)
 
 ### Added
