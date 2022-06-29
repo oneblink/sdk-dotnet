@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 3.0.7 (2022-06-29)
+
 ### Added
 
 -   `additionalNotes` to `FormSubmissionApproval`
