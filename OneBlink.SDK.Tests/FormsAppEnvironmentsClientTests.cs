@@ -60,7 +60,7 @@ namespace OneBlink.SDK.Tests
             newFormsAppEnvironment.name = "Unit test environment";
             newFormsAppEnvironment.description = "Created via unit test";
             newFormsAppEnvironment.organisationId = organisationId;
-            newFormsAppEnvironment.slug = "unit-test-environment";
+            newFormsAppEnvironment.slug = "unit-test-environment-" + DateTime.Now.ToFileTimeUtc().ToString();
 
             FormsAppEnvironmentsClient formsAppEnvironmentsClient = new FormsAppEnvironmentsClient(ACCESS_KEY, SECRET_KEY, TenantName.ONEBLINK_TEST);
             FormsAppEnvironment savedFormsAppEnvironment = await formsAppEnvironmentsClient.Create(newFormsAppEnvironment);

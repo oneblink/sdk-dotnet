@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Added
+
+-   `formSubmissionWorkflowEvents` and `formSubmissionSchedulingBooking` to `FormSubmissionMetadataResponse`
+
 ## 3.0.7 (2022-06-29)
 
 ### Added

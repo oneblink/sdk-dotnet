@@ -22,5 +22,13 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public List<FormSubmissionWorkflowEvent> formSubmissionWorkflowEvents
+        {
+            get; set;
+        }
+        public SchedulingBooking formSubmissionSchedulingBooking
+        {
+            get; set;
+        }
     }
 }
