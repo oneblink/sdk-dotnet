@@ -40,6 +40,10 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public FormEvent @event
+        {
+            get; set;
+        }
 
     }
 }
