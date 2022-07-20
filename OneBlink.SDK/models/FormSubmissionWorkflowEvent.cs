@@ -12,7 +12,11 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
-        public DateTime updatedAt
+        public DateTime startedAt
+        {
+            get; set;
+        }
+        public DateTime finishedAt
         {
             get; set;
         }
