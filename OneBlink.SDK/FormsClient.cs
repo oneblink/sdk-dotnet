@@ -31,7 +31,13 @@ namespace OneBlink.SDK
             return await GetFormSubmission<T>(formId, submissionId, false);
         }
 
+        [ObsoleteAttribute("This method is obsolete. Call GetFormSubmissionMeta instead.", true)]
         public async Task<FormSubmissionMetadataResponse> GetSubmissionMeta(string submissionId)
+        {
+            return await GetFormSubmissionMeta(submissionId);
+        }
+
+        public async Task<FormSubmissionMetadataResponse> GetFormSubmissionMeta(string submissionId)
         {
             string url = "/form-submission-meta/" + submissionId;
             return await this.oneBlinkApiClient.GetRequest<FormSubmissionMetadataResponse>(url);

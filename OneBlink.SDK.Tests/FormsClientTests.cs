@@ -138,6 +138,14 @@ namespace OneBlink.SDK.Tests
         }
 
         [Fact]
+        public async void can_get_form_submission_meta()
+        {
+            FormsClient forms = new FormsClient(ACCESS_KEY, SECRET_KEY, TenantName.ONEBLINK_TEST);
+            var formSubmissionMeta = await forms.GetFormSubmissionMeta(this.submissionId);
+            Assert.NotNull(formSubmissionMeta);
+        }
+
+        [Fact]
         public async void get_submission_data_should_throw_oneblink_exception()
         {
             FormsClient forms = new FormsClient("123", "aaaaaaaaaaaaaaabbbbbbbbbbbbbbbcccccccccccccccc");

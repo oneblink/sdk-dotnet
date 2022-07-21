@@ -6,6 +6,10 @@
 
 -   `formSubmissionWorkflowEvents` and `formSubmissionSchedulingBooking` to `FormSubmissionMetadataResponse`
 
+### Changed
+
+-   Mark `FormsClient.GetSubmissionMeta()` as obsolete
+
 ## 3.0.7 (2022-06-29)
 
 ### Added
