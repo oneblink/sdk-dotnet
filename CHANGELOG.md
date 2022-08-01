@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Added
+
+-   `requiredMessage` to `FormElement`
+
 ## 3.0.8 (2022-07-29)
 
 ### Added
