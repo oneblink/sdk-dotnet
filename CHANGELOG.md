@@ -4,6 +4,7 @@
 
 ### Added
 
+-   `requiredMessage` to `FormElement`
 -   `customCssClasses` to `FormElement`
 
 ## 3.0.8 (2022-07-29)
