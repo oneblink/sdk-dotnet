@@ -14,6 +14,10 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public string label
+        {
+            get; set;
+        }
         public FormSubmissionEventConfiguration configuration
         {
             get; set;
