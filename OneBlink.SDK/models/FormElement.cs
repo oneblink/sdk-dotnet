@@ -388,6 +388,10 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public dynamic meta
+        {
+            get; set;
+        }
         private static Guid initialiseId(Guid? id)
         {
             if (!id.HasValue)
