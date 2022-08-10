@@ -6,6 +6,7 @@
 
 -   `requiredMessage` to `FormElement`
 -   `customCssClasses` to `FormElement`
+-   `meta` to `FormElement`
 -   `label` to `FormSubmissionEvent`
 
 ## 3.0.8 (2022-07-29)
