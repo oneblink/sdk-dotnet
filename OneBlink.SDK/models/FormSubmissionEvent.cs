@@ -36,7 +36,7 @@ namespace OneBlink.SDK.Model
             get; set;
         }
 
-        public static FormSubmissionEvent CreateCpPaySubmissionEvent(Guid elementId, Guid gatewayId)
+        public static FormSubmissionEvent CreateCpPaySubmissionEvent(Guid elementId, Guid gatewayId, string label = null)
         {
             FormSubmissionEventConfiguration fseconfig = new FormSubmissionEventConfiguration();
             fseconfig.elementId = elementId;
@@ -44,10 +44,11 @@ namespace OneBlink.SDK.Model
             FormSubmissionEvent cpPay = new FormSubmissionEvent();
             cpPay.type = "CP_PAY";
             cpPay.configuration = fseconfig;
+            cpPay.label = label;
             return cpPay;
         }
 
-        public static FormSubmissionEvent CreateBpointSubmissionEvent(Guid elementId, Guid environmentId)
+        public static FormSubmissionEvent CreateBpointSubmissionEvent(Guid elementId, Guid environmentId, string label = null)
         {
             FormSubmissionEventConfiguration fseconfig = new FormSubmissionEventConfiguration();
             fseconfig.elementId = elementId;
@@ -55,6 +56,7 @@ namespace OneBlink.SDK.Model
             FormSubmissionEvent bpoint = new FormSubmissionEvent();
             bpoint.type = "BPOINT";
             bpoint.configuration = fseconfig;
+            bpoint.label = label;
             return bpoint;
         }
 
@@ -72,7 +74,8 @@ namespace OneBlink.SDK.Model
             bool? usePagesAsBreaks = null,
             string pdfFileName = null,
             bool? includeSubmissionIdInPdf = null,
-            bool? includePaymentInPdf = null
+            bool? includePaymentInPdf = null,
+            string label = null
             )
         {
             FormSubmissionEventConfiguration fseconfig = new FormSubmissionEventConfiguration();
@@ -97,10 +100,11 @@ namespace OneBlink.SDK.Model
             {
                 trim.conditionallyExecutePredicates = conditionallyExecutePredicates;
             }
+            trim.label = label;
             return trim;
         }
 
-        public static FormSubmissionEvent CreateWestpacQuickWebSubmissionEvent(Guid elementId, Guid environmentId, string customerReferenceNumber)
+        public static FormSubmissionEvent CreateWestpacQuickWebSubmissionEvent(Guid elementId, Guid environmentId, string customerReferenceNumber, string label = null)
         {
             FormSubmissionEventConfiguration fseconfig = new FormSubmissionEventConfiguration();
             fseconfig.elementId = elementId;
@@ -109,6 +113,7 @@ namespace OneBlink.SDK.Model
             FormSubmissionEvent westpacQuickWeb = new FormSubmissionEvent();
             westpacQuickWeb.type = "WESTPAC_QUICK_WEB";
             westpacQuickWeb.configuration = fseconfig;
+            westpacQuickWeb.label = label;
             return westpacQuickWeb;
         }
 
@@ -122,7 +127,9 @@ namespace OneBlink.SDK.Model
             bool? usePagesAsBreaks = null,
             List<ConditionallyShowPredicate> conditionallyExecutePredicates = default(List<ConditionallyShowPredicate>),
             bool conditionallyExecute = false,
-            bool requiresAllConditionallyExecutePredicates = false, Boolean? includePaymentInPdf = null)
+            bool requiresAllConditionallyExecutePredicates = false,
+            Boolean? includePaymentInPdf = null,
+            string label = null)
         {
             FormSubmissionEventConfiguration fseconfig = new FormSubmissionEventConfiguration();
             fseconfig.environmentId = environmentId;
@@ -143,6 +150,7 @@ namespace OneBlink.SDK.Model
             {
                 civicaCrm.conditionallyExecutePredicates = conditionallyExecutePredicates;
             }
+            civicaCrm.label = label;
             return civicaCrm;
         }
 
@@ -151,7 +159,8 @@ namespace OneBlink.SDK.Model
             long nylasSchedulingPageId,
             Guid? nameElementId = null,
             Guid? emailElementId = null,
-            string emailDescription = null
+            string emailDescription = null,
+            string label = null
         )
         {
             FormSubmissionEventConfiguration fseconfig = new FormSubmissionEventConfiguration();
@@ -163,6 +172,7 @@ namespace OneBlink.SDK.Model
             FormSubmissionEvent schedulingEvent = new FormSubmissionEvent();
             schedulingEvent.type = "SCHEDULING";
             schedulingEvent.configuration = fseconfig;
+            schedulingEvent.label = label;
             return schedulingEvent;
         }
 
@@ -177,7 +187,8 @@ namespace OneBlink.SDK.Model
             List<ConditionallyShowPredicate> conditionallyExecutePredicates = default(List<ConditionallyShowPredicate>),
             bool conditionallyExecute = false,
             bool requiresAllConditionallyExecutePredicates = false,
-            bool? includePaymentInPdf = null
+            bool? includePaymentInPdf = null,
+            string label = null
         )
         {
             FormSubmissionEventConfiguration fseconfig = new FormSubmissionEventConfiguration();
@@ -198,6 +209,7 @@ namespace OneBlink.SDK.Model
             {
                 pdfEvent.conditionallyExecutePredicates = conditionallyExecutePredicates;
             }
+            pdfEvent.label = label;
 
             return pdfEvent;
         }
@@ -208,7 +220,8 @@ namespace OneBlink.SDK.Model
             FormSubmissionEventEmailTemplate emailTemplate = null,
             List<ConditionallyShowPredicate> conditionallyExecutePredicates = default(List<ConditionallyShowPredicate>),
             bool conditionallyExecute = false,
-            bool requiresAllConditionallyExecutePredicates = false
+            bool requiresAllConditionallyExecutePredicates = false,
+            string label = null
         )
         {
             FormSubmissionEventConfiguration fseconfig = new FormSubmissionEventConfiguration();
@@ -224,6 +237,7 @@ namespace OneBlink.SDK.Model
             {
                 emailEvent.conditionallyExecutePredicates = conditionallyExecutePredicates;
             }
+            emailEvent.label = label;
 
             return emailEvent;
         }
@@ -233,7 +247,8 @@ namespace OneBlink.SDK.Model
             List<FormSubmissionEventConfigurationMapping> mapping,
             bool conditionallyExecute,
             bool requiresAllConditionallyExecutePredicates,
-            List<ConditionallyShowPredicate> conditionallyExecutePredicates = default(List<ConditionallyShowPredicate>)
+            List<ConditionallyShowPredicate> conditionallyExecutePredicates = default(List<ConditionallyShowPredicate>),
+            string label = null
         )
         {
             FormSubmissionEventConfiguration fseconfig = new FormSubmissionEventConfiguration();
@@ -246,6 +261,7 @@ namespace OneBlink.SDK.Model
             {
                 freshdeskCreateTicketEvent.conditionallyExecutePredicates = conditionallyExecutePredicates;
             }
+            freshdeskCreateTicketEvent.label = label;
 
             return freshdeskCreateTicketEvent;
         }
