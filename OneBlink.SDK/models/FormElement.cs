@@ -384,7 +384,7 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
-        public string[] customCssClasses
+        public List<string> customCssClasses
         {
             get; set;
         }
