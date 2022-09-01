@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Added
+
+-   `approvalConfiguration` to `Form`
+
 ### Changed
 
 -   Numerous updates to `JWTPayload` class

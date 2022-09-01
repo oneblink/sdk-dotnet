@@ -176,6 +176,10 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public ApprovalConfiguration approvalConfiguration
+        {
+            get; set;
+        }
         public List<FormSubmissionEvent> submissionEvents
         {
             get; set;
@@ -237,6 +241,14 @@ namespace OneBlink.SDK.Model
             get; set;
         }
         public FormServerValidation externalIdGeneration
+        {
+            get; set;
+        }
+    }
+
+    public class ApprovalConfiguration
+    {
+        public string defaultNotificationEmailElementId
         {
             get; set;
         }
