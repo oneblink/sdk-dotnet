@@ -33,7 +33,45 @@ namespace OneBlink.SDK
                 kid: jwt.Header.Kid
             );
             string verifiedToken = Token.VerifyJWT(token, jwk, iss);
-            return JsonConvert.DeserializeObject<JWTPayload>(verifiedToken);
+            RawJWTPayload rawJWTPayload = JsonConvert.DeserializeObject<RawJWTPayload>(verifiedToken);
+            if (String.IsNullOrEmpty(rawJWTPayload.sub))
+            {
+                return null;
+            }
+            JWTPayload jWTPayload = new JWTPayload();
+            jWTPayload.isSAMLUser = false;
+            jWTPayload.providerType = "Cognito";
+            jWTPayload.providerUserId = rawJWTPayload.sub;
+            jWTPayload.userId = rawJWTPayload.sub;
+            jWTPayload.email = rawJWTPayload.email;
+            jWTPayload.emailVerified = rawJWTPayload.email_verified;
+            jWTPayload.firstName = rawJWTPayload.given_name;
+            jWTPayload.lastName = rawJWTPayload.family_name;
+            jWTPayload.fullName = rawJWTPayload.name;
+            jWTPayload.picture = rawJWTPayload.picture;
+            jWTPayload.role = rawJWTPayload.customRole;
+            jWTPayload.username = !String.IsNullOrEmpty(rawJWTPayload.email) ? rawJWTPayload.email : rawJWTPayload.sub;
+            if (!String.IsNullOrEmpty(rawJWTPayload.customSupervisorEmail) && !String.IsNullOrEmpty(rawJWTPayload.customSupervisorName) && !String.IsNullOrEmpty(rawJWTPayload.customSupervisorUserId))
+            {
+                jWTPayload.supervisor = new FormSubmissionSupervisor();
+                jWTPayload.supervisor.fullName = rawJWTPayload.customSupervisorName;
+                jWTPayload.supervisor.email = rawJWTPayload.customSupervisorEmail;
+                jWTPayload.supervisor.providerUserId = rawJWTPayload.customSupervisorUserId;
+            }
+            jWTPayload.phoneNumber = rawJWTPayload.customPhoneNumber;
+            jWTPayload.phoneNumberVerified = rawJWTPayload.customPhoneNumberVerified;
+            if (rawJWTPayload.identities.Count > 0)
+            {
+                jWTPayload.providerType = rawJWTPayload.identities[0].providerType;
+                jWTPayload.providerUserId = rawJWTPayload.identities[0].userId;
+                jWTPayload.isSAMLUser = rawJWTPayload.identities[0].providerType == "SAML";
+                if (jWTPayload.isSAMLUser.HasValue && jWTPayload.isSAMLUser.Value == true)
+                {
+                    jWTPayload.username = !String.IsNullOrEmpty(rawJWTPayload.preferred_username) ? rawJWTPayload.preferred_username : rawJWTPayload.identities[0].userId;
+                }
+            }
+
+            return jWTPayload;
         }
         public async Task<T> Get<T>(long id) where T : FormsAppBase
         {

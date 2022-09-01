@@ -22,6 +22,11 @@ namespace OneBlink.SDK.Model
             get; internal set;
         }
         [JsonProperty]
+        public bool? emailVerified
+        {
+            get; internal set;
+        }
+        [JsonProperty]
         public string firstName
         {
             get; internal set;
@@ -56,8 +61,16 @@ namespace OneBlink.SDK.Model
         {
             get; internal set;
         }
-        [JsonProperty]
         public bool? isSAMLUser
+        {
+            get; set;
+        }
+        public string phoneNumber
+        {
+            get; internal set;
+        }
+        [JsonProperty]
+        public bool? phoneNumberVerified
         {
             get; internal set;
         }
