@@ -26,6 +26,7 @@
 | `cancelRedirectUrl`     | No       | `string`                    | URL to be redirected too, only applies if `cancelAction` is "URL"         | `null`                            |
 | `serverValidation`      | No       | `FormServerValidation`      | Optional configuration for form submission validation                     | `null`                            |
 | `externalIdGeneration`  | No       | `FormServerValidation`      | Optional configuration for generating externalId on form load             | `null`                            |
+| `approvalConfiguration` | No       | `FormApprovalConfiguration` | Optional configuration for approvals                                      | `null`                            |
 
 ### Other properties
 

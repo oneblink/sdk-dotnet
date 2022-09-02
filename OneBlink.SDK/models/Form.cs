@@ -35,7 +35,8 @@ namespace OneBlink.SDK.Model
             string cancelAction = "BACK",
             string cancelRedirectUrl = null,
             FormServerValidation serverValidation = null,
-            FormServerValidation externalIdGeneration = null
+            FormServerValidation externalIdGeneration = null,
+            FormApprovalConfiguration approvalConfiguration = null
             )
         {
             if (id.HasValue)
@@ -131,6 +132,7 @@ namespace OneBlink.SDK.Model
             this.cancelRedirectUrl = cancelRedirectUrl;
             this.serverValidation = serverValidation;
             this.externalIdGeneration = externalIdGeneration;
+            this.approvalConfiguration = approvalConfiguration;
         }
         public long id
         {
@@ -176,7 +178,7 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
-        public ApprovalConfiguration approvalConfiguration
+        public FormApprovalConfiguration approvalConfiguration
         {
             get; set;
         }
@@ -241,14 +243,6 @@ namespace OneBlink.SDK.Model
             get; set;
         }
         public FormServerValidation externalIdGeneration
-        {
-            get; set;
-        }
-    }
-
-    public class ApprovalConfiguration
-    {
-        public string defaultNotificationEmailElementId
         {
             get; set;
         }
