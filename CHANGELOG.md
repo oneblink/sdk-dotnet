@@ -5,6 +5,8 @@
 ### Added
 
 -   `approvalConfiguration` to `Form`
+-   `FormApprovalCannedResponse` class
+-   `cannedResponseKey` to `FormSubmissionApproval`
 
 ### Changed
 
