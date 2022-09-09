@@ -13,6 +13,7 @@
 -   [EmailClient](./email-client.md)
 -   [EmailTemplateClient](./email-template-client.md)
 -   [ApprovalsClient](./approvals-client.md)
+-   [DataManagerClient](./data-manager-client.md)
 
 ## Models
 

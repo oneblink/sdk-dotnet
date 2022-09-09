@@ -7,6 +7,7 @@
 -   `approvalConfiguration` to `Form`
 -   `FormApprovalCannedResponse` class
 -   `cannedResponseKey` to `FormSubmissionApproval`
+-   `DataManagerClient` class and corresponding model classes
 -   `secret` to `FormServerValidationConfiguration`
 -   `isValid` parameter to `FormsClient.SearchSubmissions`
 
