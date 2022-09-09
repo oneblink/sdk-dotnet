@@ -8,6 +8,7 @@
 -   `FormApprovalCannedResponse` class
 -   `cannedResponseKey` to `FormSubmissionApproval`
 -   `secret` to `FormServerValidationConfiguration`
+-   `isValid` parameter to `FormsClient.SearchSubmissions`
 
 ### Changed
 
