@@ -22,5 +22,9 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public string secret
+        {
+            get; set;
+        }
     }
 }
