@@ -7,6 +7,7 @@
 -   `approvalConfiguration` to `Form`
 -   `FormApprovalCannedResponse` class
 -   `cannedResponseKey` to `FormSubmissionApproval`
+-   `secret` to `FormServerValidationConfiguration`
 
 ### Changed
 
