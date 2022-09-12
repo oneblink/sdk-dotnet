@@ -363,6 +363,20 @@ namespace OneBlink.SDK.Model
         }
     }
 
+    public class FormSubmissionMetaValidationResult
+    {
+        [JsonProperty]
+        public bool isInvalid
+        {
+            get; internal set;
+        }
+        [JsonProperty]
+        public string error
+        {
+            get; internal set;
+        }
+    }
+
     public class FormSubmissionMetadata
     {
         [JsonProperty]
@@ -401,6 +415,10 @@ namespace OneBlink.SDK.Model
             get; set;
         }
         public string jobId
+        {
+            get; set;
+        }
+        public FormSubmissionMetaValidationResult validationResult
         {
             get; set;
         }
