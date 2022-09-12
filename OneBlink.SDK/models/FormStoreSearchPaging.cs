@@ -2,7 +2,7 @@ namespace OneBlink.SDK.Model
 {
     public class FormStoreSearchPaging
     {
-        public long? number
+        public long? limit
         {
             get; set;
         }
