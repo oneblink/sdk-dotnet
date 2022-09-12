@@ -24,6 +24,10 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public string jobId
+        {
+            get; set;
+        }
         public FormSubmissionMetaKey key
         {
             get; set;
@@ -41,6 +45,14 @@ namespace OneBlink.SDK.Model
             get; set;
         }
         public string ipAddress
+        {
+            get; set;
+        }
+        public DateTime dateTimeSubmitted
+        {
+            get; set;
+        }
+        public DateTime createdAt
         {
             get; set;
         }
