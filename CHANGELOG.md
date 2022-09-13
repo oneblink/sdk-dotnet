@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 3.0.10 (2022-09-13)
+
 ### Added
 
 -   `approvalConfiguration` to `Form`
