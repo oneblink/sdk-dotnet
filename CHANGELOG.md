@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Added
+
+-   `autoDenyAfterClarificationRequest` to `FormApprovalConfiguration`
+
 ## 3.0.10 (2022-09-13)
 
 ### Added
