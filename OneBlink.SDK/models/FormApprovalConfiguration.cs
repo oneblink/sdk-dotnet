@@ -4,7 +4,7 @@ namespace OneBlink.SDK.Model
 {
     public class FormApprovalConfiguration
     {
-        public Guid defaultNotificationEmailElementId
+        public Guid? defaultNotificationEmailElementId
         {
             get; set;
         }
