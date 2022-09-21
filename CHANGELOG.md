@@ -6,6 +6,10 @@
 
 -   `autoDenyAfterClarificationRequest` to `FormApprovalConfiguration`
 
+### Fixed
+
+-   type for `FormApprovalConfiguration.defaultNotificationEmailElementId`
+
 ## 3.0.10 (2022-09-13)
 
 ### Added
