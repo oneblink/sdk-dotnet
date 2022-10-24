@@ -29,9 +29,9 @@ namespace OneBlink.SDK.Model
                     case TenantName.CIVICPLUS:
                         return "https://auth-api.transform.civicplus.com";
                     case TenantName.CIVICPLUS_TEST:
-                        return "https://auth-api-test.transform.civicplus.com";
+                        return "https://auth-api.test.transform.civicplus.com";
                     case TenantName.ONEBLINK_TEST:
-                        return "https://auth-api-test.blinkm.io";
+                        return "https://auth-api.test.blinkm.io";
                     default:
                         return "https://auth-api.blinkm.io";
                 }
@@ -46,9 +46,9 @@ namespace OneBlink.SDK.Model
                     case TenantName.CIVICPLUS:
                         return "https://auth-api.transform.civicplus.com";
                     case TenantName.CIVICPLUS_TEST:
-                        return "https://auth-api-test.transform.civicplus.com";
+                        return "https://auth-api.test.transform.civicplus.com";
                     case TenantName.ONEBLINK_TEST:
-                        return "https://auth-api-test.blinkm.io";
+                        return "https://auth-api.test.blinkm.io";
                     default:
                         return "https://auth-api.blinkm.io";
                 }
