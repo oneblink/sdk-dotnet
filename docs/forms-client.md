@@ -68,6 +68,7 @@ A `string`
 -   [`GenerateFormUrl()`](#generateformurl)
 -   [`GenerateSubmissionDataUrl()`](#generatesubmissiondataurl)
 -   [`GetFormSubmissionAttachment()`](#getformsubmissionattachment)
+-   [`GetFormSubmissionAttachmentMeta()`](#getformsubmissionattachmentmeta)
 -   [`CreateSubmissionAttachment()`](#createsubmissionattachment)
 -   [`GenerateSubmissionAttachmentUrl()`](#generatesubmissionattachmenturl)
 -   [`GetFormSubmissionMeta()`](#getformsubmissionmeta)
@@ -481,6 +482,30 @@ Stream attachmentStream = await formsClient.GetFormSubmissionAttachment(formId, 
 ### Result
 
 A `System.IO.Stream` class
+
+## `GetFormSubmissionAttachmentMeta()`
+
+### Example
+
+```c#
+FormAttachmentMeta meta = await formsClient.GetFormSubmissionAttachmentMeta(formId, attachmentId);
+```
+
+### Parameters
+
+| Parameter      | Required | Type   | Description |
+| -------------- | -------- | ------ | ----------- |
+| `formId`       | Yes      | long   |             |
+| `attachmentId` | Yes      | string |             |
+
+### Throws
+
+-   `OneBlinkAPIException`
+-   `Exception`
+
+### Result
+
+A `FormAttachmentMetam` class
 
 ## `CreateSubmissionAttachment()`
 
