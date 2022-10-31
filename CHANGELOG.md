@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Added
+
+-   `GetFormSubmissionAttachmentMeta` to `FormsClient`
+
 ### Changed
 
 -   Origin for test tenant's

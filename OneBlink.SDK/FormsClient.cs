@@ -266,6 +266,12 @@ namespace OneBlink.SDK
             return await this.oneBlinkApiClient.GetStreamRequest(url);
         }
 
+        public async Task<FormAttachmentMeta> GetFormSubmissionAttachmentMeta(long formId, string attachmentId)
+        {
+            string url = "/submissions/" + formId.ToString() + "/attachments/" + attachmentId + "/meta";
+            return await this.oneBlinkApiClient.GetRequest<FormAttachmentMeta>(url);
+        }
+
         public async Task<AttachmentData> CreateSubmissionAttachment(long formId, Stream body, string fileName, string contentType, bool isPrivate, string username)
         {
             string url = "/forms/" + formId.ToString() + "/upload-attachment-credentials";
