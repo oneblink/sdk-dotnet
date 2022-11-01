@@ -268,7 +268,7 @@ namespace OneBlink.SDK
 
         public async Task<FormAttachmentMeta> GetFormSubmissionAttachmentMeta(long formId, string attachmentId)
         {
-            string url = "/submissions/" + formId.ToString() + "/attachments/" + attachmentId + "/meta";
+            string url = "/forms/" + formId.ToString() + "/attachments/" + attachmentId + "/meta";
             return await this.oneBlinkApiClient.GetRequest<FormAttachmentMeta>(url);
         }
 
