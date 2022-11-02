@@ -65,7 +65,16 @@ namespace OneBlink.SDK
             }
             return matchingKey;
         }
-        internal static string VerifyJWT(string token, JsonWebKey jwk, string iss) {
+
+        internal static string DecodeJWT(string token)
+        {
+            JwtSecurityTokenHandler handler = new JwtSecurityTokenHandler();
+            JwtSecurityToken validatedJwt = handler.ReadJwtToken(token);
+            return validatedJwt.Payload.SerializeToJson();
+        }
+
+        internal static string VerifyJWT(string token, JsonWebKey jwk, string iss)
+        {
             RSACryptoServiceProvider rsa = new RSACryptoServiceProvider();
             rsa.ImportParameters(
                 new RSAParameters()

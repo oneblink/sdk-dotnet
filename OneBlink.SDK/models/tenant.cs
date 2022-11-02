@@ -55,24 +55,6 @@ namespace OneBlink.SDK.Model
             }
         }
 
-        public string jwtIssuer
-        {
-            get
-            {
-                switch (this.name)
-                {
-                    case TenantName.CIVICPLUS:
-                        return "https://cognito-idp.us-east-2.amazonaws.com/us-east-2_A92OPccYd";
-                    case TenantName.CIVICPLUS_TEST:
-                        return "https://cognito-idp.us-east-2.amazonaws.com/us-east-2_e2gd0LSVp";
-                    case TenantName.ONEBLINK_TEST:
-                        return "https://cognito-idp.ap-southeast-2.amazonaws.com/ap-southeast-2_E03xBaafT";
-                    default:
-                        return "https://cognito-idp.ap-southeast-2.amazonaws.com/ap-southeast-2_o1t3ntGWx";
-                }
-            }
-        }
-
         public RegionEndpoint AwsRegion
         {
             get

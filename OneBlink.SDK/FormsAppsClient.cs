@@ -1,5 +1,6 @@
 using System;
 using System.IdentityModel.Tokens.Jwt;
+using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
@@ -22,17 +23,14 @@ namespace OneBlink.SDK
 
         public async Task<JWTPayload> VerifyJWT(string token)
         {
+            HttpRequestMessage httpRequestMessage = new HttpRequestMessage(HttpMethod.Get, this.oneBlinkApiClient.tenant.oneBlinkAPIOrigin + "/my-forms-app");
+            await this.oneBlinkApiClient.SendRequest(httpRequestMessage, token);
+
             if (token.Contains("Bearer "))
             {
                 token = token.Split(' ')[1];
             }
-            JwtSecurityToken jwt = new JwtSecurityToken(token);
-            string iss = this.oneBlinkApiClient.tenant.jwtIssuer;
-            JsonWebKey jwk = await Token.GetJsonWebKey(
-                iss: iss,
-                kid: jwt.Header.Kid
-            );
-            string verifiedToken = Token.VerifyJWT(token, jwk, iss);
+            string verifiedToken = Token.DecodeJWT(token);
             RawJWTPayload rawJWTPayload = JsonConvert.DeserializeObject<RawJWTPayload>(verifiedToken);
             if (String.IsNullOrEmpty(rawJWTPayload.sub))
             {
