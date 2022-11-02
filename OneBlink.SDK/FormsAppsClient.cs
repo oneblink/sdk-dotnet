@@ -1,7 +1,5 @@
 using System;
-using System.IdentityModel.Tokens.Jwt;
 using System.Threading.Tasks;
-using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
 using OneBlink.SDK.Model;
 
@@ -28,8 +26,8 @@ namespace OneBlink.SDK
             {
                 token = token.Split(' ')[1];
             }
-            string verifiedToken = Token.DecodeJWT(token);
-            RawJWTPayload rawJWTPayload = JsonConvert.DeserializeObject<RawJWTPayload>(verifiedToken);
+            string decodedToken = Token.DecodeJWT(token);
+            RawJWTPayload rawJWTPayload = JsonConvert.DeserializeObject<RawJWTPayload>(decodedToken);
             if (String.IsNullOrEmpty(rawJWTPayload.sub))
             {
                 return null;
