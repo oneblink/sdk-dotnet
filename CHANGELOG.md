@@ -9,6 +9,7 @@
 ### Changed
 
 -   Origin for test tenant's
+-   `FormsAppsClient.VerifyJWT()` to call API instead of using cognito
 
 ## 3.0.11 (2022-09-27)
 
