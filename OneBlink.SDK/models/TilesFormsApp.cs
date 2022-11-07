@@ -6,8 +6,13 @@ namespace OneBlink.SDK.Model
         {
             this.type = "TILES";
         }
-        public string slug {get;set;}
-        public FormsListStyles styles {get;set;}
-        public override string type {get;}
+        public string slug
+        {
+            get; set;
+        }
+        public FormsListStyles styles
+        {
+            get; set;
+        }
     }
 }

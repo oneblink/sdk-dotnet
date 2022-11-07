@@ -8,9 +8,17 @@ namespace OneBlink.SDK.Model
         {
             this.type = "VOLUNTEERS";
         }
-        public FormsAppStylesBase styles {get;set;}
-        public List<VolunteersFormsAppCategories> categories {get;set;}
-        public string waiverUrl {get;set;}
-        public override string type {get;}
+        public FormsAppStylesBase styles
+        {
+            get; set;
+        }
+        public List<VolunteersFormsAppCategories> categories
+        {
+            get; set;
+        }
+        public string waiverUrl
+        {
+            get; set;
+        }
     }
 }
