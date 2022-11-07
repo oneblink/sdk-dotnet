@@ -30,7 +30,7 @@ namespace OneBlink.SDK
             RawJWTPayload rawJWTPayload = JsonConvert.DeserializeObject<RawJWTPayload>(decodedToken);
             if (String.IsNullOrEmpty(rawJWTPayload.sub))
             {
-                return null;
+                throw new ArgumentException("Invalid token");
             }
             JWTPayload jWTPayload = new JWTPayload();
             jWTPayload.isSAMLUser = false;
@@ -54,7 +54,7 @@ namespace OneBlink.SDK
             }
             jWTPayload.phoneNumber = rawJWTPayload.customPhoneNumber;
             jWTPayload.phoneNumberVerified = rawJWTPayload.customPhoneNumberVerified;
-            if (rawJWTPayload.identities.Count > 0)
+            if (rawJWTPayload.identities != null && rawJWTPayload.identities.Count > 0)
             {
                 jWTPayload.providerType = rawJWTPayload.identities[0].providerType;
                 jWTPayload.providerUserId = rawJWTPayload.identities[0].userId;
