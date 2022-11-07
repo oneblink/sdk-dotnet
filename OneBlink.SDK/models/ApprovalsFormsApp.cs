@@ -6,7 +6,9 @@ namespace OneBlink.SDK.Model
         {
             this.type = "APPROVALS";
         }
-        public FormsAppStylesBase styles {get;set;}
-        public override string type {get;}
+        public FormsAppStylesBase styles
+        {
+            get; set;
+        }
     }
 }
