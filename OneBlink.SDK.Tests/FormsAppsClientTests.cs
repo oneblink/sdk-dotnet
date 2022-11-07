@@ -49,7 +49,7 @@ namespace OneBlink.SDK.Tests
         [Fact]
         public async void verify_function_throws_correct_error_when_jwt_expired()
         {
-            FormsAppsClient formsApps = new FormsAppsClient(ACCESS_KEY, SECRET_KEY, TenantName.ONEBLINK);
+            FormsAppsClient formsApps = new FormsAppsClient(ACCESS_KEY, SECRET_KEY, TenantName.ONEBLINK_TEST);
             string token = "eyJraWQiOiJSaTZ1VzQzQ1ZlNmhtQ1NcL291Rms1TnlaUkI4aytaUmZGc3RPYUliNHdNaz0iLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiI4ODcyNGRlMy1kNzI4LTQ0OGEtYjBhOS03YzFiNTg1ZjFmMGYiLCJjb2duaXRvOmdyb3VwcyI6WyJhcC1zb3V0aGVhc3QtMl9vMXQzbnRHV3hfR29vZ2xlIl0sInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXdzLmNvZ25pdG8uc2lnbmluLnVzZXIuYWRtaW4gb3BlbmlkIHByb2ZpbGUgZW1haWwiLCJhdXRoX3RpbWUiOjE1OTEwNzgyNTEsImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC5hcC1zb3V0aGVhc3QtMi5hbWF6b25hd3MuY29tXC9hcC1zb3V0aGVhc3QtMl9vMXQzbnRHV3giLCJleHAiOjE1OTE3NDg4ODMsImlhdCI6MTU5MTc0NTI4MywidmVyc2lvbiI6MiwianRpIjoiOTVlNjI0ODEtMWVlNC00NGE4LWE0ZWMtMGVjNDMxOTJhYTIyIiwiY2xpZW50X2lkIjoiNzBtbmp2MjFkbXBkMWtjOWZlZmx0OWRoZGkiLCJ1c2VybmFtZSI6Ikdvb2dsZV8xMTU1MzExMjk5MzE2MTk0Nzk4NTUifQ.hm8Xn1ya0R-Zouuo0OkWiguThso8AkYYcQR4K8m3wxxtCBtUuEo046ZOFbRMOTb977bkr2AZY8PKlr4BuO35yDYD6ieKdMte3L8KvXw25F4u1Z33TJsFwGZpWUfmF41rfsTNbOx8vG6LVbMxEF1omBlYd0MPe3o8nCBICHJWYykGmGYjiTO4T2HRtbf9BJlAOEOUOcTKyKLqSQp7RUubsdfG-l05zWpuZLFVIaOwbs8EFPrMeDr6e0VPNjBTTKX-jaEojD5cI9AoEpyc4OY3N1lNXYCPCWu-ahXlUkSeUg919FsQ3J_L2qxOfBi-_EOuKanM6e343NXuxNn7_h9tMw";
             var ex = await Assert.ThrowsAsync<OneBlinkAPIException>(() => formsApps.VerifyJWT(token));
             Assert.StartsWith("jwt expired", ex.Message);
