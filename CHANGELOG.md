@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Changed
+
+-   `FormsAppsClient.VerifyJWT()` to use cognito directly
+
 ## 3.0.14 (2022-11-08)
 
 ### Added

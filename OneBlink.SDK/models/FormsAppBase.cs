@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace OneBlink.SDK.Model
 {
-    public class FormsAppBase
+    public abstract class FormsAppBase
     {
         public long id
         {
@@ -64,9 +64,9 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
-        public string type
+        public abstract string type
         {
-            get; set;
+            get;
         }
         public string recaptchaIntegrationDomainId
         {
