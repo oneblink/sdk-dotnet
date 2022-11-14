@@ -1,5 +1,7 @@
 using System;
+using System.IdentityModel.Tokens.Jwt;
 using System.Threading.Tasks;
+using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
 using OneBlink.SDK.Model;
 
@@ -20,17 +22,21 @@ namespace OneBlink.SDK
 
         public async Task<JWTPayload> VerifyJWT(string token)
         {
-            await this.GetMyFormsApp<FormsAppBase>(token);
-
             if (token.Contains("Bearer "))
             {
                 token = token.Split(' ')[1];
             }
-            string decodedToken = Token.DecodeJWT(token);
-            RawJWTPayload rawJWTPayload = JsonConvert.DeserializeObject<RawJWTPayload>(decodedToken);
+            JwtSecurityToken jwt = new JwtSecurityToken(token);
+            string iss = this.oneBlinkApiClient.tenant.jwtIssuer;
+            JsonWebKey jwk = await Token.GetJsonWebKey(
+                iss: iss,
+                kid: jwt.Header.Kid
+            );
+            string verifiedToken = Token.VerifyJWT(token, jwk, iss);
+            RawJWTPayload rawJWTPayload = JsonConvert.DeserializeObject<RawJWTPayload>(verifiedToken);
             if (String.IsNullOrEmpty(rawJWTPayload.sub))
             {
-                throw new ArgumentException("Invalid token");
+                return null;
             }
             JWTPayload jWTPayload = new JWTPayload();
             jWTPayload.isSAMLUser = false;
@@ -54,7 +60,7 @@ namespace OneBlink.SDK
             }
             jWTPayload.phoneNumber = rawJWTPayload.customPhoneNumber;
             jWTPayload.phoneNumberVerified = rawJWTPayload.customPhoneNumberVerified;
-            if (rawJWTPayload.identities != null && rawJWTPayload.identities.Count > 0)
+            if (rawJWTPayload.identities.Count > 0)
             {
                 jWTPayload.providerType = rawJWTPayload.identities[0].providerType;
                 jWTPayload.providerUserId = rawJWTPayload.identities[0].userId;

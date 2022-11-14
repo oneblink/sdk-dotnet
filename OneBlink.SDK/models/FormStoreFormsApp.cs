@@ -11,6 +11,10 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public override string type
+        {
+            get;
+        }
         public List<FormStoreForm> forms
         {
             get; set;

@@ -20,5 +20,9 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public override string type
+        {
+            get;
+        }
     }
 }
