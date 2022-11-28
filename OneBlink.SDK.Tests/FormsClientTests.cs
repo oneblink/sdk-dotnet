@@ -271,6 +271,7 @@ namespace OneBlink.SDK.Tests
             };
             Form updatedForm = await formsClient.Update(savedForm);
 
+            await formsClient.Delete(updatedForm.id);
         }
 
         [Fact]
