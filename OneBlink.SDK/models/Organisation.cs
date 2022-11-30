@@ -70,5 +70,9 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public string timezone
+        {
+            get; set;
+        }
     }
 }

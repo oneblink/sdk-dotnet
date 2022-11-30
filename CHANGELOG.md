@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Added
+
+-   timezone to Organisation
+
 ## 3.0.15 (2022-11-15)
 
 ### Changed

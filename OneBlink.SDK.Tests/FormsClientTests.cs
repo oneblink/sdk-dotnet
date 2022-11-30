@@ -14,9 +14,9 @@ namespace OneBlink.SDK.Tests
         private string ACCESS_KEY;
         private string SECRET_KEY;
         private long formId = 475;
-        private string submissionId = "5ab3d950-253a-4d22-8ae6-c9eae82f58ba";
+        private string submissionId = "9e947f75-b952-4c45-ab37-f4429ecef1ff";
         private long draftFormId = 475;
-        private string draftDataId = "b2925fbd-f490-49d9-ba07-1c57b97dd120";
+        private string draftDataId = "8b1e6988-1ee7-4437-9e47-0d6a46d039a4";
         private string organisationId = "5c58beb2ff59481100000002";
         private long formsAppEnvironmentId = 22;
         private long formsAppId = 79;
@@ -271,6 +271,7 @@ namespace OneBlink.SDK.Tests
             };
             Form updatedForm = await formsClient.Update(savedForm);
 
+            await formsClient.Delete(updatedForm.id);
         }
 
         [Fact]
