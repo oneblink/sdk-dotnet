@@ -60,7 +60,7 @@ namespace OneBlink.SDK.Tests
             Assert.NotNull(searchResult);
             Assert.Single(searchResult.submissions);
             Assert.NotNull(searchResult.submissions[0]);
-            Assert.Equal("72832a1b-7ee2-4ec9-a0a9-a4aa107f9061", searchResult.submissions[0].submissionId.ToString());
+            Assert.Equal("8bec44b2-991e-4ed4-9b49-644239177b77", searchResult.submissions[0].submissionId.ToString());
             Assert.NotNull(searchResult.submissions[0].submission);
             Assert.Equal(3, searchResult.submissions[0].submission.just_a_number);
         }
