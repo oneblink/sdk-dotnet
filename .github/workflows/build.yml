@@ -21,7 +21,7 @@ jobs:
               with:
                   dotnet-version: "7.0.x"
             - name: Install dependencies
-              run: dotnet restore .\OneBlink.SDK.sln
+              run: dotnet restore ./OneBlink.SDK.sln
             - name: Build
               run: dotnet build --configuration Release --no-restore
             - name: Test
