@@ -18,7 +18,6 @@
 | `submissionEvents`      | No       | `List<FormSubmissionEvent>` | List of Form submission events                                            | `new List<FormSubmissionEvent>()` |
 | `isMultiPage`           | No       | `bool`                      | Determines if this form a single page form or mutli page form             | `false`                           |
 | `redirectUrl`           | No       | `string`                    | URL to be redirected too, only applies if `postSubmissionAction` is "URL" | `null`                            |
-| `isInfoPage`            | No       | `bool`                      | Determines if form can only contain information elements                  | `false`                           |
 | `tags`                  | No       | `List<string>`              | List of tags to be associated with the form                               | `new List<string>()`              |
 | `publishStartDate`      | No       | `DateTime?`                 | DateTime the form should become available                                 | `null`                            |
 | `publishEndDate`        | No       | `DateTime?`                 | DateTime the form should become unavailable                               | `null`                            |

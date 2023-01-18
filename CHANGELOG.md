@@ -2,6 +2,13 @@
 
 ## Unreleased
 
+### Removed
+
+-   `isInfoPage` from `Form`
+-   `isInfoPage` from `FormsClient.Search()` parameters
+
+## 3.0.16 (2022-12-12)
+
 ### Added
 
 -   timezone to Organisation
