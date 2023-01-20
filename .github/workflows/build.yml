@@ -11,16 +11,17 @@ jobs:
         runs-on: ubuntu-latest
 
         steps:
-            - name: Setup .NET Core SDK 5.0.x
-              uses: actions/setup-dotnet@v1.7.2
-              with:
-                  dotnet-version: "5.0.x"
-            - name: Setup .NET Core SDK 6.0.x
-              uses: actions/setup-dotnet@v1.7.2
+            - uses: actions/checkout@v2
+            - name: Setup .NET SDK 6.0.x
+              uses: actions/setup-dotnet@v1
               with:
                   dotnet-version: "6.0.x"
+            - name: Setup .NET SDK 7.0.x
+              uses: actions/setup-dotnet@v1
+              with:
+                  dotnet-version: "7.0.x"
             - name: Install dependencies
-              run: dotnet restore --verbosity detailed
+              run: dotnet restore
             - name: Build
               run: dotnet build --configuration Release --no-restore
             - name: Test
