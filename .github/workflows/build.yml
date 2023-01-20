@@ -20,8 +20,8 @@ jobs:
               with:
                   dotnet-version: "6.0.x"
             - name: Install dependencies
-              run: dotnet restore ${{ env.PROJECT_PATH }}
+              run: dotnet restore --verbosity detailed
             - name: Build
-              run: dotnet build ${{ env.PROJECT_PATH }} --configuration Release --no-restore
+              run: dotnet build --configuration Release --no-restore
             - name: Test
               run: dotnet test --no-restore --verbosity normal --configuration Release --logger GitHubActions
