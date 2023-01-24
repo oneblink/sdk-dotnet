@@ -27,7 +27,6 @@ namespace OneBlink.SDK.Model
             List<FormSubmissionEvent> approvalEvents = default(List<FormSubmissionEvent>),
             bool isMultiPage = false,
             string redirectUrl = null,
-            bool isInfoPage = false,
             List<string> tags = default(List<string>),
             DateTime? publishStartDate = null,
             DateTime? publishEndDate = null,
@@ -110,7 +109,6 @@ namespace OneBlink.SDK.Model
             }
             this.isMultiPage = isMultiPage;
             this.redirectUrl = redirectUrl;
-            this.isInfoPage = isInfoPage;
             if (tags == default(List<string>))
             {
                 this.tags = new List<string>();
@@ -202,10 +200,6 @@ namespace OneBlink.SDK.Model
             get; set;
         }
         public string redirectUrl
-        {
-            get; set;
-        }
-        public bool isInfoPage
         {
             get; set;
         }

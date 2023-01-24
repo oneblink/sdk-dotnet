@@ -64,7 +64,6 @@ namespace OneBlink.SDK
             bool? isPublished,
             string name,
             long? formsAppEnvironmentId = null,
-            bool? isInfoPage = null,
             long? formsAppId = null,
             int? limit = null,
             int? offset = null)
@@ -74,7 +73,6 @@ namespace OneBlink.SDK
             OneBlinkHttpClient.AddItemToQuery(query, nameof(isPublished), isPublished);
             OneBlinkHttpClient.AddItemToQuery(query, nameof(name), name);
             OneBlinkHttpClient.AddItemToQuery(query, nameof(formsAppEnvironmentId), formsAppEnvironmentId);
-            OneBlinkHttpClient.AddItemToQuery(query, nameof(isInfoPage), isInfoPage);
             OneBlinkHttpClient.AddItemToQuery(query, nameof(formsAppId), formsAppId);
             OneBlinkHttpClient.AddItemToQuery(query, nameof(limit), limit);
             OneBlinkHttpClient.AddItemToQuery(query, nameof(offset), offset);
