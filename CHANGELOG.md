@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Changed
+
+-   TRIM Submission Event to have optional `action` and `location`
+
 ### Removed
 
 -   `isInfoPage` from `Form`
