@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 3.0.17 (2023-02-16)
+
 ### Changed
 
 -   TRIM Submission Event to have optional `action` and `location`
