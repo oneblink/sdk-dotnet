@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Added
+
+-   `disallowApprovingWhenAwaitingClarification` to `FormApprovalConfiguration`
+
 ## 3.0.17 (2023-02-16)
 
 ### Changed
