@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Updated
+
+-   `FormsClient.Search()` to use v2 url.
+
 ### Added
 
 -   `disallowApprovingWhenAwaitingClarification` to `FormApprovalConfiguration`

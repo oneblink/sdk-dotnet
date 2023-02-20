@@ -141,8 +141,8 @@ OneBlink.SDK.Model.FormsSearchResult response = await formsClient.Search(isAuthe
 | `name`                   | Yes      | `string` | Search on the name property of a form. Can be a prefix, suffix or partial match. If null or whitespace provided, all forms will be returned. |
 | `formsAppEnvironmentId ` | No       | `long?`  | Return only forms for a specific app environment.                                                                                            |
 | `formsAppId`             | No       | `long?`  | Return only forms for a specific app.                                                                                                        |
-| `limit`                  | no       | `int?`   | Limit the number of results returned. Can be used with `offset` to enforce pagination.                                                       |
-| `offset`                 | no       | `int?`   | Offset the results returned by the value specified. Can be used with `limit` to enforce pagination.                                          |
+| `limit`                  | no       | `int?`   | Limit the number of results returned. Used with `offset` to control pagination. Defaults to `200`. Cannot exceed `200`.                      |
+| `offset`                 | no       | `int?`   | Offset the results returned by the value specified. Used with `limit` to control pagination. Defaults to `0`.                                |
 
 ### Throws
 
