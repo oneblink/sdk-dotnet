@@ -77,7 +77,7 @@ namespace OneBlink.SDK
             OneBlinkHttpClient.AddItemToQuery(query, nameof(limit), limit);
             OneBlinkHttpClient.AddItemToQuery(query, nameof(offset), offset);
 
-            string url = "/forms?" + query.ToString();
+            string url = "/v2/forms?" + query.ToString();
             return await this.oneBlinkApiClient.GetRequest<FormsSearchResult>(url);
         }
 
