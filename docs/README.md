@@ -8,7 +8,7 @@ In previous versions (< 4.0), this function returned all forms in one call. This
 
 If no `limit` is provided, this is set to 200. If no `offset` is provided, this is set to `0`.
 
-If you have more than 200 forms returned from this function, or expect to have more than 200 forms returned, you will need to update your code to account for this.
+If you currently have more than 200 forms returned from this function, or expect to have more than 200 forms returned, you will need to update your code to account for this.
 If you do need to account for this, accessing all forms as you previously could now requires that you make multiple calls to this function. This could look something like:
 
 ```C#
