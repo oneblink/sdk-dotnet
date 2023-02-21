@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace OneBlink.SDK.Model
 {
-    public class FormsSearchResult : SearchResult
+    public class FormsSearchResult : RequiredSearchResult
     {
         public List<Form> forms
         {
