@@ -4,7 +4,7 @@
 
 ### Updated
 
--   `FormsClient.Search()` to use v2 url.
+-   **[BREAKING]** `FormsClient.Search()` to use v2 url. Now paginates by a maximum of 200 results at a time.
 
 ### Added
 
