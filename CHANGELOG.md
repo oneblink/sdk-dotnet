@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 4.0.0 (2023-02-23)
+
 ### Updated
 
 -   **[BREAKING]** `FormsClient.Search()` to use v2 url. Now paginates by a maximum of 200 results at a time.
