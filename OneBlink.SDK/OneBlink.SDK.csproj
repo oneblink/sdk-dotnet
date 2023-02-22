@@ -4,8 +4,8 @@
         <OutputType>Library</OutputType>
         <TargetFramework>netstandard2.0</TargetFramework>
         <PackageId>OneBlink.SDK</PackageId>
-        <PackageVersion>3.0.18-beta.1</PackageVersion>
-        <AssemblyVersion>3.0.18.1</AssemblyVersion>
+        <PackageVersion>4.0.0-beta.0</PackageVersion>
+        <AssemblyVersion>4.0.0.0</AssemblyVersion>
         <Authors>OneBlink</Authors>
         <Owners>OneBlink</Owners>
         <Title>OneBlink SDK</Title>
