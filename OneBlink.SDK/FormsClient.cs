@@ -207,13 +207,30 @@ namespace OneBlink.SDK
             }
             FormsListFormsApp formsApp = await oneBlinkApiClient.GetRequest<FormsListFormsApp>($"/forms-apps/{parameters.formsAppId}");
 
-            string preFillFormDataId = null;
+            DeveloperKeyAccess developerKeyAccess = new DeveloperKeyAccess()
+            {
+                submissions = new DeveloperKeyAccessSubmissions()
+                {
+                    create = new DeveloperKeyAccessSubmissionsCreate()
+                    {
+                        formIds = new long[] { parameters.formId }
+                    }
+                }
+            };
+            Guid? preFillFormDataId = null;
             if (parameters.preFillData != null)
             {
                 PrefillClient prefillClient = new PrefillClient(oneBlinkApiClient);
                 PreFillMeta preFillMeta = await prefillClient.GetPreFillMeta(parameters.formId);
-                string preFillMetaId = await prefillClient.PutPreFillData<dynamic>(parameters.preFillData, preFillMeta);
+                await prefillClient.PutPreFillData<dynamic>(parameters.preFillData, preFillMeta);
                 preFillFormDataId = preFillMeta.preFillFormDataId;
+                developerKeyAccess.prefillData = new DeveloperKeyAccessPrefillData()
+                {
+                    read = new DeveloperKeyAccessPrefillDataRead()
+                    {
+                        ids = new Guid[] { preFillMeta.preFillFormDataId }
+                    }
+                };
             }
 
             string userToken = null;
@@ -225,7 +242,7 @@ namespace OneBlink.SDK
 
             // Default expiry for token is 8 hours
             int jwtExpiry = parameters.expiryInSeconds ?? 28800;
-            string token = Token.GenerateJSONWebToken(accessKey: oneBlinkApiClient.accessKey, oneBlinkApiClient.secretKey, jwtExpiry);
+            string token = Token.GenerateJSONWebToken(accessKey: oneBlinkApiClient.accessKey, oneBlinkApiClient.secretKey, jwtExpiry, developerKeyAccess);
 
             string formUrl = _generateFormUrl(
                 formId: parameters.formId,
@@ -341,7 +358,7 @@ namespace OneBlink.SDK
         FormsAppBase formsApp,
         string token,
         string externalId,
-        string preFillFormDataId,
+        Guid? preFillFormDataId,
         string userToken,
         long? previousFormSubmissionApprovalId)
         {

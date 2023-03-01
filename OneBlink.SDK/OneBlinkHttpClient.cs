@@ -76,6 +76,13 @@ namespace OneBlink.SDK
             return await content.ReadAsStreamAsync();
         }
 
+        public static void AddItemToQuery(System.Collections.Specialized.NameValueCollection query, string name, Guid? item)
+        {
+            if (item != null)
+            {
+                OneBlinkHttpClient.AddItemToQuery(query, name, item.ToString());
+            }
+        }
         public static void AddItemToQuery(System.Collections.Specialized.NameValueCollection query, string name, string item)
         {
             if (!String.IsNullOrWhiteSpace(item))

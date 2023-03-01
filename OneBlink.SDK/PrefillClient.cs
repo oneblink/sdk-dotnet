@@ -1,3 +1,4 @@
+using System;
 using System.Threading.Tasks;
 using OneBlink.SDK.Model;
 using Amazon;
@@ -20,7 +21,7 @@ namespace OneBlink.SDK
             string url = "/forms/" + formId.ToString() + "/pre-fill-credentials";
             return await this.oneBlinkApiClient.PostRequest<PreFillMeta>(url);
         }
-        internal async Task<string> PutPreFillData<T>(T preFillData, PreFillMeta preFillMeta)
+        internal async Task<Guid> PutPreFillData<T>(T preFillData, PreFillMeta preFillMeta)
         {
             RegionEndpoint regionEndpoint = RegionEndpoint.GetBySystemName(preFillMeta.s3.region);
 
@@ -47,7 +48,7 @@ namespace OneBlink.SDK
             return preFillMeta.preFillFormDataId;
         }
 
-        internal async Task<string> SetPreFillData<T>(T preFillData, long formId)
+        internal async Task<Guid> SetPreFillData<T>(T preFillData, long formId)
         {
             PreFillMeta preFillMeta = await GetPreFillMeta(formId);
             return await PutPreFillData<T>(preFillData, preFillMeta);
