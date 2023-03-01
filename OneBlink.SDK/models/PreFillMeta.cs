@@ -1,3 +1,5 @@
+using System;
+
 namespace OneBlink.SDK.Model
 {
     internal class PreFillMetaCredentials
@@ -42,7 +44,7 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
-        public string preFillFormDataId
+        public Guid preFillFormDataId
         {
             get; set;
         }

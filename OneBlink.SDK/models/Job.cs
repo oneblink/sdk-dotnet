@@ -172,7 +172,7 @@ namespace OneBlink.SDK.Model
         } = null;
 
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string preFillFormDataId
+        public Guid? preFillFormDataId
         {
             get; internal set;
         } = null;

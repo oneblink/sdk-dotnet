@@ -10,19 +10,68 @@ using System.Security.Cryptography;
 
 namespace OneBlink.SDK
 {
+    internal class DeveloperKeyAccessPrefillDataRead
+    {
+        public Guid[] ids
+        {
+            get; set;
+        }
+    }
+
+    internal class DeveloperKeyAccessPrefillData
+    {
+        public DeveloperKeyAccessPrefillDataRead read
+        {
+            get; set;
+        }
+    }
+
+    internal class DeveloperKeyAccessSubmissionsCreate
+    {
+        public long[] formIds
+        {
+            get; set;
+        }
+    }
+
+    internal class DeveloperKeyAccessSubmissions
+    {
+        public DeveloperKeyAccessSubmissionsCreate create
+        {
+            get; set;
+        }
+    }
+
+    internal class DeveloperKeyAccess
+    {
+        public DeveloperKeyAccessSubmissions submissions
+        {
+            get; set;
+        }
+
+        public DeveloperKeyAccessPrefillData prefillData
+        {
+            get; set;
+        }
+    }
+
     internal class Token
     {
-        internal static string GenerateJSONWebToken(string accessKey, string secretKey, int expiryInSeconds)
+        internal static string GenerateJSONWebToken(string accessKey, string secretKey, int expiryInSeconds, DeveloperKeyAccess developerKeyAccess = null)
         {
             var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey));
             var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
 
-            var token = new JwtSecurityToken(accessKey,
+            JwtSecurityToken token = new JwtSecurityToken(accessKey,
                 accessKey,
                 null,
                 expires: DateTime.Now.AddSeconds(expiryInSeconds),
                 signingCredentials: credentials);
 
+            if (developerKeyAccess != null)
+            {
+                token.Payload.Add("oneblink:access", developerKeyAccess);
+            }
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
 
