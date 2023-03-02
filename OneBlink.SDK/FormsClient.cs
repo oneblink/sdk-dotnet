@@ -220,7 +220,7 @@ namespace OneBlink.SDK
                 {
                     read = new DeveloperKeyAccessFormsRead()
                     {
-                        formIds = new List<long>() { parameters.formId }
+                        ids = new List<long>() { parameters.formId }
                     }
                 }
             };
