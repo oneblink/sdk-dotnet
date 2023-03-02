@@ -34,7 +34,7 @@ namespace OneBlink.SDK.Tests
                 {
                     read = new DeveloperKeyAccessFormsRead()
                     {
-                        formIds = new List<long>() { 1 }
+                        ids = new List<long>() { 1 }
                     }
                 },
                 prefillData = new DeveloperKeyAccessPrefillData()

@@ -35,7 +35,7 @@ namespace OneBlink.SDK {
     }
     internal class DeveloperKeyAccessFormsRead
     {
-        public List<long> formIds
+        public List<long> ids
         {
             get; set;
         }
