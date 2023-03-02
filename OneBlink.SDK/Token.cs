@@ -10,51 +10,6 @@ using System.Security.Cryptography;
 
 namespace OneBlink.SDK
 {
-    internal class DeveloperKeyAccessPrefillDataRead
-    {
-        public Guid[] ids
-        {
-            get; set;
-        }
-    }
-
-    internal class DeveloperKeyAccessPrefillData
-    {
-        public DeveloperKeyAccessPrefillDataRead read
-        {
-            get; set;
-        }
-    }
-
-    internal class DeveloperKeyAccessSubmissionsCreate
-    {
-        public long[] formIds
-        {
-            get; set;
-        }
-    }
-
-    internal class DeveloperKeyAccessSubmissions
-    {
-        public DeveloperKeyAccessSubmissionsCreate create
-        {
-            get; set;
-        }
-    }
-
-    internal class DeveloperKeyAccess
-    {
-        public DeveloperKeyAccessSubmissions submissions
-        {
-            get; set;
-        }
-
-        public DeveloperKeyAccessPrefillData prefillData
-        {
-            get; set;
-        }
-    }
-
     internal class Token
     {
         internal static string GenerateJSONWebToken(string accessKey, string secretKey, int expiryInSeconds, DeveloperKeyAccess developerKeyAccess = null)

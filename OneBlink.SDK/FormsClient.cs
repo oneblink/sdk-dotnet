@@ -213,7 +213,14 @@ namespace OneBlink.SDK
                 {
                     create = new DeveloperKeyAccessSubmissionsCreate()
                     {
-                        formIds = new long[] { parameters.formId }
+                        formIds = new List<long>() { parameters.formId }
+                    }
+                },
+                forms = new DeveloperKeyAccessForms()
+                {
+                    read = new DeveloperKeyAccessFormsRead()
+                    {
+                        formIds = new List<long>() { parameters.formId }
                     }
                 }
             };
@@ -228,7 +235,7 @@ namespace OneBlink.SDK
                 {
                     read = new DeveloperKeyAccessPrefillDataRead()
                     {
-                        ids = new Guid[] { preFillMeta.preFillFormDataId }
+                        ids = new List<Guid>() { preFillMeta.preFillFormDataId }
                     }
                 };
             }

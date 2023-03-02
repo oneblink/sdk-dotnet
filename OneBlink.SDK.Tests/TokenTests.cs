@@ -1,6 +1,7 @@
 using System;
 using dotenv.net;
 using Xunit;
+using System.Collections.Generic;
 
 namespace OneBlink.SDK.Tests
 {
@@ -26,14 +27,21 @@ namespace OneBlink.SDK.Tests
                 {
                     create = new DeveloperKeyAccessSubmissionsCreate()
                     {
-                        formIds = new long[] { 1 }
+                        formIds = new List<long>() { 1 }
+                    }
+                },
+                forms = new DeveloperKeyAccessForms()
+                {
+                    read = new DeveloperKeyAccessFormsRead()
+                    {
+                        formIds = new List<long>() { 1 }
                     }
                 },
                 prefillData = new DeveloperKeyAccessPrefillData()
                 {
                     read = new DeveloperKeyAccessPrefillDataRead()
                     {
-                        ids = new Guid[] { Guid.Parse("adb0d3e4-4d1c-41e3-9503-9b68473a3653") }
+                        ids = new List<Guid>() { Guid.Parse("adb0d3e4-4d1c-41e3-9503-9b68473a3653") }
                     }
                 }
             });
