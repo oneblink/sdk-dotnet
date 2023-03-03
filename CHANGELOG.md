@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 4.1.0 (2023-03-03)
+
 ### Added
 
 -   `'oneblink:access'` claim to JWT for signed URL to submit an authenticated form
