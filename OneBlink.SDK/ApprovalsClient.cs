@@ -31,7 +31,8 @@ namespace OneBlink.SDK
             List<string> statuses = default(List<string>),
             string updatedAfterDateTime = null,
             string updatedBeforeDateTime = null,
-            List<string> lastUpdatedBy = null
+            List<string> lastUpdatedBy = null,
+            long? formApprovalFlowInstanceId = null
         )
         {
             var query = HttpUtility.ParseQueryString(string.Empty);
@@ -44,6 +45,7 @@ namespace OneBlink.SDK
             OneBlinkHttpClient.AddItemToQuery(query, nameof(submittedBeforeDateTime), submittedBeforeDateTime);
             OneBlinkHttpClient.AddItemToQuery(query, nameof(updatedAfterDateTime), updatedAfterDateTime);
             OneBlinkHttpClient.AddItemToQuery(query, nameof(updatedBeforeDateTime), updatedBeforeDateTime);
+            OneBlinkHttpClient.AddItemToQuery(query, nameof(formApprovalFlowInstanceId), formApprovalFlowInstanceId);
             if (statuses != default(List<string>))
             {
                 foreach (var status in statuses)
