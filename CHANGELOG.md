@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Added
+
+-   `formApprovalFlowInstanceId` to `ApprovalsClient.GetFormSubmissionAdministrationApprovals()`
+
 ## 4.1.0 (2023-03-03)
 
 ### Added
