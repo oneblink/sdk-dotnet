@@ -5,6 +5,7 @@
 ### Added
 
 -   `formApprovalFlowInstanceId` to `ApprovalsClient.GetFormSubmissionAdministrationApprovals()`
+-   `requiredAll` to `FormElement`
 
 ## 4.1.0 (2023-03-03)
 

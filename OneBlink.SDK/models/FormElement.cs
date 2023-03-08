@@ -35,6 +35,10 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public Boolean requiredAll
+        {
+            get; set;
+        }
         public string requiredMessage
         {
             get; set;
