@@ -11,7 +11,7 @@ namespace OneBlink.SDK.Model
     }
     public class ReceiptTextComponent: IReceiptConfiguration
     {
-       public type string {
+       public string type {
         get; set;
        }
 
