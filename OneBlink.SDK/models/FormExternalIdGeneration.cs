@@ -16,7 +16,7 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
-        public IEndpointConfiguration configuration
+        public FormExternalIdGenerationConfiguration configuration
         {
             get; set;
         }
