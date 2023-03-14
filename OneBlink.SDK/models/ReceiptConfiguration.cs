@@ -25,8 +25,9 @@ namespace OneBlink.SDK.Model
         }
        }
     }
-    public class ReceiptDateComponent: IReceiptConfiguration{
-      public type string {
+    public class ReceiptDateComponent: IReceiptConfiguration
+    {
+      public string type {
         get; set;
        }
 
@@ -41,8 +42,9 @@ namespace OneBlink.SDK.Model
        }
     }
 
-    public class ReceiptRandomComponent: IReceiptConfiguration{
-      public type string {
+    public class ReceiptRandomComponent: IReceiptConfiguration
+    {
+      public string type {
         get; set;
        }
 
