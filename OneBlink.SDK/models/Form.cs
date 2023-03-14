@@ -239,5 +239,9 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public FormPostSubmissionReceipt postSubmissionReceipt
+        {
+            get; set;
+        }
     }
 }
