@@ -4,11 +4,6 @@ using System.Linq;
 
 namespace OneBlink.SDK.Model
 {
-    public enum HintPositionEnum
-    {
-        BELOW_LABEL,
-        TOOLTIP
-    }
     public class FormElement
     {
         public Guid id
@@ -229,7 +224,7 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
-        public HintPositionEnum hintPosition
+        public string hintPosition
         {
             get; set;
         }
@@ -429,7 +424,7 @@ namespace OneBlink.SDK.Model
             string defaultValue = null,
             string placeholderValue = null,
             string hint = null,
-            HintPositionEnum hintPosition = HintPositionEnum.BELOW_LABEL,
+            string hintPosition = null,
             int? minLength = null,
             int? maxLength = null,
             List<string> customCssClasses = null,
@@ -469,7 +464,7 @@ namespace OneBlink.SDK.Model
             string defaultValue = null,
             string placeholderValue = null,
             string hint = null,
-            HintPositionEnum hintPosition = HintPositionEnum.BELOW_LABEL,
+            string hintPosition = null,
             List<string> stateTerritoryFilter = null,
             List<string> customCssClasses = null,
             string meta = null
@@ -534,7 +529,7 @@ namespace OneBlink.SDK.Model
             bool readOnly = false,
             string defaultValue = null,
             string hint = null,
-            HintPositionEnum hintPosition = HintPositionEnum.BELOW_LABEL,
+            string hintPosition = null,
             bool isDataLookup = false,
             long? dataLookupId = null,
             bool isElementLookup = false,
@@ -584,7 +579,7 @@ namespace OneBlink.SDK.Model
             string defaultValue = null,
             string placeholderValue = null,
             string hint = null,
-            HintPositionEnum hintPosition = HintPositionEnum.BELOW_LABEL,
+            string hintPosition = null,
             List<string> stateTerritoryFilter = null,
             List<string> addressTypeFilter = null,
             List<string> customCssClasses = null,
@@ -623,7 +618,7 @@ namespace OneBlink.SDK.Model
             bool readOnly = false,
             bool defaultValue = false,
             string hint = null,
-            HintPositionEnum hintPosition = HintPositionEnum.BELOW_LABEL,
+            string hintPosition = null,
             bool isDataLookup = false,
             long? dataLookupId = null,
             bool isElementLookup = false,
@@ -671,7 +666,7 @@ namespace OneBlink.SDK.Model
             bool readOnly = false,
             dynamic defaultValue = null,
             string hint = null,
-            HintPositionEnum hintPosition = HintPositionEnum.BELOW_LABEL,
+            string hintPosition = null,
             Boolean useGeoscapeAddressing = false,
             string titleLabel = null,
             string familyNameLabel = null,
@@ -822,7 +817,7 @@ namespace OneBlink.SDK.Model
             Guid? id = null,
             bool readOnly = false,
             string hint = null,
-            HintPositionEnum hintPosition = HintPositionEnum.BELOW_LABEL,
+            string hintPosition = null,
             string storageType = null,
             bool restrictFileTypes = false,
             List<string> restrictedFileTypes = null,
