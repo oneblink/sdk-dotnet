@@ -174,6 +174,10 @@ namespace OneBlink.SDK.Tests
             newForm.publishEndDate = endDate;
             newForm.cancelAction = "URL";
             newForm.cancelRedirectUrl = "https://google.com";
+            newForm.postSubmissionReceipt = new FormPostSubmissionReceipt()
+            {
+                html = "<p>test</p>"
+            };
 
             List<long> formsAppIds = new List<long>();
             formsAppIds.Add(formsAppId);
@@ -235,6 +239,7 @@ namespace OneBlink.SDK.Tests
             Form retrievedForm = await formsClient.Get(savedForm.id, true);
             Assert.NotNull(retrievedForm);
             Assert.Equal(tags, retrievedForm.tags);
+            Assert.Equal(newForm.postSubmissionReceipt.html, retrievedForm.postSubmissionReceipt.html);
             // Need to convert these to UTC time as that is what comes from api, and these dates are in local time
             Assert.Equal(startDate.ToUniversalTime(), retrievedForm.publishStartDate);
             Assert.Equal(endDate.ToUniversalTime(), retrievedForm.publishEndDate);

@@ -5,6 +5,7 @@
 ### Added
 
 -   `hintPosition` to `FormElement`
+-   `postSubmissionReceipt` to `Form`
 
 ## 4.1.1 (2023-03-13)
 
