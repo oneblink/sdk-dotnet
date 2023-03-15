@@ -1,12 +1,13 @@
 namespace OneBlink.SDK.Model
 {
-    public class FormServerValidation
+
+    public class FormExternalIdGeneration
     {
         public string type
         {
             get; set;
         }
-        public FormServerValidationConfiguration configuration
+        public FormExternalIdGenerationConfiguration configuration
         {
             get; set;
         }

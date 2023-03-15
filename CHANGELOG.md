@@ -5,6 +5,8 @@
 ### Added
 
 -   `postSubmissionReceipt` to `Form`
+-   FormExternalIdGeneration model
+-   ReceiptConfiguration model
 
 ## 4.1.1 (2023-03-13)
 
