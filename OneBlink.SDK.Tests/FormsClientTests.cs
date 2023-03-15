@@ -181,31 +181,31 @@ namespace OneBlink.SDK.Tests
             newForm.externalIdGeneration = new FormExternalIdGeneration()
             {
                 type = "RECEIPT_ID",
-                configuration = new FormExternalIdGenerationConfigurationReceipt()
+                configuration = new FormExternalIdGenerationConfiguration()
                 {
-                    externalIdGenerator = new List<IFormExternalIdGenerationReceiptComponent>()
+                    receiptComponents = new List<FormExternalIdGenerationReceiptComponent>()
                     {
-                        new FormExternalIdGenerationReceiptComponentText()
+                        new FormExternalIdGenerationReceiptComponent()
                         {
                             type = "text",
                             value = "PREFIX"
                         },
-                        new FormExternalIdGenerationReceiptComponentDate()
+                        new FormExternalIdGenerationReceiptComponent()
                         {
                             type = "date",
                             format = "dayOfMonth"
                         },
-                        new FormExternalIdGenerationReceiptComponentDate()
+                        new FormExternalIdGenerationReceiptComponent()
                         {
                             type = "date",
                             format = "monthNumber"
                         },
-                        new FormExternalIdGenerationReceiptComponentDate()
+                        new FormExternalIdGenerationReceiptComponent()
                         {
                             type = "date",
                             format = "year"
                         },
-                        new FormExternalIdGenerationReceiptComponentRandom()
+                        new FormExternalIdGenerationReceiptComponent()
                         {
                             type = "random",
                             length = 4,

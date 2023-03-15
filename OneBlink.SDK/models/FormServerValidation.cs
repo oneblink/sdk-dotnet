@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-
 namespace OneBlink.SDK.Model
 {
     public class FormServerValidation
@@ -10,7 +6,7 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
-        public IEndpointConfiguration configuration
+        public FormServerValidationConfiguration configuration
         {
             get; set;
         }

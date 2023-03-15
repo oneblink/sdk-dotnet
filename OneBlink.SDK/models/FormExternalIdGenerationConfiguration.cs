@@ -1,17 +1,10 @@
-using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace OneBlink.SDK.Model
 {
-    public interface IFormExternalIdGenerationConfiguration : IEndpointConfiguration
+    public class FormExternalIdGenerationConfiguration : EndpointConfiguration
     {
-
-    }
-
-    public class FormExternalIdGenerationConfigurationReceipt : IFormExternalIdGenerationConfiguration
-    {
-        public List<IFormExternalIdGenerationReceiptComponent> externalIdGenerator
+        public List<FormExternalIdGenerationReceiptComponent> receiptComponents
         {
             get; set;
         }

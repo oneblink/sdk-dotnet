@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-
 namespace OneBlink.SDK.Model
 {
 
@@ -11,7 +7,7 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
-        public IFormExternalIdGenerationConfiguration configuration
+        public FormExternalIdGenerationConfiguration configuration
         {
             get; set;
         }
