@@ -10,7 +10,7 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
-        public FormServerValidationConfiguration configuration
+        public IEndpointConfiguration configuration
         {
             get; set;
         }

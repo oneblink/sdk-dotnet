@@ -4,7 +4,11 @@ using System.Linq;
 
 namespace OneBlink.SDK.Model
 {
-    public class FormServerValidationConfiguration
+    public interface IEndpointConfiguration
+    {
+    }
+
+    public class EndpointConfigurationAPI : IEndpointConfiguration
     {
         public string apiId
         {
@@ -18,6 +22,14 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public string secret
+        {
+            get; set;
+        }
+    }
+
+    public class EndpointConfigurationCallback : IEndpointConfiguration
+    {
         public string url
         {
             get; set;

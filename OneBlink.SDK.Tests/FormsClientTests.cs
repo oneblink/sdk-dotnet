@@ -178,6 +178,44 @@ namespace OneBlink.SDK.Tests
             {
                 html = "<p>test</p>"
             };
+            newForm.externalIdGeneration = new FormExternalIdGeneration()
+            {
+                type = "RECEIPT_ID",
+                configuration = new FormExternalIdGenerationConfigurationReceipt()
+                {
+                    externalIdGenerator = new List<IFormExternalIdGenerationReceiptComponent>()
+                    {
+                        new FormExternalIdGenerationReceiptComponentText()
+                        {
+                            type = "text",
+                            value = "PREFIX"
+                        },
+                        new FormExternalIdGenerationReceiptComponentDate()
+                        {
+                            type = "date",
+                            format = "dayOfMonth"
+                        },
+                        new FormExternalIdGenerationReceiptComponentDate()
+                        {
+                            type = "date",
+                            format = "monthNumber"
+                        },
+                        new FormExternalIdGenerationReceiptComponentDate()
+                        {
+                            type = "date",
+                            format = "year"
+                        },
+                        new FormExternalIdGenerationReceiptComponentRandom()
+                        {
+                            type = "random",
+                            length = 4,
+                            uppercase = true,
+                            lowercase = false,
+                            numbers = true
+                        },
+                    }
+                }
+            };
 
             List<long> formsAppIds = new List<long>();
             formsAppIds.Add(formsAppId);
