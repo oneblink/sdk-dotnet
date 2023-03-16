@@ -2,11 +2,6 @@ using System;
 using System.Collections.Generic;
 namespace OneBlink.SDK.Model
 {
-
-    //Being kept right now due to backwards compatability, will be deleted upon next breaking change.
-    public class FormSubmissionEventConfigration : FormSubmissionEventConfiguration
-    {
-    }
     public class FormSubmissionEventConfiguration
     {
         public string url
@@ -42,10 +37,6 @@ namespace OneBlink.SDK.Model
             get; set;
         }
         public string secret
-        {
-            get; set;
-        }
-        public string email
         {
             get; set;
         }
@@ -168,6 +159,19 @@ namespace OneBlink.SDK.Model
         }
 
         public ApprovalFormsInclusionConfiguration approvalFormsInclusion
+        {
+            get; set;
+        }
+
+        public List<string> toEmail
+        {
+            get; set;
+        }
+        public List<string> ccEmail
+        {
+            get; set;
+        }
+        public List<string> bccEmail
         {
             get; set;
         }

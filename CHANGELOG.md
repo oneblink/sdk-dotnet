@@ -6,8 +6,14 @@
 
 -   `hintPosition` to `FormElement`
 -   `postSubmissionReceipt` to `Form`
--   FormExternalIdGeneration model
--   ReceiptConfiguration model
+-   `FormExternalIdGeneration` model
+-   `ReceiptConfiguration` model
+-   `toEmail`, `ccEmail` and `bccEmail` to `FormSubmissionEventConfiguration`
+
+### Removed
+
+-   **[BREAKING]** Removed `FormSubmissionEventConfigration`
+-   **[BREAKING]** Removed `email` from `FormSubmissionEventConfiguration`
 
 ## 4.1.1 (2023-03-13)
 
