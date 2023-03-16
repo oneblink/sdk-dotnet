@@ -40,6 +40,11 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        [Obsolete("use toEmail instead")]
+        public string email
+        {
+            get; set;
+        }
         public string emailSubjectLine
         {
             get; set;

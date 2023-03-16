@@ -10,10 +10,14 @@
 -   `ReceiptConfiguration` model
 -   `toEmail`, `ccEmail` and `bccEmail` to `FormSubmissionEventConfiguration`
 
+### Changed
+
+-   Deprecated `email` from `FormSubmissionEventConfiguration`
+
 ### Removed
 
 -   **[BREAKING]** Removed `FormSubmissionEventConfigration`
--   **[BREAKING]** Removed `email` from `FormSubmissionEventConfiguration`
+-   **[BREAKING]** Removed `email` from `FormSubmissionEvent.CreatePDFSubmissionEvent()` and `FormSubmissionEvent.CreateEmailSubmissionEvent()`
 
 ## 4.1.1 (2023-03-13)
 
