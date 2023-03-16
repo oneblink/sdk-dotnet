@@ -4,6 +4,7 @@
 
 ### Added
 
+-   `hintPosition` to `FormElement`
 -   `postSubmissionReceipt` to `Form`
 -   FormExternalIdGeneration model
 -   ReceiptConfiguration model

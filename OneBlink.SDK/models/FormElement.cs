@@ -224,6 +224,10 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public string hintPosition
+        {
+            get; set;
+        }
         public string placeholderValue
         {
             get; set;
@@ -423,7 +427,8 @@ namespace OneBlink.SDK.Model
             int? minLength = null,
             int? maxLength = null,
             List<string> customCssClasses = null,
-            string meta = null
+            string meta = null,
+            string hintPosition = null
         )
         {
             FormElement textElement = new FormElement();
@@ -441,6 +446,7 @@ namespace OneBlink.SDK.Model
             textElement.minLength = minLength;
             textElement.maxLength = maxLength;
             textElement.hint = hint;
+            textElement.hintPosition = hintPosition;
             textElement.customCssClasses = customCssClasses;
             textElement.meta = meta;
             return textElement;
@@ -460,7 +466,8 @@ namespace OneBlink.SDK.Model
             string hint = null,
             List<string> stateTerritoryFilter = null,
             List<string> customCssClasses = null,
-            string meta = null
+            string meta = null,
+            string hintPosition = null
         )
         {
             FormElement geoscapeAddressElement = new FormElement();
@@ -476,6 +483,7 @@ namespace OneBlink.SDK.Model
             geoscapeAddressElement.defaultValue = defaultValue;
             geoscapeAddressElement.placeholderValue = placeholderValue;
             geoscapeAddressElement.hint = hint;
+            geoscapeAddressElement.hintPosition = hintPosition;
             geoscapeAddressElement.stateTerritoryFilter = stateTerritoryFilter;
             geoscapeAddressElement.customCssClasses = customCssClasses;
             geoscapeAddressElement.meta = meta;
@@ -526,7 +534,8 @@ namespace OneBlink.SDK.Model
             bool isElementLookup = false,
             long? elementLookupId = null,
             List<string> customCssClasses = null,
-            string meta = null
+            string meta = null,
+            string hintPosition = null
         )
         {
             FormElement complianceElement = new FormElement();
@@ -542,6 +551,7 @@ namespace OneBlink.SDK.Model
             complianceElement.readOnly = readOnly;
             complianceElement.defaultValue = defaultValue;
             complianceElement.hint = hint;
+            complianceElement.hintPosition = hintPosition;
             complianceElement.isDataLookup = isDataLookup;
             if (dataLookupId.HasValue)
             {
@@ -572,7 +582,8 @@ namespace OneBlink.SDK.Model
             List<string> stateTerritoryFilter = null,
             List<string> addressTypeFilter = null,
             List<string> customCssClasses = null,
-            string meta = null
+            string meta = null,
+            string hintPosition = null
         )
         {
             FormElement pointAddressElement = new FormElement();
@@ -588,6 +599,7 @@ namespace OneBlink.SDK.Model
             pointAddressElement.defaultValue = defaultValue;
             pointAddressElement.placeholderValue = placeholderValue;
             pointAddressElement.hint = hint;
+            pointAddressElement.hintPosition = hintPosition;
             pointAddressElement.stateTerritoryFilter = stateTerritoryFilter;
             pointAddressElement.addressTypeFilter = addressTypeFilter;
             pointAddressElement.customCssClasses = customCssClasses;
@@ -611,7 +623,8 @@ namespace OneBlink.SDK.Model
             bool isElementLookup = false,
             long? elementLookupId = null,
             List<string> customCssClasses = null,
-            string meta = null
+            string meta = null,
+            string hintPosition = null
         )
         {
             FormElement booleanElement = new FormElement();
@@ -626,6 +639,7 @@ namespace OneBlink.SDK.Model
             booleanElement.readOnly = readOnly;
             booleanElement.defaultValue = defaultValue;
             booleanElement.hint = hint;
+            booleanElement.hintPosition = hintPosition;
             booleanElement.isDataLookup = isDataLookup;
             if (dataLookupId.HasValue)
             {
@@ -678,7 +692,8 @@ namespace OneBlink.SDK.Model
             string address2Label = null,
             string postcodeLabel = null,
             List<string> customCssClasses = null,
-            string meta = null
+            string meta = null,
+            string hintPosition = null
         )
         {
             FormElement civicaNameRecordElement = new FormElement();
@@ -693,6 +708,7 @@ namespace OneBlink.SDK.Model
             civicaNameRecordElement.readOnly = readOnly;
             civicaNameRecordElement.defaultValue = defaultValue;
             civicaNameRecordElement.hint = hint;
+            civicaNameRecordElement.hintPosition = hintPosition;
             civicaNameRecordElement.useGeoscapeAddressing = useGeoscapeAddressing;
             civicaNameRecordElement.titleLabel = titleLabel;
             civicaNameRecordElement.familyNameLabel = familyNameLabel;
@@ -767,7 +783,8 @@ namespace OneBlink.SDK.Model
             bool isElementLookup = false,
             long? elementLookupId = null,
             List<string> customCssClasses = null,
-            string meta = null
+            string meta = null,
+            string hintPosition = null
         )
         {
             FormElement civicaStreetNameElement = new FormElement();
@@ -782,6 +799,7 @@ namespace OneBlink.SDK.Model
             civicaStreetNameElement.readOnly = readOnly;
             civicaStreetNameElement.placeholderValue = placeholderValue;
             civicaStreetNameElement.hint = hint;
+            civicaStreetNameElement.hintPosition = hintPosition;
             if (dataLookupId.HasValue)
             {
                 civicaStreetNameElement.dataLookupId = dataLookupId.Value;
@@ -815,7 +833,8 @@ namespace OneBlink.SDK.Model
             long? elementLookupId = null,
             bool allowExtensionlessAttachments = false,
             List<string> customCssClasses = null,
-            string meta = null
+            string meta = null,
+            string hintPosition = null
         )
         {
             FormElement filesElement = new FormElement();
@@ -825,6 +844,7 @@ namespace OneBlink.SDK.Model
             filesElement.id = initialiseId(id);
             filesElement.readOnly = readOnly;
             filesElement.hint = hint;
+            filesElement.hintPosition = hintPosition;
             filesElement.storageType = storageType;
             filesElement.restrictFileTypes = restrictFileTypes;
             filesElement.restrictedFileTypes = restrictedFileTypes;
