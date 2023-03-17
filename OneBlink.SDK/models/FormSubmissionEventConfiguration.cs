@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 namespace OneBlink.SDK.Model
 {
-    public class FormSubmissionEventConfiguration
+    public class FormSubmissionEventConfiguration : PDFConfiguration
     {
         public string url
         {
@@ -141,11 +141,6 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
-        public ApprovalFormsInclusionConfiguration approvalFormsInclusion
-        {
-            get; set;
-        }
-
         public List<string> toEmail
         {
             get; set;
