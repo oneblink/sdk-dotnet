@@ -177,7 +177,6 @@ namespace OneBlink.SDK.Model
         }
 
         public static FormSubmissionEvent CreatePDFSubmissionEvent(
-            string email,
             string emailSubjectLine = null,
             string pdfFileName = null,
             bool? includeSubmissionIdInPdf = null,
@@ -188,11 +187,13 @@ namespace OneBlink.SDK.Model
             bool conditionallyExecute = false,
             bool requiresAllConditionallyExecutePredicates = false,
             bool? includePaymentInPdf = null,
-            string label = null
+            string label = null,
+            List<string> toEmail = default(List<string>),
+            List<string> ccEmail = default(List<string>),
+            List<string> bccEmail = default(List<string>)
         )
         {
             FormSubmissionEventConfiguration fseconfig = new FormSubmissionEventConfiguration();
-            fseconfig.email = email;
             fseconfig.emailSubjectLine = emailSubjectLine;
             fseconfig.pdfFileName = pdfFileName;
             fseconfig.includeSubmissionIdInPdf = includeSubmissionIdInPdf;
@@ -200,6 +201,18 @@ namespace OneBlink.SDK.Model
             fseconfig.excludedElementIds = excludedElementIds;
             fseconfig.usePagesAsBreaks = usePagesAsBreaks;
             fseconfig.emailTemplate = emailTemplate;
+            if (toEmail != default(List<string>))
+            {
+                fseconfig.toEmail = toEmail;
+            }
+            if (ccEmail != default(List<string>))
+            {
+                fseconfig.ccEmail = ccEmail;
+            }
+            if (bccEmail != default(List<string>))
+            {
+                fseconfig.bccEmail = bccEmail;
+            }
             FormSubmissionEvent pdfEvent = new FormSubmissionEvent();
             pdfEvent.type = "PDF";
             pdfEvent.configuration = fseconfig;
@@ -215,19 +228,32 @@ namespace OneBlink.SDK.Model
         }
 
         public static FormSubmissionEvent CreateEmailSubmissionEvent(
-            string email,
             string emailSubjectLine = null,
             FormSubmissionEventEmailTemplate emailTemplate = null,
             List<ConditionallyShowPredicate> conditionallyExecutePredicates = default(List<ConditionallyShowPredicate>),
             bool conditionallyExecute = false,
             bool requiresAllConditionallyExecutePredicates = false,
-            string label = null
+            string label = null,
+            List<string> toEmail = default(List<string>),
+            List<string> ccEmail = default(List<string>),
+            List<string> bccEmail = default(List<string>)
         )
         {
             FormSubmissionEventConfiguration fseconfig = new FormSubmissionEventConfiguration();
-            fseconfig.email = email;
             fseconfig.emailSubjectLine = emailSubjectLine;
             fseconfig.emailTemplate = emailTemplate;
+            if (toEmail != default(List<string>))
+            {
+                fseconfig.toEmail = toEmail;
+            }
+            if (ccEmail != default(List<string>))
+            {
+                fseconfig.ccEmail = ccEmail;
+            }
+            if (bccEmail != default(List<string>))
+            {
+                fseconfig.bccEmail = bccEmail;
+            }
             FormSubmissionEvent emailEvent = new FormSubmissionEvent();
             emailEvent.type = "EMAIL";
             emailEvent.configuration = fseconfig;
