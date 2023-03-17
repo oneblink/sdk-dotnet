@@ -49,10 +49,6 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
-        public string pdfFileName
-        {
-            get; set;
-        }
         public string apiId
         {
             get; set;
@@ -89,20 +85,7 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
-        public Boolean? includeSubmissionIdInPdf
-        {
-            get; set;
-        }
-        public Boolean? includePaymentInPdf
-        {
-            get; set;
-        }
-
         public List<string> encryptedElementIds
-        {
-            get; set;
-        }
-        public List<string> excludedElementIds
         {
             get; set;
         }
@@ -154,15 +137,10 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
-        public bool? usePagesAsBreaks
-        {
-            get; set;
-        }
         public FormSubmissionEventEmailTemplate emailTemplate
         {
             get; set;
         }
-
         public ApprovalFormsInclusionConfiguration approvalFormsInclusion
         {
             get; set;
