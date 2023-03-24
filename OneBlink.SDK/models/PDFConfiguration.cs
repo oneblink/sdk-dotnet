@@ -16,7 +16,7 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
-        public List<string> excludedElementIds
+        public List<Guid> excludedElementIds
         {
             get; set;
         }
@@ -25,6 +25,10 @@ namespace OneBlink.SDK.Model
             get; set;
         }
         public ApprovalFormsInclusionConfiguration approvalFormsInclusion
+        {
+            get; set;
+        }
+        public List<string> excludedCSSClasses
         {
             get; set;
         }

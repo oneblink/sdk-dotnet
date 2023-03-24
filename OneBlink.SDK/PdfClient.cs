@@ -3,7 +3,6 @@ using System.IO;
 using OneBlink.SDK.Model;
 using System;
 using System.Collections.Generic;
-using System.Web;
 namespace OneBlink.SDK
 {
     public class PdfClient
@@ -18,7 +17,7 @@ namespace OneBlink.SDK
                 tenant: new Tenant(tenantName)
             );
         }
-        public async Task<Stream> GetSubmissionPdf(long formId, string submissionId, bool? isDraft = null, bool? includeSubmissionIdInPdf = null, List<Guid> excludedElementIds = null, bool? usePagesAsBreaks = null, bool? includePaymentInPdf = null)
+        public async Task<Stream> GetSubmissionPdf(long formId, string submissionId, bool? isDraft = null, bool? includeSubmissionIdInPdf = null, List<Guid> excludedElementIds = null, bool? usePagesAsBreaks = null, bool? includePaymentInPdf = null, List<string> excludedCSSClasses = null)
         {
             GetSubmissionPdfRequest body = new GetSubmissionPdfRequest()
             {
@@ -26,7 +25,8 @@ namespace OneBlink.SDK
                 usePagesAsBreaks = usePagesAsBreaks,
                 isDraft = isDraft,
                 includeSubmissionIdInPdf = includeSubmissionIdInPdf,
-                includePaymentInPdf = includePaymentInPdf
+                includePaymentInPdf = includePaymentInPdf,
+                excludedCSSClasses = excludedCSSClasses
             };
 
             string url = "/forms/" + formId.ToString() + "/submissions/" + submissionId + "/pdf-document";

@@ -9,6 +9,7 @@
 -   `FormExternalIdGeneration` model
 -   `ReceiptConfiguration` model
 -   `toEmail`, `ccEmail` and `bccEmail` to `FormSubmissionEventConfiguration`
+-   `excludedCSSClasses` to `PDFConfiguration` and `PdfClient.GetSubmissionPdf()`
 
 ### Changed
 
