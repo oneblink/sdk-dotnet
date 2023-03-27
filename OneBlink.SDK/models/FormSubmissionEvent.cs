@@ -70,7 +70,7 @@ namespace OneBlink.SDK.Model
             bool conditionallyExecute = false,
             bool requiresAllConditionallyExecutePredicates = false,
             bool groupFiles = false,
-            List<Guid> excludedElementIds = default(List<Guid>),
+            List<string> excludedElementIds = default(List<string>),
             bool? usePagesAsBreaks = null,
             string pdfFileName = null,
             bool? includeSubmissionIdInPdf = null,
@@ -87,7 +87,7 @@ namespace OneBlink.SDK.Model
             fseconfig.actionDefinition = actionDefinition;
             fseconfig.location = location;
             fseconfig.groupFiles = groupFiles;
-            if (excludedElementIds != default(List<Guid>))
+            if (excludedElementIds != default(List<string>))
             {
                 fseconfig.excludedElementIds = excludedElementIds;
             }
@@ -131,7 +131,7 @@ namespace OneBlink.SDK.Model
             FormSubmissionEventCivicaRecord civicaCategory,
             List<FormSubmissionEventConfigurationMapping> mapping,
             string pdfFileName = null, Boolean? includeSubmissionIdInPdf = null,
-            List<Guid> excludedElementIds = default(List<Guid>),
+            List<string> excludedElementIds = default(List<string>),
             bool? usePagesAsBreaks = null,
             List<ConditionallyShowPredicate> conditionallyExecutePredicates = default(List<ConditionallyShowPredicate>),
             bool conditionallyExecute = false,
@@ -148,7 +148,7 @@ namespace OneBlink.SDK.Model
             fseconfig.pdfFileName = pdfFileName;
             fseconfig.includeSubmissionIdInPdf = includeSubmissionIdInPdf;
             fseconfig.includePaymentInPdf = includePaymentInPdf;
-            if (excludedElementIds != default(List<Guid>))
+            if (excludedElementIds != default(List<string>))
             {
                 fseconfig.excludedElementIds = excludedElementIds;
             }
@@ -250,7 +250,7 @@ namespace OneBlink.SDK.Model
             string emailSubjectLine = null,
             string pdfFileName = null,
             bool? includeSubmissionIdInPdf = null,
-            List<Guid> excludedElementIds = default(List<Guid>),
+            List<string> excludedElementIds = default(List<string>),
             bool? usePagesAsBreaks = null,
             FormSubmissionEventEmailTemplate emailTemplate = null,
             List<ConditionallyShowPredicate> conditionallyExecutePredicates = default(List<ConditionallyShowPredicate>),
@@ -269,7 +269,7 @@ namespace OneBlink.SDK.Model
             fseconfig.pdfFileName = pdfFileName;
             fseconfig.includeSubmissionIdInPdf = includeSubmissionIdInPdf;
             fseconfig.includePaymentInPdf = includePaymentInPdf;
-            if (excludedElementIds != default(List<Guid>))
+            if (excludedElementIds != default(List<string>))
             {
                 fseconfig.excludedElementIds = excludedElementIds;
             }

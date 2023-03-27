@@ -16,7 +16,7 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
-        public List<Guid> excludedElementIds
+        public List<string> excludedElementIds
         {
             get; set;
         }
