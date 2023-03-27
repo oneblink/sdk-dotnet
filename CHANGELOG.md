@@ -4,21 +4,22 @@
 
 ### Added
 
+-   `excludedCSSClasses` to `PDFConfiguration` and `PdfClient.GetSubmissionPdf()`
+
+## 4.1.2 (2023-03-27)
+
+### Added
+
 -   `hintPosition` to `FormElement`
 -   `postSubmissionReceipt` to `Form`
 -   `FormExternalIdGeneration` model
 -   `ReceiptConfiguration` model
 -   `toEmail`, `ccEmail` and `bccEmail` to `FormSubmissionEventConfiguration`
--   `excludedCSSClasses` to `PDFConfiguration` and `PdfClient.GetSubmissionPdf()`
+-   deprecated warnings to `CreatePDFSubmissionEvent()` and `CreateEmailSubmissionEvent()` methods using the `email` parameter
 
 ### Changed
 
 -   Deprecated `email` from `FormSubmissionEventConfiguration`
-
-### Removed
-
--   **[BREAKING]** Removed `FormSubmissionEventConfigration`
--   **[BREAKING]** Removed `email` from `FormSubmissionEvent.CreatePDFSubmissionEvent()` and `FormSubmissionEvent.CreateEmailSubmissionEvent()`
 
 ## 4.1.1 (2023-03-13)
 
