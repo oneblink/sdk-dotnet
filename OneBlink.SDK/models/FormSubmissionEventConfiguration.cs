@@ -2,6 +2,11 @@ using System;
 using System.Collections.Generic;
 namespace OneBlink.SDK.Model
 {
+    //Being kept right now due to backwards compatability, will be deleted upon next breaking change.
+    public class FormSubmissionEventConfigration : FormSubmissionEventConfiguration
+    {
+    }
+
     public class FormSubmissionEventConfiguration : PDFConfiguration
     {
         public string url

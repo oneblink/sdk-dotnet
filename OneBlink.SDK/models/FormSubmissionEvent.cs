@@ -177,6 +177,7 @@ namespace OneBlink.SDK.Model
         }
 
         public static FormSubmissionEvent CreatePDFSubmissionEvent(
+            string email,
             string emailSubjectLine = null,
             string pdfFileName = null,
             bool? includeSubmissionIdInPdf = null,
@@ -194,6 +195,7 @@ namespace OneBlink.SDK.Model
         )
         {
             FormSubmissionEventConfiguration fseconfig = new FormSubmissionEventConfiguration();
+            fseconfig.email = email;
             fseconfig.emailSubjectLine = emailSubjectLine;
             fseconfig.pdfFileName = pdfFileName;
             fseconfig.includeSubmissionIdInPdf = includeSubmissionIdInPdf;
@@ -228,6 +230,7 @@ namespace OneBlink.SDK.Model
         }
 
         public static FormSubmissionEvent CreateEmailSubmissionEvent(
+            string email,
             string emailSubjectLine = null,
             FormSubmissionEventEmailTemplate emailTemplate = null,
             List<ConditionallyShowPredicate> conditionallyExecutePredicates = default(List<ConditionallyShowPredicate>),
@@ -240,6 +243,7 @@ namespace OneBlink.SDK.Model
         )
         {
             FormSubmissionEventConfiguration fseconfig = new FormSubmissionEventConfiguration();
+            fseconfig.email = email;
             fseconfig.emailSubjectLine = emailSubjectLine;
             fseconfig.emailTemplate = emailTemplate;
             if (toEmail != default(List<string>))
