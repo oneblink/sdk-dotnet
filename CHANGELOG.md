@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 4.1.2 (2023-03-27)
+
 ### Added
 
 -   `hintPosition` to `FormElement`
