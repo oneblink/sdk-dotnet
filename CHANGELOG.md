@@ -9,6 +9,7 @@
 -   `FormExternalIdGeneration` model
 -   `ReceiptConfiguration` model
 -   `toEmail`, `ccEmail` and `bccEmail` to `FormSubmissionEventConfiguration`
+-   deprecated warnings to `CreatePDFSubmissionEvent()` and `CreateEmailSubmissionEvent()` methods using the `email` parameter
 
 ### Changed
 
