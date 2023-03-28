@@ -34,14 +34,15 @@ Stream response = await pdfClient.GetSubmissionPdf(formId, submissionId);
 
 ### Parameters
 
-| Parameter                  | Required | Type         | Description                                                                                                                                               |
-| -------------------------- | -------- | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `formId`                   | Yes      | `long`       | The exact id of the form you wish to get submission PDF for                                                                                               |
-| `submissionId`             | Yes      | `string`     | The submission identifier generated after a successful form submission, this will be return to you after a successful forms submission via a callback URL |
-| `isDraft`                  | No       | `bool?`      | `true` if the submission is a draft submission, otherwise `false`                                                                                         |
-| `includeSubmissionIdInPdf` | No       | `bool?`      | `true` to include the submission identifier in the PDF, otherwise `false`                                                                                 |
-| `excludedElementIds`       | No       | `List<Guid>` | Optional list of element id's to be excluded from the pdf document                                                                                        |
-| `usePagesAsBreaks`         | No       | `bool?`      | `true` to use Pages as page breaks in the PDF, otherwise `false`                                                                                          |
+| Parameter                  | Required | Type           | Description                                                                                                                                               |
+| -------------------------- | -------- | -------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `formId`                   | Yes      | `long`         | The exact id of the form you wish to get submission PDF for                                                                                               |
+| `submissionId`             | Yes      | `string`       | The submission identifier generated after a successful form submission, this will be return to you after a successful forms submission via a callback URL |
+| `isDraft`                  | No       | `bool?`        | `true` if the submission is a draft submission, otherwise `false`                                                                                         |
+| `includeSubmissionIdInPdf` | No       | `bool?`        | `true` to include the submission identifier in the PDF, otherwise `false`                                                                                 |
+| `excludedElementIds`       | No       | `List<string>` | Optional list of element id's to be excluded from the pdf document                                                                                        |
+| `usePagesAsBreaks`         | No       | `bool?`        | `true` to use Pages as page breaks in the PDF, otherwise `false`                                                                                          |
+| `excludedCSSClasses`       | No       | `List<string>` | Optional list of CSS Classes to be excluded from the pdf document                                                                                         |
 
 ### Throws
 

@@ -75,7 +75,8 @@ namespace OneBlink.SDK.Model
             string pdfFileName = null,
             bool? includeSubmissionIdInPdf = null,
             bool? includePaymentInPdf = null,
-            string label = null
+            string label = null,
+            List<string> excludedCSSClasses = default(List<string>)
             )
         {
             FormSubmissionEventConfiguration fseconfig = new FormSubmissionEventConfiguration();
@@ -86,11 +87,18 @@ namespace OneBlink.SDK.Model
             fseconfig.actionDefinition = actionDefinition;
             fseconfig.location = location;
             fseconfig.groupFiles = groupFiles;
-            fseconfig.excludedElementIds = excludedElementIds;
+            if (excludedElementIds != default(List<string>))
+            {
+                fseconfig.excludedElementIds = excludedElementIds;
+            }
             fseconfig.usePagesAsBreaks = true;
             fseconfig.pdfFileName = pdfFileName;
             fseconfig.includeSubmissionIdInPdf = includeSubmissionIdInPdf;
             fseconfig.includePaymentInPdf = includePaymentInPdf;
+            if (excludedCSSClasses != default(List<string>))
+            {
+                fseconfig.excludedCSSClasses = excludedCSSClasses;
+            }
             FormSubmissionEvent trim = new FormSubmissionEvent();
             trim.type = "TRIM";
             trim.conditionallyExecute = conditionallyExecute;
@@ -129,7 +137,8 @@ namespace OneBlink.SDK.Model
             bool conditionallyExecute = false,
             bool requiresAllConditionallyExecutePredicates = false,
             Boolean? includePaymentInPdf = null,
-            string label = null)
+            string label = null,
+            List<string> excludedCSSClasses = default(List<string>))
         {
             FormSubmissionEventConfiguration fseconfig = new FormSubmissionEventConfiguration();
             fseconfig.environmentId = environmentId;
@@ -139,8 +148,15 @@ namespace OneBlink.SDK.Model
             fseconfig.pdfFileName = pdfFileName;
             fseconfig.includeSubmissionIdInPdf = includeSubmissionIdInPdf;
             fseconfig.includePaymentInPdf = includePaymentInPdf;
-            fseconfig.excludedElementIds = excludedElementIds;
+            if (excludedElementIds != default(List<string>))
+            {
+                fseconfig.excludedElementIds = excludedElementIds;
+            }
             fseconfig.usePagesAsBreaks = usePagesAsBreaks;
+            if (excludedCSSClasses != default(List<string>))
+            {
+                fseconfig.excludedCSSClasses = excludedCSSClasses;
+            }
             FormSubmissionEvent civicaCrm = new FormSubmissionEvent();
             civicaCrm.type = "CIVICA_CRM";
             civicaCrm.configuration = fseconfig;
@@ -244,7 +260,8 @@ namespace OneBlink.SDK.Model
             string label = null,
             List<string> toEmail = default(List<string>),
             List<string> ccEmail = default(List<string>),
-            List<string> bccEmail = default(List<string>)
+            List<string> bccEmail = default(List<string>),
+            List<string> excludedCSSClasses = default(List<string>)
         )
         {
             FormSubmissionEventConfiguration fseconfig = new FormSubmissionEventConfiguration();
@@ -252,9 +269,16 @@ namespace OneBlink.SDK.Model
             fseconfig.pdfFileName = pdfFileName;
             fseconfig.includeSubmissionIdInPdf = includeSubmissionIdInPdf;
             fseconfig.includePaymentInPdf = includePaymentInPdf;
-            fseconfig.excludedElementIds = excludedElementIds;
+            if (excludedElementIds != default(List<string>))
+            {
+                fseconfig.excludedElementIds = excludedElementIds;
+            }
             fseconfig.usePagesAsBreaks = usePagesAsBreaks;
             fseconfig.emailTemplate = emailTemplate;
+            if (excludedCSSClasses != default(List<string>))
+            {
+                fseconfig.excludedCSSClasses = excludedCSSClasses;
+            }
             if (toEmail != default(List<string>))
             {
                 fseconfig.toEmail = toEmail;
