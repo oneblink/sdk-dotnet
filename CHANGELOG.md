@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 4.1.3 (2023-04-03)
+
 ### Added
 
 -   `excludedCSSClasses` to `PDFConfiguration` and `PdfClient.GetSubmissionPdf()`
