@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+### Added
+
+-   `fromDateElementId` to `FormElement`
+-   `ToDateElementId` to `FormElement`
+
 ## 4.1.3 (2023-04-03)
 
 ### Added

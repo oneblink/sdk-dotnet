@@ -87,11 +87,19 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public Guid? fromDateElementId 
+        {
+            get; set;
+        }
         public string fromDate
         {
             get; set;
         }
         public long? fromDateDaysOffset
+        {
+            get; set;
+        }
+        public Guid? toDateElementId
         {
             get; set;
         }
