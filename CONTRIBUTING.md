@@ -14,6 +14,10 @@ FormsClient formsClient = new FormsClient(ACCESS_KEY, SECRET_KEY, TenantName.ONE
 
 -   .Net runtime installed (at least one of .Net Core 3.1, .Net 5.0, .Net 6.0)
 
+## Security linter
+
+-   Install [Microsoft DevSkim](https://github.com/Microsoft/DevSkim) for inline linting
+
 ### Environment variables
 
 Create a file called `.env` in the root directory with the following values configured:
