@@ -2,13 +2,16 @@
 
 ## Unreleased
 
+### Added
+
+-   `Microsoft DevSkim` to Github build action
+
 ## 4.1.4 (2023-04-14)
 
 ### Added
 
 -   `fromDateElementId` to `FormElement`
 -   `ToDateElementId` to `FormElement`
--   `Microsoft DevSkim` to Github build action
 
 ## 4.1.3 (2023-04-03)
 
