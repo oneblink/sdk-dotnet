@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 4.1.5 (2023-04-20)
+
 ### Added
 
 -   `Microsoft DevSkim` to Github build action
