@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Added
+
+-   `FormElementRepeatableSetEntriesConstraint` model class for Repeatable set Element based min/max entries.
+
 ## 4.1.5 (2023-04-20)
 
 ### Added

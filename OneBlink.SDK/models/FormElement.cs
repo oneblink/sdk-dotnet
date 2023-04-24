@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace OneBlink.SDK.Model
 {
@@ -87,7 +86,7 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
-        public Guid? fromDateElementId 
+        public Guid? fromDateElementId
         {
             get; set;
         }
@@ -139,11 +138,11 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
-        public long? minSetEntries
+        public dynamic minSetEntries
         {
             get; set;
         }
-        public long? maxSetEntries
+        public dynamic maxSetEntries
         {
             get; set;
         }
