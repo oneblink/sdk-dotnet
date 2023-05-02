@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 4.1.7 (2023-05-02)
+
 ### Added
 
 -   `displayAlways` property to `FormElementOption` class
