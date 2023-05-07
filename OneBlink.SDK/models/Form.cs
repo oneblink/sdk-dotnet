@@ -30,6 +30,7 @@ namespace OneBlink.SDK.Model
             List<string> tags = default(List<string>),
             DateTime? publishStartDate = null,
             DateTime? publishEndDate = null,
+            string unpublishedUserMessage = null,
             string cancelAction = "BACK",
             string cancelRedirectUrl = null,
             FormServerValidation serverValidation = null,
@@ -125,6 +126,7 @@ namespace OneBlink.SDK.Model
             {
                 this.publishEndDate = publishEndDate.Value;
             }
+            this.unpublishedUserMessage = unpublishedUserMessage;
             this.cancelAction = cancelAction;
             this.cancelRedirectUrl = cancelRedirectUrl;
             this.serverValidation = serverValidation;
@@ -220,6 +222,10 @@ namespace OneBlink.SDK.Model
             get; set;
         }
         public DateTime? publishEndDate
+        {
+            get; set;
+        }
+        public string unpublishedUserMessage
         {
             get; set;
         }
