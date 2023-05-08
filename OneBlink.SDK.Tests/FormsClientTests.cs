@@ -172,6 +172,7 @@ namespace OneBlink.SDK.Tests
             newForm.tags = tags;
             newForm.publishStartDate = startDate;
             newForm.publishEndDate = endDate;
+            newForm.unpublishedUserMessage = "";
             newForm.cancelAction = "URL";
             newForm.cancelRedirectUrl = "https://google.com";
             newForm.postSubmissionReceipt = new FormPostSubmissionReceipt()
