@@ -5,6 +5,7 @@
 ### Added
 
 -   `unpublishedUserMessage` to `Form`
+-   `total` to `SearchMeta`
 
 ## 4.1.7 (2023-05-02)
 
