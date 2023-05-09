@@ -172,7 +172,7 @@ namespace OneBlink.SDK.Tests
             newForm.tags = tags;
             newForm.publishStartDate = startDate;
             newForm.publishEndDate = endDate;
-            newForm.unpublishedUserMessage = "";
+            newForm.unpublishedUserMessage = "<p>Try again later</p>";
             newForm.cancelAction = "URL";
             newForm.cancelRedirectUrl = "https://google.com";
             newForm.postSubmissionReceipt = new FormPostSubmissionReceipt()
@@ -282,6 +282,7 @@ namespace OneBlink.SDK.Tests
             // Need to convert these to UTC time as that is what comes from api, and these dates are in local time
             Assert.Equal(startDate.ToUniversalTime(), retrievedForm.publishStartDate);
             Assert.Equal(endDate.ToUniversalTime(), retrievedForm.publishEndDate);
+            Assert.Equal(newForm.unpublishedUserMessage, retrievedForm.unpublishedUserMessage);
             String updatedDescription = "Updated via unit test";
             retrievedForm.description = updatedDescription;
             Form updatedForm = await formsClient.Update(retrievedForm);
