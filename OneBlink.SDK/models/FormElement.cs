@@ -198,6 +198,10 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public string searchQuerystringParameter 
+        {
+            get; set;
+        }
         public Boolean restrictFileTypes
         {
             get; set;

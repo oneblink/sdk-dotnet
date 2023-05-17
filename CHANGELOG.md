@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Added
+
+-   `searchQuerystringParameter` to `FormElement` class
+
 ## 4.1.8 (2023-05-12)
 
 ### Added
