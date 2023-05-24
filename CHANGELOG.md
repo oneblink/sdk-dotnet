@@ -5,6 +5,8 @@
 ### Added
 
 -   `searchQuerystringParameter` to `FormElement` class
+-   `includeExternalIdInPdf` to `PDFConfiguration`
+-   `includeExternalIdInPdf` parameters to `PdfClient.GetSubmissionPdf()`
 
 ## 4.1.8 (2023-05-12)
 

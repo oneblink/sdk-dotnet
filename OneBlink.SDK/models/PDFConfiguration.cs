@@ -32,5 +32,9 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public Boolean? includeExternalIdInPdf
+        {
+            get; set;
+        }
     }
 }
