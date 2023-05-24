@@ -34,7 +34,8 @@ namespace OneBlink.SDK.Model
             string cancelAction = "BACK",
             string cancelRedirectUrl = null,
             FormServerValidation serverValidation = null,
-            FormExternalIdGeneration externalIdGeneration = null,
+            FormExternalIdGeneration externalIdGenerationOnSubmit = null,
+            FormExternalIdGeneration personalisation = null,
             FormApprovalConfiguration approvalConfiguration = null
             )
         {
@@ -130,7 +131,8 @@ namespace OneBlink.SDK.Model
             this.cancelAction = cancelAction;
             this.cancelRedirectUrl = cancelRedirectUrl;
             this.serverValidation = serverValidation;
-            this.externalIdGeneration = externalIdGeneration;
+            this.externalIdGenerationOnSubmit = externalIdGenerationOnSubmit;
+            this.personalisation = personalisation;
             this.approvalConfiguration = approvalConfiguration;
         }
         public long id
@@ -242,6 +244,14 @@ namespace OneBlink.SDK.Model
             get; set;
         }
         public FormExternalIdGeneration externalIdGeneration
+        {
+            get; set;
+        }
+        public FormExternalIdGeneration externalIdGenerationOnSubmit
+        {
+            get; set;
+        }
+        public FormExternalIdGeneration personalisation
         {
             get; set;
         }

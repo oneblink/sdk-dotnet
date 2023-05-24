@@ -5,6 +5,7 @@
 ### Added
 
 -   `searchQuerystringParameter` to `FormElement` class
+-   `personalisation` and `externalIdGenerationOnSubmit` to `Form` class
 
 ## 4.1.8 (2023-05-12)
 
