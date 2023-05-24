@@ -35,7 +35,8 @@ namespace OneBlink.SDK.Model
             string cancelRedirectUrl = null,
             FormServerValidation serverValidation = null,
             FormExternalIdGeneration externalIdGenerationOnSubmit = null,
-            FormExternalIdGeneration personalisation = null,
+            FormServerValidation personalisation = null,
+
             FormApprovalConfiguration approvalConfiguration = null
             )
         {
@@ -251,7 +252,8 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
-        public FormExternalIdGeneration personalisation
+        public FormServerValidation personalisation
+
         {
             get; set;
         }

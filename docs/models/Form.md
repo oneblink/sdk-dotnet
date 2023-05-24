@@ -27,7 +27,7 @@
 | `serverValidation`             | No       | `FormServerValidation`      | Optional configuration for form submission validation                                         | `null`                            |
 | `externalIdGeneration`         | No       | `FormExternalIdGeneration`  | [DEPRECATED]: Optional configuration for generating externalId on form load                   | `null`                            |
 | `externalIdGenerationOnSubmit` | No       | `FormExternalIdGeneration`  | Optional configuration for generating externalId after serverValidation but before submission | `null`                            |
-| `personalisation`              | No       | `FormExternalIdGeneration`  | Optional configuration for prefilling elements or generating new elements on form load        | `null`                            |
+| `personalisation`              | No       | `FormServerValidation`  | Optional configuration for prefilling elements or generating new elements on form load        | `null`                            |
 | `approvalConfiguration`        | No       | `FormApprovalConfiguration` | Optional configuration for approvals                                                          | `null`                            |
 
 ### Other properties
