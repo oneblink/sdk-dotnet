@@ -16,7 +16,7 @@
 | `postSubmissionAction`         | No       | `string`                    | Allowed values of "BACK", "URL", "CLOSE", "FORMS_LIBRARY"                                     | `"FORMS_LIBRARY"`                 |
 | `isAuthenticated`              | No       | `bool`                      | Determines if only authenticated users can access the form                                    | `true`                            |
 | `submissionEvents`             | No       | `List<FormSubmissionEvent>` | List of Form submission events                                                                | `new List<FormSubmissionEvent>()` |
-| `isMultiPage`                  | No       | `bool`                      | Determines if this form a single page form or mutli page form                                 | `false`                           |
+| `isMultiPage`                  | No       | `bool`                      | Determines if this form a single page form or multi page form                                 | `false`                           |
 | `redirectUrl`                  | No       | `string`                    | URL to be redirected too, only applies if `postSubmissionAction` is "URL"                     | `null`                            |
 | `tags`                         | No       | `List<string>`              | List of tags to be associated with the form                                                   | `new List<string>()`              |
 | `publishStartDate`             | No       | `DateTime?`                 | DateTime the form should become available                                                     | `null`                            |
@@ -27,7 +27,7 @@
 | `serverValidation`             | No       | `FormServerValidation`      | Optional configuration for form submission validation                                         | `null`                            |
 | `externalIdGeneration`         | No       | `FormExternalIdGeneration`  | [DEPRECATED]: Optional configuration for generating externalId on form load                   | `null`                            |
 | `externalIdGenerationOnSubmit` | No       | `FormExternalIdGeneration`  | Optional configuration for generating externalId after serverValidation but before submission | `null`                            |
-| `personalisation`              | No       | `FormServerValidation`  | Optional configuration for prefilling elements or generating new elements on form load        | `null`                            |
+| `personalisation`              | No       | `FormPersonalisation`       | Optional configuration for prefilling elements or generating new elements on form load        | `null`                            |
 | `approvalConfiguration`        | No       | `FormApprovalConfiguration` | Optional configuration for approvals                                                          | `null`                            |
 
 ### Other properties
