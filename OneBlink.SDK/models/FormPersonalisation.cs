@@ -6,7 +6,7 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
-        public EndpointConfiguration Configuration
+        public EndpointConfiguration configuration
         {
             get; set;
         }
