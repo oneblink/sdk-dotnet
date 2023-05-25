@@ -47,7 +47,7 @@ namespace OneBlink.SDK.Tests
         {
             OneBlinkAPIException oneBlinkAPIException = await Assert.ThrowsAsync<OneBlinkAPIException>(() =>
             {
-                KeysClient keysClient = new KeysClient("123", "aaaaaaaaaaaaaaabbbbbbbbbbbbbbbcccccccccccccccc", TenantName.ONEBLINK_TEST);
+                KeysClient keysClient = new KeysClient("123", "aaaaaaaaaaaaaaabbbbbbbbbbbbbbbcccccccccccccccc", TenantName.ONEBLINK_TEST); // DevSkim: ignore DS117838
                 return keysClient.GetDeveloperKey(ACCESS_KEY);
             });
             Assert.Equal(HttpStatusCode.Unauthorized, oneBlinkAPIException.StatusCode);
