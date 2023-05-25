@@ -108,7 +108,7 @@ namespace OneBlink.SDK.Tests
         {
             FormsClient forms = new FormsClient(
               "123",
-              "aaaaaaaaaaaaaaabbbbbbbbbbbbbbbcccccccccccccccc",
+              "aaaaaaaaaaaaaaabbbbbbbbbbbbbbbcccccccccccccccc", // DevSkim: ignore DS173237
               tenantName: TenantName.ONEBLINK_TEST
             );
             var oneBlinkAPIException = await Assert.ThrowsAsync<OneBlink.SDK.OneBlinkAPIException>(() => forms.GetFormSubmission<object>(this.draftFormId, this.draftDataId, true));
@@ -148,7 +148,7 @@ namespace OneBlink.SDK.Tests
         [Fact]
         public async void get_submission_data_should_throw_oneblink_exception()
         {
-            FormsClient forms = new FormsClient("123", "aaaaaaaaaaaaaaabbbbbbbbbbbbbbbcccccccccccccccc");
+            FormsClient forms = new FormsClient("123", "aaaaaaaaaaaaaaabbbbbbbbbbbbbbbcccccccccccccccc"); // DevSkim: ignore DS173237
             var oneBlinkAPIException = await Assert.ThrowsAsync<OneBlink.SDK.OneBlinkAPIException>(() => forms.GetFormSubmission<object>(this.formId, this.submissionId));
             Assert.Equal(HttpStatusCode.Unauthorized, oneBlinkAPIException.StatusCode);
         }

@@ -116,8 +116,8 @@ namespace OneBlink.SDK
 
             byte[] keyBytes = Encoding.ASCII.GetBytes(key);
             // 256 bits (32 characters) hash
-            MD5CryptoServiceProvider md5Provider = new MD5CryptoServiceProvider();
-            byte[] keyHash = md5Provider.ComputeHash(keyBytes);
+            MD5CryptoServiceProvider provider = new MD5CryptoServiceProvider(); // DevSkim: ignore DS168931
+            byte[] keyHash = provider.ComputeHash(keyBytes);
             // NEED TO CONVERT TO STRING AND BACK TO BYTES ARRAY TO MATCH JS
             string keyHashString = BitConverter.ToString(keyHash).Replace("-", String.Empty).ToLower();
             byte[] keyHashBytes = Encoding.ASCII.GetBytes(keyHashString);
