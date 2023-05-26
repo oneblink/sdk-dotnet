@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+### Added
+
+-   `includeExternalIdInPdf` to `PDFConfiguration`
+-   `includeExternalIdInPdf` parameters to `PdfClient.GetSubmissionPdf()`
+
 ## 4.1.9 (2023-05-26)
 
 ### Added

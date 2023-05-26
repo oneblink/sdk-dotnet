@@ -43,6 +43,7 @@ Stream response = await pdfClient.GetSubmissionPdf(formId, submissionId);
 | `excludedElementIds`       | No       | `List<string>` | Optional list of element id's to be excluded from the pdf document                                                                                        |
 | `usePagesAsBreaks`         | No       | `bool?`        | `true` to use Pages as page breaks in the PDF, otherwise `false`                                                                                          |
 | `excludedCSSClasses`       | No       | `List<string>` | Optional list of CSS Classes to be excluded from the pdf document                                                                                         |
+| `includeExternalIdInPdf`   | No       | `bool?`        | `true` to include the external submission identifier in the PDF, otherwise `false`                                                                        |
 
 ### Throws
 
