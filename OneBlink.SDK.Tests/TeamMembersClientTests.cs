@@ -54,7 +54,7 @@ namespace OneBlink.SDK.Tests
         {
             OneBlinkAPIException oneBlinkAPIException = await Assert.ThrowsAsync<OneBlinkAPIException>(() =>
             {
-                TeamMembersClient teamMembersClient = new TeamMembersClient("123", "aaaaaaaaaaaaaaabbbbbbbbbbbbbbbcccccccccccccccc", TenantName.ONEBLINK_TEST);
+                TeamMembersClient teamMembersClient = new TeamMembersClient("123", "aaaaaaaaaaaaaaabbbbbbbbbbbbbbbcccccccccccccccc", TenantName.ONEBLINK_TEST); // DevSkim: ignore DS173237
                 return teamMembersClient.GetTeamMemberRole(this.email);
             });
             Assert.Equal(HttpStatusCode.Unauthorized, oneBlinkAPIException.StatusCode);

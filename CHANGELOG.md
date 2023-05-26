@@ -4,9 +4,16 @@
 
 ### Added
 
--   `searchQuerystringParameter` to `FormElement` class
 -   `includeExternalIdInPdf` to `PDFConfiguration`
 -   `includeExternalIdInPdf` parameters to `PdfClient.GetSubmissionPdf()`
+
+## 4.1.9 (2023-05-26)
+
+### Added
+
+-   `searchQuerystringParameter` to `FormElement` class
+-   `personalisation` and `externalIdGenerationOnSubmit` to `Form` class
+-   `FormPersonalisation` model class for `personalisation`
 
 ## 4.1.8 (2023-05-12)
 
