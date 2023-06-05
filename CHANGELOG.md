@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 4.1.10 (2023-06-05)
+
 ### Added
 
 -   `includeExternalIdInPdf` to `PDFConfiguration`
