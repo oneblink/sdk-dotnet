@@ -60,6 +60,19 @@ namespace OneBlink.SDK.Model
             return bpoint;
         }
 
+        public static FormSubmissionEvent CreateGovPaySubmissionEvent(Guid elementId, Guid primaryAgencyId, string productDescription, string label = null)
+        {
+            FormSubmissionEventConfiguration fseconfig = new FormSubmissionEventConfiguration();
+            fseconfig.elementId = elementId;
+            fseconfig.primaryAgencyId = primaryAgencyId;
+            fseconfig.productDescription = productDescription;
+            FormSubmissionEvent govPay = new FormSubmissionEvent();
+            govPay.type = "GOV_PAY";
+            govPay.configuration = fseconfig;
+            govPay.label = label;
+            return govPay;
+        }
+
         public static FormSubmissionEvent CreateTrimSubmissionEvent(Guid environmentId,
             string recordTitle,
             FormSubmissionEventTrimUriOption container,

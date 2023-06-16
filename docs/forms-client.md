@@ -574,9 +574,9 @@ await formsClient.Migrate(formMigrationOptions);
 
 ### Parameters
 
-| Parameter              | Required | Type                 | Description                 |
-| ---------------------- | -------- | -------------------- | --------------------------- |
-| `formMigrationOptions` | yes      | FormMigrationOptions | The form moigration options |
+| Parameter              | Required | Type                 | Description                |
+| ---------------------- | -------- | -------------------- | -------------------------- |
+| `formMigrationOptions` | yes      | FormMigrationOptions | The form migration options |
 
 ### Throws
 

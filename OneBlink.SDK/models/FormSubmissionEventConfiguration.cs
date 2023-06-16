@@ -158,5 +158,21 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public Guid? primaryAgencyId
+        {
+            get; set;
+        }
+        public string productDescription
+        {
+            get; set;
+        }
+        public string customerReference
+        {
+            get; set;
+        }
+        public string subAgencyCode
+        {
+            get; set;
+        }
     }
 }
