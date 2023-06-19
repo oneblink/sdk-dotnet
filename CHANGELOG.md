@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Added
+
+-   `NSW_GOV_PAY` parameters to `FormSubmissionEventConfiguration`
+
 ## 4.1.10 (2023-06-05)
 
 ### Added
