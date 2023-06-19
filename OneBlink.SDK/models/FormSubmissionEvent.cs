@@ -67,7 +67,7 @@ namespace OneBlink.SDK.Model
             fseconfig.primaryAgencyId = primaryAgencyId;
             fseconfig.productDescription = productDescription;
             FormSubmissionEvent govPay = new FormSubmissionEvent();
-            govPay.type = "GOV_PAY";
+            govPay.type = "NSW_GOV_PAY";
             govPay.configuration = fseconfig;
             govPay.label = label;
             return govPay;
