@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Added
+
+-   `lookupButton` to `FormElement`
+
 ## 4.1.11 (2023-06-23)
 
 ### Added

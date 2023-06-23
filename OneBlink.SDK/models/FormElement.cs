@@ -186,6 +186,10 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public FormsListStylesButton lookupButton
+        {
+            get; set;
+        }
         public long? elementLookupId
         {
             get; set;
@@ -198,7 +202,7 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
-        public string searchQuerystringParameter 
+        public string searchQuerystringParameter
         {
             get; set;
         }
