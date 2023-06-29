@@ -49,7 +49,7 @@ namespace OneBlink.SDK.Tests
             ListsClient listsClient = new ListsClient(ACCESS_KEY, SECRET_KEY, TenantName.ONEBLINK_TEST);
             FormElementListSearchResult results = await listsClient.Search(organisationId, null, null);
             Assert.NotNull(results);
-            Assert.True(results.FormElementLists.Count <= 0, "Expected no form element lists");
+            Assert.True(results.formElementLists.Count <= 0, "Expected no form element lists");
         }
 
         [Fact]

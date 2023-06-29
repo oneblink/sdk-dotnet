@@ -30,7 +30,7 @@ namespace OneBlink.SDK
             FormElementListInternalSearchResult results = await this.oneblinkApiClient.GetRequest<FormElementListInternalSearchResult>(url);
             FormElementListSearchResult formElementListSearchResults = new FormElementListSearchResult()
             {
-                FormElementLists = results.formElementDynamicOptionSets,
+                formElementLists = results.formElementDynamicOptionSets,
                 meta = results.meta
             };
             return formElementListSearchResults;
