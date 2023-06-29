@@ -73,9 +73,9 @@ namespace OneBlink.SDK.Tests
             Assert.NotNull(savedFormElementList);
 
             FormElementListSearchResult results = await listsClient.Search(organisationId, null, null);
-            Assert.Single(results.FormElementLists);
+            Assert.Single(results.formElementLists);
 
-            FormElementList receivedFormElementList = results.FormElementLists[0];
+            FormElementList receivedFormElementList = results.formElementLists[0];
 
             String updatedUrl = "https://www.google.com";
             receivedFormElementList.environments = new System.Collections.Generic.List<FormElementListEnvironment>()

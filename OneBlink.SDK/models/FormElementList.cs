@@ -54,7 +54,7 @@ namespace OneBlink.SDK.Model
     //This is to avoid mention to the older name of `OptionSets` for `Lists`.
     public class FormElementListSearchResult : SearchResult
     {
-        public List<FormElementList> FormElementLists
+        public List<FormElementList> formElementLists
         {
             get; set;
         }
