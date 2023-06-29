@@ -4,11 +4,11 @@ using OneBlink.SDK.Model;
 
 namespace OneBlink.SDK
 {
-    public class ListsClient
+    public class FormElementListsClient
     {
         OneBlinkApiClient oneblinkApiClient;
 
-        public ListsClient(string accessKey, string secretKey, TenantName tenantName = TenantName.ONEBLINK)
+        public FormElementListsClient(string accessKey, string secretKey, TenantName tenantName = TenantName.ONEBLINK)
         {
             this.oneblinkApiClient = new OneBlinkApiClient(accessKey, secretKey, tenant: new Tenant(tenantName));
         }

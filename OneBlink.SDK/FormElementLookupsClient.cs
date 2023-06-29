@@ -5,11 +5,11 @@ using System.Web;
 
 namespace OneBlink.SDK
 {
-    public class LookupsClient
+    public class FormElementLookupsClient
     {
         OneBlinkApiClient oneBlinkApiClient;
 
-        public LookupsClient(string accessKey, string secretKey, TenantName tenantName = TenantName.ONEBLINK)
+        public FormElementLookupsClient(string accessKey, string secretKey, TenantName tenantName = TenantName.ONEBLINK)
         {
             this.oneBlinkApiClient = new OneBlinkApiClient(accessKey, secretKey, tenant: new Tenant(tenantName));
         }

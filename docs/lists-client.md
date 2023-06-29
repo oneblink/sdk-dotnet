@@ -1,4 +1,4 @@
-# OneBlink .Net SDK | ListsClient Class
+# OneBlink .Net SDK | FormElementListsClient Class
 
 ## Instance Functions
 
@@ -21,7 +21,7 @@
 using OneBlink.SDK;
 string accessKey= "123455678901ABCDEFGHIJKL";
 string secretKey= "123455678901ABCDEFGHIJKL123455678901ABCDEFGHIJKL";
-ListsClient listsClient = new ListsClient(accessKey, secretKey);
+FormElementListsClient formElementListsClient = new FormElementListsClient(accessKey, secretKey);
 ```
 
 ## `Search()`
@@ -33,7 +33,7 @@ int? limit = null;
 int? offset = null;
 string organisationId = null;
 
-OneBlink.SDK.Model.FormElementListsSearchResult response = await listsClient.Search(limit, offset, organisationId);
+OneBlink.SDK.Model.FormElementListsSearchResult response = await formElementListsClient.Search(limit, offset, organisationId);
 ```
 
 ### Parameters
@@ -62,7 +62,7 @@ Create a new form element list
 ```c#
 FormElementList newFormElementList = {...};
 
-OneBlink.SDK.Model.FormElementList savedFormElementList = await listsClient.Create(newFormElementList);
+OneBlink.SDK.Model.FormElementList savedFormElementList = await formElementListsClient.Create(newFormElementList);
 ```
 
 ### Parameters
@@ -89,7 +89,7 @@ Update a form element list
 ```c#
 FormElementList formElementListToUpdate = {...};
 
-OneBlink.SDK.Model.FormElementList updatedFormElementList = await listsClient.Update(formElementListToUpdate);
+OneBlink.SDK.Model.FormElementList updatedFormElementList = await formElementListsClient.Update(formElementListToUpdate);
 ```
 
 ### Parameters
@@ -114,7 +114,7 @@ A `FormElementList` class
 ```c#
 long formElementListId = 1;
 
-await listsClient.Delete(formElementListId);
+await formElementListsClient.Delete(formElementListId);
 ```
 
 ### Parameters

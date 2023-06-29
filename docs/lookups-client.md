@@ -1,4 +1,4 @@
-# OneBlink .Net SDK | LookupsClient Class
+# OneBlink .Net SDK | FormElementLookupsClient Class
 
 ## Instance Functions
 
@@ -22,7 +22,7 @@
 using OneBlink.SDK;
 string accessKey= "123455678901ABCDEFGHIJKL";
 string secretKey= "123455678901ABCDEFGHIJKL123455678901ABCDEFGHIJKL";
-LookupsClient lookupsClient = new LookupsClient(accessKey, secretKey);
+FormElementLookupsClient formElementLookupsClient = new FormElementLookupsClient(accessKey, secretKey);
 ```
 
 ## `Search()`
@@ -34,7 +34,7 @@ int? limit = null;
 int? offset = null;
 string organisationId = null;
 
-OneBlink.SDK.Model.FormElementLookupSearchResult response = await lookupsClient.Search(limit, offset, organisationId);
+OneBlink.SDK.Model.FormElementLookupSearchResult response = await formElementLookupsClient.Search(limit, offset, organisationId);
 ```
 
 ### Parameters
@@ -63,7 +63,7 @@ Retrieve a form element lookup by id
 ```c#
 long id = 123;
 
-OneBlink.SDK.Model.FormElementLookup formElementLookup = await lookupsClient.Get(id);
+OneBlink.SDK.Model.FormElementLookup formElementLookup = await formElementLookupsClient.Get(id);
 ```
 
 ### Parameters
@@ -90,7 +90,7 @@ Create a new form element lookup
 ```c#
 FormElementLookup newFormElementLookup = {...};
 
-OneBlink.SDK.Model.FormElementLookup savedFormElementLookup = await lookupsClient.Create(newFormElementLookup);
+OneBlink.SDK.Model.FormElementLookup savedFormElementLookup = await formElementLookupsClient.Create(newFormElementLookup);
 ```
 
 ### Parameters
@@ -117,7 +117,7 @@ Update a form element lookup
 ```c#
 FormElementLookup formElementLookupToUpdate = {...};
 
-OneBlink.SDK.Model.FormElementLookup updatedFormElementLookup = await lookupsClient.Update(formElementLookupToUpdate);
+OneBlink.SDK.Model.FormElementLookup updatedFormElementLookup = await formElementLookupsClient.Update(formElementLookupToUpdate);
 ```
 
 ### Parameters
@@ -142,7 +142,7 @@ A `FormElementLookup` class
 ```c#
 long formElementLookupId = 1;
 
-await lookupsClient.Delete(formElementLookupId);
+await formElementLookupsClient.Delete(formElementLookupId);
 ```
 
 ### Parameters

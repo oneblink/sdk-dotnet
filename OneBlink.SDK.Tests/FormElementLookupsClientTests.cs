@@ -7,13 +7,13 @@ using System.Net;
 
 namespace OneBlink.SDK.Tests
 {
-    public class LookupsClientTests
+    public class FormElementLookupsClientTests
     {
         private string ACCESS_KEY;
         private string SECRET_KEY;
         private long formsAppEnvironmentId = 22;
         private string organisationId = "5c58beb2ff59481100000002";
-        public LookupsClientTests()
+        public FormElementLookupsClientTests()
         {
             bool ignoreExceptions = true;
             DotEnv.Load(new DotEnvOptions(ignoreExceptions: ignoreExceptions, probeForEnv: true, probeLevelsToSearch: 5));
@@ -33,21 +33,21 @@ namespace OneBlink.SDK.Tests
         [Fact]
         public void can_be_constructed()
         {
-            LookupsClient lookupsClient = new LookupsClient(ACCESS_KEY, SECRET_KEY, TenantName.ONEBLINK_TEST);
-            Assert.NotNull(lookupsClient);
+            FormElementLookupsClient formElementLookupsClient = new FormElementLookupsClient(ACCESS_KEY, SECRET_KEY, TenantName.ONEBLINK_TEST);
+            Assert.NotNull(formElementLookupsClient);
         }
 
         [Fact]
         public void throws_error_if_keys_empty()
         {
-            Assert.Throws<ArgumentException>(() => new LookupsClient("", ""));
+            Assert.Throws<ArgumentException>(() => new FormElementLookupsClient("", ""));
         }
 
         [Fact]
         public async void can_search_form_element_lookups()
         {
-            LookupsClient lookupsClient = new LookupsClient(ACCESS_KEY, SECRET_KEY, TenantName.ONEBLINK_TEST);
-            FormElementLookupSearchResult results = await lookupsClient.Search(organisationId, null, null);
+            FormElementLookupsClient formElementLookupsClient = new FormElementLookupsClient(ACCESS_KEY, SECRET_KEY, TenantName.ONEBLINK_TEST);
+            FormElementLookupSearchResult results = await formElementLookupsClient.Search(organisationId, null, null);
             Assert.NotNull(results);
             Assert.True(results.formElementLookups.Count <= 0, "Expected no form element lookups");
         }
@@ -68,11 +68,11 @@ namespace OneBlink.SDK.Tests
                 }
             };
 
-            LookupsClient lookupsClient = new LookupsClient(ACCESS_KEY, SECRET_KEY, TenantName.ONEBLINK_TEST);
-            FormElementLookup savedFormElementLookup = await lookupsClient.Create(newFormElementLookup);
+            FormElementLookupsClient formElementLookupsClient = new FormElementLookupsClient(ACCESS_KEY, SECRET_KEY, TenantName.ONEBLINK_TEST);
+            FormElementLookup savedFormElementLookup = await formElementLookupsClient.Create(newFormElementLookup);
             Assert.NotNull(savedFormElementLookup);
 
-            FormElementLookup receivedFormElementLookup = await lookupsClient.Get(savedFormElementLookup.id);
+            FormElementLookup receivedFormElementLookup = await formElementLookupsClient.Get(savedFormElementLookup.id);
             Assert.NotNull(receivedFormElementLookup);
 
             String updatedUrl = "https://www.google.com";
@@ -84,15 +84,15 @@ namespace OneBlink.SDK.Tests
                     url = updatedUrl,
                 }
             };
-            FormElementLookup updatedFormElementLookup = await lookupsClient.Update(receivedFormElementLookup);
+            FormElementLookup updatedFormElementLookup = await formElementLookupsClient.Update(receivedFormElementLookup);
             foreach (FormElementLookupEnvironment formElementLookupEnvironment in updatedFormElementLookup.environments)
             {
                 Assert.Equal(updatedUrl, formElementLookupEnvironment.url);
             }
 
-            await lookupsClient.Delete(updatedFormElementLookup.id);
+            await formElementLookupsClient.Delete(updatedFormElementLookup.id);
 
-            var oneBlinkAPIException = await Assert.ThrowsAsync<OneBlink.SDK.OneBlinkAPIException>(() => lookupsClient.Get(updatedFormElementLookup.id));
+            var oneBlinkAPIException = await Assert.ThrowsAsync<OneBlink.SDK.OneBlinkAPIException>(() => formElementLookupsClient.Get(updatedFormElementLookup.id));
             Assert.Equal(HttpStatusCode.NotFound, oneBlinkAPIException.StatusCode);
         }
     }

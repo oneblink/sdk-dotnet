@@ -7,13 +7,13 @@ using System.Net;
 
 namespace OneBlink.SDK.Tests
 {
-    public class ListsClientTests
+    public class FormElementListsClientTests
     {
         private string ACCESS_KEY;
         private string SECRET_KEY;
         private long formsAppEnvironmentId = 22;
         private string organisationId = "5c58beb2ff59481100000002";
-        public ListsClientTests()
+        public FormElementListsClientTests()
         {
             bool ignoreExceptions = true;
             DotEnv.Load(new DotEnvOptions(ignoreExceptions: ignoreExceptions, probeForEnv: true, probeLevelsToSearch: 5));
@@ -33,21 +33,21 @@ namespace OneBlink.SDK.Tests
         [Fact]
         public void can_be_constructed()
         {
-            ListsClient listsClient = new ListsClient(ACCESS_KEY, SECRET_KEY, TenantName.ONEBLINK_TEST);
-            Assert.NotNull(listsClient);
+            FormElementListsClient formElementListsClient = new FormElementListsClient(ACCESS_KEY, SECRET_KEY, TenantName.ONEBLINK_TEST);
+            Assert.NotNull(formElementListsClient);
         }
 
         [Fact]
         public void throws_error_if_keys_empty()
         {
-            Assert.Throws<ArgumentException>(() => new ListsClient("", ""));
+            Assert.Throws<ArgumentException>(() => new FormElementListsClient("", ""));
         }
 
         [Fact]
         public async void can_search_form_element_lists()
         {
-            ListsClient listsClient = new ListsClient(ACCESS_KEY, SECRET_KEY, TenantName.ONEBLINK_TEST);
-            FormElementListSearchResult results = await listsClient.Search(organisationId, null, null);
+            FormElementListsClient formElementListsClient = new FormElementListsClient(ACCESS_KEY, SECRET_KEY, TenantName.ONEBLINK_TEST);
+            FormElementListSearchResult results = await formElementListsClient.Search(organisationId, null, null);
             Assert.NotNull(results);
             Assert.True(results.formElementLists.Count <= 0, "Expected no form element lists");
         }
@@ -68,11 +68,11 @@ namespace OneBlink.SDK.Tests
                 }
             };
 
-            ListsClient listsClient = new ListsClient(ACCESS_KEY, SECRET_KEY, TenantName.ONEBLINK_TEST);
-            FormElementList savedFormElementList = await listsClient.Create(newFormElementList);
+            FormElementListsClient formElementListsClient = new FormElementListsClient(ACCESS_KEY, SECRET_KEY, TenantName.ONEBLINK_TEST);
+            FormElementList savedFormElementList = await formElementListsClient.Create(newFormElementList);
             Assert.NotNull(savedFormElementList);
 
-            FormElementListSearchResult results = await listsClient.Search(organisationId, null, null);
+            FormElementListSearchResult results = await formElementListsClient.Search(organisationId, null, null);
             Assert.Single(results.formElementLists);
 
             FormElementList receivedFormElementList = results.formElementLists[0];
@@ -86,13 +86,13 @@ namespace OneBlink.SDK.Tests
                     url = updatedUrl,
                 }
             };
-            FormElementList updatedFormElementList = await listsClient.Update(receivedFormElementList);
+            FormElementList updatedFormElementList = await formElementListsClient.Update(receivedFormElementList);
             foreach (FormElementListEnvironment formElementListEnvironment in updatedFormElementList.environments)
             {
                 Assert.Equal(updatedUrl, formElementListEnvironment.url);
             }
 
-            await listsClient.Delete(updatedFormElementList.id);
+            await formElementListsClient.Delete(updatedFormElementList.id);
         }
     }
 }
