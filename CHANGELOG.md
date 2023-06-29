@@ -5,6 +5,7 @@
 ### Added
 
 -   `lookupButton` to `FormElement`
+-   `ListsClient` and `LookupsClient` class
 
 ## 4.1.11 (2023-06-23)
 
