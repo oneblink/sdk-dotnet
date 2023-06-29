@@ -31,7 +31,7 @@ SECRET_KEY=YOUR_SECRET_KEY
 
 ### Target frameworks
 
-By default the tests will run against runtimes .Net 6.0, and .Net 8.0
+By default the tests will run against runtimes .Net 6.0, and .Net 7.0
 You can modify the `<TargetFramework>` value in ./OneBlink.SDK.Tests/OneBlink.SDK.Tests.csProj to the runtime/s you have available eg. `net6.0`
 
 ### Running tests
