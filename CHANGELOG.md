@@ -2,6 +2,14 @@
 
 ## Unreleased
 
+## Added
+
+-   `runLookupOnClear` to `FormElement`
+
+### Fixed
+
+-   FormElement docs for `lookupButton`
+
 ## 4.1.12 (2023-07-03)
 
 ### Added
