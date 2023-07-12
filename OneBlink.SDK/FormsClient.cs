@@ -359,6 +359,11 @@ namespace OneBlink.SDK
             string url = "/forms/" + formId.ToString() + "/attachments/" + attachmentId + "/download-url";
             return await this.oneBlinkApiClient.PostRequest<ExpiryInSeconds, SubmissionDataUrl>(url, new ExpiryInSeconds(expiryInSeconds));
         }
+        public async Task<SubmissionDataUrl> GenerateWorkflowAttachmentLink(long formId, string submissionId, string attachmentId)
+        {
+            string url = "/forms/" + formId.ToString() + "/submissions/" + submissionId + "/attachments/" + attachmentId + "/workflow-link";
+            return await this.oneBlinkApiClient.PostRequest<SubmissionDataUrl>(url);
+        }
 
         private string _generateFormUrl(
         long formId,
