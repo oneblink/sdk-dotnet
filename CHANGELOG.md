@@ -1,5 +1,7 @@
 # Changelog
 
+## 4.2.0 (2023-07-12)
+
 ## Unreleased
 
 -   `GenerateWorkflowAttachmentLink` to `FormsClient` class
