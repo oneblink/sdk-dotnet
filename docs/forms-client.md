@@ -71,6 +71,7 @@ A `string`
 -   [`GetFormSubmissionAttachmentMeta()`](#getformsubmissionattachmentmeta)
 -   [`CreateSubmissionAttachment()`](#createsubmissionattachment)
 -   [`GenerateSubmissionAttachmentUrl()`](#generatesubmissionattachmenturl)
+-   [`GenerateWorkflowAttachmentLink()`](#generateworkflowattachmentlink)
 -   [`GetFormSubmissionMeta()`](#getformsubmissionmeta)
 
 ## Constructor
@@ -549,6 +550,32 @@ SubmissionDataUrl submissionDataUrl = await formsClient.GenerateSubmissionAttach
 | `formId`          | Yes      | long   |                                      |
 | `attachmentId`    | Yes      | string |                                      |
 | `expiryInSeconds` | Yes      | long   | Must be greater than or equal to 900 |
+
+### Throws
+
+-   `OneBlinkAPIException`
+-   `Exception`
+-   `ArgumentOutOfRangeException`
+
+### Result
+
+A `OneBlink.SDK.Model.SubmissionDataUrl` class
+
+## `GenerateWorkflowAttachmentLink()`
+
+### Example
+
+```c#
+SubmissionDataUrl submissionDataUrl = await formsClient.GenerateWorkflowAttachmentLink(formId, submissionId, attachmentId);
+```
+
+### Parameters
+
+| Parameter      | Required | Type   | Description                                             |
+| -------------- | -------- | ------ | ------------------------------------------------------- |
+| `formId`       | Yes      | long   | The exact id of the form you wish to generate a URL for |
+| `submissionId` | Yes      | string | The submission identifier for the the form submission   |
+| `attachmentId` | Yes      | string | The attachment identifier from the form submission data |
 
 ### Throws
 
