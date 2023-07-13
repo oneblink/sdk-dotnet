@@ -2,13 +2,16 @@
 
 ## Unreleased
 
-## Added
+### Added
 
 -   `runLookupOnClear` to `FormElement`
+
+## 4.2.0 (2023-07-12)
 
 ### Fixed
 
 -   FormElement docs for `lookupButton`
+-   `GenerateWorkflowAttachmentLink` to `FormsClient` class
 
 ## 4.1.12 (2023-07-03)
 
