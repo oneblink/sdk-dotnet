@@ -2,6 +2,8 @@
 
 ### Added
 
+## 4.3.0 (2023-07-26)
+
 -   `runLookupOnClear` to `FormElementLookupEnvironment` class
 
 ## 4.2.0 (2023-07-12)
