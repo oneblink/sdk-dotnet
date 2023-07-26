@@ -194,10 +194,6 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
-        public bool? runLookupOnClear
-        {
-            get; set;
-        }
         public long? formId
         {
             get; set;
