@@ -1,8 +1,12 @@
 # Changelog
 
+### Added
+
+-   `runLookupOnClear` to `FormElementLookupEnvironment` class
+
 ## 4.2.0 (2023-07-12)
 
-## Unreleased
+### Added
 
 -   `GenerateWorkflowAttachmentLink` to `FormsClient` class
 
