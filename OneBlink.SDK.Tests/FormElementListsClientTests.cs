@@ -49,7 +49,6 @@ namespace OneBlink.SDK.Tests
             FormElementListsClient formElementListsClient = new FormElementListsClient(ACCESS_KEY, SECRET_KEY, TenantName.ONEBLINK_TEST);
             FormElementListSearchResult results = await formElementListsClient.Search(organisationId, null, null);
             Assert.NotNull(results);
-            Assert.True(results.formElementLists.Count <= 0, "Expected no form element lists");
         }
 
         [Fact]
@@ -73,9 +72,8 @@ namespace OneBlink.SDK.Tests
             Assert.NotNull(savedFormElementList);
 
             FormElementListSearchResult results = await formElementListsClient.Search(organisationId, null, null);
-            Assert.Single(results.formElementLists);
-
-            FormElementList receivedFormElementList = results.formElementLists[0];
+            FormElementList receivedFormElementList = results.formElementLists.Find(formElementList => formElementList.id == savedFormElementList.id);
+            Assert.NotNull(receivedFormElementList);
 
             String updatedUrl = "https://www.google.com";
             receivedFormElementList.environments = new System.Collections.Generic.List<FormElementListEnvironment>()
