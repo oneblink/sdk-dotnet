@@ -29,6 +29,7 @@
 | `externalIdGenerationOnSubmit` | No       | `FormExternalIdGeneration`  | Optional configuration for generating externalId after serverValidation but before submission | `null`                            |
 | `personalisation`              | No       | `FormPersonalisation`       | Optional configuration for prefilling elements or generating new elements on form load        | `null`                            |
 | `approvalConfiguration`        | No       | `FormApprovalConfiguration` | Optional configuration for approvals                                                          | `null`                            |
+| `submissionTitle`              | No       | `string`                    | Optional configuration for the default submission title                                       | `null`                            |
 
 ### Other properties
 

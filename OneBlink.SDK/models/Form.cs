@@ -36,7 +36,8 @@ namespace OneBlink.SDK.Model
             FormServerValidation serverValidation = null,
             FormExternalIdGeneration externalIdGenerationOnSubmit = null,
             FormPersonalisation personalisation = null,
-            FormApprovalConfiguration approvalConfiguration = null
+            FormApprovalConfiguration approvalConfiguration = null,
+            string submissionTitle = null
             )
         {
             if (id.HasValue)
@@ -134,6 +135,7 @@ namespace OneBlink.SDK.Model
             this.externalIdGenerationOnSubmit = externalIdGenerationOnSubmit;
             this.personalisation = personalisation;
             this.approvalConfiguration = approvalConfiguration;
+            this.submissionTitle = submissionTitle;
         }
         public long id
         {
@@ -256,6 +258,10 @@ namespace OneBlink.SDK.Model
             get; set;
         }
         public FormPostSubmissionReceipt postSubmissionReceipt
+        {
+            get; set;
+        }
+        public string submissionTitle
         {
             get; set;
         }

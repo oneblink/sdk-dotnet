@@ -422,6 +422,10 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public string submissionTitle
+        {
+            get; set;
+        }
     }
 
     public class FormSubmissionSearchResult : SearchResult

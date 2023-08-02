@@ -1,6 +1,11 @@
 # Changelog
 
+## Unreleased
+
 ### Added
+
+-   `submissionTitle` to `Form` class
+-   `submissionTitle` to `FormSubmissionMetadata` class
 
 ## 4.3.0 (2023-07-26)
 
