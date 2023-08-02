@@ -179,7 +179,7 @@ namespace OneBlink.SDK.Tests
             {
                 html = "<p>test</p>"
             };
-            newForm.externalIdGeneration = new FormExternalIdGeneration()
+            newForm.externalIdGenerationOnSubmit = new FormExternalIdGeneration()
             {
                 type = "RECEIPT_ID",
                 configuration = new FormExternalIdGenerationConfiguration()

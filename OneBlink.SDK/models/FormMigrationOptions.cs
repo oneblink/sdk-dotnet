@@ -26,7 +26,11 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
-        public bool externalIdGeneration
+        public bool externalIdGenerationOnSubmit
+        {
+            get; set;
+        }
+        public bool personalisation
         {
             get; set;
         }

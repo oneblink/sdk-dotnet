@@ -25,7 +25,6 @@
 | `cancelAction`                 | No       | `string`                    | Allowed values of "BACK", "URL", "CLOSE", "FORMS_LIBRARY"                                     | `"BACK"`                          |
 | `cancelRedirectUrl`            | No       | `string`                    | URL to be redirected too, only applies if `cancelAction` is "URL"                             | `null`                            |
 | `serverValidation`             | No       | `FormServerValidation`      | Optional configuration for form submission validation                                         | `null`                            |
-| `externalIdGeneration`         | No       | `FormExternalIdGeneration`  | [DEPRECATED]: Optional configuration for generating externalId on form load                   | `null`                            |
 | `externalIdGenerationOnSubmit` | No       | `FormExternalIdGeneration`  | Optional configuration for generating externalId after serverValidation but before submission | `null`                            |
 | `personalisation`              | No       | `FormPersonalisation`       | Optional configuration for prefilling elements or generating new elements on form load        | `null`                            |
 | `approvalConfiguration`        | No       | `FormApprovalConfiguration` | Optional configuration for approvals                                                          | `null`                            |

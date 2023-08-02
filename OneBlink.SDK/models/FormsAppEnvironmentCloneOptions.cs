@@ -26,7 +26,11 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
-        public bool isCloningFormExternalIdGeneration
+        public bool isCloningFormExternalIdGenerationOnSubmit
+        {
+            get; set;
+        }
+        public bool isCloningFormPersonalisation
         {
             get; set;
         }
