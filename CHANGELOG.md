@@ -6,6 +6,16 @@
 
 -   `submissionTitle` to `Form` class
 -   `submissionTitle` to `FormSubmissionMetadata` class
+-   `personalisation` to `FormMigrationOptions` class
+-   `isCloningFormPersonalisation` to `FormsAppEnvironmentCloneOptions` class
+
+### Changed
+
+-   `externalIdGeneration` to `externalIdGenerationOnSubmit` in `FormMigrationOptions` and `FormsAppEnvironmentCloneOptions` classes
+
+### Removed
+
+-   `externalIdGeneration` from `Form` class
 
 ## 4.3.0 (2023-07-26)
 

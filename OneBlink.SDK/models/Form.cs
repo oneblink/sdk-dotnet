@@ -245,10 +245,6 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
-        public FormExternalIdGeneration externalIdGeneration
-        {
-            get; set;
-        }
         public FormExternalIdGeneration externalIdGenerationOnSubmit
         {
             get; set;
