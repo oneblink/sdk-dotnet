@@ -96,7 +96,7 @@ namespace OneBlink.SDK
             return await SearchSubmissions(formId, null, submissionDateTo, limit, offset);
         }
 
-        public async Task<FormSubmissionSearchResult> SearchSubmissions(long formId, DateTime? submissionDateFrom, DateTime? submissionDateTo, int limit = 0, int offset = 0, bool? isValid = null)
+        public async Task<FormSubmissionSearchResult> SearchSubmissions(long formId, DateTime? submissionDateFrom, DateTime? submissionDateTo, int limit = 0, int offset = 0, bool? isValid = null, string submissionTitle = null)
         {
             var query = HttpUtility.ParseQueryString(string.Empty);
             OneBlinkHttpClient.AddItemToQuery(query, nameof(formId), formId);
@@ -105,6 +105,7 @@ namespace OneBlink.SDK
             OneBlinkHttpClient.AddItemToQuery(query, nameof(limit), limit);
             OneBlinkHttpClient.AddItemToQuery(query, nameof(offset), offset);
             OneBlinkHttpClient.AddItemToQuery(query, nameof(isValid), isValid);
+            OneBlinkHttpClient.AddItemToQuery(query, nameof(submissionTitle), submissionTitle);
 
             string url = "/form-submission-meta?" + query.ToString();
             return await this.oneBlinkApiClient.GetRequest<FormSubmissionSearchResult>(url);

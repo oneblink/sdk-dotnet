@@ -8,6 +8,7 @@
 -   `submissionTitle` to `FormSubmissionMetadata` class
 -   `personalisation` to `FormMigrationOptions` class
 -   `isCloningFormPersonalisation` to `FormsAppEnvironmentCloneOptions` class
+-   `submissionTitle` to `Forms.SearchSubmissions()`
 
 ### Changed
 
