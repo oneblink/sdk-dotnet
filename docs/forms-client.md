@@ -185,9 +185,9 @@ OneBlink.SDK.Model.FormSubmissionSearchResult response = await formsClient.Searc
 
 A `FormSubmissionSearchResult` class
 
-## `SearchSubmissions(long formId, DateTime submissionDateFrom, DateTime submissionDateTo)`
+## `SearchSubmissions(long formId, DateTime submissionDateFrom, DateTime submissionDateTo, int limit, int offset, bool? isValid, string submissionTitle`
 
-Search for details on submissions for a particular formId that occurred between the given dates.
+Search for details on submissions for a particular formId with various criteria
 Then use the information to fetch the actual submission data, if it is still available.
 
 ### Example
