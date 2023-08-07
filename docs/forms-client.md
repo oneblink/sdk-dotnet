@@ -195,25 +195,30 @@ Then use the information to fetch the actual submission data, if it is still ava
 ```c#
 
 long formId = 123;
-
 DateTime submissionDateTo = DateTime.Now;
-
 TimeSpan week = new TimeSpan(7, 0, 0, 0);
-
 DateTime submissionDateFrom = DateTime.Now.Subtract(week);
+int limit = 100;
+int offset = 0;
+Boolean isValid = true;
+string submissiontTitle = "Smith";
 
-OneBlink.SDK.Model.FormSubmissionSearchResult response = await formsClient.SearchSubmissions(formId, submissionDateFrom, submissionDateTo);
+
+
+OneBlink.SDK.Model.FormSubmissionSearchResult response = await formsClient.SearchSubmissions(formId, submissionDateFrom, submissionDateTo, limit, offset, isValid, submissionTitle);
 ```
 
 ### Parameters
 
-| Parameter            | Required | Type        | Description                                                                                         |
-| -------------------- | -------- | ----------- | --------------------------------------------------------------------------------------------------- |
-| `formId`             | Yes      | `long`      | Search for Submissions for a particular form Id                                                     |
-| `submissionDateFrom` | No       | `DateTime?` | Limit results to submissions submitted **after** a date and time.                                   |
-| `submissionDateTo`   | No       | `DateTime?` | Limit results to submissions submitted **before** a date and time.                                  |
-| `limit`              | no       | `int`       | Limit the number of results returned. Can be used with `offset` to enforce pagination.              |
-| `offset`             | no       | `int`       | Offset the results returned by the value specified. Can be used with `limit` to enforce pagination. |
+| Parameter            | Required | Type        | Description                                                                                                                      |
+| -------------------- | -------- | ----------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| `formId`             | Yes      | `long`      | Search for Submissions for a particular form Id                                                                                  |
+| `submissionDateFrom` | No       | `DateTime?` | Limit results to submissions submitted **after** a date and time.                                                                |
+| `submissionDateTo`   | No       | `DateTime?` | Limit results to submissions submitted **before** a date and time.                                                               |
+| `limit`              | no       | `int`       | Limit the number of results returned. Can be used with `offset` to enforce pagination.                                           |
+| `offset`             | no       | `int`       | Offset the results returned by the value specified. Can be used with `limit` to enforce pagination.                              |
+| `isValid`            | no       | `bool?`     | Determines if only valid submission (did not fail server side validation) or invalid(failed server side validation) are returned |
+| `submissionTitle`    | no       | `string`    | Will only return results that contain a submissionTitle with the specified value                                                 |
 
 ### Throws
 
