@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Fixed
+
+-   `isCloningFormApprovalSteps` missing from `FormsAppEnvironmentCloneOptions` model
+
 ### Added
 
 -   `submissionTitle` to `Form` class
