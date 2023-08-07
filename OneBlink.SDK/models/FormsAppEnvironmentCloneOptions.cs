@@ -34,5 +34,9 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public bool isCloningFormApprovalSteps
+        {
+            get; set;
+        }
     }
 }

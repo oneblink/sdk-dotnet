@@ -78,5 +78,39 @@ namespace OneBlink.SDK.Tests
             var oneBlinkAPIException = await Assert.ThrowsAsync<OneBlink.SDK.OneBlinkAPIException>(() => formsAppEnvironmentsClient.Get(updatedFormsAppEnvironment.id));
             Assert.Equal(HttpStatusCode.NotFound, oneBlinkAPIException.StatusCode);
         }
+
+        [Fact]
+        public async void can_clone_forms_app_environment()
+        {
+            FormsAppEnvironmentsClient formsAppEnvironmentsClient = new(this.ACCESS_KEY, this.SECRET_KEY, TenantName.ONEBLINK_TEST);
+
+            FormsAppEnvironment environment = await formsAppEnvironmentsClient.Get(22);
+            Assert.Equal(22, environment.id);
+
+            FormsAppEnvironment clonedEnvironment = await formsAppEnvironmentsClient.Create(
+                new FormsAppEnvironment()
+                {
+                    name = "Cloned Environment",
+                    slug = "cloned-prod",
+                    organisationId = this.organisationId,
+                    cloneOptions = new FormsAppEnvironmentCloneOptions()
+                    {
+                        isCloningFormElementLookups = true,
+                        isCloningFormElementOptionsSets = true,
+                        isCloningFormExternalIdGenerationOnSubmit = true,
+                        isCloningFormPersonalisation = true,
+                        isCloningFormPostSubmissionActions = true,
+                        isCloningFormServerValidation = true,
+                        isCloningFormSubmissionEvents = true,
+                        isCloningFormApprovalSteps = true,
+                        sourceFormsAppEnvironmentId = environment.id,
+                    }
+                }
+            );
+            await formsAppEnvironmentsClient.Delete(clonedEnvironment.id);
+            OneBlinkAPIException oneBlinkAPIException = await Assert.ThrowsAsync<OneBlink.SDK.OneBlinkAPIException>(() => formsAppEnvironmentsClient.Get(clonedEnvironment.id));
+            Assert.Equal(HttpStatusCode.NotFound, oneBlinkAPIException.StatusCode);
+
+        }
     }
 }
