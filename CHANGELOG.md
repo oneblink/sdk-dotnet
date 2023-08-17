@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 5.0.0 (2023-09-17)
+
 ### Removed
 
 -   **[BREAKING]** `definition` from `FormStoreRecord` model
