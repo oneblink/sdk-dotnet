@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+### Removed
+
+-   **[BREAKING]** `definition` from `FormStoreRecord` model
+
+## 4.4.0 (2023-08-10)
+
 ### Fixed
 
 -   `isCloningFormApprovalSteps` missing from `FormsAppEnvironmentCloneOptions` model
