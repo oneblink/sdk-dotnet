@@ -32,10 +32,6 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
-        public Form definition
-        {
-            get; set;
-        }
         public T submission
         {
             get; set;
