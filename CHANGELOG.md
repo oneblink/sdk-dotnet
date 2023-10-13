@@ -4,7 +4,7 @@
 
 ### Added
 
--   `predicate` property to `ConditionallyShowPredicate`
+-   `repeatableSetPredicate` property to `ConditionallyShowPredicate`
 
 ## 5.0.0 (2023-09-17)
 
