@@ -48,5 +48,9 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public ConditionallyShowPredicate repeatableSetPredicate
+        {
+            get; set;
+        }
     }
 }

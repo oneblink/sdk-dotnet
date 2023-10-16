@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Added
+
+-   `repeatableSetPredicate` property to `ConditionallyShowPredicate`
+
 ## 5.0.0 (2023-09-17)
 
 ### Removed
