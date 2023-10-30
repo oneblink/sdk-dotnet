@@ -36,6 +36,10 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public bool? excludeDefinition
+        {
+            get; set;
+        }
 
     }
 
