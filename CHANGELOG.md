@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 5.1.1 (2023-11-01)
+
 ### Added
 
 -   `excludeDefinition` property to `FormElementLookup`

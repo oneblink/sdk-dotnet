@@ -1,5 +1,11 @@
 name: dotnet build and test
-on: [push]
+
+on:
+    push:
+        branches-ignore:
+            - "master"
+        tags-ignore:
+            - "**"
 
 jobs:
     build:
