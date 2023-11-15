@@ -1,4 +1,4 @@
-#pragma warning disable IDE1006 // T is already uses throughout the codebase
+#pragma warning disable IDE1006 // T is already used throughout the codebase
 using System.Threading.Tasks;
 using System.IO;
 using OneBlink.SDK.Model;
