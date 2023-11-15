@@ -3,6 +3,8 @@
 ## Instance Functions
 
 -   [`GetSubmissionPdf()`](#getSubmissionpdf)
+-   [`GeneratePdf()`](#generatepdf)
+-   [`GeneratePdfFromSubmissionData()`](#generatepdffromsubmissiondata)
 
 ## Constructor
 
@@ -72,6 +74,36 @@ Stream response = await pdfClient.GeneratePdf(pdfOptionsRequest);
 | Parameter           | Required | Type                        | Description                                                      |
 | ------------------- | -------- | --------------------------- | ---------------------------------------------------------------- |
 | `pdfOptionsRequest` | Yes      | `GeneratePdfOptionsRequest` | Options include page and html to be rendered in the PDF document |
+
+### Throws
+
+-   `OneBlinkAPIException`
+-   `Exception`
+
+### Result
+
+A `Stream` object
+
+## `GeneratePdfFromSubmissionData()`
+
+### Example
+
+```c#
+MySubmissionDataType submissionData = new MySubmissionDataType();
+// populuate submissionData here
+long formsAppId = 1;
+GeneratePDFFromSubmissionDataRequest<MySubmissionDataType> options = new GeneratePDFFromSubmissionDataRequest<MySubmissionDataType>();
+options.submissionData = submissionData;
+options.formsAppId = formsAppId;
+PdfClient pdfClient = new PdfClient(ACCESS_KEY, SECRET_KEY);
+Stream response = await pdfClient.GeneratePdfFromSubmissionData<MySubmissionDataType>(options);
+```
+
+### Parameters
+
+| Parameter | Required | Type                                   | Description                                                                              |
+| --------- | -------- | -------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `options` | Yes      | `GeneratePDFFromSubmissionDataRequest` | Includes various PDF configuration options and the submission data to be used in the PDF |
 
 ### Throws
 

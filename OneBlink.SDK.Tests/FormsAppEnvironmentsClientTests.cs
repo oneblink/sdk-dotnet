@@ -107,6 +107,7 @@ namespace OneBlink.SDK.Tests
                     }
                 }
             );
+            System.Threading.Thread.Sleep(3000); // give the API time to finish cloning before deleting the clone environment
             await formsAppEnvironmentsClient.Delete(clonedEnvironment.id);
             OneBlinkAPIException oneBlinkAPIException = await Assert.ThrowsAsync<OneBlink.SDK.OneBlinkAPIException>(() => formsAppEnvironmentsClient.Get(clonedEnvironment.id));
             Assert.Equal(HttpStatusCode.NotFound, oneBlinkAPIException.StatusCode);
