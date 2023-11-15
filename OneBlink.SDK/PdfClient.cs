@@ -1,3 +1,4 @@
+#pragma warning disable IDE1006 // T is already uses throughout the codebase
 using System.Threading.Tasks;
 using System.IO;
 using OneBlink.SDK.Model;
@@ -37,6 +38,12 @@ namespace OneBlink.SDK
         public async Task<Stream> GeneratePdf(GeneratePdfOptionsRequest options)
         {
             string url = "/pdf-document";
+            return await this.oneBlinkPdfClient.PostRequest(url, options);
+        }
+
+        public async Task<Stream> GeneratePdfFromSubmissionData<T>(GeneratePDFFromSubmissionDataRequest<T> options)
+        {
+            string url = "/generate-pdf";
             return await this.oneBlinkPdfClient.PostRequest(url, options);
         }
     }
