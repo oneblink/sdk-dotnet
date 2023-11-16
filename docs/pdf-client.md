@@ -89,9 +89,10 @@ A `Stream` object
 ### Example
 
 ```c#
-MySubmissionDataType submissionData = new MySubmissionDataType();
-// populuate submissionData here
-long formsAppId = 1;
+MySubmissionDataType submission = new MySubmissionDataType();
+FormSubmission<MySubmissionDataType> submissionData = new FormSubmission<MySubmissionDataType>();
+submissionData.submission = submission;
+// populuate rest of submissionData here
 GeneratePDFFromSubmissionDataRequest<MySubmissionDataType> options = new GeneratePDFFromSubmissionDataRequest<MySubmissionDataType>();
 options.submissionData = submissionData;
 options.formsAppId = formsAppId;
