@@ -37,7 +37,8 @@ namespace OneBlink.SDK.Model
             FormExternalIdGeneration externalIdGenerationOnSubmit = null,
             FormPersonalisation personalisation = null,
             FormApprovalConfiguration approvalConfiguration = null,
-            string submissionTitle = null
+            string submissionTitle = null,
+            bool continueWithAutosave = false
             )
         {
             if (id.HasValue)
@@ -136,6 +137,7 @@ namespace OneBlink.SDK.Model
             this.personalisation = personalisation;
             this.approvalConfiguration = approvalConfiguration;
             this.submissionTitle = submissionTitle;
+            this.continueWithAutosave = continueWithAutosave;
         }
         public long id
         {
@@ -258,6 +260,10 @@ namespace OneBlink.SDK.Model
             get; set;
         }
         public string submissionTitle
+        {
+            get; set;
+        }
+        public bool continueWithAutosave
         {
             get; set;
         }

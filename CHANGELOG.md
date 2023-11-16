@@ -5,6 +5,7 @@
 ### Added
 
 -   `GeneratePdfFromSubmissionData` function to `PdfClient` class
+-   `continueWithAutosave` to `Form` class
 
 ## 5.1.1 (2023-11-01)
 
