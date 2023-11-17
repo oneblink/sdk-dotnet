@@ -29,7 +29,7 @@
 | `personalisation`              | No       | `FormPersonalisation`       | Optional configuration for prefilling elements or generating new elements on form load                                      | `null`                            |
 | `approvalConfiguration`        | No       | `FormApprovalConfiguration` | Optional configuration for approvals                                                                                        | `null`                            |
 | `submissionTitle`              | No       | `string`                    | Optional configuration for the default submission title                                                                     | `null`                            |
-| `continueWithAutosave`         | No       | `boolean`                   | Whether or not viewing the form should auto-continue with autosave data when available rather than prompting the user title | `null`                            |
+| `continueWithAutosave`         | No       | `boolean`                   | Whether or not viewing the form should auto-continue with autosave data when available rather than prompting the user title | `false`                            |
 
 ### Other properties
 
