@@ -1,3 +1,4 @@
+#pragma warning disable IDE1006 // Naming is dictated by OneBlink API
 using System;
 using Newtonsoft.Json;
 using System.Collections.Generic;
@@ -9,57 +10,57 @@ namespace OneBlink.SDK.Model
         [JsonProperty]
         public string userId
         {
-            get; internal set;
+            get; set;
         }
         [JsonProperty]
         public string username
         {
-            get; internal set;
+            get; set;
         }
         [JsonProperty]
         public string email
         {
-            get; internal set;
+            get; set;
         }
         [JsonProperty]
         public bool? emailVerified
         {
-            get; internal set;
+            get; set;
         }
         [JsonProperty]
         public string firstName
         {
-            get; internal set;
+            get; set;
         }
         [JsonProperty]
         public string lastName
         {
-            get; internal set;
+            get; set;
         }
         [JsonProperty]
         public string fullName
         {
-            get; internal set;
+            get; set;
         }
         [JsonProperty]
         public string picture
         {
-            get; internal set;
+            get; set;
         }
         [JsonProperty]
         public string providerType
         {
-            get; internal set;
+            get; set;
         }
         [JsonProperty]
         public string providerUserId
         {
-            get; internal set;
+            get; set;
         }
         [JsonProperty]
         public string role
         {
-            get; internal set;
+            get; set;
         }
         public bool? isSAMLUser
         {
@@ -67,12 +68,12 @@ namespace OneBlink.SDK.Model
         }
         public string phoneNumber
         {
-            get; internal set;
+            get; set;
         }
         [JsonProperty]
         public bool? phoneNumberVerified
         {
-            get; internal set;
+            get; set;
         }
     }
 
@@ -91,7 +92,7 @@ namespace OneBlink.SDK.Model
         [JsonProperty]
         public FormSubmissionDeviceType type
         {
-            get; internal set;
+            get; set;
         }
 
         /// <summary>
@@ -100,7 +101,7 @@ namespace OneBlink.SDK.Model
         [JsonProperty]
         public string cordova
         {
-            get; internal set;
+            get; set;
         }
 
         /// <summary>
@@ -109,7 +110,7 @@ namespace OneBlink.SDK.Model
         [JsonProperty]
         public string model
         {
-            get; internal set;
+            get; set;
         }
 
         /// <summary>
@@ -118,7 +119,7 @@ namespace OneBlink.SDK.Model
         [JsonProperty]
         public string platform
         {
-            get; internal set;
+            get; set;
         }
 
         /// <summary>
@@ -127,7 +128,7 @@ namespace OneBlink.SDK.Model
         [JsonProperty]
         public string uuid
         {
-            get; internal set;
+            get; set;
         }
 
         /// <summary>
@@ -136,7 +137,7 @@ namespace OneBlink.SDK.Model
         [JsonProperty]
         public string version
         {
-            get; internal set;
+            get; set;
         }
 
         /// <summary>
@@ -145,7 +146,7 @@ namespace OneBlink.SDK.Model
         [JsonProperty]
         public string manufacturer
         {
-            get; internal set;
+            get; set;
         }
 
         /// <summary>
@@ -154,7 +155,7 @@ namespace OneBlink.SDK.Model
         [JsonProperty]
         public bool? isVirtual
         {
-            get; internal set;
+            get; set;
         }
 
         /// <summary>
@@ -163,7 +164,7 @@ namespace OneBlink.SDK.Model
         [JsonProperty]
         public string serial
         {
-            get; internal set;
+            get; set;
         }
 
         /// <summary>
@@ -172,7 +173,7 @@ namespace OneBlink.SDK.Model
         [JsonProperty]
         public string appCodeName
         {
-            get; internal set;
+            get; set;
         }
 
         /// <summary>
@@ -181,7 +182,7 @@ namespace OneBlink.SDK.Model
         [JsonProperty]
         public string appName
         {
-            get; internal set;
+            get; set;
         }
 
         /// <summary>
@@ -190,7 +191,7 @@ namespace OneBlink.SDK.Model
         [JsonProperty]
         public string appVersion
         {
-            get; internal set;
+            get; set;
         }
 
         /// <summary>
@@ -199,7 +200,7 @@ namespace OneBlink.SDK.Model
         [JsonProperty]
         public bool? cookieEnabled
         {
-            get; internal set;
+            get; set;
         }
 
         /// <summary>
@@ -208,7 +209,7 @@ namespace OneBlink.SDK.Model
         [JsonProperty]
         public int? hardwareConcurrency
         {
-            get; internal set;
+            get; set;
         }
 
         /// <summary>
@@ -217,7 +218,7 @@ namespace OneBlink.SDK.Model
         [JsonProperty]
         public string language
         {
-            get; internal set;
+            get; set;
         }
 
         /// <summary>
@@ -226,7 +227,7 @@ namespace OneBlink.SDK.Model
         [JsonProperty]
         public int? maxTouchPoints
         {
-            get; internal set;
+            get; set;
         }
 
         /// <summary>
@@ -235,7 +236,7 @@ namespace OneBlink.SDK.Model
         [JsonProperty]
         public string userAgent
         {
-            get; internal set;
+            get; set;
         }
 
         /// <summary>
@@ -244,7 +245,7 @@ namespace OneBlink.SDK.Model
         [JsonProperty]
         public string vendor
         {
-            get; internal set;
+            get; set;
         }
 
         /// <summary>
@@ -253,7 +254,7 @@ namespace OneBlink.SDK.Model
         [JsonProperty]
         public string vendorSub
         {
-            get; internal set;
+            get; set;
         }
 
         /// <summary>
@@ -262,7 +263,7 @@ namespace OneBlink.SDK.Model
         [JsonProperty]
         public bool? webdriver
         {
-            get; internal set;
+            get; set;
         }
     }
 
@@ -271,43 +272,43 @@ namespace OneBlink.SDK.Model
         [JsonProperty]
         public Form definition
         {
-            get; internal set;
+            get; set;
         }
 
         [JsonProperty]
         public T submission
         {
-            get; internal set;
+            get; set;
         }
 
         [JsonProperty]
         public DateTime submissionTimestamp
         {
-            get; internal set;
+            get; set;
         }
 
         [JsonProperty]
         public string ipAddress
         {
-            get; internal set;
+            get; set;
         }
 
         [JsonProperty]
         public string keyId
         {
-            get; internal set;
+            get; set;
         }
 
         [JsonProperty]
         public long formsAppId
         {
-            get; internal set;
+            get; set;
         }
 
         [JsonProperty]
         public FormSubmissionUser user
         {
-            get; internal set;
+            get; set;
         }
 
         /// <summary>
@@ -316,7 +317,7 @@ namespace OneBlink.SDK.Model
         [JsonProperty]
         public FormSubmissionDevice device
         {
-            get; internal set;
+            get; set;
         }
     }
 
@@ -325,17 +326,17 @@ namespace OneBlink.SDK.Model
         [JsonProperty]
         public string email
         {
-            get; internal set;
+            get; set;
         }
         [JsonProperty]
         public string fullName
         {
-            get; internal set;
+            get; set;
         }
         [JsonProperty]
         public string providerUserId
         {
-            get; internal set;
+            get; set;
         }
     }
 
