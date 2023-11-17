@@ -91,7 +91,7 @@ namespace OneBlink.SDK.Tests
                 new FormsAppEnvironment()
                 {
                     name = "Cloned Environment",
-                    slug = "cloned-prod",
+                    slug = "cloned-prod-" + DateTime.Now.ToFileTimeUtc().ToString(),
                     organisationId = this.organisationId,
                     cloneOptions = new FormsAppEnvironmentCloneOptions()
                     {
