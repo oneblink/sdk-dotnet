@@ -319,6 +319,32 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+
+        [JsonProperty]
+        public FormElement lastElementUpdated
+        {
+            get; set;
+        }
+        [JsonProperty]
+        public string externalId
+        {
+            get; set;
+        }
+        [JsonProperty]
+        public Task task
+        {
+            get; set;
+        }
+        [JsonProperty]
+        public TaskGroup taskGroup
+        {
+            get; set;
+        }
+        [JsonProperty]
+        public TaskGroupInstance taskGroupInstance
+        {
+            get; set;
+        }
     }
 
     public class FormSubmissionSupervisor

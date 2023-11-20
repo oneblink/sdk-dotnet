@@ -1,7 +1,7 @@
 using OneBlink.SDK.Model;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Web;
+using Task = System.Threading.Tasks.Task;
 
 namespace OneBlink.SDK
 {

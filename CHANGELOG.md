@@ -6,6 +6,7 @@
 
 -   `GeneratePdfFromSubmissionData` function to `PdfClient` class
 -   `continueWithAutosave` to `Form` class
+-   `lastElementUpdated`, `externalId`, `task`, `taskGroup` and `taskGroupInstance` to `FormSubmission` class
 
 ## 5.1.1 (2023-11-01)
 
