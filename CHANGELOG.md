@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 5.2.0 (2023-11-21)
+
 ### Added
 
 -   `GeneratePdfFromSubmissionData` function to `PdfClient` class
