@@ -10,6 +10,7 @@ using Newtonsoft.Json;
 using OneBlink.SDK.Model;
 using System.Net.Mime;
 using System.Web;
+using Task = System.Threading.Tasks.Task;
 
 namespace OneBlink.SDK
 {

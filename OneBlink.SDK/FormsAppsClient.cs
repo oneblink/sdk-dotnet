@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
 using OneBlink.SDK.Model;
+using Task = System.Threading.Tasks.Task;
 
 namespace OneBlink.SDK
 {
