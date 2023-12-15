@@ -174,5 +174,9 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public EndpointConfiguration emailAttachmentsWebhook
+        {
+            get; set;
+        }
     }
 }
