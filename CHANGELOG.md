@@ -5,6 +5,7 @@
 ### Added
 
 -   `emailAttachmentsEndpoint` to `FormSubmissionEventConfiguration` class
+-   `UploadEmailAttachment` to `FormsClient` class
 
 ## 5.2.0 (2023-11-21)
 

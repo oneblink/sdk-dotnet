@@ -339,6 +339,44 @@ namespace OneBlink.SDK
             return attachmentData;
         }
 
+        public async Task<S3Details> UploadEmailAttachment(string filename, string contentType, Stream body)
+        {
+            string url = "/email-attachment-upload-credentials";
+            WorkflowAttachmentUploadCredentials requestBody = new WorkflowAttachmentUploadCredentials
+            {
+                filename = filename
+            };
+            AssetUploadCredentialsResponse response = await this.oneBlinkApiClient.PostRequest<WorkflowAttachmentUploadCredentials, AssetUploadCredentialsResponse>(url, requestBody);
+            RegionEndpoint regionEndpoint = RegionEndpoint.GetBySystemName(response.s3.region);
+
+            SessionAWSCredentials sessionAWSCredentials = new SessionAWSCredentials(
+                response.credentials.AccessKeyId,
+                response.credentials.SecretAccessKey,
+                response.credentials.SessionToken
+            );
+            AmazonS3Client amazonS3Client = new AmazonS3Client(sessionAWSCredentials, regionEndpoint);
+            PutObjectRequest request = new PutObjectRequest
+            {
+                BucketName = response.s3.bucket,
+                Key = response.s3.key,
+                InputStream = body,
+                ContentType = contentType,
+                CannedACL = S3CannedACL.Private,
+                ServerSideEncryptionMethod = ServerSideEncryptionMethod.AES256,
+            };
+            ContentDisposition disposition = new ContentDisposition
+            {
+                DispositionType = DispositionTypeNames.Attachment,
+                FileName = filename
+            };
+            request.Headers.ContentDisposition = disposition.ToString();
+            request.Headers.ExpiresUtc = new DateTime().AddDays(1).ToUniversalTime(); // Max 1 day
+            request.Headers.CacheControl = "max-age=86400"; // Max 1 day
+
+            await amazonS3Client.PutObjectAsync(request);
+            return response.s3;
+        }
+
         internal class ExpiryInSeconds
         {
             internal ExpiryInSeconds(long expiryInSeconds)
