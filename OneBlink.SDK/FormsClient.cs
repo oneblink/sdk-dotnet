@@ -339,7 +339,7 @@ namespace OneBlink.SDK
             return attachmentData;
         }
 
-        public async Task<S3Details> UploadEmailAttachment(string filename, string contentType, Stream body)
+        public async Task<EmailAttachmentData> UploadEmailAttachment(string filename, string contentType, Stream body)
         {
             string url = "/email-attachment-upload-credentials";
             WorkflowAttachmentUploadCredentials requestBody = new WorkflowAttachmentUploadCredentials
@@ -374,7 +374,13 @@ namespace OneBlink.SDK
             request.Headers.CacheControl = "max-age=86400"; // Max 1 day
 
             await amazonS3Client.PutObjectAsync(request);
-            return response.s3;
+            EmailAttachmentData emailAttachmentData = new EmailAttachmentData
+            {
+                contentType = contentType,
+                filename = filename,
+                s3 = response.s3
+            };
+            return emailAttachmentData;
         }
 
         internal class ExpiryInSeconds
