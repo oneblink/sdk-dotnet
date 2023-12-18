@@ -5,6 +5,9 @@
 ### Added
 
 -   `emailAttachmentsEndpoint` to `FormSubmissionEventConfiguration` class
+-   `UploadEmailAttachment` to `FormsClient` class
+-   `WorkflowAttachmentUploadCredentials` to models
+-   `EmailAttachmentData` to models
 
 ## 5.2.0 (2023-11-21)
 
