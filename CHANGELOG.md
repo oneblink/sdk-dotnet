@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Added
+
+-   `emailAttachmentsEndpoint` to `FormSubmissionEventConfiguration` class
+
 ## 5.2.0 (2023-11-21)
 
 ### Added

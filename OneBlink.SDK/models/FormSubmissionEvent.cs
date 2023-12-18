@@ -225,7 +225,8 @@ namespace OneBlink.SDK.Model
             List<string> toEmail = default(List<string>),
             List<string> ccEmail = default(List<string>),
             List<string> bccEmail = default(List<string>),
-            bool? includeExternalIdInPdf = null
+            bool? includeExternalIdInPdf = null,
+            EndpointConfiguration emailAttachmentsEndpoint = null
         )
         {
             FormSubmissionEventConfiguration fseconfig = new FormSubmissionEventConfiguration();
@@ -237,6 +238,7 @@ namespace OneBlink.SDK.Model
             fseconfig.excludedElementIds = excludedElementIds;
             fseconfig.usePagesAsBreaks = usePagesAsBreaks;
             fseconfig.emailTemplate = emailTemplate;
+            fseconfig.emailAttachmentsEndpoint = emailAttachmentsEndpoint;
             if (toEmail != default(List<string>))
             {
                 fseconfig.toEmail = toEmail;
@@ -280,7 +282,8 @@ namespace OneBlink.SDK.Model
             List<string> ccEmail = default(List<string>),
             List<string> bccEmail = default(List<string>),
             List<string> excludedCSSClasses = default(List<string>),
-            bool? includeExternalIdInPdf = null
+            bool? includeExternalIdInPdf = null,
+            EndpointConfiguration emailAttachmentsEndpoint = null
         )
         {
             FormSubmissionEventConfiguration fseconfig = new FormSubmissionEventConfiguration();
@@ -311,6 +314,7 @@ namespace OneBlink.SDK.Model
                 fseconfig.bccEmail = bccEmail;
             }
             fseconfig.includeExternalIdInPdf = includeExternalIdInPdf;
+            fseconfig.emailAttachmentsEndpoint = emailAttachmentsEndpoint;
             FormSubmissionEvent pdfEvent = new FormSubmissionEvent();
             pdfEvent.type = "PDF";
             pdfEvent.configuration = fseconfig;
@@ -336,7 +340,8 @@ namespace OneBlink.SDK.Model
             string label = null,
             List<string> toEmail = default(List<string>),
             List<string> ccEmail = default(List<string>),
-            List<string> bccEmail = default(List<string>)
+            List<string> bccEmail = default(List<string>),
+            EndpointConfiguration emailAttachmentsEndpoint = null
         )
         {
             FormSubmissionEventConfiguration fseconfig = new FormSubmissionEventConfiguration();
@@ -355,6 +360,7 @@ namespace OneBlink.SDK.Model
             {
                 fseconfig.bccEmail = bccEmail;
             }
+            fseconfig.emailAttachmentsEndpoint = emailAttachmentsEndpoint;
             FormSubmissionEvent emailEvent = new FormSubmissionEvent();
             emailEvent.type = "EMAIL";
             emailEvent.configuration = fseconfig;
@@ -378,7 +384,8 @@ namespace OneBlink.SDK.Model
             string label = null,
             List<string> toEmail = default(List<string>),
             List<string> ccEmail = default(List<string>),
-            List<string> bccEmail = default(List<string>)
+            List<string> bccEmail = default(List<string>),
+            EndpointConfiguration emailAttachmentsEndpoint = null
         )
         {
             FormSubmissionEventConfiguration fseconfig = new FormSubmissionEventConfiguration();
@@ -396,6 +403,7 @@ namespace OneBlink.SDK.Model
             {
                 fseconfig.bccEmail = bccEmail;
             }
+            fseconfig.emailAttachmentsEndpoint = emailAttachmentsEndpoint;
             FormSubmissionEvent emailEvent = new FormSubmissionEvent();
             emailEvent.type = "EMAIL";
             emailEvent.configuration = fseconfig;
