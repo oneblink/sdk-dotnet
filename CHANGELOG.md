@@ -4,7 +4,7 @@
 
 ### Added
 
--   `emailAttachmentsWebhook` to `FormSubmissionEventConfiguration` class
+-   `emailAttachmentsEndpoint` to `FormSubmissionEventConfiguration` class
 
 ## 5.2.0 (2023-11-21)
 
