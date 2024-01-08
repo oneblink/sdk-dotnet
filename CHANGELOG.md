@@ -9,6 +9,10 @@
 -   `WorkflowAttachmentUploadCredentials` to models
 -   `EmailAttachmentData` to models
 
+### Updated
+
+-   `GetFormSubmission` to return `null` if submission has expired
+
 ## 5.2.0 (2023-11-21)
 
 ### Added

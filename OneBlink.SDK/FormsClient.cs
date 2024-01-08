@@ -161,15 +161,27 @@ namespace OneBlink.SDK
             );
             AmazonS3Client amazonS3Client = new AmazonS3Client(sessionAWSCredentials, regionEndpoint);
 
-            string responseBody = "";
-            using (GetObjectResponse response = await amazonS3Client.GetObjectAsync(formRetrievalData.s3.bucket, formRetrievalData.s3.key, null))
-            using (Stream responseStream = response.ResponseStream)
-            using (StreamReader reader = new StreamReader(responseStream))
+            try 
             {
-                responseBody = reader.ReadToEnd();
-            }
+                string responseBody = "";
+                using (GetObjectResponse response = await amazonS3Client.GetObjectAsync(formRetrievalData.s3.bucket, formRetrievalData.s3.key, null))
+                using (Stream responseStream = response.ResponseStream)
+                using (StreamReader reader = new StreamReader(responseStream))
+                {
+                    responseBody = reader.ReadToEnd();
+                }
 
-            return JsonConvert.DeserializeObject<FormSubmission<T>>(responseBody);
+                return JsonConvert.DeserializeObject<FormSubmission<T>>(responseBody); 
+            }
+            catch(AmazonS3Exception error)
+            {
+                if (error.ErrorCode == "NoSuchKey" || error.ErrorCode == "AccessDenied")
+                {
+                    return null;
+                }
+
+                throw error;
+            }
         }
         public static string EncryptUserToken(string username, string secret)
         {
