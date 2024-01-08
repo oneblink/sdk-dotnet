@@ -38,7 +38,8 @@ namespace OneBlink.SDK.Model
             FormPersonalisation personalisation = null,
             FormApprovalConfiguration approvalConfiguration = null,
             string submissionTitle = null,
-            bool continueWithAutosave = false
+            bool continueWithAutosave = false,
+            List<string> customCssClasses = default(List<string>)
             )
         {
             if (id.HasValue)
@@ -138,6 +139,14 @@ namespace OneBlink.SDK.Model
             this.approvalConfiguration = approvalConfiguration;
             this.submissionTitle = submissionTitle;
             this.continueWithAutosave = continueWithAutosave;
+            if (customCssClasses == default(List<string>))
+            {
+                this.customCssClasses = new List<string>();
+            }
+            else
+            {
+                this.customCssClasses = customCssClasses;
+            }
         }
         public long id
         {
@@ -264,6 +273,10 @@ namespace OneBlink.SDK.Model
             get; set;
         }
         public bool continueWithAutosave
+        {
+            get; set;
+        }
+        public List<string> customCssClasses
         {
             get; set;
         }
