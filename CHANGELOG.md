@@ -4,6 +4,7 @@
 
 ### Added
 
+-   `customCssClasses` to `Form` class
 -   `emailAttachmentsEndpoint` to `FormSubmissionEventConfiguration` class
 -   `UploadEmailAttachment` to `FormsClient` class
 -   `WorkflowAttachmentUploadCredentials` to models
