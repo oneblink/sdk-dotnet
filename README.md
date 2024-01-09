@@ -1,4 +1,4 @@
-# OneBlink .Net SDK [![NuGet Version](https://badge.fury.io/nu/OneBlink.SDK.svg)](https://badge.fury.io/nu/OneBlink.SDK) [![Build Status](https://travis-ci.org/oneblink/sdk-dotnet.svg?branch=master)](https://travis-ci.org/oneblink/sdk-dotnet)
+# OneBlink .Net SDK [![NuGet Version](https://badge.fury.io/nu/OneBlink.SDK.svg)](https://badge.fury.io/nu/OneBlink.SDK) [![Build Status](https://github.com/oneblink/sdk-dotnet/actions/workflows/build.yml/badge.svg)](https://github.com/oneblink/sdk-dotnet/actions/workflows/build.yml)
 
 .Net version of the OneBlink SDK
 
