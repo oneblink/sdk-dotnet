@@ -4,6 +4,10 @@
 
 ### Added
 
+-   `pdfSize` to `GeneratePDFFromSubmissionDataRequest`, `GetSubmissionPdfRequest` and `PDFConfiguration`
+
+### Added
+
 -   `emailAttachmentsEndpoint` to `FormSubmissionEventConfiguration` class
 -   `UploadEmailAttachment` to `FormsClient` class
 -   `WorkflowAttachmentUploadCredentials` to models

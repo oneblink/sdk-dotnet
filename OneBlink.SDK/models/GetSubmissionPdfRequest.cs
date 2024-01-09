@@ -33,5 +33,9 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public string pdfSize
+        {
+            get; set;
+        }
     }
 }
