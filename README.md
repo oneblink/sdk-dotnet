@@ -14,4 +14,4 @@ dotnet add package OneBlink.SDK
 
 ## Usage
 
--   [Usage Documentation](./docs/README.md)
+- [Usage Documentation](./docs/README.md)

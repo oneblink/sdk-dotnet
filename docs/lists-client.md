@@ -2,10 +2,10 @@
 
 ## Instance Functions
 
--   [`Search()`](#search)
--   [`Create()`](#create)
--   [`Update()`](#update)
--   [`Delete()`](#delete)
+- [`Search()`](#search)
+- [`Create()`](#create)
+- [`Update()`](#update)
+- [`Delete()`](#delete)
 
 ## Constructor
 
@@ -46,8 +46,8 @@ OneBlink.SDK.Model.FormElementListsSearchResult response = await formElementList
 
 ### Throws
 
--   `OneBlinkAPIException`
--   `Exception`
+- `OneBlinkAPIException`
+- `Exception`
 
 ### Result
 
@@ -73,8 +73,8 @@ OneBlink.SDK.Model.FormElementList savedFormElementList = await formElementLists
 
 ### Throws
 
--   `OneBlinkAPIException`
--   `Exception`
+- `OneBlinkAPIException`
+- `Exception`
 
 ### Result
 
@@ -100,8 +100,8 @@ OneBlink.SDK.Model.FormElementList updatedFormElementList = await formElementLis
 
 ### Throws
 
--   `OneBlinkAPIException`
--   `Exception`
+- `OneBlinkAPIException`
+- `Exception`
 
 ### Result
 
@@ -125,8 +125,8 @@ await formElementListsClient.Delete(formElementListId);
 
 ### Throws
 
--   `OneBlinkAPIException`
--   `Exception`
+- `OneBlinkAPIException`
+- `Exception`
 
 ### Result
 

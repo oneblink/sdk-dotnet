@@ -2,13 +2,13 @@
 
 ## Instance Functions
 
--   [`CreateJob(job)`](<#CreateJob(job)>)
--   [`CreateJob(job, <T>)`](<#CreateJob(job, T)>)
--   [`DeleteJob(jobId)`](#DeleteJob)
--   [`Search(searchParams)`](<#Search(searchParams)>)
--   [`SearchByExternalId(externalId)`](<#SearchByExternalId(externalId)>)
--   [`SearchByFormId(formId)`](<#SearchByFormId(formId)>)
--   [`SearchByUsername(username)`](<#SearchByUsername(username)>)
+- [`CreateJob(job)`](<#CreateJob(job)>)
+- [`CreateJob(job, <T>)`](<#CreateJob(job, T)>)
+- [`DeleteJob(jobId)`](#DeleteJob)
+- [`Search(searchParams)`](<#Search(searchParams)>)
+- [`SearchByExternalId(externalId)`](<#SearchByExternalId(externalId)>)
+- [`SearchByFormId(formId)`](<#SearchByFormId(formId)>)
+- [`SearchByUsername(username)`](<#SearchByUsername(username)>)
 
 ## Constructor
 
@@ -66,8 +66,8 @@ OneBlink.SDK.Model.Job job = await jobsClient.CreateJob(job);
 
 ### Throws
 
--   `OneBlinkAPIException`
--   `Exception`
+- `OneBlinkAPIException`
+- `Exception`
 
 ### Result
 
@@ -120,8 +120,8 @@ OneBlink.SDK.Model.Job job = await jobsClient.CreateJob<MyPreFillDataType>(job, 
 
 ### Throws
 
--   `OneBlinkAPIException`
--   `Exception`
+- `OneBlinkAPIException`
+- `Exception`
 
 ### Result
 
@@ -146,8 +146,8 @@ await jobsClient.DeleteJob(jobId);
 
 ### Throws
 
--   `OneBlinkAPIException`
--   `Exception`
+- `OneBlinkAPIException`
+- `Exception`
 
 ### Result
 
@@ -181,8 +181,8 @@ JobsSearchResult results = await jobsClient.Search(searchParams);
 
 ### Throws
 
--   `OneBlinkAPIException`
--   `Exception`
+- `OneBlinkAPIException`
+- `Exception`
 
 ### Result
 
@@ -206,8 +206,8 @@ JobsSearchResult results = await jobsClient.SearchByExternalId(externalId);
 
 ### Throws
 
--   `OneBlinkAPIException`
--   `Exception`
+- `OneBlinkAPIException`
+- `Exception`
 
 ### Result
 
@@ -231,8 +231,8 @@ JobsSearchResult results = await jobsClient.SearchByFormId(formId);
 
 ### Throws
 
--   `OneBlinkAPIException`
--   `Exception`
+- `OneBlinkAPIException`
+- `Exception`
 
 ### Result
 
@@ -256,8 +256,8 @@ JobsSearchResult results = await jobsClient.SearchByUsername(username);
 
 ### Throws
 
--   `OneBlinkAPIException`
--   `Exception`
+- `OneBlinkAPIException`
+- `Exception`
 
 ### Result
 
