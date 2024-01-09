@@ -34,6 +34,7 @@
 | `approvalConfiguration`        | No       | `FormApprovalConfiguration` | Optional configuration for approvals                                                                                        | `null`                            |
 | `submissionTitle`              | No       | `string`                    | Optional configuration for the default submission title                                                                     | `null`                            |
 | `continueWithAutosave`         | No       | `boolean`                   | Whether or not viewing the form should auto-continue with autosave data when available rather than prompting the user title | `false`                           |
+| `customCssClasses`             | No       | `List<string>`              | Custom CSS classes that will be added to the form during rendering                                                          | `new List<string>()`              |
 
 ### Other properties
 
