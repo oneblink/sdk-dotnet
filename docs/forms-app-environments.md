@@ -2,11 +2,11 @@
 
 ## Instance Functions
 
--   [`Search()`](#search)
--   [`Get()`](#get)
--   [`Create()`](#create)
--   [`Update()`](#update)
--   [`Delete()`](#delete)
+- [`Search()`](#search)
+- [`Get()`](#get)
+- [`Create()`](#create)
+- [`Update()`](#update)
+- [`Delete()`](#delete)
 
 ## Constructor
 
@@ -46,8 +46,8 @@ OneBlink.SDK.Model.FormsAppEnvironmentsSearchResult response = await formsAppEnv
 
 ### Throws
 
--   `OneBlinkAPIException`
--   `Exception`
+- `OneBlinkAPIException`
+- `Exception`
 
 ### Result
 
@@ -73,8 +73,8 @@ OneBlink.SDK.Model.FormsAppEnvironment formsAppEnvironment = await formsAppEnvir
 
 ### Throws
 
--   `OneBlinkAPIException`
--   `Exception`
+- `OneBlinkAPIException`
+- `Exception`
 
 ### Result
 
@@ -100,8 +100,8 @@ OneBlink.SDK.Model.FormsAppEnvironment savedFormsAppEnvironment = await formsApp
 
 ### Throws
 
--   `OneBlinkAPIException`
--   `Exception`
+- `OneBlinkAPIException`
+- `Exception`
 
 ### Result
 
@@ -127,8 +127,8 @@ OneBlink.SDK.Model.FormsAppEnvironment updatedFormsAppEnvironment = await formsA
 
 ### Throws
 
--   `OneBlinkAPIException`
--   `Exception`
+- `OneBlinkAPIException`
+- `Exception`
 
 ### Result
 
@@ -152,8 +152,8 @@ await formsClient.Delete(formsAppEnvironmentId);
 
 ### Throws
 
--   `OneBlinkAPIException`
--   `Exception`
+- `OneBlinkAPIException`
+- `Exception`
 
 ### Result
 

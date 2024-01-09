@@ -4,698 +4,698 @@
 
 ### Added
 
--   `customCssClasses` to `Form` class
--   `emailAttachmentsEndpoint` to `FormSubmissionEventConfiguration` class
--   `UploadEmailAttachment` to `FormsClient` class
--   `WorkflowAttachmentUploadCredentials` to models
--   `EmailAttachmentData` to models
+- `customCssClasses` to `Form` class
+- `emailAttachmentsEndpoint` to `FormSubmissionEventConfiguration` class
+- `UploadEmailAttachment` to `FormsClient` class
+- `WorkflowAttachmentUploadCredentials` to models
+- `EmailAttachmentData` to models
 
 ### Updated
 
--   `GetFormSubmission` to return `null` if submission has expired
--   CI event for `Dependabot` to trigger from `pull_request` workflow event
+- `GetFormSubmission` to return `null` if submission has expired
+- CI event for `Dependabot` to trigger from `pull_request` workflow event
 
 ## [5.2.0] - 2023-11-21
 
 ### Added
 
--   `GeneratePdfFromSubmissionData` function to `PdfClient` class
--   `continueWithAutosave` to `Form` class
--   `lastElementUpdated`, `externalId`, `task`, `taskGroup` and `taskGroupInstance` to `FormSubmission` class
+- `GeneratePdfFromSubmissionData` function to `PdfClient` class
+- `continueWithAutosave` to `Form` class
+- `lastElementUpdated`, `externalId`, `task`, `taskGroup` and `taskGroupInstance` to `FormSubmission` class
 
 ## [5.1.1] - 2023-11-01
 
 ### Added
 
--   `excludeDefinition` property to `FormElementLookup`
+- `excludeDefinition` property to `FormElementLookup`
 
 ## [5.1.0] - 2023-10-23
 
 ### Added
 
--   `repeatableSetPredicate` property to `ConditionallyShowPredicate`
+- `repeatableSetPredicate` property to `ConditionallyShowPredicate`
 
 ## [5.0.0] - 2023-09-17
 
 ### Removed
 
--   **[BREAKING]** `definition` from `FormStoreRecord` model
+- **[BREAKING]** `definition` from `FormStoreRecord` model
 
 ## [4.4.0] - 2023-08-10
 
 ### Fixed
 
--   `isCloningFormApprovalSteps` missing from `FormsAppEnvironmentCloneOptions` model
+- `isCloningFormApprovalSteps` missing from `FormsAppEnvironmentCloneOptions` model
 
 ### Added
 
--   `submissionTitle` to `Form` class
--   `submissionTitle` to `FormSubmissionMetadata` class
--   `personalisation` to `FormMigrationOptions` class
--   `isCloningFormPersonalisation` to `FormsAppEnvironmentCloneOptions` class
--   `submissionTitle` to `Forms.SearchSubmissions()`
+- `submissionTitle` to `Form` class
+- `submissionTitle` to `FormSubmissionMetadata` class
+- `personalisation` to `FormMigrationOptions` class
+- `isCloningFormPersonalisation` to `FormsAppEnvironmentCloneOptions` class
+- `submissionTitle` to `Forms.SearchSubmissions()`
 
 ### Changed
 
--   `externalIdGeneration` to `externalIdGenerationOnSubmit` in `FormMigrationOptions` and `FormsAppEnvironmentCloneOptions` classes
+- `externalIdGeneration` to `externalIdGenerationOnSubmit` in `FormMigrationOptions` and `FormsAppEnvironmentCloneOptions` classes
 
 ### Removed
 
--   `externalIdGeneration` from `Form` class
+- `externalIdGeneration` from `Form` class
 
 ## [4.3.0] - 2023-07-26
 
--   `runLookupOnClear` to `FormElementLookupEnvironment` class
+- `runLookupOnClear` to `FormElementLookupEnvironment` class
 
 ## [4.2.0] - 2023-07-12
 
 ### Added
 
--   `GenerateWorkflowAttachmentLink` to `FormsClient` class
+- `GenerateWorkflowAttachmentLink` to `FormsClient` class
 
 ## [4.1.12] - 2023-07-03
 
 ### Added
 
--   `lookupButton` to `FormElement`
--   `ListsClient` and `LookupsClient` class
+- `lookupButton` to `FormElement`
+- `ListsClient` and `LookupsClient` class
 
 ## [4.1.11] - 2023-06-23
 
 ### Added
 
--   `NSW_GOV_PAY` parameters to `FormSubmissionEventConfiguration`
+- `NSW_GOV_PAY` parameters to `FormSubmissionEventConfiguration`
 
 ## [4.1.10] - 2023-06-05
 
 ### Added
 
--   `includeExternalIdInPdf` to `PDFConfiguration`
--   `includeExternalIdInPdf` parameters to `PdfClient.GetSubmissionPdf()`
+- `includeExternalIdInPdf` to `PDFConfiguration`
+- `includeExternalIdInPdf` parameters to `PdfClient.GetSubmissionPdf()`
 
 ## [4.1.9] - 2023-05-26
 
 ### Added
 
--   `searchQuerystringParameter` to `FormElement` class
--   `personalisation` and `externalIdGenerationOnSubmit` to `Form` class
--   `FormPersonalisation` model class for `personalisation`
--   `enableAppUserSignup` to `FormsAppBase` class
--   `firstName` and `lastName` to `FormsAppUser`
+- `searchQuerystringParameter` to `FormElement` class
+- `personalisation` and `externalIdGenerationOnSubmit` to `Form` class
+- `FormPersonalisation` model class for `personalisation`
+- `enableAppUserSignup` to `FormsAppBase` class
+- `firstName` and `lastName` to `FormsAppUser`
 
 ## [4.1.8] - 2023-05-12
 
 ### Added
 
--   `unpublishedUserMessage` to `Form`
+- `unpublishedUserMessage` to `Form`
 
 ## [4.1.7] - 2023-05-02
 
 ### Added
 
--   `displayAlways` property to `FormElementOption` class
+- `displayAlways` property to `FormElementOption` class
 
 ## [4.1.6] - 2023-04-27
 
 ### Added
 
--   `FormElementRepeatableSetEntriesConstraint` model class for Repeatable set Element based min/max entries.
+- `FormElementRepeatableSetEntriesConstraint` model class for Repeatable set Element based min/max entries.
 
 ## [4.1.5] - 2023-04-20
 
 ### Added
 
--   `Microsoft DevSkim` to Github build action
+- `Microsoft DevSkim` to Github build action
 
 ## [4.1.4] - 2023-04-14
 
 ### Added
 
--   `fromDateElementId` to `FormElement`
--   `ToDateElementId` to `FormElement`
+- `fromDateElementId` to `FormElement`
+- `ToDateElementId` to `FormElement`
 
 ## [4.1.3] - 2023-04-03
 
 ### Added
 
--   `excludedCSSClasses` to `PDFConfiguration` and `PdfClient.GetSubmissionPdf()`
+- `excludedCSSClasses` to `PDFConfiguration` and `PdfClient.GetSubmissionPdf()`
 
 ## [4.1.2] - 2023-03-27
 
 ### Added
 
--   `hintPosition` to `FormElement`
--   `postSubmissionReceipt` to `Form`
--   `FormExternalIdGeneration` model
--   `ReceiptConfiguration` model
--   `toEmail`, `ccEmail` and `bccEmail` to `FormSubmissionEventConfiguration`
--   deprecated warnings to `CreatePDFSubmissionEvent()` and `CreateEmailSubmissionEvent()` methods using the `email` parameter
+- `hintPosition` to `FormElement`
+- `postSubmissionReceipt` to `Form`
+- `FormExternalIdGeneration` model
+- `ReceiptConfiguration` model
+- `toEmail`, `ccEmail` and `bccEmail` to `FormSubmissionEventConfiguration`
+- deprecated warnings to `CreatePDFSubmissionEvent()` and `CreateEmailSubmissionEvent()` methods using the `email` parameter
 
 ### Changed
 
--   Deprecated `email` from `FormSubmissionEventConfiguration`
+- Deprecated `email` from `FormSubmissionEventConfiguration`
 
 ## [4.1.1] - 2023-03-13
 
 ### Added
 
--   `formApprovalFlowInstanceId` to `ApprovalsClient.GetFormSubmissionAdministrationApprovals()`
--   `requiredAll` to `FormElement`
+- `formApprovalFlowInstanceId` to `ApprovalsClient.GetFormSubmissionAdministrationApprovals()`
+- `requiredAll` to `FormElement`
 
 ## [4.1.0] - 2023-03-03
 
 ### Added
 
--   `'oneblink:access'` claim to JWT for signed URL to submit an authenticated form
+- `'oneblink:access'` claim to JWT for signed URL to submit an authenticated form
 
 ## [4.0.0] - 2023-02-23
 
 ### Updated
 
--   **[BREAKING]** `FormsClient.Search()` to use v2 url. Now paginates by a maximum of 200 results at a time.
+- **[BREAKING]** `FormsClient.Search()` to use v2 url. Now paginates by a maximum of 200 results at a time.
 
 ### Added
 
--   `disallowApprovingWhenAwaitingClarification` to `FormApprovalConfiguration`
+- `disallowApprovingWhenAwaitingClarification` to `FormApprovalConfiguration`
 
 ## [3.0.17] - 2023-02-16
 
 ### Changed
 
--   TRIM Submission Event to have optional `action` and `location`
+- TRIM Submission Event to have optional `action` and `location`
 
 ### Removed
 
--   `isInfoPage` from `Form`
--   `isInfoPage` from `FormsClient.Search()` parameters
+- `isInfoPage` from `Form`
+- `isInfoPage` from `FormsClient.Search()` parameters
 
 ## [3.0.16] - 2022-12-12
 
 ### Added
 
--   timezone to Organisation
+- timezone to Organisation
 
 ## [3.0.15] - 2022-11-15
 
 ### Changed
 
--   `FormsAppsClient.VerifyJWT()` to use cognito directly
+- `FormsAppsClient.VerifyJWT()` to use cognito directly
 
 ## [3.0.14] - 2022-11-08
 
 ### Added
 
--   `GetFormSubmissionAttachmentMeta` to `FormsClient`
+- `GetFormSubmissionAttachmentMeta` to `FormsClient`
 
 ### Changed
 
--   Origin for test tenant's
--   `FormsAppsClient.VerifyJWT()` to call API instead of using cognito
+- Origin for test tenant's
+- `FormsAppsClient.VerifyJWT()` to call API instead of using cognito
 
 ## [3.0.11] - 2022-09-27
 
 ### Added
 
--   `autoDenyAfterClarificationRequest` to `FormApprovalConfiguration`
+- `autoDenyAfterClarificationRequest` to `FormApprovalConfiguration`
 
 ### Fixed
 
--   type for `FormApprovalConfiguration.defaultNotificationEmailElementId`
+- type for `FormApprovalConfiguration.defaultNotificationEmailElementId`
 
 ## [3.0.10] - 2022-09-13
 
 ### Added
 
--   `approvalConfiguration` to `Form`
--   `FormApprovalCannedResponse` class
--   `cannedResponseKey` to `FormSubmissionApproval`
--   `DataManagerClient` class and corresponding model classes
--   `secret` to `FormServerValidationConfiguration`
--   `isValid` parameter to `FormsClient.SearchSubmissions`
+- `approvalConfiguration` to `Form`
+- `FormApprovalCannedResponse` class
+- `cannedResponseKey` to `FormSubmissionApproval`
+- `DataManagerClient` class and corresponding model classes
+- `secret` to `FormServerValidationConfiguration`
+- `isValid` parameter to `FormsClient.SearchSubmissions`
 
 ### Changed
 
--   Numerous updates to `JWTPayload` class
+- Numerous updates to `JWTPayload` class
 
 ## [3.0.9] - 2022-08-16
 
 ### Added
 
--   `requiredMessage` to `FormElement`
--   `customCssClasses` to `FormElement`
--   `meta` to `FormElement`
--   `label` to `FormSubmissionEvent`
+- `requiredMessage` to `FormElement`
+- `customCssClasses` to `FormElement`
+- `meta` to `FormElement`
+- `label` to `FormSubmissionEvent`
 
 ## [3.0.8] - 2022-07-29
 
 ### Added
 
--   `formSubmissionWorkflowEvents` and `formSubmissionSchedulingBooking` to `FormSubmissionMetadataResponse`
+- `formSubmissionWorkflowEvents` and `formSubmissionSchedulingBooking` to `FormSubmissionMetadataResponse`
 
 ### Changed
 
--   Mark `FormsClient.GetSubmissionMeta()` as obsolete
+- Mark `FormsClient.GetSubmissionMeta()` as obsolete
 
 ## [3.0.7] - 2022-06-29
 
 ### Added
 
--   `additionalNotes` to `FormSubmissionApproval`
--   `includePaymentInPdf` to `FormSubmissionEventConfiguration`
+- `additionalNotes` to `FormSubmissionApproval`
+- `includePaymentInPdf` to `FormSubmissionEventConfiguration`
 
 ### Fixed
 
--   `approvalFormsInclusionConfig` to `approvalFormsInclusion` in `FormSubmissionEventConfiguration`
--   `approvalFormInclusion` to `value` in `ApprovalFormsInclusionConfiguration`
+- `approvalFormsInclusionConfig` to `approvalFormsInclusion` in `FormSubmissionEventConfiguration`
+- `approvalFormInclusion` to `value` in `ApprovalFormsInclusionConfiguration`
 
 ## [3.0.6] - 2022-06-17
 
 ### Added
 
--   `subCategoryLabel`, `subCategoryHint`, `itemLabel` and `itemHint` to `FormElement`
--   `dependentFieldValue`, `type`, `freshdeskFieldName` to `FormSubmissionEventConfigurationMapping`
+- `subCategoryLabel`, `subCategoryHint`, `itemLabel` and `itemHint` to `FormElement`
+- `dependentFieldValue`, `type`, `freshdeskFieldName` to `FormSubmissionEventConfigurationMapping`
 
 ## [3.0.5] - 2022-06-09
 
 ### Added
 
--   `EmailTemplate` properties
-    -   `environments`
-    -   `organisationId`
+- `EmailTemplate` properties
+  - `environments`
+  - `organisationId`
 
 ### Removed
 
--   `EmailTemplate` properties
-    -   `template`
-    -   `formsAppEnvironmentId`
--   `EmailTemplatesClient.Search()` `formsAppEnvironmentId` parameter
+- `EmailTemplate` properties
+  - `template`
+  - `formsAppEnvironmentId`
+- `EmailTemplatesClient.Search()` `formsAppEnvironmentId` parameter
 
 ## [3.0.4] - 2022-05-31
 
 ### Added
 
--   `formSubmissionPayments` to `FormSubmissionMetaResponse` class
+- `formSubmissionPayments` to `FormSubmissionMetaResponse` class
 
 ## [3.0.3] - 2022-05-20
 
 ### Added
 
--   `tierAdditions` to `Organisation` class
+- `tierAdditions` to `Organisation` class
 
 ## [3.0.2] - 2022-05-03
 
 ### Changed
 
--   `id` in `FormElementOption` model to be a string
+- `id` in `FormElementOption` model to be a string
 
 ### Added
 
--   `FormStoreFormsApp` class
+- `FormStoreFormsApp` class
 
 ## [3.0.1] - 2022-04-19
 
 ### Added
 
--   `compareWith` property to `ConditionallyShowPredicate`
+- `compareWith` property to `ConditionallyShowPredicate`
 
 ## [3.0.0] - 2022-03-31
 
 ### Added
 
--   [`FormsAppClient.GetSendingAddress()`](./docs/forms-apps-client#getsendingaddress)
+- [`FormsAppClient.GetSendingAddress()`](./docs/forms-apps-client#getsendingaddress)
 
 ### Changed
 
--   **[BREAKING]** Changed `FormsAppClient.SetSendingAddress()` response type from `FormsAppSendingAddress` to `FormsAppSendingAddressResponse`
+- **[BREAKING]** Changed `FormsAppClient.SetSendingAddress()` response type from `FormsAppSendingAddress` to `FormsAppSendingAddressResponse`
 
 ## [2.7.4] - 2022-03-16
 
 ### Added
 
--   `clarificationRequestEmailTemplateId` to `FormApprovalFlowStepBase`
+- `clarificationRequestEmailTemplateId` to `FormApprovalFlowStepBase`
 
 ## [2.7.3] - 2022-01-24
 
 ### Added
 
--   `uploadedAt` to `AttachmentData` class
--   `description` to `FormsAppBase` class
+- `uploadedAt` to `AttachmentData` class
+- `description` to `FormsAppBase` class
 
 ## [2.7.2] - 2022-01-19
 
 ### Added
 
--   Approval form inclusion on approval events
--   Approval Form information to approvalStep related classes.
--   [`FormsClient.GetFormSubmissionMeta()`](./docs/forms-client#getformsubmissionmeta)
+- Approval form inclusion on approval events
+- Approval Form information to approvalStep related classes.
+- [`FormsClient.GetFormSubmissionMeta()`](./docs/forms-client#getformsubmissionmeta)
 
 ## [2.7.1] - 2021-12-23
 
 ### Added
 
--   `Migrate` to the `FormsClient` class
+- `Migrate` to the `FormsClient` class
 
 ## [2.7.0] - 2021-12-21
 
 ### Added
 
--   More events to forms
+- More events to forms
 
 ### Changed
 
--   Drafts on submission events
+- Drafts on submission events
 
 ## [2.6.1] - 2021-12-02
 
 ### Added
 
--   `FreshdeskCreateTicket` to the submission events
--   `freshdeskFieldName` to the FormElement class
+- `FreshdeskCreateTicket` to the submission events
+- `freshdeskFieldName` to the FormElement class
 
 ## [2.6.0] - 2021-11-25
 
 ### Added
 
--   `Email` to the submission events
--   `createFilesElement()` as well as preventing extensionless attachments
+- `Email` to the submission events
+- `createFilesElement()` as well as preventing extensionless attachments
 
 ## [2.5.5] - 2021-11-16
 
 ### Added
 
--   Added `EmailTemplatesClient`
+- Added `EmailTemplatesClient`
 
 ## [2.5.4] - 2021-11-11
 
 ### Added
 
--   `emailTemplate` to `FormSubmissionEventConfiguration`
--   Added `FormsAppEnvironmentsClient`
+- `emailTemplate` to `FormSubmissionEventConfiguration`
+- Added `FormsAppEnvironmentsClient`
 
 ### Changed
 
--   Updated `FormsClient.Search()` parameters.
+- Updated `FormsClient.Search()` parameters.
 
 ## [2.5.3] - 2021-10-05
 
 ### Added
 
--   `usePagesAsBreaks` to `FormSubmissionEventConfigration`
--   `usePagesAsBreaks` to `PdfClient.GetSubmissionPdf()`
+- `usePagesAsBreaks` to `FormSubmissionEventConfigration`
+- `usePagesAsBreaks` to `PdfClient.GetSubmissionPdf()`
 
 ## [2.5.2] - 2021-09-27
 
 ### Added
 
--   `groupFiles` to `FormSubmissionEventConfigration`
+- `groupFiles` to `FormSubmissionEventConfigration`
 
 ## [2.5.1] - 2021-09-15
 
 ### Added
 
--   `GetFormSubmissionApproval` to `ApprovalsClient`
--   `GetFormApprovalFlowInstance` to `ApprovalsClient`
+- `GetFormSubmissionApproval` to `ApprovalsClient`
+- `GetFormApprovalFlowInstance` to `ApprovalsClient`
 
 ## [2.5.0] - 2021-08-31
 
 ### Added
 
--   `lastUpdatedBy`, `updatedAfterDateTime` and `updatedBeforeDateTime` parameters to `ApprovalsClient.GetFormSubmissionAdministrationApprovals()`
--   `ipAddress` to `FormSubmission`
--   `lastUpdatedBy` to `FormApprovalFlowInstance`
+- `lastUpdatedBy`, `updatedAfterDateTime` and `updatedBeforeDateTime` parameters to `ApprovalsClient.GetFormSubmissionAdministrationApprovals()`
+- `ipAddress` to `FormSubmission`
+- `lastUpdatedBy` to `FormApprovalFlowInstance`
 
 ## [2.4.0] - 2021-08-24
 
 ### Added
 
--   `isDescription` to `FormSubmissionEventCivicaElementMapping`
+- `isDescription` to `FormSubmissionEventCivicaElementMapping`
 
 ### Removed
 
--   `civicaDescription` from `FormSubmissionEventConfiguration`
+- `civicaDescription` from `FormSubmissionEventConfiguration`
 
 ## [2.3.0] - 2021-08-11
 
 ### Added
 
--   `ApprovalsClient`
--   `externalIdGeneration` to `Form`
+- `ApprovalsClient`
+- `externalIdGeneration` to `Form`
 
 ## [2.2.8] - 2021-08-02
 
 ### Added
 
--   `serverValidation` to `Form`
+- `serverValidation` to `Form`
 
 ## [2.2.7] - 2021-07-20
 
 ### Added
 
--   `nylasAccountId`, `nylasSchedulingPageId`, `nameElementId` and `emailElementId` to `FormSubmissionEventConfigration`
--   `CreateSchedulingSubmissionEvent()` to `FormSubmissionEvent`
--   [`GenerateSubmissionAttachmentUrl()`](./docs/forms-client#generatesubmissionattachmenturl)
+- `nylasAccountId`, `nylasSchedulingPageId`, `nameElementId` and `emailElementId` to `FormSubmissionEventConfigration`
+- `CreateSchedulingSubmissionEvent()` to `FormSubmissionEvent`
+- [`GenerateSubmissionAttachmentUrl()`](./docs/forms-client#generatesubmissionattachmenturl)
 
 ## [2.2.6] - 2021-06-30
 
 ### Added
 
--   `excludedElementIds` to `PdfClient.GetSubmissionPdf()`
+- `excludedElementIds` to `PdfClient.GetSubmissionPdf()`
 
 ## [2.2.5] - 2021-06-23
 
 ### Added
 
--   `civicaDescription`, `civicaCustomerContactMethod`, `civicaCategory` and `mapping` to `FormSubmissionEventConfiguration`
--   `CreateCivicaCrmSubmissionEvent()` to `FormSubmissionEvent`
--   `Boolean` element type to `FormElement`
--   `useGeoscapeAddressing` and `CreateCivicaNameRecordElement()` to `FormElement`
--   `isCollapsed` and `CreateSectionElement()` to `FormElement`
+- `civicaDescription`, `civicaCustomerContactMethod`, `civicaCategory` and `mapping` to `FormSubmissionEventConfiguration`
+- `CreateCivicaCrmSubmissionEvent()` to `FormSubmissionEvent`
+- `Boolean` element type to `FormElement`
+- `useGeoscapeAddressing` and `CreateCivicaNameRecordElement()` to `FormElement`
+- `isCollapsed` and `CreateSectionElement()` to `FormElement`
 
 ## [2.2.4] - 2021-06-02
 
 ### Fixed
 
--   `description` not being set on form when passed to constructor
+- `description` not being set on form when passed to constructor
 
 ### Added
 
--   `canToggleAll` to `FormElement`
--   `customerReferenceNumber` to `FormSubmissionEventConfiguration`
--   `CreateWestpacQuickWebSubmissionEvent()` to `FormSubmissionEvent`
+- `canToggleAll` to `FormElement`
+- `customerReferenceNumber` to `FormSubmissionEventConfiguration`
+- `CreateWestpacQuickWebSubmissionEvent()` to `FormSubmissionEvent`
 
 ## [2.2.3] - 2021-06-02
 
 ### Added
 
--   `regexPattern`, `regexFlags` and `regexMessage` to `FormElement`
--   `buttons` to `FormListStyles`
+- `regexPattern`, `regexFlags` and `regexMessage` to `FormElement`
+- `buttons` to `FormListStyles`
 
 ### Fixed
 
--   Setting of `ContentDisposition` in `CreateSubmissionAttachment()`
+- Setting of `ContentDisposition` in `CreateSubmissionAttachment()`
 
 ### Changed
 
--   Remove string value type validation from properties
+- Remove string value type validation from properties
 
 ## [2.2.2] - 2021-05-26
 
 ### Added
 
--   `encryptPdf` prop to `FormSubmissionEventConfiguration` class
--   `defaultValueDaysOffset`, `fromDateDaysOffset`, `toDateDaysOffset` to `FormElement`
--   `cancelAction` and `cancelRedirectUrl` to `Form`
--   Allowed value of `BACK` for `postSubmissionAction`
+- `encryptPdf` prop to `FormSubmissionEventConfiguration` class
+- `defaultValueDaysOffset`, `fromDateDaysOffset`, `toDateDaysOffset` to `FormElement`
+- `cancelAction` and `cancelRedirectUrl` to `Form`
+- Allowed value of `BACK` for `postSubmissionAction`
 
 ### Fixed
 
--   `OneBlinkHttpClient.SendRequest()` to check content type before converting to json
+- `OneBlinkHttpClient.SendRequest()` to check content type before converting to json
 
 ### Changed
 
--   Type of `FormElement.fromDate` and `FormElement.toDate` from `DateTime` to `string`
+- Type of `FormElement.fromDate` and `FormElement.toDate` from `DateTime` to `string`
 
 ## [2.2.1] - 2021-05-19
 
 ### Changed
 
--   Type of `value` from `int` to `double` in `ConditionallyShowPredicate` Model
+- Type of `value` from `int` to `double` in `ConditionallyShowPredicate` Model
 
 ### Added
 
--   `recaptchaIntegrationDomainId` to `FormsAppBase`
+- `recaptchaIntegrationDomainId` to `FormsAppBase`
 
 ## [2.2.0] - 2021-05-13
 
 ### Fixed
 
--   `ConditionallyShowPredicate` class missing BETWEEN `type`
+- `ConditionallyShowPredicate` class missing BETWEEN `type`
 
 ### Added
 
--   `displayAsCurrency` to `FormElement`
--   `storageType` to `FormElement`
--   `formsAppEnvironment` to `FormsClient Search`
--   `GetFormSubmissionAttachment` to `FormsClient`
--   `CreateSubmissionAttachment` to `FormsClient`
--   `author` to `FormSubmissionEventConfiguration`
+- `displayAsCurrency` to `FormElement`
+- `storageType` to `FormElement`
+- `formsAppEnvironment` to `FormsClient Search`
+- `GetFormSubmissionAttachment` to `FormsClient`
+- `CreateSubmissionAttachment` to `FormsClient`
+- `author` to `FormSubmissionEventConfiguration`
 
 ## [2.1.0] - 2021-04-27
 
 ### Updated
 
--   Forms App base with `isClientLoggingEnabled` prop
+- Forms App base with `isClientLoggingEnabled` prop
 
 ## [2.0.0] - 2021-04-15
 
 ### Added
 
--   `GenerateSubmissionDataUrl` to `FormsClient`
--   `KeysClient` class
--   `GetMyFormsApp`, `CreateUser` and `DeleteUser` to `FormsAppClient`
--   `Get` to `OrganisationsClient`
--   `pointAddress` element type to `FormElement`
+- `GenerateSubmissionDataUrl` to `FormsClient`
+- `KeysClient` class
+- `GetMyFormsApp`, `CreateUser` and `DeleteUser` to `FormsAppClient`
+- `Get` to `OrganisationsClient`
+- `pointAddress` element type to `FormElement`
 
 ### Changed
 
--   **[BREAKING]** replaced `FormsApp` class with `FormsListFormsApp`, `TilesFormsApp`, `ApprovalsFormsApp`, and `VolunteersFormsApp`
+- **[BREAKING]** replaced `FormsApp` class with `FormsListFormsApp`, `TilesFormsApp`, `ApprovalsFormsApp`, and `VolunteersFormsApp`
 
 ## [1.17.0] - 2021-03-23
 
 ### Added
 
--   `GeneratePdf` function to `PdfClient`
--   `SendEmail` function to `EmailClient`
+- `GeneratePdf` function to `PdfClient`
+- `SendEmail` function to `EmailClient`
 
 ### Changed
 
--   Added `isDraft` and `includeSubmissionIdInPdf` parameters to `PdfClient.GetSubmissionPdf()`
+- Added `isDraft` and `includeSubmissionIdInPdf` parameters to `PdfClient.GetSubmissionPdf()`
 
 ## [1.16.0] - 2021-03-23
 
 ### Added
 
--   `compliance` form element
--   `hint` property to form elements with labels
+- `compliance` form element
+- `hint` property to form elements with labels
 
 ## [1.15.0] - 2021-03-03
 
 ### Added
 
--   `previousFormSubmissionApprovalId` to `FormUrlOptions`
+- `previousFormSubmissionApprovalId` to `FormUrlOptions`
 
 ## [1.14.0] - 2021-02-09
 
 ### Added
 
--   Added `type`, `categories` and `waiverUrl` to `FormsApp`, `CONTAINER` and `FORM` to `AllowedMenuItemTypes`, `formIds` and `formId` to `FormsAppMenuItems`
+- Added `type`, `categories` and `waiverUrl` to `FormsApp`, `CONTAINER` and `FORM` to `AllowedMenuItemTypes`, `formIds` and `formId` to `FormsAppMenuItems`
 
 ## [1.13.0] - 2021-01-18
 
 ### Added
 
--   [`GenerateFormUrl()`](./docs/forms-client.md#GenerateFormUrl) method
--   [`EncryptUserToken()`](./docs/forms-client.md#EncryptUserToken) method
--   [`DecryptUserToken()`](./docs/forms-client.md#DecryptUserToken) method
--   `crn2` and `crn3` to `FormSubmissionEventConfigration`
--   `includeSubmissionIdInPdf` to `FormSubmissionEventConfigration`
--   `encryptedElementIds` and `excludedElementIds` to `FormSubmissionEventConfigration`
--   [`CreateGeoscapeAddressElement()`](./docs/models/FormElement.md#geoscape-address-element) method
+- [`GenerateFormUrl()`](./docs/forms-client.md#GenerateFormUrl) method
+- [`EncryptUserToken()`](./docs/forms-client.md#EncryptUserToken) method
+- [`DecryptUserToken()`](./docs/forms-client.md#DecryptUserToken) method
+- `crn2` and `crn3` to `FormSubmissionEventConfigration`
+- `includeSubmissionIdInPdf` to `FormSubmissionEventConfigration`
+- `encryptedElementIds` and `excludedElementIds` to `FormSubmissionEventConfigration`
+- [`CreateGeoscapeAddressElement()`](./docs/models/FormElement.md#geoscape-address-element) method
 
 ## [1.12.0] - 2020-11-12
 
 ### Added
 
--   [`SetSendingAddress()`](./docs/forms-apps-client.md#SetSendingAddress) method
--   [`DeleteSendingAddress()`](./docs/forms-apps-client.md#DeleteSendingAddress) method
+- [`SetSendingAddress()`](./docs/forms-apps-client.md#SetSendingAddress) method
+- [`DeleteSendingAddress()`](./docs/forms-apps-client.md#DeleteSendingAddress) method
 
 ## [1.11.0] - 2020-11-12
 
 ### Added
 
--   isInteger prop to `FormElement`
--   minLength and maxLength props to `FormElement` and `createTextElement` constructor
+- isInteger prop to `FormElement`
+- minLength and maxLength props to `FormElement` and `createTextElement` constructor
 
 ## [1.10.0] - 2020-10-15
 
 ### Added
 
--   `OrganisationsClient`
+- `OrganisationsClient`
 
 ## [1.9.0] - 2020-07-23
 
 ### Added
 
--   `conditionallyExecutePredicates` to `FormSubmissionEvent`
--   CRUD methods to [`FormsAppsClient`](./docs/forms-apps-client.md)
+- `conditionallyExecutePredicates` to `FormSubmissionEvent`
+- CRUD methods to [`FormsAppsClient`](./docs/forms-apps-client.md)
 
 ## [1.8.0] - 2020-07-09
 
 ### Added
 
--   Added `environmentId` to `FormSubmissionEventConfiguration`
+- Added `environmentId` to `FormSubmissionEventConfiguration`
 
 ## [1.7.0] - 2020-07-06
 
 ### Added
 
--   Added `overrideLock` parameter to update and delete form functions
--   Added `gatewayId` to `FormSubmissionEventConfiguration`
--   Added `placeholderValue` to `FormElement`
--   Added `tags` to `Form`
--   Added `publishStartDate` and `publishEndDate` to `Form`
+- Added `overrideLock` parameter to update and delete form functions
+- Added `gatewayId` to `FormSubmissionEventConfiguration`
+- Added `placeholderValue` to `FormElement`
+- Added `tags` to `Form`
+- Added `publishStartDate` and `publishEndDate` to `Form`
 
 ## [1.6.0] - 2020-06-10
 
 ### Added
 
--   FormsApps class and `VerifyJWT` method
+- FormsApps class and `VerifyJWT` method
 
 ## [1.5.1] - 2020-06-03
 
 ### Added
 
--   `BPOINT` submission event type
--   `CP_HCMS` `SubmissionEvent` type
+- `BPOINT` submission event type
+- `CP_HCMS` `SubmissionEvent` type
 
 ## [1.4.0] - 2020-05-25
 
 ### Added
 
--   CRUD methods to [`FormsClient`](./docs/forms-client.md)
--   `summary` `FormElement` type
+- CRUD methods to [`FormsClient`](./docs/forms-client.md)
+- `summary` `FormElement` type
 
 ## [1.3.0] - 2020-04-06
 
 ### Removed
 
--   Support for overriding api and pdf urls through .env variables
+- Support for overriding api and pdf urls through .env variables
 
 ### Added
 
--   Support for tenant selection when instantiating a client
--   [`searchSubmissions()`](./docs/forms-client.md) function
--   `limit` and `offset` parameters to `searchSubmissions()`
+- Support for tenant selection when instantiating a client
+- [`searchSubmissions()`](./docs/forms-client.md) function
+- `limit` and `offset` parameters to `searchSubmissions()`
 
 ## [1.2.0] - 2020-02-13
 
 ### Added
 
--   `priority` parameter to [`JobsClient.CreateJob()`](<./docs/jobs-client.md#createjob(job)>)
--   `device` property to `FormSubmission` class
+- `priority` parameter to [`JobsClient.CreateJob()`](<./docs/jobs-client.md#createjob(job)>)
+- `device` property to `FormSubmission` class
 
 ## [1.1.0] - 2020-01-30
 
 ### Added
 
--   [`JobsClient`](./docs/jobs-client.md) class
+- [`JobsClient`](./docs/jobs-client.md) class
 
 ## [1.0.1] - 2019-06-20
 
 ### Added
 
--   `isDraft` parameter to [`FormsClient.GetFormSubmission()`](./docs/forms-client.md#getformsubmission)
--   [`TeamMembersClient`](./docs/team-members-client.md) class
+- `isDraft` parameter to [`FormsClient.GetFormSubmission()`](./docs/forms-client.md#getformsubmission)
+- [`TeamMembersClient`](./docs/team-members-client.md) class
 
 ## [1.0.0] - 2019-06-18
 

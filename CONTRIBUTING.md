@@ -12,11 +12,11 @@ FormsClient formsClient = new FormsClient(ACCESS_KEY, SECRET_KEY, TenantName.ONE
 
 ### Prerequisites
 
--   .Net runtime installed (at least one of .Net 6.0, .Net 7.0)
+- .Net runtime installed (at least one of .Net 6.0, .Net 7.0)
 
 ## Security linter
 
--   Install [Microsoft DevSkim](https://github.com/Microsoft/DevSkim) for inline linting
+- Install [Microsoft DevSkim](https://github.com/Microsoft/DevSkim) for inline linting
 
 ### Environment variables
 
@@ -90,7 +90,7 @@ dotnet test
 
 #### Prerequisites
 
--   .Net SDK installed (at least one of .Net 6.0, .Net 7.0)
+- .Net SDK installed (at least one of .Net 6.0, .Net 7.0)
 
 1.  Clone this repository
 

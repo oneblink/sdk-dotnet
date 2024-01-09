@@ -2,17 +2,17 @@
 
 ## Instance Functions
 
--   [`VerifyJWT()`](#veryjwt)
--   [`Get()`](#get)
--   [`Create()`](#create)
--   [`Update()`](#update)
--   [`Delete()`](#delete)
--   [`GetMyFormsApp()`](#getmyformsapp)
--   [`SetSendingAddress()`](#setsendingaddress)
--   [`DeleteSendingAddress()`](#deletesendingaddress)
--   [`GetSendingAddress()`](#getsendingaddress)
--   [`CreateUser()`](#createuser)
--   [`DeleteUser()`](#deleteuser)
+- [`VerifyJWT()`](#veryjwt)
+- [`Get()`](#get)
+- [`Create()`](#create)
+- [`Update()`](#update)
+- [`Delete()`](#delete)
+- [`GetMyFormsApp()`](#getmyformsapp)
+- [`SetSendingAddress()`](#setsendingaddress)
+- [`DeleteSendingAddress()`](#deletesendingaddress)
+- [`GetSendingAddress()`](#getsendingaddress)
+- [`CreateUser()`](#createuser)
+- [`DeleteUser()`](#deleteuser)
 
 ## Constructor
 
@@ -53,7 +53,7 @@ JWTPayload result = await formsAppsClient.VerifyJWT(token);
 
 ### Throws
 
--   `Exception`
+- `Exception`
 
 ### Result
 
@@ -80,8 +80,8 @@ var formsApp = await formsAppsClient.Get<FormsListFormApp>(id);
 
 ### Throws
 
--   `OneBlinkAPIException`
--   `Exception`
+- `OneBlinkAPIException`
+- `Exception`
 
 ### Result
 
@@ -108,8 +108,8 @@ var savedFormsApps = await formsAppsClient.Create<FormsListFormApp>(newFormsApp)
 
 ### Throws
 
--   `OneBlinkAPIException`
--   `Exception`
+- `OneBlinkAPIException`
+- `Exception`
 
 ### Result
 
@@ -136,8 +136,8 @@ FormsListFormApp updatedFormsApp = await formsAppsClient.Update<FormsListFormApp
 
 ### Throws
 
--   `OneBlinkAPIException`
--   `Exception`
+- `OneBlinkAPIException`
+- `Exception`
 
 ### Result
 
@@ -161,8 +161,8 @@ await formsAppsClient.Delete(formsAppId);
 
 ### Throws
 
--   `OneBlinkAPIException`
--   `Exception`
+- `OneBlinkAPIException`
+- `Exception`
 
 ### Result
 
@@ -191,8 +191,8 @@ OneBlink.SDK.Model.FormsAppSendingAddressResponse sendingAddress = await formsAp
 
 ### Throws
 
--   `OneBlinkAPIException`
--   `Exception`
+- `OneBlinkAPIException`
+- `Exception`
 
 ### Result
 
@@ -216,8 +216,8 @@ await formsAppsClient.DeleteSendingAddress(formsAppId);
 
 ### Throws
 
--   `OneBlinkAPIException`
--   `Exception`
+- `OneBlinkAPIException`
+- `Exception`
 
 ### Result
 
@@ -241,8 +241,8 @@ OneBlink.SDK.Model.FormsAppSendingAddressResponse sendingAddress = await formsAp
 
 ### Throws
 
--   `OneBlinkAPIException`
--   `Exception`
+- `OneBlinkAPIException`
+- `Exception`
 
 ### Result
 
@@ -268,8 +268,8 @@ OneBlink.SDK.Model.FormsApp formsApp = await formsAppsClient.GetMyFormsApp(userT
 
 ### Throws
 
--   `OneBlinkAPIException`
--   `Exception`
+- `OneBlinkAPIException`
+- `Exception`
 
 ### Result
 
@@ -295,8 +295,8 @@ OneBlink.SDK.Model.FormsAppUser savedUser = await formsAppsClient.CreateUser(new
 
 ### Throws
 
--   `OneBlinkAPIException`
--   `Exception`
+- `OneBlinkAPIException`
+- `Exception`
 
 ### Result
 
@@ -320,8 +320,8 @@ await formsAppsClient.DeleteUser(formsAppUserId);
 
 ### Throws
 
--   `OneBlinkAPIException`
--   `Exception`
+- `OneBlinkAPIException`
+- `Exception`
 
 ### Result
 

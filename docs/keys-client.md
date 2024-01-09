@@ -2,7 +2,7 @@
 
 ## Instance Functions
 
--   [`GetDeveloperKey()`](#getdeveloperkey)
+- [`GetDeveloperKey()`](#getdeveloperkey)
 
 ## Constructor
 
@@ -38,8 +38,8 @@ OneBlink.SDK.Model.DeveloperKey developerKey = await keysClient.GetDeveloperKey(
 
 ### Throws
 
--   `OneBlinkAPIException`
--   `Exception`
+- `OneBlinkAPIException`
+- `Exception`
 
 ### Result
 

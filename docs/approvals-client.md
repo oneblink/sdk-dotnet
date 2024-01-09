@@ -2,9 +2,9 @@
 
 ## Instance Functions
 
--   [`GetFormSubmissionAdministrationApprovals()`](#getformsubmissionadministrationapprovals)
--   [`GetFormSubmissionApproval()`](#getformsubmissionapproval)
--   [`GetFormApprovalFlowInstance()`](#getformapprovalflowinstance)
+- [`GetFormSubmissionAdministrationApprovals()`](#getformsubmissionadministrationapprovals)
+- [`GetFormSubmissionApproval()`](#getformsubmissionapproval)
+- [`GetFormApprovalFlowInstance()`](#getformapprovalflowinstance)
 
 ## Constructor
 
@@ -54,8 +54,8 @@ GetFormSubmissionAdministrationApprovalsResponse response = await approvalsClien
 
 ### Throws
 
--   `OneBlinkAPIException`
--   `Exception`
+- `OneBlinkAPIException`
+- `Exception`
 
 ### Result
 
@@ -78,8 +78,8 @@ GetFormSubmissionApprovalResponse response = await approvalsClient.GetFormSubmis
 
 ### Throws
 
--   `OneBlinkAPIException`
--   `Exception`
+- `OneBlinkAPIException`
+- `Exception`
 
 ### Result
 
@@ -102,8 +102,8 @@ GetFormApprovalFlowInstanceResponse response = await approvalsClient.GetFormAppr
 
 ### Throws
 
--   `OneBlinkAPIException`
--   `Exception`
+- `OneBlinkAPIException`
+- `Exception`
 
 ### Result
 

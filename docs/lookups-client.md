@@ -2,11 +2,11 @@
 
 ## Instance Functions
 
--   [`Search()`](#search)
--   [`Get()`](#get)
--   [`Create()`](#create)
--   [`Update()`](#update)
--   [`Delete()`](#delete)
+- [`Search()`](#search)
+- [`Get()`](#get)
+- [`Create()`](#create)
+- [`Update()`](#update)
+- [`Delete()`](#delete)
 
 ## Constructor
 
@@ -47,8 +47,8 @@ OneBlink.SDK.Model.FormElementLookupSearchResult response = await formElementLoo
 
 ### Throws
 
--   `OneBlinkAPIException`
--   `Exception`
+- `OneBlinkAPIException`
+- `Exception`
 
 ### Result
 
@@ -74,8 +74,8 @@ OneBlink.SDK.Model.FormElementLookup formElementLookup = await formElementLookup
 
 ### Throws
 
--   `OneBlinkAPIException`
--   `Exception`
+- `OneBlinkAPIException`
+- `Exception`
 
 ### Result
 
@@ -101,8 +101,8 @@ OneBlink.SDK.Model.FormElementLookup savedFormElementLookup = await formElementL
 
 ### Throws
 
--   `OneBlinkAPIException`
--   `Exception`
+- `OneBlinkAPIException`
+- `Exception`
 
 ### Result
 
@@ -128,8 +128,8 @@ OneBlink.SDK.Model.FormElementLookup updatedFormElementLookup = await formElemen
 
 ### Throws
 
--   `OneBlinkAPIException`
--   `Exception`
+- `OneBlinkAPIException`
+- `Exception`
 
 ### Result
 
@@ -153,8 +153,8 @@ await formElementLookupsClient.Delete(formElementLookupId);
 
 ### Throws
 
--   `OneBlinkAPIException`
--   `Exception`
+- `OneBlinkAPIException`
+- `Exception`
 
 ### Result
 
