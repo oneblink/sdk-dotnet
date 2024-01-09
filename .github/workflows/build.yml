@@ -1,15 +1,15 @@
 name: dotnet build and test
 
 on:
+  pull_request:
+    branches:
+      - "dependabot/**"
   push:
     branches-ignore:
       - "master"
       - "dependabot/**"
     tags-ignore:
       - "**"
-  pull_request:
-    branches:
-      - "dependabot/**"
 
 jobs:
   build:
