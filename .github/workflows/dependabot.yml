@@ -1,15 +1,10 @@
-name: Tests
+name: Dependabot PR
 
-on:
-  push:
-    branches-ignore:
-      - "master"
-      - "dependabot/**"
-    tags-ignore:
-      - "**"
+on: pull_request_target
 
 jobs:
   build:
+    if: ${{ github.actor == 'dependabot[bot]' }}
     env:
       ACCESS_KEY: ${{ secrets.ACCESS_KEY }}
       SECRET_KEY: ${{ secrets.SECRET_KEY }}
@@ -19,6 +14,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
       - name: Setup .NET SDK 6.0.x
         uses: actions/setup-dotnet@v3
         with:
