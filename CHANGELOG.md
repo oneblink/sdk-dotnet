@@ -13,7 +13,7 @@
 ### Updated
 
 - `GetFormSubmission` to return `null` if submission has expired
-- CI event for `Dependabot` to trigger from `pull_request` workflow event
+- CI event for `Dependabot` to trigger from `pull_request_target` workflow event
 
 ## [5.2.0] - 2023-11-21
 
