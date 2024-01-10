@@ -4,6 +4,7 @@
 
 ### Added
 
+- `pdfSize` to `GeneratePDFFromSubmissionDataRequest`, `GetSubmissionPdfRequest` and `PDFConfiguration`
 - `customCssClasses` to `Form` class
 - `emailAttachmentsEndpoint` to `FormSubmissionEventConfiguration` class
 - `UploadEmailAttachment` to `FormsClient` class

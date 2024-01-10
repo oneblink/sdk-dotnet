@@ -73,6 +73,7 @@ A `string`
 - [`GenerateSubmissionAttachmentUrl()`](#generatesubmissionattachmenturl)
 - [`GenerateWorkflowAttachmentLink()`](#generateworkflowattachmentlink)
 - [`GetFormSubmissionMeta()`](#getformsubmissionmeta)
+- [`UploadEmailAttachment()`](#uploadEmailAttachment)
 
 ## Constructor
 
@@ -118,7 +119,7 @@ Console.WriteLine("Submission as JSON string: " + formSubmission.submission);
 
 ### Result
 
-A `FormSubmission<T>` class
+A `FormSubmission<T>` class or `null`
 
 ## `Search()`
 
@@ -510,7 +511,7 @@ FormAttachmentMeta meta = await formsClient.GetFormSubmissionAttachmentMeta(form
 
 ### Result
 
-A `FormAttachmentMetam` class
+A `FormAttachmentMeta` class
 
 ## `CreateSubmissionAttachment()`
 
@@ -644,3 +645,28 @@ OneBlink.SDK.Model.FormSubmissionMetadataResponse formSubmissionMetadataResponse
 ### Result
 
 A `FormSubmissionMetadataResponse` class
+
+## `UploadEmailAttachment()`
+
+### Example
+
+```c#
+EmailAttachmentData emailAttachmentData = await formsClient.UploadEmailAttachment(filename, contentType, body);
+```
+
+### Parameters
+
+| Parameter     | Required | Type   | Description                               |
+| ------------- | -------- | ------ | ----------------------------------------- |
+| `filename`    | Yes      | string |                                           |
+| `contentType` | Yes      | string | The type of content the file uploaded is. |
+| `body`        | Yes      | Stream | The data of the file being uploaded.      |
+
+### Throws
+
+- `OneBlinkAPIException`
+- `Exception`
+
+### Result
+
+A `OneBlink.SDK.Model.EmailAttachmentData` class

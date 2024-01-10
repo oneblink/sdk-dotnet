@@ -90,7 +90,8 @@ namespace OneBlink.SDK.Model
             bool? includePaymentInPdf = null,
             string label = null,
             List<string> excludedCSSClasses = default(List<string>),
-            bool? includeExternalIdInPdf = null
+            bool? includeExternalIdInPdf = null,
+            string pdfSize = null
             )
         {
             FormSubmissionEventConfiguration fseconfig = new FormSubmissionEventConfiguration();
@@ -114,6 +115,7 @@ namespace OneBlink.SDK.Model
                 fseconfig.excludedCSSClasses = excludedCSSClasses;
             }
             fseconfig.includeExternalIdInPdf = includeExternalIdInPdf;
+            fseconfig.pdfSize = pdfSize;
             FormSubmissionEvent trim = new FormSubmissionEvent();
             trim.type = "TRIM";
             trim.conditionallyExecute = conditionallyExecute;
@@ -153,7 +155,9 @@ namespace OneBlink.SDK.Model
             bool requiresAllConditionallyExecutePredicates = false,
             Boolean? includePaymentInPdf = null,
             string label = null,
-            List<string> excludedCSSClasses = default(List<string>), Boolean? includeExternalIdInPdf = null)
+            List<string> excludedCSSClasses = default(List<string>),
+            Boolean? includeExternalIdInPdf = null,
+            string pdfSize = null)
         {
             FormSubmissionEventConfiguration fseconfig = new FormSubmissionEventConfiguration();
             fseconfig.environmentId = environmentId;
@@ -173,6 +177,7 @@ namespace OneBlink.SDK.Model
                 fseconfig.excludedCSSClasses = excludedCSSClasses;
             }
             fseconfig.includeExternalIdInPdf = includeExternalIdInPdf;
+            fseconfig.pdfSize = pdfSize;
             FormSubmissionEvent civicaCrm = new FormSubmissionEvent();
             civicaCrm.type = "CIVICA_CRM";
             civicaCrm.configuration = fseconfig;
@@ -226,7 +231,8 @@ namespace OneBlink.SDK.Model
             List<string> ccEmail = default(List<string>),
             List<string> bccEmail = default(List<string>),
             bool? includeExternalIdInPdf = null,
-            EndpointConfiguration emailAttachmentsEndpoint = null
+            EndpointConfiguration emailAttachmentsEndpoint = null,
+            string pdfSize = null
         )
         {
             FormSubmissionEventConfiguration fseconfig = new FormSubmissionEventConfiguration();
@@ -252,6 +258,7 @@ namespace OneBlink.SDK.Model
                 fseconfig.bccEmail = bccEmail;
             }
             fseconfig.includeExternalIdInPdf = includeExternalIdInPdf;
+            fseconfig.pdfSize = pdfSize;
             FormSubmissionEvent pdfEvent = new FormSubmissionEvent();
             pdfEvent.type = "PDF";
             pdfEvent.configuration = fseconfig;
@@ -283,7 +290,8 @@ namespace OneBlink.SDK.Model
             List<string> bccEmail = default(List<string>),
             List<string> excludedCSSClasses = default(List<string>),
             bool? includeExternalIdInPdf = null,
-            EndpointConfiguration emailAttachmentsEndpoint = null
+            EndpointConfiguration emailAttachmentsEndpoint = null,
+            string pdfSize = null
         )
         {
             FormSubmissionEventConfiguration fseconfig = new FormSubmissionEventConfiguration();
@@ -315,6 +323,7 @@ namespace OneBlink.SDK.Model
             }
             fseconfig.includeExternalIdInPdf = includeExternalIdInPdf;
             fseconfig.emailAttachmentsEndpoint = emailAttachmentsEndpoint;
+            fseconfig.pdfSize = pdfSize;
             FormSubmissionEvent pdfEvent = new FormSubmissionEvent();
             pdfEvent.type = "PDF";
             pdfEvent.configuration = fseconfig;

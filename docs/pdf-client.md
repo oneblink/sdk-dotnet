@@ -46,6 +46,7 @@ Stream response = await pdfClient.GetSubmissionPdf(formId, submissionId);
 | `usePagesAsBreaks`         | No       | `bool?`        | `true` to use Pages as page breaks in the PDF, otherwise `false`                                                                                          |
 | `excludedCSSClasses`       | No       | `List<string>` | Optional list of CSS Classes to be excluded from the pdf document                                                                                         |
 | `includeExternalIdInPdf`   | No       | `bool?`        | `true` to include the external submission identifier in the PDF, otherwise `false`                                                                        |
+| `pdfSize`                  | No       | `string`       | Sets the size of the PDF. Options are `Letter` and `A4`.                                                                                                  |
 
 ### Throws
 
