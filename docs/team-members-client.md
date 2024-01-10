@@ -2,7 +2,7 @@
 
 ## Instance Functions
 
--   [`GetTeamMemberRole()`](#getteammemberrole)
+- [`GetTeamMemberRole()`](#getteammemberrole)
 
 ## Constructor
 
@@ -41,8 +41,8 @@ if (role != null) {
 
 ### Throws
 
--   `OneBlinkAPIException`
--   `Exception`
+- `OneBlinkAPIException`
+- `Exception`
 
 ### Result
 

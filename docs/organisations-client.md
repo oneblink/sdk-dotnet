@@ -2,7 +2,7 @@
 
 ## Instance Functions
 
--   [`UploadAsset()`](#getformsubmission)
+- [`UploadAsset()`](#getformsubmission)
 
 ## Constructor
 
@@ -44,8 +44,8 @@ using (FileStream stream = new FileStream("contents.txt", FileMode.Open))
 
 ### Throws
 
--   `OneBlinkAPIException`
--   `Exception`
+- `OneBlinkAPIException`
+- `Exception`
 
 ### Result
 

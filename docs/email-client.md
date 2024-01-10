@@ -2,7 +2,7 @@
 
 ## Static Functions
 
--   [`SendEmail()`](#SendEmail)
+- [`SendEmail()`](#SendEmail)
 
 ## `SendEmail()`
 
@@ -32,7 +32,7 @@ string messageId = await EmailClient.SendEmail(body, attachments, from, toAddres
 
 ### Throws
 
--   `Exception`
+- `Exception`
 
 ### Result
 

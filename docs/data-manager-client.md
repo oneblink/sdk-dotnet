@@ -2,8 +2,8 @@
 
 ## Instance Functions
 
--   [`GetFormDefinition()`](#getformdefinition)
--   [`Search()`](#search)
+- [`GetFormDefinition()`](#getformdefinition)
+- [`Search()`](#search)
 
 ## Constructor
 
@@ -39,8 +39,8 @@ FormStoreDefinition response = await approvalsClient.GetFormDefinition(formId);
 
 ### Throws
 
--   `OneBlinkAPIException`
--   `Exception`
+- `OneBlinkAPIException`
+- `Exception`
 
 ### Result
 
@@ -78,8 +78,8 @@ FormStoreSearchResult<SubmissionResult> response = await dataManagerClient.Searc
 
 ### Throws
 
--   `OneBlinkAPIException`
--   `Exception`
+- `OneBlinkAPIException`
+- `Exception`
 
 ### Result
 

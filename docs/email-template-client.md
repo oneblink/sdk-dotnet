@@ -2,11 +2,11 @@
 
 ## Instance Functions
 
--   [`Search()`](#search)
--   [`Get()`](#get)
--   [`Create()`](#create)
--   [`Update()`](#update)
--   [`Delete()`](#delete)
+- [`Search()`](#search)
+- [`Get()`](#get)
+- [`Create()`](#create)
+- [`Update()`](#update)
+- [`Delete()`](#delete)
 
 ## Constructor
 
@@ -45,8 +45,8 @@ OneBlink.SDK.Model.EmailTemplatesSearchResult response = await emailTemplatesCli
 
 ### Throws
 
--   `OneBlinkAPIException`
--   `Exception`
+- `OneBlinkAPIException`
+- `Exception`
 
 ### Result
 
@@ -72,8 +72,8 @@ OneBlink.SDK.Model.EmailTemplate emailTemplate = await emailTemplatesClient.Get(
 
 ### Throws
 
--   `OneBlinkAPIException`
--   `Exception`
+- `OneBlinkAPIException`
+- `Exception`
 
 ### Result
 
@@ -99,8 +99,8 @@ OneBlink.SDK.Model.EmailTemplate savedEmailTemplate = await emailTemplatesClient
 
 ### Throws
 
--   `OneBlinkAPIException`
--   `Exception`
+- `OneBlinkAPIException`
+- `Exception`
 
 ### Result
 
@@ -126,8 +126,8 @@ OneBlink.SDK.Model.EmailTemplate updatedEmailTemplate = await emailTemplatesClie
 
 ### Throws
 
--   `OneBlinkAPIException`
--   `Exception`
+- `OneBlinkAPIException`
+- `Exception`
 
 ### Result
 
@@ -151,8 +151,8 @@ await emailTemplatesClient.Delete(emailTemplateId);
 
 ### Throws
 
--   `OneBlinkAPIException`
--   `Exception`
+- `OneBlinkAPIException`
+- `Exception`
 
 ### Result
 

@@ -2,8 +2,8 @@
 
 ## Static Functions
 
--   [`DecryptUserToken()`](#DecryptUserToken)
--   [`EncryptUserToken()`](#EncryptUserToken)
+- [`DecryptUserToken()`](#DecryptUserToken)
+- [`EncryptUserToken()`](#EncryptUserToken)
 
 ## `DecryptUserToken()`
 
@@ -25,7 +25,7 @@ string username = FormsClient.DecryptUserToken(
 
 ### Throws
 
--   `Exception`
+- `Exception`
 
 ### Result
 
@@ -51,7 +51,7 @@ string userToken = FormsClient.EncryptUserToken(
 
 ### Throws
 
--   `Exception`
+- `Exception`
 
 ### Result
 
@@ -59,21 +59,21 @@ A `string`
 
 ## Instance Functions
 
--   [`GetFormSubmission()`](#getformsubmission)
--   [`Search()`](#search)
--   [`Get()`](#get)
--   [`Create()`](#create)
--   [`Update()`](#update)
--   [`Delete()`](#delete)
--   [`GenerateFormUrl()`](#generateformurl)
--   [`GenerateSubmissionDataUrl()`](#generatesubmissiondataurl)
--   [`GetFormSubmissionAttachment()`](#getformsubmissionattachment)
--   [`GetFormSubmissionAttachmentMeta()`](#getformsubmissionattachmentmeta)
--   [`CreateSubmissionAttachment()`](#createsubmissionattachment)
--   [`GenerateSubmissionAttachmentUrl()`](#generatesubmissionattachmenturl)
--   [`GenerateWorkflowAttachmentLink()`](#generateworkflowattachmentlink)
--   [`GetFormSubmissionMeta()`](#getformsubmissionmeta)
--   [`UploadEmailAttachment()`](#uploadEmailAttachment)
+- [`GetFormSubmission()`](#getformsubmission)
+- [`Search()`](#search)
+- [`Get()`](#get)
+- [`Create()`](#create)
+- [`Update()`](#update)
+- [`Delete()`](#delete)
+- [`GenerateFormUrl()`](#generateformurl)
+- [`GenerateSubmissionDataUrl()`](#generatesubmissiondataurl)
+- [`GetFormSubmissionAttachment()`](#getformsubmissionattachment)
+- [`GetFormSubmissionAttachmentMeta()`](#getformsubmissionattachmentmeta)
+- [`CreateSubmissionAttachment()`](#createsubmissionattachment)
+- [`GenerateSubmissionAttachmentUrl()`](#generatesubmissionattachmenturl)
+- [`GenerateWorkflowAttachmentLink()`](#generateworkflowattachmentlink)
+- [`GetFormSubmissionMeta()`](#getformsubmissionmeta)
+- [`UploadEmailAttachment()`](#uploadEmailAttachment)
 
 ## Constructor
 
@@ -114,8 +114,8 @@ Console.WriteLine("Submission as JSON string: " + formSubmission.submission);
 
 ### Throws
 
--   `OneBlinkAPIException`
--   `Exception`
+- `OneBlinkAPIException`
+- `Exception`
 
 ### Result
 
@@ -148,8 +148,8 @@ OneBlink.SDK.Model.FormsSearchResult response = await formsClient.Search(isAuthe
 
 ### Throws
 
--   `OneBlinkAPIException`
--   `Exception`
+- `OneBlinkAPIException`
+- `Exception`
 
 ### Result
 
@@ -179,8 +179,8 @@ OneBlink.SDK.Model.FormSubmissionSearchResult response = await formsClient.Searc
 
 ### Throws
 
--   `OneBlinkAPIException`
--   `Exception`
+- `OneBlinkAPIException`
+- `Exception`
 
 ### Result
 
@@ -223,8 +223,8 @@ OneBlink.SDK.Model.FormSubmissionSearchResult response = await formsClient.Searc
 
 ### Throws
 
--   `OneBlinkAPIException`
--   `Exception`
+- `OneBlinkAPIException`
+- `Exception`
 
 ### Result
 
@@ -259,8 +259,8 @@ OneBlink.SDK.Model.FormSubmissionSearchResult response = await formsClient.Searc
 
 ### Throws
 
--   `OneBlinkAPIException`
--   `Exception`
+- `OneBlinkAPIException`
+- `Exception`
 
 ### Result
 
@@ -293,8 +293,8 @@ OneBlink.SDK.Model.FormSubmissionSearchResult response = await formsClient.Searc
 
 ### Throws
 
--   `OneBlinkAPIException`
--   `Exception`
+- `OneBlinkAPIException`
+- `Exception`
 
 ### Result
 
@@ -321,8 +321,8 @@ OneBlink.SDK.Model.Form form = await formsClient.Get(id, false);
 
 ### Throws
 
--   `OneBlinkAPIException`
--   `Exception`
+- `OneBlinkAPIException`
+- `Exception`
 
 ### Result
 
@@ -348,8 +348,8 @@ OneBlink.SDK.Model.Form savedForm = await formsClient.Create(newForm);
 
 ### Throws
 
--   `OneBlinkAPIException`
--   `Exception`
+- `OneBlinkAPIException`
+- `Exception`
 
 ### Result
 
@@ -376,8 +376,8 @@ OneBlink.SDK.Model.Form updatedForm = await formsClient.Update(formToUpdate);
 
 ### Throws
 
--   `OneBlinkAPIException`
--   `Exception`
+- `OneBlinkAPIException`
+- `Exception`
 
 ### Result
 
@@ -402,8 +402,8 @@ await formsClient.Delete(formId);
 
 ### Throws
 
--   `OneBlinkAPIException`
--   `Exception`
+- `OneBlinkAPIException`
+- `Exception`
 
 ### Result
 
@@ -432,8 +432,8 @@ FormUrlResult result = await formsClient.GenerateFormUrl(
 
 ### Throws
 
--   `OneBlinkAPIException`
--   `Exception`
+- `OneBlinkAPIException`
+- `Exception`
 
 ### Result
 
@@ -457,9 +457,9 @@ SubmissionDataUrl submissionDataUrl = await formsClient.GenerateSubmissionDataUr
 
 ### Throws
 
--   `OneBlinkAPIException`
--   `Exception`
--   `ArgumentOutOfRangeException`
+- `OneBlinkAPIException`
+- `Exception`
+- `ArgumentOutOfRangeException`
 
 ### Result
 
@@ -482,8 +482,8 @@ Stream attachmentStream = await formsClient.GetFormSubmissionAttachment(formId, 
 
 ### Throws
 
--   `OneBlinkAPIException`
--   `Exception`
+- `OneBlinkAPIException`
+- `Exception`
 
 ### Result
 
@@ -506,8 +506,8 @@ FormAttachmentMeta meta = await formsClient.GetFormSubmissionAttachmentMeta(form
 
 ### Throws
 
--   `OneBlinkAPIException`
--   `Exception`
+- `OneBlinkAPIException`
+- `Exception`
 
 ### Result
 
@@ -534,8 +534,8 @@ AttachmentData attachmentData = await formsClient.CreateSubmissionAttachment(for
 
 ### Throws
 
--   `OneBlinkAPIException`
--   `Exception`
+- `OneBlinkAPIException`
+- `Exception`
 
 ### Result
 
@@ -559,9 +559,9 @@ SubmissionDataUrl submissionDataUrl = await formsClient.GenerateSubmissionAttach
 
 ### Throws
 
--   `OneBlinkAPIException`
--   `Exception`
--   `ArgumentOutOfRangeException`
+- `OneBlinkAPIException`
+- `Exception`
+- `ArgumentOutOfRangeException`
 
 ### Result
 
@@ -585,9 +585,9 @@ SubmissionDataUrl submissionDataUrl = await formsClient.GenerateWorkflowAttachme
 
 ### Throws
 
--   `OneBlinkAPIException`
--   `Exception`
--   `ArgumentOutOfRangeException`
+- `OneBlinkAPIException`
+- `Exception`
+- `ArgumentOutOfRangeException`
 
 ### Result
 
@@ -613,8 +613,8 @@ await formsClient.Migrate(formMigrationOptions);
 
 ### Throws
 
--   `OneBlinkAPIException`
--   `Exception`
+- `OneBlinkAPIException`
+- `Exception`
 
 ### Result
 
@@ -639,8 +639,8 @@ OneBlink.SDK.Model.FormSubmissionMetadataResponse formSubmissionMetadataResponse
 
 ### Throws
 
--   `OneBlinkAPIException`
--   `Exception`
+- `OneBlinkAPIException`
+- `Exception`
 
 ### Result
 
@@ -664,8 +664,8 @@ EmailAttachmentData emailAttachmentData = await formsClient.UploadEmailAttachmen
 
 ### Throws
 
--   `OneBlinkAPIException`
--   `Exception`
+- `OneBlinkAPIException`
+- `Exception`
 
 ### Result
 

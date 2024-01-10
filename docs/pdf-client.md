@@ -2,9 +2,9 @@
 
 ## Instance Functions
 
--   [`GetSubmissionPdf()`](#getSubmissionpdf)
--   [`GeneratePdf()`](#generatepdf)
--   [`GeneratePdfFromSubmissionData()`](#generatepdffromsubmissiondata)
+- [`GetSubmissionPdf()`](#getSubmissionpdf)
+- [`GeneratePdf()`](#generatepdf)
+- [`GeneratePdfFromSubmissionData()`](#generatepdffromsubmissiondata)
 
 ## Constructor
 
@@ -50,8 +50,8 @@ Stream response = await pdfClient.GetSubmissionPdf(formId, submissionId);
 
 ### Throws
 
--   `OneBlinkAPIException`
--   `Exception`
+- `OneBlinkAPIException`
+- `Exception`
 
 ### Result
 
@@ -78,8 +78,8 @@ Stream response = await pdfClient.GeneratePdf(pdfOptionsRequest);
 
 ### Throws
 
--   `OneBlinkAPIException`
--   `Exception`
+- `OneBlinkAPIException`
+- `Exception`
 
 ### Result
 
@@ -109,8 +109,8 @@ Stream response = await pdfClient.GeneratePdfFromSubmissionData<MySubmissionData
 
 ### Throws
 
--   `OneBlinkAPIException`
--   `Exception`
+- `OneBlinkAPIException`
+- `Exception`
 
 ### Result
 
