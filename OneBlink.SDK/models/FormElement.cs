@@ -828,6 +828,53 @@ namespace OneBlink.SDK.Model
             civicaStreetNameElement.meta = meta;
             return civicaStreetNameElement;
         }
+        public static FormElement CreateLiquorLicenceElement(
+            string name,
+            string label,
+            Guid? id = null,
+            bool conditionallyShow = false,
+            bool requiresAllConditionallyShowPredicates = false,
+            List<ConditionallyShowPredicate> conditionallyShowPredicates = null,
+            bool required = false,
+            bool readOnly = false,
+            string placeholderValue = null,
+            string hint = null,
+            bool isDataLookup = false,
+            long? dataLookupId = null,
+            bool isElementLookup = false,
+            long? elementLookupId = null,
+            List<string> customCssClasses = null,
+            string meta = null,
+            string hintPosition = null
+        )
+        {
+            FormElement liquorLicenceElement = new FormElement();
+            liquorLicenceElement.type = "apiNSWLiquorLicence";
+            liquorLicenceElement.id = initialiseId(id);
+            liquorLicenceElement.conditionallyShow = conditionallyShow;
+            liquorLicenceElement.requiresAllConditionallyShowPredicates = requiresAllConditionallyShowPredicates;
+            liquorLicenceElement.conditionallyShowPredicates = conditionallyShowPredicates;
+            liquorLicenceElement.name = name;
+            liquorLicenceElement.label = label;
+            liquorLicenceElement.required = required;
+            liquorLicenceElement.readOnly = readOnly;
+            liquorLicenceElement.placeholderValue = placeholderValue;
+            liquorLicenceElement.hint = hint;
+            liquorLicenceElement.hintPosition = hintPosition;
+            if (dataLookupId.HasValue)
+            {
+                liquorLicenceElement.dataLookupId = dataLookupId.Value;
+            }
+            liquorLicenceElement.isElementLookup = isElementLookup;
+            if (elementLookupId.HasValue)
+            {
+                liquorLicenceElement.elementLookupId = elementLookupId.Value;
+            }
+            liquorLicenceElement.customCssClasses = customCssClasses;
+            liquorLicenceElement.meta = meta;
+            return liquorLicenceElement;
+        }
+
         public static FormElement CreateFilesElementEvent(
             string name,
             string label,

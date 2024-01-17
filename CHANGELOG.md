@@ -10,6 +10,7 @@
 - `UploadEmailAttachment` to `FormsClient` class
 - `WorkflowAttachmentUploadCredentials` to models
 - `EmailAttachmentData` to models
+- `CreateLiquorLicenceElement` function to `FormElement`
 
 ### Updated
 
