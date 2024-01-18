@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## [5.3.0] - 2024-01-18
+
 ### Added
 
 - `pdfSize` to `GeneratePDFFromSubmissionDataRequest`, `GetSubmissionPdfRequest` and `PDFConfiguration`
