@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Added
+
+- `isRetryable` to `FormSubmissionEvent` model
+
 ## [5.3.0] - 2024-01-18
 
 ### Added
