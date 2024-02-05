@@ -35,6 +35,10 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public bool isRetryable
+        {
+            get; set;
+        }
 
         public static FormSubmissionEvent CreateCpPaySubmissionEvent(Guid elementId, Guid gatewayId, string label = null)
         {
