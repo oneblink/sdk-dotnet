@@ -28,5 +28,21 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public long? approvalCreatedEmailTemplateId
+        {
+            get; set;
+        }
+        public long? clarificationRequestEmailTemplateId
+        {
+            get; set;
+        }
+        public long? approvedEmailTemplateId
+        {
+            get; set;
+        }
+        public long? deniedEmailTemplateId
+        {
+            get; set;
+        }
     }
 }
