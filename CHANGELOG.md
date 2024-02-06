@@ -5,6 +5,7 @@
 ### Added
 
 - `isRetryable` to `FormSubmissionEvent` model
+- `approvalCreatedEmailTemplateId`, `clarificationRequestEmailTemplateId`, `approvedEmailTemplateId`, `deniedEmailTemplateId` to `FormApprovalConfiguration` model
 
 ## [5.3.0] - 2024-01-18
 
