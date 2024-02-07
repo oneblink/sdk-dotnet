@@ -1,3 +1,4 @@
+#pragma warning disable IDE1006 // Names are from OneBlink Types
 using System;
 using System.Collections.Generic;
 
@@ -18,11 +19,11 @@ namespace OneBlink.SDK.Model
             get; set;
         }
 
-        public Boolean conditionallyShow
+        public bool conditionallyShow
         {
             get; set;
         }
-        public Boolean requiresAllConditionallyShowPredicates
+        public bool requiresAllConditionallyShowPredicates
         {
             get; set;
         }
@@ -30,11 +31,11 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
-        public Boolean required
+        public bool required
         {
             get; set;
         }
-        public Boolean requiredAll
+        public bool requiredAll
         {
             get; set;
         }
@@ -42,7 +43,7 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
-        public Boolean readOnly
+        public bool readOnly
         {
             get; set;
         }
@@ -58,15 +59,15 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
-        public Boolean buttons
+        public bool buttons
         {
             get; set;
         }
-        public Boolean multi
+        public bool multi
         {
             get; set;
         }
-        public Boolean isSlider
+        public bool isSlider
         {
             get; set;
         }
@@ -130,7 +131,7 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
-        public Boolean conditionallyShowOptions
+        public bool conditionallyShowOptions
         {
             get; set;
         }
@@ -158,7 +159,7 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
-        public Boolean restrictBarcodeTypes
+        public bool restrictBarcodeTypes
         {
             get; set;
         }
@@ -174,7 +175,7 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
-        public Boolean isDataLookup
+        public bool isDataLookup
         {
             get; set;
         }
@@ -182,7 +183,7 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
-        public Boolean isElementLookup
+        public bool isElementLookup
         {
             get; set;
         }
@@ -206,7 +207,7 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
-        public Boolean restrictFileTypes
+        public bool restrictFileTypes
         {
             get; set;
         }
@@ -259,11 +260,11 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
-        public Boolean? isInteger
+        public bool? isInteger
         {
             get; set;
         }
-        public Boolean? displayAsCurrency
+        public bool? displayAsCurrency
         {
             get; set;
         }
@@ -283,15 +284,15 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
-        public Boolean? canToggleAll
+        public bool? canToggleAll
         {
             get; set;
         }
-        public Boolean? useGeoscapeAddressing
+        public bool? useGeoscapeAddressing
         {
             get; set;
         }
-        public Boolean? isCollapsed
+        public bool? isCollapsed
         {
             get; set;
         }
@@ -307,11 +308,11 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
-        public Boolean? givenName1IsRequired
+        public bool? givenName1IsRequired
         {
             get; set;
         }
-        public Boolean? givenName1IsHidden
+        public bool? givenName1IsHidden
         {
             get; set;
         }
@@ -319,11 +320,11 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
-        public Boolean? emailAddressIsRequired
+        public bool? emailAddressIsRequired
         {
             get; set;
         }
-        public Boolean? emailAddressIsHidden
+        public bool? emailAddressIsHidden
         {
             get; set;
         }
@@ -331,11 +332,11 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
-        public Boolean? homePhoneIsRequired
+        public bool? homePhoneIsRequired
         {
             get; set;
         }
-        public Boolean? homePhoneIsHidden
+        public bool? homePhoneIsHidden
         {
             get; set;
         }
@@ -343,11 +344,11 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
-        public Boolean? businessPhoneIsRequired
+        public bool? businessPhoneIsRequired
         {
             get; set;
         }
-        public Boolean? businessPhoneIsHidden
+        public bool? businessPhoneIsHidden
         {
             get; set;
         }
@@ -355,11 +356,11 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
-        public Boolean? mobilePhoneIsRequired
+        public bool? mobilePhoneIsRequired
         {
             get; set;
         }
-        public Boolean? mobilePhoneIsHidden
+        public bool? mobilePhoneIsHidden
         {
             get; set;
         }
@@ -367,11 +368,11 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
-        public Boolean? faxPhoneIsRequired
+        public bool? faxPhoneIsRequired
         {
             get; set;
         }
-        public Boolean? faxPhoneIsHidden
+        public bool? faxPhoneIsHidden
         {
             get; set;
         }
@@ -412,6 +413,14 @@ namespace OneBlink.SDK.Model
             get; set;
         }
         public string meta
+        {
+            get; set;
+        }
+        public string webMapId
+        {
+            get; set;
+        }
+        public bool showLayerPanel
         {
             get; set;
         }
@@ -681,27 +690,27 @@ namespace OneBlink.SDK.Model
             bool readOnly = false,
             dynamic defaultValue = null,
             string hint = null,
-            Boolean useGeoscapeAddressing = false,
+            bool useGeoscapeAddressing = false,
             string titleLabel = null,
             string familyNameLabel = null,
             string givenName1Label = null,
-            Boolean givenName1IsRequired = false,
-            Boolean givenName1IsHidden = false,
+            bool givenName1IsRequired = false,
+            bool givenName1IsHidden = false,
             string emailAddressLabel = null,
-            Boolean emailAddressIsRequired = false,
-            Boolean emailAddressIsHidden = false,
+            bool emailAddressIsRequired = false,
+            bool emailAddressIsHidden = false,
             string homePhoneLabel = null,
-            Boolean homePhoneIsRequired = false,
-            Boolean homePhoneIsHidden = false,
+            bool homePhoneIsRequired = false,
+            bool homePhoneIsHidden = false,
             string businessPhoneLabel = null,
-            Boolean businessPhoneIsRequired = false,
-            Boolean businessPhoneIsHidden = false,
+            bool businessPhoneIsRequired = false,
+            bool businessPhoneIsHidden = false,
             string mobilePhoneLabel = null,
-            Boolean mobilePhoneIsRequired = false,
-            Boolean mobilePhoneIsHidden = false,
+            bool mobilePhoneIsRequired = false,
+            bool mobilePhoneIsHidden = false,
             string faxPhoneLabel = null,
-            Boolean faxPhoneIsRequired = false,
-            Boolean faxPhoneIsHidden = false,
+            bool faxPhoneIsRequired = false,
+            bool faxPhoneIsHidden = false,
             string streetAddressesLabel = null,
             string address1Label = null,
             string address2Label = null,
@@ -761,7 +770,7 @@ namespace OneBlink.SDK.Model
             bool requiresAllConditionallyShowPredicates = false,
             List<ConditionallyShowPredicate> conditionallyShowPredicates = null,
             string hint = null,
-            Boolean isCollapsed = false,
+            bool isCollapsed = false,
             List<FormElement> elements = null,
             List<string> customCssClasses = null,
             string meta = null
