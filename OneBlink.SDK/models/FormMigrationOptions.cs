@@ -42,5 +42,9 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public long? versionId
+        {
+            get; set;
+        }
     }
 }

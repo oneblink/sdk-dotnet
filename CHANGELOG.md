@@ -5,6 +5,7 @@
 ### Added
 
 - `webMapId` and `showLayerPanel` to `FormElement`
+- `versionId` to `FormMigrationOptions`
 
 ## [5.4.0] - 2024-02-07
 
