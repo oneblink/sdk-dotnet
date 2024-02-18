@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## [5.5.0] - 2024-02-18
+
 ### Added
 
 - `webMapId` and `showLayerPanel` to `FormElement`
