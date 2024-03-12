@@ -45,14 +45,14 @@ namespace OneBlink.SDK.Tests
                 formId: 1,
                 externalId: "external-id",
                 submissionId: "0b6cadc6-2cea-4b78-bccd-a035843f42e9",
-                submittedAfterDateTime: "2020-01-01",
-                submittedBeforeDateTime: "2020-12-01",
+                submittedAfterDateTime: "2020-01-01T00:00:00Z",
+                submittedBeforeDateTime: "2020-12-01T00:00:00Z",
                 statuses: new System.Collections.Generic.List<string>()
                 {
                     "APPROVED"
                 },
-                updatedAfterDateTime: "2020-01-01",
-                updatedBeforeDateTime: "2020-12-01",
+                updatedAfterDateTime: "2020-01-01T00:00:00Z",
+                updatedBeforeDateTime: "2020-12-01T00:00:00Z",
                 lastUpdatedBy: new System.Collections.Generic.List<string>()
                 {
                     "developers@oneblink.io"
