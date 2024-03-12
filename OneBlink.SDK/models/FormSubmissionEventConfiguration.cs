@@ -178,5 +178,9 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public string notificationElementId
+        {
+            get; set;
+        }
     }
 }

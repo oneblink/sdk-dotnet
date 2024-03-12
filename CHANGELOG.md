@@ -5,6 +5,7 @@
 ### Added
 
 - `decorativeImage` to `FormElement`
+- `notificationElementId` to `FormSubmissionEventConfiguration`
 
 ## [5.5.0] - 2024-02-18
 
