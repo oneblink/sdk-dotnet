@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Added
+
+- `decorativeImage` to `FormElement`
+
 ## [5.5.0] - 2024-02-18
 
 ### Added

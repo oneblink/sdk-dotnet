@@ -424,6 +424,10 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public bool? decorativeImage
+        {
+            get; set;
+        }
         private static Guid initialiseId(Guid? id)
         {
             if (!id.HasValue)
