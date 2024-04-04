@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Added
+
+- `pendingApprovalsReminder` to `FormApprovalConfiguration`
+
 ## [5.6.0] - 2024-03-14
 
 ### Added

@@ -24,6 +24,10 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public FormApprovalConfigurationPendingApprovalsReminder pendingApprovalsReminder
+        {
+            get; set;
+        }
         public bool? disallowApprovingWhenAwaitingClarification
         {
             get; set;
