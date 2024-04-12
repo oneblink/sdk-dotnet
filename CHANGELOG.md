@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Changed
+
+- `pendingApprovalsReminder` to `daysBeforeSending`
+
 ## [5.6.1] - 2024-04-10
 
 ### Added
