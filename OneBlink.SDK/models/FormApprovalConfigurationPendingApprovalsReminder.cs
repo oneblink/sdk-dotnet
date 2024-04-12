@@ -2,7 +2,7 @@ namespace OneBlink.SDK.Model
 {
     public class FormApprovalConfigurationPendingApprovalsReminder
     {
-        public long daysBeforeSending
+        public long daysInterval
         {
             get; set;
         }
