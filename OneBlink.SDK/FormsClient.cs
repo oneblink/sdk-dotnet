@@ -161,7 +161,7 @@ namespace OneBlink.SDK
             );
             AmazonS3Client amazonS3Client = new AmazonS3Client(sessionAWSCredentials, regionEndpoint);
 
-            try 
+            try
             {
                 string responseBody = "";
                 using (GetObjectResponse response = await amazonS3Client.GetObjectAsync(formRetrievalData.s3.bucket, formRetrievalData.s3.key, null))
@@ -171,9 +171,9 @@ namespace OneBlink.SDK
                     responseBody = reader.ReadToEnd();
                 }
 
-                return JsonConvert.DeserializeObject<FormSubmission<T>>(responseBody); 
+                return JsonConvert.DeserializeObject<FormSubmission<T>>(responseBody);
             }
-            catch(AmazonS3Exception error)
+            catch (AmazonS3Exception error)
             {
                 if (error.ErrorCode == "NoSuchKey" || error.ErrorCode == "AccessDenied")
                 {
@@ -242,14 +242,16 @@ namespace OneBlink.SDK
             if (parameters.preFillData != null)
             {
                 PrefillClient prefillClient = new PrefillClient(oneBlinkApiClient);
-                PreFillMeta preFillMeta = await prefillClient.GetPreFillMeta(parameters.formId);
-                await prefillClient.PutPreFillData<dynamic>(parameters.preFillData, preFillMeta);
-                preFillFormDataId = preFillMeta.preFillFormDataId;
+                Guid id = await prefillClient.SetPreFillData(parameters.preFillData, parameters.formId);
+                preFillFormDataId = id;
                 developerKeyAccess.prefillData = new DeveloperKeyAccessPrefillData()
                 {
                     read = new DeveloperKeyAccessPrefillDataRead()
                     {
-                        ids = new List<Guid>() { preFillMeta.preFillFormDataId }
+                        ids = new List<Guid>()
+                        {
+                            id
+                        }
                     }
                 };
             }
@@ -308,89 +310,81 @@ namespace OneBlink.SDK
             return await this.oneBlinkApiClient.GetRequest<FormAttachmentMeta>(url);
         }
 
-        public async Task<AttachmentData> CreateSubmissionAttachment(long formId, Stream body, string fileName, string contentType, bool isPrivate, string username)
+        internal class AttachmentUploadRequest
         {
-            string url = "/forms/" + formId.ToString() + "/upload-attachment-credentials";
-            AttachmentUploadCredentialsRequest requestBody = new AttachmentUploadCredentialsRequest();
-            requestBody.username = username;
-            AttachmentUploadCredentialsResponse response = await this.oneBlinkApiClient.PostRequest<AttachmentUploadCredentialsRequest, AttachmentUploadCredentialsResponse>(url, requestBody);
-
-            RegionEndpoint regionEndpoint = RegionEndpoint.GetBySystemName(response.s3.region);
-
-            SessionAWSCredentials sessionAWSCredentials = new SessionAWSCredentials(
-                response.credentials.AccessKeyId,
-                response.credentials.SecretAccessKey,
-                response.credentials.SessionToken
-            );
-            AmazonS3Client amazonS3Client = new AmazonS3Client(sessionAWSCredentials, regionEndpoint);
-            PutObjectRequest request = new PutObjectRequest
+            [JsonProperty]
+            internal string username
             {
-                BucketName = response.s3.bucket,
-                Key = response.s3.key,
-                InputStream = body,
-                ContentType = contentType,
-                CannedACL = isPrivate ? S3CannedACL.Private : S3CannedACL.PublicRead,
-                ServerSideEncryptionMethod = ServerSideEncryptionMethod.AES256,
-            };
-            ContentDisposition disposition = new ContentDisposition();
-            disposition.DispositionType = DispositionTypeNames.Attachment;
-            disposition.FileName = fileName;
-            request.Headers.ContentDisposition = disposition.ToString();
-            request.Headers.ExpiresUtc = new DateTime().AddYears(1).ToUniversalTime(); // Max 1 year
-            request.Headers.CacheControl = "max-age=31536000"; // Max 1 year(365 days)
-
-            await amazonS3Client.PutObjectAsync(request);
-            AttachmentData attachmentData = new AttachmentData();
-            attachmentData.id = response.attachmentDataId;
-            attachmentData.contentType = contentType;
-            attachmentData.fileName = fileName;
-            attachmentData.isPrivate = isPrivate;
-            attachmentData.url = oneBlinkApiClient.tenant.oneBlinkAPIOrigin + "/" + response.s3.key;
-            attachmentData.s3 = response.s3;
-            attachmentData.uploadedAt = response.uploadedAt;
-            return attachmentData;
+                get; set;
+            }
         }
 
-        public async Task<EmailAttachmentData> UploadEmailAttachment(string filename, string contentType, Stream body)
+        internal class AttachmentUploadResponse : AssetUploadResponse
         {
-            string url = "/email-attachment-upload-credentials";
-            WorkflowAttachmentUploadCredentials requestBody = new WorkflowAttachmentUploadCredentials
+            [JsonProperty]
+            internal string attachmentDataId
             {
-                filename = filename
-            };
-            AssetUploadCredentialsResponse response = await this.oneBlinkApiClient.PostRequest<WorkflowAttachmentUploadCredentials, AssetUploadCredentialsResponse>(url, requestBody);
-            RegionEndpoint regionEndpoint = RegionEndpoint.GetBySystemName(response.s3.region);
+                get; set;
+            }
+            [JsonProperty]
+            internal string uploadedAt
+            {
+                get; set;
+            }
+        }
 
-            SessionAWSCredentials sessionAWSCredentials = new SessionAWSCredentials(
-                response.credentials.AccessKeyId,
-                response.credentials.SecretAccessKey,
-                response.credentials.SessionToken
-            );
-            AmazonS3Client amazonS3Client = new AmazonS3Client(sessionAWSCredentials, regionEndpoint);
-            PutObjectRequest request = new PutObjectRequest
+        public async Task<AttachmentData> CreateSubmissionAttachment(long formId, Stream body, string fileName, string contentType, bool isPrivate, string username)
+        {
+            string key = "/forms/" + formId.ToString() + "/attachments";
+            AttachmentUploadRequest attachmentUploadRequest = new AttachmentUploadRequest()
             {
-                BucketName = response.s3.bucket,
-                Key = response.s3.key,
-                InputStream = body,
-                ContentType = contentType,
-                CannedACL = S3CannedACL.Private,
-                ServerSideEncryptionMethod = ServerSideEncryptionMethod.AES256,
+                username = username
             };
             ContentDisposition disposition = new ContentDisposition
             {
                 DispositionType = DispositionTypeNames.Attachment,
-                FileName = filename
+                FileName = fileName
             };
-            request.Headers.ContentDisposition = disposition.ToString();
-            request.Headers.ExpiresUtc = new DateTime().AddDays(1).ToUniversalTime(); // Max 1 day
-            request.Headers.CacheControl = "max-age=86400"; // Max 1 day
+            AttachmentUploadResponse attachmentUploadResponse = await this.oneBlinkApiClient.Upload<AttachmentUploadRequest, AttachmentUploadResponse>(key, body, contentType, attachmentUploadRequest, isPublic: !isPrivate, disposition);
 
-            await amazonS3Client.PutObjectAsync(request);
+            AttachmentData attachmentData = new AttachmentData();
+            attachmentData.id = attachmentUploadResponse.attachmentDataId;
+            attachmentData.contentType = contentType;
+            attachmentData.fileName = fileName;
+            attachmentData.isPrivate = isPrivate;
+            attachmentData.url = attachmentUploadResponse.url;
+            attachmentData.s3 = attachmentUploadResponse.s3;
+            attachmentData.uploadedAt = attachmentUploadResponse.uploadedAt;
+            return attachmentData;
+        }
+
+        internal class WorkflowAttachmentUploadRequest
+        {
+            [JsonProperty]
+            internal string filename
+            {
+                get; set;
+            }
+        }
+
+        public async Task<EmailAttachmentData> UploadEmailAttachment(string filename, string contentType, Stream body)
+        {
+            string key = "email-attachments";
+            WorkflowAttachmentUploadRequest requestBody = new WorkflowAttachmentUploadRequest
+            {
+                filename = filename
+            };
+            ContentDisposition disposition = new ContentDisposition()
+            {
+                FileName = filename,
+                DispositionType = DispositionTypeNames.Attachment
+            };
+            S3UploadResponse s3UploadResponse = await this.oneBlinkApiClient.Upload<WorkflowAttachmentUploadRequest>(key, body, contentType, requestBody, disposition);
             EmailAttachmentData emailAttachmentData = new EmailAttachmentData
             {
                 contentType = contentType,
                 filename = filename,
-                s3 = response.s3
+                s3 = s3UploadResponse.s3
             };
             return emailAttachmentData;
         }
