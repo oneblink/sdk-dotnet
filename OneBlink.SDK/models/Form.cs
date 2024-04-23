@@ -280,5 +280,10 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+
+        public string googleMapsIntegrationEnvironmentId
+        {
+            get; set;
+        }
     }
 }

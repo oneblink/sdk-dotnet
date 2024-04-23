@@ -38,5 +38,9 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public bool isCloningFormGoogleMapsIntegrationEnvironmentId
+        {
+            get; set;
+        }
     }
 }
