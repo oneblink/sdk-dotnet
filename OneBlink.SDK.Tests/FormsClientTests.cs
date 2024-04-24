@@ -247,19 +247,6 @@ namespace OneBlink.SDK.Tests
                 null
             );
 
-            FormElement geoscapeElement = FormElement.CreateGeoscapeAddressElement(
-                "geoscapeElement",
-                "Geoscape Element",
-                Guid.NewGuid(),
-                false,
-                false,
-                null,
-                true,
-                false,
-                "default",
-                "placeholder value",
-                "hint value"
-            );
             FormElementOption option = new FormElementOption();
             option.id = Guid.NewGuid().ToString();
             option.value = "A";
@@ -270,7 +257,7 @@ namespace OneBlink.SDK.Tests
                 new List<FormElementOption>() { option }
             );
 
-            newForm.elements = new List<FormElement>() { textElement, summaryElement, geoscapeElement, complianceElement };
+            newForm.elements = new List<FormElement>() { textElement, summaryElement, complianceElement };
 
             FormsClient formsClient = new FormsClient(ACCESS_KEY, SECRET_KEY, TenantName.ONEBLINK_TEST);
             Form savedForm = await formsClient.Create(newForm);
