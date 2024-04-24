@@ -428,6 +428,15 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public bool? showStreetAddress
+        {
+            get; set;
+        }
+
+        public string formattedAddressElementId
+        {
+            get; set;
+        }
         private static Guid initialiseId(Guid? id)
         {
             if (!id.HasValue)
