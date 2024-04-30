@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## [5.6.2] - 2024-04-30
+
 ### Changed
 
 - uploads to go storage service
