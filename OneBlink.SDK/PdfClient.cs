@@ -25,6 +25,7 @@ namespace OneBlink.SDK
         List<Guid> excludedElementIds = null,
         bool? usePagesAsBreaks = null,
         bool? includePaymentInPdf = null,
+        bool? includeCalendarBookingInPdf = null,
         List<string> excludedCSSClasses = null,
         bool? includeExternalIdInPdf = null,
         string pdfSize = "A4")
@@ -36,6 +37,7 @@ namespace OneBlink.SDK
                 isDraft = isDraft,
                 includeSubmissionIdInPdf = includeSubmissionIdInPdf,
                 includePaymentInPdf = includePaymentInPdf,
+                includeCalendarBookingInPdf = includeCalendarBookingInPdf,
                 excludedCSSClasses = excludedCSSClasses,
                 includeExternalIdInPdf = includeExternalIdInPdf,
                 pdfSize = pdfSize

@@ -92,6 +92,7 @@ namespace OneBlink.SDK.Model
             string pdfFileName = null,
             bool? includeSubmissionIdInPdf = null,
             bool? includePaymentInPdf = null,
+            bool? includeCalendarBookingInPdf = null,
             string label = null,
             List<string> excludedCSSClasses = default(List<string>),
             bool? includeExternalIdInPdf = null,
@@ -114,6 +115,7 @@ namespace OneBlink.SDK.Model
             fseconfig.pdfFileName = pdfFileName;
             fseconfig.includeSubmissionIdInPdf = includeSubmissionIdInPdf;
             fseconfig.includePaymentInPdf = includePaymentInPdf;
+            fseconfig.includeCalendarBookingInPdf = includeCalendarBookingInPdf;
             if (excludedCSSClasses != default(List<string>))
             {
                 fseconfig.excludedCSSClasses = excludedCSSClasses;
@@ -158,6 +160,7 @@ namespace OneBlink.SDK.Model
             bool conditionallyExecute = false,
             bool requiresAllConditionallyExecutePredicates = false,
             Boolean? includePaymentInPdf = null,
+            bool? includeCalendarBookingInPdf = null,
             string label = null,
             List<string> excludedCSSClasses = default(List<string>),
             Boolean? includeExternalIdInPdf = null,
@@ -171,6 +174,7 @@ namespace OneBlink.SDK.Model
             fseconfig.pdfFileName = pdfFileName;
             fseconfig.includeSubmissionIdInPdf = includeSubmissionIdInPdf;
             fseconfig.includePaymentInPdf = includePaymentInPdf;
+            fseconfig.includeCalendarBookingInPdf = includeCalendarBookingInPdf;
             if (excludedElementIds != default(List<string>))
             {
                 fseconfig.excludedElementIds = excludedElementIds;
@@ -230,6 +234,7 @@ namespace OneBlink.SDK.Model
             bool conditionallyExecute = false,
             bool requiresAllConditionallyExecutePredicates = false,
             bool? includePaymentInPdf = null,
+            bool? includeCalendarBookingInPdf = null,
             string label = null,
             List<string> toEmail = default(List<string>),
             List<string> ccEmail = default(List<string>),
@@ -245,6 +250,7 @@ namespace OneBlink.SDK.Model
             fseconfig.pdfFileName = pdfFileName;
             fseconfig.includeSubmissionIdInPdf = includeSubmissionIdInPdf;
             fseconfig.includePaymentInPdf = includePaymentInPdf;
+            fseconfig.includeCalendarBookingInPdf = includeCalendarBookingInPdf;
             fseconfig.excludedElementIds = excludedElementIds;
             fseconfig.usePagesAsBreaks = usePagesAsBreaks;
             fseconfig.emailTemplate = emailTemplate;
@@ -288,6 +294,7 @@ namespace OneBlink.SDK.Model
             bool conditionallyExecute = false,
             bool requiresAllConditionallyExecutePredicates = false,
             bool? includePaymentInPdf = null,
+            bool? includeCalendarBookingInPdf = null,
             string label = null,
             List<string> toEmail = default(List<string>),
             List<string> ccEmail = default(List<string>),
@@ -303,6 +310,7 @@ namespace OneBlink.SDK.Model
             fseconfig.pdfFileName = pdfFileName;
             fseconfig.includeSubmissionIdInPdf = includeSubmissionIdInPdf;
             fseconfig.includePaymentInPdf = includePaymentInPdf;
+            fseconfig.includeCalendarBookingInPdf = includeCalendarBookingInPdf;
             if (excludedElementIds != default(List<string>))
             {
                 fseconfig.excludedElementIds = excludedElementIds;
