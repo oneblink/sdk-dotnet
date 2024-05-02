@@ -25,10 +25,10 @@ namespace OneBlink.SDK
         List<Guid> excludedElementIds = null,
         bool? usePagesAsBreaks = null,
         bool? includePaymentInPdf = null,
-        bool? includeCalendarBookingInPdf = null,
         List<string> excludedCSSClasses = null,
         bool? includeExternalIdInPdf = null,
-        string pdfSize = "A4")
+        string pdfSize = "A4",
+        bool? includeCalendarBookingInPdf = null)
         {
             GetSubmissionPdfRequest body = new GetSubmissionPdfRequest()
             {

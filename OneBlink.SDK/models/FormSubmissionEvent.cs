@@ -92,11 +92,11 @@ namespace OneBlink.SDK.Model
             string pdfFileName = null,
             bool? includeSubmissionIdInPdf = null,
             bool? includePaymentInPdf = null,
-            bool? includeCalendarBookingInPdf = null,
             string label = null,
             List<string> excludedCSSClasses = default(List<string>),
             bool? includeExternalIdInPdf = null,
-            string pdfSize = null
+            string pdfSize = null,
+            bool? includeCalendarBookingInPdf = null
             )
         {
             FormSubmissionEventConfiguration fseconfig = new FormSubmissionEventConfiguration();
@@ -160,11 +160,11 @@ namespace OneBlink.SDK.Model
             bool conditionallyExecute = false,
             bool requiresAllConditionallyExecutePredicates = false,
             Boolean? includePaymentInPdf = null,
-            bool? includeCalendarBookingInPdf = null,
             string label = null,
             List<string> excludedCSSClasses = default(List<string>),
             Boolean? includeExternalIdInPdf = null,
-            string pdfSize = null)
+            string pdfSize = null,
+            bool? includeCalendarBookingInPdf = null)
         {
             FormSubmissionEventConfiguration fseconfig = new FormSubmissionEventConfiguration();
             fseconfig.environmentId = environmentId;
@@ -234,14 +234,14 @@ namespace OneBlink.SDK.Model
             bool conditionallyExecute = false,
             bool requiresAllConditionallyExecutePredicates = false,
             bool? includePaymentInPdf = null,
-            bool? includeCalendarBookingInPdf = null,
             string label = null,
             List<string> toEmail = default(List<string>),
             List<string> ccEmail = default(List<string>),
             List<string> bccEmail = default(List<string>),
             bool? includeExternalIdInPdf = null,
             EndpointConfiguration emailAttachmentsEndpoint = null,
-            string pdfSize = null
+            string pdfSize = null,
+            bool? includeCalendarBookingInPdf = null
         )
         {
             FormSubmissionEventConfiguration fseconfig = new FormSubmissionEventConfiguration();
@@ -294,7 +294,6 @@ namespace OneBlink.SDK.Model
             bool conditionallyExecute = false,
             bool requiresAllConditionallyExecutePredicates = false,
             bool? includePaymentInPdf = null,
-            bool? includeCalendarBookingInPdf = null,
             string label = null,
             List<string> toEmail = default(List<string>),
             List<string> ccEmail = default(List<string>),
@@ -302,7 +301,8 @@ namespace OneBlink.SDK.Model
             List<string> excludedCSSClasses = default(List<string>),
             bool? includeExternalIdInPdf = null,
             EndpointConfiguration emailAttachmentsEndpoint = null,
-            string pdfSize = null
+            string pdfSize = null,
+            bool? includeCalendarBookingInPdf = null
         )
         {
             FormSubmissionEventConfiguration fseconfig = new FormSubmissionEventConfiguration();
