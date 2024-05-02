@@ -95,7 +95,8 @@ namespace OneBlink.SDK.Model
             string label = null,
             List<string> excludedCSSClasses = default(List<string>),
             bool? includeExternalIdInPdf = null,
-            string pdfSize = null
+            string pdfSize = null,
+            bool? includeCalendarBookingInPdf = null
             )
         {
             FormSubmissionEventConfiguration fseconfig = new FormSubmissionEventConfiguration();
@@ -114,6 +115,7 @@ namespace OneBlink.SDK.Model
             fseconfig.pdfFileName = pdfFileName;
             fseconfig.includeSubmissionIdInPdf = includeSubmissionIdInPdf;
             fseconfig.includePaymentInPdf = includePaymentInPdf;
+            fseconfig.includeCalendarBookingInPdf = includeCalendarBookingInPdf;
             if (excludedCSSClasses != default(List<string>))
             {
                 fseconfig.excludedCSSClasses = excludedCSSClasses;
@@ -161,7 +163,8 @@ namespace OneBlink.SDK.Model
             string label = null,
             List<string> excludedCSSClasses = default(List<string>),
             Boolean? includeExternalIdInPdf = null,
-            string pdfSize = null)
+            string pdfSize = null,
+            bool? includeCalendarBookingInPdf = null)
         {
             FormSubmissionEventConfiguration fseconfig = new FormSubmissionEventConfiguration();
             fseconfig.environmentId = environmentId;
@@ -171,6 +174,7 @@ namespace OneBlink.SDK.Model
             fseconfig.pdfFileName = pdfFileName;
             fseconfig.includeSubmissionIdInPdf = includeSubmissionIdInPdf;
             fseconfig.includePaymentInPdf = includePaymentInPdf;
+            fseconfig.includeCalendarBookingInPdf = includeCalendarBookingInPdf;
             if (excludedElementIds != default(List<string>))
             {
                 fseconfig.excludedElementIds = excludedElementIds;
@@ -236,7 +240,8 @@ namespace OneBlink.SDK.Model
             List<string> bccEmail = default(List<string>),
             bool? includeExternalIdInPdf = null,
             EndpointConfiguration emailAttachmentsEndpoint = null,
-            string pdfSize = null
+            string pdfSize = null,
+            bool? includeCalendarBookingInPdf = null
         )
         {
             FormSubmissionEventConfiguration fseconfig = new FormSubmissionEventConfiguration();
@@ -245,6 +250,7 @@ namespace OneBlink.SDK.Model
             fseconfig.pdfFileName = pdfFileName;
             fseconfig.includeSubmissionIdInPdf = includeSubmissionIdInPdf;
             fseconfig.includePaymentInPdf = includePaymentInPdf;
+            fseconfig.includeCalendarBookingInPdf = includeCalendarBookingInPdf;
             fseconfig.excludedElementIds = excludedElementIds;
             fseconfig.usePagesAsBreaks = usePagesAsBreaks;
             fseconfig.emailTemplate = emailTemplate;
@@ -295,7 +301,8 @@ namespace OneBlink.SDK.Model
             List<string> excludedCSSClasses = default(List<string>),
             bool? includeExternalIdInPdf = null,
             EndpointConfiguration emailAttachmentsEndpoint = null,
-            string pdfSize = null
+            string pdfSize = null,
+            bool? includeCalendarBookingInPdf = null
         )
         {
             FormSubmissionEventConfiguration fseconfig = new FormSubmissionEventConfiguration();
@@ -303,6 +310,7 @@ namespace OneBlink.SDK.Model
             fseconfig.pdfFileName = pdfFileName;
             fseconfig.includeSubmissionIdInPdf = includeSubmissionIdInPdf;
             fseconfig.includePaymentInPdf = includePaymentInPdf;
+            fseconfig.includeCalendarBookingInPdf = includeCalendarBookingInPdf;
             if (excludedElementIds != default(List<string>))
             {
                 fseconfig.excludedElementIds = excludedElementIds;

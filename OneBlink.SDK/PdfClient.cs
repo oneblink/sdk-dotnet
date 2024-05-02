@@ -27,7 +27,8 @@ namespace OneBlink.SDK
         bool? includePaymentInPdf = null,
         List<string> excludedCSSClasses = null,
         bool? includeExternalIdInPdf = null,
-        string pdfSize = "A4")
+        string pdfSize = "A4",
+        bool? includeCalendarBookingInPdf = null)
         {
             GetSubmissionPdfRequest body = new GetSubmissionPdfRequest()
             {
@@ -36,6 +37,7 @@ namespace OneBlink.SDK
                 isDraft = isDraft,
                 includeSubmissionIdInPdf = includeSubmissionIdInPdf,
                 includePaymentInPdf = includePaymentInPdf,
+                includeCalendarBookingInPdf = includeCalendarBookingInPdf,
                 excludedCSSClasses = excludedCSSClasses,
                 includeExternalIdInPdf = includeExternalIdInPdf,
                 pdfSize = pdfSize
