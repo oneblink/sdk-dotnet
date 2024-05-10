@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## [5.6.3] - 2024-05-10
+
 ### Added
 
 - `includeCalendarBookingInPdf` to `FormSubmissionEventConfiguration`
