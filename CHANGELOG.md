@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Added
+
+- `embeddedforms` and `approvalForms` to `FormMigrationOptions`
+
 ## [5.6.3] - 2024-05-10
 
 ### Added

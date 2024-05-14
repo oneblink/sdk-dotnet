@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace OneBlink.SDK.Model
 {
     public class FormMigrationOptions
@@ -47,6 +49,14 @@ namespace OneBlink.SDK.Model
             get; set;
         }
         public bool googleMapsIntegrationEnvironmentId
+        {
+            get; set;
+        }
+        public List<FormMigrationEmbeddedForms> embeddedForms
+        {
+            get; set;
+        }
+        public List<FormMigrationApprovalForms> approvalForms
         {
             get; set;
         }
