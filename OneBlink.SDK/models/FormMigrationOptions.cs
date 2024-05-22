@@ -48,10 +48,6 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
-        public bool googleMapsIntegrationEnvironmentId
-        {
-            get; set;
-        }
         public List<FormMigrationEmbeddedForms> embeddedForms
         {
             get; set;
