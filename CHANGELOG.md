@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Added
+
+- `approvalGroups` to `ApprovalsFormsApp`
+
 ## [5.6.4] - 2024-05-20
 
 ### Added
