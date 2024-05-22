@@ -5,6 +5,7 @@
 ### Added
 
 - `googleMapsIntegrationKeyId` to `FormsAppBase`
+- `approvalGroups` to `ApprovalsFormsApp`
 
 ### Removed
 
