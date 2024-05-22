@@ -4,7 +4,14 @@
 
 ### Added
 
+- `googleMapsIntegrationKeyId` to `FormsAppBase`
 - `approvalGroups` to `ApprovalsFormsApp`
+
+### Removed
+
+- **[BREAKING]** `isCloningFormGoogleMapsIntegrationEnvironmentId` from `FormsAppEnvironmentCloneOptions`
+- **[BREAKING]** `googleMapsIntegrationEnvironmentId` from `FormMigrationOptions`
+- **[BREAKING]** `googleMapsIntegrationEnvironmentId` from `Form`
 
 ## [5.6.4] - 2024-05-20
 

@@ -72,6 +72,10 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public string googleMapsIntegrationKeyId
+        {
+            get; set;
+        }
         public bool enableAppUserSignup
         {
             get; set;

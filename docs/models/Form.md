@@ -35,7 +35,6 @@
 | `submissionTitle`                    | No       | `string`                    | Optional configuration for the default submission title                                                                                                               | `null`                            |
 | `continueWithAutosave`               | No       | `boolean`                   | Whether or not viewing the form should auto-continue with autosave data when available rather than prompting the user title                                           | `false`                           |
 | `customCssClasses`                   | No       | `List<string>`              | Custom CSS classes that will be added to the form during rendering                                                                                                    | `new List<string>()`              |
-| `googleMapsIntegrationEnvironmentId` | No       | `string`                    | Optional configuration to allow "Show Street Address" on "Location" Elements to work with "Text" elements. You must have a Google Maps Integration setup to use this. | `null`                            |
 
 ### Other properties
 
