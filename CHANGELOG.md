@@ -2,6 +2,16 @@
 
 ## Unreleased
 
+### Added
+
+- `googleMapsIntegrationKeyId` to `FormsAppBase`
+
+### Removed
+
+- **[BREAKING]** `isCloningFormGoogleMapsIntegrationEnvironmentId` from `FormsAppEnvironmentCloneOptions`
+- **[BREAKING]** `googleMapsIntegrationEnvironmentId` from `FormMigrationOptions`
+- **[BREAKING]** `googleMapsIntegrationEnvironmentId` from `Form`
+
 ## [5.6.4] - 2024-05-20
 
 ### Added
