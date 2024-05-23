@@ -12,6 +12,7 @@
 - **[BREAKING]** `isCloningFormGoogleMapsIntegrationEnvironmentId` from `FormsAppEnvironmentCloneOptions`
 - **[BREAKING]** `googleMapsIntegrationEnvironmentId` from `FormMigrationOptions`
 - **[BREAKING]** `googleMapsIntegrationEnvironmentId` from `Form`
+- **[BREAKING]** `recaptchaIntegrationDomainId` to be a `Guid` type
 
 ## [5.6.4] - 2024-05-20
 
