@@ -16,9 +16,6 @@ namespace OneBlink.SDK.Model
         {
             get;
         }
-        public List<string> approvalGroups
-        {
-            get; set;
-        }
+
     }
 }

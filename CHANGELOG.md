@@ -5,7 +5,9 @@
 ### Added
 
 - `googleMapsIntegrationKeyId` to `FormsAppBase`
-- `approvalGroups` to `ApprovalsFormsApp`
+- `groups` to `FormsAppBase`
+- `customGroups` to `RawJWTPayload`
+- `groups` to `FormSubmissionUser`
 
 ### Removed
 

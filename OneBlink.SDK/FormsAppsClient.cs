@@ -61,6 +61,7 @@ namespace OneBlink.SDK
             }
             jWTPayload.phoneNumber = rawJWTPayload.customPhoneNumber;
             jWTPayload.phoneNumberVerified = rawJWTPayload.customPhoneNumberVerified;
+            jWTPayload.groups = rawJWTPayload.customGroups;
             if (rawJWTPayload.identities != null && rawJWTPayload.identities.Count > 0)
             {
                 jWTPayload.providerType = rawJWTPayload.identities[0].providerType;
