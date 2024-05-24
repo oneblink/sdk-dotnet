@@ -68,11 +68,11 @@ namespace OneBlink.SDK.Model
         {
             get;
         }
-        public string recaptchaIntegrationDomainId
+        public Guid? recaptchaIntegrationDomainId
         {
             get; set;
         }
-        public string googleMapsIntegrationKeyId
+        public Guid? googleMapsIntegrationKeyId
         {
             get; set;
         }
