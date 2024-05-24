@@ -96,6 +96,11 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        [JsonProperty("custom:groups")]
+        public List<string> customGroups
+        {
+            get; set;
+        }
     }
 
     public class Identity

@@ -75,6 +75,10 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public List<string> groups
+        {
+            get; set;
+        }
     }
 
     public enum FormSubmissionDeviceType
