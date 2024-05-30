@@ -35,7 +35,7 @@ namespace OneBlink.SDK
             );
             string verifiedToken = Token.VerifyJWT(token, jwk, iss);
             RawJWTPayload rawJWTPayload = JsonConvert.DeserializeObject<RawJWTPayload>(verifiedToken);
-            if (String.IsNullOrEmpty(rawJWTPayload.sub))
+            if (string.IsNullOrEmpty(rawJWTPayload.sub))
             {
                 throw new ArgumentException("Invalid token");
             }
@@ -51,8 +51,8 @@ namespace OneBlink.SDK
             jWTPayload.fullName = rawJWTPayload.name;
             jWTPayload.picture = rawJWTPayload.picture;
             jWTPayload.role = rawJWTPayload.customRole;
-            jWTPayload.username = !String.IsNullOrEmpty(rawJWTPayload.email) ? rawJWTPayload.email : rawJWTPayload.sub;
-            if (!String.IsNullOrEmpty(rawJWTPayload.customSupervisorEmail) && !String.IsNullOrEmpty(rawJWTPayload.customSupervisorName) && !String.IsNullOrEmpty(rawJWTPayload.customSupervisorUserId))
+            jWTPayload.username = !string.IsNullOrEmpty(rawJWTPayload.email) ? rawJWTPayload.email : rawJWTPayload.sub;
+            if (!string.IsNullOrEmpty(rawJWTPayload.customSupervisorEmail) && !string.IsNullOrEmpty(rawJWTPayload.customSupervisorName) && !string.IsNullOrEmpty(rawJWTPayload.customSupervisorUserId))
             {
                 jWTPayload.supervisor = new FormSubmissionSupervisor();
                 jWTPayload.supervisor.fullName = rawJWTPayload.customSupervisorName;
@@ -61,7 +61,7 @@ namespace OneBlink.SDK
             }
             jWTPayload.phoneNumber = rawJWTPayload.customPhoneNumber;
             jWTPayload.phoneNumberVerified = rawJWTPayload.customPhoneNumberVerified;
-            jWTPayload.groups = rawJWTPayload.customGroups;
+            jWTPayload.groups = !string.IsNullOrEmpty(rawJWTPayload.customGroups) ? new System.Collections.Generic.List<string>(rawJWTPayload.customGroups.Split(',')) : null;
             if (rawJWTPayload.identities != null && rawJWTPayload.identities.Count > 0)
             {
                 jWTPayload.providerType = rawJWTPayload.identities[0].providerType;
@@ -69,7 +69,7 @@ namespace OneBlink.SDK
                 jWTPayload.isSAMLUser = rawJWTPayload.identities[0].providerType == "SAML";
                 if (jWTPayload.isSAMLUser.HasValue && jWTPayload.isSAMLUser.Value == true)
                 {
-                    jWTPayload.username = !String.IsNullOrEmpty(rawJWTPayload.preferred_username) ? rawJWTPayload.preferred_username : rawJWTPayload.identities[0].userId;
+                    jWTPayload.username = !string.IsNullOrEmpty(rawJWTPayload.preferred_username) ? rawJWTPayload.preferred_username : rawJWTPayload.identities[0].userId;
                 }
             }
 
@@ -114,7 +114,7 @@ namespace OneBlink.SDK
 
         public async Task<FormsAppSendingAddressResponse> SetSendingAddress(long id, NewFormsAppSendingAddress newFormsAppSendingAddress)
         {
-            if (String.IsNullOrEmpty(newFormsAppSendingAddress.emailAddress))
+            if (string.IsNullOrEmpty(newFormsAppSendingAddress.emailAddress))
             {
                 throw new Exception("Email Address must not be empty");
             }
