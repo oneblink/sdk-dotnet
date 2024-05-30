@@ -97,7 +97,7 @@ namespace OneBlink.SDK.Model
             get; set;
         }
         [JsonProperty("custom:groups")]
-        public List<string> customGroups
+        public string customGroups
         {
             get; set;
         }
