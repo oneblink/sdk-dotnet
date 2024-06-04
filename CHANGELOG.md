@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Added
+
+- `excludedAttachmentElementIds` to `FormSubmissionEventConfiguration`
+
 ## [6.0.0] - 2024-06-04
 
 ### Added
