@@ -182,5 +182,9 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public List<Guid> excludedAttachmentElementIds
+        {
+            get; set;
+        }
     }
 }
