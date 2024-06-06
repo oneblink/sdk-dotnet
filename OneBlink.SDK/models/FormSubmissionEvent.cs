@@ -287,22 +287,23 @@ namespace OneBlink.SDK.Model
             string emailSubjectLine = null,
             string pdfFileName = null,
             bool? includeSubmissionIdInPdf = null,
-            List<string> excludedElementIds = default(List<string>),
+            List<string> excludedElementIds = default,
             bool? usePagesAsBreaks = null,
             FormSubmissionEventEmailTemplate emailTemplate = null,
-            List<ConditionallyShowPredicate> conditionallyExecutePredicates = default(List<ConditionallyShowPredicate>),
+            List<ConditionallyShowPredicate> conditionallyExecutePredicates = default,
             bool conditionallyExecute = false,
             bool requiresAllConditionallyExecutePredicates = false,
             bool? includePaymentInPdf = null,
             string label = null,
-            List<string> toEmail = default(List<string>),
-            List<string> ccEmail = default(List<string>),
-            List<string> bccEmail = default(List<string>),
-            List<string> excludedCSSClasses = default(List<string>),
+            List<string> toEmail = default,
+            List<string> ccEmail = default,
+            List<string> bccEmail = default,
+            List<string> excludedCSSClasses = default,
             bool? includeExternalIdInPdf = null,
             EndpointConfiguration emailAttachmentsEndpoint = null,
             string pdfSize = null,
-            bool? includeCalendarBookingInPdf = null
+            bool? includeCalendarBookingInPdf = null,
+            List<Guid> excludedAttachmentElementIds = default
         )
         {
             FormSubmissionEventConfiguration fseconfig = new FormSubmissionEventConfiguration();
@@ -336,6 +337,10 @@ namespace OneBlink.SDK.Model
             fseconfig.includeExternalIdInPdf = includeExternalIdInPdf;
             fseconfig.emailAttachmentsEndpoint = emailAttachmentsEndpoint;
             fseconfig.pdfSize = pdfSize;
+            if (excludedAttachmentElementIds != default(List<Guid>))
+            {
+                fseconfig.excludedAttachmentElementIds = excludedAttachmentElementIds;
+            }
             FormSubmissionEvent pdfEvent = new FormSubmissionEvent();
             pdfEvent.type = "PDF";
             pdfEvent.configuration = fseconfig;
@@ -345,6 +350,7 @@ namespace OneBlink.SDK.Model
             {
                 pdfEvent.conditionallyExecutePredicates = conditionallyExecutePredicates;
             }
+
             pdfEvent.label = label;
 
             return pdfEvent;
@@ -399,14 +405,15 @@ namespace OneBlink.SDK.Model
         public static FormSubmissionEvent CreateEmailSubmissionEvent(
             string emailSubjectLine = null,
             FormSubmissionEventEmailTemplate emailTemplate = null,
-            List<ConditionallyShowPredicate> conditionallyExecutePredicates = default(List<ConditionallyShowPredicate>),
+            List<ConditionallyShowPredicate> conditionallyExecutePredicates = default,
             bool conditionallyExecute = false,
             bool requiresAllConditionallyExecutePredicates = false,
             string label = null,
-            List<string> toEmail = default(List<string>),
-            List<string> ccEmail = default(List<string>),
-            List<string> bccEmail = default(List<string>),
-            EndpointConfiguration emailAttachmentsEndpoint = null
+            List<string> toEmail = default,
+            List<string> ccEmail = default,
+            List<string> bccEmail = default,
+            EndpointConfiguration emailAttachmentsEndpoint = null,
+            List<Guid> excludedAttachmentElementIds = default
         )
         {
             FormSubmissionEventConfiguration fseconfig = new FormSubmissionEventConfiguration();
@@ -425,6 +432,10 @@ namespace OneBlink.SDK.Model
                 fseconfig.bccEmail = bccEmail;
             }
             fseconfig.emailAttachmentsEndpoint = emailAttachmentsEndpoint;
+            if (excludedAttachmentElementIds != default(List<Guid>))
+            {
+                fseconfig.excludedAttachmentElementIds = excludedAttachmentElementIds;
+            }
             FormSubmissionEvent emailEvent = new FormSubmissionEvent();
             emailEvent.type = "EMAIL";
             emailEvent.configuration = fseconfig;
