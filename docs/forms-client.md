@@ -670,3 +670,31 @@ EmailAttachmentData emailAttachmentData = await formsClient.UploadEmailAttachmen
 ### Result
 
 A `OneBlink.SDK.Model.EmailAttachmentData` class
+
+## `ExecuteWorkflowEvent()`
+
+### Example
+
+```c#
+long formId = 1;
+Guid submissionId = Guid.Parse("123");
+FormSubmissionEvent formSubmissionEvent = new FormSubmissionEvent();
+FormSubmissionWorkflowEvent formSubmissionWorkflowEvent = await formsClient.ExecuteWorkflowEvent(formId, submissionId, formSubmissionEvent);
+```
+
+### Parameters
+
+| Parameter             | Required | Type                | Description                                                             |
+| --------------------- | -------- | ------------------- | ----------------------------------------------------------------------- |
+| `formId`              | Yes      | long                | The exact id of the form.                                               |
+| `submissionId`        | Yes      | Guid                | The submission identifier generated after a successful form submission. |
+| `formSubmissionEvent` | Yes      | FormSubmissionEvent | The form workflow event to be executed.                                 |
+
+### Throws
+
+- `OneBlinkAPIException`
+- `Exception`
+
+### Result
+
+A `OneBlink.SDK.Model.FormSubmissionWorkflowEvent` class

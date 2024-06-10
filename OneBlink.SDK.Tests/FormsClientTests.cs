@@ -116,6 +116,24 @@ namespace OneBlink.SDK.Tests
         }
 
         [Fact]
+        public async void can_execute_form_workflow_event()
+        {
+            FormsClient forms = new FormsClient(ACCESS_KEY, SECRET_KEY, TenantName.ONEBLINK_TEST);
+            FormSubmissionWorkflowEvent formSubmissionWorkflowEvent = await forms.ExecuteWorkflowEvent(this.formId, Guid.Parse(this.submissionId), new FormSubmissionEvent()
+            {
+                type = "CALLBACK",
+                configuration = new FormSubmissionEventConfiguration()
+                {
+                    url = "https://httpstat.us/200",
+                    secret = "shh"
+                }
+            });
+            Assert.NotNull(formSubmissionWorkflowEvent);
+            Assert.Equal(formSubmissionWorkflowEvent.formId, this.formId);
+            Assert.Equal(formSubmissionWorkflowEvent.submissionId, Guid.Parse(this.submissionId));
+        }
+
+        [Fact]
         public async void can_get_submission_data()
         {
             FormsClient forms = new FormsClient(ACCESS_KEY, SECRET_KEY, TenantName.ONEBLINK_TEST);
