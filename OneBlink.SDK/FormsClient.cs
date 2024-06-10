@@ -310,6 +310,36 @@ namespace OneBlink.SDK
             return await this.oneBlinkApiClient.GetRequest<FormAttachmentMeta>(url);
         }
 
+        private class ExecuteWorkflowEventRequest
+        {
+            [JsonProperty]
+            internal Guid submissionId
+            {
+                get; set;
+            }
+            [JsonProperty]
+            internal long formId
+            {
+                get; set;
+            }
+            [JsonProperty]
+            internal FormSubmissionEvent submissionEvent
+            {
+                get; set;
+            }
+        }
+
+        public async Task<FormSubmissionWorkflowEvent> ExecuteWorkflowEvent(long formId, Guid submissionId, FormSubmissionEvent submissionEvent)
+        {
+            string url = "/form-submission-meta/replay-submission-event";
+            return await this.oneBlinkApiClient.PostRequest<ExecuteWorkflowEventRequest, FormSubmissionWorkflowEvent>(url, new ExecuteWorkflowEventRequest()
+            {
+                submissionId = submissionId,
+                formId = formId,
+                submissionEvent = submissionEvent
+            });
+        }
+
         internal class AttachmentUploadRequest
         {
             [JsonProperty]
