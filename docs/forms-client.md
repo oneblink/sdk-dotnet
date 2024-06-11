@@ -684,11 +684,11 @@ FormSubmissionWorkflowEvent formSubmissionWorkflowEvent = await formsClient.Exec
 
 ### Parameters
 
-| Parameter             | Required | Type                | Description                                                             |
-| --------------------- | -------- | ------------------- | ----------------------------------------------------------------------- |
-| `formId`              | Yes      | long                | The exact id of the form.                                               |
-| `submissionId`        | Yes      | Guid                | The submission identifier generated after a successful form submission. |
-| `formSubmissionEvent` | Yes      | FormSubmissionEvent | The form workflow event to be executed.                                 |
+| Parameter       | Required | Type                | Description                                                             |
+| --------------- | -------- | ------------------- | ----------------------------------------------------------------------- |
+| `formId`        | Yes      | long                | The exact id of the form.                                               |
+| `submissionId`  | Yes      | Guid                | The submission identifier generated after a successful form submission. |
+| `workflowEvent` | Yes      | FormSubmissionEvent | The form workflow event to be executed.                                 |
 
 ### Throws
 

@@ -329,14 +329,14 @@ namespace OneBlink.SDK
             }
         }
 
-        public async Task<FormSubmissionWorkflowEvent> ExecuteWorkflowEvent(long formId, Guid submissionId, FormSubmissionEvent submissionEvent)
+        public async Task<FormSubmissionWorkflowEvent> ExecuteWorkflowEvent(long formId, Guid submissionId, FormSubmissionEvent workflowEvent)
         {
             string url = "/form-submission-meta/replay-submission-event";
             return await this.oneBlinkApiClient.PostRequest<ExecuteWorkflowEventRequest, FormSubmissionWorkflowEvent>(url, new ExecuteWorkflowEventRequest()
             {
                 submissionId = submissionId,
                 formId = formId,
-                submissionEvent = submissionEvent
+                submissionEvent = workflowEvent
             });
         }
 
