@@ -8,6 +8,7 @@
 
 - `excludedAttachmentElementIds` to `FormSubmissionEventConfiguration`
 - `ExecuteWorkflowEvent` to `FormsClient` class
+- `environmentId` to `FormElement`
 
 ## [6.0.0] - 2024-06-04
 

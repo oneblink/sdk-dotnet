@@ -107,6 +107,7 @@ Only a default constructor is provided, instead it is recommended to create a Fo
 | `decorativeImage`                        | No                                | `bool?`                             | Whether the image element is decorative or not for screen readers.                                                                                                                                                                                                                                                                                                       |               |
 | `showStreetAddress`                      | No                                | `bool?`                             | Whether the location element will pre-fill an element with a formatted address based on chosen location.                                                                                                                                                                                                                                                                 |               |
 | `formattedAddressElementId`              | No                                | `string`                            | The element ID of the element that will be pre-filled with a formatted address after selecting a location with a location element. This can only be used for Geoscape elements with the Geoscape Integrations.                                                                                                                                                           |               |
+| `environmentId` | No | `string` | The ID of the point address environment to be used for this element.|
 
 ### Static Functions
 
@@ -247,6 +248,7 @@ Creates a new FormElement defined as a `pointAddress` element, including all par
 | -------------------------------------- | -------- | ---------------------------------- | ------------- |
 | `name`                                 | Yes      | `string`                           |               |
 | `label`                                | Yes      | `string`                           |               |
+| `environmentId`                        | Yes      | `string`                           |               |
 | `id`                                   | No       | `Guid`                             | `new Guid()`  |
 | `conditionallyShow`                    | No       | `bool`                             | `false`       |
 | `requiresAllConditonallyShowPredicate` | No       | `bool`                             | `false`       |
@@ -259,7 +261,8 @@ Creates a new FormElement defined as a `pointAddress` element, including all par
 ```c#
 FormElement pointAddressElement = FormElement.CreatePointAddressElement(
     "Point_test_element",
-    "Point test element"
+    "Point test element",
+    "123"
 );
 ```
 

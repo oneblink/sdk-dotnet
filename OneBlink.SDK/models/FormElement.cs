@@ -437,6 +437,10 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public string environmentId
+        {
+            get; set;
+        }
         private static Guid initialiseId(Guid? id)
         {
             if (!id.HasValue)
@@ -607,6 +611,7 @@ namespace OneBlink.SDK.Model
         public static FormElement CreatePointAddressElement(
             string name,
             string label,
+            string environmentId,
             Guid? id = null,
             bool conditionallyShow = false,
             bool requiresAllConditionallyShowPredicates = false,
@@ -641,6 +646,7 @@ namespace OneBlink.SDK.Model
             pointAddressElement.addressTypeFilter = addressTypeFilter;
             pointAddressElement.customCssClasses = customCssClasses;
             pointAddressElement.meta = meta;
+            pointAddressElement.environmentId = environmentId;
             return pointAddressElement;
         }
 
