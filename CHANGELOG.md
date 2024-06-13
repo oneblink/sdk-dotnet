@@ -6,6 +6,10 @@
 
 ### Added
 
+- `customerSecretId` to `DeveloperKey`
+
+### Added
+
 - `excludedAttachmentElementIds` to `FormSubmissionEventConfiguration`
 - `ExecuteWorkflowEvent` to `FormsClient` class
 
