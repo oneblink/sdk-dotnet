@@ -22,7 +22,7 @@ jobs:
         with:
           sarif_file: devskim-results.sarif
   unit:
-    name: Unit Tests (${{ matrix.dotnet-version }})
+    name: Unit Tests (net${{ matrix.dotnet-version }})
     env:
       ACCESS_KEY: ${{ secrets.ACCESS_KEY }}
       SECRET_KEY: ${{ secrets.SECRET_KEY }}
@@ -30,6 +30,7 @@ jobs:
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
     runs-on: ubuntu-latest
     strategy:
+      max-parallel: 1
       matrix:
         dotnet-version: ["6.x", "8.x"]
     steps:
