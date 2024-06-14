@@ -10,6 +10,7 @@ on:
 
 jobs:
   build:
+    name: Dotnet Test (${{ matrix.dotnet-version }})
     env:
       ACCESS_KEY: ${{ secrets.ACCESS_KEY }}
       SECRET_KEY: ${{ secrets.SECRET_KEY }}
@@ -21,8 +22,7 @@ jobs:
         dotnet-version: ["6.x", "8.x"]
     steps:
       - uses: actions/checkout@v4
-      - name: Setup .NET SDK 6.0.x
-        uses: actions/setup-dotnet@v3
+      - uses: actions/setup-dotnet@v3
         with:
           dotnet-version: ${{ matrix.dotnet-version }}
       - uses: microsoft/DevSkim-Action@v1
