@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Added
+
+- `environmentId` to `FormElement`
+
 ## [6.1.0] - 2024-06-13
 
 ### Added
