@@ -31,7 +31,5 @@ jobs:
           sarif_file: devskim-results.sarif
       - name: Install dependencies
         run: dotnet restore
-      - name: Build
-        run: dotnet build --configuration Release --no-restore
       - name: Test
         run: dotnet test --no-restore --verbosity normal --configuration Release --logger GitHubActions
