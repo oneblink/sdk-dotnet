@@ -2,11 +2,11 @@
 
 ## Unreleased
 
-## [6.1.0] - 2024-06-13
-
 ### Added
 
 - `customerSecretId` to `DeveloperKey`
+
+## [6.1.0] - 2024-06-13
 
 ### Added
 
