@@ -5,7 +5,9 @@ namespace OneBlink.SDK.Model
     public class DeveloperKey
     {
         public string id { get; internal set; }
+        [Obsolete("secret is deprecated and will always be null.")]
         public string secret { get; internal set; }
+        public long customerSecretId { get; internal set; }
         public string name { get; internal set; }
         public DeveloperKeyPrivilege privilege { get; internal set; }
         public DeveloperKeyLinks links { get; internal set; }
