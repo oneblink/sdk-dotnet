@@ -2,7 +2,6 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFrameworks>netstandard2.0</TargetFrameworks>
     <RootNamespace>unit_tests</RootNamespace>
 
     <IsPackable>false</IsPackable>
