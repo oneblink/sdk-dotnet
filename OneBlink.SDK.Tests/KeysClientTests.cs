@@ -40,6 +40,15 @@ namespace OneBlink.SDK.Tests
             KeysClient keysClient = new KeysClient(ACCESS_KEY, SECRET_KEY, TenantName.ONEBLINK_TEST);
             DeveloperKey developerKey = await keysClient.GetDeveloperKey(ACCESS_KEY);
             Assert.NotNull(developerKey);
+            Assert.NotNull(developerKey.id);
+            Assert.NotNull(developerKey.links);
+            Assert.NotNull(developerKey.links.organisations);
+            Assert.NotNull(developerKey.name);
+            Assert.NotNull(developerKey.privilege);
+            Assert.Null(developerKey.privilege.API_HOSTING);
+            Assert.NotNull(developerKey.privilege.FORMS);
+            Assert.NotNull(developerKey.privilege.PDF);
+            Assert.Null(developerKey.privilege.WEB_APP_HOSTING);
         }
 
         [Fact]
