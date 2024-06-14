@@ -9,8 +9,20 @@ on:
       - "**"
 
 jobs:
-  build:
-    name: Dotnet Test (${{ matrix.dotnet-version }})
+  code:
+    name: Code Quality
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.x"
+      - uses: microsoft/DevSkim-Action@v1
+      - uses: github/codeql-action/upload-sarif@v2
+        with:
+          sarif_file: devskim-results.sarif
+  unit:
+    name: Unit Tests (${{ matrix.dotnet-version }})
     env:
       ACCESS_KEY: ${{ secrets.ACCESS_KEY }}
       SECRET_KEY: ${{ secrets.SECRET_KEY }}
@@ -22,13 +34,9 @@ jobs:
         dotnet-version: ["6.x", "8.x"]
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-dotnet@v3
+      - uses: actions/setup-dotnet@v4
         with:
           dotnet-version: ${{ matrix.dotnet-version }}
-      - uses: microsoft/DevSkim-Action@v1
-      - uses: github/codeql-action/upload-sarif@v2
-        with:
-          sarif_file: devskim-results.sarif
       - name: Install dependencies
         run: dotnet restore
       - name: Test
