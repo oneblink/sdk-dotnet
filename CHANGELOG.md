@@ -5,7 +5,7 @@
 ### Added
 
 - `customerSecretId` to `DeveloperKey`
-- `environmentId` to `FormElement`
+- `pointAddressEnvironmentId` to `Form`
 
 ## [6.1.0] - 2024-06-13
 
