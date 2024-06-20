@@ -39,7 +39,8 @@ namespace OneBlink.SDK.Model
             FormApprovalConfiguration approvalConfiguration = null,
             string submissionTitle = null,
             bool continueWithAutosave = false,
-            List<string> customCssClasses = default(List<string>)
+            List<string> customCssClasses = default(List<string>),
+            Guid? pointAddressEnvironmentId = null
             )
         {
             if (id.HasValue)
@@ -147,6 +148,7 @@ namespace OneBlink.SDK.Model
             {
                 this.customCssClasses = customCssClasses;
             }
+            this.pointAddressEnvironmentId = pointAddressEnvironmentId ?? null;
         }
         public long id
         {
@@ -277,6 +279,10 @@ namespace OneBlink.SDK.Model
             get; set;
         }
         public List<string> customCssClasses
+        {
+            get; set;
+        }
+        public Guid? pointAddressEnvironmentId
         {
             get; set;
         }
