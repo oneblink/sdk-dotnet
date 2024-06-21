@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## [6.2.0] - 2024-06-21
+
 ### Added
 
 - `customerSecretId` to `DeveloperKey`
