@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Added
+
+- `organisationManagedSecretId` to `EndpointConfiguration`
+
 ## [6.2.0] - 2024-06-21
 
 ### Added
