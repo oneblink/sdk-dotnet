@@ -125,7 +125,6 @@ namespace OneBlink.SDK.Tests
                 configuration = new FormSubmissionEventConfiguration()
                 {
                     url = "https://httpstat.us/200",
-                    secret = "shh"
                 }
             });
             Assert.NotNull(formSubmissionWorkflowEvent);
