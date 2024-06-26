@@ -41,7 +41,12 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        [Obsolete("secret is deprecated and will always be null.")]
         public string secret
+        {
+            get; set;
+        }
+        public long organisationManagedSecretId
         {
             get; set;
         }

@@ -4,7 +4,7 @@
 
 ### Added
 
-- `organisationManagedSecretId` to `EndpointConfiguration`
+- `organisationManagedSecretId` to `EndpointConfiguration` and `FormSubmissionEventConfiguration`
 
 ## [6.2.0] - 2024-06-21
 
