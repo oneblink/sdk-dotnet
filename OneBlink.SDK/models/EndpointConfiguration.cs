@@ -25,7 +25,7 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
-        public long organisationManagedSecretId
+        public long? organisationManagedSecretId
         {
             get; set;
         }
