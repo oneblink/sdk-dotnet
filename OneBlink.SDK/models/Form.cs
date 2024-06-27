@@ -14,20 +14,20 @@ namespace OneBlink.SDK.Model
             string description,
             string organisationId,
             long formsAppEnvironmentId,
-            List<long> formsAppIds = default(List<long>),
-            List<FormElement> elements = default(List<FormElement>),
+            List<long> formsAppIds = default,
+            List<FormElement> elements = default,
             long? id = null,
             string postSubmissionAction = "FORMS_LIBRARY",
             bool isAuthenticated = true,
-            List<FormSubmissionEvent> draftEvents = default(List<FormSubmissionEvent>),
-            List<FormSubmissionEvent> submissionEvents = default(List<FormSubmissionEvent>),
-            List<FormSubmissionEvent> paymentEvents = default(List<FormSubmissionEvent>),
-            List<FormSubmissionEvent> schedulingEvents = default(List<FormSubmissionEvent>),
+            List<FormSubmissionEvent> draftEvents = default,
+            List<FormSubmissionEvent> submissionEvents = default,
+            List<FormSubmissionEvent> paymentEvents = default,
+            List<FormSubmissionEvent> schedulingEvents = default,
             List<FormApprovalStep> approvalSteps = null,
-            List<FormSubmissionEvent> approvalEvents = default(List<FormSubmissionEvent>),
+            List<FormSubmissionEvent> approvalEvents = default,
             bool isMultiPage = false,
             string redirectUrl = null,
-            List<string> tags = default(List<string>),
+            List<string> tags = default,
             DateTime? publishStartDate = null,
             DateTime? publishEndDate = null,
             string unpublishedUserMessage = null,
@@ -39,8 +39,9 @@ namespace OneBlink.SDK.Model
             FormApprovalConfiguration approvalConfiguration = null,
             string submissionTitle = null,
             bool continueWithAutosave = false,
-            List<string> customCssClasses = default(List<string>),
-            Guid? pointAddressEnvironmentId = null
+            List<string> customCssClasses = default,
+            Guid? pointAddressEnvironmentId = null,
+            bool? allowGeoscapeAddresses = null
             )
         {
             if (id.HasValue)
@@ -149,6 +150,7 @@ namespace OneBlink.SDK.Model
                 this.customCssClasses = customCssClasses;
             }
             this.pointAddressEnvironmentId = pointAddressEnvironmentId ?? null;
+            this.allowGeoscapeAddresses = allowGeoscapeAddresses ?? null;
         }
         public long id
         {
@@ -283,6 +285,10 @@ namespace OneBlink.SDK.Model
             get; set;
         }
         public Guid? pointAddressEnvironmentId
+        {
+            get; set;
+        }
+        public bool? allowGeoscapeAddresses
         {
             get; set;
         }

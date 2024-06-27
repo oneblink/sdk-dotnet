@@ -5,6 +5,7 @@
 ### Added
 
 - `organisationManagedSecretId` to `EndpointConfiguration` and `FormSubmissionEventConfiguration`
+- `allowGeoscapeAddresses` to `Form`
 
 ## [6.2.0] - 2024-06-21
 
