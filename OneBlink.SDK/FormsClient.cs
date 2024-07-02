@@ -2,15 +2,12 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
-using Amazon;
-using Amazon.Runtime;
-using Amazon.S3;
-using Amazon.S3.Model;
 using Newtonsoft.Json;
 using OneBlink.SDK.Model;
 using System.Net.Mime;
 using System.Web;
 using Task = System.Threading.Tasks.Task;
+using System.Net;
 
 namespace OneBlink.SDK
 {
@@ -51,14 +48,23 @@ namespace OneBlink.SDK
                 throw new ArgumentException("submissionId must be provided with a value");
             }
 
-            string url = "/forms/" + formId + "/retrieval-credentials/" + submissionId;
-            if (isDraft)
+            try
             {
-                url = "/forms/" + formId + "/download-draft-data-credentials/" + submissionId;
+                if (isDraft)
+                {
+                    return await this.oneBlinkApiClient.GetRequest<FormSubmission<T>>("/storage/form-submission-draft-versions/" + submissionId);
+                }
 
+                return await this.oneBlinkApiClient.GetRequest<FormSubmission<T>>("/storage/forms/" + formId + "/submissions/" + submissionId);
             }
-            FormSubmissionRetrievalConfiguration formRetrievalData = await this.oneBlinkApiClient.PostRequest<FormSubmissionRetrievalConfiguration>(url);
-            return await GetFormSubmission<T>(formRetrievalData);
+            catch (OneBlinkAPIException error)
+            {
+                if (error.StatusCode == HttpStatusCode.Forbidden)
+                {
+                    return null;
+                }
+                throw error;
+            }
         }
 
         public async Task<FormsSearchResult> Search(bool? isAuthenticated,
@@ -146,43 +152,6 @@ namespace OneBlink.SDK
             await this.oneBlinkApiClient.DeleteRequest(url);
         }
 
-        private async Task<FormSubmission<T>> GetFormSubmission<T>(FormSubmissionRetrievalConfiguration formRetrievalData)
-        {
-            if (formRetrievalData == null || formRetrievalData.s3 == null || formRetrievalData.credentials == null)
-            {
-                throw new Exception("Could not create credentials to retrieve form submission data");
-            }
-
-            RegionEndpoint regionEndpoint = RegionEndpoint.GetBySystemName(formRetrievalData.s3.region);
-            SessionAWSCredentials sessionAWSCredentials = new SessionAWSCredentials(
-                formRetrievalData.credentials.AccessKeyId,
-                formRetrievalData.credentials.SecretAccessKey,
-                formRetrievalData.credentials.SessionToken
-            );
-            AmazonS3Client amazonS3Client = new AmazonS3Client(sessionAWSCredentials, regionEndpoint);
-
-            try
-            {
-                string responseBody = "";
-                using (GetObjectResponse response = await amazonS3Client.GetObjectAsync(formRetrievalData.s3.bucket, formRetrievalData.s3.key, null))
-                using (Stream responseStream = response.ResponseStream)
-                using (StreamReader reader = new StreamReader(responseStream))
-                {
-                    responseBody = reader.ReadToEnd();
-                }
-
-                return JsonConvert.DeserializeObject<FormSubmission<T>>(responseBody);
-            }
-            catch (AmazonS3Exception error)
-            {
-                if (error.ErrorCode == "NoSuchKey" || error.ErrorCode == "AccessDenied")
-                {
-                    return null;
-                }
-
-                throw error;
-            }
-        }
         public static string EncryptUserToken(string username, string secret)
         {
             if (String.IsNullOrEmpty(username) || String.IsNullOrEmpty(secret))
@@ -300,7 +269,7 @@ namespace OneBlink.SDK
 
         public async Task<Stream> GetFormSubmissionAttachment(long formId, string attachmentId)
         {
-            string url = "/submissions/" + formId.ToString() + "/attachments/" + attachmentId;
+            string url = "/storage/forms/" + formId.ToString() + "/attachments/" + attachmentId;
             return await this.oneBlinkApiClient.GetStreamRequest(url);
         }
 
