@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Added
+
+- `canCollapseFromBottom` to `FormElement`
+
 ## [6.2.1] - 2024-07-01
 
 ### Added
