@@ -6,6 +6,10 @@
 
 - form submissions and draft downloads to use storage endpoints
 
+### Added
+
+- `canCollapseFromBottom` to `FormElement`
+
 ## [6.2.1] - 2024-07-01
 
 ### Added

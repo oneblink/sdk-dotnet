@@ -437,6 +437,11 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+
+        public bool? canCollapseFromBottom
+        {
+            get; set;
+        }
         private static Guid initialiseId(Guid? id)
         {
             if (!id.HasValue)
@@ -786,7 +791,8 @@ namespace OneBlink.SDK.Model
             bool isCollapsed = false,
             List<FormElement> elements = null,
             List<string> customCssClasses = null,
-            string meta = null
+            string meta = null,
+            bool canCollapseFromBottom = true
         )
         {
             FormElement sectionElement = new FormElement();
@@ -801,6 +807,7 @@ namespace OneBlink.SDK.Model
             sectionElement.elements = elements;
             sectionElement.customCssClasses = customCssClasses;
             sectionElement.meta = meta;
+            sectionElement.canCollapseFromBottom = canCollapseFromBottom;
             return sectionElement;
         }
 
