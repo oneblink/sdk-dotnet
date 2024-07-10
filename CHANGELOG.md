@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## [6.2.2] - 2024-07-10
+
 ### Changed
 
 - form submissions and draft downloads to use storage endpoints
