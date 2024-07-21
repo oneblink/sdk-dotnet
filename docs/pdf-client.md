@@ -59,6 +59,10 @@ Stream response = await pdfClient.GetSubmissionPdf(formId, submissionId);
 
 A `Stream` object
 
+### Role Permissions Required
+
+PDF: `Developer`
+
 ## `GeneratePdf()`
 
 ### Example
@@ -86,6 +90,10 @@ Stream response = await pdfClient.GeneratePdf(pdfOptionsRequest);
 ### Result
 
 A `Stream` object
+
+### Role Permissions Required
+
+PDF: `Developer`
 
 ## `GeneratePdfFromSubmissionData()`
 
@@ -117,3 +125,7 @@ Stream response = await pdfClient.GeneratePdfFromSubmissionData<MySubmissionData
 ### Result
 
 A `Stream` object
+
+### Role Permissions Required
+
+PDF: `Developer`

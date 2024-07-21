@@ -37,3 +37,7 @@ string messageId = await EmailClient.SendEmail(body, attachments, from, toAddres
 ### Result
 
 A `Task<string>`
+
+### Role Permissions Required
+
+No Permissions Required

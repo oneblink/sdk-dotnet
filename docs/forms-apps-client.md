@@ -59,6 +59,10 @@ JWTPayload result = await formsAppsClient.VerifyJWT(token);
 
 A `OneBlink.SDK.Model.JWTPayload` class
 
+### Role Permissions Required
+
+No Permissions Required
+
 ## `Get()`
 
 Retrieve a forms app by id
@@ -86,6 +90,12 @@ var formsApp = await formsAppsClient.Get<FormsListFormApp>(id);
 ### Result
 
 A `T` class
+
+### Role Permissions Required
+
+For Apps: `Manager` or `Read Only`
+
+For Data Manager, Approvals, Volunteers: `Manager` or `Read Only`
 
 ## `Create()`
 
@@ -115,6 +125,12 @@ var savedFormsApps = await formsAppsClient.Create<FormsListFormApp>(newFormsApp)
 
 A `T` class
 
+### Role Permissions Required
+
+For Apps: `Manager`
+
+For Data Manager, Approvals, Volunteers: `Manager`
+
 ## `Update()`
 
 Update a existing forms app
@@ -143,6 +159,12 @@ FormsListFormApp updatedFormsApp = await formsAppsClient.Update<FormsListFormApp
 
 A `FormsApp` class
 
+### Role Permissions Required
+
+For Apps: `Manager` or `Read Only`
+
+For Data Manager, Approvals, Volunteers: `Manager` or `Read Only`
+
 ## `Delete()`
 
 ### Example
@@ -167,6 +189,12 @@ await formsAppsClient.Delete(formsAppId);
 ### Result
 
 No return value (`void`)
+
+### Role Permissions Required
+
+For Apps: `Manager`
+
+For Data Manager, Approvals, Volunteers: `Manager`
 
 ## `SetSendingAddress()`
 
@@ -198,6 +226,12 @@ OneBlink.SDK.Model.FormsAppSendingAddressResponse sendingAddress = await formsAp
 
 A `OneBlink.SDK.Model.FormsAppSendingAddressResponse` class
 
+### Role Permissions Required
+
+For Apps: `Manager`
+
+For Data Manager, Approvals, Volunteers: `Manager`
+
 ## `DeleteSendingAddress()`
 
 ### Example
@@ -223,6 +257,12 @@ await formsAppsClient.DeleteSendingAddress(formsAppId);
 
 No return value (`void`)
 
+### Role Permissions Required
+
+For Apps: `Manager`
+
+For Data Manager, Approvals, Volunteers: `Manager`
+
 ## `GetSendingAddress()`
 
 ### Example
@@ -247,6 +287,12 @@ OneBlink.SDK.Model.FormsAppSendingAddressResponse sendingAddress = await formsAp
 ### Result
 
 A `OneBlink.SDK.Model.FormsAppSendingAddressResponse` class
+
+### Role Permissions Required
+
+For Apps: `Manager` or `Read Only`
+
+For Data Manager, Approvals, Volunteers: `Manager` or `Read Only`
 
 ## `GetMyFormsApp()`
 
@@ -275,6 +321,10 @@ OneBlink.SDK.Model.FormsApp formsApp = await formsAppsClient.GetMyFormsApp(userT
 
 A `FormsApp` class
 
+### Role Permissions Required
+
+No Permissions Required
+
 ## `CreateUser()`
 
 Create a new forms app user
@@ -302,6 +352,10 @@ OneBlink.SDK.Model.FormsAppUser savedUser = await formsAppsClient.CreateUser(new
 
 A `FormsAppUser` class
 
+### Role Permissions Required
+
+App Users: `Manager`
+
 ## `DeleteUser()`
 
 ### Example
@@ -326,3 +380,7 @@ await formsAppsClient.DeleteUser(formsAppUserId);
 ### Result
 
 No return value (`void`)
+
+### Role Permissions Required
+
+App Users: `Manager`

@@ -31,6 +31,10 @@ string username = FormsClient.DecryptUserToken(
 
 A `string`
 
+### Role Permissions Required
+
+No Permissions Required
+
 ## `EncryptUserToken()`
 
 ### Example
@@ -56,6 +60,10 @@ string userToken = FormsClient.EncryptUserToken(
 ### Result
 
 A `string`
+
+### Role Permissions Required
+
+No Permissions Required
 
 ## Instance Functions
 
@@ -121,6 +129,10 @@ Console.WriteLine("Submission as JSON string: " + formSubmission.submission);
 
 A `FormSubmission<T>` class or `null`
 
+### Role Permissions Required
+
+Form Submission: `Manager` or `Read Only`
+
 ## `Search()`
 
 ### Example
@@ -155,6 +167,10 @@ OneBlink.SDK.Model.FormsSearchResult response = await formsClient.Search(isAuthe
 
 A `FormsSearchResult` class
 
+### Roles Permissions Required
+
+Form: `Manager` or `Read Only`
+
 ## `SearchSubmissions(long formId)`
 
 Search for details on submissions that match the formId provided.
@@ -185,6 +201,10 @@ OneBlink.SDK.Model.FormSubmissionSearchResult response = await formsClient.Searc
 ### Result
 
 A `FormSubmissionSearchResult` class
+
+### Role Permissions Required
+
+Form Submission: `Manager` or `Read Only`
 
 ## `SearchSubmissions(long formId, DateTime submissionDateFrom, DateTime submissionDateTo, int limit, int offset, bool? isValid, string submissionTitle`
 
@@ -230,6 +250,10 @@ OneBlink.SDK.Model.FormSubmissionSearchResult response = await formsClient.Searc
 
 A `FormSubmissionSearchResult` class
 
+### Role Permissions Required
+
+Form Submission: `Manager` or `Read Only`
+
 ## `SearchSubmissionsFromDate(long formId, DateTime submissionDateFrom)`
 
 Search for details on submissions for a particular formId that occurred **after** a given date.
@@ -266,6 +290,10 @@ OneBlink.SDK.Model.FormSubmissionSearchResult response = await formsClient.Searc
 
 A `FormSubmissionSearchResult` class
 
+### Role Permissions Required
+
+Form Submission: `Manager` or `Read Only`
+
 ## `SearchSubmissionsToDate(long formId, DateTime submissionDateTo)`
 
 Search for details on submissions for a particular formId that occurred **before** a given date.
@@ -300,6 +328,10 @@ OneBlink.SDK.Model.FormSubmissionSearchResult response = await formsClient.Searc
 
 A `FormSubmissionSearchResult` class
 
+### Role Permissions Required
+
+Form Submission: `Manager` or `Read Only`
+
 ## `Get()`
 
 Retrieve a form by id and optionally include the details of any child form elements
@@ -328,6 +360,10 @@ OneBlink.SDK.Model.Form form = await formsClient.Get(id, false);
 
 A `Form` class
 
+### Role Permissions Required
+
+Form: `Manager` or `Read Only`
+
 ## `Create()`
 
 Create a new form
@@ -354,6 +390,10 @@ OneBlink.SDK.Model.Form savedForm = await formsClient.Create(newForm);
 ### Result
 
 A `Form` class
+
+### Role Permissions Required
+
+Form: `Manager`
 
 ## `Update()`
 
@@ -383,6 +423,10 @@ OneBlink.SDK.Model.Form updatedForm = await formsClient.Update(formToUpdate);
 
 A `Form` class
 
+### Role Permissions Required
+
+Form: `Manager`
+
 ## `Delete()`
 
 ### Example
@@ -408,6 +452,10 @@ await formsClient.Delete(formId);
 ### Result
 
 No return value (`void`)
+
+### Role Permissions Required
+
+Form: `Manager`
 
 ## `GenerateFormUrl()`
 
@@ -439,6 +487,22 @@ FormUrlResult result = await formsClient.GenerateFormUrl(
 
 A `OneBlink.SDK.Model.FormUrlResult` class
 
+### Role Permissions Required
+
+#### For Private Forms
+
+Forms: `Manager` or `Read Only`
+
+Apps: `Manager` or `Read Only`
+
+#### For Public Forms
+
+Apps: `Manager` or `Read Only`
+
+#### For Form Submission and Pre-Fill Data
+
+FaaS: `Developer`
+
 ## `GenerateSubmissionDataUrl()`
 
 ### Example
@@ -465,6 +529,10 @@ SubmissionDataUrl submissionDataUrl = await formsClient.GenerateSubmissionDataUr
 
 A `OneBlink.SDK.Model.SubmissionDataUrl` class
 
+### Role Permissions Required
+
+Form Submissions: `Manager` or `Read Only`
+
 ## `GetFormSubmissionAttachment()`
 
 ### Example
@@ -489,6 +557,10 @@ Stream attachmentStream = await formsClient.GetFormSubmissionAttachment(formId, 
 
 A `System.IO.Stream` class
 
+### Role Permissions Required
+
+Form Submission: `Manager` or `Read Only`
+
 ## `GetFormSubmissionAttachmentMeta()`
 
 ### Example
@@ -512,6 +584,10 @@ FormAttachmentMeta meta = await formsClient.GetFormSubmissionAttachmentMeta(form
 ### Result
 
 A `FormAttachmentMeta` class
+
+### Role Permissions Required
+
+Form Submission: `Manager` or `Read Only`
 
 ## `CreateSubmissionAttachment()`
 
@@ -541,6 +617,10 @@ AttachmentData attachmentData = await formsClient.CreateSubmissionAttachment(for
 
 A `OneBlink.SDK.Model.AttachmentData` class
 
+### Role Permissions Required
+
+FaaS: `Developer`
+
 ## `GenerateSubmissionAttachmentUrl()`
 
 ### Example
@@ -567,6 +647,10 @@ SubmissionDataUrl submissionDataUrl = await formsClient.GenerateSubmissionAttach
 
 A `OneBlink.SDK.Model.SubmissionDataUrl` class
 
+### Role Permissions Required
+
+Form Submission: `Manager` or `Read Only`
+
 ## `GenerateWorkflowAttachmentLink()`
 
 ### Example
@@ -592,6 +676,10 @@ SubmissionDataUrl submissionDataUrl = await formsClient.GenerateWorkflowAttachme
 ### Result
 
 A `OneBlink.SDK.Model.SubmissionDataUrl` class
+
+### Role Permissions Required
+
+Form Submission: `Manager` or `Read Only`
 
 ## `Migrate()`
 
@@ -620,6 +708,10 @@ await formsClient.Migrate(formMigrationOptions);
 
 No return value (`void`)
 
+### Role Permissions Required
+
+Form: `Manager`
+
 ## `GetFormSubmissionMeta()`
 
 Retrieve the Form Submission metadata for by submission id. This will include the approval associated with the submission if the form had an approval flow setup.
@@ -646,6 +738,10 @@ OneBlink.SDK.Model.FormSubmissionMetadataResponse formSubmissionMetadataResponse
 
 A `FormSubmissionMetadataResponse` class
 
+### Role Permissions Required
+
+Form Submissions: `Manager` or `Read Only`
+
 ## `UploadEmailAttachment()`
 
 ### Example
@@ -670,6 +766,10 @@ EmailAttachmentData emailAttachmentData = await formsClient.UploadEmailAttachmen
 ### Result
 
 A `OneBlink.SDK.Model.EmailAttachmentData` class
+
+### Role Permissions Required
+
+FaaS: `Developer`
 
 ## `ExecuteWorkflowEvent()`
 
@@ -698,3 +798,7 @@ FormSubmissionWorkflowEvent formSubmissionWorkflowEvent = await formsClient.Exec
 ### Result
 
 A `OneBlink.SDK.Model.FormSubmissionWorkflowEvent` class
+
+### Role Permissions Required
+
+Form Submission: `Manager`

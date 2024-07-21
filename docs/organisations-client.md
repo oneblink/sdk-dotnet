@@ -50,3 +50,7 @@ using (FileStream stream = new FileStream("contents.txt", FileMode.Open))
 ### Result
 
 A `string` with the public url to the asset
+
+### Role Permissions Required
+
+No Permissions Required

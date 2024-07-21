@@ -73,6 +73,10 @@ OneBlink.SDK.Model.Job job = await jobsClient.CreateJob(job);
 
 A `OneBlink.SDK.Model.Job` Object
 
+### Role Permissions Required
+
+Jobs: `Manager`
+
 ## `CreateJob(job, T)`
 
 ### Example
@@ -127,6 +131,10 @@ OneBlink.SDK.Model.Job job = await jobsClient.CreateJob<MyPreFillDataType>(job, 
 
 A `OneBlink.SDK.Model.Job` Object
 
+### Role Permissions Required
+
+Jobs: `Manager`
+
 ## `DeleteJob(jobId)`
 
 ### Example
@@ -152,6 +160,10 @@ await jobsClient.DeleteJob(jobId);
 ### Result
 
 No return value (`void`)
+
+### Role Permissions Required
+
+Jobs: `Manager`
 
 ## `Search(searchParams)`
 
@@ -188,6 +200,10 @@ JobsSearchResult results = await jobsClient.Search(searchParams);
 
 Returns a `OneBlink.SDK.Model.JobsSearchResult` object.
 
+### Role Permissions Required
+
+Jobs: `Manager` or `Read Only`
+
 ## `SearchByExternalId(externalId)`
 
 ### Example
@@ -212,6 +228,10 @@ JobsSearchResult results = await jobsClient.SearchByExternalId(externalId);
 ### Result
 
 Returns a `OneBlink.SDK.Model.JobsSearchResult` object.
+
+### Role Permissions Required
+
+Jobs: `Manager` or `Read Only`
 
 ## `SearchByFormId(formId)`
 
@@ -238,6 +258,10 @@ JobsSearchResult results = await jobsClient.SearchByFormId(formId);
 
 Returns a `OneBlink.SDK.Model.JobsSearchResult` object.
 
+### Role Permissions Required
+
+Jobs: `Manager` or `Read Only`
+
 ## `SearchByUsername(username)`
 
 ### Example
@@ -262,3 +286,7 @@ JobsSearchResult results = await jobsClient.SearchByUsername(username);
 ### Result
 
 Returns a `OneBlink.SDK.Model.JobsSearchResult` object.
+
+### Role Permissions Required
+
+Jobs: `Manager` or `Read Only`
