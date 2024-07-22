@@ -769,7 +769,7 @@ A `OneBlink.SDK.Model.EmailAttachmentData` class
 
 ### Role Permissions Required
 
-FaaS: `Developer`
+Email Attachment: `Developer`
 
 ## `ExecuteWorkflowEvent()`
 
