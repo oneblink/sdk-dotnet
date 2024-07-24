@@ -159,9 +159,9 @@ OneBlink.SDK.Model.FormsSearchResult response = await formsClient.Search(isAuthe
 
 A `FormsSearchResult` class
 
-### Roles Permissions Required
+### Role Permissions Required
 
-Form: `Manager` or `Read Only`
+Forms: `Manager` or `Read Only`
 
 ## `SearchSubmissions(long formId)`
 
