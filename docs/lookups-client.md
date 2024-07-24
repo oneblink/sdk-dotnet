@@ -87,7 +87,7 @@ A `FormElementLookup` class
 
 ### Role Permissions Required
 
-Form Element Lookups: `Manager` or `Read Only`
+Lookups: `Manager` or `Read Only`
 
 ## `Create()`
 
@@ -118,7 +118,7 @@ A `FormElementLookup` class
 
 ### Role Permissions Required
 
-Form Element Lookups: `Manager`
+Lookups: `Manager`
 
 ## `Update()`
 
@@ -149,7 +149,7 @@ A `FormElementLookup` class
 
 ### Role Permissions Required
 
-Form Element Lookups: `Manager`
+Lookups: `Manager`
 
 ## `Delete()`
 
@@ -178,4 +178,4 @@ No return value (`void`)
 
 ### Role Permissions Required
 
-Form Element Lookups: `Manager`
+Lookups: `Manager`

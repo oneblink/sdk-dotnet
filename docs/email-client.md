@@ -40,4 +40,8 @@ A `Task<string>`
 
 ### Role Permissions Required
 
-No Permissions Required
+In AWS, you will require an IAM Role associated with the email used that has
+the permissions in order to use this function:
+
+- SendEmail
+- SendRawEmail

@@ -93,9 +93,7 @@ A `T` class
 
 ### Role Permissions Required
 
-For Apps: `Manager` or `Read Only`
-
-For Data Manager, Approvals, Volunteers: `Manager` or `Read Only`
+Apps: `Manager` or `Read Only`
 
 ## `Create()`
 
@@ -127,9 +125,7 @@ A `T` class
 
 ### Role Permissions Required
 
-For Apps: `Manager`
-
-For Data Manager, Approvals, Volunteers: `Manager`
+Apps: `Manager`
 
 ## `Update()`
 
@@ -161,9 +157,7 @@ A `FormsApp` class
 
 ### Role Permissions Required
 
-For Apps: `Manager` or `Read Only`
-
-For Data Manager, Approvals, Volunteers: `Manager` or `Read Only`
+Apps: `Manager` or `Read Only`
 
 ## `Delete()`
 
@@ -192,9 +186,7 @@ No return value (`void`)
 
 ### Role Permissions Required
 
-For Apps: `Manager`
-
-For Data Manager, Approvals, Volunteers: `Manager`
+Apps: `Manager`
 
 ## `SetSendingAddress()`
 
@@ -228,9 +220,7 @@ A `OneBlink.SDK.Model.FormsAppSendingAddressResponse` class
 
 ### Role Permissions Required
 
-For Apps: `Manager`
-
-For Data Manager, Approvals, Volunteers: `Manager`
+Apps: `Manager`
 
 ## `DeleteSendingAddress()`
 
@@ -259,9 +249,7 @@ No return value (`void`)
 
 ### Role Permissions Required
 
-For Apps: `Manager`
-
-For Data Manager, Approvals, Volunteers: `Manager`
+Apps: `Manager`
 
 ## `GetSendingAddress()`
 
@@ -290,9 +278,7 @@ A `OneBlink.SDK.Model.FormsAppSendingAddressResponse` class
 
 ### Role Permissions Required
 
-For Apps: `Manager` or `Read Only`
-
-For Data Manager, Approvals, Volunteers: `Manager` or `Read Only`
+Apps: `Manager` or `Read Only`
 
 ## `GetMyFormsApp()`
 

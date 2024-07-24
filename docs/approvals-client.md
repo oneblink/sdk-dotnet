@@ -61,9 +61,9 @@ GetFormSubmissionAdministrationApprovalsResponse response = await approvalsClien
 
 A `GetFormSubmissionAdministrationApprovalsResponse` Object
 
-### Role Permission Required
+### Role Permissions Required
 
-FaaS: `Developer`
+Submission Data: `Manager` or `Read Only`
 
 ## `GetFormSubmissionApproval()`
 
@@ -89,9 +89,9 @@ GetFormSubmissionApprovalResponse response = await approvalsClient.GetFormSubmis
 
 A `GetFormSubmissionApprovalResponse` Object
 
-### Role Permission Required
+### Role Permissions Required
 
-FaaS: `Developer
+Submission Data: `Manager` or `Read Only`
 
 ## `GetFormApprovalFlowInstance()`
 
@@ -117,6 +117,6 @@ GetFormApprovalFlowInstanceResponse response = await approvalsClient.GetFormAppr
 
 A `GetFormApprovalFlowInstanceResponse` Object
 
-### Role Permission Required
+### Role Permissions Required
 
-FaaS: `Developer`
+Submission Data: `Manager` or `Read Only`

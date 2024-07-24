@@ -55,7 +55,7 @@ A `FormsAppEnvironmentsSearchResult` class
 
 ### Role Permissions Required
 
-Forms App Environments: `Manager` or `Read Only`
+Environments: `Manager` or `Read Only`
 
 ## `Get()`
 
@@ -86,7 +86,7 @@ A `FormsAppEnvironments` class
 
 ### Role Permissions Required
 
-Forms App Environments: `Manager` or `Read Only`
+Environments: `Manager` or `Read Only`
 
 ## `Create()`
 
@@ -117,7 +117,7 @@ A `FormsAppEnvironment` class
 
 ### Role Permissions Required
 
-Forms App Environments: `Manager`
+Environments: `Manager`
 
 ## `Update()`
 
@@ -148,7 +148,7 @@ A `FormsAppEnvironment` class
 
 ### Role Permissions Required
 
-Forms App Environments: `Manager`
+Environments: `Manager`
 
 ## `Delete()`
 
@@ -177,4 +177,4 @@ No return value (`void`)
 
 ### Role Permissions Required
 
-Forms App Environments: `Manager`
+Environments: `Manager`

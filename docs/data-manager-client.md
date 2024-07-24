@@ -48,7 +48,7 @@ A `FormStoreDefinition` Object
 
 ### Role Permissions Required
 
-Form Submissions: `Manager` or `Read Only`
+Submission Data: `Manager` or `Read Only`
 
 ## `Search()`
 
@@ -91,4 +91,4 @@ A `FormStoreSearchResult<T>` Object
 
 ### Role Permissions Required
 
-Form Submissions: `Manager` or `Read Only`
+Submission Data: `Manager` or `Read Only`

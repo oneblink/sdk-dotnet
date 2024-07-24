@@ -86,7 +86,7 @@ A `FormElementList` class
 
 ### Role Permissions Required
 
-Form Element Lists: `Manager`
+Lists: `Manager`
 
 ## `Update()`
 
@@ -117,7 +117,7 @@ A `FormElementList` class
 
 ### Role Permissions Required
 
-Form Element Lists: `Manager`
+Lists: `Manager`
 
 ## `Delete()`
 
@@ -146,4 +146,4 @@ No return value (`void`)
 
 ### Role Permissions Required
 
-Form Element Lists: `Manager`
+Lists: `Manager`

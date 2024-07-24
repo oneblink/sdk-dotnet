@@ -61,7 +61,7 @@ A `Stream` object
 
 ### Role Permissions Required
 
-PDF: `Developer`
+PDF Generation: `On`
 
 ## `GeneratePdf()`
 
@@ -93,7 +93,7 @@ A `Stream` object
 
 ### Role Permissions Required
 
-PDF: `Developer`
+PDF Generation: `On`
 
 ## `GeneratePdfFromSubmissionData()`
 
@@ -128,4 +128,4 @@ A `Stream` object
 
 ### Role Permissions Required
 
-PDF: `Developer`
+PDF Generation: `On`

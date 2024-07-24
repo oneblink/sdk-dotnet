@@ -31,10 +31,6 @@ string username = FormsClient.DecryptUserToken(
 
 A `string`
 
-### Role Permissions Required
-
-No Permissions Required
-
 ## `EncryptUserToken()`
 
 ### Example
@@ -60,10 +56,6 @@ string userToken = FormsClient.EncryptUserToken(
 ### Result
 
 A `string`
-
-### Role Permissions Required
-
-No Permissions Required
 
 ## Instance Functions
 
@@ -131,7 +123,7 @@ A `FormSubmission<T>` class or `null`
 
 ### Role Permissions Required
 
-Form Submission: `Manager` or `Read Only`
+Submission Data: `Manager` or `Read Only`
 
 ## `Search()`
 
@@ -204,7 +196,7 @@ A `FormSubmissionSearchResult` class
 
 ### Role Permissions Required
 
-Form Submission: `Manager` or `Read Only`
+Submission Data: `Manager` or `Read Only`
 
 ## `SearchSubmissions(long formId, DateTime submissionDateFrom, DateTime submissionDateTo, int limit, int offset, bool? isValid, string submissionTitle`
 
@@ -252,7 +244,7 @@ A `FormSubmissionSearchResult` class
 
 ### Role Permissions Required
 
-Form Submission: `Manager` or `Read Only`
+Submission Data: `Manager` or `Read Only`
 
 ## `SearchSubmissionsFromDate(long formId, DateTime submissionDateFrom)`
 
@@ -292,7 +284,7 @@ A `FormSubmissionSearchResult` class
 
 ### Role Permissions Required
 
-Form Submission: `Manager` or `Read Only`
+Submission Data: `Manager` or `Read Only`
 
 ## `SearchSubmissionsToDate(long formId, DateTime submissionDateTo)`
 
@@ -330,7 +322,7 @@ A `FormSubmissionSearchResult` class
 
 ### Role Permissions Required
 
-Form Submission: `Manager` or `Read Only`
+Submission Data: `Manager` or `Read Only`
 
 ## `Get()`
 
@@ -362,7 +354,7 @@ A `Form` class
 
 ### Role Permissions Required
 
-Form: `Manager` or `Read Only`
+Forms: `Manager` or `Read Only`
 
 ## `Create()`
 
@@ -393,7 +385,7 @@ A `Form` class
 
 ### Role Permissions Required
 
-Form: `Manager`
+Forms: `Manager`
 
 ## `Update()`
 
@@ -425,7 +417,7 @@ A `Form` class
 
 ### Role Permissions Required
 
-Form: `Manager`
+Forms: `Manager`
 
 ## `Delete()`
 
@@ -455,7 +447,7 @@ No return value (`void`)
 
 ### Role Permissions Required
 
-Form: `Manager`
+Forms: `Manager`
 
 ## `GenerateFormUrl()`
 
@@ -531,7 +523,7 @@ A `OneBlink.SDK.Model.SubmissionDataUrl` class
 
 ### Role Permissions Required
 
-Form Submissions: `Manager` or `Read Only`
+Submission Data: `Manager` or `Read Only`
 
 ## `GetFormSubmissionAttachment()`
 
@@ -559,7 +551,7 @@ A `System.IO.Stream` class
 
 ### Role Permissions Required
 
-Form Submission: `Manager` or `Read Only`
+Submission Data: `Manager` or `Read Only`
 
 ## `GetFormSubmissionAttachmentMeta()`
 
@@ -587,7 +579,7 @@ A `FormAttachmentMeta` class
 
 ### Role Permissions Required
 
-Form Submission: `Manager` or `Read Only`
+Submission Data: `Manager` or `Read Only`
 
 ## `CreateSubmissionAttachment()`
 
@@ -649,7 +641,7 @@ A `OneBlink.SDK.Model.SubmissionDataUrl` class
 
 ### Role Permissions Required
 
-Form Submission: `Manager` or `Read Only`
+Submission Data: `Manager` or `Read Only`
 
 ## `GenerateWorkflowAttachmentLink()`
 
@@ -679,7 +671,7 @@ A `OneBlink.SDK.Model.SubmissionDataUrl` class
 
 ### Role Permissions Required
 
-Form Submission: `Manager` or `Read Only`
+Submission Data: `Manager` or `Read Only`
 
 ## `Migrate()`
 
@@ -710,7 +702,7 @@ No return value (`void`)
 
 ### Role Permissions Required
 
-Form: `Manager`
+Forms: `Manager`
 
 ## `GetFormSubmissionMeta()`
 
@@ -740,7 +732,7 @@ A `FormSubmissionMetadataResponse` class
 
 ### Role Permissions Required
 
-Form Submissions: `Manager` or `Read Only`
+Submission Data: `Manager` or `Read Only`
 
 ## `UploadEmailAttachment()`
 
@@ -769,7 +761,7 @@ A `OneBlink.SDK.Model.EmailAttachmentData` class
 
 ### Role Permissions Required
 
-Email Attachment: `Developer`
+Email Attachments: `On`
 
 ## `ExecuteWorkflowEvent()`
 
@@ -801,4 +793,4 @@ A `OneBlink.SDK.Model.FormSubmissionWorkflowEvent` class
 
 ### Role Permissions Required
 
-Form Submission: `Manager`
+Submission Data: `Manager`
