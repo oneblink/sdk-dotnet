@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Added
+
+- Minimum Role Permission to Client docs
+
 ## [6.2.2] - 2024-07-10
 
 ### Changed

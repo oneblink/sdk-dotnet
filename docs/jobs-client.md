@@ -73,6 +73,12 @@ OneBlink.SDK.Model.Job job = await jobsClient.CreateJob(job);
 
 A `OneBlink.SDK.Model.Job` Object
 
+**Minimum Role Permission**
+
+Jobs: _Manager_
+
+Upload Form Prefill Data: _On_ (only if using `preFillData`)
+
 ## `CreateJob(job, T)`
 
 ### Example
@@ -127,6 +133,12 @@ OneBlink.SDK.Model.Job job = await jobsClient.CreateJob<MyPreFillDataType>(job, 
 
 A `OneBlink.SDK.Model.Job` Object
 
+**Minimum Role Permission**
+
+Jobs: _Manager_
+
+Upload Form Prefill Data: _On_ (only if using `preFillData`)
+
 ## `DeleteJob(jobId)`
 
 ### Example
@@ -152,6 +164,10 @@ await jobsClient.DeleteJob(jobId);
 ### Result
 
 No return value (`void`)
+
+**Minimum Role Permission**
+
+Jobs: _Manager_
 
 ## `Search(searchParams)`
 
@@ -188,6 +204,10 @@ JobsSearchResult results = await jobsClient.Search(searchParams);
 
 Returns a `OneBlink.SDK.Model.JobsSearchResult` object.
 
+**Minimum Role Permission**
+
+Jobs: _Read Only_
+
 ## `SearchByExternalId(externalId)`
 
 ### Example
@@ -212,6 +232,10 @@ JobsSearchResult results = await jobsClient.SearchByExternalId(externalId);
 ### Result
 
 Returns a `OneBlink.SDK.Model.JobsSearchResult` object.
+
+**Minimum Role Permission**
+
+Jobs: _Read Only_
 
 ## `SearchByFormId(formId)`
 
@@ -238,6 +262,10 @@ JobsSearchResult results = await jobsClient.SearchByFormId(formId);
 
 Returns a `OneBlink.SDK.Model.JobsSearchResult` object.
 
+**Minimum Role Permission**
+
+Jobs: _Read Only_
+
 ## `SearchByUsername(username)`
 
 ### Example
@@ -262,3 +290,7 @@ JobsSearchResult results = await jobsClient.SearchByUsername(username);
 ### Result
 
 Returns a `OneBlink.SDK.Model.JobsSearchResult` object.
+
+**Minimum Role Permission**
+
+Jobs: _Read Only_

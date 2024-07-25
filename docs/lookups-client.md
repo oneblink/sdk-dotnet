@@ -54,6 +54,10 @@ OneBlink.SDK.Model.FormElementLookupSearchResult response = await formElementLoo
 
 A `FormElementLookupSearchResult` class
 
+**Minimum Role Permission**
+
+Lookups: _Read Only_
+
 ## `Get()`
 
 Retrieve a form element lookup by id
@@ -80,6 +84,10 @@ OneBlink.SDK.Model.FormElementLookup formElementLookup = await formElementLookup
 ### Result
 
 A `FormElementLookup` class
+
+**Minimum Role Permission**
+
+Lookups: _Read Only_
 
 ## `Create()`
 
@@ -108,6 +116,10 @@ OneBlink.SDK.Model.FormElementLookup savedFormElementLookup = await formElementL
 
 A `FormElementLookup` class
 
+**Minimum Role Permission**
+
+Lookups: _Manager_
+
 ## `Update()`
 
 Update a form element lookup
@@ -135,6 +147,10 @@ OneBlink.SDK.Model.FormElementLookup updatedFormElementLookup = await formElemen
 
 A `FormElementLookup` class
 
+**Minimum Role Permission**
+
+Lookups: _Manager_
+
 ## `Delete()`
 
 ### Example
@@ -159,3 +175,7 @@ await formElementLookupsClient.Delete(formElementLookupId);
 ### Result
 
 No return value (`void`)
+
+**Minimum Role Permission**
+
+Lookups: _Manager_

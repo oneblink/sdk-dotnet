@@ -46,6 +46,10 @@ FormStoreDefinition response = await approvalsClient.GetFormDefinition(formId);
 
 A `FormStoreDefinition` Object
 
+**Minimum Role Permission**
+
+Submission Data: _Read Only_
+
 ## `Search()`
 
 ### Example
@@ -84,3 +88,7 @@ FormStoreSearchResult<SubmissionResult> response = await dataManagerClient.Searc
 ### Result
 
 A `FormStoreSearchResult<T>` Object
+
+**Minimum Role Permission**
+
+Submission Data: _Read Only_

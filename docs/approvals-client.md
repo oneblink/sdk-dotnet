@@ -61,6 +61,10 @@ GetFormSubmissionAdministrationApprovalsResponse response = await approvalsClien
 
 A `GetFormSubmissionAdministrationApprovalsResponse` Object
 
+**Minimum Role Permission**
+
+Submission Data: _Read Only_
+
 ## `GetFormSubmissionApproval()`
 
 ### Example
@@ -85,6 +89,10 @@ GetFormSubmissionApprovalResponse response = await approvalsClient.GetFormSubmis
 
 A `GetFormSubmissionApprovalResponse` Object
 
+**Minimum Role Permission**
+
+Submission Data: _Read Only_
+
 ## `GetFormApprovalFlowInstance()`
 
 ### Example
@@ -108,3 +116,7 @@ GetFormApprovalFlowInstanceResponse response = await approvalsClient.GetFormAppr
 ### Result
 
 A `GetFormApprovalFlowInstanceResponse` Object
+
+**Minimum Role Permission**
+
+Submission Data: _Read Only_

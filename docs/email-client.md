@@ -37,3 +37,11 @@ string messageId = await EmailClient.SendEmail(body, attachments, from, toAddres
 ### Result
 
 A `Task<string>`
+
+### Permissions
+
+In AWS, you will require an IAM Role associated with the email used that has
+the permissions in order to use this function:
+
+- SendEmail
+- SendRawEmail

@@ -87,6 +87,10 @@ var formsApp = await formsAppsClient.Get<FormsListFormApp>(id);
 
 A `T` class
 
+**Minimum Role Permission**
+
+Apps: _Read Only_
+
 ## `Create()`
 
 Create a new forms app
@@ -114,6 +118,10 @@ var savedFormsApps = await formsAppsClient.Create<FormsListFormApp>(newFormsApp)
 ### Result
 
 A `T` class
+
+**Minimum Role Permission**
+
+Apps: _Manager_
 
 ## `Update()`
 
@@ -143,6 +151,10 @@ FormsListFormApp updatedFormsApp = await formsAppsClient.Update<FormsListFormApp
 
 A `FormsApp` class
 
+**Minimum Role Permission**
+
+Apps: _Manager_
+
 ## `Delete()`
 
 ### Example
@@ -167,6 +179,10 @@ await formsAppsClient.Delete(formsAppId);
 ### Result
 
 No return value (`void`)
+
+**Minimum Role Permission**
+
+Apps: _Manager_
 
 ## `SetSendingAddress()`
 
@@ -198,6 +214,10 @@ OneBlink.SDK.Model.FormsAppSendingAddressResponse sendingAddress = await formsAp
 
 A `OneBlink.SDK.Model.FormsAppSendingAddressResponse` class
 
+**Minimum Role Permission**
+
+App Users: _Manager_
+
 ## `DeleteSendingAddress()`
 
 ### Example
@@ -223,6 +243,10 @@ await formsAppsClient.DeleteSendingAddress(formsAppId);
 
 No return value (`void`)
 
+**Minimum Role Permission**
+
+App Users: _Manager_
+
 ## `GetSendingAddress()`
 
 ### Example
@@ -247,6 +271,10 @@ OneBlink.SDK.Model.FormsAppSendingAddressResponse sendingAddress = await formsAp
 ### Result
 
 A `OneBlink.SDK.Model.FormsAppSendingAddressResponse` class
+
+**Minimum Role Permission**
+
+App Users: _Read Only_
 
 ## `GetMyFormsApp()`
 
@@ -302,6 +330,10 @@ OneBlink.SDK.Model.FormsAppUser savedUser = await formsAppsClient.CreateUser(new
 
 A `FormsAppUser` class
 
+**Minimum Role Permission**
+
+App Users: _Manager_
+
 ## `DeleteUser()`
 
 ### Example
@@ -326,3 +358,7 @@ await formsAppsClient.DeleteUser(formsAppUserId);
 ### Result
 
 No return value (`void`)
+
+**Minimum Role Permission**
+
+App Users: _Manager_

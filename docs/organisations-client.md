@@ -2,7 +2,8 @@
 
 ## Instance Functions
 
-- [`UploadAsset()`](#getformsubmission)
+- [`UploadAsset()`](#uploadasset)
+- [`GetOrganisation()`](#getorganisation)
 
 ## Constructor
 
@@ -50,3 +51,27 @@ using (FileStream stream = new FileStream("contents.txt", FileMode.Open))
 ### Result
 
 A `string` with the public url to the asset
+
+## `GetOrganisation()`
+
+### Example
+
+```c#
+string organisationId = "abcdefghijklmn1234567890";
+Organisation organisation = organisationsClient.GetOrganisation(organisationId)
+```
+
+### Parameters
+
+| Parameter        | Required | Type     | Description                |
+| ---------------- | -------- | -------- | -------------------------- |
+| `organisationId` | Yes      | `string` | The id of the Organisation |
+
+### Throws
+
+- `OneBlinkAPIException`
+- `Exception`
+
+### Result
+
+An `Organisation` class
