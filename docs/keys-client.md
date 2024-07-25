@@ -45,6 +45,6 @@ OneBlink.SDK.Model.DeveloperKey developerKey = await keysClient.GetDeveloperKey(
 
 A `OneBlink.SDK.Model.DeveloperKey` class
 
-### Role Permissions Required
+**Minimum Role Permission**
 
-Calendar Bookings, Integrations & Developer Keys: `Manager` or `Read Only`
+Calendar Bookings, Integrations & Developer Keys: _Read Only_

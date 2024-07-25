@@ -47,7 +47,3 @@ if (role != null) {
 ### Result
 
 A `OneBlink.SDK.Model.Role` class or `null`
-
-### Role Permissions Required
-
-No Permissions Required

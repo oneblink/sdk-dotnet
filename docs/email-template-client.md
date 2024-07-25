@@ -52,9 +52,9 @@ OneBlink.SDK.Model.EmailTemplatesSearchResult response = await emailTemplatesCli
 
 A `EmailTemplatesSearchResult` class
 
-### Role Permissions Required
+**Minimum Role Permission**
 
-Email Templates: `Manager` or `Read Only`
+Email Templates: _Read Only_
 
 ## `Get()`
 
@@ -83,9 +83,9 @@ OneBlink.SDK.Model.EmailTemplate emailTemplate = await emailTemplatesClient.Get(
 
 A `EmailTemplate` class
 
-### Role Permissions Required
+**Minimum Role Permission**
 
-Email Templates: `Manager` or `Read Only`
+Email Templates: _Read Only_
 
 ## `Create()`
 
@@ -114,9 +114,9 @@ OneBlink.SDK.Model.EmailTemplate savedEmailTemplate = await emailTemplatesClient
 
 A `EmailTemplate` class
 
-### Role Permissions Required
+**Minimum Role Permission**
 
-Email Templates: `Manager`
+Email Templates: _Manager_
 
 ## `Update()`
 
@@ -145,9 +145,9 @@ OneBlink.SDK.Model.EmailTemplate updatedEmailTemplate = await emailTemplatesClie
 
 A `EmailTemplate` class
 
-### Role Permissions Required
+**Minimum Role Permission**
 
-Email Templates: `Manager`
+Email Templates: _Manager_
 
 ## `Delete()`
 
@@ -174,6 +174,6 @@ await emailTemplatesClient.Delete(emailTemplateId);
 
 No return value (`void`)
 
-### Role Permissions Required
+**Minimum Role Permission**
 
-Email Templates: `Manager`
+Email Templates: _Manager_

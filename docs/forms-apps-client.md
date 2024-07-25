@@ -59,10 +59,6 @@ JWTPayload result = await formsAppsClient.VerifyJWT(token);
 
 A `OneBlink.SDK.Model.JWTPayload` class
 
-### Role Permissions Required
-
-No Permissions Required
-
 ## `Get()`
 
 Retrieve a forms app by id
@@ -91,9 +87,9 @@ var formsApp = await formsAppsClient.Get<FormsListFormApp>(id);
 
 A `T` class
 
-### Role Permissions Required
+**Minimum Role Permission**
 
-Apps: `Manager` or `Read Only`
+Apps: _Read Only_
 
 ## `Create()`
 
@@ -123,9 +119,9 @@ var savedFormsApps = await formsAppsClient.Create<FormsListFormApp>(newFormsApp)
 
 A `T` class
 
-### Role Permissions Required
+**Minimum Role Permission**
 
-Apps: `Manager`
+Apps: _Manager_
 
 ## `Update()`
 
@@ -155,9 +151,9 @@ FormsListFormApp updatedFormsApp = await formsAppsClient.Update<FormsListFormApp
 
 A `FormsApp` class
 
-### Role Permissions Required
+**Minimum Role Permission**
 
-Apps: `Manager` or `Read Only`
+Apps: _Manager_
 
 ## `Delete()`
 
@@ -184,9 +180,9 @@ await formsAppsClient.Delete(formsAppId);
 
 No return value (`void`)
 
-### Role Permissions Required
+**Minimum Role Permission**
 
-Apps: `Manager`
+Apps: _Manager_
 
 ## `SetSendingAddress()`
 
@@ -218,9 +214,9 @@ OneBlink.SDK.Model.FormsAppSendingAddressResponse sendingAddress = await formsAp
 
 A `OneBlink.SDK.Model.FormsAppSendingAddressResponse` class
 
-### Role Permissions Required
+**Minimum Role Permission**
 
-Apps: `Manager`
+App Users: _Manager_
 
 ## `DeleteSendingAddress()`
 
@@ -247,9 +243,9 @@ await formsAppsClient.DeleteSendingAddress(formsAppId);
 
 No return value (`void`)
 
-### Role Permissions Required
+**Minimum Role Permission**
 
-Apps: `Manager`
+App Users: _Manager_
 
 ## `GetSendingAddress()`
 
@@ -276,9 +272,9 @@ OneBlink.SDK.Model.FormsAppSendingAddressResponse sendingAddress = await formsAp
 
 A `OneBlink.SDK.Model.FormsAppSendingAddressResponse` class
 
-### Role Permissions Required
+**Minimum Role Permission**
 
-Apps: `Manager` or `Read Only`
+App Users: _Read Only_
 
 ## `GetMyFormsApp()`
 
@@ -307,10 +303,6 @@ OneBlink.SDK.Model.FormsApp formsApp = await formsAppsClient.GetMyFormsApp(userT
 
 A `FormsApp` class
 
-### Role Permissions Required
-
-No Permissions Required
-
 ## `CreateUser()`
 
 Create a new forms app user
@@ -338,9 +330,9 @@ OneBlink.SDK.Model.FormsAppUser savedUser = await formsAppsClient.CreateUser(new
 
 A `FormsAppUser` class
 
-### Role Permissions Required
+**Minimum Role Permission**
 
-App Users: `Manager`
+App Users: _Manager_
 
 ## `DeleteUser()`
 
@@ -367,6 +359,6 @@ await formsAppsClient.DeleteUser(formsAppUserId);
 
 No return value (`void`)
 
-### Role Permissions Required
+**Minimum Role Permission**
 
-App Users: `Manager`
+App Users: _Manager_

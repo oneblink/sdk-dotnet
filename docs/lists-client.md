@@ -53,9 +53,9 @@ OneBlink.SDK.Model.FormElementListsSearchResult response = await formElementList
 
 A `FormElementListSearchResult` class
 
-### Role Permissions Required
+**Minimum Role Permission**
 
-No Permissions Required
+Lists: _Read Only_
 
 ## `Create()`
 
@@ -84,9 +84,9 @@ OneBlink.SDK.Model.FormElementList savedFormElementList = await formElementLists
 
 A `FormElementList` class
 
-### Role Permissions Required
+**Minimum Role Permission**
 
-Lists: `Manager`
+Lists: _Manager_
 
 ## `Update()`
 
@@ -115,9 +115,9 @@ OneBlink.SDK.Model.FormElementList updatedFormElementList = await formElementLis
 
 A `FormElementList` class
 
-### Role Permissions Required
+**Minimum Role Permission**
 
-Lists: `Manager`
+Lists: _Manager_
 
 ## `Delete()`
 
@@ -144,6 +144,6 @@ await formElementListsClient.Delete(formElementListId);
 
 No return value (`void`)
 
-### Role Permissions Required
+**Minimum Role Permission**
 
-Lists: `Manager`
+Lists: _Manager_

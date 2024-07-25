@@ -53,9 +53,9 @@ OneBlink.SDK.Model.FormsAppEnvironmentsSearchResult response = await formsAppEnv
 
 A `FormsAppEnvironmentsSearchResult` class
 
-### Role Permissions Required
+**Minimum Role Permission**
 
-Environments: `Manager` or `Read Only`
+Environments: _Read Only_
 
 ## `Get()`
 
@@ -84,9 +84,9 @@ OneBlink.SDK.Model.FormsAppEnvironment formsAppEnvironment = await formsAppEnvir
 
 A `FormsAppEnvironments` class
 
-### Role Permissions Required
+**Minimum Role Permission**
 
-Environments: `Manager` or `Read Only`
+Environments: _Read Only_
 
 ## `Create()`
 
@@ -115,9 +115,9 @@ OneBlink.SDK.Model.FormsAppEnvironment savedFormsAppEnvironment = await formsApp
 
 A `FormsAppEnvironment` class
 
-### Role Permissions Required
+**Minimum Role Permission**
 
-Environments: `Manager`
+Environments: _Manager_
 
 ## `Update()`
 
@@ -146,9 +146,9 @@ OneBlink.SDK.Model.FormsAppEnvironment updatedFormsAppEnvironment = await formsA
 
 A `FormsAppEnvironment` class
 
-### Role Permissions Required
+**Minimum Role Permission**
 
-Environments: `Manager`
+Environments: _Manager_
 
 ## `Delete()`
 
@@ -175,6 +175,6 @@ await formsClient.Delete(formsAppEnvironmentId);
 
 No return value (`void`)
 
-### Role Permissions Required
+**Minimum Role Permission**
 
-Environments: `Manager`
+Environments: _Manager_

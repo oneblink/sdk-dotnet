@@ -38,7 +38,7 @@ string messageId = await EmailClient.SendEmail(body, attachments, from, toAddres
 
 A `Task<string>`
 
-### Role Permissions Required
+### Permissions
 
 In AWS, you will require an IAM Role associated with the email used that has
 the permissions in order to use this function:

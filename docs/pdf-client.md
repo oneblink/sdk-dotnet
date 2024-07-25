@@ -59,9 +59,9 @@ Stream response = await pdfClient.GetSubmissionPdf(formId, submissionId);
 
 A `Stream` object
 
-### Role Permissions Required
+**Minimum Role Permission**
 
-PDF Generation: `On`
+PDF Generation: _On_
 
 ## `GeneratePdf()`
 
@@ -91,9 +91,9 @@ Stream response = await pdfClient.GeneratePdf(pdfOptionsRequest);
 
 A `Stream` object
 
-### Role Permissions Required
+**Minimum Role Permission**
 
-PDF Generation: `On`
+PDF Generation: _On_
 
 ## `GeneratePdfFromSubmissionData()`
 
@@ -126,6 +126,6 @@ Stream response = await pdfClient.GeneratePdfFromSubmissionData<MySubmissionData
 
 A `Stream` object
 
-### Role Permissions Required
+**Minimum Role Permission**
 
-PDF Generation: `On`
+Submission Data: _Read Only_
