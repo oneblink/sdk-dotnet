@@ -479,9 +479,9 @@ FormUrlResult result = await formsClient.GenerateFormUrl(
 
 A `OneBlink.SDK.Model.FormUrlResult` class
 
-**Minimum Role Permission** (only if using `preFillData`)
+**Minimum Role Permission**
 
-Forms: _Manager_
+Upload Form Prefill Data: _Manager_ (only if using `preFillData`)
 
 **App Association Required**
 
