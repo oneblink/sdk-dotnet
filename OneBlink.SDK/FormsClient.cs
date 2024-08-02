@@ -152,25 +152,6 @@ namespace OneBlink.SDK
             await this.oneBlinkApiClient.DeleteRequest(url);
         }
 
-        public static string EncryptUserToken(string username, string secret)
-        {
-            if (String.IsNullOrEmpty(username) || String.IsNullOrEmpty(secret))
-            {
-                throw new Exception("Must pass a valid username and secret");
-            }
-            AesUserToken aesUserToken = new AesUserToken(secret);
-            return aesUserToken.encrypt(username);
-        }
-        public static string DecryptUserToken(string userToken, string secret)
-        {
-            if (String.IsNullOrEmpty(userToken) || String.IsNullOrEmpty(secret))
-            {
-                throw new Exception("Must pass a valid userToken and secret");
-            }
-            AesUserToken aesUserToken = new AesUserToken(secret);
-            return aesUserToken.decrypt(userToken);
-        }
-
         public async Task<FormUrlResult> GenerateFormUrl(FormUrlOptions parameters)
         {
             if (parameters == null)
@@ -225,24 +206,22 @@ namespace OneBlink.SDK
                 };
             }
 
-            string userToken = null;
-            if (parameters.username != null)
-            {
-                AesUserToken aesUserToken = new AesUserToken(parameters.secret);
-                userToken = aesUserToken.encrypt(parameters.username);
-            }
-
             // Default expiry for token is 8 hours
             int jwtExpiry = parameters.expiryInSeconds ?? 28800;
-            string token = Token.GenerateJSONWebToken(accessKey: oneBlinkApiClient.accessKey, oneBlinkApiClient.secretKey, jwtExpiry, developerKeyAccess);
+            string token = Token.GenerateJSONWebToken(
+                this.oneBlinkApiClient.accessKey,
+                this.oneBlinkApiClient.secretKey,
+                jwtExpiry,
+                developerKeyAccess,
+                parameters.username
+            );
 
-            string formUrl = _generateFormUrl(
+            string formUrl = this._generateFormUrl(
                 formId: parameters.formId,
                 formsApp: formsApp,
                 token: token,
                 externalId: parameters.externalId,
                 preFillFormDataId: preFillFormDataId,
-                userToken: userToken,
                 previousFormSubmissionApprovalId: parameters.previousFormSubmissionApprovalId
             );
             string expiry = DateTime.UtcNow.AddSeconds(jwtExpiry).ToString("o");
@@ -422,14 +401,12 @@ namespace OneBlink.SDK
         string token,
         string externalId,
         Guid? preFillFormDataId,
-        string userToken,
         long? previousFormSubmissionApprovalId)
         {
             var query = HttpUtility.ParseQueryString(string.Empty);
             OneBlinkHttpClient.AddItemToQuery(query, "access_key", token);
             OneBlinkHttpClient.AddItemToQuery(query, nameof(externalId), externalId);
             OneBlinkHttpClient.AddItemToQuery(query, nameof(preFillFormDataId), preFillFormDataId);
-            OneBlinkHttpClient.AddItemToQuery(query, nameof(userToken), userToken);
             OneBlinkHttpClient.AddItemToQuery(query, nameof(previousFormSubmissionApprovalId), previousFormSubmissionApprovalId);
 
             string url = $"https://{formsApp.hostname}/forms/{formId}?{query.ToString()}";

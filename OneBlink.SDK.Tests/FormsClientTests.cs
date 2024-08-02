@@ -335,15 +335,12 @@ namespace OneBlink.SDK.Tests
                 new FormUrlOptions(
                     formId: 475,
                     username: "zac@oneblink.io",
-                    secret: "secret",
                     preFillData: preFill,
                     externalId: "myExternalId"
-
                 )
             );
             Assert.Contains("?access_key=", result.formUrl);
             Assert.Contains("&externalId=myExternalId", result.formUrl);
-            Assert.Contains("&userToken=", result.formUrl);
             Assert.Contains("&preFillFormDataId=", result.formUrl);
             Assert.NotNull(result.expiry);
 
