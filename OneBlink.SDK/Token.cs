@@ -7,26 +7,38 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
 using System.Security.Cryptography;
+using System.Collections.Generic;
+using System.Security.Claims;
 
 namespace OneBlink.SDK
 {
     internal class Token
     {
-        internal static string GenerateJSONWebToken(string accessKey, string secretKey, int expiryInSeconds, DeveloperKeyAccess developerKeyAccess = null)
+        internal static string GenerateJSONWebToken(string accessKey, string secretKey, int expiryInSeconds, DeveloperKeyAccess developerKeyAccess = null, string username = null)
         {
-            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey));
-            var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
+            SymmetricSecurityKey securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey));
+            SigningCredentials credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
+            JwtHeader jwtHeader = new JwtHeader(credentials);
 
-            JwtSecurityToken token = new JwtSecurityToken(accessKey,
-                accessKey,
-                null,
+            JwtPayload jwtPayload = new JwtPayload(
+                issuer: accessKey,
+                audience: null,
+                claims: null,
+                notBefore: null,
                 expires: DateTime.Now.AddSeconds(expiryInSeconds),
-                signingCredentials: credentials);
-
+                issuedAt: DateTime.Now
+            );
+            if (!string.IsNullOrEmpty(username))
+            {
+                jwtPayload.Add("sub", username);
+            }
             if (developerKeyAccess != null)
             {
-                token.Payload.Add("oneblink:access", developerKeyAccess);
+                jwtPayload.Add("oneblink:access", developerKeyAccess);
             }
+
+            JwtSecurityToken token = new JwtSecurityToken(jwtHeader, jwtPayload);
+
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
 

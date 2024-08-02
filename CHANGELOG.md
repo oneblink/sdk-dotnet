@@ -6,6 +6,15 @@
 
 - Minimum Role Permission to Client docs
 
+### Removed
+
+- **[BREAKING]** `EncryptUserToken` and `DecryptUserToken` methods from the `FormsClient` class
+- **[BREAKING]** `secret` property from `FormUrlOptions` class
+
+### Changed
+
+- `GenerateFormUrl` method in the `FormsClient` class to include the `username` property into the JWT payload as the `sub` claim
+
 ## [6.2.2] - 2024-07-10
 
 ### Changed
