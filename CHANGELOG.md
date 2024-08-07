@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## [7.0.0] - 2024-08-07
+
 ### Added
 
 - Minimum Role Permission to Client docs
