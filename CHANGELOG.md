@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Added
+
+- `slug` to `Form`
+
 ## [7.0.0] - 2024-08-07
 
 ### Added

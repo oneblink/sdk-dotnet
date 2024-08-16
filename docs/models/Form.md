@@ -37,6 +37,7 @@
 | `customCssClasses`             | No       | `List<string>`              | Custom CSS classes that will be added to the form during rendering                                                          | `new List<string>()`              |
 | `pointAddressEnvironmentId`    | No       | `Guid?`                     | Optional except when `elements` contains a Point Address element                                                            | `null`                            |
 | `allowGeoscapeAddresses`       | No       | `bool?`                     | Optional configuration to allow use of Geoscape elements on the form                                                        | `null`                            |
+| `slug`                         | No       | `string`                    | Unique domain safe text to identify the form                                                                                | `null`                            |
 
 ### Other properties
 
