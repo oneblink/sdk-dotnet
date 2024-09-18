@@ -61,6 +61,10 @@ GetFormSubmissionAdministrationApprovalsResponse response = await approvalsClien
 
 A `GetFormSubmissionAdministrationApprovalsResponse` Object
 
+**Submission Data Key Supported**
+
+Results will be restricted to approvals associated with forms that have been assigned to the Key.
+
 **Minimum Role Permission**
 
 Submission Data: _Read Only_
@@ -89,6 +93,10 @@ GetFormSubmissionApprovalResponse response = await approvalsClient.GetFormSubmis
 
 A `GetFormSubmissionApprovalResponse` Object
 
+**Submission Data Key Supported**
+
+Key must be assigned to the form that was submitted for approval.
+
 **Minimum Role Permission**
 
 Submission Data: _Read Only_
@@ -116,6 +124,10 @@ GetFormApprovalFlowInstanceResponse response = await approvalsClient.GetFormAppr
 ### Result
 
 A `GetFormApprovalFlowInstanceResponse` Object
+
+**Submission Data Key Supported**
+
+Key must be assigned to the form that was submitted for approval.
 
 **Minimum Role Permission**
 
