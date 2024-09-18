@@ -59,9 +59,13 @@ Stream response = await pdfClient.GetSubmissionPdf(formId, submissionId);
 
 A `Stream` object
 
+**Submission Data Key Supported**
+
+Key must be assigned to the form that was submitted.
+
 **Minimum Role Permission**
 
-PDF Generation: _On_
+Submission Data: _Read Only_
 
 ## `GeneratePdf()`
 
@@ -128,4 +132,4 @@ A `Stream` object
 
 **Minimum Role Permission**
 
-Submission Data: _Read Only_
+PDF Generation: _On_

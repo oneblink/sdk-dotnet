@@ -121,6 +121,10 @@ Console.WriteLine("Submission as JSON string: " + formSubmission.submission);
 
 A `FormSubmission<T>` class or `null`
 
+**Submission Data Key Supported**
+
+Key must be assigned to the form that was submitted
+
 **Minimum Role Permission**
 
 Submission Data: _Read Only_
@@ -194,6 +198,10 @@ OneBlink.SDK.Model.FormSubmissionSearchResult response = await formsClient.Searc
 
 A `FormSubmissionSearchResult` class
 
+**Submission Data Key Supported**
+
+Results will be restricted to forms that have been assigned to the Key.
+
 **Minimum Role Permission**
 
 Submission Data: _Read Only_
@@ -242,6 +250,10 @@ OneBlink.SDK.Model.FormSubmissionSearchResult response = await formsClient.Searc
 
 A `FormSubmissionSearchResult` class
 
+**Submission Data Key Supported**
+
+Results will be restricted to forms that have been assigned to the Key.
+
 **Minimum Role Permission**
 
 Submission Data: _Read Only_
@@ -282,6 +294,10 @@ OneBlink.SDK.Model.FormSubmissionSearchResult response = await formsClient.Searc
 
 A `FormSubmissionSearchResult` class
 
+**Submission Data Key Supported**
+
+Results will be restricted to forms that have been assigned to the Key.
+
 **Minimum Role Permission**
 
 Submission Data: _Read Only_
@@ -319,6 +335,10 @@ OneBlink.SDK.Model.FormSubmissionSearchResult response = await formsClient.Searc
 ### Result
 
 A `FormSubmissionSearchResult` class
+
+**Submission Data Key Supported**
+
+Results will be restricted to forms that have been assigned to the Key.
 
 **Minimum Role Permission**
 
@@ -511,6 +531,10 @@ SubmissionDataUrl submissionDataUrl = await formsClient.GenerateSubmissionDataUr
 
 A `OneBlink.SDK.Model.SubmissionDataUrl` class
 
+**Submission Data Key Supported**
+
+Key must be assigned to the form that was submitted.
+
 **Minimum Role Permission**
 
 Submission Data: _Read Only_
@@ -539,6 +563,10 @@ Stream attachmentStream = await formsClient.GetFormSubmissionAttachment(formId, 
 
 A `System.IO.Stream` class
 
+**Submission Data Key Supported**
+
+Key must be assigned to the form that the attachment was uploaded for.
+
 **Minimum Role Permission**
 
 Submission Data: _Read Only_
@@ -566,6 +594,10 @@ FormAttachmentMeta meta = await formsClient.GetFormSubmissionAttachmentMeta(form
 ### Result
 
 A `FormAttachmentMeta` class
+
+**Submission Data Key Supported**
+
+Key must be assigned to the form that the attachment was uploaded for.
 
 **Minimum Role Permission**
 
@@ -629,6 +661,10 @@ SubmissionDataUrl submissionDataUrl = await formsClient.GenerateSubmissionAttach
 
 A `OneBlink.SDK.Model.SubmissionDataUrl` class
 
+**Submission Data Key Supported**
+
+Key must be assigned to the form that the attachment was uploaded for.
+
 **Minimum Role Permission**
 
 Submission Data: _Read Only_
@@ -658,6 +694,10 @@ SubmissionDataUrl submissionDataUrl = await formsClient.GenerateWorkflowAttachme
 ### Result
 
 A `OneBlink.SDK.Model.SubmissionDataUrl` class
+
+**Submission Data Key Supported**
+
+Key must be assigned to the form that the attachment was uploaded for.
 
 **Minimum Role Permission**
 
@@ -719,6 +759,10 @@ OneBlink.SDK.Model.FormSubmissionMetadataResponse formSubmissionMetadataResponse
 ### Result
 
 A `FormSubmissionMetadataResponse` class
+
+**Submission Data Key Supported**
+
+Key must be assigned to the form that was submitted.
 
 **Minimum Role Permission**
 

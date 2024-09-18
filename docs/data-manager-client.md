@@ -46,6 +46,10 @@ FormStoreDefinition response = await approvalsClient.GetFormDefinition(formId);
 
 A `FormStoreDefinition` Object
 
+**Submission Data Key Supported**
+
+Key must be assigned to the form that submission data is being requested for.
+
 **Minimum Role Permission**
 
 Submission Data: _Read Only_
@@ -88,6 +92,10 @@ FormStoreSearchResult<SubmissionResult> response = await dataManagerClient.Searc
 ### Result
 
 A `FormStoreSearchResult<T>` Object
+
+**Submission Data Key Supported**
+
+Key must be assigned to the form that is being requested.
 
 **Minimum Role Permission**
 
