@@ -66,7 +66,6 @@ In the case of any actions relating to retrieving form submission data, a Submis
 - [FormsAppsClient](./forms-apps-client.md)
 - [FormsAppEnvironmentsClient](./forms-app-environments.md)
 - [PdfClient](./pdf-client.md)
-- [TeamMembersClient](./team-members-client.md)
 - [JobsClient](./jobs-client.md)
 - [OrganisationsClient](./organisations-client.md)
 - [KeysClient](./keys-client.md)
