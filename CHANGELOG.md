@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## [8.0.0] - 2024-09-25
+
 ### Removed
 
 - **[BREAKING]** `TeamMembersClient` class
