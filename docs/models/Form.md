@@ -38,6 +38,7 @@
 | `pointAddressEnvironmentId`    | No       | `Guid?`                     | Optional except when `elements` contains a Point Address element                                                            | `null`                            |
 | `allowGeoscapeAddresses`       | No       | `bool?`                     | Optional configuration to allow use of Geoscape elements on the form                                                        | `null`                            |
 | `slug`                         | No       | `string`                    | Unique domain safe text to identify the form                                                                                | `null`                            |
+| `enableSubmission`             | No       | `FormEnableSubmission`      | Conditionally enable form submission                                                                                        | `null`                            |
 
 ### Other properties
 

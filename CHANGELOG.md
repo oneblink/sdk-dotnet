@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Added
+
+- `enableSubmission` to `Form`
+
 ## [8.0.0] - 2024-09-25
 
 ### Removed

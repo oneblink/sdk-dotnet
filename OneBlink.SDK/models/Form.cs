@@ -41,7 +41,8 @@ namespace OneBlink.SDK.Model
             bool continueWithAutosave = false,
             List<string> customCssClasses = default,
             Guid? pointAddressEnvironmentId = null,
-            bool? allowGeoscapeAddresses = null
+            bool? allowGeoscapeAddresses = null,
+            FormEnableSubmission enableSubmission = null
             )
         {
             if (id.HasValue)
@@ -151,6 +152,7 @@ namespace OneBlink.SDK.Model
             }
             this.pointAddressEnvironmentId = pointAddressEnvironmentId ?? null;
             this.allowGeoscapeAddresses = allowGeoscapeAddresses ?? null;
+            this.enableSubmission = enableSubmission;
         }
         public long id
         {
@@ -293,6 +295,10 @@ namespace OneBlink.SDK.Model
             get; set;
         }
         public bool? allowGeoscapeAddresses
+        {
+            get; set;
+        }
+        public FormEnableSubmission enableSubmission
         {
             get; set;
         }
