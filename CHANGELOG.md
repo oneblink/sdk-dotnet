@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## [8.1.0] - 2024-10-09
+
 ### Added
 
 - `enableSubmission` to `Form`
