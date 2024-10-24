@@ -8,6 +8,10 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public long? startingAutoIncrement
+        {
+            get; set;
+        }
     }
 
 }
