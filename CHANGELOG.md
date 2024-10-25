@@ -5,9 +5,6 @@
 ### Added
 
 - `startingSequentialNumber` to `FormExternalIdGenerationConfiguration`
-
-### Added
-
 - `isCloningScheduledTasks` to `FormsAppEnvironmentCloneOptions`
 
 ## [8.1.0] - 2024-10-09
