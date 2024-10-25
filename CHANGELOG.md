@@ -4,7 +4,7 @@
 
 ### Added
 
-- `startingAutoIncrement` to `FormExternalIdGenerationConfiguration`
+- `startingSequentialNumber` to `FormExternalIdGenerationConfiguration`
 
 ### Added
 
