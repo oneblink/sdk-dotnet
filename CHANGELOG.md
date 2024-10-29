@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## [8.1.1] - 2024-10-29
+
 ### Added
 
 - `startingSequentialNumber` to `FormExternalIdGenerationConfiguration`
