@@ -228,20 +228,16 @@ namespace OneBlink.SDK.Model
             string emailDescription = null,
             string label = null)
         {
-            FormSubmissionEventConfiguration fseconfig = new FormSubmissionEventConfiguration
-            {
-                nylasGrantId = nylasGrantId,
-                nylasConfigurationId = nylasConfigurationId,
-                nameElementId = nameElementId,
-                emailElementId = emailElementId,
-                emailDescription = emailDescription,
-            };
-            FormSubmissionEvent nylasEvent = new FormSubmissionEvent
-            {
-                type = "NYLAS",
-                configuration = fseconfig,
-                label = label
-            };
+            FormSubmissionEventConfiguration fseconfig = new FormSubmissionEventConfiguration();
+            fseconfig.nylasGrantId = nylasGrantId;
+            fseconfig.nylasConfigurationId = nylasConfigurationId;
+            fseconfig.nameElementId = nameElementId;
+            fseconfig.emailElementId = emailElementId;
+            fseconfig.emailDescription = emailDescription;
+            FormSubmissionEvent nylasEvent = new FormSubmissionEvent();
+            nylasEvent.type = "NYLAS";
+            nylasEvent.configuration = fseconfig;
+            nylasEvent.label = label;
             return nylasEvent;
         }
 
