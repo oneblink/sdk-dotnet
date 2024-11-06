@@ -131,6 +131,14 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public string nylasGrantId
+        {
+            get; set;
+        }
+        public string nylasConfigurationId
+        {
+            get; set;
+        }
         public Guid? nameElementId
         {
             get; set;
