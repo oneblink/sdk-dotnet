@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Added
+
+- `nylasGrantId` and `nylasConfigurationId` to `FormSubmissionEventConfiguration`
+
 ## [8.1.1] - 2024-10-29
 
 ### Added

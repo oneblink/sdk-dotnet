@@ -221,6 +221,30 @@ namespace OneBlink.SDK.Model
             return schedulingEvent;
         }
 
+        public static FormSubmissionEvent CreateNylasSubmissionEvent(string nylasGrantId,
+            string nylasConfigurationId,
+            Guid? nameElementId = null,
+            Guid? emailElementId = null,
+            string emailDescription = null,
+            string label = null)
+        {
+            FormSubmissionEventConfiguration fseconfig = new FormSubmissionEventConfiguration
+            {
+                nylasGrantId = nylasGrantId,
+                nylasConfigurationId = nylasConfigurationId,
+                nameElementId = nameElementId,
+                emailElementId = emailElementId,
+                emailDescription = emailDescription,
+            };
+            FormSubmissionEvent nylasEvent = new FormSubmissionEvent
+            {
+                type = "NYLAS",
+                configuration = fseconfig,
+                label = label
+            };
+            return nylasEvent;
+        }
+
         [Obsolete("Using CreatePDFSubmissionEvent() with the 'email' parameter is obsolete. Call CreatePDFSubmissionEvent() without the 'email' parameter instead.")]
         public static FormSubmissionEvent CreatePDFSubmissionEvent(
             string email,
