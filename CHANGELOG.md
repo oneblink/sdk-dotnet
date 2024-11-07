@@ -6,6 +6,10 @@
 
 - `nylasGrantId` and `nylasConfigurationId` to `FormSubmissionEventConfiguration`
 
+### Removed
+
+- **[BREAKING]** `FormsAppsClient.updateStyles()` The `styles` property can be set using `FormsAppsClient.Create()` and updated using `FormsAppsClient.Update()`
+
 ## [8.1.1] - 2024-10-29
 
 ### Added

@@ -10,7 +10,7 @@ namespace OneBlink.SDK
 {
     public class FormsAppsClient
     {
-        OneBlinkApiClient oneBlinkApiClient;
+        private readonly OneBlinkApiClient oneBlinkApiClient;
 
         public FormsAppsClient(string accessKey, string secretKey, TenantName tenantName = TenantName.ONEBLINK)
         {
@@ -39,25 +39,29 @@ namespace OneBlink.SDK
             {
                 throw new ArgumentException("Invalid token");
             }
-            JWTPayload jWTPayload = new JWTPayload();
-            jWTPayload.isSAMLUser = false;
-            jWTPayload.providerType = "Cognito";
-            jWTPayload.providerUserId = rawJWTPayload.sub;
-            jWTPayload.userId = rawJWTPayload.sub;
-            jWTPayload.email = rawJWTPayload.email;
-            jWTPayload.emailVerified = rawJWTPayload.email_verified;
-            jWTPayload.firstName = rawJWTPayload.given_name;
-            jWTPayload.lastName = rawJWTPayload.family_name;
-            jWTPayload.fullName = rawJWTPayload.name;
-            jWTPayload.picture = rawJWTPayload.picture;
-            jWTPayload.role = rawJWTPayload.customRole;
-            jWTPayload.username = !string.IsNullOrEmpty(rawJWTPayload.email) ? rawJWTPayload.email : rawJWTPayload.sub;
+            JWTPayload jWTPayload = new JWTPayload
+            {
+                isSAMLUser = false,
+                providerType = "Cognito",
+                providerUserId = rawJWTPayload.sub,
+                userId = rawJWTPayload.sub,
+                email = rawJWTPayload.email,
+                emailVerified = rawJWTPayload.email_verified,
+                firstName = rawJWTPayload.given_name,
+                lastName = rawJWTPayload.family_name,
+                fullName = rawJWTPayload.name,
+                picture = rawJWTPayload.picture,
+                role = rawJWTPayload.customRole,
+                username = !string.IsNullOrEmpty(rawJWTPayload.email) ? rawJWTPayload.email : rawJWTPayload.sub
+            };
             if (!string.IsNullOrEmpty(rawJWTPayload.customSupervisorEmail) && !string.IsNullOrEmpty(rawJWTPayload.customSupervisorName) && !string.IsNullOrEmpty(rawJWTPayload.customSupervisorUserId))
             {
-                jWTPayload.supervisor = new FormSubmissionSupervisor();
-                jWTPayload.supervisor.fullName = rawJWTPayload.customSupervisorName;
-                jWTPayload.supervisor.email = rawJWTPayload.customSupervisorEmail;
-                jWTPayload.supervisor.providerUserId = rawJWTPayload.customSupervisorUserId;
+                jWTPayload.supervisor = new FormSubmissionSupervisor
+                {
+                    fullName = rawJWTPayload.customSupervisorName,
+                    email = rawJWTPayload.customSupervisorEmail,
+                    providerUserId = rawJWTPayload.customSupervisorUserId
+                };
             }
             jWTPayload.phoneNumber = rawJWTPayload.customPhoneNumber;
             jWTPayload.phoneNumberVerified = rawJWTPayload.customPhoneNumberVerified;
@@ -89,27 +93,20 @@ namespace OneBlink.SDK
         public async Task<T> Create<T>(T newFormsApp) where T : FormsAppBase
         {
             string url = "/forms-apps";
-            var formsApp = await this.oneBlinkApiClient.PostRequest<T, T>(url, newFormsApp);
+            T formsApp = await this.oneBlinkApiClient.PostRequest<T, T>(url, newFormsApp);
             return formsApp;
         }
         public async Task<T> Update<T>(FormsAppBase formsAppToUpdate) where T : FormsAppBase
         {
             string url = "/forms-apps/" + formsAppToUpdate.id.ToString();
 
-            var formsApp = await this.oneBlinkApiClient.PutRequest<FormsAppBase, T>(url, formsAppToUpdate);
+            T formsApp = await this.oneBlinkApiClient.PutRequest<FormsAppBase, T>(url, formsAppToUpdate);
             return formsApp;
         }
         public async Task Delete(long id, bool overrideLock = false)
         {
             string url = "/forms-apps/" + id.ToString();
             await this.oneBlinkApiClient.DeleteRequest(url);
-        }
-        public async Task<T> UpdateStyles<T>(long id, T styles) where T : FormsAppStylesBase
-        {
-            string url = "/forms-apps/" + id.ToString() + "/styles";
-
-            var formsAppStyles = await this.oneBlinkApiClient.PutRequest<T, T>(url, styles);
-            return formsAppStyles;
         }
 
         public async Task<FormsAppSendingAddressResponse> SetSendingAddress(long id, NewFormsAppSendingAddress newFormsAppSendingAddress)

@@ -41,10 +41,6 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
-        public string FORMS_APP_STYLES
-        {
-            get; set;
-        }
         public string FORM_SUBMISSIONS
         {
             get; set;
