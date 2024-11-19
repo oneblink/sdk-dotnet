@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 namespace OneBlink.SDK.Model
 {
-    public class FormApprovalStep : FormApprovalFlowStepBase
+    public class FormApprovalStepNode : FormApprovalFlowStepBase
     {
         public bool? isConditional
         {
@@ -16,4 +16,23 @@ namespace OneBlink.SDK.Model
             get; set;
         }
     }
+
+    public class FormApprovalStep : FormApprovalStepNode
+    {
+        public string type
+        {
+            get; set;
+        }
+
+        public long? clarificationRequestEmailTemplateId
+        {
+            get; set;
+        }
+
+        public List<FormApprovalStepNode> nodes
+        {
+            get; set;
+        }
+    }
+
 }
