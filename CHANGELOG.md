@@ -5,6 +5,7 @@
 ### Added
 
 - `nodes` and `type` to `FormApprovalFlowInstanceStep` and `FormApprovalStep`
+- `cachingStrategies` to `FormsAppBase`
 
 ## [9.0.0] - 2024-11-13
 
