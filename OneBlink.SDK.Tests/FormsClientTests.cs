@@ -324,6 +324,7 @@ namespace OneBlink.SDK.Tests
                 )
             };
             Form updatedForm = await formsClient.Update(savedForm);
+            System.Threading.Thread.Sleep(5000); // give the API time to finish upserting s3 resources before deleting the form
 
             await formsClient.Delete(updatedForm.id);
         }
