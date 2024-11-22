@@ -181,7 +181,8 @@ namespace OneBlink.SDK.Tests
             DateTime endDate = DateTime.Today.AddDays(10);
             Form newForm = new Form();
             newForm.name = "Unit test";
-            newForm.slug = "unit-test";
+            string slug = "unit-test" + DateTime.Now;
+            newForm.slug = slug;
             newForm.description = "Created via unit test";
             newForm.organisationId = organisationId;
             newForm.isAuthenticated = false;
@@ -283,7 +284,7 @@ namespace OneBlink.SDK.Tests
             Assert.NotNull(savedForm);
             Form retrievedForm = await formsClient.Get(savedForm.id, true);
             Assert.NotNull(retrievedForm);
-            Assert.Equal(newForm.slug, retrievedForm.slug);
+            Assert.Equal(slug, retrievedForm.slug);
             Assert.Equal(tags, retrievedForm.tags);
             Assert.Equal(newForm.postSubmissionReceipt.html, retrievedForm.postSubmissionReceipt.html);
             // Need to convert these to UTC time as that is what comes from api, and these dates are in local time
