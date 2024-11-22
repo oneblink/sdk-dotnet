@@ -44,17 +44,13 @@ namespace OneBlink.SDK.Tests
         }
 
         [Fact]
-        public async void can_search_form_element_lookups()
+        public async void can_crud_form_element_lookups()
         {
             FormElementLookupsClient formElementLookupsClient = new FormElementLookupsClient(ACCESS_KEY, SECRET_KEY, TenantName.ONEBLINK_TEST);
             FormElementLookupSearchResult results = await formElementLookupsClient.Search(organisationId, null, null);
             Assert.NotNull(results);
             Assert.True(results.formElementLookups.Count <= 0, "Expected no form element lookups");
-        }
 
-        [Fact]
-        public async void can_crud_form_element_lookups()
-        {
             FormElementLookup newFormElementLookup = new FormElementLookup();
             newFormElementLookup.name = "Unit test environment";
             newFormElementLookup.type = "DATA";
@@ -68,7 +64,6 @@ namespace OneBlink.SDK.Tests
                 }
             };
 
-            FormElementLookupsClient formElementLookupsClient = new FormElementLookupsClient(ACCESS_KEY, SECRET_KEY, TenantName.ONEBLINK_TEST);
             FormElementLookup savedFormElementLookup = await formElementLookupsClient.Create(newFormElementLookup);
             Assert.NotNull(savedFormElementLookup);
 
