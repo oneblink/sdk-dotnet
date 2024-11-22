@@ -181,7 +181,7 @@ namespace OneBlink.SDK.Tests
             DateTime endDate = DateTime.Today.AddDays(10);
             Form newForm = new Form();
             newForm.name = "Unit test";
-            string slug = "unit-test" + DateTime.Now;
+            string slug = "unit-test-" + DateTime.Now.ToString("o").Replace(":", "-").Replace(".", "-").ToLower();
             newForm.slug = slug;
             newForm.description = "Created via unit test";
             newForm.organisationId = organisationId;
