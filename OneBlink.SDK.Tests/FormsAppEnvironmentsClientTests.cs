@@ -45,24 +45,19 @@ namespace OneBlink.SDK.Tests
         }
 
         [Fact]
-        public async void can_search_forms_app_environments()
+        public async void can_crud_forms_app_environments()
         {
             FormsAppEnvironmentsClient formsAppEnvironmentsClient = new FormsAppEnvironmentsClient(ACCESS_KEY, SECRET_KEY, TenantName.ONEBLINK_TEST);
             FormsAppEnvironmentsSearchResult results = await formsAppEnvironmentsClient.Search(null, null);
             Assert.NotNull(results);
             Assert.True(results.formsAppEnvironments.Count > 0, "Expected at least 1 environment");
-        }
 
-        [Fact]
-        public async void can_crud_forms_app_environments()
-        {
             FormsAppEnvironment newFormsAppEnvironment = new FormsAppEnvironment();
             newFormsAppEnvironment.name = "Unit test environment";
             newFormsAppEnvironment.description = "Created via unit test";
             newFormsAppEnvironment.organisationId = organisationId;
             newFormsAppEnvironment.slug = "unit-test-environment-" + DateTime.Now.ToFileTimeUtc().ToString();
 
-            FormsAppEnvironmentsClient formsAppEnvironmentsClient = new FormsAppEnvironmentsClient(ACCESS_KEY, SECRET_KEY, TenantName.ONEBLINK_TEST);
             FormsAppEnvironment savedFormsAppEnvironment = await formsAppEnvironmentsClient.Create(newFormsAppEnvironment);
             Assert.NotNull(savedFormsAppEnvironment);
 
