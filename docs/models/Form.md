@@ -39,6 +39,7 @@
 | `allowGeoscapeAddresses`       | No       | `bool?`                     | Optional configuration to allow use of Geoscape elements on the form                                                        | `null`                            |
 | `slug`                         | No       | `string`                    | Unique domain safe text to identify the form                                                                                | `null`                            |
 | `enableSubmission`             | No       | `FormEnableSubmission`      | Conditionally enable form submission                                                                                        | `null`                            |
+| `disableAutosave`              | No       | `bool?`                     | Optionally disable autosave                                                                                                 | `null`                            |
 
 ### Other properties
 
