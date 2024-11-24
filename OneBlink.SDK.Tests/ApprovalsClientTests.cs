@@ -8,6 +8,7 @@ using Xunit;
 
 namespace OneBlink.SDK.Tests
 {
+    [Collection("IntegrationTests-RunSequentially")]
     public class ApprovalsClientTests
     {
         private string ACCESS_KEY;

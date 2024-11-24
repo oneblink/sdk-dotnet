@@ -7,6 +7,7 @@ using System.IO;
 using OneBlink.SDK.Model;
 namespace unit_tests
 {
+    [Collection("IntegrationTests-RunSequentially")]
     public class PdfClientTests
     {
         private string ACCESS_KEY;

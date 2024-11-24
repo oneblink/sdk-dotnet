@@ -22,6 +22,7 @@ namespace OneBlink.SDK.Tests
         }
     }
 
+    [Collection("IntegrationTests-RunSequentially")]
     public class JobsClientTests
     {
         private string ACCESS_KEY;

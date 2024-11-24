@@ -6,6 +6,7 @@ using System.Collections.Generic;
 
 namespace OneBlink.SDK.Tests
 {
+    [Collection("IntegrationTests-RunSequentially")]
     public class DataManagerClientTests
     {
         private string ACCESS_KEY;

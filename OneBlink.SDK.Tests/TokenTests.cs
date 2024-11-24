@@ -5,6 +5,7 @@ using System.Collections.Generic;
 
 namespace OneBlink.SDK.Tests
 {
+    [Collection("IntegrationTests-RunSequentially")]
     public class TokenTests
     {
         private string ACCESS_KEY;

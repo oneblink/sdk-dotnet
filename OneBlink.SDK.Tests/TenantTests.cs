@@ -4,6 +4,7 @@ using Xunit;
 using OneBlink.SDK.Model;
 namespace OneBlink.SDK.Tests
 {
+    [Collection("IntegrationTests-RunSequentially")]
     public class RegionTests
     {
 
