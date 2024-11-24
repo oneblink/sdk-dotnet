@@ -4,7 +4,7 @@ using System;
 using Xunit;
 using OneBlink.SDK.Model;
 using System.Net;
-
+[assembly: CollectionBehavior(DisableTestParallelization = true)]
 namespace OneBlink.SDK.Tests
 {
     [Collection("IntegrationTests-RunSequentially")]
