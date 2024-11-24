@@ -7,6 +7,7 @@ using System.Net;
 
 namespace OneBlink.SDK.Tests
 {
+    [Collection("IntegrationTests-RunSequentially")]
     public class FormElementListsClientTests
     {
         private string ACCESS_KEY;
