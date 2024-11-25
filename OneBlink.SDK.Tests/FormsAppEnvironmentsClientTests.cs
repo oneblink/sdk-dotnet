@@ -4,10 +4,11 @@ using System;
 using Xunit;
 using OneBlink.SDK.Model;
 using System.Net;
+// Need to each test run sequenatially, both within the assembly and with in the class, as certain resources (e.g. s3 bucket) are shared
+// NOTE: This assembly directive applies to the whole test project
 [assembly: CollectionBehavior(CollectionBehavior.CollectionPerClass, DisableTestParallelization = true)]
 namespace OneBlink.SDK.Tests
 {
-    [Collection("IntegrationTests-RunSequentially")]
     public class FormsAppEnvironmentsClientTests
     {
         private string ACCESS_KEY;

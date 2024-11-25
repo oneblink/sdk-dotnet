@@ -9,7 +9,6 @@ using System.Collections.Generic;
 
 namespace OneBlink.SDK.Tests
 {
-    [Collection("IntegrationTests-RunSequentially")]
     public class FormsClientTests
     {
         private string ACCESS_KEY;

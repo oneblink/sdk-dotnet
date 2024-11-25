@@ -2,7 +2,6 @@ using OneBlink.SDK.Model;
 using Xunit;
 namespace OneBlink.SDK.Tests
 {
-    [Collection("IntegrationTests-RunSequentially")]
     public class EmailClientTests
     {
         [Fact]

@@ -7,7 +7,6 @@ using System.Net;
 
 namespace OneBlink.SDK.Tests
 {
-    [Collection("IntegrationTests-RunSequentially")]
     public class EmailTemplatesClientTests
     {
         private string ACCESS_KEY;
