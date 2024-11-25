@@ -140,20 +140,6 @@ namespace OneBlink.SDK.Tests
             FormsClient forms = new FormsClient(ACCESS_KEY, SECRET_KEY, TenantName.ONEBLINK_TEST);
             FormSubmission<object> formSubmission = await forms.GetFormSubmission<object>(this.formId, this.submissionId);
             Assert.NotNull(formSubmission);
-            if (formSubmission.device != null)
-            {
-                foreach (PropertyInfo propertyInfo in formSubmission.device.GetType().GetProperties())
-                {
-                    Console.WriteLine("Device: {0}={1}", propertyInfo.Name, propertyInfo.GetValue(formSubmission.device, null));
-                }
-            }
-            if (formSubmission.user != null)
-            {
-                foreach (PropertyInfo propertyInfo in formSubmission.user.GetType().GetProperties())
-                {
-                    Console.WriteLine("User: {0}={1}", propertyInfo.Name, propertyInfo.GetValue(formSubmission.user, null));
-                }
-            }
         }
 
         [Fact]
@@ -296,7 +282,7 @@ namespace OneBlink.SDK.Tests
             retrievedForm.description = updatedDescription;
             Form updatedForm = await formsClient.Update(retrievedForm);
             Assert.Equal(updatedDescription, updatedForm.description);
-            System.Threading.Thread.Sleep(30000); // give the API time to finish upserting s3 resources before deleting the form
+            System.Threading.Thread.Sleep(5000); // give the API time to finish upserting s3 resources before deleting the form
             await formsClient.Delete(updatedForm.id);
 
             var oneBlinkAPIException = await Assert.ThrowsAsync<OneBlink.SDK.OneBlinkAPIException>(() => formsClient.Get(updatedForm.id, true));
@@ -325,7 +311,7 @@ namespace OneBlink.SDK.Tests
                 )
             };
             Form updatedForm = await formsClient.Update(savedForm);
-            System.Threading.Thread.Sleep(30000); // give the API time to finish upserting s3 resources before deleting the form
+            System.Threading.Thread.Sleep(5000); // give the API time to finish upserting s3 resources before deleting the form
 
             await formsClient.Delete(updatedForm.id);
         }
