@@ -4,6 +4,10 @@
 
 ### Added
 
+- `imageUrl` property to `FormElementOption` class
+
+### Added
+
 - `nodes` and `type` to `FormApprovalFlowInstanceStep` and `FormApprovalStep`
 - `cachingStrategies` to `FormsAppBase`
 
