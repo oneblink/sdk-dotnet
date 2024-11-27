@@ -55,6 +55,7 @@ namespace OneBlink.SDK.Tests
         [Fact]
         public async void can_crud_form_element_lookups()
         {
+            FormElementLookupsClient formElementLookupsClient = new FormElementLookupsClient(ACCESS_KEY, SECRET_KEY, TenantName.ONEBLINK_TEST);
             FormElementLookup newFormElementLookup = new FormElementLookup();
             newFormElementLookup.name = "Unit test environment";
             newFormElementLookup.type = "DATA";
@@ -68,7 +69,6 @@ namespace OneBlink.SDK.Tests
                 }
             };
 
-            FormElementLookupsClient formElementLookupsClient = new FormElementLookupsClient(ACCESS_KEY, SECRET_KEY, TenantName.ONEBLINK_TEST);
             FormElementLookup savedFormElementLookup = await formElementLookupsClient.Create(newFormElementLookup);
             Assert.NotNull(savedFormElementLookup);
 

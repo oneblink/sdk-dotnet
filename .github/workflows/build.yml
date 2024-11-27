@@ -19,14 +19,14 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - name: Setup .NET SDK 6.0.x
-        uses: actions/setup-dotnet@v3
-        with:
-          dotnet-version: "6.0.x"
       - name: Setup .NET SDK 8.0.x
         uses: actions/setup-dotnet@v3
         with:
           dotnet-version: "8.0.x"
+      - name: Setup .NET SDK 9.0.x
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: "9.0.x"
       - uses: microsoft/DevSkim-Action@v1
       - uses: github/codeql-action/upload-sarif@v2
         with:
