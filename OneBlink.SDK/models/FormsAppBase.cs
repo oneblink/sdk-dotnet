@@ -84,5 +84,21 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public FormsAppCachingStrategies cachingStrategies
+        {
+            get; set;
+        }
+    }
+
+    public class FormsAppCachingStrategies
+    {
+        public string singleForm
+        {
+            get; set;
+        }
+        public string app
+        {
+            get; set;
+        }
     }
 }

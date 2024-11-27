@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## [9.0.1] - 2024-11-27
+
 ### Added
 
 - `disableAutosave` to `Form`
@@ -9,6 +11,7 @@
 ### Added
 
 - `nodes` and `type` to `FormApprovalFlowInstanceStep` and `FormApprovalStep`
+- `cachingStrategies` to `FormsAppBase`
 
 ## [9.0.0] - 2024-11-13
 
