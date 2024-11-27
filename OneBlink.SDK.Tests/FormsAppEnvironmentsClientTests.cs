@@ -4,7 +4,9 @@ using System;
 using Xunit;
 using OneBlink.SDK.Model;
 using System.Net;
-
+// Need to each test run sequenatially, both within the assembly and with in the class, as certain resources (e.g. s3 bucket) are shared
+// NOTE: This assembly directive applies to the whole test project
+[assembly: CollectionBehavior(CollectionBehavior.CollectionPerClass, DisableTestParallelization = true)]
 namespace OneBlink.SDK.Tests
 {
     public class FormsAppEnvironmentsClientTests
@@ -56,13 +58,13 @@ namespace OneBlink.SDK.Tests
         [Fact]
         public async void can_crud_forms_app_environments()
         {
+            FormsAppEnvironmentsClient formsAppEnvironmentsClient = new FormsAppEnvironmentsClient(ACCESS_KEY, SECRET_KEY, TenantName.ONEBLINK_TEST);
             FormsAppEnvironment newFormsAppEnvironment = new FormsAppEnvironment();
             newFormsAppEnvironment.name = "Unit test environment";
             newFormsAppEnvironment.description = "Created via unit test";
             newFormsAppEnvironment.organisationId = organisationId;
             newFormsAppEnvironment.slug = "unit-test-environment-" + DateTime.Now.ToFileTimeUtc().ToString();
 
-            FormsAppEnvironmentsClient formsAppEnvironmentsClient = new FormsAppEnvironmentsClient(ACCESS_KEY, SECRET_KEY, TenantName.ONEBLINK_TEST);
             FormsAppEnvironment savedFormsAppEnvironment = await formsAppEnvironmentsClient.Create(newFormsAppEnvironment);
             Assert.NotNull(savedFormsAppEnvironment);
 

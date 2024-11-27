@@ -139,20 +139,6 @@ namespace OneBlink.SDK.Tests
             FormsClient forms = new FormsClient(ACCESS_KEY, SECRET_KEY, TenantName.ONEBLINK_TEST);
             FormSubmission<object> formSubmission = await forms.GetFormSubmission<object>(this.formId, this.submissionId);
             Assert.NotNull(formSubmission);
-            if (formSubmission.device != null)
-            {
-                foreach (PropertyInfo propertyInfo in formSubmission.device.GetType().GetProperties())
-                {
-                    Console.WriteLine("Device: {0}={1}", propertyInfo.Name, propertyInfo.GetValue(formSubmission.device, null));
-                }
-            }
-            if (formSubmission.user != null)
-            {
-                foreach (PropertyInfo propertyInfo in formSubmission.user.GetType().GetProperties())
-                {
-                    Console.WriteLine("User: {0}={1}", propertyInfo.Name, propertyInfo.GetValue(formSubmission.user, null));
-                }
-            }
         }
 
         [Fact]
@@ -181,7 +167,8 @@ namespace OneBlink.SDK.Tests
             DateTime endDate = DateTime.Today.AddDays(10);
             Form newForm = new Form();
             newForm.name = "Unit test";
-            newForm.slug = "unit-test";
+            string slug = "unit-test-" + DateTime.Now.ToString("o").Replace(":", "-").Replace(".", "-").Replace("+", "-").ToLower();
+            newForm.slug = slug;
             newForm.description = "Created via unit test";
             newForm.organisationId = organisationId;
             newForm.isAuthenticated = false;
@@ -283,7 +270,7 @@ namespace OneBlink.SDK.Tests
             Assert.NotNull(savedForm);
             Form retrievedForm = await formsClient.Get(savedForm.id, true);
             Assert.NotNull(retrievedForm);
-            Assert.Equal(newForm.slug, retrievedForm.slug);
+            Assert.Equal(slug, retrievedForm.slug);
             Assert.Equal(tags, retrievedForm.tags);
             Assert.Equal(newForm.postSubmissionReceipt.html, retrievedForm.postSubmissionReceipt.html);
             // Need to convert these to UTC time as that is what comes from api, and these dates are in local time
@@ -294,6 +281,7 @@ namespace OneBlink.SDK.Tests
             retrievedForm.description = updatedDescription;
             Form updatedForm = await formsClient.Update(retrievedForm);
             Assert.Equal(updatedDescription, updatedForm.description);
+            System.Threading.Thread.Sleep(5000); // give the API time to finish upserting s3 resources before deleting the form
             await formsClient.Delete(updatedForm.id);
 
             var oneBlinkAPIException = await Assert.ThrowsAsync<OneBlink.SDK.OneBlinkAPIException>(() => formsClient.Get(updatedForm.id, true));
@@ -322,6 +310,7 @@ namespace OneBlink.SDK.Tests
                 )
             };
             Form updatedForm = await formsClient.Update(savedForm);
+            System.Threading.Thread.Sleep(5000); // give the API time to finish upserting s3 resources before deleting the form
 
             await formsClient.Delete(updatedForm.id);
         }
