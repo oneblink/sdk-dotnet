@@ -7,6 +7,10 @@
 - `imageUrl` property to `FormElementOption` class
 - `disableAutosave` to `Form`
 
+### Fixed
+
+- Headers not being escaped when uploading to s3
+
 ## [9.0.1] - 2024-11-27
 
 ### Added

@@ -316,12 +316,12 @@ namespace OneBlink.SDK
             string key = "/forms/" + formId.ToString() + "/attachments";
             AttachmentUploadRequest attachmentUploadRequest = new AttachmentUploadRequest()
             {
-                username = username
+                username = Uri.EscapeDataString(username)
             };
             ContentDisposition disposition = new ContentDisposition
             {
                 DispositionType = DispositionTypeNames.Attachment,
-                FileName = fileName
+                FileName = Uri.EscapeDataString(fileName)
             };
             AttachmentUploadResponse attachmentUploadResponse = await this.oneBlinkApiClient.Upload<AttachmentUploadRequest, AttachmentUploadResponse>(key, body, contentType, attachmentUploadRequest, isPublic: !isPrivate, disposition);
 
@@ -350,11 +350,11 @@ namespace OneBlink.SDK
             string key = "email-attachments";
             WorkflowAttachmentUploadRequest requestBody = new WorkflowAttachmentUploadRequest
             {
-                filename = filename
+                filename = Uri.EscapeDataString(filename)
             };
             ContentDisposition disposition = new ContentDisposition()
             {
-                FileName = filename,
+                FileName = Uri.EscapeDataString(filename),
                 DispositionType = DispositionTypeNames.Attachment
             };
             S3UploadResponse s3UploadResponse = await this.oneBlinkApiClient.Upload<WorkflowAttachmentUploadRequest>(key, body, contentType, requestBody, disposition);

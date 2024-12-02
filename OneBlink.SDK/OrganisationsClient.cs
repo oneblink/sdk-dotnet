@@ -48,7 +48,7 @@ namespace OneBlink.SDK
 
             AssetUploadRequest assetUploadRequest = new AssetUploadRequest()
             {
-                fileName = assetFileName
+                fileName = Uri.EscapeDataString(assetFileName)
             };
             string key = "organisations/" + searchResult.organisations[0].id + "/assets";
             AssetUploadResponse assetUploadResponse = await this.oneBlinkApiClient.Upload<AssetUploadRequest, AssetUploadResponse>(key, assetDataStream, contentType, assetUploadRequest, isPublic: true);
