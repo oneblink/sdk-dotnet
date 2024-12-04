@@ -24,11 +24,11 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
-        public long startTime
+        public long? startTime
         {
             get; set;
         }
-        public long endTime
+        public long? endTime
         {
             get; set;
         }
@@ -41,11 +41,11 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
-        public long previousStartTime
+        public long? previousStartTime
         {
             get; set;
         }
-        public long previousEndTime
+        public long? previousEndTime
         {
             get; set;
         }
