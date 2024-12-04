@@ -35,5 +35,9 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public FormsAppEnvironmentStyles styles
+        {
+            get; set;
+        }
     }
 }

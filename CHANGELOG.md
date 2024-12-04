@@ -4,6 +4,10 @@
 
 ### Added
 
+- `styles` to `FormsAppEnvironment`
+
+### Added
+
 - `imageUrl` property to `FormElementOption` class
 - `disableAutosave` to `Form`
 
