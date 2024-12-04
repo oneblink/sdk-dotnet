@@ -2,10 +2,11 @@ using System.Collections.Generic;
 
 namespace OneBlink.SDK.Model
 {
-    public class FormsListStyles : FormsAppStylesBase
+    public class FormsListStyles : FormsAppEnvironmentStyles
     {
-        public string logoUrl {get;set;}
-        public List<FormsAppMenuItems> menuItems {get;set;}
-        public FormsListStylesButtons buttons {get;set;}
+        public List<FormsAppMenuItems> menuItems
+        {
+            get; set;
+        }
     }
 }
