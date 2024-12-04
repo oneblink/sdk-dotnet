@@ -2,6 +2,14 @@
 
 ## Unreleased
 
+### Removed
+
+- legacy nylas
+
+### Added
+
+- `formSubmissionNylasBooking` to `FormSubmissionMetaResponse`
+
 ### Added
 
 - `imageUrl` property to `FormElementOption` class

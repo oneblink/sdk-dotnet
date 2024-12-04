@@ -26,7 +26,7 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
-        public SchedulingBooking formSubmissionSchedulingBooking
+        public NylasBooking formSubmissionNylasBooking
         {
             get; set;
         }

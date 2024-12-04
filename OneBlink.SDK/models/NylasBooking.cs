@@ -2,25 +2,38 @@ using System;
 
 namespace OneBlink.SDK.Model
 {
-    public class SchedulingBooking
+    public class NylasBooking
     {
-        public string nylasCalendarId
+        public string bookingRef
         {
             get; set;
         }
-        public string nylasEditHash
+        public string bookingId
         {
             get; set;
         }
-        public string nylasProposedEventId
+        public string calendarId
         {
             get; set;
         }
-        public string emailAddress
+        public string grantId
         {
             get; set;
         }
-        public string name
+        public string proposedEventId
+        {
+            get; set;
+        }
+        public long? startTime
+        {
+            get; set;
+        }
+        public long? endTime
+        {
+            get; set;
+        }
+
+        public string timezone
         {
             get; set;
         }
@@ -28,26 +41,15 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
-        public long startTime
+        public long? previousStartTime
         {
             get; set;
         }
-        public long endTime
+        public long? previousEndTime
         {
             get; set;
         }
-        public long previousStartTime
-        {
-            get; set;
-        }
-        public long previousEndTime
-        {
-            get; set;
-        }
-        public string timezone
-        {
-            get; set;
-        }
+
         public string cancelledReason
         {
             get; set;
