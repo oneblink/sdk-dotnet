@@ -199,28 +199,6 @@ namespace OneBlink.SDK.Model
             return civicaCrm;
         }
 
-        public static FormSubmissionEvent CreateSchedulingSubmissionEvent(
-            string nylasAccountId,
-            long nylasSchedulingPageId,
-            Guid? nameElementId = null,
-            Guid? emailElementId = null,
-            string emailDescription = null,
-            string label = null
-        )
-        {
-            FormSubmissionEventConfiguration fseconfig = new FormSubmissionEventConfiguration();
-            fseconfig.nylasAccountId = nylasAccountId;
-            fseconfig.nylasSchedulingPageId = nylasSchedulingPageId;
-            fseconfig.nameElementId = nameElementId;
-            fseconfig.emailElementId = emailElementId;
-            fseconfig.emailDescription = emailDescription;
-            FormSubmissionEvent schedulingEvent = new FormSubmissionEvent();
-            schedulingEvent.type = "SCHEDULING";
-            schedulingEvent.configuration = fseconfig;
-            schedulingEvent.label = label;
-            return schedulingEvent;
-        }
-
         public static FormSubmissionEvent CreateNylasSubmissionEvent(string nylasGrantId,
             string nylasConfigurationId,
             Guid? nameElementId = null,
