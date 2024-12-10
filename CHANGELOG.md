@@ -10,6 +10,8 @@
 
 - `formSubmissionNylasBooking` to `FormSubmissionMetaResponse`
 
+## [9.0.2] - 2024-12-09
+
 ### Added
 
 - `imageUrl` property to `FormElementOption` class
