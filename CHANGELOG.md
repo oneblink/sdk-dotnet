@@ -5,6 +5,7 @@
 ### Removed
 
 - legacy nylas
+- **[BREAKING]** `CreateSchedulingSubmissionEvent` from `FormSubmissionEvent`
 
 ### Added
 
