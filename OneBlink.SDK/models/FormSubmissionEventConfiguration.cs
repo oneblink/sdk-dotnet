@@ -123,14 +123,6 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
-        public string nylasAccountId
-        {
-            get; set;
-        }
-        public long? nylasSchedulingPageId
-        {
-            get; set;
-        }
         public string nylasGrantId
         {
             get; set;

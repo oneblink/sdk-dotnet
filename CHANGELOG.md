@@ -2,6 +2,15 @@
 
 ## Unreleased
 
+### Removed
+
+- legacy nylas
+- **[BREAKING]** `CreateSchedulingSubmissionEvent` from `FormSubmissionEvent`
+
+### Added
+
+- `formSubmissionNylasBooking` to `FormSubmissionMetaResponse`
+
 ## [9.0.2] - 2024-12-09
 
 ### Added
