@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Added
+
+- `styles` to `FormsAppEnvironment`
+
 ## [10.0.0] - 2024-12-11
 
 ### Removed
