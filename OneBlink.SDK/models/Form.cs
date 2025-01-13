@@ -43,7 +43,8 @@ namespace OneBlink.SDK.Model
             Guid? pointAddressEnvironmentId = null,
             bool? allowGeoscapeAddresses = null,
             FormEnableSubmission enableSubmission = null,
-            bool? disableAutosave = null
+            bool? disableAutosave = null,
+            bool? isArchived = null
             )
         {
             if (id.HasValue)
@@ -155,6 +156,7 @@ namespace OneBlink.SDK.Model
             this.allowGeoscapeAddresses = allowGeoscapeAddresses ?? null;
             this.enableSubmission = enableSubmission;
             this.disableAutosave = disableAutosave;
+            this.isArchived = isArchived;
         }
         public long id
         {
@@ -308,5 +310,10 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public bool? isArchived
+        {
+            get; set;
+        }
+
     }
 }
