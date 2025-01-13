@@ -1,9 +1,9 @@
 using dotenv.net;
-using System.IO;
 using System;
 using Xunit;
 using OneBlink.SDK.Model;
 using System.Net;
+using System.Collections.Generic;
 // Need to each test run sequenatially, both within the assembly and with in the class, as certain resources (e.g. s3 bucket) are shared
 // NOTE: This assembly directive applies to the whole test project
 [assembly: CollectionBehavior(CollectionBehavior.CollectionPerClass, DisableTestParallelization = true)]
@@ -64,6 +64,7 @@ namespace OneBlink.SDK.Tests
             newFormsAppEnvironment.description = "Created via unit test";
             newFormsAppEnvironment.organisationId = organisationId;
             newFormsAppEnvironment.slug = "unit-test-environment-" + DateTime.Now.ToFileTimeUtc().ToString();
+            newFormsAppEnvironment.notificationEmailAddresses = new List<string>() { "developers@oneblink.io" };
 
             FormsAppEnvironment savedFormsAppEnvironment = await formsAppEnvironmentsClient.Create(newFormsAppEnvironment);
             Assert.NotNull(savedFormsAppEnvironment);
@@ -95,6 +96,7 @@ namespace OneBlink.SDK.Tests
                     name = "Cloned Environment",
                     slug = "cloned-prod-" + DateTime.Now.ToFileTimeUtc().ToString(),
                     organisationId = this.organisationId,
+                    notificationEmailAddresses = new List<string>() { "developers@oneblink.io" },
                     cloneOptions = new FormsAppEnvironmentCloneOptions()
                     {
                         isCloningFormElementLookups = true,

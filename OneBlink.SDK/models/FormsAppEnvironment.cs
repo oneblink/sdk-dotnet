@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 namespace OneBlink.SDK.Model
 {
     public class FormsAppEnvironment
@@ -28,6 +29,10 @@ namespace OneBlink.SDK.Model
             get; set;
         }
         public string slug
+        {
+            get; set;
+        }
+        public List<string> notificationEmailAddresses
         {
             get; set;
         }
