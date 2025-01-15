@@ -58,17 +58,31 @@ dotnet test
 
     #### Production Release
 
-    1.  Update the [Changelog](./CHANGELOG.md) by replacing `Unreleased` with `1.0.1 (YYYY-MM-DD)`
+    1.  Install the latest OneBlink Release CLI
 
-    1.  Update the `<PackageVersion>` tag in [`OneBlink.SDK.csproj`](./OneBlink.SDK/OneBlink.SDK.csproj) with `1.0.1`
+        ```
+        npm i -g @oneblink/release-cli@3.x.x
+        ```
 
-    1.  Update the `<AssemblyVersion>` tag in [`OneBlink.SDK.csproj`](./OneBlink.SDK/OneBlink.SDK.csproj) with `1.0.1.0`
+    1.  Release the repository
+
+        ```
+        oneblink-release repository
+        ```
 
     #### Beta Release
 
-    1.  Update the `<PackageVersion>` tag in [`OneBlink.SDK.csproj`](./OneBlink.SDK/OneBlink.SDK.csproj) with `1.0.1-beta.1`
+    1.  Install the latest OneBlink Release CLI
 
-    1.  Update the `<AssemblyVersion>` tag in [`OneBlink.SDK.csproj`](./OneBlink.SDK/OneBlink.SDK.csproj) with `1.0.1.1`
+        ```
+        npm i -g @oneblink/release-cli@3.x.x
+        ```
+
+    1.  Release the repository using a `beta` pre-release e.g. `1.0.0-beta.1`
+
+        ```
+        oneblink-release repository
+        ```
 
 1.  Push changes to the `master` branch
 
