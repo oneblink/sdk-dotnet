@@ -54,51 +54,23 @@ dotnet test
     git pull
     ```
 
-1.  Update SDK Version
-
-    #### Production Release
-
-    1.  Install the latest OneBlink Release CLI
-
-        ```
-        npm i -g @oneblink/release-cli@3.x.x
-        ```
-
-    1.  Release the repository
-
-        ```
-        oneblink-release repository
-        ```
-
-    #### Beta Release
-
-    1.  Install the latest OneBlink Release CLI
-
-        ```
-        npm i -g @oneblink/release-cli@3.x.x
-        ```
-
-    1.  Release the repository using a `beta` pre-release e.g. `1.0.0-beta.1`
-
-        ```
-        oneblink-release repository
-        ```
-
-1.  Push changes to the `master` branch
+1.  Install the latest OneBlink Release CLI
 
     ```
-    git add -A
-    git commit -m "[RELEASE] 1.0.1"
-    git push
+    npm i -g @oneblink/release-cli@3.x.x
     ```
 
-1.  Follow the steps below for automated or manual deployments
+1.  Release the repository. Ensure you use a `beta` pre-release e.g. `1.0.0-beta.1` if releasing a Beta version.
+
+    ```
+    oneblink-release repository
+    ```
 
 ## Deployment
 
 ### Automated
 
-1.  Create a **Git Tag** to trigger the build and deployment process e.g. `1.0.1`
+The release process will trigger the build and deployment process.
 
 ### Manual
 
