@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## [10.1.1] - 2025-01-22
+
 ### Added
 
 - `isArchived` to Forms
