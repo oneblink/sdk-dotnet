@@ -191,5 +191,17 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public Guid integrationEntraApplicationId
+        {
+            get; set;
+        }
+        public FormSubmissionEventConfigurationSharePointResource sharepointSite
+        {
+            get; set;
+        }
+        public FormSubmissionEventConfigurationSharePointResource sharepointList
+        {
+            get; set;
+        }
     }
 }
