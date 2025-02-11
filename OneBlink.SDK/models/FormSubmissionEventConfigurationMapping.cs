@@ -32,6 +32,10 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public string sharepointColumnDefinitionName
+        {
+            get; set;
+        }
     }
     //Kept here for backwards compatability, remove with next breaking change.
     public class FormSubmissionEventCivicaElementMapping : FormSubmissionEventConfigurationMapping
