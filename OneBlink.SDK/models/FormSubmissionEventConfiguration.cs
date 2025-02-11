@@ -191,7 +191,7 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
-        public Guid integrationEntraApplicationId
+        public Guid? integrationEntraApplicationId
         {
             get; set;
         }
