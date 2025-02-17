@@ -203,5 +203,17 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public FormSubmissionEventConfigurationSharePointResource sharepointDrive
+        {
+            get; set;
+        }
+        public string folderPath
+        {
+            get; set;
+        }
+        public bool? excludeAttachments
+        {
+            get; set;
+        }
     }
 }

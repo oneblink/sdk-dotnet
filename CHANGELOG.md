@@ -4,7 +4,7 @@
 
 ### Added
 
-- properties to support SharePoint Create List Item form workflow event
+- properties to support SharePoint Create List Item and Store Files form workflow event
 
 ## [10.1.1] - 2025-01-22
 
