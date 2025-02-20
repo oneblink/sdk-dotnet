@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## [10.2.0] - 2025-02-20
+
 ### Added
 
 - properties to support SharePoint Create List Item and Store Files form workflow event
