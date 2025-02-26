@@ -2,6 +2,13 @@
 
 ## Unreleased
 
+### Added
+
+- `customPDFs` to Form
+- `customPdfId` to `PDFConfiguration`
+- `isCloningCustomPDFs` to `FormsAppEnvironmentCloneOptions`
+- `customPDFs` to `FormMigrationOptions`
+
 ## [10.2.0] - 2025-02-20
 
 ### Added

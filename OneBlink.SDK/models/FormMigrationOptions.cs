@@ -44,6 +44,10 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public bool customPDFs
+        {
+            get; set;
+        }
         public long? versionId
         {
             get; set;
