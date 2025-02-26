@@ -44,5 +44,9 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public string customPdfId
+        {
+            get; set;
+        }
     }
 }

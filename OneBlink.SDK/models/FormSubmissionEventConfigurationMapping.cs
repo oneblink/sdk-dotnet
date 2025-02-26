@@ -36,8 +36,12 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public string replaceableField
+        {
+            get; set;
+        }
     }
-    //Kept here for backwards compatability, remove with next breaking change.
+    //Kept here for backwards compatibility, remove with next breaking change.
     public class FormSubmissionEventCivicaElementMapping : FormSubmissionEventConfigurationMapping
     {
     }
