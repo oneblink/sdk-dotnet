@@ -215,5 +215,9 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public PDFConfiguration allowPDFDownload
+        {
+            get; set;
+        }
     }
 }
