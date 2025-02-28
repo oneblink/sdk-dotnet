@@ -8,6 +8,7 @@
 - `customPdfId` to `PDFConfiguration`
 - `isCloningCustomPDFs` to `FormsAppEnvironmentCloneOptions`
 - `customPDFs` to `FormMigrationOptions`
+- `allowPDFDownload` to `FormSubmissionEventConfiguration`
 
 ## [10.2.0] - 2025-02-20
 
