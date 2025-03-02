@@ -18,31 +18,8 @@ namespace OneBlink.SDK
                 tenant: new Tenant(tenantName)
             );
         }
-        public async Task<Stream> GetSubmissionPdf(long formId,
-        string submissionId,
-        bool? isDraft = null,
-        bool? includeSubmissionIdInPdf = null,
-        List<Guid> excludedElementIds = null,
-        bool? usePagesAsBreaks = null,
-        bool? includePaymentInPdf = null,
-        List<string> excludedCSSClasses = null,
-        bool? includeExternalIdInPdf = null,
-        string pdfSize = "A4",
-        bool? includeCalendarBookingInPdf = null)
+        public async Task<Stream> GetSubmissionPdf(long formId, string submissionId, GetSubmissionPdfRequest body)
         {
-            GetSubmissionPdfRequest body = new GetSubmissionPdfRequest()
-            {
-                excludedElementIds = excludedElementIds,
-                usePagesAsBreaks = usePagesAsBreaks,
-                isDraft = isDraft,
-                includeSubmissionIdInPdf = includeSubmissionIdInPdf,
-                includePaymentInPdf = includePaymentInPdf,
-                includeCalendarBookingInPdf = includeCalendarBookingInPdf,
-                excludedCSSClasses = excludedCSSClasses,
-                includeExternalIdInPdf = includeExternalIdInPdf,
-                pdfSize = pdfSize
-            };
-
             string url = "/forms/" + formId.ToString() + "/submissions/" + submissionId + "/pdf-document";
             return await this.oneBlinkPdfClient.PostRequest(url, body);
         }

@@ -46,7 +46,7 @@ namespace unit_tests
         {
             PdfClient pdf = new PdfClient(ACCESS_KEY, SECRET_KEY, TenantName.ONEBLINK_TEST);
 
-            Stream response = await pdf.GetSubmissionPdf(formId, submissionId);
+            Stream response = await pdf.GetSubmissionPdf(formId, submissionId, new GetSubmissionPdfRequest());
             Assert.NotNull(response);
         }
 
