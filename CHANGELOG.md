@@ -9,6 +9,37 @@
 - `isCloningCustomPDFs` to `FormsAppEnvironmentCloneOptions`
 - `customPDFs` to `FormMigrationOptions`
 
+### Changed
+
+- **[BREAKING]** `PdfClient.GetSubmissionPdf()` parameters
+  ```diff
+  Stream stream = await pdfClient.GetSubmissionPdf(
+      formId = 1,
+      submissionId = "",
+  -   false,
+  -   false,
+  -   null,
+  -   true,
+  -   true,
+  -   null,
+  -   true,
+  -   "A4",
+  -   true
+  +   new GetSubmissionPdfRequest()
+  +   {
+  +       isDraft = false,
+  +       includeSubmissionIdInPdf = false,
+  +       excludedElementIds = null,
+  +       usePagesAsBreaks = true,
+  +       includePaymentInPdf = true,
+  +       excludedCSSClasses = null,
+  +       includeExternalIdInPdf = true,
+  +       pdfSize = "A4",
+  +       includeCalendarBookingInPdf = true
+  +   }
+  );
+  ```
+
 ## [10.2.0] - 2025-02-20
 
 ### Added
