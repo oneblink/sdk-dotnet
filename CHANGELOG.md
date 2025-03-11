@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## [11.0.0] - 2025-03-11
+
 ### Added
 
 - `customPDFs` to Form
