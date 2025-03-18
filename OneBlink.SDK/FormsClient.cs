@@ -8,6 +8,7 @@ using System.Net.Mime;
 using System.Web;
 using Task = System.Threading.Tasks.Task;
 using System.Net;
+using System.Collections.Specialized;
 
 namespace OneBlink.SDK
 {
@@ -120,9 +121,9 @@ namespace OneBlink.SDK
 
         public async Task<Form> Get(long id, Boolean? injectForms)
         {
-            var query = HttpUtility.ParseQueryString(string.Empty);
+            NameValueCollection query = HttpUtility.ParseQueryString(string.Empty);
             OneBlinkHttpClient.AddItemToQuery(query, nameof(injectForms), injectForms);
-            string url = "/forms/" + id.ToString() + "?" + query.ToString();
+            string url = "/v2/forms/" + id.ToString() + "?" + query.ToString();
             return await this.oneBlinkApiClient.GetRequest<Form>(url);
         }
 

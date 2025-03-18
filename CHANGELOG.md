@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Fixed
+
+- `FormsClient.Get()` using legacy endpoint.
+
 ## [11.0.0] - 2025-03-11
 
 ### Added
