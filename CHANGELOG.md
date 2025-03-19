@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Added
+
+- `isCustomPdfEditable` to `PDFConfiguration`
+
 ## [11.0.1] - 2025-03-19
 
 ### Fixed
