@@ -437,11 +437,15 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
-
         public bool? canCollapseFromBottom
         {
             get; set;
         }
+        public bool? isDisplayingAddressInformation
+        {
+            get; set;
+        }
+
         private static Guid initialiseId(Guid? id)
         {
             if (!id.HasValue)
