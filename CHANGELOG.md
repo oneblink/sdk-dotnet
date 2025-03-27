@@ -4,6 +4,8 @@
 
 ### Added
 
+- `sharepointIntegrationEntraApplicationId` to `Form`
+- `isDisplayingAddressInformation` to `FormElement`
 - `isCustomPdfEditable` to `PDFConfiguration`
 
 ## [11.0.1] - 2025-03-19
