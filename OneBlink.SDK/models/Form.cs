@@ -298,10 +298,6 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
-        public Guid? sharepointIntegrationEntraApplicationId
-        {
-            get; set;
-        }
         public bool? allowGeoscapeAddresses
         {
             get; set;
