@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## [11.0.2] - 2025-04-04
+
 ### Added
 
 - `isDisplayingAddressInformation` to `FormElement`
