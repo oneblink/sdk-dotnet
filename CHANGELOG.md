@@ -2,6 +2,14 @@
 
 ## Unreleased
 
+### Changed
+
+- `webMapId` to be optional in `FormElement`
+
+### Added
+
+- `basemapId` to `FormElement`
+
 ## [11.0.2] - 2025-04-04
 
 ### Added

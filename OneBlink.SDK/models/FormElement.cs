@@ -416,7 +416,11 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
-        public string webMapId
+        public string? webMapId
+        {
+            get; set;
+        }
+        public string? basemapId
         {
             get; set;
         }
