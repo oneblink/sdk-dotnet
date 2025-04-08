@@ -421,7 +421,6 @@ namespace OneBlink.SDK.Model
             get; set;
         }
         public string basemapId
-
         {
             get; set;
         }
