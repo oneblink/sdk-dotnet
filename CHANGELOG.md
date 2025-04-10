@@ -4,7 +4,7 @@
 
 ### Added
 
-- `basemapId` to `FormElement`
+- `basemapId`, `allowedDrawingWidgets`, `addressSearchWidgetEnabled` and `homeWidgetEnabled` to `FormElement`
 
 ## [11.0.2] - 2025-04-04
 
