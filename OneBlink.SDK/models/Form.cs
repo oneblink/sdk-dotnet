@@ -298,6 +298,10 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public Guid? pointAddressV3EnvironmentId
+        {
+            get; set;
+        }
         public bool? allowGeoscapeAddresses
         {
             get; set;
