@@ -428,7 +428,7 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
-        public List<DrawingWidget> allowedDrawingWidgets
+        public List<DrawingTool> allowedDrawingTools
         {
             get; set;
         }

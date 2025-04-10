@@ -1,10 +1,16 @@
 #pragma warning disable IDE1006 // Names are from OneBlink Types
 
+using System.Collections.Generic;
+
 namespace OneBlink.SDK.Model
 {
-    public class DrawingWidget
+    public class DrawingTool
     {
         public string type
+        {
+            get; set;
+        }
+        public List<GraphicType> graphicTypes
         {
             get; set;
         }
