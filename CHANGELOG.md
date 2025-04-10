@@ -4,7 +4,7 @@
 
 ### Added
 
-- `basemapId`, `allowedDrawingWidgets`, `addressSearchWidgetEnabled` and `homeWidgetEnabled` to `FormElement`
+- `basemapId`, `allowedDrawingTools`, `addressSearchWidgetEnabled` and `homeWidgetEnabled` to `FormElement`
 - `pointAddressV3EnvironmentId` to `Form` class
 
 ## [11.0.2] - 2025-04-04
