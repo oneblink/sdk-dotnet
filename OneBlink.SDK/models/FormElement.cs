@@ -428,6 +428,18 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public List<DrawingWidget> allowedDrawingWidgets
+        {
+            get; set;
+        }
+        public bool? addressSearchWidgetEnabled
+        {
+            get; set;
+        }
+        public bool? homeWidgetEnabled
+        {
+            get; set;
+        }
         public bool? decorativeImage
         {
             get; set;
