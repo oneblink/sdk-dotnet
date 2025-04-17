@@ -1,7 +1,7 @@
 #pragma warning disable IDE1006 // Names are from OneBlink Types
 namespace OneBlink.SDK.Model
 {
-    public class GraphicType
+    public class GraphicAttributeOption
     {
         public string id
         {

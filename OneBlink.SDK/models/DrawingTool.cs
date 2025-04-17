@@ -10,7 +10,7 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
-        public List<GraphicType> graphicTypes
+        public List<GraphicAttributeOption> graphicAttributeOptions
         {
             get; set;
         }
