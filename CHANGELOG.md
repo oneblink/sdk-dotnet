@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## [11.0.3] - 2025-04-30
+
 ### Added
 
 - `basemapId`, `allowedDrawingTools`, `addressSearchWidgetEnabled` and `homeWidgetEnabled` to `FormElement`
