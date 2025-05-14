@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Added
+
+- `googleAnalyticsTagId` to `FormsAppBase`
+
 ## [11.0.3] - 2025-04-30
 
 ### Added

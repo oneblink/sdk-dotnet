@@ -88,6 +88,10 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public string googleAnalyticsTagId
+        {
+            get; set;
+        }
     }
 
     public class FormsAppCachingStrategies
