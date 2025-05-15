@@ -18,6 +18,10 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public string middle_name
+        {
+            get; set;
+        }
         public string family_name
         {
             get; set;
@@ -62,6 +66,10 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public string address
+        {
+            get; set;
+        }
         [JsonProperty("custom:role")]
         public string customRole
         {
@@ -98,6 +106,71 @@ namespace OneBlink.SDK.Model
         }
         [JsonProperty("custom:groups")]
         public string customGroups
+        {
+            get; set;
+        }
+        [JsonProperty("custom:area_code")]
+        public string customAreaCode
+        {
+            get; set;
+        }
+        [JsonProperty("custom:city")]
+        public string customCity
+        {
+            get; set;
+        }
+        [JsonProperty("custom:state")]
+        public string customState
+        {
+            get; set;
+        }
+        [JsonProperty("custom:country")]
+        public string customCountry
+        {
+            get; set;
+        }
+        [JsonProperty("custom:country_calling_code")]
+        public string customCountryCallingCode
+        {
+            get; set;
+        }
+        [JsonProperty("custom:department")]
+        public string customDepartment
+        {
+            get; set;
+        }
+        [JsonProperty("custom:division")]
+        public string customDivision
+        {
+            get; set;
+        }
+        [JsonProperty("custom:bargain")]
+        public string customBargain
+        {
+            get; set;
+        }
+        [JsonProperty("custom:employee_number")]
+        public string customEmployeeNumber
+        {
+            get; set;
+        }
+        [JsonProperty("custom:departmenthead_name")]
+        public string customDepartmentHeadName
+        {
+            get; set;
+        }
+        [JsonProperty("custom:departmenthead_email")]
+        public string customDepartmentHeadEmail
+        {
+            get; set;
+        }
+        [JsonProperty("custom:zip_code")]
+        public string customZipCode
+        {
+            get; set;
+        }
+        [JsonProperty("custom:postal_code")]
+        public string customPostalCode
         {
             get; set;
         }
