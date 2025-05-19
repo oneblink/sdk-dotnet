@@ -52,7 +52,24 @@ namespace OneBlink.SDK
                 fullName = rawJWTPayload.name,
                 picture = rawJWTPayload.picture,
                 role = rawJWTPayload.customRole,
-                username = !string.IsNullOrEmpty(rawJWTPayload.email) ? rawJWTPayload.email : rawJWTPayload.sub
+                username = !string.IsNullOrEmpty(rawJWTPayload.email) ? rawJWTPayload.email : rawJWTPayload.sub,
+                phoneNumber = rawJWTPayload.customPhoneNumber,
+                phoneNumberVerified = rawJWTPayload.customPhoneNumberVerified,
+                groups = !string.IsNullOrEmpty(rawJWTPayload.customGroups) ? new System.Collections.Generic.List<string>(rawJWTPayload.customGroups.Split(',')) : null,
+                address = rawJWTPayload.address,
+                city = rawJWTPayload.customCity,
+                state = rawJWTPayload.customState,
+                country = rawJWTPayload.customCountry,
+                areaCode = rawJWTPayload.customAreaCode,
+                countryCallingCode = rawJWTPayload.customCountryCallingCode,
+                department = rawJWTPayload.customDepartment,
+                division = rawJWTPayload.customDivision,
+                bargain = rawJWTPayload.customBargain,
+                employeeNumber = rawJWTPayload.customEmployeeNumber,
+                departmentHeadFullName = rawJWTPayload.customDepartmentHeadName,
+                departmentHeadEmail = rawJWTPayload.customDepartmentHeadEmail,
+                zipCode = rawJWTPayload.customZipCode,
+                postalCode = rawJWTPayload.customPostalCode,
             };
             if (!string.IsNullOrEmpty(rawJWTPayload.customSupervisorEmail) && !string.IsNullOrEmpty(rawJWTPayload.customSupervisorName) && !string.IsNullOrEmpty(rawJWTPayload.customSupervisorUserId))
             {
@@ -63,9 +80,6 @@ namespace OneBlink.SDK
                     providerUserId = rawJWTPayload.customSupervisorUserId
                 };
             }
-            jWTPayload.phoneNumber = rawJWTPayload.customPhoneNumber;
-            jWTPayload.phoneNumberVerified = rawJWTPayload.customPhoneNumberVerified;
-            jWTPayload.groups = !string.IsNullOrEmpty(rawJWTPayload.customGroups) ? new System.Collections.Generic.List<string>(rawJWTPayload.customGroups.Split(',')) : null;
             if (rawJWTPayload.identities != null && rawJWTPayload.identities.Count > 0)
             {
                 jWTPayload.providerType = rawJWTPayload.identities[0].providerType;

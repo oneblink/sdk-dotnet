@@ -6,6 +6,7 @@
 
 - `googleAnalyticsTagId` to `FormsAppBase`
 - Additional attributes to `RawJWTPayload`
+- Additional attributes to `FormSubmissionUser`
 
 ## [11.0.3] - 2025-04-30
 

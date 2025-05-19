@@ -79,6 +79,62 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public string areaCode
+        {
+            get; set;
+        }
+        public string address
+        {
+            get; set;
+        }
+        public string city
+        {
+            get; set;
+        }
+        public string state
+        {
+            get; set;
+        }
+        public string country
+        {
+            get; set;
+        }
+        public string countryCallingCode
+        {
+            get; set;
+        }
+        public string department
+        {
+            get; set;
+        }
+        public string division
+        {
+            get; set;
+        }
+        public string bargain
+        {
+            get; set;
+        }
+        public string employeeNumber
+        {
+            get; set;
+        }
+        public string departmentHeadFullName
+        {
+            get; set;
+        }
+        public string departmentHeadEmail
+        {
+            get; set;
+        }
+        public string zipCode
+        {
+            get; set;
+        }
+        public string postalCode
+        {
+            get; set;
+        }
     }
 
     public enum FormSubmissionDeviceType
