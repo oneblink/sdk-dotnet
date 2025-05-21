@@ -4,6 +4,7 @@
 
 ### Added
 
+- `requiresConfirmation` to `FormElement`
 - `googleAnalyticsTagId` to `FormsAppBase`
 - Additional attributes to `RawJWTPayload`
 - Additional attributes to `FormSubmissionUser`
