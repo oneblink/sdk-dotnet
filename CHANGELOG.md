@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Added
+
+- `requiresConfirmation` to `FormElement`
+
 ## [11.0.4] - 2025-05-22
 
 ### Added

@@ -461,6 +461,10 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public bool? requiresConfirmation
+        {
+            get; set;
+        }
 
         private static Guid initialiseId(Guid? id)
         {
