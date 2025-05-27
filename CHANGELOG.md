@@ -5,6 +5,7 @@
 ### Added
 
 - `requiresConfirmation` to `FormElement`
+- `displayAsCheckbox` to `FormElement`
 
 ## [11.0.4] - 2025-05-22
 

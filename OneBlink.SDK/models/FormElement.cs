@@ -465,6 +465,10 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public bool? displayAsCheckbox
+        {
+            get; set;
+        }
 
         private static Guid initialiseId(Guid? id)
         {
