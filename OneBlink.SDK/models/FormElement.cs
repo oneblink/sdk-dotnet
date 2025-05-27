@@ -465,6 +465,10 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public bool? displayAsCheckbox
+        {
+            get; set;
+        }
 
         private static Guid initialiseId(Guid? id)
         {
@@ -690,7 +694,8 @@ namespace OneBlink.SDK.Model
             long? elementLookupId = null,
             List<string> customCssClasses = null,
             string meta = null,
-            string hintPosition = null
+            string hintPosition = null,
+            bool displayAsCheckbox = false
         )
         {
             FormElement booleanElement = new FormElement();
@@ -718,6 +723,7 @@ namespace OneBlink.SDK.Model
             }
             booleanElement.customCssClasses = customCssClasses;
             booleanElement.meta = meta;
+            booleanElement.displayAsCheckbox = displayAsCheckbox;
             return booleanElement;
         }
 
