@@ -44,5 +44,21 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public string recaptchaIntegrationDomainId
+        {
+            get; set;
+        }
+        public string googleMapsIntegrationKeyId
+        {
+            get; set;
+        }
+        public string faviconUrl
+        {
+            get; set;
+        }
+        public string customHostname
+        {
+            get; set;
+        }
     }
 }
