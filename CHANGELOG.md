@@ -6,6 +6,7 @@
 
 - `requiresConfirmation` to `FormElement`
 - `displayAsCheckbox` to `FormElement`
+- `customHostname` to `FormsAppEnvironment`
 
 ## [11.0.4] - 2025-05-22
 
