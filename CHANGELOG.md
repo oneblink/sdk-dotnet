@@ -4,6 +4,8 @@
 
 ### Added
 
+- `DynamicListOption` class
+- `FormSubmissionWebhookPayload` class
 - `requiresConfirmation` to `FormElement`
 - `displayAsCheckbox` to `FormElement`
 
