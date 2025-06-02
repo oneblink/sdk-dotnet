@@ -8,6 +8,7 @@
 - `FormSubmissionWebhookPayload` class
 - `requiresConfirmation` to `FormElement`
 - `displayAsCheckbox` to `FormElement`
+- `FormsAppsClient.VerifyJWT()` static method
 
 ## [11.0.4] - 2025-05-22
 
