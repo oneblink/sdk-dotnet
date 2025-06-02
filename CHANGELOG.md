@@ -6,6 +6,7 @@
 
 - `DynamicListOption` class
 - `FormSubmissionWebhookPayload` class
+- `FormElementLookupPayload` class
 - `requiresConfirmation` to `FormElement`
 - `displayAsCheckbox` to `FormElement`
 - `FormsAppsClient.VerifyJWT()` static method
