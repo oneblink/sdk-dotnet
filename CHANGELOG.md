@@ -4,9 +4,18 @@
 
 ### Added
 
+- `customHostname` to `FormsAppEnvironment`
+
+## [11.0.5] - 2025-06-03
+
+### Added
+
+- `DynamicListOption` class
+- `FormSubmissionWebhookPayload` class
+- `FormElementLookupPayload` class
 - `requiresConfirmation` to `FormElement`
 - `displayAsCheckbox` to `FormElement`
-- `customHostname` to `FormsAppEnvironment`
+- `FormsAppsClient.VerifyJWT()` static method
 
 ## [11.0.4] - 2025-05-22
 

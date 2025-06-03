@@ -21,14 +21,24 @@ namespace OneBlink.SDK
             );
         }
 
+        public async static Task<JWTPayload> VerifyJWT(string token, TenantName tenantName = TenantName.ONEBLINK)
+        {
+            return await FormsAppsClient.VerifyJWT(token, new Tenant(tenantName));
+        }
+
         public async Task<JWTPayload> VerifyJWT(string token)
+        {
+            return await FormsAppsClient.VerifyJWT(token, this.oneBlinkApiClient.tenant);
+        }
+
+        private async static Task<JWTPayload> VerifyJWT(string token, Tenant tenant)
         {
             if (token.Contains("Bearer "))
             {
                 token = token.Split(' ')[1];
             }
             JwtSecurityToken jwt = new JwtSecurityToken(token);
-            string iss = this.oneBlinkApiClient.tenant.jwtIssuer;
+            string iss = tenant.jwtIssuer;
             JsonWebKey jwk = await Token.GetJsonWebKey(
                 iss: iss,
                 kid: jwt.Header.Kid
