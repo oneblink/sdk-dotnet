@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## [11.0.5] - 2025-06-03
+
 ### Added
 
 - `DynamicListOption` class
