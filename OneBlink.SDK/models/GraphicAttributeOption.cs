@@ -15,5 +15,9 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public string description
+        {
+            get; set;
+        }
     }
 }

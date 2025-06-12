@@ -5,6 +5,7 @@
 ### Added
 
 - `customHostname` to `FormsAppEnvironment`
+- `description` to `ArcGISWebMapElement` graphic attribute options
 
 ## [11.0.5] - 2025-06-03
 
