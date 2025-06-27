@@ -322,5 +322,9 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public FormFooter footer
+        {
+            get; set;
+        }
     }
 }
