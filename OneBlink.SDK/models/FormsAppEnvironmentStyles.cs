@@ -10,5 +10,23 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public FormsAppEnvironmentValidationIcon validationIcon
+        {
+            get; set;
+        }
+    }
+
+    public class FormsAppEnvironmentValidationIcon
+    {
+
+        public string icon
+        {
+            get; set;
+        }
+        public string accessibleLabel
+        {
+            get; set;
+        }
+
     }
 }
