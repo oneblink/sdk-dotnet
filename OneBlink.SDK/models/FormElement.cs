@@ -469,6 +469,10 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public List<LookupButtonFormElementDependency> elementDependencies
+        {
+            get; set;
+        }
 
         private static Guid initialiseId(Guid? id)
         {

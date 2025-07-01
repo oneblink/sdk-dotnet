@@ -18,6 +18,10 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public string faviconUrl
+        {
+            get; set;
+        }
     }
 
     public class FormsAppStylesBase : FormsAppEnvironmentStylesBase

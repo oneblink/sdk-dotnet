@@ -5,6 +5,9 @@
 ### Added
 
 - `footer` to `Form`
+- Lookup Button element properties to `FormElement`
+- favicon configuration to environments and apps
+- `validationIcon` configuration to environments
 
 ## [11.0.6] - 2025-06-16
 
