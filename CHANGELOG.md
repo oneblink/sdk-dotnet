@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Added
+
+- `footer` to `Form`
+
 ## [11.0.6] - 2025-06-16
 
 ### Added
