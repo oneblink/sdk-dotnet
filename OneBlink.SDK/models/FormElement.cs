@@ -473,6 +473,10 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public long? maxFileSize
+        {
+            get; set;
+        }
 
         private static Guid initialiseId(Guid? id)
         {
@@ -959,7 +963,8 @@ namespace OneBlink.SDK.Model
             bool allowExtensionlessAttachments = false,
             List<string> customCssClasses = null,
             string meta = null,
-            string hintPosition = null
+            string hintPosition = null,
+            long? maxFileSize = null
         )
         {
             FormElement filesElement = new FormElement();
@@ -985,6 +990,7 @@ namespace OneBlink.SDK.Model
             filesElement.allowExtensionlessAttachments = allowExtensionlessAttachments;
             filesElement.customCssClasses = customCssClasses;
             filesElement.meta = meta;
+            filesElement.maxFileSize = maxFileSize;
             return filesElement;
         }
     }

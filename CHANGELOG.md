@@ -8,6 +8,7 @@
 - Lookup Button element properties to `FormElement`
 - favicon configuration to environments and apps
 - `validationIcon` configuration to environments
+- `maxFileSize` to `FormElement`
 
 ## [11.0.6] - 2025-06-16
 
