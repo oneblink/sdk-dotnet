@@ -473,6 +473,10 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public bool? restrictFileSize
+        {
+            get; set;
+        }
         public long? maxFileSize
         {
             get; set;
@@ -964,6 +968,7 @@ namespace OneBlink.SDK.Model
             List<string> customCssClasses = null,
             string meta = null,
             string hintPosition = null,
+            bool restrictFileSize = false,
             long? maxFileSize = null
         )
         {
@@ -990,6 +995,7 @@ namespace OneBlink.SDK.Model
             filesElement.allowExtensionlessAttachments = allowExtensionlessAttachments;
             filesElement.customCssClasses = customCssClasses;
             filesElement.meta = meta;
+            filesElement.restrictFileSize = restrictFileSize;
             filesElement.maxFileSize = maxFileSize;
             return filesElement;
         }
