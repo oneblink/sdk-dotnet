@@ -4,7 +4,7 @@
 
 ### Added
 
-- `footer` to `Form`
+- `footer` to `FormsListStyles`
 - Lookup Button element properties to `FormElement`
 - favicon configuration to environments and apps
 - `validationIcon` configuration to environments

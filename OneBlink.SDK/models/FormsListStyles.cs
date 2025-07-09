@@ -8,5 +8,9 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public FormsAppFooter footer
+        {
+            get; set;
+        }
     }
 }
