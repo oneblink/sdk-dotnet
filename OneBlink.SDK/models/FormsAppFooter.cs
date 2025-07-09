@@ -1,6 +1,6 @@
 namespace OneBlink.SDK.Model
 {
-    public class FormFooter
+    public class FormsAppFooter
     {
         public string html
         {
