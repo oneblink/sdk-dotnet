@@ -8,6 +8,10 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public bool? sendNotificationEmailOptionDefaultUnchecked
+        {
+            get; set;
+        }
         public List<FormApprovalCannedResponse> approveCannedResponses
         {
             get; set;
