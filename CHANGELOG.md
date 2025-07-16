@@ -5,6 +5,9 @@
 ### Added
 
 - `sendNotificationEmailOptionDefaultUnchecked` to `FormApprovalConfiguration`
+- `FormSubmissionEvent.CreateGoodToGoSubmissionEvent()` method
+- `FormSubmissionEventConfigurationMapping.goodToGoCustomFieldName` property
+- `FormSubmissionEventConfigurationMapping.mapping` property
 
 ## [11.0.7] - 2025-07-10
 

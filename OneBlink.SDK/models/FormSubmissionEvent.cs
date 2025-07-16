@@ -471,5 +471,37 @@ namespace OneBlink.SDK.Model
 
             return freshdeskCreateTicketEvent;
         }
+
+        public static FormSubmissionEvent CreateGoodToGoSubmissionEvent(
+            Guid elementId,
+            Guid integrationKeyId,
+            List<FormSubmissionEventConfigurationMapping> mapping,
+            List<ConditionallyShowPredicate> conditionallyExecutePredicates = default,
+            bool conditionallyExecute = false,
+            bool requiresAllConditionallyExecutePredicates = false,
+            string label = null
+        )
+        {
+            FormSubmissionEvent goodToGoUpdateAssetEvent = new FormSubmissionEvent
+            {
+                type = "GOOD_TO_GO_UPDATE_ASSET",
+                label = label,
+                requiresAllConditionallyExecutePredicates = requiresAllConditionallyExecutePredicates,
+                conditionallyExecute = conditionallyExecute,
+                configuration = new FormSubmissionEventConfiguration
+                {
+                    elementId = elementId,
+                    integrationKeyId = integrationKeyId,
+                    mapping = mapping,
+                }
+            };
+
+            if (conditionallyExecutePredicates != default(List<ConditionallyShowPredicate>))
+            {
+                goodToGoUpdateAssetEvent.conditionallyExecutePredicates = conditionallyExecutePredicates;
+            }
+
+            return goodToGoUpdateAssetEvent;
+        }
     }
 }

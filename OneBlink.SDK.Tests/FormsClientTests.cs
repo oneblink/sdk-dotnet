@@ -345,5 +345,137 @@ namespace OneBlink.SDK.Tests
             Assert.NotNull(submissionDataUrl);
             Assert.NotNull(submissionDataUrl.url);
         }
+
+        [Fact]
+        public async void can_crud_form_with_goodtogo_nested_mapping()
+        {
+            // Create a simple form that will be embedded
+            Form embeddedForm = new Form(
+                "Embedded Test Form",
+                "A simple form for testing nested mapping",
+                organisationId,
+                formsAppEnvironmentId
+            );
+
+            // Add a text element to the embedded form
+            FormElement embeddedTextElement = FormElement.CreateTextElement(
+                "embedded_text",
+                "Embedded Text Field"
+            );
+
+            embeddedForm.elements = new List<FormElement> { embeddedTextElement };
+
+            FormsClient formsClient = new FormsClient(ACCESS_KEY, SECRET_KEY, TenantName.ONEBLINK_TEST);
+
+            // Create the embedded form first
+            Form savedEmbeddedForm = await formsClient.Create(embeddedForm);
+            Assert.NotNull(savedEmbeddedForm);
+
+            // Create the main form with a form element that references the embedded form
+            Form mainForm = new Form(
+                "GoodToGo Nested Mapping Test",
+                "Testing GoodToGo submission events with nested mapping",
+                organisationId,
+                formsAppEnvironmentId
+            );
+
+            // Create a text element for the main form
+            FormElement mainTextElement = FormElement.CreateTextElement(
+                "main_text",
+                "Main Text Field"
+            );
+
+            // Create a form element that contains the embedded form
+            FormElement formElement = new FormElement
+            {
+                id = Guid.NewGuid(),
+                name = "embedded_form_element",
+                label = "Embedded Form",
+                type = "form",
+                formId = savedEmbeddedForm.id,
+                required = false
+            };
+
+            mainForm.elements = new List<FormElement> { mainTextElement, formElement };
+
+            // Create GoodToGo submission event with nested mapping
+            List<FormSubmissionEventConfigurationMapping> goodToGoMapping = new List<FormSubmissionEventConfigurationMapping>
+            {
+                new FormSubmissionEventConfigurationMapping
+                {
+                    type = "FORM_ELEMENT",
+                    formElementId = mainTextElement.id,
+                    goodToGoCustomFieldName = "main_field"
+                },
+                new FormSubmissionEventConfigurationMapping
+                {
+                    type = "FORM_FORM_ELEMENT",
+                    formElementId = formElement.id,
+                    goodToGoCustomFieldName = "embedded_form_data",
+                    mapping = new FormSubmissionEventConfigurationMapping
+                    {
+                        type = "FORM_ELEMENT",
+                        formElementId = embeddedTextElement.id,
+                        goodToGoCustomFieldName = "nested_text_field"
+                    }
+                },
+                new FormSubmissionEventConfigurationMapping
+                {
+                    type = "VALUE",
+                    value = "Nested Mapping Test",
+                    goodToGoCustomFieldName = "test_type"
+                }
+            };
+
+            FormSubmissionEvent goodToGoEvent = FormSubmissionEvent.CreateGoodToGoSubmissionEvent(
+                elementId: mainTextElement.id,
+                integrationKeyId: Guid.NewGuid(),
+                mapping: goodToGoMapping,
+                label: "Update GoodToGo Asset with Nested Mapping"
+            );
+
+            mainForm.submissionEvents = new List<FormSubmissionEvent> { goodToGoEvent };
+
+            // Create the main form
+            Form savedMainForm = await formsClient.Create(mainForm);
+            Assert.NotNull(savedMainForm);
+
+            // Retrieve and verify the form
+            Form retrievedForm = await formsClient.Get(savedMainForm.id, true);
+            Assert.NotNull(retrievedForm);
+            Assert.Equal("GoodToGo Nested Mapping Test", retrievedForm.name);
+
+            // Verify GoodToGo submission event was saved correctly
+            Assert.NotNull(retrievedForm.submissionEvents);
+            Assert.Single(retrievedForm.submissionEvents);
+            FormSubmissionEvent retrievedGoodToGoEvent = retrievedForm.submissionEvents[0];
+            Assert.Equal("GOOD_TO_GO_UPDATE_ASSET", retrievedGoodToGoEvent.type);
+            Assert.Equal("Update GoodToGo Asset with Nested Mapping", retrievedGoodToGoEvent.label);
+            Assert.NotNull(retrievedGoodToGoEvent.configuration);
+            Assert.Equal(mainTextElement.id, retrievedGoodToGoEvent.configuration.elementId);
+            Assert.NotNull(retrievedGoodToGoEvent.configuration.mapping);
+            Assert.Equal(3, retrievedGoodToGoEvent.configuration.mapping.Count);
+
+            // Verify the nested mapping was preserved
+            FormSubmissionEventConfigurationMapping nestedMapping = retrievedGoodToGoEvent.configuration.mapping[1];
+            Assert.Equal("FORM_FORM_ELEMENT", nestedMapping.type);
+            Assert.Equal("embedded_form_data", nestedMapping.goodToGoCustomFieldName);
+            Assert.Equal(formElement.id, nestedMapping.formElementId);
+            Assert.NotNull(nestedMapping.mapping);
+            Assert.Equal("FORM_ELEMENT", nestedMapping.mapping.type);
+            Assert.Equal(embeddedTextElement.id, nestedMapping.mapping.formElementId);
+            Assert.Equal("nested_text_field", nestedMapping.mapping.goodToGoCustomFieldName);
+
+            // Clean up - delete both forms
+            await formsClient.Delete(savedMainForm.id);
+            await formsClient.Delete(savedEmbeddedForm.id);
+
+            // Verify forms were deleted
+            OneBlinkAPIException mainFormException = await Assert.ThrowsAsync<OneBlinkAPIException>(() => formsClient.Get(savedMainForm.id, true));
+            Assert.Equal(HttpStatusCode.NotFound, mainFormException.StatusCode);
+
+            OneBlinkAPIException embeddedFormException = await Assert.ThrowsAsync<OneBlinkAPIException>(() => formsClient.Get(savedEmbeddedForm.id, true));
+            Assert.Equal(HttpStatusCode.NotFound, embeddedFormException.StatusCode);
+        }
     }
 }

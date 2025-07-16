@@ -40,6 +40,14 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public string goodToGoCustomFieldName
+        {
+            get; set;
+        }
+        public FormSubmissionEventConfigurationMapping mapping
+        {
+            get; set;
+        }
     }
     //Kept here for backwards compatibility, remove with next breaking change.
     public class FormSubmissionEventCivicaElementMapping : FormSubmissionEventConfigurationMapping
