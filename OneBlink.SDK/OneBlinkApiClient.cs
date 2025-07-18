@@ -203,17 +203,29 @@ namespace OneBlink.SDK
             CustomHttpMessageHandler<T, Tout> customHttpMessageHandler = new CustomHttpMessageHandler<T, Tout>(this, requestBody);
             HttpClient httpClient = new HttpClient(customHttpMessageHandler);
             CustomHttpClientFactory customHttpClientFactory = new CustomHttpClientFactory(httpClient);
+
+            // The endpoint we use instead of the the AWS S3 endpoint is
+            // formatted internally by the AWS S3 SDK. It will add the Bucket
+            // parameter below as the subdomain to the URL (as long as the
+            // bucket does not contain a `.`). The logic below allows the final
+            // URL used to upload the object to be the origin that is passed in.
+            // The suffix on the end is important as it will allow us to route
+            // traffic to S3 via lambda at edge instead of going to our API.
+            UriBuilder oneBlinkAPIUriBuilder = new UriBuilder(this.tenant.oneBlinkAPIOrigin);
+            string[] hostParts = oneBlinkAPIUriBuilder.Host.Split('.');
+            string bucketName = hostParts[0];
+            oneBlinkAPIUriBuilder.Host = string.Join(".", hostParts.Skip(1));
+
             AmazonS3Config config = new AmazonS3Config()
             {
-                ServiceURL = this.tenant.oneBlinkAPIOrigin + "/storage",
+                ServiceURL = oneBlinkAPIUriBuilder.ToString() + "storage",
                 HttpClientFactory = customHttpClientFactory
             };
             AmazonS3Client amazonS3Client = new AmazonS3Client(null, config);
 
-            string[] parts = this.tenant.oneBlinkAPIOrigin.Split('.');
             PutObjectRequest request = new PutObjectRequest
             {
-                BucketName = parts[parts.Length - 2] + "." + parts[parts.Length - 1],
+                BucketName = bucketName,
                 Key = key,
                 InputStream = stream,
                 ContentType = contentType,
