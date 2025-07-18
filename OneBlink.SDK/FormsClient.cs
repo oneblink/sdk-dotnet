@@ -317,7 +317,7 @@ namespace OneBlink.SDK
             string key = "/forms/" + formId.ToString() + "/attachments";
             AttachmentUploadRequest attachmentUploadRequest = new AttachmentUploadRequest()
             {
-                username = Uri.EscapeDataString(username)
+                username = username
             };
             ContentDisposition disposition = new ContentDisposition
             {
@@ -351,7 +351,7 @@ namespace OneBlink.SDK
             string key = "email-attachments";
             WorkflowAttachmentUploadRequest requestBody = new WorkflowAttachmentUploadRequest
             {
-                filename = Uri.EscapeDataString(filename)
+                filename = filename
             };
             ContentDisposition disposition = new ContentDisposition()
             {
