@@ -9,10 +9,6 @@
 - `FormSubmissionEventConfigurationMapping.goodToGoCustomFieldName` property
 - `FormSubmissionEventConfigurationMapping.mapping` property
 
-### Removed
-
-- encoding of `username` and `fileName` values in `x-oneblink-request-body` header
-
 ## [11.0.7] - 2025-07-10
 
 ### Added
