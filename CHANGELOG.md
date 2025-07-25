@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## [11.0.8] - 2025-07-25
+
 ### Added
 
 - `sendNotificationEmailOptionDefaultUnchecked` to `FormApprovalConfiguration`
