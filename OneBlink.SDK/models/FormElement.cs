@@ -481,6 +481,30 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public bool? measurementDimensionsEnabled
+        {
+            get; set;
+        }
+        public bool? snapshotImagesEnabled
+        {
+            get; set;
+        }
+        public long? minSnapshotImages
+        {
+            get; set;
+        }
+        public long? maxSnapshotImages
+        {
+            get; set;
+        }
+        public string snapshotImageButtonText
+        {
+            get; set;
+        }
+        public string snapshotImageButtonIcon
+        {
+            get; set;
+        }
 
         private static Guid initialiseId(Guid? id)
         {
