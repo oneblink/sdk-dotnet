@@ -485,23 +485,27 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
-        public bool? snapshotImagesEnabled
+        public bool? manualSnapshotsEnabled
         {
             get; set;
         }
-        public long? minSnapshotImages
+        public long? minManualSnapshots
         {
             get; set;
         }
-        public long? maxSnapshotImages
+        public long? maxManualSnapshots
         {
             get; set;
         }
-        public string snapshotImageButtonText
+        public FormsAppEnvironmentStylesButton manualSnapshotButton
         {
             get; set;
         }
-        public string snapshotImageButtonIcon
+        public List<ArcGISMapView> autoSnapshotViews
+        {
+            get; set;
+        }
+        public FormsAppEnvironmentStylesButton autoSnapshotButton
         {
             get; set;
         }
