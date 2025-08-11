@@ -481,6 +481,34 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public bool? measurementDimensionsEnabled
+        {
+            get; set;
+        }
+        public bool? manualSnapshotsEnabled
+        {
+            get; set;
+        }
+        public long? minManualSnapshots
+        {
+            get; set;
+        }
+        public long? maxManualSnapshots
+        {
+            get; set;
+        }
+        public FormsAppEnvironmentStylesButton manualSnapshotButton
+        {
+            get; set;
+        }
+        public List<ArcGISMapView> autoSnapshotViews
+        {
+            get; set;
+        }
+        public FormsAppEnvironmentStylesButton autoSnapshotButton
+        {
+            get; set;
+        }
 
         private static Guid initialiseId(Guid? id)
         {
