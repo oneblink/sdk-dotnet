@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## [11.0.9] - 2025-08-11
+
 ### Added
 
 - `arcGISWebMap` form element properties for image snapshots
