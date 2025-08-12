@@ -10,5 +10,9 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public FormPersonalisation allowAttachmentsDownload
+        {
+            get; set;
+        }
     }
 }
