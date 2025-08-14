@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Added
+
+- `allowAttachmentsDownload` to `FormPostSubmissionReceipt` class
+
 ## [11.0.9] - 2025-08-11
 
 ### Added
