@@ -332,6 +332,7 @@ namespace OneBlink.SDK
             attachmentData.fileName = fileName;
             attachmentData.isPrivate = isPrivate;
             attachmentData.url = attachmentUploadResponse.url;
+            attachmentData.path = new Uri(attachmentUploadResponse.url).PathAndQuery;
             attachmentData.s3 = attachmentUploadResponse.s3;
             attachmentData.uploadedAt = attachmentUploadResponse.uploadedAt;
             return attachmentData;
