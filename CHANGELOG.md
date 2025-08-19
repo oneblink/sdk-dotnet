@@ -5,6 +5,7 @@
 ### Added
 
 - `allowAttachmentsDownload` to `FormPostSubmissionReceipt` class
+- `path` to `AttachmentData` class
 
 ## [11.0.9] - 2025-08-11
 
