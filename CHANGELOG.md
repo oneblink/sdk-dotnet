@@ -7,6 +7,10 @@
 - `allowAttachmentsDownload` to `FormPostSubmissionReceipt` class
 - `path` to `AttachmentData` class
 
+### Changed
+
+- `NewFormsAppSendingAddress` docs
+
 ## [11.0.9] - 2025-08-11
 
 ### Added

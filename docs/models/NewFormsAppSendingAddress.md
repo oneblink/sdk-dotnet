@@ -6,7 +6,7 @@
 
 | Parameter      | Required | Type     | Description                                      | Default Value |
 | -------------- | -------- | -------- | ------------------------------------------------ | ------------- |
-| `emailAddress` | Yes      | `string` | The email address that emails will be sent from. | null          |
+| `emailAddress` | No       | `string` | The email address that emails will be sent from. | null          |
 | `emailName`    | No       | `string` | The name that emails will be sent from.          | null          |
 
 ### Example
