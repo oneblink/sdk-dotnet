@@ -4,10 +4,10 @@
 
 ### Constructor
 
-| Parameter      | Required | Type     | Description                                      | Default Value |
-| -------------- | -------- | -------- | ------------------------------------------------ | ------------- |
-| `emailAddress` | No       | `string` | The email address that emails will be sent from. | null          |
-| `emailName`    | No       | `string` | The name that emails will be sent from.          | null          |
+| Parameter      | Required    | Type     | Description                                                                                       | Default Value |
+| -------------- | ----------- | -------- | ------------------------------------------------------------------------------------------------- | ------------- |
+| `emailAddress` | Conditional | `string` | The email address that emails will be sent from. One of `emailAddress` or `emailName` is required | null          |
+| `emailName`    | Conditional | `string` | The name that emails will be sent from. One of `emailAddress` or `emailName` is required          | null          |
 
 ### Example
 
