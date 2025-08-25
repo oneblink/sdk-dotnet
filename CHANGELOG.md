@@ -6,6 +6,7 @@
 
 - `allowAttachmentsDownload` to `FormPostSubmissionReceipt` class
 - `path` to `AttachmentData` class
+- `SetSendingAddress()`, `DeleteSendingAddress()` & `GetSendingAddress()` to `FormsAppEnvironmentsClient`
 
 ### Changed
 

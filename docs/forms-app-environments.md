@@ -178,3 +178,95 @@ No return value (`void`)
 **Minimum Role Permission**
 
 Environments: _Manager_
+
+## `SetSendingAddress()`
+
+### Example
+
+```c#
+long formsAppEnvironmentId = 1;
+OneBlink.SDK.Model.NewFormsAppEnvironmentSendingAddress newFormsAppEnvironmentSendingAddress = new OneBlink.SDK.Model.NewFormsAppEnvironmentSendingAddress(
+    emailAddress: "user@oneblink.io",
+    emailName: "User Name"
+);
+
+OneBlink.SDK.Model.FormsAppEnvironmentSendingAddressResponse sendingAddress = await formsAppEnvironmentsClient.SetSendingAddress(formsAppEnvironmentId, newFormsAppEnvironmentSendingAddress);
+```
+
+### Parameters
+
+| Parameter                   | Required | Type                                                               | Description                                 |
+| --------------------------- | -------- | ------------------------------------------------------------------ | ------------------------------------------- |
+| `id`                        | Yes      | `long`                                                             | The identifier of the Forms App Environment |
+| `newFormsAppEnvironmentSendingAddress` | Yes      | [NewFormsAppEnvironmentSendingAddress](./models/NewFormsAppEnvironmentSendingAddress.md) | The Sending address information to set      |
+
+### Throws
+
+- `OneBlinkAPIException`
+- `Exception`
+
+### Result
+
+A `OneBlink.SDK.Model.FormsAppEnvironmentSendingAddressResponse` class
+
+**Minimum Role Permission**
+
+Environments: _Manager_
+
+## `DeleteSendingAddress()`
+
+### Example
+
+```c#
+long formsAppEnvironmentId = 1;
+
+await formsAppEnvironmentsClient.DeleteSendingAddress(formsAppEnvironmentId);
+```
+
+### Parameters
+
+| Parameter | Required | Type   | Description                    |
+| --------- | -------- | ------ | ------------------------------ |
+| `id`      | Yes      | `long` | The identifier of the FormsAppEnvironment |
+
+### Throws
+
+- `OneBlinkAPIException`
+- `Exception`
+
+### Result
+
+No return value (`void`)
+
+**Minimum Role Permission**
+
+Environments: _Manager_
+
+## `GetSendingAddress()`
+
+### Example
+
+```c#
+long formsAppEnvironmentId = 1;
+
+OneBlink.SDK.Model.FormsAppEnvironmentSendingAddressResponse sendingAddress = await formsAppEnvironmentsClient.GetSendingAddress(formsAppEnvironmentId);
+```
+
+### Parameters
+
+| Parameter | Required | Type   | Description                    |
+| --------- | -------- | ------ | ------------------------------ |
+| `id`      | Yes      | `long` | The identifier of the FormsAppEnvironment |
+
+### Throws
+
+- `OneBlinkAPIException`
+- `Exception`
+
+### Result
+
+A `OneBlink.SDK.Model.FormsAppEnvironmentSendingAddressResponse` class
+
+**Minimum Role Permission**
+
+Environments: _Read Only_
