@@ -135,9 +135,9 @@ namespace OneBlink.SDK
 
         public async Task<FormsAppSendingAddressResponse> SetSendingAddress(long id, NewFormsAppSendingAddress newFormsAppSendingAddress)
         {
-            if (string.IsNullOrEmpty(newFormsAppSendingAddress.emailAddress))
+            if (string.IsNullOrEmpty(newFormsAppSendingAddress.emailAddress) && string.IsNullOrEmpty(newFormsAppSendingAddress.emailName))
             {
-                throw new Exception("Email Address must not be empty");
+                throw new Exception("Either Email Address or Email Name must be provided");
             }
             string url = "/v2/forms-apps/" + id.ToString() + "/sending-address";
 
