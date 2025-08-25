@@ -5,7 +5,7 @@ namespace OneBlink.SDK.Model
 
     public class NewFormsAppSendingAddress
     {
-        public NewFormsAppSendingAddress(string emailAddress, string emailName = null) {
+        public NewFormsAppSendingAddress(string emailAddress = null, string emailName = null) {
             this.emailAddress = emailAddress;
             this.emailName = emailName;
         }
