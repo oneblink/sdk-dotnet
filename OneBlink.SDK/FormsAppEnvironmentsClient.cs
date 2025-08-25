@@ -1,4 +1,5 @@
 using OneBlink.SDK.Model;
+using System;
 using System.Threading.Tasks;
 using System.Web;
 using Task = System.Threading.Tasks.Task;
@@ -51,6 +52,31 @@ namespace OneBlink.SDK
         {
             string url = "/forms-app-environments/" + id.ToString();
             await this.oneBlinkApiClient.DeleteRequest(url);
+        }
+
+        public async Task<FormsAppEnvironmentSendingAddressResponse> SetSendingAddress(long id, NewFormsAppEnvironmentSendingAddress newFormsAppEnvironmentSendingAddress)
+        {
+            if (string.IsNullOrEmpty(newFormsAppEnvironmentSendingAddress.emailAddress) && string.IsNullOrEmpty(newFormsAppEnvironmentSendingAddress.emailName))
+            {
+                throw new Exception("Either Email Address or Email Name must be provided");
+            }
+            string url = "/forms-app-environments/" + id.ToString() + "/sending-address";
+
+            FormsAppEnvironmentSendingAddressResponse sendingAddress = await this.oneBlinkApiClient.PostRequest<NewFormsAppEnvironmentSendingAddress, FormsAppEnvironmentSendingAddressResponse>(url, newFormsAppEnvironmentSendingAddress);
+            return sendingAddress;
+        }
+
+        public async Task DeleteSendingAddress(long id)
+        {
+            string url = "/forms-app-environments/" + id.ToString() + "/sending-address";
+            await this.oneBlinkApiClient.DeleteRequest(url);
+        }
+
+        public async Task<FormsAppEnvironmentSendingAddressResponse> GetSendingAddress(long formsAppId)
+        {
+            string url = "/forms-app-environments/" + formsAppId.ToString() + "/sending-address";
+            FormsAppEnvironmentSendingAddressResponse sendingAddress = await this.oneBlinkApiClient.GetRequest<FormsAppEnvironmentSendingAddressResponse>(url);
+            return sendingAddress;
         }
 
     }
