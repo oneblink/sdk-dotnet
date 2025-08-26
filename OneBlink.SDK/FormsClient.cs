@@ -314,7 +314,7 @@ namespace OneBlink.SDK
 
         public async Task<AttachmentData> CreateSubmissionAttachment(long formId, Stream body, string fileName, string contentType, bool isPrivate, string username)
         {
-            string key = "/forms/" + formId.ToString() + "/attachments";
+            string key = "forms/" + formId.ToString() + "/attachments";
             AttachmentUploadRequest attachmentUploadRequest = new AttachmentUploadRequest()
             {
                 username = Uri.EscapeDataString(username)
