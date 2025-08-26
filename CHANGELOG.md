@@ -1,5 +1,9 @@
 # Changelog
 
+### Fixed
+
+- key used for s3 attachment uploads
+
 ## Unreleased
 
 ### Added
