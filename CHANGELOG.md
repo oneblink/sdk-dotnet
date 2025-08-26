@@ -1,9 +1,5 @@
 # Changelog
 
-### Fixed
-
-- key used for s3 attachment uploads
-
 ## Unreleased
 
 ### Added
@@ -15,6 +11,14 @@
 ### Changed
 
 - `NewFormsAppSendingAddress` docs
+
+## [11.0.11] - 2025-08-26
+
+##### Release Name: HotFix Slippery Spine
+
+### Fixed
+
+- key used for s3 attachment uploads
 
 ## [11.0.9] - 2025-08-11
 
