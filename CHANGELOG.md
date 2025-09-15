@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## [11.1.1] - 2025-09-15
+
 ### Removed
 
 - `path` from `AttachmentData` class
