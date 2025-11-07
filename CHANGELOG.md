@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+### Added
+
+- `isAIBuilderSupported` to `Form`
+- `hideApprovalDenyButton` to `FormApprovalFlowStepBase`
+
 ## [11.1.1] - 2025-09-15
 
 ### Removed
