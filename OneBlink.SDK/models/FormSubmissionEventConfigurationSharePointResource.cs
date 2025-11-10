@@ -1,14 +1,10 @@
+using System;
+
 namespace OneBlink.SDK.Model
 {
-  public class FormSubmissionEventConfigurationSharePointResource
+
+  [Obsolete("Use `FormSubmissionEventConfigurationMicrosoftResource` instead")]
+  public class FormSubmissionEventConfigurationSharePointResource : FormSubmissionEventConfigurationMicrosoftResource
   {
-    public string id
-    {
-      get; set;
-    }
-    public string displayName
-    {
-      get; set;
-    }
   }
 }
