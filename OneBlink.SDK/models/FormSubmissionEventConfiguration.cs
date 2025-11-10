@@ -195,15 +195,15 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
-        public FormSubmissionEventConfigurationSharePointResource sharepointSite
+        public FormSubmissionEventConfigurationMicrosoftResource sharepointSite
         {
             get; set;
         }
-        public FormSubmissionEventConfigurationSharePointResource sharepointList
+        public FormSubmissionEventConfigurationMicrosoftResource sharepointList
         {
             get; set;
         }
-        public FormSubmissionEventConfigurationSharePointResource sharepointDrive
+        public FormSubmissionEventConfigurationMicrosoftResource sharepointDrive
         {
             get; set;
         }
@@ -216,6 +216,22 @@ namespace OneBlink.SDK.Model
             get; set;
         }
         public Guid? integrationKeyId
+        {
+            get; set;
+        }
+        public FormSubmissionEventConfigurationMicrosoftResource site
+        {
+            get; set;
+        }
+        public FormSubmissionEventConfigurationMicrosoftResource drive
+        {
+            get; set;
+        }
+        public FormSubmissionEventConfigurationMicrosoftResource excelFile
+        {
+            get; set;
+        }
+        public FormSubmissionEventConfigurationMicrosoftResource table
         {
             get; set;
         }

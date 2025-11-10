@@ -44,6 +44,10 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public string columnName
+        {
+            get; set;
+        }
         public FormSubmissionEventConfigurationMapping mapping
         {
             get; set;
