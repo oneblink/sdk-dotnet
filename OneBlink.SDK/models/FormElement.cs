@@ -509,6 +509,15 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public List<string> stateFilter
+        {
+            get; set;
+        }
+        public bool? excludeAliases
+        {
+            get; set;
+        }
+
 
         private static Guid initialiseId(Guid? id)
         {
@@ -1026,6 +1035,48 @@ namespace OneBlink.SDK.Model
             filesElement.restrictFileSize = restrictFileSize;
             filesElement.maxFileSize = maxFileSize;
             return filesElement;
+        }
+
+        public static FormElement CreatePointAddressV3Element(
+            string name,
+            string label,
+            Guid? id = null,
+            bool conditionallyShow = false,
+            bool requiresAllConditionallyShowPredicates = false,
+            List<ConditionallyShowPredicate> conditionallyShowPredicates = null,
+            bool required = false,
+            bool readOnly = false,
+            string defaultValue = null,
+            string placeholderValue = null,
+            string hint = null,
+            List<string> stateFilter = null,
+            bool? excludeAliases = null,
+            List<string> customCssClasses = null,
+            string meta = null,
+            string hintPosition = null
+        )
+        {
+            FormElement pointAddressV3Element = new FormElement
+            {
+                type = "pointAddressV3",
+                id = initialiseId(id),
+                conditionallyShow = conditionallyShow,
+                requiresAllConditionallyShowPredicates = requiresAllConditionallyShowPredicates,
+                conditionallyShowPredicates = conditionallyShowPredicates,
+                name = name,
+                label = label,
+                required = required,
+                readOnly = readOnly,
+                defaultValue = defaultValue,
+                placeholderValue = placeholderValue,
+                hint = hint,
+                hintPosition = hintPosition,
+                stateFilter = stateFilter,
+                excludeAliases = excludeAliases,
+                customCssClasses = customCssClasses,
+                meta = meta
+            };
+            return pointAddressV3Element;
         }
     }
 }

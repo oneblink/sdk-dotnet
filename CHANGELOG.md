@@ -7,6 +7,7 @@
 - `isAIBuilderSupported` to `Form`
 - properties to to `FormEvent` for excel add row event
 - `hideApprovalDenyButton` to `FormApprovalFlowStepBase`
+- `stateFilter`, `excludeAliases` to `Form`
 
 
 ## [11.1.1] - 2025-09-15
