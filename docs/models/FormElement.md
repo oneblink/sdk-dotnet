@@ -119,6 +119,7 @@ Only a default constructor is provided, instead it is recommended to create a Fo
 | `restrictFileSize`                       | No                                | `long?`                                   | Whether to limit the size of individual files uploaded for this element.                                                                                                                                                                                                                                                                                                                   | `false`       |
 | `maxFileSize`                            | No                                | `long?`                                   | The maximum file (in MB) that can uploaded using a `files` element                                                                                                                                                                                                                                                                                                                         | `false`       |
 | `excludeAliases`                         | No                                | `bool`                                    | Determine if address aliases should be included in search results.                                                                                                                                                                                                                                                                                                                         |               |
+| `datasetFilter`                          | No                                | `List<string>`                            | An array of dataset that the search should be limited to.                                                                                                                                                                                                                                                                                                                                  |               |
 
 ### Static Functions
 
@@ -415,6 +416,7 @@ Creates a new FormElement defined as a `pointAddress` element, including all par
 | `stateTerritoryFilter`                 | No       | `List<string>`                     | `null`        |
 | `addressTypeFilter`                    | No       | `List<string>`                     | `null`        |
 | `excludeAliases`                       | No       | `bool`                             | `null`        |
+| `datasetFilter`                        | No       | `List<string>`                     | `null`        |
 
 ##### Example
 

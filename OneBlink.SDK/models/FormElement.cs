@@ -514,6 +514,11 @@ namespace OneBlink.SDK.Model
             get; set;
         }
 
+        public List<string> datasetFilter
+        {
+            get; set;
+        }
+
 
         private static Guid initialiseId(Guid? id)
         {
@@ -1048,6 +1053,7 @@ namespace OneBlink.SDK.Model
             List<string> stateTerritoryFilter = null,
             List<string> addressTypeFilter = null,
             bool? excludeAliases = null,
+            List<string> datasetFilter = null,
             List<string> customCssClasses = null,
             string meta = null,
             string hintPosition = null
@@ -1071,6 +1077,7 @@ namespace OneBlink.SDK.Model
                 stateTerritoryFilter = stateTerritoryFilter,
                 addressTypeFilter = addressTypeFilter,
                 excludeAliases = excludeAliases,
+                datasetFilter = datasetFilter,
                 customCssClasses = customCssClasses,
                 meta = meta
             };
