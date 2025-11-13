@@ -509,10 +509,6 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
-        public List<string> stateFilter
-        {
-            get; set;
-        }
         public bool? excludeAliases
         {
             get; set;
@@ -1049,7 +1045,8 @@ namespace OneBlink.SDK.Model
             string defaultValue = null,
             string placeholderValue = null,
             string hint = null,
-            List<string> stateFilter = null,
+            List<string> stateTerritoryFilter = null,
+            List<string> addressTypeFilter = null,
             bool? excludeAliases = null,
             List<string> customCssClasses = null,
             string meta = null,
@@ -1071,7 +1068,8 @@ namespace OneBlink.SDK.Model
                 placeholderValue = placeholderValue,
                 hint = hint,
                 hintPosition = hintPosition,
-                stateFilter = stateFilter,
+                stateTerritoryFilter = stateTerritoryFilter,
+                addressTypeFilter = addressTypeFilter,
                 excludeAliases = excludeAliases,
                 customCssClasses = customCssClasses,
                 meta = meta
