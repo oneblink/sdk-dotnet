@@ -2,13 +2,14 @@
 
 ## Unreleased
 
+## [11.1.2] - 2025-11-19
+
 ### Added
 
 - `isAIBuilderSupported` to `Form`
 - properties to to `FormEvent` for excel add row event
 - `hideApprovalDenyButton` to `FormApprovalFlowStepBase`
 - `excludeAliases`, `datasetFilter`, `CreatePointAddressV3Element()` to `FormElement`
-
 
 ## [11.1.1] - 2025-09-15
 
