@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Changed
+
+- **[BREAKING]** `allowPDFDownload` property in `FormPostSubmissionReceipt` class to be a list of `FormPostSubmissionReceiptPdfConfiguration` objects
+
 ## [11.1.2] - 2025-11-19
 
 ### Added

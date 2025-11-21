@@ -1,3 +1,7 @@
+using System.Collections.Generic;
+using Newtonsoft.Json;
+using OneBlink.SDK.JsonConverters;
+
 namespace OneBlink.SDK.Model
 {
     public class FormPostSubmissionReceipt
@@ -6,7 +10,8 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
-        public PDFConfiguration allowPDFDownload
+        [JsonConverter(typeof(FormPostSubmissionReceiptPdfConfigurationConverter))]
+        public List<FormPostSubmissionReceiptPdfConfiguration> allowPDFDownload
         {
             get; set;
         }
