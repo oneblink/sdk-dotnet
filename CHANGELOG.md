@@ -10,7 +10,6 @@
 
 ### Added
 
-- `isAIBuilderSupported` to `Form`
 - properties to to `FormEvent` for excel add row event
 - `hideApprovalDenyButton` to `FormApprovalFlowStepBase`
 - `excludeAliases`, `datasetFilter`, `CreatePointAddressV3Element()` to `FormElement`
