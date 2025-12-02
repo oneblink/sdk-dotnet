@@ -519,6 +519,8 @@ namespace OneBlink.SDK.Model
             get; set;
         }
 
+        public int? maxWidthPixels {get;set;}
+
 
         private static Guid initialiseId(Guid? id)
         {
