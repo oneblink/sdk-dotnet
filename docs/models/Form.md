@@ -41,7 +41,6 @@
 | `enableSubmission`             | No       | `FormEnableSubmission`      | Conditionally enable form submission                                                                                        | `null`                            |
 | `disableAutosave`              | No       | `bool?`                     | Optionally disable autosave                                                                                                 | `null`                            |
 | `customPDFs`                   | no       | `List<FormCustomPDF>`       | Optional custom PDFs that can be used in place of the OOTB PDF                                                              | `null`                            |
-| `isAIBuilderSupported`         | no       | `bool?`                     | Optional Whether or not the form can be edited using an AI builder.                                                         | `null`                            |
 
 ### Other properties
 
