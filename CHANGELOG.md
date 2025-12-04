@@ -6,6 +6,8 @@
 
 - `maxWidthPixels` to `FormElement`
 
+## [11.1.3] - 2025-12-04
+
 ### Changed
 
 - **[BREAKING]** `allowPDFDownload` property in `FormPostSubmissionReceipt` class to be a list of `FormPostSubmissionReceiptPdfConfiguration` objects
