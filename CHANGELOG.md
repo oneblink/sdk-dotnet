@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## [11.1.4] - 2025-12-17
+
 ### Added
 
 - `maxWidthPixels` to `FormElement`
