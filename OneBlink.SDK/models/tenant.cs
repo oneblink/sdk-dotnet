@@ -8,7 +8,9 @@ namespace OneBlink.SDK.Model
         ONEBLINK,
         ONEBLINK_TEST,
         CIVICPLUS,
-        CIVICPLUS_TEST
+        CIVICPLUS_TEST,
+        ONEBLINK_US,
+        ONEBLINK_US_TEST
     };
     internal class Tenant
     {
@@ -32,6 +34,10 @@ namespace OneBlink.SDK.Model
                         return "https://auth-api.test.transform.civicplus.com";
                     case TenantName.ONEBLINK_TEST:
                         return "https://auth-api.test.blinkm.io";
+                    case TenantName.ONEBLINK_US:
+                        return "https://auth-api.us.oneblink.io";
+                    case TenantName.ONEBLINK_US_TEST:
+                        return "https://auth-api.test.us.oneblink.io";
                     default:
                         return "https://auth-api.blinkm.io";
                 }
@@ -49,6 +55,10 @@ namespace OneBlink.SDK.Model
                         return "https://auth-api.test.transform.civicplus.com";
                     case TenantName.ONEBLINK_TEST:
                         return "https://auth-api.test.blinkm.io";
+                    case TenantName.ONEBLINK_US:
+                        return "https://auth-api.us.oneblink.io";
+                    case TenantName.ONEBLINK_US_TEST:
+                        return "https://auth-api.test.us.oneblink.io";
                     default:
                         return "https://auth-api.blinkm.io";
                 }
@@ -67,6 +77,10 @@ namespace OneBlink.SDK.Model
                         return "https://cognito-idp.us-east-2.amazonaws.com/us-east-2_rvIeXcSue";
                     case TenantName.ONEBLINK_TEST:
                         return "https://cognito-idp.ap-southeast-2.amazonaws.com/ap-southeast-2_AfFQWsYIH";
+                    case TenantName.ONEBLINK_US:
+                        return "https://cognito-idp.us-east-1.amazonaws.com/us-east-1_TBD"; // update when available
+                    case TenantName.ONEBLINK_US_TEST:
+                        return "https://cognito-idp.us-east-1.amazonaws.com/us-east-1_TBD"; // update when available
                     default:
                         return "https://cognito-idp.ap-southeast-2.amazonaws.com/ap-southeast-2_7kAsz3n3x";
                 }
@@ -85,6 +99,9 @@ namespace OneBlink.SDK.Model
                     case TenantName.ONEBLINK:
                     case TenantName.ONEBLINK_TEST:
                         return RegionEndpoint.APSoutheast2;
+                    case TenantName.ONEBLINK_US:
+                    case TenantName.ONEBLINK_US_TEST:
+                        return RegionEndpoint.USEast1;
                     default:
                         return RegionEndpoint.APSoutheast2;
                 }
