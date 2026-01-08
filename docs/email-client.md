@@ -28,7 +28,7 @@ string messageId = await EmailClient.SendEmail(body, attachments, from, toAddres
 | `to`          | No       | IEnumerable<EmailAddress>    | Array of to Addresses, including name and email address                                                                                   |
 | `cc`          | No       | IEnumerable<EmailAddress[]   | Array of Cc Addresses, including name and email address                                                                                   |
 | `bcc`         | No       | IEnumerable<EmailAddress[]   | Array of Bcc Addresses, including name and email address                                                                                  |
-| `tenantName`  | No       | TenantName                   | Sets the configuration values to be used. Options are `TenantName.ONEBLINK` and `TenantName.CIVICPLUS`, defaults to `TenantName.ONEBLINK` |
+| `tenantName`  | No       | TenantName                   | Sets the configuration values to be used. Options are `TenantName.ONEBLINK`, `TenantName.ONEBLINK_US` and `TenantName.CIVICPLUS`, defaults to `TenantName.ONEBLINK` |
 
 ### Throws
 

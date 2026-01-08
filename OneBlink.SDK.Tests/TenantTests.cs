@@ -18,6 +18,10 @@ namespace OneBlink.SDK.Tests
             Assert.Matches("https://auth-api.blinkm.io", tenant.oneBlinkAPIOrigin);
             Assert.Matches("https://auth-api.blinkm.io", tenant.oneBlinkPdfOrigin);
 
+            tenant = new Tenant(TenantName.ONEBLINK_US);
+            Assert.Matches("https://auth-api.us.oneblink.io", tenant.oneBlinkAPIOrigin);
+            Assert.Matches("https://auth-api.us.oneblink.io", tenant.oneBlinkPdfOrigin);
+
         }
 
         [Fact]

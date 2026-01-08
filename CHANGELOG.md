@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Added
+
+- `OneBlink US` tenant
+
 ## [11.1.4] - 2025-12-17
 
 ### Added

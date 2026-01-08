@@ -12,7 +12,7 @@
 | ------------ | -------- | ------------ | ------------------------------------------------------------------------------------------------------- | --------------------- |
 | `accessKey`  | Yes      | `string`     | Access key provided by OneBlink, requires the `FORMS` permission.                                       |                       |
 | `secretKey`  | Yes      | `string`     | Secret key provided by OneBlink, requires the `FORMS` permission.                                       |                       |
-| `tenantName` | No       | `TenantName` | Sets the configuration values to be used. Options are `TenantName.ONEBLINK` and `TenantName.CIVICPLUS`. | `TenantName.ONEBLINK` |
+| `tenantName` | No       | `TenantName` | Sets the configuration values to be used. Options are `TenantName.ONEBLINK`, `TenantName.ONEBLINK_US` and `TenantName.CIVICPLUS`. | `TenantName.ONEBLINK` |
 
 ### Example
 
