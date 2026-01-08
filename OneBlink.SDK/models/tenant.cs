@@ -78,7 +78,7 @@ namespace OneBlink.SDK.Model
                     case TenantName.ONEBLINK_TEST:
                         return "https://cognito-idp.ap-southeast-2.amazonaws.com/ap-southeast-2_AfFQWsYIH";
                     case TenantName.ONEBLINK_US:
-                        return "https://cognito-idp.us-east-1.amazonaws.com/us-east-1_TBD"; // update when available
+                        return "https://cognito-idp.us-east-1.amazonaws.com/us-east-1_ZzZdgJR4F";
                     case TenantName.ONEBLINK_US_TEST:
                         return "https://cognito-idp.us-east-1.amazonaws.com/us-east-1_x2AYHCleu";
                     default:
