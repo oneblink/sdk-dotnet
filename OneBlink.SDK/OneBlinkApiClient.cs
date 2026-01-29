@@ -98,12 +98,12 @@ namespace OneBlink.SDK
             }
             public override bool UseSDKHttpClientCaching(IClientConfig clientConfig)
             {
-                // return false to indicate that the SDK should not cache clients internally            
+                // return false to indicate that the SDK should not cache clients internally
                 return false;
             }
             public override bool DisposeHttpClientsAfterUse(IClientConfig clientConfig)
             {
-                // return false to indicate that the SDK shouldn't dispose httpClients because they're cached in your pool            
+                // return false to indicate that the SDK shouldn't dispose httpClients because they're cached in your pool
                 return false;
             }
             public override string GetConfigUniqueString(IClientConfig clientConfig)
@@ -236,7 +236,7 @@ namespace OneBlink.SDK
             {
                 request.Headers.ContentDisposition = disposition.ToString();
             }
-            request.Headers.ExpiresUtc = new DateTime().AddYears(1).ToUniversalTime(); // Max 1 year
+            request.Headers.Expires = new DateTime().AddYears(1); // Max 1 year
             request.Headers.CacheControl = "max-age=31536000"; // Max 1 year(365 days)
             if (isPublic)
             {
