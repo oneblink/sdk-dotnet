@@ -143,17 +143,6 @@ namespace OneBlink.SDK
                     httpRequestMessage.Headers.Add("x-oneblink-request-body", jsonPayload);
                 }
 
-                // Add set querystring parameters for multi-part uploads
-                NameValueCollection query = HttpUtility.ParseQueryString(httpRequestMessage.RequestUri.Query);
-                query.Add("x-id", "PutObject");
-                if (this.oneblinkResponse != null)
-                {
-                    query.Add("key", this.oneblinkResponse.s3.key);
-                }
-                UriBuilder uriBuilder = new UriBuilder(httpRequestMessage.RequestUri);
-                uriBuilder.Query = query.ToString();
-                httpRequestMessage.RequestUri = uriBuilder.Uri;
-
                 HttpResponseMessage httpResponseMessage = await base.SendAsync(httpRequestMessage, cancellationToken);
 
                 if (httpResponseMessage.IsSuccessStatusCode)
@@ -232,6 +221,9 @@ namespace OneBlink.SDK
                 CannedACL = S3CannedACL.BucketOwnerFullControl,
                 ServerSideEncryptionMethod = ServerSideEncryptionMethod.AES256,
             };
+            // Add x-id query parameter for AWS SDK to include in signed request
+            request.Metadata.Add("x-id", "PutObject");
+
             if (disposition != null)
             {
                 request.Headers.ContentDisposition = disposition.ToString();
