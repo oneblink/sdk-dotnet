@@ -237,7 +237,7 @@ namespace OneBlink.SDK
             {
                 request.Headers.ContentDisposition = disposition.ToString();
             }
-            request.Headers.Expires = new DateTime().AddYears(1); // Max 1 year
+            request.Headers.ExpiresUtc = new DateTime().AddYears(1).ToUniversalTime(); // Max 1 year
             request.Headers.CacheControl = "max-age=31536000"; // Max 1 year(365 days)
             if (isPublic)
             {
