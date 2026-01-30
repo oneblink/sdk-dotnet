@@ -98,12 +98,12 @@ namespace OneBlink.SDK
             }
             public override bool UseSDKHttpClientCaching(IClientConfig clientConfig)
             {
-                // return false to indicate that the SDK should not cache clients internally            
+                // return false to indicate that the SDK should not cache clients internally
                 return false;
             }
             public override bool DisposeHttpClientsAfterUse(IClientConfig clientConfig)
             {
-                // return false to indicate that the SDK shouldn't dispose httpClients because they're cached in your pool            
+                // return false to indicate that the SDK shouldn't dispose httpClients because they're cached in your pool
                 return false;
             }
             public override string GetConfigUniqueString(IClientConfig clientConfig)
@@ -232,6 +232,7 @@ namespace OneBlink.SDK
                 CannedACL = S3CannedACL.BucketOwnerFullControl,
                 ServerSideEncryptionMethod = ServerSideEncryptionMethod.AES256,
             };
+
             if (disposition != null)
             {
                 request.Headers.ContentDisposition = disposition.ToString();
