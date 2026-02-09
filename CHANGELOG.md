@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Added
+
+- `keyId` to `FormSubmissionEventConfiguration`
+
 ## [11.2.0] - 2026-02-02
 
 ### Added
