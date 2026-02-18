@@ -52,6 +52,10 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public string salesforceObjectRecordFieldName
+        {
+             get; set;
+        }
     }
     //Kept here for backwards compatibility, remove with next breaking change.
     public class FormSubmissionEventCivicaElementMapping : FormSubmissionEventConfigurationMapping
