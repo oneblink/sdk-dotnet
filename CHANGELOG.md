@@ -5,6 +5,8 @@
 ### Added
 
 - `keyId` to `FormSubmissionEventConfiguration`
+- `object` to `FormSubmissionEventConfiguration`
+- `salesforceObjectRecordFieldName` to `FormSubmissionEventConfigurationMapping`
 
 ## [11.2.0] - 2026-02-02
 
