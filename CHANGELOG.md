@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+### Added
+
+- `workspaceId` to `Form`
+- Optional parameter `workspaceId` to `EmailTemplatesClient.Search()`, `FormElementListsClient.Search()`, `FormElementLookupsClient.Search()`, `FormsAppEnvironmentsClient.Search()` and `FormsClient.Search()`
+
 ## [11.2.1] - 2026-02-23
 
 ### Added

@@ -74,7 +74,8 @@ namespace OneBlink.SDK
             long? formsAppEnvironmentId = null,
             long? formsAppId = null,
             int? limit = null,
-            int? offset = null)
+            int? offset = null,
+            long? workspaceId = null)
         {
             var query = HttpUtility.ParseQueryString(string.Empty);
             OneBlinkHttpClient.AddItemToQuery(query, nameof(isAuthenticated), isAuthenticated);
@@ -84,6 +85,7 @@ namespace OneBlink.SDK
             OneBlinkHttpClient.AddItemToQuery(query, nameof(formsAppId), formsAppId);
             OneBlinkHttpClient.AddItemToQuery(query, nameof(limit), limit);
             OneBlinkHttpClient.AddItemToQuery(query, nameof(offset), offset);
+            OneBlinkHttpClient.AddItemToQuery(query, nameof(workspaceId), workspaceId);
 
             string url = "/v2/forms?" + query.ToString();
             return await this.oneBlinkApiClient.GetRequest<FormsSearchResult>(url);

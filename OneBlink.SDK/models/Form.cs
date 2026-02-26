@@ -44,7 +44,8 @@ namespace OneBlink.SDK.Model
             bool? allowGeoscapeAddresses = null,
             FormEnableSubmission enableSubmission = null,
             bool? disableAutosave = null,
-            bool? isArchived = null
+            bool? isArchived = null,
+            long? workspaceId = null
             )
         {
             if (id.HasValue)
@@ -157,6 +158,7 @@ namespace OneBlink.SDK.Model
             this.enableSubmission = enableSubmission;
             this.disableAutosave = disableAutosave;
             this.isArchived = isArchived;
+            this.workspaceId = workspaceId;
         }
         public long id
         {
@@ -319,6 +321,10 @@ namespace OneBlink.SDK.Model
             get; set;
         }
         public List<FormCustomPDF> customPDFs
+        {
+            get; set;
+        }
+        public long? workspaceId
         {
             get; set;
         }

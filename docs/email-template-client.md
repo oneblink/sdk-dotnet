@@ -10,10 +10,10 @@
 
 ## Constructor
 
-| Parameter    | Required | Type         | Description                                                                                             | Default Value         |
-| ------------ | -------- | ------------ | ------------------------------------------------------------------------------------------------------- | --------------------- |
-| `accessKey`  | Yes      | `string`     | Access key provided by OneBlink, requires the `FORMS` permission.                                       |                       |
-| `secretKey`  | Yes      | `string`     | Secret key provided by OneBlink, requires the `FORMS` permission.                                       |                       |
+| Parameter    | Required | Type         | Description                                                                                                                       | Default Value         |
+| ------------ | -------- | ------------ | --------------------------------------------------------------------------------------------------------------------------------- | --------------------- |
+| `accessKey`  | Yes      | `string`     | Access key provided by OneBlink, requires the `FORMS` permission.                                                                 |                       |
+| `secretKey`  | Yes      | `string`     | Secret key provided by OneBlink, requires the `FORMS` permission.                                                                 |                       |
 | `tenantName` | No       | `TenantName` | Sets the configuration values to be used. Options are `TenantName.ONEBLINK`, `TenantName.ONEBLINK_US` and `TenantName.CIVICPLUS`. | `TenantName.ONEBLINK` |
 
 ### Example
@@ -38,10 +38,11 @@ OneBlink.SDK.Model.EmailTemplatesSearchResult response = await emailTemplatesCli
 
 ### Parameters
 
-| Parameter | Required | Type   | Description                         |
-| --------- | -------- | ------ | ----------------------------------- |
-| `limit`   | No       | `int?` | The number of records to be fetch   |
-| `offset`  | No       | `int?` | The number of records to be skipped |
+| Parameter     | Required | Type    | Description                         |
+| ------------- | -------- | ------- | ----------------------------------- |
+| `limit`       | No       | `int?`  | The number of records to be fetch   |
+| `offset`      | No       | `int?`  | The number of records to be skipped |
+| `workspaceId` | No       | `long?` | Filter by workspaceId               |
 
 ### Throws
 
