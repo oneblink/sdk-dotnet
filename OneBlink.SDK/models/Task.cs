@@ -30,6 +30,10 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public long workspaceId
+        {
+            get; set;
+        }
         public TaskSchedule schedule
         {
             get; set;

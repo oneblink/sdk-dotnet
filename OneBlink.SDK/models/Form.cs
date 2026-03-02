@@ -14,6 +14,7 @@ namespace OneBlink.SDK.Model
             string description,
             string organisationId,
             long formsAppEnvironmentId,
+            long workspaceId,
             List<long> formsAppIds = default,
             List<FormElement> elements = default,
             long? id = null,
@@ -44,8 +45,7 @@ namespace OneBlink.SDK.Model
             bool? allowGeoscapeAddresses = null,
             FormEnableSubmission enableSubmission = null,
             bool? disableAutosave = null,
-            bool? isArchived = null,
-            long? workspaceId = null
+            bool? isArchived = null
             )
         {
             if (id.HasValue)
@@ -71,6 +71,7 @@ namespace OneBlink.SDK.Model
             this.name = name;
             this.description = description;
             this.organisationId = organisationId;
+            this.workspaceId = workspaceId;
             this.postSubmissionAction = postSubmissionAction;
             this.formsAppEnvironmentId = formsAppEnvironmentId;
             this.isAuthenticated = isAuthenticated;
@@ -158,7 +159,6 @@ namespace OneBlink.SDK.Model
             this.enableSubmission = enableSubmission;
             this.disableAutosave = disableAutosave;
             this.isArchived = isArchived;
-            this.workspaceId = workspaceId;
         }
         public long id
         {
@@ -324,7 +324,7 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
-        public long? workspaceId
+        public long workspaceId
         {
             get; set;
         }
