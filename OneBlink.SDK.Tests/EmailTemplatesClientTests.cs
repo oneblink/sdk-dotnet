@@ -71,6 +71,7 @@ namespace OneBlink.SDK.Tests
                 new EmailTemplateEnvironment()
                 {
                     formsAppEnvironmentId = formsAppEnvironmentId,
+                    template = "Created via unit test"
                 }
             };
 
