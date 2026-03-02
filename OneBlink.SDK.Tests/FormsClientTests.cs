@@ -20,6 +20,7 @@ namespace OneBlink.SDK.Tests
         private string organisationId = "5c58beb2ff59481100000002";
         private long formsAppEnvironmentId = 22;
         private long formsAppId = 79;
+        private long workspaceId = 12;
         public FormsClientTests()
         {
             bool ignoreExceptions = true;
@@ -61,6 +62,11 @@ namespace OneBlink.SDK.Tests
             if (!String.IsNullOrWhiteSpace(formsAppId))
             {
                 this.formsAppId = long.Parse(formsAppId);
+            }
+            string workspaceId = Environment.GetEnvironmentVariable("WORKSPACE_ID");
+            if (!String.IsNullOrWhiteSpace(workspaceId))
+            {
+                this.workspaceId = long.Parse(workspaceId);
             }
         }
 
@@ -294,7 +300,8 @@ namespace OneBlink.SDK.Tests
                 "name",
                 "description",
                 organisationId,
-                formsAppEnvironmentId
+                formsAppEnvironmentId,
+                workspaceId
             );
             FormsClient formsClient = new FormsClient(ACCESS_KEY, SECRET_KEY, TenantName.ONEBLINK_TEST);
             Form savedForm = await formsClient.Create(newForm);
@@ -354,7 +361,8 @@ namespace OneBlink.SDK.Tests
                 "Embedded Test Form",
                 "A simple form for testing nested mapping",
                 organisationId,
-                formsAppEnvironmentId
+                formsAppEnvironmentId,
+                workspaceId
             );
 
             // Add a text element to the embedded form
@@ -376,7 +384,8 @@ namespace OneBlink.SDK.Tests
                 "GoodToGo Nested Mapping Test",
                 "Testing GoodToGo submission events with nested mapping",
                 organisationId,
-                formsAppEnvironmentId
+                formsAppEnvironmentId,
+                workspaceId
             );
 
             // Create a text element for the main form
@@ -429,7 +438,7 @@ namespace OneBlink.SDK.Tests
 
             FormSubmissionEvent goodToGoEvent = FormSubmissionEvent.CreateGoodToGoSubmissionEvent(
                 elementId: mainTextElement.id,
-                integrationKeyId: Guid.NewGuid(),
+                integrationKeyId: Guid.Parse("7b45df77-55e1-45c9-884a-0fc7b3f15d63"),
                 mapping: goodToGoMapping,
                 label: "Update GoodToGo Asset with Nested Mapping"
             );

@@ -10,10 +10,10 @@
 
 ## Constructor
 
-| Parameter    | Required | Type         | Description                                                                                             | Default Value         |
-| ------------ | -------- | ------------ | ------------------------------------------------------------------------------------------------------- | --------------------- |
-| `accessKey`  | Yes      | `string`     | Access key provided by OneBlink, requires the `FORMS` permission.                                       |                       |
-| `secretKey`  | Yes      | `string`     | Secret key provided by OneBlink, requires the `FORMS` permission.                                       |                       |
+| Parameter    | Required | Type         | Description                                                                                                                       | Default Value         |
+| ------------ | -------- | ------------ | --------------------------------------------------------------------------------------------------------------------------------- | --------------------- |
+| `accessKey`  | Yes      | `string`     | Access key provided by OneBlink, requires the `FORMS` permission.                                                                 |                       |
+| `secretKey`  | Yes      | `string`     | Secret key provided by OneBlink, requires the `FORMS` permission.                                                                 |                       |
 | `tenantName` | No       | `TenantName` | Sets the configuration values to be used. Options are `TenantName.ONEBLINK`, `TenantName.ONEBLINK_US` and `TenantName.CIVICPLUS`. | `TenantName.ONEBLINK` |
 
 ### Example
@@ -44,6 +44,7 @@ OneBlink.SDK.Model.FormElementLookupSearchResult response = await formElementLoo
 | `limit`          | No       | `int?`   | The number of records to be fetch                         |
 | `offset`         | No       | `int?`   | The number of records to be skipped                       |
 | `organisationId` | No       | `string` | The organisationId of the organisation you want to search |
+| `workspaceId`    | No       | `long?`  | Filter by workspaceId                                     |
 
 ### Throws
 

@@ -14,6 +14,7 @@ namespace OneBlink.SDK.Model
             string description,
             string organisationId,
             long formsAppEnvironmentId,
+            long workspaceId,
             List<long> formsAppIds = default,
             List<FormElement> elements = default,
             long? id = null,
@@ -70,6 +71,7 @@ namespace OneBlink.SDK.Model
             this.name = name;
             this.description = description;
             this.organisationId = organisationId;
+            this.workspaceId = workspaceId;
             this.postSubmissionAction = postSubmissionAction;
             this.formsAppEnvironmentId = formsAppEnvironmentId;
             this.isAuthenticated = isAuthenticated;
@@ -319,6 +321,10 @@ namespace OneBlink.SDK.Model
             get; set;
         }
         public List<FormCustomPDF> customPDFs
+        {
+            get; set;
+        }
+        public long workspaceId
         {
             get; set;
         }

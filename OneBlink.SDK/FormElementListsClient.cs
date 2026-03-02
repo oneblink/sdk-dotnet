@@ -20,12 +20,13 @@ namespace OneBlink.SDK
             await this.oneblinkApiClient.DeleteRequest(url);
         }
 
-        public async Task<FormElementListSearchResult> Search(string organisationId, int? limit = null, int? offset = null)
+        public async Task<FormElementListSearchResult> Search(string organisationId, int? limit = null, int? offset = null, long? workspaceId = null)
         {
             var query = HttpUtility.ParseQueryString(string.Empty);
             OneBlinkHttpClient.AddItemToQuery(query, nameof(limit), limit);
             OneBlinkHttpClient.AddItemToQuery(query, nameof(offset), offset);
             OneBlinkHttpClient.AddItemToQuery(query, nameof(organisationId), organisationId);
+            OneBlinkHttpClient.AddItemToQuery(query, nameof(workspaceId), workspaceId);
 
             string url = "/form-element-options/dynamic?" + query.ToString();
             FormElementListInternalSearchResult results = await this.oneblinkApiClient.GetRequest<FormElementListInternalSearchResult>(url);
