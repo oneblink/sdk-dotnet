@@ -179,6 +179,7 @@ namespace OneBlink.SDK.Tests
             newForm.organisationId = organisationId;
             newForm.isAuthenticated = false;
             newForm.isMultiPage = false;
+            newForm.workspaceId = workspaceId;
             newForm.formsAppEnvironmentId = formsAppEnvironmentId;
             newForm.postSubmissionAction = "FORMS_LIBRARY";
             newForm.tags = tags;
