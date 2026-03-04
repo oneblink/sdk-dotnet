@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace OneBlink.SDK.Model
 {
     public class FormsAppEnvironmentCloneOptions
@@ -6,6 +8,7 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public List<WorkspaceMapping> workspaceMapping { get; set; }
         public bool isCloningFormElementOptionsSets
         {
             get; set;
