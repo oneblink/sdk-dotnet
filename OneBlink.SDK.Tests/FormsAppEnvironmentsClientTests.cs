@@ -114,6 +114,12 @@ namespace OneBlink.SDK.Tests
                         isCloningFormSubmissionEvents = true,
                         isCloningFormApprovalSteps = true,
                         sourceFormsAppEnvironmentId = environment.id,
+                        workspaceMapping = new List<WorkspaceMapping>() {
+                            new WorkspaceMapping() {
+                                sourceWorkspaceId = workspaceId,
+                                targetWorkspaceId = workspaceId
+                            }
+                        }
                     }
                 }
             );
