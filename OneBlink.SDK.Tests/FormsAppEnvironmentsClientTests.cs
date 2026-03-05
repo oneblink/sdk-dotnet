@@ -71,6 +71,7 @@ namespace OneBlink.SDK.Tests
             newFormsAppEnvironment.organisationId = organisationId;
             newFormsAppEnvironment.slug = "unit-test-environment-" + DateTime.Now.ToFileTimeUtc().ToString();
             newFormsAppEnvironment.notificationEmailAddresses = new List<string>() { "developers@oneblink.io" };
+            newFormsAppEnvironment.workspaceId = workspaceId;
 
             FormsAppEnvironment savedFormsAppEnvironment = await formsAppEnvironmentsClient.Create(newFormsAppEnvironment);
             Assert.NotNull(savedFormsAppEnvironment);
@@ -103,6 +104,7 @@ namespace OneBlink.SDK.Tests
                     slug = "cloned-prod-" + DateTime.Now.ToFileTimeUtc().ToString(),
                     organisationId = this.organisationId,
                     notificationEmailAddresses = new List<string>() { "developers@oneblink.io" },
+                    workspaceId = workspaceId,
                     cloneOptions = new FormsAppEnvironmentCloneOptions()
                     {
                         isCloningFormElementLookups = true,
@@ -114,12 +116,6 @@ namespace OneBlink.SDK.Tests
                         isCloningFormSubmissionEvents = true,
                         isCloningFormApprovalSteps = true,
                         sourceFormsAppEnvironmentId = environment.id,
-                        workspaceMapping = new List<WorkspaceMapping>() {
-                            new WorkspaceMapping() {
-                                sourceWorkspaceId = workspaceId,
-                                targetWorkspaceId = workspaceId
-                            }
-                        }
                     }
                 }
             );

@@ -4,9 +4,8 @@
 
 ### Added
 
-- `workspaceId` to `EmailTemplate`, `Form`, `FormElementList`, `FormElementLookup`, `FormsAppBase`, `Task` and `TaskGroup`
+- `workspaceId` to `EmailTemplate`, `FormElementList`, `FormElementLookup`, `FormsAppBase`, `FormAppEnvironment`, `Task` and `TaskGroup`
 - Optional parameter `workspaceId` to `EmailTemplatesClient.Search()`, `FormElementListsClient.Search()`, `FormElementLookupsClient.Search()`, `FormsAppEnvironmentsClient.Search()` and `FormsClient.Search()`
-- `workspaceMapping` to `FormsAppEnvironmentCloneOptions`
 
 ## [11.2.1] - 2026-02-23
 

@@ -28,6 +28,10 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public long workspaceId
+        {
+            get; set;
+        }
         public string slug
         {
             get; set;
