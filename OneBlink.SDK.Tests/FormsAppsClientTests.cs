@@ -81,7 +81,6 @@ namespace OneBlink.SDK.Tests
             newFormsApp.slug = DateTime.Now.ToFileTimeUtc().ToString();
             newFormsApp.organisationId = organisationId;
             newFormsApp.formsAppEnvironmentId = formsAppEnvironmentId;
-            newFormsApp.workspaceId = workspaceId;
             newFormsApp.formIds = new List<long>();
             newFormsApp.pwaSettings = pWASettings;
             newFormsApp.notificationEmailAddresses = new List<string>() { "developers@oneblink.io" };
