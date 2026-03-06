@@ -41,7 +41,6 @@
 | `enableSubmission`             | No       | `FormEnableSubmission`      | Conditionally enable form submission                                                                                        | `null`                            |
 | `disableAutosave`              | No       | `bool?`                     | Optionally disable autosave                                                                                                 | `null`                            |
 | `customPDFs`                   | No       | `List<FormCustomPDF>`       | Optional custom PDFs that can be used in place of the OOTB PDF                                                              | `null`                            |
-| `workspaceId`                  | No       | `long?`                     | Optional id to assoicate the form to a workspace
 
 ### Other properties
 

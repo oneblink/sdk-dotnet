@@ -4,8 +4,8 @@
 
 ### Added
 
-- `workspaceId` to `EmailTemplate`, `FormElementList`, `FormElementLookup`, `FormAppEnvironment`, `Task` and `TaskGroup`
-- Optional parameter `workspaceId` to `EmailTemplatesClient.Search()`, `FormElementListsClient.Search()`, `FormElementLookupsClient.Search()`, `FormsAppEnvironmentsClient.Search()` and `FormsClient.Search()`
+- `workspaceId` to `EmailTemplate`, `FormElementList`, `FormElementLookup` and `FormAppEnvironment`
+- Optional parameter `workspaceId` to `EmailTemplatesClient.Search()`, `FormElementListsClient.Search()`, `FormElementLookupsClient.Search()` and `FormsAppEnvironmentsClient.Search()`
 
 ## [11.2.1] - 2026-02-23
 
