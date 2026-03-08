@@ -17,11 +17,12 @@ namespace OneBlink.SDK
             );
         }
 
-        public async Task<EmailTemplatesSearchResult> Search(int? limit = null, int? offset = null)
+        public async Task<EmailTemplatesSearchResult> Search(int? limit = null, int? offset = null, long? workspaceId = null)
         {
             var query = HttpUtility.ParseQueryString(string.Empty);
             OneBlinkHttpClient.AddItemToQuery(query, nameof(limit), limit);
             OneBlinkHttpClient.AddItemToQuery(query, nameof(offset), offset);
+            OneBlinkHttpClient.AddItemToQuery(query, nameof(workspaceId), workspaceId);
 
             string url = "/email-templates?" + query.ToString();
             return await this.oneBlinkApiClient.GetRequest<EmailTemplatesSearchResult>(url);

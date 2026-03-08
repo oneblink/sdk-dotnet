@@ -77,10 +77,10 @@ A `string`
 
 ## Constructor
 
-| Parameter    | Required | Type         | Description                                                                                             | Default Value         |
-| ------------ | -------- | ------------ | ------------------------------------------------------------------------------------------------------- | --------------------- |
-| `accessKey`  | Yes      | `string`     | Access key provided by OneBlink, requires the `FORMS` permission.                                       |                       |
-| `secretKey`  | Yes      | `string`     | Secret key provided by OneBlink, requires the `FORMS` permission.                                       |                       |
+| Parameter    | Required | Type         | Description                                                                                                                       | Default Value         |
+| ------------ | -------- | ------------ | --------------------------------------------------------------------------------------------------------------------------------- | --------------------- |
+| `accessKey`  | Yes      | `string`     | Access key provided by OneBlink, requires the `FORMS` permission.                                                                 |                       |
+| `secretKey`  | Yes      | `string`     | Secret key provided by OneBlink, requires the `FORMS` permission.                                                                 |                       |
 | `tenantName` | No       | `TenantName` | Sets the configuration values to be used. Options are `TenantName.ONEBLINK`, `TenantName.ONEBLINK_US` and `TenantName.CIVICPLUS`. | `TenantName.ONEBLINK` |
 
 ### Example
@@ -153,6 +153,7 @@ OneBlink.SDK.Model.FormsSearchResult response = await formsClient.Search(isAuthe
 | `formsAppId`             | No       | `long?`  | Return only forms for a specific app.                                                                                                        |
 | `limit`                  | no       | `int?`   | Limit the number of results returned. Used with `offset` to control pagination. Defaults to `200`. Cannot exceed `200`.                      |
 | `offset`                 | no       | `int?`   | Offset the results returned by the value specified. Used with `limit` to control pagination. Defaults to `0`.                                |
+| `workspaceId`            | No       | `long?`  | Filter by workspaceId                                                                                                                        |
 
 ### Throws
 

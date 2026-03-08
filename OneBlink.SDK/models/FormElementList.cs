@@ -33,13 +33,17 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public long workspaceId
+        {
+            get; set;
+        }
         public List<FormElementListEnvironment> environments
         {
             get; set;
         }
     }
 
-    //This is the result returned from the OneBlink API. 
+    //This is the result returned from the OneBlink API.
     //We cannot change the data that is returned so we will use this data to transform it
     //into the SearchResult class below this.
     public class FormElementListInternalSearchResult : SearchResult

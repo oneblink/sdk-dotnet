@@ -429,7 +429,7 @@ namespace OneBlink.SDK.Tests
 
             FormSubmissionEvent goodToGoEvent = FormSubmissionEvent.CreateGoodToGoSubmissionEvent(
                 elementId: mainTextElement.id,
-                integrationKeyId: Guid.NewGuid(),
+                integrationKeyId: Guid.Parse("7b45df77-55e1-45c9-884a-0fc7b3f15d63"),
                 mapping: goodToGoMapping,
                 label: "Update GoodToGo Asset with Nested Mapping"
             );

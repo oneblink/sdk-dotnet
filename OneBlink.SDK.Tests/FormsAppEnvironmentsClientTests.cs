@@ -15,6 +15,7 @@ namespace OneBlink.SDK.Tests
         private string SECRET_KEY;
         private string organisationId = "5c58beb2ff59481100000002";
         private long formsAppEnvironmentId = 22;
+        private long workspaceId = 12;
         public FormsAppEnvironmentsClientTests()
         {
             bool ignoreExceptions = true;
@@ -30,6 +31,11 @@ namespace OneBlink.SDK.Tests
             if (!String.IsNullOrWhiteSpace(formsAppEnvironmentId))
             {
                 this.formsAppEnvironmentId = long.Parse(formsAppEnvironmentId);
+            }
+            string workspaceId = Environment.GetEnvironmentVariable("WORKSPACE_ID");
+            if (!String.IsNullOrWhiteSpace(workspaceId))
+            {
+                this.workspaceId = long.Parse(workspaceId);
             }
         }
 
@@ -65,6 +71,7 @@ namespace OneBlink.SDK.Tests
             newFormsAppEnvironment.organisationId = organisationId;
             newFormsAppEnvironment.slug = "unit-test-environment-" + DateTime.Now.ToFileTimeUtc().ToString();
             newFormsAppEnvironment.notificationEmailAddresses = new List<string>() { "developers@oneblink.io" };
+            newFormsAppEnvironment.workspaceId = workspaceId;
 
             FormsAppEnvironment savedFormsAppEnvironment = await formsAppEnvironmentsClient.Create(newFormsAppEnvironment);
             Assert.NotNull(savedFormsAppEnvironment);
@@ -97,6 +104,7 @@ namespace OneBlink.SDK.Tests
                     slug = "cloned-prod-" + DateTime.Now.ToFileTimeUtc().ToString(),
                     organisationId = this.organisationId,
                     notificationEmailAddresses = new List<string>() { "developers@oneblink.io" },
+                    workspaceId = workspaceId,
                     cloneOptions = new FormsAppEnvironmentCloneOptions()
                     {
                         isCloningFormElementLookups = true,

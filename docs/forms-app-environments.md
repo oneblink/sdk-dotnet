@@ -10,10 +10,10 @@
 
 ## Constructor
 
-| Parameter    | Required | Type         | Description                                                                                             | Default Value         |
-| ------------ | -------- | ------------ | ------------------------------------------------------------------------------------------------------- | --------------------- |
-| `accessKey`  | Yes      | `string`     | Access key provided by OneBlink, requires the `FORMS` permission.                                       |                       |
-| `secretKey`  | Yes      | `string`     | Secret key provided by OneBlink, requires the `FORMS` permission.                                       |                       |
+| Parameter    | Required | Type         | Description                                                                                                                       | Default Value         |
+| ------------ | -------- | ------------ | --------------------------------------------------------------------------------------------------------------------------------- | --------------------- |
+| `accessKey`  | Yes      | `string`     | Access key provided by OneBlink, requires the `FORMS` permission.                                                                 |                       |
+| `secretKey`  | Yes      | `string`     | Secret key provided by OneBlink, requires the `FORMS` permission.                                                                 |                       |
 | `tenantName` | No       | `TenantName` | Sets the configuration values to be used. Options are `TenantName.ONEBLINK`, `TenantName.ONEBLINK_US` and `TenantName.CIVICPLUS`. | `TenantName.ONEBLINK` |
 
 ### Example
@@ -39,10 +39,11 @@ OneBlink.SDK.Model.FormsAppEnvironmentsSearchResult response = await formsAppEnv
 
 ### Parameters
 
-| Parameter | Required | Type   | Description                         |
-| --------- | -------- | ------ | ----------------------------------- |
-| `limit`   | No       | `int?` | The number of records to be fetch   |
-| `offset`  | No       | `int?` | The number of records to be skipped |
+| Parameter     | Required | Type    | Description                         |
+| ------------- | -------- | ------- | ----------------------------------- |
+| `limit`       | No       | `int?`  | The number of records to be fetch   |
+| `offset`      | No       | `int?`  | The number of records to be skipped |
+| `workspaceId` | No       | `long?` | Filter by workspaceId               |
 
 ### Throws
 
@@ -195,9 +196,9 @@ OneBlink.SDK.Model.FormsAppEnvironmentSendingAddressResponse sendingAddress = aw
 
 ### Parameters
 
-| Parameter                   | Required | Type                                                               | Description                                 |
-| --------------------------- | -------- | ------------------------------------------------------------------ | ------------------------------------------- |
-| `id`                        | Yes      | `long`                                                             | The identifier of the Forms App Environment |
+| Parameter                              | Required | Type                                                                                     | Description                                 |
+| -------------------------------------- | -------- | ---------------------------------------------------------------------------------------- | ------------------------------------------- |
+| `id`                                   | Yes      | `long`                                                                                   | The identifier of the Forms App Environment |
 | `newFormsAppEnvironmentSendingAddress` | Yes      | [NewFormsAppEnvironmentSendingAddress](./models/NewFormsAppEnvironmentSendingAddress.md) | The Sending address information to set      |
 
 ### Throws
@@ -225,8 +226,8 @@ await formsAppEnvironmentsClient.DeleteSendingAddress(formsAppEnvironmentId);
 
 ### Parameters
 
-| Parameter | Required | Type   | Description                    |
-| --------- | -------- | ------ | ------------------------------ |
+| Parameter | Required | Type   | Description                               |
+| --------- | -------- | ------ | ----------------------------------------- |
 | `id`      | Yes      | `long` | The identifier of the FormsAppEnvironment |
 
 ### Throws
@@ -254,8 +255,8 @@ OneBlink.SDK.Model.FormsAppEnvironmentSendingAddressResponse sendingAddress = aw
 
 ### Parameters
 
-| Parameter | Required | Type   | Description                    |
-| --------- | -------- | ------ | ------------------------------ |
+| Parameter | Required | Type   | Description                               |
+| --------- | -------- | ------ | ----------------------------------------- |
 | `id`      | Yes      | `long` | The identifier of the FormsAppEnvironment |
 
 ### Throws

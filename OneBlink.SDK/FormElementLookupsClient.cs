@@ -34,12 +34,13 @@ namespace OneBlink.SDK
             return formElementLookup;
         }
 
-        public async Task<FormElementLookupSearchResult> Search(string organisationId, int? limit = null, int? offset = null)
+        public async Task<FormElementLookupSearchResult> Search(string organisationId, int? limit = null, int? offset = null, long? workspaceId = null)
         {
             var query = HttpUtility.ParseQueryString(string.Empty);
             OneBlinkHttpClient.AddItemToQuery(query, nameof(limit), limit);
             OneBlinkHttpClient.AddItemToQuery(query, nameof(offset), offset);
             OneBlinkHttpClient.AddItemToQuery(query, nameof(organisationId), organisationId);
+            OneBlinkHttpClient.AddItemToQuery(query, nameof(workspaceId), workspaceId);
 
             string url = "/form-element-lookups?" + query.ToString();
             return await this.oneBlinkApiClient.GetRequest<FormElementLookupSearchResult>(url);
