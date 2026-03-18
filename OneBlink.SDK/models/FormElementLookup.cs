@@ -40,7 +40,7 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
-        public long workspaceId
+        public List<long> workspaceIds
         {
             get; set;
         }

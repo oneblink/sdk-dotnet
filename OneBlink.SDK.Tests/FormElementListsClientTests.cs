@@ -64,7 +64,7 @@ namespace OneBlink.SDK.Tests
             newFormElementList.name = "Unit test environment";
             newFormElementList.type = "URL";
             newFormElementList.organisationId = organisationId;
-            newFormElementList.workspaceId = workspaceId;
+            newFormElementList.workspaceIds = new System.Collections.Generic.List<long>() { workspaceId };
             newFormElementList.environments = new System.Collections.Generic.List<FormElementListEnvironment>()
             {
                 new FormElementListEnvironment()
