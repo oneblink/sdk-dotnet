@@ -65,7 +65,7 @@ namespace OneBlink.SDK.Tests
             newEmailTemplate.name = "Unit test environment";
             newEmailTemplate.type = "FORM_SUBMISSION_EVENT_PDF";
             newEmailTemplate.organisationId = organisationId;
-            newEmailTemplate.workspaceId = workspaceId;
+            newEmailTemplate.workspaceIds = new System.Collections.Generic.List<long>() { workspaceId };
             newEmailTemplate.environments = new System.Collections.Generic.List<EmailTemplateEnvironment>()
             {
                 new EmailTemplateEnvironment()

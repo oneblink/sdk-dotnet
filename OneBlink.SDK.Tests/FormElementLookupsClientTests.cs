@@ -66,7 +66,7 @@ namespace OneBlink.SDK.Tests
             newFormElementLookup.name = "Unit test environment";
             newFormElementLookup.type = "DATA";
             newFormElementLookup.organisationId = organisationId;
-            newFormElementLookup.workspaceId = workspaceId;
+            newFormElementLookup.workspaceIds = new System.Collections.Generic.List<long>() { workspaceId };
             newFormElementLookup.environments = new System.Collections.Generic.List<FormElementLookupEnvironment>()
             {
                 new FormElementLookupEnvironment()
