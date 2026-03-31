@@ -16,6 +16,15 @@ namespace OneBlink.SDK
         }
     }
 
+    internal class PreFillUploadRequest
+    {
+        [JsonProperty]
+        internal string username
+        {
+            get; set;
+        }
+    }
+
     internal class PrefillClient
     {
         OneBlinkApiClient oneBlinkApiClient;
@@ -25,13 +34,16 @@ namespace OneBlink.SDK
             this.oneBlinkApiClient = oneBlinkApiClient;
         }
 
-        internal async Task<Guid> SetPreFillData<T>(T preFillData, long formId)
+        internal async Task<Guid> SetPreFillData<T>(T preFillData, long formId, string username)
         {
             string key = "forms/" + formId.ToString() + "/pre-fill";
             string serializedJson = JsonConvert.SerializeObject(preFillData);
             byte[] byteArray = Encoding.UTF8.GetBytes(serializedJson);
             Stream stream = new MemoryStream(byteArray);
-            PreFillUploadResponse preFillUploadResponse = await this.oneBlinkApiClient.Upload<PreFillUploadResponse>(key, stream, "application/json");
+            PreFillUploadRequest requestBody = new PreFillUploadRequest() {
+                username = username
+            };
+            PreFillUploadResponse preFillUploadResponse = await this.oneBlinkApiClient.Upload<PreFillUploadRequest, PreFillUploadResponse>(key, stream, "application/json", requestBody, isPublic: false);
             return preFillUploadResponse.preFillFormDataId;
         }
     }

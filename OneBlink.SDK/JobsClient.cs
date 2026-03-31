@@ -41,7 +41,7 @@ namespace OneBlink.SDK
         {
             _ValidateJob(job);
             PrefillClient prefillClient = new PrefillClient(oneBlinkApiClient);
-            Guid preFillMetaId = await prefillClient.SetPreFillData<T>(preFillData, job.formId);
+            Guid preFillMetaId = await prefillClient.SetPreFillData<T>(preFillData, job.formId, job.username);
 
             job.preFillFormDataId = preFillMetaId;
 

@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Added
+
+- `username` to requests to upload prefill data
+
 ## [11.3.0] - 2026-03-31
 
 ### Added
