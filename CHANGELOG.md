@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## [11.3.0] - 2026-03-31
+
 ### Added
 
 - `workspaceId` to `EmailTemplate`, `FormElementList`, `FormElementLookup` and `FormAppEnvironment`
