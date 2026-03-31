@@ -193,7 +193,7 @@ namespace OneBlink.SDK
             if (parameters.preFillData != null)
             {
                 PrefillClient prefillClient = new PrefillClient(oneBlinkApiClient);
-                Guid id = await prefillClient.SetPreFillData(parameters.preFillData, parameters.formId);
+                Guid id = await prefillClient.SetPreFillData(parameters.preFillData, parameters.formId, parameters.username);
                 preFillFormDataId = id;
                 developerKeyAccess.prefillData = new DeveloperKeyAccessPrefillData()
                 {
