@@ -18,12 +18,12 @@ namespace OneBlink.SDK.JsonConverters
             JToken token = JToken.Load(reader);
             if (token.Type == JTokenType.Array)
             {
-                return token.ToObject<List<FormPostSubmissionReceiptPdfConfiguration>>();
+                return token.ToObject<List<FormPostSubmissionReceiptPdfConfiguration>>(serializer);
             }
             else if (token.Type == JTokenType.Object)
             {
                 // It's the legacy single PDFConfiguration object
-                PDFConfiguration pdfConfig = token.ToObject<PDFConfiguration>();
+                PDFConfiguration pdfConfig = token.ToObject<PDFConfiguration>(serializer);
                 return new List<FormPostSubmissionReceiptPdfConfiguration>
                 {
                     new FormPostSubmissionReceiptPdfConfiguration

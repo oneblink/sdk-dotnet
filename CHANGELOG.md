@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Changed
+
+- Passing the JsonSerializer to both `ToObject` calls inside of ReadJson functions so the deserialization context (including any converters registered by the consuming application) is preserved (Referred to changes made in version `11.1.3`)
+
 ### Added
 
 - `username` to requests to upload prefill data
