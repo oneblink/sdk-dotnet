@@ -24,6 +24,10 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public int? entryNumber
+        {
+            get; set;
+        }
         public bool isDescription
         {
             get; set;
