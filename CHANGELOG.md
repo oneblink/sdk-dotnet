@@ -6,6 +6,7 @@
 
 - `entryNumber` to `FormSubmissionEventConfigurationMapping`
 - `font` to `FormSubmissionEventConfigurationMapping`
+- `entrySummary` to `FormElement`
 
 ### Fixed
 

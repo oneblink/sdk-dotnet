@@ -520,6 +520,7 @@ namespace OneBlink.SDK.Model
         }
 
         public int? maxWidthPixels {get;set;}
+        public string entrySummary {get;set;}
 
 
         private static Guid initialiseId(Guid? id)
