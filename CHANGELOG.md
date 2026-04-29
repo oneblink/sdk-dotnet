@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Added
+
+- `entryNumber` to `FormSubmissionEventConfigurationMapping`
+
 ## [11.3.1] - 2026-04-10
 
 ### Added
