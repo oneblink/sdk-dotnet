@@ -60,6 +60,10 @@ namespace OneBlink.SDK.Model
         {
              get; set;
         }
+        public string font
+        {
+            get; set;
+        }
     }
     //Kept here for backwards compatibility, remove with next breaking change.
     public class FormSubmissionEventCivicaElementMapping : FormSubmissionEventConfigurationMapping
