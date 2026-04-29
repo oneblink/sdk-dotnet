@@ -5,6 +5,11 @@
 ### Added
 
 - `entryNumber` to `FormSubmissionEventConfigurationMapping`
+- `font` to `FormSubmissionEventConfigurationMapping`
+
+### Fixed
+
+- `FormCustomPDF.mapping` to be a `List<>` instead of a object
 
 ## [11.3.1] - 2026-04-10
 
