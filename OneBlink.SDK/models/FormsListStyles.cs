@@ -4,7 +4,7 @@ namespace OneBlink.SDK.Model
 {
     public class FormsListStyles : FormsAppEnvironmentStyles
     {
-        public List<FormsAppMenuItems> menuItems
+        public List<FormsAppMenuItem> menuItems
         {
             get; set;
         }

@@ -4,6 +4,7 @@
 
 ### Added
 
+- `imageUrl`, `alwaysSubmitViaPendingQueue`, `taskAllocations`, `taskGroupInstanceAllocations`, `slug`, `allowAdhocTasks`, `listDisplayAttributes` to `FormsAppMenuItem`
 - `entryNumber` to `FormSubmissionEventConfigurationMapping`
 - `font` to `FormSubmissionEventConfigurationMapping`
 - `entrySummary` to `FormElement`
