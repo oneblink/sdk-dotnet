@@ -20,6 +20,14 @@
 
 ### Added
 
+- `emailTemplateId` to `FormsAppWelcomeEmail`
+
+### Changed
+
+- `FormsAppWelcomeEmail.body` marked `[Obsolete]`
+
+### Added
+
 - `entryNumber` to `FormSubmissionEventConfigurationMapping`
 - `font` to `FormSubmissionEventConfigurationMapping`
 - `entrySummary` to `FormElement`
@@ -27,6 +35,7 @@
 ### Fixed
 
 - `FormCustomPDF.mapping` to be a `List<>` instead of a object
+
 
 ## [11.3.1] - 2026-04-10
 
