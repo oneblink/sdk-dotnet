@@ -2,11 +2,14 @@
 
 ## Unreleased
 
+### Added
+
+- `imageUrl`, `alwaysSubmitViaPendingQueue`, `taskAllocations`, `taskGroupInstanceAllocations`, `slug`, `allowAdhocTasks`, `listDisplayAttributes` to `FormsAppMenuItem`
+
 ## [11.3.2] - 2026-05-07
 
 ### Added
 
-- `imageUrl`, `alwaysSubmitViaPendingQueue`, `taskAllocations`, `taskGroupInstanceAllocations`, `slug`, `allowAdhocTasks`, `listDisplayAttributes` to `FormsAppMenuItem`
 - `entryNumber` to `FormSubmissionEventConfigurationMapping`
 - `font` to `FormSubmissionEventConfigurationMapping`
 - `entrySummary` to `FormElement`
