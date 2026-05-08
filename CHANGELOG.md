@@ -6,6 +6,10 @@
 
 - `imageUrl`, `alwaysSubmitViaPendingQueue`, `taskAllocations`, `taskGroupInstanceAllocations`, `slug`, `allowAdhocTasks`, `listDisplayAttributes` to `FormsAppMenuItem`
 
+### Breaking
+
+- Renamed class `FormsAppMenuItems` to `FormsAppMenuItem`
+
 ## [11.3.2] - 2026-05-07
 
 ### Added
