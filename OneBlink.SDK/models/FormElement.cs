@@ -31,7 +31,7 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
-        public bool required
+        public bool? required
         {
             get; set;
         }
