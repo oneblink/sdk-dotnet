@@ -6,6 +6,10 @@
 
 - `imageUrl`, `alwaysSubmitViaPendingQueue`, `taskAllocations`, `taskGroupInstanceAllocations`, `slug`, `allowAdhocTasks`, `listDisplayAttributes` to `FormsAppMenuItem`
 
+### Changed
+
+- `FormElement.required` to nullable
+
 ### Breaking
 
 - Renamed class `FormsAppMenuItems` to `FormsAppMenuItem`

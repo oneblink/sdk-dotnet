@@ -16,7 +16,7 @@ Only a default constructor is provided, instead it is recommended to create a Fo
 | `conditionallyShow`                      | No                                | `Boolean?`                                | Whether the form is always of conditionally shown                                                                                                                                                                                                                                                                                                                                          | false         |
 | `requiresAllConditionallyShowPredicates` | No                                | `Boolean?`                                | Whether all predicates must be true to show element                                                                                                                                                                                                                                                                                                                                        | false         |
 | `type`                                   | Yes                               | `string`                                  | "text", "email", "textarea", "number", "select","checkboxes", "radio", "draw", "camera", "date", "time", "datetime", "heading", "location", "repeatableSet", "page", "html", "barcodeScanner", "captcha", "image", "file", "files", "calculation", "telephone", "autocomplete", "form", "infoPage", "geoscapeAddress", "summary","compliance", "pointAddress", "boolean", "pointAddressV3" |               |
-| `required`                               | Yes                               | `Boolean?`                                | Whether the user us required to provided a value for this element                                                                                                                                                                                                                                                                                                                          | false         |
+| `required`                               | No                                | `Boolean?`                                | Whether the user us required to provided a value for this element . For a `lookupButton` form element, if this property is `null`, the lookup will be required based on its dependencies.                                                                                                                                                                                                  | false         |
 | `readOnly`                               | No                                | `Boolean?`                                | Whether the user can modify the elements value                                                                                                                                                                                                                                                                                                                                             | false         |
 | `conditionallyShowPredicates`            | No                                | `List<ConditionallyShowPredicate>`        | List of elements to be used as conditions                                                                                                                                                                                                                                                                                                                                                  | null          |
 | `defaultValue`                           | No                                | `dynamic`                                 | The default value for this element                                                                                                                                                                                                                                                                                                                                                         | null          |
@@ -229,7 +229,7 @@ Creates a new FormElement defined as a compliance element, including all paramet
 | `conditionallyShow`                    | No       | `bool`                             | `false`       |
 | `requiresAllConditonallyShowPredicate` | No       | `bool`                             | `false`       |
 | `conditionallyShowPredicates`          | No       | `List<ConditionallyShowPredicate>` | `null`        |
-| `required`                             | No       | `bool`                             | `false`       |
+| `required`                             | No       | `bool?`                            | `null`        |
 | `readOnly`                             | No       | `bool`                             | `false`       |
 | `defaultValue`                         | No       | `string`                           | `null`        |
 | `hint`                                 | No       | `string`                           | `null`        |
@@ -293,7 +293,7 @@ Creates a new FormElement defined as a Boolean element, including all parameters
 | `conditionallyShow`                    | No       | `bool`                             | `false`       |
 | `requiresAllConditonallyShowPredicate` | No       | `bool`                             | `false`       |
 | `conditionallyShowPredicates`          | No       | `List<ConditionallyShowPredicate>` | `null`        |
-| `required`                             | No       | `bool`                             | `false`       |
+| `required`                             | No       | `bool?`                            | `null`        |
 | `readOnly`                             | No       | `bool`                             | `false`       |
 | `defaultValue`                         | No       | `bool`                             | `false`       |
 | `hint`                                 | No       | `string`                           | `null`        |
@@ -329,7 +329,7 @@ Creates a new FormElement defined as a Civica Name record element, including all
 | `conditionallyShow`                    | No       | `bool`                             | `false`       |
 | `requiresAllConditonallyShowPredicate` | No       | `bool`                             | `false`       |
 | `conditionallyShowPredicates`          | No       | `List<ConditionallyShowPredicate>` | `null`        |
-| `required`                             | No       | `bool`                             | `false`       |
+| `required`                             | No       | `bool?`                            | `null`        |
 | `readOnly`                             | No       | `bool`                             | `false`       |
 | `defaultValue`                         | No       | `dynamic`                          | `null`        |
 | `hint`                                 | No       | `string`                           | `null`        |
