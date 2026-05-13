@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 namespace OneBlink.SDK.Model
@@ -17,7 +18,7 @@ namespace OneBlink.SDK.Model
     {
         public string type { get; set; }
         public string attribute { get; set; }
-        public string formElementId { get; set; }
+        public Guid? formElementId { get; set; }
     }
 
     public class FormsAppMenuItem

@@ -15,6 +15,10 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public List<FormApprovalFormPrefillMapping> approvalFormPrefillMappings
+        {
+            get; set;
+        }
         public bool? hideApprovalDenyButton
         {
             get; set;

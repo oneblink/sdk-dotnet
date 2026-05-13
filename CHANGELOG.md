@@ -4,6 +4,8 @@
 
 ### Added
 
+- `approvalFormPrefillMappings` to `FormApprovalFlowStepBase` and `FormSubmissionApproval`
+- `FormApprovalPrefillPathSegment`, `FormApprovalPrefillElementPath` and `FormApprovalFormPrefillMapping` models
 - `emailTemplateId` to `FormsAppWelcomeEmail`
 
 ### Changed
