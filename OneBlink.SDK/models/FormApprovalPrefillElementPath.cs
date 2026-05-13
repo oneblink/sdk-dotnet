@@ -8,7 +8,7 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
-        public Guid? formElementId
+        public Guid formElementId
         {
             get; set;
         }
