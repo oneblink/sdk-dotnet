@@ -6,6 +6,16 @@
 
 - `approvalFormPrefillMappings` to `FormApprovalFlowStepBase` and `FormSubmissionApproval`
 - `FormApprovalPrefillPathSegment`, `FormApprovalPrefillElementPath` and `FormApprovalFormPrefillMapping` models
+- `emailTemplateId` to `FormsAppWelcomeEmail`
+
+### Changed
+
+- `FormsAppWelcomeEmail.body` marked `[Obsolete]`
+
+## [12.0.0] - 2026-05-13
+
+### Added
+
 - `imageUrl`, `alwaysSubmitViaPendingQueue`, `taskAllocations`, `taskGroupInstanceAllocations`, `slug`, `allowAdhocTasks`, `listDisplayAttributes` to `FormsAppMenuItem`
 
 ### Changed
