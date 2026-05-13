@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## [12.0.0] - 2026-05-13
+
 ### Added
 
 - `imageUrl`, `alwaysSubmitViaPendingQueue`, `taskAllocations`, `taskGroupInstanceAllocations`, `slug`, `allowAdhocTasks`, `listDisplayAttributes` to `FormsAppMenuItem`
