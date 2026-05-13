@@ -2,6 +2,14 @@
 
 ## Unreleased
 
+### Added
+
+- `emailTemplateId` to `FormsAppWelcomeEmail`
+
+### Changed
+
+- `FormsAppWelcomeEmail.body` marked `[Obsolete]`
+
 ## [12.0.0] - 2026-05-13
 
 ### Added
