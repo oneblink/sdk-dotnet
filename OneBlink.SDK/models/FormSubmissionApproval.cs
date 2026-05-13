@@ -56,6 +56,10 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public List<FormApprovalFormPrefillMapping> approvalFormPrefillMappings
+        {
+            get; set;
+        }
         public List<FormSubmissionApprovalNote> additionalNotes
         {
             get; set;
