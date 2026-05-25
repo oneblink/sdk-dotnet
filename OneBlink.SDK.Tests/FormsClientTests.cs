@@ -231,7 +231,7 @@ namespace OneBlink.SDK.Tests
             FormElement textElement = FormElement.CreateTextElement(
                 "Unit_test_element",
                 "Unit test element",
-                Guid.NewGuid(),
+                Guid.NewGuid().ToString(),
                 false,
                 false,
                 null,
@@ -246,8 +246,8 @@ namespace OneBlink.SDK.Tests
             FormElement summaryElement = FormElement.CreateSummaryElement(
                 "Summary_test_element",
                 "Summary test element",
-                new List<Guid>() { textElement.id },
-                Guid.NewGuid(),
+                new List<string>() { textElement.id },
+                Guid.NewGuid().ToString(),
                 false,
                 false,
                 null
@@ -388,7 +388,7 @@ namespace OneBlink.SDK.Tests
             // Create a form element that contains the embedded form
             FormElement formElement = new FormElement
             {
-                id = Guid.NewGuid(),
+                id = Guid.NewGuid().ToString(),
                 name = "embedded_form_element",
                 label = "Embedded Form",
                 type = "form",

@@ -6,7 +6,7 @@ namespace OneBlink.SDK.Model
 {
     public class ConditionallyShowPredicate
     {
-        public Guid elementId
+        public string elementId
         {
             get; set;
         }
