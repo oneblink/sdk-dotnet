@@ -40,7 +40,7 @@ namespace OneBlink.SDK.Model
             get; set;
         }
 
-        public static FormSubmissionEvent CreateCpPaySubmissionEvent(Guid elementId, Guid gatewayId, string label = null)
+        public static FormSubmissionEvent CreateCpPaySubmissionEvent(string elementId, Guid gatewayId, string label = null)
         {
             FormSubmissionEventConfiguration fseconfig = new FormSubmissionEventConfiguration();
             fseconfig.elementId = elementId;
@@ -52,7 +52,7 @@ namespace OneBlink.SDK.Model
             return cpPay;
         }
 
-        public static FormSubmissionEvent CreateBpointSubmissionEvent(Guid elementId, Guid environmentId, string label = null)
+        public static FormSubmissionEvent CreateBpointSubmissionEvent(string elementId, Guid environmentId, string label = null)
         {
             FormSubmissionEventConfiguration fseconfig = new FormSubmissionEventConfiguration();
             fseconfig.elementId = elementId;
@@ -64,7 +64,7 @@ namespace OneBlink.SDK.Model
             return bpoint;
         }
 
-        public static FormSubmissionEvent CreateGovPaySubmissionEvent(Guid elementId, Guid primaryAgencyId, string productDescription, string label = null)
+        public static FormSubmissionEvent CreateGovPaySubmissionEvent(string elementId, Guid primaryAgencyId, string productDescription, string label = null)
         {
             FormSubmissionEventConfiguration fseconfig = new FormSubmissionEventConfiguration();
             fseconfig.elementId = elementId;
@@ -135,7 +135,7 @@ namespace OneBlink.SDK.Model
             return trim;
         }
 
-        public static FormSubmissionEvent CreateWestpacQuickWebSubmissionEvent(Guid elementId, Guid environmentId, string customerReferenceNumber, string label = null)
+        public static FormSubmissionEvent CreateWestpacQuickWebSubmissionEvent(string elementId, Guid environmentId, string customerReferenceNumber, string label = null)
         {
             FormSubmissionEventConfiguration fseconfig = new FormSubmissionEventConfiguration();
             fseconfig.elementId = elementId;
@@ -201,8 +201,8 @@ namespace OneBlink.SDK.Model
 
         public static FormSubmissionEvent CreateNylasSubmissionEvent(string nylasGrantId,
             string nylasConfigurationId,
-            Guid? nameElementId = null,
-            Guid? emailElementId = null,
+            string nameElementId = null,
+            string emailElementId = null,
             string emailDescription = null,
             string label = null)
         {
@@ -301,7 +301,7 @@ namespace OneBlink.SDK.Model
             EndpointConfiguration emailAttachmentsEndpoint = null,
             string pdfSize = null,
             bool? includeCalendarBookingInPdf = null,
-            List<Guid> excludedAttachmentElementIds = default
+            List<string> excludedAttachmentElementIds = default
         )
         {
             FormSubmissionEventConfiguration fseconfig = new FormSubmissionEventConfiguration();
@@ -335,7 +335,7 @@ namespace OneBlink.SDK.Model
             fseconfig.includeExternalIdInPdf = includeExternalIdInPdf;
             fseconfig.emailAttachmentsEndpoint = emailAttachmentsEndpoint;
             fseconfig.pdfSize = pdfSize;
-            if (excludedAttachmentElementIds != default(List<Guid>))
+            if (excludedAttachmentElementIds != default(List<string>))
             {
                 fseconfig.excludedAttachmentElementIds = excludedAttachmentElementIds;
             }
@@ -411,7 +411,7 @@ namespace OneBlink.SDK.Model
             List<string> ccEmail = default,
             List<string> bccEmail = default,
             EndpointConfiguration emailAttachmentsEndpoint = null,
-            List<Guid> excludedAttachmentElementIds = default
+            List<string> excludedAttachmentElementIds = default
         )
         {
             FormSubmissionEventConfiguration fseconfig = new FormSubmissionEventConfiguration();
@@ -430,7 +430,7 @@ namespace OneBlink.SDK.Model
                 fseconfig.bccEmail = bccEmail;
             }
             fseconfig.emailAttachmentsEndpoint = emailAttachmentsEndpoint;
-            if (excludedAttachmentElementIds != default(List<Guid>))
+            if (excludedAttachmentElementIds != default(List<string>))
             {
                 fseconfig.excludedAttachmentElementIds = excludedAttachmentElementIds;
             }
@@ -473,7 +473,7 @@ namespace OneBlink.SDK.Model
         }
 
         public static FormSubmissionEvent CreateGoodToGoSubmissionEvent(
-            Guid elementId,
+            string elementId,
             Guid integrationKeyId,
             List<FormSubmissionEventConfigurationMapping> mapping,
             List<ConditionallyShowPredicate> conditionallyExecutePredicates = default,

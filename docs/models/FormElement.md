@@ -10,7 +10,7 @@ Only a default constructor is provided, instead it is recommended to create a Fo
 
 | Property                                 | Required                          | Type                                      | Description                                                                                                                                                                                                                                                                                                                                                                                | Default Value |
 | ---------------------------------------- | --------------------------------- | ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------- |
-| `id`                                     | Yes                               | `Guid`                                    |                                                                                                                                                                                                                                                                                                                                                                                            |               |
+| `id`                                     | Yes                               | `string`                                  |                                                                                                                                                                                                                                                                                                                                                                                            |               |
 | `name`                                   | Yes                               | `string`                                  |                                                                                                                                                                                                                                                                                                                                                                                            |               |
 | `label`                                  | Yes                               | `string`                                  |                                                                                                                                                                                                                                                                                                                                                                                            |               |
 | `conditionallyShow`                      | No                                | `Boolean?`                                | Whether the form is always of conditionally shown                                                                                                                                                                                                                                                                                                                                          | false         |
@@ -29,9 +29,9 @@ Only a default constructor is provided, instead it is recommended to create a Fo
 | `maxNumber`                              | No                                | `long?`                                   | The maximum number that can entered by the user (applies to number element)                                                                                                                                                                                                                                                                                                                |               |
 | `headingType`                            | No                                | `long?`                                   | The size of the heading from 1 to 5 (applies to heading elements)                                                                                                                                                                                                                                                                                                                          |               |
 | `fromDate`                               | No                                | `string`                                  | The minimum date as an iso string (datetime), 'yyyy-mm-dd' (date) or the constant 'NOW', that can be entered by the user (applies to date and datetime elements)                                                                                                                                                                                                                           |
-| `fromDateElementId`                      | No                                | `string`                                  | This is a GUID that references an Element Id. This ID will be in reference to another element that will determine the starting date range of a date and/or datetime element. This will take precendence over fromDate and both are allowed                                                                                                                                                 |               |
+| `fromDateElementId`                      | No                                | `string`                                  | This is a string that references an Element Id. This ID will be in reference to another element that will determine the starting date range of a date and/or datetime element. This will take precendence over fromDate and both are allowed                                                                                                                                               |               |
 | `fromDateDaysOffset`                     | No                                | `long?`                                   | The number of days to offset the fromDate value for date and datetime elements                                                                                                                                                                                                                                                                                                             |               |
-| `toDateElementId`                        | No                                | `string`                                  | This is a GUID that references an Element Id. This ID will be in reference to another element that will determine the end date range of a date and/or datetime element. This will take precendence over toDate and both are allowed                                                                                                                                                        |               |
+| `toDateElementId`                        | No                                | `string`                                  | This is a string that references an Element Id. This ID will be in reference to another element that will determine the end date range of a date and/or datetime element. This will take precendence over toDate and both are allowed                                                                                                                                                      |               |
 | `toDate`                                 | No                                | `string`                                  | The maximum date as an iso string (datetime), 'yyyy-mm-dd' (date) or the constant 'NOW', that can be entered by the user (applies to date and datetime elements)                                                                                                                                                                                                                           |               |
 | `toDateDaysOffset`                       | No                                | `long?`                                   | The number of days to offset the toDate value for date and datetime elements                                                                                                                                                                                                                                                                                                               |               |
 | `optionsType`                            | No                                | `string`                                  | The type of the options supplied, valid values are "CUSTOM", "DYNAMIC", "SEARCH" (applies to checkboxes, radio, compliance, select and autocomplete elements)                                                                                                                                                                                                                              |               |
@@ -40,7 +40,7 @@ Only a default constructor is provided, instead it is recommended to create a Fo
 | `options`                                | No                                | `List<FormElementOption>`                 | List of form element options (applies to checkboxes, radio, compliance, select and autocomplete elements)                                                                                                                                                                                                                                                                                  |               |
 | `attributesMapping`                      | No                                | `List<FormElementAttributeMapping>`       | List of form element attribute mapping (applies to checkboxes, radio, compliance, select and autocomplete elements)                                                                                                                                                                                                                                                                        |               |
 | `conditionallyShowOptions`               | No                                | `Boolean?`                                | Whether to show certain options conditionally (applies to checkboxes, radio, compliance, select and autocomplete elements)                                                                                                                                                                                                                                                                 |               |
-| `conditionallyShowOptionsElementIds`     | No                                | `List<Guid>`                              | List of option element ids (applies to checkboxes, radio, compliance, select and autocomplete elements)                                                                                                                                                                                                                                                                                    |               |
+| `conditionallyShowOptionsElementIds`     | No                                | `List<string>`                            | List of option element ids (applies to checkboxes, radio, compliance, select and autocomplete elements)                                                                                                                                                                                                                                                                                    |               |
 | `minSetEntries`                          | No                                | `dynamic`                                 | The minimum number of entries that can be entered by the user (applies to repeatable set elements). This should be either a `long` or `FormElementRepeatableSetEntriesConstraint`.                                                                                                                                                                                                         |               |
 | `maxSetEntries`                          | No                                | `dynamic`                                 | The maximum number of entries that can be entered by the user (applies to repeatable set elements). This should be either a `long` or `FormElementRepeatableSetEntriesConstraint`.                                                                                                                                                                                                         |               |
 | `addSetEntryLabel`                       | No                                | `string`                                  | The label to be shown with the add set entry button (applies to repeatable set elements)                                                                                                                                                                                                                                                                                                   |               |
@@ -58,7 +58,7 @@ Only a default constructor is provided, instead it is recommended to create a Fo
 | `restrictedFileTypes`                    | No                                | `List<string>`                            | List of file types to allow (applies to file and files elements)                                                                                                                                                                                                                                                                                                                           |               |
 | `minEntries`                             | No                                | `int?`                                    | Minimum of files allowed (applies to files elements)                                                                                                                                                                                                                                                                                                                                       |               |
 | `maxEntries`                             | No                                | `int?`                                    | Maximum of files allowed (applies to files elements)                                                                                                                                                                                                                                                                                                                                       |               |
-| `elementIds`                             | No                                | `List<Guid>`                              | List of element Ids to be summarised (applies to summary elements)                                                                                                                                                                                                                                                                                                                         |               |
+| `elementIds`                             | No                                | `List<string>`                            | List of element Ids to be summarised (applies to summary elements)                                                                                                                                                                                                                                                                                                                         |               |
 | `placeholderValue`                       | No                                | `string`                                  | Placeholder text for element (applies to autocomplete, number, text, textarea, email and barcode scanner elements)                                                                                                                                                                                                                                                                         |               |
 | `minLength`                              | No                                | `int?`                                    | Minimum length of a text field (applies to text and multiline elements)                                                                                                                                                                                                                                                                                                                    |               |
 | `maxLength`                              | No                                | `int?`                                    | Maximum length of a text field (applies to text and multiline elements)                                                                                                                                                                                                                                                                                                                    |               |
@@ -131,17 +131,17 @@ Only a default constructor is provided, instead it is recommended to create a Fo
 
 Creates a new FormElement defined as a text element, including all parameters that are relevant to summary elements only
 
-| Parameter                              | Required | Type                               | Default Value |
-| -------------------------------------- | -------- | ---------------------------------- | ------------- |
-| `name`                                 | Yes      | `string`                           |               |
-| `label`                                | Yes      | `string`                           |               |
-| `id`                                   | No       | `Guid`                             | `new Guid()`  |
-| `conditionallyShow`                    | No       | `bool`                             | `false`       |
-| `requiresAllConditonallyShowPredicate` | No       | `bool`                             | `false`       |
-| `conditionallyShowPredicates`          | No       | `List<ConditionallyShowPredicate>` | `null`        |
-| `required`                             | No       | `bool`                             | `false`       |
-| `readOnly`                             | No       | `bool`                             | `false`       |
-| `defaultValue`                         | No       | `string`                           | `null`        |
+| Parameter                              | Required | Type                               | Default Value           |
+| -------------------------------------- | -------- | ---------------------------------- | ----------------------- |
+| `name`                                 | Yes      | `string`                           |                         |
+| `label`                                | Yes      | `string`                           |                         |
+| `id`                                   | No       | `string`                           | `new Guid().ToString()` |
+| `conditionallyShow`                    | No       | `bool`                             | `false`                 |
+| `requiresAllConditonallyShowPredicate` | No       | `bool`                             | `false`                 |
+| `conditionallyShowPredicates`          | No       | `List<ConditionallyShowPredicate>` | `null`                  |
+| `required`                             | No       | `bool`                             | `false`                 |
+| `readOnly`                             | No       | `bool`                             | `false`                 |
+| `defaultValue`                         | No       | `string`                           | `null`                  |
 
 ##### Example
 
@@ -165,15 +165,15 @@ FormElement textElement = FormElement.CreateTextElement(
 
 Creates a new FormElement defined as a `geoscapeAddress` element, including all parameters that are relevant to Geoscape Address elements only
 
-| Parameter                              | Required | Type                               | Default Value |
-| -------------------------------------- | -------- | ---------------------------------- | ------------- |
-| `name`                                 | Yes      | `string`                           |               |
-| `label`                                | Yes      | `string`                           |               |
-| `id`                                   | No       | `Guid`                             | `new Guid()`  |
-| `conditionallyShow`                    | No       | `bool`                             | `false`       |
-| `requiresAllConditonallyShowPredicate` | No       | `bool`                             | `false`       |
-| `conditionallyShowPredicates`          | No       | `List<ConditionallyShowPredicate>` | `null`        |
-| `stateTerritoryFilter`                 | No       | `List<string>`                     | `null`        |
+| Parameter                              | Required | Type                               | Default Value           |
+| -------------------------------------- | -------- | ---------------------------------- | ----------------------- |
+| `name`                                 | Yes      | `string`                           |                         |
+| `label`                                | Yes      | `string`                           |                         |
+| `id`                                   | No       | `string`                           | `new Guid().ToString()` |
+| `conditionallyShow`                    | No       | `bool`                             | `false`                 |
+| `requiresAllConditonallyShowPredicate` | No       | `bool`                             | `false`                 |
+| `conditionallyShowPredicates`          | No       | `List<ConditionallyShowPredicate>` | `null`                  |
+| `stateTerritoryFilter`                 | No       | `List<string>`                     | `null`                  |
 
 ##### Example
 
@@ -190,15 +190,15 @@ FormElement geoscapeAddressElement = FormElement.CreateGeoscapeAddressElement(
 
 Creates a new FormElement defined as a summary element, including all parameters that are relevant to summary elements only
 
-| Parameter                              | Required | Type                               | Default Value |
-| -------------------------------------- | -------- | ---------------------------------- | ------------- |
-| `name`                                 | Yes      | `string`                           |               |
-| `label`                                | Yes      | `string`                           |               |
-| `elementIds`                           | Yes      | `List<Guid>`                       |               |
-| `id`                                   | No       | `Guid`                             | `new Guid()`  |
-| `conditionallyShow`                    | No       | `bool`                             | `false`       |
-| `requiresAllConditonallyShowPredicate` | No       | `bool`                             | `false`       |
-| `conditionallyShowPredicates`          | No       | `List<ConditionallyShowPredicate>` | `null`        |
+| Parameter                              | Required | Type                               | Default Value           |
+| -------------------------------------- | -------- | ---------------------------------- | ----------------------- |
+| `name`                                 | Yes      | `string`                           |                         |
+| `label`                                | Yes      | `string`                           |                         |
+| `elementIds`                           | Yes      | `List<string>`                     |                         |
+| `id`                                   | No       | `string`                           | `new Guid().ToString()` |
+| `conditionallyShow`                    | No       | `bool`                             | `false`                 |
+| `requiresAllConditonallyShowPredicate` | No       | `bool`                             | `false`                 |
+| `conditionallyShowPredicates`          | No       | `List<ConditionallyShowPredicate>` | `null`                  |
 
 ##### Example
 
@@ -206,8 +206,8 @@ Creates a new FormElement defined as a summary element, including all parameters
 FormElement summaryElement = FormElement.CreateSummaryElement(
     "Summary_test_element",
     "Summary test element",
-    new List<Guid>() { textElement.id },
-    Guid.NewGuid(),
+    new List<string>() { textElement.id },
+    Guid.NewGuid().ToString(),
     false,
     false,
     null
@@ -220,23 +220,23 @@ FormElement summaryElement = FormElement.CreateSummaryElement(
 
 Creates a new FormElement defined as a compliance element, including all parameters that are relevant to compliance elements only
 
-| Parameter                              | Required | Type                               | Default Value |
-| -------------------------------------- | -------- | ---------------------------------- | ------------- |
-| `name`                                 | Yes      | `string`                           |               |
-| `label`                                | Yes      | `string`                           |               |
-| `options`                              | Yes      | `List<FormElementOption>`          |               |
-| `id`                                   | No       | `Guid?`                            | `new Guid()`  |
-| `conditionallyShow`                    | No       | `bool`                             | `false`       |
-| `requiresAllConditonallyShowPredicate` | No       | `bool`                             | `false`       |
-| `conditionallyShowPredicates`          | No       | `List<ConditionallyShowPredicate>` | `null`        |
-| `required`                             | No       | `bool?`                            | `null`        |
-| `readOnly`                             | No       | `bool`                             | `false`       |
-| `defaultValue`                         | No       | `string`                           | `null`        |
-| `hint`                                 | No       | `string`                           | `null`        |
-| `isDataLookup`                         | No       | `bool`                             | `false`       |
-| `dataLookupId`                         | No       | `long?`                            | `null`        |
-| `isElementLookup`                      | No       | `bool`                             | `false`       |
-| `elementLookupId`                      | No       | `long?`                            | `null`        |
+| Parameter                              | Required | Type                               | Default Value           |
+| -------------------------------------- | -------- | ---------------------------------- | ----------------------- |
+| `name`                                 | Yes      | `string`                           |                         |
+| `label`                                | Yes      | `string`                           |                         |
+| `options`                              | Yes      | `List<FormElementOption>`          |                         |
+| `id`                                   | No       | `string`                           | `new Guid().ToString()` |
+| `conditionallyShow`                    | No       | `bool`                             | `false`                 |
+| `requiresAllConditonallyShowPredicate` | No       | `bool`                             | `false`                 |
+| `conditionallyShowPredicates`          | No       | `List<ConditionallyShowPredicate>` | `null`                  |
+| `required`                             | No       | `bool?`                            | `null`                  |
+| `readOnly`                             | No       | `bool`                             | `false`                 |
+| `defaultValue`                         | No       | `string`                           | `null`                  |
+| `hint`                                 | No       | `string`                           | `null`                  |
+| `isDataLookup`                         | No       | `bool`                             | `false`                 |
+| `dataLookupId`                         | No       | `long?`                            | `null`                  |
+| `isElementLookup`                      | No       | `bool`                             | `false`                 |
+| `elementLookupId`                      | No       | `long?`                            | `null`                  |
 
 ##### Example
 
@@ -258,16 +258,16 @@ FormElement complianceElement = FormElement.CreateComplianceElement(
 
 Creates a new FormElement defined as a `pointAddress` element, including all parameters that are relevant to Point Address elements only
 
-| Parameter                              | Required | Type                               | Default Value |
-| -------------------------------------- | -------- | ---------------------------------- | ------------- |
-| `name`                                 | Yes      | `string`                           |               |
-| `label`                                | Yes      | `string`                           |               |
-| `id`                                   | No       | `Guid`                             | `new Guid()`  |
-| `conditionallyShow`                    | No       | `bool`                             | `false`       |
-| `requiresAllConditonallyShowPredicate` | No       | `bool`                             | `false`       |
-| `conditionallyShowPredicates`          | No       | `List<ConditionallyShowPredicate>` | `null`        |
-| `stateTerritoryFilter`                 | No       | `List<string>`                     | `null`        |
-| `addressTypeFilter`                    | No       | `List<string>`                     | `null`        |
+| Parameter                              | Required | Type                               | Default Value           |
+| -------------------------------------- | -------- | ---------------------------------- | ----------------------- |
+| `name`                                 | Yes      | `string`                           |                         |
+| `label`                                | Yes      | `string`                           |                         |
+| `id`                                   | No       | `string`                           | `new Guid().ToString()` |
+| `conditionallyShow`                    | No       | `bool`                             | `false`                 |
+| `requiresAllConditonallyShowPredicate` | No       | `bool`                             | `false`                 |
+| `conditionallyShowPredicates`          | No       | `List<ConditionallyShowPredicate>` | `null`                  |
+| `stateTerritoryFilter`                 | No       | `List<string>`                     | `null`                  |
+| `addressTypeFilter`                    | No       | `List<string>`                     | `null`                  |
 
 ##### Example
 
@@ -285,22 +285,22 @@ FormElement pointAddressElement = FormElement.CreatePointAddressElement(
 
 Creates a new FormElement defined as a Boolean element, including all parameters that are relevant to boolean elements only
 
-| Parameter                              | Required | Type                               | Default Value |
-| -------------------------------------- | -------- | ---------------------------------- | ------------- |
-| `name`                                 | Yes      | `string`                           |               |
-| `label`                                | Yes      | `string`                           |               |
-| `id`                                   | No       | `Guid?`                            | `new Guid()`  |
-| `conditionallyShow`                    | No       | `bool`                             | `false`       |
-| `requiresAllConditonallyShowPredicate` | No       | `bool`                             | `false`       |
-| `conditionallyShowPredicates`          | No       | `List<ConditionallyShowPredicate>` | `null`        |
-| `required`                             | No       | `bool?`                            | `null`        |
-| `readOnly`                             | No       | `bool`                             | `false`       |
-| `defaultValue`                         | No       | `bool`                             | `false`       |
-| `hint`                                 | No       | `string`                           | `null`        |
-| `isDataLookup`                         | No       | `bool`                             | `false`       |
-| `dataLookupId`                         | No       | `long?`                            | `null`        |
-| `isElementLookup`                      | No       | `bool`                             | `false`       |
-| `elementLookupId`                      | No       | `long?`                            | `null`        |
+| Parameter                              | Required | Type                               | Default Value           |
+| -------------------------------------- | -------- | ---------------------------------- | ----------------------- |
+| `name`                                 | Yes      | `string`                           |                         |
+| `label`                                | Yes      | `string`                           |                         |
+| `id`                                   | No       | `string`                           | `new Guid().ToString()` |
+| `conditionallyShow`                    | No       | `bool`                             | `false`                 |
+| `requiresAllConditonallyShowPredicate` | No       | `bool`                             | `false`                 |
+| `conditionallyShowPredicates`          | No       | `List<ConditionallyShowPredicate>` | `null`                  |
+| `required`                             | No       | `bool?`                            | `null`                  |
+| `readOnly`                             | No       | `bool`                             | `false`                 |
+| `defaultValue`                         | No       | `bool`                             | `false`                 |
+| `hint`                                 | No       | `string`                           | `null`                  |
+| `isDataLookup`                         | No       | `bool`                             | `false`                 |
+| `dataLookupId`                         | No       | `long?`                            | `null`                  |
+| `isElementLookup`                      | No       | `bool`                             | `false`                 |
+| `elementLookupId`                      | No       | `long?`                            | `null`                  |
 
 ##### Example
 
@@ -321,43 +321,43 @@ FormElement booleanElement = FormElement.CreateBooleanElement(
 
 Creates a new FormElement defined as a Civica Name record element, including all parameters that are relevant to Civica name record elements only
 
-| Parameter                              | Required | Type                               | Default Value |
-| -------------------------------------- | -------- | ---------------------------------- | ------------- |
-| `name`                                 | Yes      | `string`                           |               |
-| `label`                                | Yes      | `string`                           |               |
-| `id`                                   | No       | `Guid?`                            | `new Guid()`  |
-| `conditionallyShow`                    | No       | `bool`                             | `false`       |
-| `requiresAllConditonallyShowPredicate` | No       | `bool`                             | `false`       |
-| `conditionallyShowPredicates`          | No       | `List<ConditionallyShowPredicate>` | `null`        |
-| `required`                             | No       | `bool?`                            | `null`        |
-| `readOnly`                             | No       | `bool`                             | `false`       |
-| `defaultValue`                         | No       | `dynamic`                          | `null`        |
-| `hint`                                 | No       | `string`                           | `null`        |
-| `useGeoscapeAddressing`                | No       | `bool`                             | `false`       |
-| `titleLabel`                           | No       | `string`                           |               |
-| `familyNameLabel`                      | No       | `string`                           |               |
-| `giveName1Label`                       | No       | `string`                           |               |
-| `giveName1IsRequired`                  | No       | `Boolean?`                         | `false`       |
-| `giveName1IsHidden`                    | No       | `Boolean?`                         | `false`       |
-| `emailAddressLabel`                    | No       | `string`                           |               |
-| `emailAddressIsRequired`               | No       | `Boolean?`                         | `false`       |
-| `emailAddressIsHidden`                 | No       | `Boolean?`                         | `false`       |
-| `homePhoneLabel`                       | No       | `string`                           |               |
-| `homePhoneIsRequired`                  | No       | `Boolean?`                         | `false`       |
-| `homePhoneIsHidden`                    | No       | `Boolean?`                         | `false`       |
-| `businessPhoneLabel`                   | No       | `string`                           |               |
-| `businessPhoneIsRequired`              | No       | `Boolean?`                         | `false`       |
-| `businessPhoneIsHidden`                | No       | `Boolean?`                         | `false`       |
-| `mobilePhoneLabel`                     | No       | `string`                           |               |
-| `mobilePhoneIsRequired`                | No       | `Boolean?`                         | `false`       |
-| `mobilePhoneIsHidden`                  | No       | `Boolean?`                         | `false`       |
-| `faxPhoneLabel`                        | No       | `string`                           |               |
-| `faxPhoneIsRequired`                   | No       | `Boolean?`                         | `false`       |
-| `faxPhoneIsHidden`                     | No       | `Boolean?`                         | `false`       |
-| `streetAddressesLabel`                 | No       | `string`                           |               |
-| `address1Label`                        | No       | `string`                           |               |
-| `address2Label`                        | No       | `string`                           |               |
-| `postcodeLabel`                        | No       | `string`                           |               |
+| Parameter                              | Required | Type                               | Default Value           |
+| -------------------------------------- | -------- | ---------------------------------- | ----------------------- |
+| `name`                                 | Yes      | `string`                           |                         |
+| `label`                                | Yes      | `string`                           |                         |
+| `id`                                   | No       | `string`                           | `new Guid().ToString()` |
+| `conditionallyShow`                    | No       | `bool`                             | `false`                 |
+| `requiresAllConditonallyShowPredicate` | No       | `bool`                             | `false`                 |
+| `conditionallyShowPredicates`          | No       | `List<ConditionallyShowPredicate>` | `null`                  |
+| `required`                             | No       | `bool?`                            | `null`                  |
+| `readOnly`                             | No       | `bool`                             | `false`                 |
+| `defaultValue`                         | No       | `dynamic`                          | `null`                  |
+| `hint`                                 | No       | `string`                           | `null`                  |
+| `useGeoscapeAddressing`                | No       | `bool`                             | `false`                 |
+| `titleLabel`                           | No       | `string`                           |                         |
+| `familyNameLabel`                      | No       | `string`                           |                         |
+| `giveName1Label`                       | No       | `string`                           |                         |
+| `giveName1IsRequired`                  | No       | `Boolean?`                         | `false`                 |
+| `giveName1IsHidden`                    | No       | `Boolean?`                         | `false`                 |
+| `emailAddressLabel`                    | No       | `string`                           |                         |
+| `emailAddressIsRequired`               | No       | `Boolean?`                         | `false`                 |
+| `emailAddressIsHidden`                 | No       | `Boolean?`                         | `false`                 |
+| `homePhoneLabel`                       | No       | `string`                           |                         |
+| `homePhoneIsRequired`                  | No       | `Boolean?`                         | `false`                 |
+| `homePhoneIsHidden`                    | No       | `Boolean?`                         | `false`                 |
+| `businessPhoneLabel`                   | No       | `string`                           |                         |
+| `businessPhoneIsRequired`              | No       | `Boolean?`                         | `false`                 |
+| `businessPhoneIsHidden`                | No       | `Boolean?`                         | `false`                 |
+| `mobilePhoneLabel`                     | No       | `string`                           |                         |
+| `mobilePhoneIsRequired`                | No       | `Boolean?`                         | `false`                 |
+| `mobilePhoneIsHidden`                  | No       | `Boolean?`                         | `false`                 |
+| `faxPhoneLabel`                        | No       | `string`                           |                         |
+| `faxPhoneIsRequired`                   | No       | `Boolean?`                         | `false`                 |
+| `faxPhoneIsHidden`                     | No       | `Boolean?`                         | `false`                 |
+| `streetAddressesLabel`                 | No       | `string`                           |                         |
+| `address1Label`                        | No       | `string`                           |                         |
+| `address2Label`                        | No       | `string`                           |                         |
+| `postcodeLabel`                        | No       | `string`                           |                         |
 
 ##### Example
 
@@ -377,17 +377,17 @@ FormElement civicaNameRecordElement = FormElement.CreateCivicaNameRecordElement(
 
 Creates a new FormElement defined as a Section element, including all parameters that are relevant to section elements only
 
-| Parameter                              | Required | Type                               | Default Value |
-| -------------------------------------- | -------- | ---------------------------------- | ------------- |
-| `label`                                | Yes      | `string`                           |               |
-| `id`                                   | No       | `Guid?`                            | `new Guid()`  |
-| `conditionallyShow`                    | No       | `bool`                             | `false`       |
-| `requiresAllConditonallyShowPredicate` | No       | `bool`                             | `false`       |
-| `conditionallyShowPredicates`          | No       | `List<ConditionallyShowPredicate>` | `null`        |
-| `hint`                                 | No       | `string`                           | `null`        |
-| `isCollapsed`                          | No       | `bool`                             | `false`       |
-| `elements`                             | No       | `List<FormElement>`                | `null`        |
-| `canCollapseFromBottom`                | No       | `bool?`                            | `true`        |
+| Parameter                              | Required | Type                               | Default Value           |
+| -------------------------------------- | -------- | ---------------------------------- | ----------------------- |
+| `label`                                | Yes      | `string`                           |                         |
+| `id`                                   | No       | `string`                           | `new Guid().ToString()` |
+| `conditionallyShow`                    | No       | `bool`                             | `false`                 |
+| `requiresAllConditonallyShowPredicate` | No       | `bool`                             | `false`                 |
+| `conditionallyShowPredicates`          | No       | `List<ConditionallyShowPredicate>` | `null`                  |
+| `hint`                                 | No       | `string`                           | `null`                  |
+| `isCollapsed`                          | No       | `bool`                             | `false`                 |
+| `elements`                             | No       | `List<FormElement>`                | `null`                  |
+| `canCollapseFromBottom`                | No       | `bool?`                            | `true`                  |
 
 ##### Example
 
@@ -407,18 +407,18 @@ FormElement civicaNameRecordElement = FormElement.CreateSectionElement(
 
 Creates a new FormElement defined as a `pointAddress` element, including all parameters that are relevant to Point Address elements only
 
-| Parameter                              | Required | Type                               | Default Value |
-| -------------------------------------- | -------- | ---------------------------------- | ------------- |
-| `name`                                 | Yes      | `string`                           |               |
-| `label`                                | Yes      | `string`                           |               |
-| `id`                                   | No       | `Guid`                             | `new Guid()`  |
-| `conditionallyShow`                    | No       | `bool`                             | `false`       |
-| `requiresAllConditonallyShowPredicate` | No       | `bool`                             | `false`       |
-| `conditionallyShowPredicates`          | No       | `List<ConditionallyShowPredicate>` | `null`        |
-| `stateTerritoryFilter`                 | No       | `List<string>`                     | `null`        |
-| `addressTypeFilter`                    | No       | `List<string>`                     | `null`        |
-| `excludeAliases`                       | No       | `bool`                             | `null`        |
-| `datasetFilter`                        | No       | `List<string>`                     | `null`        |
+| Parameter                              | Required | Type                               | Default Value           |
+| -------------------------------------- | -------- | ---------------------------------- | ----------------------- |
+| `name`                                 | Yes      | `string`                           |                         |
+| `label`                                | Yes      | `string`                           |                         |
+| `id`                                   | No       | `string`                           | `new Guid().ToString()` |
+| `conditionallyShow`                    | No       | `bool`                             | `false`                 |
+| `requiresAllConditonallyShowPredicate` | No       | `bool`                             | `false`                 |
+| `conditionallyShowPredicates`          | No       | `List<ConditionallyShowPredicate>` | `null`                  |
+| `stateTerritoryFilter`                 | No       | `List<string>`                     | `null`                  |
+| `addressTypeFilter`                    | No       | `List<string>`                     | `null`                  |
+| `excludeAliases`                       | No       | `bool`                             | `null`                  |
+| `datasetFilter`                        | No       | `List<string>`                     | `null`                  |
 
 ##### Example
 

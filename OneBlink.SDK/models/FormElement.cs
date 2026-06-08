@@ -6,7 +6,7 @@ namespace OneBlink.SDK.Model
 {
     public class FormElement
     {
-        public Guid id
+        public string id
         {
             get; set;
         }
@@ -87,7 +87,7 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
-        public Guid? fromDateElementId
+        public string fromDateElementId
         {
             get; set;
         }
@@ -99,7 +99,7 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
-        public Guid? toDateElementId
+        public string toDateElementId
         {
             get; set;
         }
@@ -135,7 +135,7 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
-        public List<Guid> conditionallyShowOptionsElementIds
+        public List<string> conditionallyShowOptionsElementIds
         {
             get; set;
         }
@@ -228,7 +228,7 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
-        public List<Guid> elementIds
+        public List<string> elementIds
         {
             get; set;
         }
@@ -519,26 +519,32 @@ namespace OneBlink.SDK.Model
             get; set;
         }
 
-        public int? maxWidthPixels {get;set;}
-        public string entrySummary {get;set;}
-
-
-        private static Guid initialiseId(Guid? id)
+        public int? maxWidthPixels
         {
-            if (!id.HasValue)
+            get; set;
+        }
+        public string entrySummary
+        {
+            get; set;
+        }
+
+
+        private static string initialiseId(string id)
+        {
+            if (string.IsNullOrEmpty(id))
             {
-                return Guid.NewGuid();
+                return Guid.NewGuid().ToString();
             }
             else
             {
-                return id.Value;
+                return id;
             }
         }
 
         public static FormElement CreateTextElement(
             string name,
             string label,
-            Guid? id = null,
+            string id = null,
             bool conditionallyShow = false,
             bool requiresAllConditionallyShowPredicates = false,
             List<ConditionallyShowPredicate> conditionallyShowPredicates = null,
@@ -578,7 +584,7 @@ namespace OneBlink.SDK.Model
         public static FormElement CreateGeoscapeAddressElement(
             string name,
             string label,
-            Guid? id = null,
+            string id = null,
             bool conditionallyShow = false,
             bool requiresAllConditionallyShowPredicates = false,
             List<ConditionallyShowPredicate> conditionallyShowPredicates = null,
@@ -616,8 +622,8 @@ namespace OneBlink.SDK.Model
         public static FormElement CreateSummaryElement(
             string name,
             string label,
-            List<Guid> elementIds,
-            Guid? id = null,
+            List<string> elementIds,
+            string id = null,
             bool conditionallyShow = false,
             bool requiresAllConditionallyShowPredicates = false,
             List<ConditionallyShowPredicate> conditionallyShowPredicates = null,
@@ -644,7 +650,7 @@ namespace OneBlink.SDK.Model
             string name,
             string label,
             List<FormElementOption> options,
-            Guid? id = null,
+            string id = null,
             bool conditionallyShow = false,
             bool requiresAllConditionallyShowPredicates = false,
             List<ConditionallyShowPredicate> conditionallyShowPredicates = null,
@@ -693,7 +699,7 @@ namespace OneBlink.SDK.Model
         public static FormElement CreatePointAddressElement(
             string name,
             string label,
-            Guid? id = null,
+            string id = null,
             bool conditionallyShow = false,
             bool requiresAllConditionallyShowPredicates = false,
             List<ConditionallyShowPredicate> conditionallyShowPredicates = null,
@@ -733,7 +739,7 @@ namespace OneBlink.SDK.Model
         public static FormElement CreateBooleanElement(
             string name,
             string label,
-            Guid? id = null,
+            string id = null,
             bool conditionallyShow = false,
             bool requiresAllConditionallyShowPredicates = false,
             List<ConditionallyShowPredicate> conditionallyShowPredicates = null,
@@ -783,7 +789,7 @@ namespace OneBlink.SDK.Model
         public static FormElement CreateCivicaNameRecordElement(
             string name,
             string label,
-            Guid? id = null,
+            string id = null,
             bool conditionallyShow = false,
             bool requiresAllConditionallyShowPredicates = false,
             List<ConditionallyShowPredicate> conditionallyShowPredicates = null,
@@ -866,7 +872,7 @@ namespace OneBlink.SDK.Model
 
         public static FormElement CreateSectionElement(
             string label,
-            Guid? id = null,
+            string id = null,
             bool conditionallyShow = false,
             bool requiresAllConditionallyShowPredicates = false,
             List<ConditionallyShowPredicate> conditionallyShowPredicates = null,
@@ -897,7 +903,7 @@ namespace OneBlink.SDK.Model
         public static FormElement CreateCivicaStreetNameElement(
             string name,
             string label,
-            Guid? id = null,
+            string id = null,
             bool conditionallyShow = false,
             bool requiresAllConditionallyShowPredicates = false,
             List<ConditionallyShowPredicate> conditionallyShowPredicates = null,
@@ -943,7 +949,7 @@ namespace OneBlink.SDK.Model
         public static FormElement CreateLiquorLicenceElement(
             string name,
             string label,
-            Guid? id = null,
+            string id = null,
             bool conditionallyShow = false,
             bool requiresAllConditionallyShowPredicates = false,
             List<ConditionallyShowPredicate> conditionallyShowPredicates = null,
@@ -990,7 +996,7 @@ namespace OneBlink.SDK.Model
         public static FormElement CreateFilesElementEvent(
             string name,
             string label,
-            Guid? id = null,
+            string id = null,
             bool readOnly = false,
             string hint = null,
             string storageType = null,
@@ -1044,7 +1050,7 @@ namespace OneBlink.SDK.Model
         public static FormElement CreatePointAddressV3Element(
             string name,
             string label,
-            Guid? id = null,
+            string id = null,
             bool conditionallyShow = false,
             bool requiresAllConditionallyShowPredicates = false,
             List<ConditionallyShowPredicate> conditionallyShowPredicates = null,

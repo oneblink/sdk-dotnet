@@ -71,7 +71,7 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
-        public Guid? elementId
+        public string elementId
         {
             get; set;
         }
@@ -131,11 +131,11 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
-        public Guid? nameElementId
+        public string nameElementId
         {
             get; set;
         }
-        public Guid? emailElementId
+        public string emailElementId
         {
             get; set;
         }
@@ -187,7 +187,7 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
-        public List<Guid> excludedAttachmentElementIds
+        public List<string> excludedAttachmentElementIds
         {
             get; set;
         }

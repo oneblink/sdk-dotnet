@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Changed
+
+- **[BREAKING]** form element and option id properties from Guid to string
+
 ## [12.0.1] - 2026-05-22
 
 ### Added
