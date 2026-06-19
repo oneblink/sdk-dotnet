@@ -154,6 +154,8 @@ OneBlink.SDK.Model.FormsSearchResult response = await formsClient.Search(isAuthe
 | `limit`                  | no       | `int?`   | Limit the number of results returned. Used with `offset` to control pagination. Defaults to `200`. Cannot exceed `200`.                      |
 | `offset`                 | no       | `int?`   | Offset the results returned by the value specified. Used with `limit` to control pagination. Defaults to `0`.                                |
 | `workspaceId`            | No       | `long?`  | Filter by workspaceId                                                                                                                        |
+| `sortBy`                 | No       | `string` | Select a property to sort the results by. Must be `"name"`, `"createdAt"` or `"updatedAt"`.                                                  |
+| `sortDirection`          | No       | `string` | Select the direction to sort the results by. Must be `"asc"` or `"desc"`. Ignored if `sortBy` is not specified.                              |
 
 ### Throws
 
