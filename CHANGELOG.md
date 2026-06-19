@@ -5,6 +5,13 @@
 ### Added
 
 - Optional parameters `sortBy` and `sortDirection` to `FormsClient.Search()`
+- `MfaRequirement` Class
+- `requireAppUserMfa` and `appUserMfaRequirement` to `FormsAppBase`
+- `isMfaEnabled` to `FormsAppUser`
+
+### Changed
+
+- `FormsAppBase.requireAppUserMfa` marked `[Obsolete]`
 
 ## [13.0.0] - 2026-06-18
 

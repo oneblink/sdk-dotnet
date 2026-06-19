@@ -92,6 +92,15 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        [Obsolete("Use appUserMfaRequirement instead.")]
+        public bool? requireAppUserMfa
+        {
+            get; set;
+        }
+        public MfaRequirement appUserMfaRequirement
+        {
+            get; set;
+        }
     }
 
     public class FormsAppCachingStrategies
