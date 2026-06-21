@@ -49,6 +49,9 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
-
+        public bool? isMfaEnabled
+        {
+            get; set;
+        }
     }
 }
