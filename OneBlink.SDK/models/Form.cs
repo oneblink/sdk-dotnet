@@ -318,6 +318,10 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public long? emailClassificationId
+        {
+            get; set;
+        }
         public List<FormCustomPDF> customPDFs
         {
             get; set;

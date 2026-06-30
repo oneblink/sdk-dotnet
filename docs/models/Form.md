@@ -44,7 +44,8 @@
 
 ### Other properties
 
-| Property    | Type       | Description                        |
-| ----------- | ---------- | ---------------------------------- |
-| `createdAt` | `DateTime` | DateTime the form was created      |
-| `updatedAt` | `DateTime` | DateTime the form was last updated |
+| Property                | Type       | Description                                             |
+| ----------------------- | ---------- | ------------------------------------------------------- |
+| `createdAt`             | `DateTime` | DateTime the form was created                           |
+| `updatedAt`             | `DateTime` | DateTime the form was last updated                      |
+| `emailClassificationId` | `long?`    | Id of the email classification associated with the form |

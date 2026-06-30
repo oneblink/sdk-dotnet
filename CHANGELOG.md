@@ -8,6 +8,7 @@
 - `MfaRequirement` Class
 - `requireAppUserMfa` and `appUserMfaRequirement` to `FormsAppBase`
 - `isMfaEnabled` to `FormsAppUser`
+- `emailClassificationId` to `Form`
 
 ### Changed
 
