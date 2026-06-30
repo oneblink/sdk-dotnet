@@ -44,7 +44,8 @@ namespace OneBlink.SDK.Model
             bool? allowGeoscapeAddresses = null,
             FormEnableSubmission enableSubmission = null,
             bool? disableAutosave = null,
-            bool? isArchived = null
+            bool? isArchived = null,
+            long? emailClassificationId = null
             )
         {
             if (id.HasValue)
@@ -157,6 +158,7 @@ namespace OneBlink.SDK.Model
             this.enableSubmission = enableSubmission;
             this.disableAutosave = disableAutosave;
             this.isArchived = isArchived;
+            this.emailClassificationId = emailClassificationId;
         }
         public long id
         {
@@ -315,6 +317,10 @@ namespace OneBlink.SDK.Model
             get; set;
         }
         public bool? isArchived
+        {
+            get; set;
+        }
+        public long? emailClassificationId
         {
             get; set;
         }
