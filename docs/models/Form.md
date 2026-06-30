@@ -41,11 +41,11 @@
 | `enableSubmission`             | No       | `FormEnableSubmission`      | Conditionally enable form submission                                                                                        | `null`                            |
 | `disableAutosave`              | No       | `bool?`                     | Optionally disable autosave                                                                                                 | `null`                            |
 | `customPDFs`                   | No       | `List<FormCustomPDF>`       | Optional custom PDFs that can be used in place of the OOTB PDF                                                              | `null`                            |
+| `emailClassificationId`        | No       | `long?`                     | Id of the email classification associated with the form                                                                     | `null`                            |
 
 ### Other properties
 
-| Property                | Type       | Description                                             |
-| ----------------------- | ---------- | ------------------------------------------------------- |
-| `createdAt`             | `DateTime` | DateTime the form was created                           |
-| `updatedAt`             | `DateTime` | DateTime the form was last updated                      |
-| `emailClassificationId` | `long?`    | Id of the email classification associated with the form |
+| Property    | Type       | Description                        |
+| ----------- | ---------- | ---------------------------------- |
+| `createdAt` | `DateTime` | DateTime the form was created      |
+| `updatedAt` | `DateTime` | DateTime the form was last updated |
