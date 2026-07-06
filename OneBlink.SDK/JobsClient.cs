@@ -1,5 +1,6 @@
 using OneBlink.SDK.Model;
 using System;
+using System.Net.Mail;
 using System.Threading.Tasks;
 using System.Web;
 using Task = System.Threading.Tasks.Task;
@@ -32,14 +33,11 @@ namespace OneBlink.SDK
 
         public async Task<Job> CreateJob(Job job)
         {
-            _ValidateJob(job);
-
             return await _CreateJob(job);
         }
 
         public async Task<Job> CreateJob<T>(Job job, T preFillData)
         {
-            _ValidateJob(job);
             PrefillClient prefillClient = new PrefillClient(oneBlinkApiClient);
             Guid preFillMetaId = await prefillClient.SetPreFillData<T>(preFillData, job.formId, job.username);
 
@@ -100,19 +98,6 @@ namespace OneBlink.SDK
             string url = "/jobs";
 
             return await this.oneBlinkApiClient.PostRequest<Job, Job>(url, job);
-        }
-
-        private void _ValidateJob(Job job)
-        {
-            if (string.IsNullOrWhiteSpace(job.username))
-            {
-                throw new ArgumentException("'username' must be provided with a valid email address");
-            }
-
-            if (string.IsNullOrEmpty(job.details.title))
-            {
-                throw new ArgumentException("The 'title' property of JobDetail must be provided with a value");
-            }
         }
     }
 }

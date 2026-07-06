@@ -9,6 +9,7 @@
 - `requireAppUserMfa` and `appUserMfaRequirement` to `FormsAppBase`
 - `isMfaEnabled` to `FormsAppUser`
 - `emailClassificationId` to `Form`
+- optional `emailAddress` property to `JobDetail` for sending job notification emails
 
 ### Changed
 

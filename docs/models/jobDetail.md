@@ -11,6 +11,7 @@
 | `type`        | No       | `string` | Type of the job.                                          | null          |
 | `description` | No       | `string` | Description of the job.                                   | null          |
 | `priority`    | No       | `int`    | Number used to prioritise the job in the OneBlink system. | null          |
+| `emailAddress` | No    | `string` | Email address to send job notification emails to.         | null          |
 
 ### Example
 
@@ -20,7 +21,8 @@ OneBlink.SDK.Model.JobDetail jobToCreateDetails = new OneBlink.SDK.Model.JobDeta
   key: "My Key",
   type: "My Job type",
   description: "My Job description",
-  priority: 1
+  priority: 1,
+  emailAddress: "developer@oneblink.io"
 );
 
 ```

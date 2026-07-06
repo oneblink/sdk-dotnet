@@ -106,13 +106,20 @@ namespace OneBlink.SDK.Model
             get; set;
         }
 
-        public JobDetail(string title, string key = null, string description = null, string type = null, int? priority = null)
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public string emailAddress
+        {
+            get; set;
+        }
+
+        public JobDetail(string title, string key = null, string description = null, string type = null, int? priority = null, string emailAddress = null)
         {
             this.title = title;
             this.key = key;
             this.description = description;
             this.type = type;
             this.priority = priority;
+            this.emailAddress = emailAddress;
         }
     }
 
