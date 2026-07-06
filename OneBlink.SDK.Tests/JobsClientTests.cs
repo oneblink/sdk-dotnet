@@ -162,27 +162,14 @@ namespace OneBlink.SDK.Tests
         }
 
         [Fact]
-        public async void throws_error_if_username_empty()
+        public async void can_create_job_with_email_address()
         {
             JobsClient jobs = new JobsClient(ACCESS_KEY, SECRET_KEY, TenantName.ONEBLINK_TEST);
 
-            JobDetail jobDetail = new JobDetail("TITLE-01");
-
-            Job newJob = new Job(
-                details: jobDetail,
-                formId: formId,
-                username: ""
+            JobDetail jobDetail = new JobDetail(
+                title: "TITLE-01",
+                emailAddress: "developers@oneblink.io"
             );
-
-            await Assert.ThrowsAsync<ArgumentException>(() => jobs.CreateJob(newJob));
-        }
-
-        [Fact]
-        public async void throws_error_if_title_empty()
-        {
-            JobsClient jobs = new JobsClient(ACCESS_KEY, SECRET_KEY, TenantName.ONEBLINK_TEST);
-
-            JobDetail jobDetail = new JobDetail("");
 
             Job newJob = new Job(
                 details: jobDetail,
@@ -190,7 +177,12 @@ namespace OneBlink.SDK.Tests
                 username: "developers@oneblink.io"
             );
 
-            await Assert.ThrowsAsync<ArgumentException>(() => jobs.CreateJob(newJob));
+            Job response = await jobs.CreateJob(newJob);
+
+            Assert.NotNull(response);
+            Assert.NotNull(response.id);
+
+            await jobs.DeleteJob(response.id);
         }
 
         [Fact]
