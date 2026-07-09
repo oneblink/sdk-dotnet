@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## [13.1.0] - 2026-07-09
+
 ### Added
 
 - Optional parameters `sortBy` and `sortDirection` to `FormsClient.Search()`
