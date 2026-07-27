@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Added
+
+- `paymentAmount` and `paymentCalculation` to `FormSubmissionEventConfiguration`
+
 ## [13.1.0] - 2026-07-09
 
 ### Added
