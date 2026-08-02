@@ -75,6 +75,10 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public string amountType
+        {
+            get; set;
+        }
         public double? paymentAmount
         {
             get; set;
