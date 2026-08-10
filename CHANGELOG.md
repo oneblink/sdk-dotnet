@@ -4,6 +4,10 @@
 
 ### Added
 
+- `screenReaderAlert` to `FormElement`
+
+### Added
+
 - `amountType`, `paymentAmount` and `paymentCalculation` to `FormSubmissionEventConfiguration` for payment event amount configuration
 
 ## [13.1.0] - 2026-07-09

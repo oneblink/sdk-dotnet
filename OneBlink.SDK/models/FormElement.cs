@@ -444,6 +444,10 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public bool? screenReaderAlert
+        {
+            get; set;
+        }
         public bool? showStreetAddress
         {
             get; set;
