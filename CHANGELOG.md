@@ -6,6 +6,7 @@
 
 - `amountType`, `paymentAmount` and `paymentCalculation` to `FormSubmissionEventConfiguration` for payment event amount configuration
 - `screenReaderAlert` to `FormElement`
+- `isHidden` and `hiddenFrom` to `FormElement`
 
 ## [13.1.0] - 2026-07-09
 
