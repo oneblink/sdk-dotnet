@@ -416,6 +416,14 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public bool? isHidden
+        {
+            get; set;
+        }
+        public List<string> hiddenFrom
+        {
+            get; set;
+        }
         public string webMapId
         {
             get; set;
