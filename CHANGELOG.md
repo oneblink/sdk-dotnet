@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## [13.1.1] - 2026-08-26
+
 ### Added
 
 - `amountType`, `paymentAmount` and `paymentCalculation` to `FormSubmissionEventConfiguration` for payment event amount configuration
