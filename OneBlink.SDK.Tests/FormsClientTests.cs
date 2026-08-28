@@ -116,6 +116,22 @@ namespace OneBlink.SDK.Tests
         }
 
         [Fact]
+        public async System.Threading.Tasks.Task get_draft_data_should_reject_s3_object_version_id()
+        {
+            FormsClient forms = new FormsClient(
+              "123",
+              "aaaaaaaaaaaaaaabbbbbbbbbbbbbbbcccccccccccccccc", // DevSkim: ignore DS173237
+              tenantName: TenantName.ONEBLINK_TEST
+            );
+
+            var exception = await Assert.ThrowsAsync<ArgumentException>(() =>
+                forms.GetFormSubmission<object>(this.draftFormId, this.draftDataId, true, "version-id")
+            );
+
+            Assert.Equal("s3ObjectVersionId is only supported when downloading a submitted form submission", exception.Message);
+        }
+
+        [Fact]
         public async void can_execute_form_workflow_event()
         {
             FormsClient forms = new FormsClient(ACCESS_KEY, SECRET_KEY, TenantName.ONEBLINK_TEST);

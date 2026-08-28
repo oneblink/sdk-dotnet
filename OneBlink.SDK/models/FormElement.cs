@@ -4,6 +4,26 @@ using System.Collections.Generic;
 
 namespace OneBlink.SDK.Model
 {
+    public class FormElementApproverEditability
+    {
+        public string type
+        {
+            get; set;
+        }
+    }
+
+    public class FormElementReverseGeocoding
+    {
+        public string formattedAddressElementId
+        {
+            get; set;
+        }
+        public string integrationType
+        {
+            get; set;
+        }
+    }
+
     public class FormElement
     {
         public string id
@@ -44,6 +64,10 @@ namespace OneBlink.SDK.Model
             get; set;
         }
         public bool readOnly
+        {
+            get; set;
+        }
+        public FormElementApproverEditability approverEditability
         {
             get; set;
         }
@@ -139,6 +163,10 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public bool? requiresAllConditionallyShowOptionsPredicates
+        {
+            get; set;
+        }
         public dynamic minSetEntries
         {
             get; set;
@@ -152,6 +180,10 @@ namespace OneBlink.SDK.Model
             get; set;
         }
         public string removeSetEntryLabel
+        {
+            get; set;
+        }
+        public string layout
         {
             get; set;
         }
@@ -245,6 +277,10 @@ namespace OneBlink.SDK.Model
             get; set;
         }
         public string placeholderValue
+        {
+            get; set;
+        }
+        public List<string> autocompleteAttributes
         {
             get; set;
         }
@@ -456,12 +492,20 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public bool includeTimestampWatermark
+        {
+            get; set;
+        }
         public bool? showStreetAddress
         {
             get; set;
         }
 
         public string formattedAddressElementId
+        {
+            get; set;
+        }
+        public FormElementReverseGeocoding reverseGeocoding
         {
             get; set;
         }

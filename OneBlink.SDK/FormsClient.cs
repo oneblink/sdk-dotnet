@@ -44,9 +44,18 @@ namespace OneBlink.SDK
 
         public async Task<FormSubmission<T>> GetFormSubmission<T>(long formId, string submissionId, bool isDraft)
         {
+            return await GetFormSubmission<T>(formId, submissionId, isDraft, null);
+        }
+
+        public async Task<FormSubmission<T>> GetFormSubmission<T>(long formId, string submissionId, bool isDraft, string s3ObjectVersionId)
+        {
             if (String.IsNullOrWhiteSpace(submissionId))
             {
                 throw new ArgumentException("submissionId must be provided with a value");
+            }
+            if (isDraft && !String.IsNullOrWhiteSpace(s3ObjectVersionId))
+            {
+                throw new ArgumentException("s3ObjectVersionId is only supported when downloading a submitted form submission");
             }
 
             try
@@ -56,7 +65,14 @@ namespace OneBlink.SDK
                     return await this.oneBlinkApiClient.GetRequest<FormSubmission<T>>("/storage/form-submission-draft-versions/" + submissionId);
                 }
 
-                return await this.oneBlinkApiClient.GetRequest<FormSubmission<T>>("/storage/forms/" + formId + "/submissions/" + submissionId);
+                NameValueCollection query = HttpUtility.ParseQueryString(string.Empty);
+                OneBlinkHttpClient.AddItemToQuery(query, "versionId", s3ObjectVersionId);
+                string url = "/storage/forms/" + formId + "/submissions/" + submissionId;
+                if (query.Count > 0)
+                {
+                    url += "?" + query.ToString();
+                }
+                return await this.oneBlinkApiClient.GetRequest<FormSubmission<T>>(url);
             }
             catch (OneBlinkAPIException error)
             {

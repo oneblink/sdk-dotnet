@@ -513,6 +513,10 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public FormSubmissionMetaEdit lastEdit
+        {
+            get; set;
+        }
     }
 
     public class FormSubmissionSearchResult : SearchResult

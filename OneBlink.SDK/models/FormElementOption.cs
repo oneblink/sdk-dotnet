@@ -29,6 +29,10 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public List<FormElementOption> options
+        {
+            get; set;
+        }
         public string imageUrl
         {
             get; set;
