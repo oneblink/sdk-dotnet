@@ -26,7 +26,19 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public SchedulingBooking formSubmissionSchedulingBooking
+        {
+            get; set;
+        }
         public NylasBooking formSubmissionNylasBooking
+        {
+            get; set;
+        }
+        public List<FormSubmissionMetaEdit> formSubmissionMetaEdits
+        {
+            get; set;
+        }
+        public TaskCompletion taskCompletion
         {
             get; set;
         }

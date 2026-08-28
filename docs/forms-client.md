@@ -100,17 +100,19 @@ FormsClient formsClient = new FormsClient(accessKey, secretKey);
 long formId = 1;
 string submissionId = "f33055e4-f8c1-49a6-8605-27f0d11854f0";
 bool isDraft = false
-OneBlink.SDK.Model.FormSubmission<object> formSubmission = await formsClient.GetFormSubmission<object>(formId, submissionId, isDraft);
+string s3ObjectVersionId = "3/L4kqtJlcpXroDTDmJ+rmSpXd3dIbrHY";
+OneBlink.SDK.Model.FormSubmission<object> formSubmission = await formsClient.GetFormSubmission<object>(formId, submissionId, isDraft, s3ObjectVersionId);
 Console.WriteLine("Submission as JSON string: " + formSubmission.submission);
 ```
 
 ### Parameters
 
-| Parameter      | Required | Type     | Description                                                                                                                                               |
-| -------------- | -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `formId`       | Yes      | `long`   | The exact id of the form you wish to get submission data for                                                                                              |
-| `submissionId` | Yes      | `string` | The submission identifier generated after a successful form submission, this will be return to you after a successful forms submission via a callback URL |
-| `isDraft`      | Yes      | `bool`   | `true` if the submission is a draft submission, otherwise `false`                                                                                         |
+| Parameter           | Required | Type     | Description                                                                                                                                               |
+| ------------------- | -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `formId`            | Yes      | `long`   | The exact id of the form you wish to get submission data for                                                                                              |
+| `submissionId`      | Yes      | `string` | The submission identifier generated after a successful form submission, this will be return to you after a successful forms submission via a callback URL |
+| `isDraft`           | Yes      | `bool`   | `true` if the submission is a draft submission, otherwise `false`                                                                                         |
+| `s3ObjectVersionId` | No       | `string` | The S3 object version to download. Only supported when `isDraft` is `false`; omit it to download the latest version.                                       |
 
 ### Throws
 
@@ -739,7 +741,7 @@ Forms: _Manager_
 
 ## `GetFormSubmissionMeta()`
 
-Retrieve the Form Submission metadata for by submission id. This will include the approval associated with the submission if the form had an approval flow setup.
+Retrieve the Form Submission metadata by submission id. The response can include approvals, payments, workflow events, scheduling bookings, submission edits, and completed task details associated with the submission.
 
 ### Example
 
