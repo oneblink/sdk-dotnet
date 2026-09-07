@@ -7,8 +7,10 @@
 - `s3ObjectVersionId` parameter to `FormsClient.GetFormSubmission()`
 - `formSubmissionMetaEdits`, `formSubmissionSchedulingBooking` and `taskCompletion` to `FormSubmissionMetadataResponse`
 - `lastEdit` to `FormSubmissionMetadata`
-- `approverEditability`, `requiresAllConditionallyShowOptionsPredicates`, `autocompleteAttributes`, `includeTimestampWatermark`, `layout` and `reverseGeocoding` to `FormElement`
+- `requiresAllConditionallyShowOptionsPredicates`, `autocompleteAttributes`, `includeTimestampWatermark`, `layout` and `reverseGeocoding` to `FormElement`
 - nested `options` to `FormElementOption`
+- `editableFormElementIds` to `FormApprovalFlowStepBase`
+- `approvalFormSubmissionId` to `FormSubmissionApprovalEditContext`
 
 ## [13.1.1] - 2026-08-26
 

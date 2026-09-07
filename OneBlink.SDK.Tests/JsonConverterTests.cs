@@ -129,14 +129,11 @@ namespace OneBlink.SDK.Tests
         }
 
         [Fact]
-        public void CanDeserializeFormElementApproverEditability()
+        public void CanDeserializeFormElementAdditions()
         {
             string json = @"{
                 ""id"": ""element-id"",
                 ""type"": ""location"",
-                ""approverEditability"": {
-                    ""type"": ""ALL_STEPS""
-                },
                 ""requiresAllConditionallyShowOptionsPredicates"": true,
                 ""autocompleteAttributes"": [""street-address""],
                 ""includeTimestampWatermark"": true,
@@ -159,8 +156,6 @@ namespace OneBlink.SDK.Tests
 
             var element = JsonConvert.DeserializeObject<FormElement>(json);
 
-            Assert.NotNull(element.approverEditability);
-            Assert.Equal("ALL_STEPS", element.approverEditability.type);
             Assert.True(element.requiresAllConditionallyShowOptionsPredicates);
             Assert.Single(element.autocompleteAttributes);
             Assert.True(element.includeTimestampWatermark);
@@ -169,6 +164,29 @@ namespace OneBlink.SDK.Tests
             Assert.Equal("GEOSCAPE", element.reverseGeocoding.integrationType);
             Assert.Single(element.options[0].options);
             Assert.Equal("child-option", element.options[0].options[0].id);
+        }
+
+        [Fact]
+        public void CanDeserializeEditableFormElementIds()
+        {
+            string json = @"{
+                ""label"": ""Step 1"",
+                ""group"": ""approvers"",
+                ""editableFormElementIds"": [""element-id""],
+                ""type"": ""CONCURRENT"",
+                ""nodes"": [{
+                    ""label"": ""Node 1"",
+                    ""group"": ""approvers"",
+                    ""editableFormElementIds"": [""element-id""]
+                }]
+            }";
+
+            var step = JsonConvert.DeserializeObject<FormApprovalStep>(json);
+
+            Assert.Single(step.editableFormElementIds);
+            Assert.Equal("element-id", step.editableFormElementIds[0]);
+            Assert.Single(step.nodes);
+            Assert.Equal("element-id", step.nodes[0].editableFormElementIds[0]);
         }
 
         [Fact]
@@ -182,6 +200,11 @@ namespace OneBlink.SDK.Tests
                         ""id"": ""edit-id"",
                         ""submissionId"": ""submission-id"",
                         ""formId"": 123,
+                        ""context"": {
+                            ""type"": ""FORM_SUBMISSION_APPROVAL"",
+                            ""formSubmissionApprovalId"": ""approval-id"",
+                            ""approvalFormSubmissionId"": ""approval-form-submission-id""
+                        },
                         ""editedS3ObjectVersionId"": ""previous-version-id"",
                         ""s3ObjectVersionId"": ""edited-version-id""
                     }
@@ -222,6 +245,7 @@ namespace OneBlink.SDK.Tests
             var response = JsonConvert.DeserializeObject<FormSubmissionMetadataResponse>(json);
 
             Assert.Equal("edited-version-id", response.formSubmissionMeta.lastEdit.s3ObjectVersionId);
+            Assert.Equal("approval-form-submission-id", response.formSubmissionMeta.lastEdit.context.approvalFormSubmissionId);
             Assert.Single(response.formSubmissionMetaEdits);
             Assert.Equal(456, response.formSubmissionSchedulingBooking.nylasSchedulingPageId);
             Assert.Equal("completed-task-id", response.taskCompletion.completedTask.id);
