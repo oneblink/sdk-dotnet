@@ -97,7 +97,7 @@ namespace OneBlink.SDK.Tests
         public async void can_get_draft_data()
         {
             FormsClient forms = new FormsClient(ACCESS_KEY, SECRET_KEY, TenantName.ONEBLINK_TEST);
-            FormSubmission<object> draftSubmission = await forms.GetFormSubmission<object>(this.draftFormId, this.draftDataId, true);
+            FormSubmission<object> draftSubmission = await forms.GetFormSubmissionDraft<object>(this.draftDataId);
             Assert.NotNull(draftSubmission);
             Assert.NotNull(draftSubmission.definition);
             Assert.NotNull(draftSubmission.submission);
@@ -111,12 +111,12 @@ namespace OneBlink.SDK.Tests
               "aaaaaaaaaaaaaaabbbbbbbbbbbbbbbcccccccccccccccc", // DevSkim: ignore DS173237
               tenantName: TenantName.ONEBLINK_TEST
             );
-            var oneBlinkAPIException = await Assert.ThrowsAsync<OneBlink.SDK.OneBlinkAPIException>(() => forms.GetFormSubmission<object>(this.draftFormId, this.draftDataId, true));
+            var oneBlinkAPIException = await Assert.ThrowsAsync<OneBlink.SDK.OneBlinkAPIException>(() => forms.GetFormSubmissionDraft<object>(this.draftDataId));
             Assert.Equal(HttpStatusCode.Unauthorized, oneBlinkAPIException.StatusCode);
         }
 
         [Fact]
-        public async System.Threading.Tasks.Task get_draft_data_should_reject_s3_object_version_id()
+        public async System.Threading.Tasks.Task get_draft_data_should_require_a_draft_version_id()
         {
             FormsClient forms = new FormsClient(
               "123",
@@ -125,10 +125,10 @@ namespace OneBlink.SDK.Tests
             );
 
             var exception = await Assert.ThrowsAsync<ArgumentException>(() =>
-                forms.GetFormSubmission<object>(this.draftFormId, this.draftDataId, true, "version-id")
+                forms.GetFormSubmissionDraft<object>(" ")
             );
 
-            Assert.Equal("s3ObjectVersionId is only supported when downloading a submitted form submission", exception.Message);
+            Assert.Equal("formSubmissionDraftVersionId must be provided with a value", exception.Message);
         }
 
         [Fact]

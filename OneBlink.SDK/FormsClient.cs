@@ -27,7 +27,7 @@ namespace OneBlink.SDK
 
         public async Task<FormSubmission<T>> GetFormSubmission<T>(long formId, string submissionId)
         {
-            return await GetFormSubmission<T>(formId, submissionId, false);
+            return await GetFormSubmission<T>(formId, submissionId, null);
         }
 
         [ObsoleteAttribute("This method is obsolete. Call GetFormSubmissionMeta instead.", true)]
@@ -42,36 +42,58 @@ namespace OneBlink.SDK
             return await this.oneBlinkApiClient.GetRequest<FormSubmissionMetadataResponse>(url);
         }
 
+        [ObsoleteAttribute("This method is obsolete. Call GetFormSubmissionDraft() to download a draft form submission, otherwise call GetFormSubmission() without the isDraft parameter.")]
         public async Task<FormSubmission<T>> GetFormSubmission<T>(long formId, string submissionId, bool isDraft)
         {
-            return await GetFormSubmission<T>(formId, submissionId, isDraft, null);
+            return isDraft
+                ? await GetFormSubmissionDraft<T>(submissionId)
+                : await GetFormSubmission<T>(formId, submissionId, null);
         }
 
-        public async Task<FormSubmission<T>> GetFormSubmission<T>(long formId, string submissionId, bool isDraft, string s3ObjectVersionId)
+        public async Task<FormSubmission<T>> GetFormSubmission<T>(long formId, string submissionId, string versionId)
         {
             if (String.IsNullOrWhiteSpace(submissionId))
             {
                 throw new ArgumentException("submissionId must be provided with a value");
             }
-            if (isDraft && !String.IsNullOrWhiteSpace(s3ObjectVersionId))
+
+            NameValueCollection query = HttpUtility.ParseQueryString(string.Empty);
+            OneBlinkHttpClient.AddItemToQuery(query, "versionId", versionId);
+            string url = "/storage/forms/" + formId + "/submissions/" + submissionId;
+            if (query.Count > 0)
             {
-                throw new ArgumentException("s3ObjectVersionId is only supported when downloading a submitted form submission");
+                url += "?" + query.ToString();
+            }
+            return await GetFormSubmissionFromStorage<T>(url);
+        }
+
+        public async Task<FormSubmission<T>> GetFormSubmissionAsSubmitted<T>(long formId, string submissionId)
+        {
+            if (String.IsNullOrWhiteSpace(submissionId))
+            {
+                throw new ArgumentException("submissionId must be provided with a value");
             }
 
+            NameValueCollection query = HttpUtility.ParseQueryString(string.Empty);
+            query["asSubmitted"] = "true";
+            string url = "/storage/forms/" + formId + "/submissions/" + submissionId + "?" + query.ToString();
+            return await GetFormSubmissionFromStorage<T>(url);
+        }
+
+        public async Task<FormSubmission<T>> GetFormSubmissionDraft<T>(string formSubmissionDraftVersionId)
+        {
+            if (String.IsNullOrWhiteSpace(formSubmissionDraftVersionId))
+            {
+                throw new ArgumentException("formSubmissionDraftVersionId must be provided with a value");
+            }
+
+            return await GetFormSubmissionFromStorage<T>("/storage/form-submission-draft-versions/" + formSubmissionDraftVersionId);
+        }
+
+        private async Task<FormSubmission<T>> GetFormSubmissionFromStorage<T>(string url)
+        {
             try
             {
-                if (isDraft)
-                {
-                    return await this.oneBlinkApiClient.GetRequest<FormSubmission<T>>("/storage/form-submission-draft-versions/" + submissionId);
-                }
-
-                NameValueCollection query = HttpUtility.ParseQueryString(string.Empty);
-                OneBlinkHttpClient.AddItemToQuery(query, "versionId", s3ObjectVersionId);
-                string url = "/storage/forms/" + formId + "/submissions/" + submissionId;
-                if (query.Count > 0)
-                {
-                    url += "?" + query.ToString();
-                }
                 return await this.oneBlinkApiClient.GetRequest<FormSubmission<T>>(url);
             }
             catch (OneBlinkAPIException error)

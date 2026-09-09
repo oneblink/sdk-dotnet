@@ -60,6 +60,8 @@ A `string`
 ## Instance Functions
 
 - [`GetFormSubmission()`](#getformsubmission)
+- [`GetFormSubmissionAsSubmitted()`](#getformsubmissionassubmitted)
+- [`GetFormSubmissionDraft()`](#getformsubmissiondraft)
 - [`Search()`](#search)
 - [`Get()`](#get)
 - [`Create()`](#create)
@@ -99,9 +101,8 @@ FormsClient formsClient = new FormsClient(accessKey, secretKey);
 ```c#
 long formId = 1;
 string submissionId = "f33055e4-f8c1-49a6-8605-27f0d11854f0";
-bool isDraft = false
-string s3ObjectVersionId = "3/L4kqtJlcpXroDTDmJ+rmSpXd3dIbrHY";
-OneBlink.SDK.Model.FormSubmission<object> formSubmission = await formsClient.GetFormSubmission<object>(formId, submissionId, isDraft, s3ObjectVersionId);
+string versionId = "3/L4kqtJlcpXroDTDmJ+rmSpXd3dIbrHY";
+OneBlink.SDK.Model.FormSubmission<object> formSubmission = await formsClient.GetFormSubmission<object>(formId, submissionId, versionId);
 Console.WriteLine("Submission as JSON string: " + formSubmission.submission);
 ```
 
@@ -111,8 +112,77 @@ Console.WriteLine("Submission as JSON string: " + formSubmission.submission);
 | ------------------- | -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `formId`            | Yes      | `long`   | The exact id of the form you wish to get submission data for                                                                                              |
 | `submissionId`      | Yes      | `string` | The submission identifier generated after a successful form submission, this will be return to you after a successful forms submission via a callback URL |
-| `isDraft`           | Yes      | `bool`   | `true` if the submission is a draft submission, otherwise `false`                                                                                         |
-| `s3ObjectVersionId` | No       | `string` | The S3 object version to download. Only supported when `isDraft` is `false`; omit it to download the latest version.                                       |
+| `versionId` | No       | `string` | The S3 object version to download. Omit it to download the latest version.                                                                                |
+
+### Throws
+
+- `OneBlinkAPIException`
+- `Exception`
+
+### Result
+
+A `FormSubmission<T>` class or `null`
+
+**Submission Data Key Supported**
+
+Key must be assigned to the form that was submitted
+
+**Minimum Role Permission**
+
+Submission Data: _Read Only_
+
+## `GetFormSubmissionAsSubmitted()`
+
+Downloads the version originally submitted, before any edits.
+
+### Example
+
+```c#
+long formId = 1;
+string submissionId = "f33055e4-f8c1-49a6-8605-27f0d11854f0";
+OneBlink.SDK.Model.FormSubmission<object> formSubmission = await formsClient.GetFormSubmissionAsSubmitted<object>(formId, submissionId);
+Console.WriteLine("Submission as JSON string: " + formSubmission.submission);
+```
+
+### Parameters
+
+| Parameter      | Required | Type     | Description                                                                                                                                               |
+| -------------- | -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `formId`       | Yes      | `long`   | The exact id of the form you wish to get submission data for                                                                                              |
+| `submissionId` | Yes      | `string` | The submission identifier generated after a successful form submission, this will be return to you after a successful forms submission via a callback URL |
+
+### Throws
+
+- `OneBlinkAPIException`
+- `Exception`
+
+### Result
+
+A `FormSubmission<T>` class or `null`
+
+**Submission Data Key Supported**
+
+Key must be assigned to the form that was submitted
+
+**Minimum Role Permission**
+
+Submission Data: _Read Only_
+
+## `GetFormSubmissionDraft()`
+
+### Example
+
+```c#
+string formSubmissionDraftVersionId = "f33055e4-f8c1-49a6-8605-27f0d11854f0";
+OneBlink.SDK.Model.FormSubmission<object> formSubmission = await formsClient.GetFormSubmissionDraft<object>(formSubmissionDraftVersionId);
+Console.WriteLine("Submission as JSON string: " + formSubmission.submission);
+```
+
+### Parameters
+
+| Parameter                      | Required | Type     | Description                                       |
+| ------------------------------ | -------- | -------- | ------------------------------------------------- |
+| `formSubmissionDraftVersionId` | Yes      | `string` | The identifier of the draft form submission version |
 
 ### Throws
 

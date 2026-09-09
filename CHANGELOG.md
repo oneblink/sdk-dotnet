@@ -4,7 +4,9 @@
 
 ### Added
 
-- `s3ObjectVersionId` parameter to `FormsClient.GetFormSubmission()`
+- `versionId` parameter to `FormsClient.GetFormSubmission()`
+- `FormsClient.GetFormSubmissionAsSubmitted()` to download the originally submitted version
+- `FormsClient.GetFormSubmissionDraft()` to download a draft form submission
 - `formSubmissionMetaEdits`, `formSubmissionSchedulingBooking` and `taskCompletion` to `FormSubmissionMetadataResponse`
 - `lastEdit` to `FormSubmissionMetadata`
 - `requiresAllConditionallyShowOptionsPredicates`, `autocompleteAttributes`, `includeTimestampWatermark`, `layout` and `reverseGeocoding` to `FormElement`
@@ -12,6 +14,9 @@
 - `editableFormElementIds` to `FormApprovalFlowStepBase`
 - `approvalFormSubmissionId` to `FormSubmissionApprovalEditContext`
 
+### Deprecated
+
+- `isDraft` parameter on `FormsClient.GetFormSubmission()` — call `FormsClient.GetFormSubmissionDraft()` to download a draft form submission
 ## [13.1.1] - 2026-08-26
 
 ### Added
