@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## [13.1.2] - 2026-09-15
+
 ### Added
 
 - `versionId` parameter to `FormsClient.GetFormSubmission()`
@@ -17,6 +19,7 @@
 ### Deprecated
 
 - `isDraft` parameter on `FormsClient.GetFormSubmission()` — call `FormsClient.GetFormSubmissionDraft()` to download a draft form submission
+
 ## [13.1.1] - 2026-08-26
 
 ### Added
