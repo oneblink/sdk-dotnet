@@ -484,6 +484,10 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public bool? hideImagePreview
+        {
+            get; set;
+        }
         public bool? showStreetAddress
         {
             get; set;
