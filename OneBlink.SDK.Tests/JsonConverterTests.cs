@@ -137,6 +137,7 @@ namespace OneBlink.SDK.Tests
                 ""requiresAllConditionallyShowOptionsPredicates"": true,
                 ""autocompleteAttributes"": [""street-address""],
                 ""includeTimestampWatermark"": true,
+                ""hideImagePreview"": true,
                 ""layout"": ""MULTIPLE_ADD_BUTTONS"",
                 ""reverseGeocoding"": {
                     ""formattedAddressElementId"": ""address-element-id"",
@@ -159,6 +160,7 @@ namespace OneBlink.SDK.Tests
             Assert.True(element.requiresAllConditionallyShowOptionsPredicates);
             Assert.Single(element.autocompleteAttributes);
             Assert.True(element.includeTimestampWatermark);
+            Assert.True(element.hideImagePreview);
             Assert.Equal("MULTIPLE_ADD_BUTTONS", element.layout);
             Assert.Equal("address-element-id", element.reverseGeocoding.formattedAddressElementId);
             Assert.Equal("GEOSCAPE", element.reverseGeocoding.integrationType);
