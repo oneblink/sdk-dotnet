@@ -5,6 +5,8 @@
 ### Added
 
 - `hideImagePreview` to `FormElement`
+- `LUMIN_SIGN_REQUEST_SIGNATURE` submission event models and `CreateLuminSignRequestSignatureSubmissionEvent()`
+- `luminMergeTagName`, `luminFieldName` and `luminVariableName` on `FormSubmissionEventConfigurationMapping`
 
 ## [13.1.2] - 2026-09-15
 

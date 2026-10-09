@@ -503,5 +503,35 @@ namespace OneBlink.SDK.Model
 
             return goodToGoUpdateAssetEvent;
         }
+
+        public static FormSubmissionEvent CreateLuminSignRequestSignatureSubmissionEvent(
+            Guid integrationKeyId,
+            FormSubmissionEventConfigurationLuminSign lumin,
+            List<ConditionallyShowPredicate> conditionallyExecutePredicates = default,
+            bool conditionallyExecute = false,
+            bool requiresAllConditionallyExecutePredicates = false,
+            string label = null
+        )
+        {
+            FormSubmissionEvent luminSignRequestSignatureEvent = new FormSubmissionEvent
+            {
+                type = "LUMIN_SIGN_REQUEST_SIGNATURE",
+                label = label,
+                requiresAllConditionallyExecutePredicates = requiresAllConditionallyExecutePredicates,
+                conditionallyExecute = conditionallyExecute,
+                configuration = new FormSubmissionEventConfiguration
+                {
+                    integrationKeyId = integrationKeyId,
+                    lumin = lumin,
+                }
+            };
+
+            if (conditionallyExecutePredicates != default(List<ConditionallyShowPredicate>))
+            {
+                luminSignRequestSignatureEvent.conditionallyExecutePredicates = conditionallyExecutePredicates;
+            }
+
+            return luminSignRequestSignatureEvent;
+        }
     }
 }
