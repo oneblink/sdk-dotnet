@@ -60,6 +60,18 @@ namespace OneBlink.SDK.Model
         {
              get; set;
         }
+        public string luminMergeTagName
+        {
+            get; set;
+        }
+        public string luminFieldName
+        {
+            get; set;
+        }
+        public string luminVariableName
+        {
+            get; set;
+        }
         public string font
         {
             get; set;
