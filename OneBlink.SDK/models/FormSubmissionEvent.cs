@@ -504,18 +504,18 @@ namespace OneBlink.SDK.Model
             return goodToGoUpdateAssetEvent;
         }
 
-        public static FormSubmissionEvent CreateLuminSignRequestSignatureSubmissionEvent(
+        public static FormSubmissionEvent CreateLuminRequestSignatureSubmissionEvent(
             Guid integrationKeyId,
-            FormSubmissionEventConfigurationLuminSign lumin,
+            FormSubmissionEventConfigurationLumin lumin,
             List<ConditionallyShowPredicate> conditionallyExecutePredicates = default,
             bool conditionallyExecute = false,
             bool requiresAllConditionallyExecutePredicates = false,
             string label = null
         )
         {
-            FormSubmissionEvent luminSignRequestSignatureEvent = new FormSubmissionEvent
+            FormSubmissionEvent luminRequestSignatureEvent = new FormSubmissionEvent
             {
-                type = "LUMIN_SIGN_REQUEST_SIGNATURE",
+                type = "LUMIN_REQUEST_SIGNATURE",
                 label = label,
                 requiresAllConditionallyExecutePredicates = requiresAllConditionallyExecutePredicates,
                 conditionallyExecute = conditionallyExecute,
@@ -528,10 +528,10 @@ namespace OneBlink.SDK.Model
 
             if (conditionallyExecutePredicates != default(List<ConditionallyShowPredicate>))
             {
-                luminSignRequestSignatureEvent.conditionallyExecutePredicates = conditionallyExecutePredicates;
+                luminRequestSignatureEvent.conditionallyExecutePredicates = conditionallyExecutePredicates;
             }
 
-            return luminSignRequestSignatureEvent;
+            return luminRequestSignatureEvent;
         }
     }
 }

@@ -255,7 +255,7 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
-        public FormSubmissionEventConfigurationLuminSign lumin
+        public FormSubmissionEventConfigurationLumin lumin
         {
             get; set;
         }
