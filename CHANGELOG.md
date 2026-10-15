@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## [13.1.3] - 2026-10-15
+
 ### Added
 
 - `hideImagePreview` to `FormElement`
