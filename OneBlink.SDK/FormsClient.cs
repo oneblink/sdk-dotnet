@@ -102,7 +102,7 @@ namespace OneBlink.SDK
                 {
                     return null;
                 }
-                throw error;
+                throw;
             }
         }
 
