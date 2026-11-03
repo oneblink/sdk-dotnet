@@ -6,8 +6,8 @@
         <EnableNETAnalyzers>true</EnableNETAnalyzers>
         <AnalysisLevel>latest</AnalysisLevel>
         <PackageId>OneBlink.SDK</PackageId>
-        <PackageVersion>13.1.4-beta.2</PackageVersion>
-        <AssemblyVersion>13.1.4.2</AssemblyVersion>
+        <PackageVersion>13.1.4-beta.3</PackageVersion>
+        <AssemblyVersion>13.1.4.3</AssemblyVersion>
         <Authors>OneBlink</Authors>
         <Owners>OneBlink</Owners>
         <Title>OneBlink SDK</Title>
