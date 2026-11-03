@@ -6,6 +6,10 @@
 
 - .NET code quality analyzers (including security) for the SDK project
 
+### Changed
+
+- Nuget publishing to use trusted publishing instead of API keys
+
 ## [13.1.3] - 2026-10-15
 
 ### Added
