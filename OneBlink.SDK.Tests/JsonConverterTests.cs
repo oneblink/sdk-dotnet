@@ -192,6 +192,88 @@ namespace OneBlink.SDK.Tests
         }
 
         [Fact]
+        public void CanDeserializeApprovalStepPaymentEvent()
+        {
+            string json = @"{
+                ""type"": ""PAYMENT"",
+                ""label"": ""Pay"",
+                ""group"": ""payers"",
+                ""paymentEvent"": {
+                    ""type"": ""BPOINT"",
+                    ""configuration"": {
+                        ""amountType"": ""NUMBER"",
+                        ""paymentAmount"": 12.5,
+                        ""environmentId"": ""11111111-1111-1111-1111-111111111111"",
+                        ""crn2"": ""crn-2"",
+                        ""crn3"": ""crn-3""
+                    }
+                }
+            }";
+
+            var step = JsonConvert.DeserializeObject<FormApprovalStep>(json);
+            var instanceStep = JsonConvert.DeserializeObject<FormApprovalFlowInstanceStep>(json);
+
+            Assert.Equal("BPOINT", step.paymentEvent.type);
+            Assert.Equal("NUMBER", step.paymentEvent.configuration.amountType);
+            Assert.Equal(12.5, step.paymentEvent.configuration.paymentAmount);
+            Assert.Equal(Guid.Parse("11111111-1111-1111-1111-111111111111"), step.paymentEvent.configuration.environmentId);
+            Assert.Equal("crn-2", step.paymentEvent.configuration.crn2);
+            Assert.Equal("crn-3", step.paymentEvent.configuration.crn3);
+            Assert.Null(step.paymentEvent.configuration.elementId);
+            Assert.Null(step.paymentEvent.configuration.paymentCalculation);
+            Assert.Null(step.paymentEvent.configuration.gatewayId);
+
+            Assert.Equal("BPOINT", instanceStep.paymentEvent.type);
+            Assert.Equal("crn-2", instanceStep.paymentEvent.configuration.crn2);
+
+            string cpPayJson = @"{
+                ""type"": ""CP_PAY"",
+                ""configuration"": {
+                    ""amountType"": ""FORM_ELEMENT"",
+                    ""elementId"": ""amount-element"",
+                    ""gatewayId"": ""22222222-2222-2222-2222-222222222222""
+                }
+            }";
+            var cpPay = JsonConvert.DeserializeObject<FormApprovalStepPaymentEvent>(cpPayJson);
+            Assert.Equal("CP_PAY", cpPay.type);
+            Assert.Equal("FORM_ELEMENT", cpPay.configuration.amountType);
+            Assert.Equal("amount-element", cpPay.configuration.elementId);
+            Assert.Equal(Guid.Parse("22222222-2222-2222-2222-222222222222"), cpPay.configuration.gatewayId);
+
+            string westpacJson = @"{
+                ""type"": ""WESTPAC_QUICK_STREAM"",
+                ""configuration"": {
+                    ""amountType"": ""EXPRESSION"",
+                    ""paymentCalculation"": ""1 + 2"",
+                    ""environmentId"": ""33333333-3333-3333-3333-333333333333"",
+                    ""customerReferenceNumber"": ""ref""
+                }
+            }";
+            var westpac = JsonConvert.DeserializeObject<FormApprovalStepPaymentEvent>(westpacJson);
+            Assert.Equal("EXPRESSION", westpac.configuration.amountType);
+            Assert.Equal("1 + 2", westpac.configuration.paymentCalculation);
+            Assert.Equal("ref", westpac.configuration.customerReferenceNumber);
+
+            string govPayJson = @"{
+                ""type"": ""NSW_GOV_PAY"",
+                ""configuration"": {
+                    ""amountType"": ""NUMBER"",
+                    ""paymentAmount"": 10,
+                    ""primaryAgencyId"": ""44444444-4444-4444-4444-444444444444"",
+                    ""productDescription"": ""Permit"",
+                    ""customerReference"": ""customer"",
+                    ""subAgencyCode"": ""SUB""
+                }
+            }";
+            var govPay = JsonConvert.DeserializeObject<FormApprovalStepPaymentEvent>(govPayJson);
+            Assert.Equal("NSW_GOV_PAY", govPay.type);
+            Assert.Equal(Guid.Parse("44444444-4444-4444-4444-444444444444"), govPay.configuration.primaryAgencyId);
+            Assert.Equal("Permit", govPay.configuration.productDescription);
+            Assert.Equal("customer", govPay.configuration.customerReference);
+            Assert.Equal("SUB", govPay.configuration.subAgencyCode);
+        }
+
+        [Fact]
         public void CanDeserializeFormSubmissionMetadataResponseAdditions()
         {
             string json = @"{
