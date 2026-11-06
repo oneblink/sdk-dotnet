@@ -5,6 +5,7 @@
 ### Added
 
 - .NET code quality analyzers (including security) for the SDK project
+- `FormApprovalStepPaymentEvent` for the `paymentEvent` on `FormApprovalStep` and `FormApprovalFlowInstanceStep`
 
 ### Changed
 

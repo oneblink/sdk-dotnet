@@ -68,5 +68,13 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public bool isPaymentStep
+        {
+            get; set;
+        }
+        public bool paymentSkipped
+        {
+            get; set;
+        }
     }
 }

@@ -25,5 +25,10 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+
+        public FormApprovalStepPaymentEvent paymentEvent
+        {
+            get; set;
+        }
     }
 }
