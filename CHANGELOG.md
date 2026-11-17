@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## [13.1.4] - 2026-11-17
+
 ### Added
 
 - .NET code quality analyzers (including security) for the SDK project
