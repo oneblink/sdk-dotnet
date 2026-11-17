@@ -317,5 +317,26 @@ namespace OneBlink.SDK.Model
         }
 
         #endregion
+
+        #region NSW Gov Pay
+
+        public string redirectUrl
+        {
+            get; set;
+        }
+        public string integrationPrimaryAgencyId
+        {
+            get; set;
+        }
+        public string nswGovPayPaymentReference
+        {
+            get; set;
+        }
+        public NSWGovPayAgencyCompletionPayment agencyCompletionPayment
+        {
+            get; set;
+        }
+
+        #endregion
     }
 }
