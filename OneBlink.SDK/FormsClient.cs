@@ -42,6 +42,28 @@ namespace OneBlink.SDK
             return await this.oneBlinkApiClient.GetRequest<FormSubmissionMetadataResponse>(url);
         }
 
+        public async Task<FormSubmissionPayment> GetCPPayPayment(string submissionId)
+        {
+            if (String.IsNullOrWhiteSpace(submissionId))
+            {
+                throw new ArgumentException("submissionId must be provided with a value");
+            }
+
+            string url = "/form-submission-meta/" + submissionId + "/payments/cp-pay";
+            return await this.oneBlinkApiClient.GetRequest<FormSubmissionPayment>(url);
+        }
+
+        public async Task<FormSubmissionPayment> GetNSWGovPayPayment(string submissionId)
+        {
+            if (String.IsNullOrWhiteSpace(submissionId))
+            {
+                throw new ArgumentException("submissionId must be provided with a value");
+            }
+
+            string url = "/form-submission-meta/" + submissionId + "/payments/nsw-gov-pay";
+            return await this.oneBlinkApiClient.GetRequest<FormSubmissionPayment>(url);
+        }
+
         [ObsoleteAttribute("This method is obsolete. Call GetFormSubmissionDraft() to download a draft form submission, otherwise call GetFormSubmission() without the isDraft parameter.")]
         public async Task<FormSubmission<T>> GetFormSubmission<T>(long formId, string submissionId, bool isDraft)
         {

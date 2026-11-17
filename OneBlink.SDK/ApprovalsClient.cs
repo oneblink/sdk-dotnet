@@ -73,6 +73,18 @@ namespace OneBlink.SDK
             return await this.oneBlinkApiClient.GetRequest<GetFormSubmissionApprovalResponse>(url);
         }
 
+        public async Task<FormSubmissionPayment> GetCPPayPayment(Guid formSubmissionApprovalId)
+        {
+            string url = "/form-submission-approvals/" + formSubmissionApprovalId.ToString() + "/payments/cp-pay";
+            return await this.oneBlinkApiClient.GetRequest<FormSubmissionPayment>(url);
+        }
+
+        public async Task<FormSubmissionPayment> GetNSWGovPayPayment(Guid formSubmissionApprovalId)
+        {
+            string url = "/form-submission-approvals/" + formSubmissionApprovalId.ToString() + "/payments/nsw-gov-pay";
+            return await this.oneBlinkApiClient.GetRequest<FormSubmissionPayment>(url);
+        }
+
         public async Task<GetFormApprovalFlowInstanceResponse> GetFormApprovalFlowInstance(long formApprovalFlowInstanceId)
         {
             string url = "/form-approval-flow-instances/" + formApprovalFlowInstanceId.ToString();

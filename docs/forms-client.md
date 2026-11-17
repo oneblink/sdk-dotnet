@@ -75,6 +75,8 @@ A `string`
 - [`GenerateSubmissionAttachmentUrl()`](#generatesubmissionattachmenturl)
 - [`GenerateWorkflowAttachmentLink()`](#generateworkflowattachmentlink)
 - [`GetFormSubmissionMeta()`](#getformsubmissionmeta)
+- [`GetCPPayPayment()`](#getcppaypayment)
+- [`GetNSWGovPayPayment()`](#getnswgovpaypayment)
 - [`UploadEmailAttachment()`](#uploadEmailAttachment)
 
 ## Constructor
@@ -834,6 +836,74 @@ OneBlink.SDK.Model.FormSubmissionMetadataResponse formSubmissionMetadataResponse
 ### Result
 
 A `FormSubmissionMetadataResponse` class
+
+**Submission Data Key Supported**
+
+Key must be assigned to the form that was submitted.
+
+**Minimum Role Permission**
+
+Submission Data: _Read Only_
+
+## `GetCPPayPayment()`
+
+Retrieve the successful CP Pay payment for a submission.
+
+### Example
+
+```c#
+string submissionId = "7145544d-853a-47e8-873c-1e849698e414";
+OneBlink.SDK.Model.FormSubmissionPayment payment = await formsClient.GetCPPayPayment(submissionId);
+```
+
+### Parameters
+
+| Parameter      | Required | Type     | Description                      |
+| -------------- | -------- | -------- | -------------------------------- |
+| `submissionId` | Yes      | `string` | Id of submission to be retrieved |
+
+### Throws
+
+- `OneBlinkAPIException`
+- `Exception`
+
+### Result
+
+A `FormSubmissionPayment` class
+
+**Submission Data Key Supported**
+
+Key must be assigned to the form that was submitted.
+
+**Minimum Role Permission**
+
+Submission Data: _Read Only_
+
+## `GetNSWGovPayPayment()`
+
+Retrieve the successful NSW Gov Pay payment for a submission.
+
+### Example
+
+```c#
+string submissionId = "7145544d-853a-47e8-873c-1e849698e414";
+OneBlink.SDK.Model.FormSubmissionPayment payment = await formsClient.GetNSWGovPayPayment(submissionId);
+```
+
+### Parameters
+
+| Parameter      | Required | Type     | Description                      |
+| -------------- | -------- | -------- | -------------------------------- |
+| `submissionId` | Yes      | `string` | Id of submission to be retrieved |
+
+### Throws
+
+- `OneBlinkAPIException`
+- `Exception`
+
+### Result
+
+A `FormSubmissionPayment` class
 
 **Submission Data Key Supported**
 

@@ -8,6 +8,10 @@
 
 - .NET code quality analyzers (including security) for the SDK project
 - `FormApprovalStepPaymentEvent` for the `paymentEvent` on `FormApprovalStep` and `FormApprovalFlowInstanceStep`
+- `FormsClient.GetCPPayPayment()`
+- `FormsClient.GetNSWGovPayPayment()`
+- `ApprovalsClient.GetCPPayPayment()`
+- `ApprovalsClient.GetNSWGovPayPayment()`
 
 ### Changed
 
