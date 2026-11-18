@@ -39,5 +39,13 @@ jobs:
         run: dotnet restore
       - name: Build
         run: dotnet build --configuration Release --no-restore
+      # The tests are integration tests against shared OneBlink resources, so each
+      # target framework runs on its own. Running them together lets one
+      # framework's create/delete calls interfere with another's.
       - name: Test
-        run: dotnet test --no-restore --verbosity normal --configuration Release --logger GitHubActions
+        run: |
+          status=0
+          for framework in net8.0 net9.0 net10.0; do
+            dotnet test --no-restore --framework "$framework" --verbosity normal --configuration Release --logger GitHubActions || status=1
+          done
+          exit $status

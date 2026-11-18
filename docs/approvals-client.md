@@ -4,6 +4,8 @@
 
 - [`GetFormSubmissionAdministrationApprovals()`](#getformsubmissionadministrationapprovals)
 - [`GetFormSubmissionApproval()`](#getformsubmissionapproval)
+- [`GetCPPayPayment()`](#getcppaypayment)
+- [`GetNSWGovPayPayment()`](#getnswgovpaypayment)
 - [`GetFormApprovalFlowInstance()`](#getformapprovalflowinstance)
 
 ## Constructor
@@ -96,6 +98,74 @@ A `GetFormSubmissionApprovalResponse` Object
 **Submission Data Key Supported**
 
 Key must be assigned to the form that was submitted for approval.
+
+**Minimum Role Permission**
+
+Submission Data: _Read Only_
+
+## `GetCPPayPayment()`
+
+Retrieve the successful CP Pay payment for an approval step.
+
+### Example
+
+```c#
+Guid formSubmissionApprovalId = Guid.Parse("aaaaaaaa-bbbb-4543-cccc-addddd543454");
+OneBlink.SDK.Model.FormSubmissionPayment payment = await approvalsClient.GetCPPayPayment(formSubmissionApprovalId);
+```
+
+### Parameters
+
+| Parameter                  | Required | Type   | Description                     |
+| -------------------------- | -------- | ------ | ------------------------------- |
+| `formSubmissionApprovalId` | Yes      | `Guid` | The form submission approval id |
+
+### Throws
+
+- `OneBlinkAPIException`
+- `Exception`
+
+### Result
+
+A `FormSubmissionPayment` class
+
+**Submission Data Key Supported**
+
+Key must be assigned to the form that was submitted.
+
+**Minimum Role Permission**
+
+Submission Data: _Read Only_
+
+## `GetNSWGovPayPayment()`
+
+Retrieve the successful NSW Gov Pay payment for an approval step.
+
+### Example
+
+```c#
+Guid formSubmissionApprovalId = Guid.Parse("aaaaaaaa-bbbb-4543-cccc-addddd543454");
+OneBlink.SDK.Model.FormSubmissionPayment payment = await approvalsClient.GetNSWGovPayPayment(formSubmissionApprovalId);
+```
+
+### Parameters
+
+| Parameter                  | Required | Type   | Description                     |
+| -------------------------- | -------- | ------ | ------------------------------- |
+| `formSubmissionApprovalId` | Yes      | `Guid` | The form submission approval id |
+
+### Throws
+
+- `OneBlinkAPIException`
+- `Exception`
+
+### Result
+
+A `FormSubmissionPayment` class
+
+**Submission Data Key Supported**
+
+Key must be assigned to the form that was submitted.
 
 **Minimum Role Permission**
 

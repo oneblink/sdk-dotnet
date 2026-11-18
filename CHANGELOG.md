@@ -2,6 +2,13 @@
 
 ## Unreleased
 
+### Added
+
+- `FormsClient.GetCPPayPayment()`
+- `FormsClient.GetNSWGovPayPayment()`
+- `ApprovalsClient.GetCPPayPayment()`
+- `ApprovalsClient.GetNSWGovPayPayment()`
+
 ## [13.1.4] - 2026-11-17
 
 ### Added

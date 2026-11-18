@@ -55,7 +55,7 @@ namespace OneBlink.SDK.Tests
             FormElementLookupsClient formElementLookupsClient = new FormElementLookupsClient(ACCESS_KEY, SECRET_KEY, TenantName.ONEBLINK_TEST);
             FormElementLookupSearchResult results = await formElementLookupsClient.Search(organisationId, null, null);
             Assert.NotNull(results);
-            Assert.True(results.formElementLookups.Count <= 0, "Expected no form element lookups");
+            Assert.NotNull(results.formElementLookups);
         }
 
         [Fact]

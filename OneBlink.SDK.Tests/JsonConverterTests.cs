@@ -335,5 +335,83 @@ namespace OneBlink.SDK.Tests
             Assert.Equal("completed-task-id", response.taskCompletion.completedTask.id);
             Assert.Equal("task-id", response.taskCompletion.task.taskId);
         }
+
+        [Fact]
+        public void CanDeserializeNSWGovPayFormSubmissionPayment()
+        {
+            string json = @"{
+                ""type"": ""NSW_GOV_PAY"",
+                ""submissionId"": ""7145544d-853a-47e8-873c-1e849698e414"",
+                ""formId"": 123,
+                ""status"": ""SUCCEEDED"",
+                ""paymentTransaction"": {
+                    ""redirectUrl"": ""https://example.test/return"",
+                    ""integrationPrimaryAgencyId"": ""44444444-4444-4444-4444-444444444444"",
+                    ""nswGovPayPaymentReference"": ""pay-ref"",
+                    ""agencyCompletionPayment"": {
+                        ""paymentMethod"": ""CARD"",
+                        ""paymentReference"": ""pay-ref"",
+                        ""paymentCompletionReference"": ""receipt-1"",
+                        ""bankReference"": ""bank-1"",
+                        ""amount"": 42.5,
+                        ""surcharge"": 1.25,
+                        ""surchargeGst"": 0.11,
+                        ""agencyTransactionId"": ""55555555-5555-5555-5555-555555555555"",
+                        ""card"": {
+                            ""cardType"": ""VISA"",
+                            ""last4Digits"": ""4242"",
+                            ""cardPresent"": false
+                        }
+                    }
+                }
+            }";
+
+            var payment = JsonConvert.DeserializeObject<FormSubmissionPayment>(json);
+
+            Assert.Equal("NSW_GOV_PAY", payment.type);
+            Assert.Equal("pay-ref", payment.paymentTransaction.nswGovPayPaymentReference);
+            Assert.Equal("44444444-4444-4444-4444-444444444444", payment.paymentTransaction.integrationPrimaryAgencyId);
+            Assert.Equal(42.5, payment.paymentTransaction.agencyCompletionPayment.amount);
+            Assert.Equal(1.25, payment.paymentTransaction.agencyCompletionPayment.surcharge);
+            Assert.Equal(0.11, payment.paymentTransaction.agencyCompletionPayment.surchargeGst);
+            Assert.Equal("receipt-1", payment.paymentTransaction.agencyCompletionPayment.paymentCompletionReference);
+            Assert.Equal("CARD", payment.paymentTransaction.agencyCompletionPayment.paymentMethod);
+            Assert.Equal("4242", payment.paymentTransaction.agencyCompletionPayment.card.last4Digits);
+            Assert.False(payment.paymentTransaction.agencyCompletionPayment.card.cardPresent);
+            Assert.Null(payment.paymentTransaction.agencyCompletionPayment.bPay);
+
+            string bpayJson = @"{
+                ""type"": ""NSW_GOV_PAY"",
+                ""submissionId"": ""7145544d-853a-47e8-873c-1e849698e414"",
+                ""formId"": 123,
+                ""status"": ""SUCCEEDED"",
+                ""paymentTransaction"": {
+                    ""nswGovPayPaymentReference"": ""bpay-ref"",
+                    ""agencyCompletionPayment"": {
+                        ""paymentMethod"": ""BPAY"",
+                        ""paymentReference"": ""bpay-ref"",
+                        ""paymentCompletionReference"": ""receipt-2"",
+                        ""bankReference"": ""bank-2"",
+                        ""amount"": 10,
+                        ""surcharge"": 0,
+                        ""surchargeGst"": 0,
+                        ""agencyTransactionId"": ""66666666-6666-6666-6666-666666666666"",
+                        ""bPay"": {
+                            ""billerCode"": ""123456"",
+                            ""crn"": ""crn-1"",
+                            ""processingDate"": ""2026-11-17""
+                        }
+                    }
+                }
+            }";
+
+            var bpayPayment = JsonConvert.DeserializeObject<FormSubmissionPayment>(bpayJson);
+
+            Assert.Equal("BPAY", bpayPayment.paymentTransaction.agencyCompletionPayment.paymentMethod);
+            Assert.Equal("123456", bpayPayment.paymentTransaction.agencyCompletionPayment.bPay.billerCode);
+            Assert.Equal("crn-1", bpayPayment.paymentTransaction.agencyCompletionPayment.bPay.crn);
+            Assert.Equal("2026-11-17", bpayPayment.paymentTransaction.agencyCompletionPayment.bPay.processingDate);
+            Assert.Null(bpayPayment.paymentTransaction.agencyCompletionPayment.card);
+        }
     }
 }
