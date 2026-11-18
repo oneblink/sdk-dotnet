@@ -413,5 +413,151 @@ namespace OneBlink.SDK.Tests
             Assert.Equal("2026-11-17", bpayPayment.paymentTransaction.agencyCompletionPayment.bPay.processingDate);
             Assert.Null(bpayPayment.paymentTransaction.agencyCompletionPayment.card);
         }
+
+        [Fact]
+        public void CanDeserializeCPPayV2FormSubmissionPayment()
+        {
+            string json = @"{
+                ""type"": ""CP_PAY"",
+                ""submissionId"": ""472d1cd3-d8f0-4f93-a08c-169e3679eb54"",
+                ""formSubmissionApprovalId"": ""3cc5831f-1c04-46f9-a655-ace2d5cf511e"",
+                ""formId"": 229,
+                ""status"": ""SUCCEEDED"",
+                ""paymentTransaction"": {
+                    ""cpPayVersion"": ""v2"",
+                    ""integrationGatewayId"": ""gateway-1"",
+                    ""isSuccess"": true,
+                    ""timeGenerated"": ""2026-11-13T04:37:19.98Z"",
+                    ""result"": {
+                        ""type"": ""HostedFormSale"",
+                        ""id"": ""11111111-1111-1111-1111-111111111111"",
+                        ""token"": ""txn-token"",
+                        ""state"": ""Captured"",
+                        ""externalReferenceId"": ""472d1cd3-d8f0-4f93-a08c-169e3679eb54"",
+                        ""merchantCode"": ""MERCHANT"",
+                        ""paymentMethodType"": ""Visa"",
+                        ""lastFour"": ""4242"",
+                        ""expMonth"": 11,
+                        ""expYear"": 2028,
+                        ""paymentType"": ""CreditDebitCard"",
+                        ""amount"": 25.5,
+                        ""responseType"": ""Success"",
+                        ""errorCode"": ""NoError"",
+                        ""customerReceipt"": ""customer receipt"",
+                        ""merchantReceipt"": ""merchant receipt"",
+                        ""isSuccessSavedPaymentMethod"": false,
+                        ""createdOnUtc"": ""2026-11-13T04:36:34.688Z"",
+                        ""lastModifiedOnUtc"": ""2026-11-13T04:37:19.98Z""
+                    },
+                    ""error"": null,
+                    ""links"": {
+                        ""details"": { ""href"": ""https://example.test/details"", ""type"": ""GET"" },
+                        ""capture"": { ""href"": ""https://example.test/capture"", ""type"": ""PATCH"" },
+                        ""void"": { ""href"": ""https://example.test/void"", ""type"": ""PATCH"" },
+                        ""refund"": { ""href"": ""https://example.test/refund"", ""type"": ""POST"" }
+                    }
+                }
+            }";
+
+            var payment = JsonConvert.DeserializeObject<FormSubmissionPayment>(json);
+
+            Assert.Equal("CP_PAY", payment.type);
+            Assert.Equal("SUCCEEDED", payment.status);
+            Assert.Equal("v2", payment.paymentTransaction.cpPayVersion);
+            Assert.Equal("gateway-1", payment.paymentTransaction.integrationGatewayId);
+            Assert.True(payment.paymentTransaction.isSuccess);
+            Assert.Equal(2026, payment.paymentTransaction.timeGenerated.Value.Year);
+            Assert.Null(payment.paymentTransaction.transactionId);
+            Assert.Null(payment.paymentTransaction.amount);
+
+            Assert.Equal("HostedFormSale", payment.paymentTransaction.result.type);
+            Assert.Equal("11111111-1111-1111-1111-111111111111", payment.paymentTransaction.result.id);
+            Assert.Equal("txn-token", payment.paymentTransaction.result.token);
+            Assert.Equal("Captured", payment.paymentTransaction.result.state);
+            Assert.Equal("472d1cd3-d8f0-4f93-a08c-169e3679eb54", payment.paymentTransaction.result.externalReferenceId);
+            Assert.Equal("MERCHANT", payment.paymentTransaction.result.merchantCode);
+            Assert.Equal("Visa", payment.paymentTransaction.result.paymentMethodType);
+            Assert.Equal("4242", payment.paymentTransaction.result.lastFour);
+            Assert.Equal(11, payment.paymentTransaction.result.expMonth);
+            Assert.Equal(2028, payment.paymentTransaction.result.expYear);
+            Assert.Equal("CreditDebitCard", payment.paymentTransaction.result.paymentType);
+            Assert.Equal(25.5, payment.paymentTransaction.result.amount);
+            Assert.Equal("Success", payment.paymentTransaction.result.responseType);
+            Assert.Equal("NoError", payment.paymentTransaction.result.errorCode);
+            Assert.Equal("customer receipt", payment.paymentTransaction.result.customerReceipt);
+            Assert.Equal("merchant receipt", payment.paymentTransaction.result.merchantReceipt);
+            Assert.False(payment.paymentTransaction.result.isSuccessSavedPaymentMethod);
+            Assert.Equal(2026, payment.paymentTransaction.result.createdOnUtc.Value.Year);
+            Assert.Equal(11, payment.paymentTransaction.result.lastModifiedOnUtc.Value.Month);
+            Assert.Null(payment.paymentTransaction.error);
+
+            Assert.Equal("https://example.test/details", payment.paymentTransaction.links.details.href);
+            Assert.Equal("GET", payment.paymentTransaction.links.details.type);
+            Assert.Equal("https://example.test/capture", payment.paymentTransaction.links.capture.href);
+            Assert.Equal("PATCH", payment.paymentTransaction.links.capture.type);
+            Assert.Equal("https://example.test/void", payment.paymentTransaction.links.@void.href);
+            Assert.Equal("PATCH", payment.paymentTransaction.links.@void.type);
+            Assert.Equal("https://example.test/refund", payment.paymentTransaction.links.refund.href);
+            Assert.Equal("POST", payment.paymentTransaction.links.refund.type);
+
+            string nullExpiryJson = @"{
+                ""type"": ""CP_PAY"",
+                ""submissionId"": ""472d1cd3-d8f0-4f93-a08c-169e3679eb54"",
+                ""formId"": 229,
+                ""status"": ""SUCCEEDED"",
+                ""paymentTransaction"": {
+                    ""cpPayVersion"": ""v2"",
+                    ""result"": {
+                        ""id"": ""22222222-2222-2222-2222-222222222222"",
+                        ""amount"": 10,
+                        ""expMonth"": null,
+                        ""expYear"": null,
+                        ""lastFour"": ""4242""
+                    }
+                }
+            }";
+
+            var nullExpiryPayment = JsonConvert.DeserializeObject<FormSubmissionPayment>(nullExpiryJson);
+
+            Assert.Equal("22222222-2222-2222-2222-222222222222", nullExpiryPayment.paymentTransaction.result.id);
+            Assert.Equal(10, nullExpiryPayment.paymentTransaction.result.amount);
+            Assert.Equal("4242", nullExpiryPayment.paymentTransaction.result.lastFour);
+            Assert.Null(nullExpiryPayment.paymentTransaction.result.expMonth);
+            Assert.Null(nullExpiryPayment.paymentTransaction.result.expYear);
+            Assert.Null(nullExpiryPayment.paymentTransaction.isSuccess);
+        }
+
+        [Fact]
+        public void CanDeserializeCPPayV1FormSubmissionPayment()
+        {
+            string json = @"{
+                ""type"": ""CP_PAY"",
+                ""submissionId"": ""472d1cd3-d8f0-4f93-a08c-169e3679eb54"",
+                ""formId"": 229,
+                ""status"": ""SUCCEEDED"",
+                ""paymentTransaction"": {
+                    ""transactionId"": ""v1-transaction"",
+                    ""transactionToken"": ""v1-token"",
+                    ""merchantCode"": ""MERCHANT"",
+                    ""orderNumber"": ""ORDER-1"",
+                    ""amount"": 10.5,
+                    ""lastFour"": ""1111"",
+                    ""isSuccessSavedPaymentMethod"": true
+                }
+            }";
+
+            var payment = JsonConvert.DeserializeObject<FormSubmissionPayment>(json);
+
+            Assert.Equal("v1-transaction", payment.paymentTransaction.transactionId);
+            Assert.Equal("v1-token", payment.paymentTransaction.transactionToken);
+            Assert.Equal("MERCHANT", payment.paymentTransaction.merchantCode);
+            Assert.Equal("ORDER-1", payment.paymentTransaction.orderNumber);
+            Assert.Equal(10.5, payment.paymentTransaction.amount);
+            Assert.Equal("1111", payment.paymentTransaction.lastFour);
+            Assert.True(payment.paymentTransaction.isSuccessSavedPaymentMethod);
+            Assert.Null(payment.paymentTransaction.Amount);
+            Assert.Null(payment.paymentTransaction.result);
+            Assert.Null(payment.paymentTransaction.cpPayVersion);
+        }
     }
 }
