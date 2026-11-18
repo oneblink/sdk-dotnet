@@ -18,15 +18,15 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
-        public double amount
+        public double? amount
         {
             get; set;
         }
-        public double surcharge
+        public double? surcharge
         {
             get; set;
         }
-        public double surchargeGst
+        public double? surchargeGst
         {
             get; set;
         }

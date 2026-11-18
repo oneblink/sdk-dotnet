@@ -9,6 +9,11 @@
 - `ApprovalsClient.GetCPPayPayment()`
 - `ApprovalsClient.GetNSWGovPayPayment()`
 
+### Fixed
+
+- CP Pay v2 payment transactions deserialize into `PaymentTransaction.result` (and `cpPayVersion`, `isSuccess`, `timeGenerated`, `error`, `links`, `integrationGatewayId`) instead of leaving every property at its default
+- Numeric payment transaction properties are nullable, so a missing value stays null instead of `0`
+
 ## [13.1.4] - 2026-11-17
 
 ### Added

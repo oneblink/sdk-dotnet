@@ -21,19 +21,19 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
-        public int chargeTypeId
+        public int? chargeTypeId
         {
             get; set;
         }
-        public int creditCardTypeId
+        public int? creditCardTypeId
         {
             get; set;
         }
-        public int paymentTypeId
+        public int? paymentTypeId
         {
             get; set;
         }
-        public double amount
+        public double? amount
         {
             get; set;
         }
@@ -41,19 +41,19 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
-        public int expMonth
+        public int? expMonth
         {
             get; set;
         }
-        public int expYear
+        public int? expYear
         {
             get; set;
         }
-        public int resultCode
+        public int? resultCode
         {
             get; set;
         }
-        public int errorCode
+        public int? errorCode
         {
             get; set;
         }
@@ -73,11 +73,11 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
-        public int initialChargeStatusId
+        public int? initialChargeStatusId
         {
             get; set;
         }
-        public int currentChargeStatusId
+        public int? currentChargeStatusId
         {
             get; set;
         }
@@ -111,20 +111,51 @@ namespace OneBlink.SDK.Model
         }
         #endregion
 
+        #region CP Pay v2
+        public string cpPayVersion
+        {
+            get; set;
+        }
+        public string integrationGatewayId
+        {
+            get; set;
+        }
+        public CPPayTransactionDetails result
+        {
+            get; set;
+        }
+        public DateTime? timeGenerated
+        {
+            get; set;
+        }
+        public bool? isSuccess
+        {
+            get; set;
+        }
+        public CPPayError error
+        {
+            get; set;
+        }
+        public CPPayTransactionLinks links
+        {
+            get; set;
+        }
+        #endregion
+
         #region BPoint
         public string Action
         {
             get; set;
         }
-        public double Amount
+        public double? Amount
         {
             get; set;
         }
-        public double AmountOriginal
+        public double? AmountOriginal
         {
             get; set;
         }
-        public double AmountSurcharge
+        public double? AmountSurcharge
         {
             get; set;
         }
