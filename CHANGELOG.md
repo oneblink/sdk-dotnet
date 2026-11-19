@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Added
+
+- `paymentStepEmailTemplateId` to `FormApprovalConfiguration` model
+
 ## [13.2.0] - 2026-11-19
 
 ### Added

@@ -52,5 +52,9 @@ namespace OneBlink.SDK.Model
         {
             get; set;
         }
+        public long? paymentStepEmailTemplateId
+        {
+            get; set;
+        }
     }
 }
